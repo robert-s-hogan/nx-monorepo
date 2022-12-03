@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import Form from '../components/form';
+import HeroImg from '../public/images/hero_img.jpg';
 
 export function Index() {
   const [showModal, setShowModal] = useState(false);
@@ -37,14 +38,14 @@ export function Index() {
           I design and code beautifully simple things, and I love what I do.
         </p>
         <div className="flex justify-center">
-          <Image
-            src="https://rshogan.imgix.net/personal/img/J_R___T_8.21.21-31_copy_k9zia3.jpg"
-            sizes="50vw"
-            className="rounded-lg"
-            height={300}
-            width={300}
-            alt="Robert's Professional Shot"
-          />
+          <div className="relative" style={{ height: '770px', width: '500px' }}>
+            <Image
+              src={HeroImg}
+              className="rounded-lg"
+              layout="fill"
+              alt="Robert's Professional Shot"
+            />
+          </div>
         </div>
       </section>
       {/* Hi Im Robert */}
@@ -191,6 +192,8 @@ export function Index() {
                   <div className="flex items-center flex-wrap ">
                     <Link
                       href="https://rshcom-coffee-template.netlify.app/"
+                      target="_blank"
+                      rel="nofollower noopener noreferrer"
                       className="text text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
                     >
                       Preview Site
