@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 
 import Form from '../components/Form';
 import HeroImg from '../public/images/hero_img.jpg';
@@ -12,17 +13,27 @@ export function Index() {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
+      <Head>
+        <title>Welcome to rshogancom!</title>
+      </Head>
+
       <header className="bg-white">
         <div className="w-full mx-auto py-0 md:py-4 lg:px-0 text-lg md:text-2xl lg:max-w-4xl ">
           <div className="flex justify-between text-white p-4 lg:px-0 text-2xl max-w-4xl">
-            <Link href="/" className="flex items-center justify-center">
-              <Image
-                src={RSH_logo}
-                width={48}
-                height={40}
-                className=""
-                alt="Robert Hogan's Logo"
-              />
+            <Link
+              href="/"
+              className="flex items-center justify-center"
+              passHref
+            >
+              <div>
+                <Image
+                  src={RSH_logo}
+                  width={48}
+                  height={40}
+                  className=""
+                  alt="Robert Hogan's Logo"
+                />
+              </div>
             </Link>
             <nav className="flex justify-center">
               <button onClick={() => setShowModal(!showModal)}>
@@ -42,8 +53,8 @@ export function Index() {
         </p>
         <div className="h-96 w-64 flex justify-center mx-auto">
           <Image
-            height={770}
-            width={500}
+            height={394}
+            width={256}
             src={HeroImg}
             className="rounded-lg"
             alt="Robert's Professional Shot"
@@ -169,8 +180,7 @@ export function Index() {
           <h2 className="font-bold mb-4 text-center">My Recent Work</h2>
           <p className="mb-16 text-center">
             Here are a few design projects I have worked on recently. Want to
-            see more?{' '}
-            <Link href="mailto:mailto:robert@robertshogan.com">Email me</Link>.
+            see more? <a href="mailto:robert@robertshogan.com">Email me</a>.
           </p>
           <div className="flex flex-wrap -m-4">
             <div className="p-4 md:w-1/3">
@@ -194,8 +204,6 @@ export function Index() {
                   <div className="flex items-center flex-wrap ">
                     <Link
                       href="https://rshcom-coffee-template.netlify.app/"
-                      target="_blank"
-                      rel="nofollower noopener noreferrer"
                       className="text text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
                     >
                       Preview Site
@@ -254,8 +262,6 @@ export function Index() {
                   <div className="flex items-center flex-wrap">
                     <Link
                       href="https://rshogan-svelte-tailwindcss-product-template.vercel.app/"
-                      target="_blank"
-                      rel="nofollower noopener noreferrer"
                       className="text text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
                     >
                       Preview Site
@@ -370,86 +376,102 @@ export function Index() {
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center">
-          <Link href="https://www.onedemocracy.org/" target="_blank">
-            <Image
-              className="mx-auto"
-              src="https://rshogan.imgix.net/clients/one-democracy/od_logo.png"
-              height={50}
-              width={87}
-              loading="lazy"
-              alt="One Democracy Logo"
-            />
+          <Link href="https://www.onedemocracy.org/" passHref>
+            <a>
+              <Image
+                className="mx-auto"
+                src="https://rshogan.imgix.net/clients/one-democracy/od_logo.png"
+                height={50}
+                width={87}
+                loading="lazy"
+                alt="One Democracy Logo"
+              />
+            </a>
           </Link>
-          <Link href="https://www.mgisolutions.com/" target="blank">
-            <Image
-              className="mx-auto"
-              src="https://rshogan.imgix.net/personal/img/mgi_solutions.svg"
-              height={50}
-              width={190}
-              loading="lazy"
-              alt="MGI Solutions Logo"
-            />
+          <Link href="https://www.mgisolutions.com/" passHref>
+            <a>
+              <Image
+                className="mx-auto"
+                src="https://rshogan.imgix.net/personal/img/mgi_solutions.svg"
+                height={50}
+                width={190}
+                loading="lazy"
+                alt="MGI Solutions Logo"
+              />
+            </a>
           </Link>
-          <Link href="https://anitaliandish.com/" target="blank">
-            <Image
-              className="mx-auto"
-              src="https://rshogan.imgix.net/clients/AnItalianDish.com/an_italian_dish-removebg-preview.png"
-              height={50}
-              width={200}
-              loading="lazy"
-              alt="An Italian Dish Logo"
-            />
+          <Link href="https://anitaliandish.com/" passHref>
+            <a>
+              <Image
+                className="mx-auto"
+                src="https://rshogan.imgix.net/clients/AnItalianDish.com/an_italian_dish-removebg-preview.png"
+                height={50}
+                width={200}
+                loading="lazy"
+                alt="An Italian Dish Logo"
+              />
+            </a>
           </Link>
 
-          <Link href="https://www.thomashenrywines.com/" target="_blank">
-            <Image
-              className="mx-auto"
-              src="https://rshogan.imgix.net/personal/img/thomas_henry_wines.png"
-              height={50}
-              width={89}
-              loading="lazy"
-              alt="Thomas Henry Wines Logo"
-            />
+          <Link href="https://www.thomashenrywines.com/" passHref>
+            <a>
+              <Image
+                className="mx-auto"
+                src="https://rshogan.imgix.net/personal/img/thomas_henry_wines.png"
+                height={50}
+                width={89}
+                loading="lazy"
+                alt="Thomas Henry Wines Logo"
+              />
+            </a>
           </Link>
-          <Link href="https://www.thekrealty.com/" target="_blank">
-            <Image
-              className="mx-auto"
-              src="https://rshogan.imgix.net/clients/priti-kothari/priti_logo-removebg-preview.png"
-              width={100}
-              height={100}
-              loading="lazy"
-              alt="K Realty Logo"
-            />
+          <Link href="https://www.thekrealty.com/" passHref>
+            <a>
+              <Image
+                className="mx-auto"
+                src="https://rshogan.imgix.net/clients/priti-kothari/priti_logo-removebg-preview.png"
+                width={100}
+                height={100}
+                loading="lazy"
+                alt="K Realty Logo"
+              />
+            </a>
           </Link>
-          <Link href="https://ticketsaver.net/" target="_blank">
-            <Image
-              className="mx-auto"
-              src="https://rshogan.imgix.net/clients/ticket-saver/logo-nobg.jpg"
-              height={75}
-              width={193}
-              loading="lazy"
-              alt="Ticket Saver Logo"
-            />
+          <Link href="https://ticketsaver.net/" passHref>
+            <a>
+              <Image
+                className="mx-auto"
+                src="https://rshogan.imgix.net/clients/ticket-saver/logo-nobg.jpg"
+                height={75}
+                width={193}
+                loading="lazy"
+                alt="Ticket Saver Logo"
+              />
+            </a>
           </Link>
-          <Link href="https://www.jessicahoganma.com/" target="_blank">
-            <Image
-              className="mx-auto"
-              src="https://rshogan.imgix.net/personal/logos/jh_logo_white.png"
-              height={50}
-              width={89}
-              loading="lazy"
-              alt="Jessica Hogan MA Logo"
-            />
+          <Link href="https://www.jessicahoganma.com/" passHref>
+            <a>
+              <Image
+                className="mx-auto"
+                src="https://rshogan.imgix.net/personal/logos/jh_logo_white.png"
+                height={50}
+                width={89}
+                loading="lazy"
+                alt="Jessica Hogan MA Logo"
+              />
+            </a>
           </Link>
-          <Link href="https://www.broadwaymedia.com/" target="_blank">
-            <Image
-              className="mx-auto"
-              src={BMDLogo}
-              height={65}
-              width={88}
-              loading="lazy"
-              alt="Broadway Media Distribution"
-            />
+          <Link href="https://www.broadwaymedia.com/" passHref>
+            <a>
+              <Image
+                className="mx-auto"
+                src={BMDLogo}
+                height={65}
+                width={88}
+                loading="lazy"
+                alt="Broadway Media Distribution"
+              />
+            </a>
           </Link>
         </div>
       </div>
@@ -484,8 +506,8 @@ export function Index() {
               Ellen S.
             </h2>
             <p className="text-gray-500">
-              <Link href="https://anitaliandish.com/" target="_blank">
-                AnItalianDish.com
+              <Link href="https://anitaliandish.com/" passHref>
+                <a>AnItalianDish.com</a>
               </Link>
             </p>
           </div>
@@ -526,10 +548,8 @@ export function Index() {
           <span className="flex  sm:mt-0 pt-4 justify-center  space-x-4">
             <Link
               href="mailto:robert@robertshogan.com"
-              target="_blank"
               className=" hover:text-vivid-500"
               aria-label="Mail Icon"
-              rel="noreferrer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -548,10 +568,8 @@ export function Index() {
             </Link>
             <Link
               href="https://www.facebook.com/robertshogancom"
-              target="_blank"
               className=" hover:text-vivid-500"
               aria-label="Facebook Icon"
-              rel="noreferrer"
             >
               <svg
                 fill="currentColor"
@@ -567,10 +585,8 @@ export function Index() {
 
             <Link
               href="https://twitter.com/robert_s_hogan"
-              target="_blank"
               className="hover:text-vivid-500"
               aria-label="Twitter Icon"
-              rel="noreferrer"
             >
               <svg
                 fill="currentColor"
@@ -586,10 +602,8 @@ export function Index() {
 
             <Link
               href="https://www.linkedin.com/in/robert-s-hogan/"
-              target="_blank"
               className="hover:text-vivid-500"
               aria-label="Linked Icon"
-              rel="noreferrer"
             >
               <svg
                 fill="currentColor"
@@ -609,10 +623,8 @@ export function Index() {
             </Link>
             <Link
               href="https://github.com/robert-s-hogan"
-              target="_blank"
               className=" hover:text-vivid-500"
               aria-label="Github Icon"
-              rel="noreferrer"
             >
               <svg
                 fill="currentColor"
@@ -629,10 +641,8 @@ export function Index() {
             </Link>
             <Link
               href="https://www.upwork.com/freelancers/robertshogan"
-              target="_blank"
               className=" hover:text-vivid-500"
               aria-label="Upwork Icon"
-              rel="noreferrer"
             >
               <svg
                 enableBackground="new 0 0 2500 2500"
