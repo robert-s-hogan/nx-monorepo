@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Form from '../components/form';
+import Form from '../components/Form';
 import HeroImg from '../public/images/hero_img.jpg';
 import Testimonial from '../public/images/rshhogan_testimonials_ellen_2.avif';
 import RSH_logo from '../public/images/rsh_logo_Crop.jpg';
@@ -40,15 +40,14 @@ export function Index() {
         <p className="text-center text-white">
           I design and code beautifully simple things, and I love what I do.
         </p>
-        <div className="flex justify-center">
-          <div className="relative" style={{ height: '770px', width: '500px' }}>
-            <Image
-              src={HeroImg}
-              className="rounded-lg"
-              layout="fill"
-              alt="Robert's Professional Shot"
-            />
-          </div>
+        <div className="h-96 w-64 flex justify-center mx-auto">
+          <Image
+            height={770}
+            width={500}
+            src={HeroImg}
+            className="rounded-lg"
+            alt="Robert's Professional Shot"
+          />
         </div>
       </section>
       {/* Hi Im Robert */}
@@ -175,19 +174,15 @@ export function Index() {
           </p>
           <div className="flex flex-wrap -m-4">
             <div className="p-4 md:w-1/3">
-              <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden">
-                <div
-                  style={{ height: '281px', width: '500px' }}
-                  className="relative"
-                >
-                  <Image
-                    className="w-full object-contain object-center"
-                    loading="lazy"
-                    src="https://rshogan.imgix.net/projects/tailwindcss-cofee-shop/rsh_coffee_hero.png"
-                    layout="fill"
-                    alt="Local Coffee Shop Template"
-                  />
-                </div>
+              <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full">
+                <Image
+                  className="w-full object-contain object-center"
+                  loading="lazy"
+                  src="https://rshogan.imgix.net/projects/tailwindcss-cofee-shop/rsh_coffee_hero.png"
+                  width={500}
+                  height={281}
+                  alt="Local Coffee Shop Template"
+                />
                 <div className="p-6">
                   <h3 className="title-font text-lg font-medium text-gray-900 mb-3">
                     Local Coffee Shop
@@ -239,19 +234,15 @@ export function Index() {
               </div>
             </div>
             <div className="p-4 md:w-1/3">
-              <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden">
-                <div
-                  style={{ height: '281px', width: '500px' }}
-                  className="relative"
-                >
-                  <Image
-                    className="w-full object-cover object-center"
-                    loading="lazy"
-                    src="https://rshogan.imgix.net/projects/svelte-tailwindcss-product-template/product_design.png"
-                    layout="fill"
-                    alt="Product Shop Template"
-                  />
-                </div>
+              <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full">
+                <Image
+                  className="w-full object-cover object-center"
+                  loading="lazy"
+                  src="https://rshogan.imgix.net/projects/svelte-tailwindcss-product-template/product_design.png"
+                  width={500}
+                  height={281}
+                  alt="Product Shop Template"
+                />
                 <div className="p-6">
                   <h3 className="title-font text-lg font-medium text-gray-900 mb-3">
                     Product Shop
@@ -303,19 +294,15 @@ export function Index() {
               </div>
             </div>
             <div className="p-4 md:w-1/3">
-              <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden">
-                <div
-                  style={{ height: '281px', width: '500px' }}
-                  className="relative"
-                >
-                  <Image
-                    className="xl:w-full object-fill object-center"
-                    loading="lazy"
-                    src="https://rshogan.imgix.net/projects/svelte-tailwindcss-deck-project/deck_design.png"
-                    layout="fill"
-                    alt="Construction Site Template"
-                  />
-                </div>
+              <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full">
+                <Image
+                  className="xl:w-full object-fill object-center"
+                  loading="lazy"
+                  src="https://rshogan.imgix.net/projects/svelte-tailwindcss-deck-project/deck_design.png"
+                  width={500}
+                  height={281}
+                  alt="Construction Site Template"
+                />
                 <div className="p-6">
                   <h3 className="title-font text-lg font-medium text-gray-900 mb-3">
                     Construction Site
