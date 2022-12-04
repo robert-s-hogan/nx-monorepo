@@ -51,7 +51,7 @@ export function Index() {
         <p className="text-center text-white">
           I design and code beautifully simple things, and I love what I do.
         </p>
-        <div className="h-96 w-64 flex justify-center mx-auto">
+        <div className="h-96 w-64 object-contain flex justify-center mx-auto">
           <Image
             height={394}
             width={256}
@@ -182,145 +182,139 @@ export function Index() {
             Here are a few design projects I have worked on recently. Want to
             see more? <a href="mailto:robert@robertshogan.com">Email me</a>.
           </p>
-          <div className="flex flex-wrap -m-4">
-            <div className="p-4 md:w-1/3">
-              <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-3 flex-wrap -m-4 gap-6 md:px-24 lg:px-16">
+            <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full">
+              <div className="object-cover h-64 w-full relative">
                 <Image
-                  className="w-full object-contain object-center"
-                  loading="lazy"
                   src="https://rshogan.imgix.net/projects/tailwindcss-cofee-shop/rsh_coffee_hero.png"
-                  width={500}
-                  height={281}
+                  layout="fill"
                   alt="Local Coffee Shop Template"
                 />
-                <div className="p-6">
-                  <h3 className="title-font text-lg font-medium text-gray-900 mb-3">
-                    Local Coffee Shop
-                  </h3>
-                  <p className="leading-relaxed mb-3">
-                    Sample coffee shop for local businesses to connect with
-                    their customers.
-                  </p>
-                  <div className="flex items-center flex-wrap ">
-                    <Link
-                      href="https://rshcom-coffee-template.netlify.app/"
-                      className="text text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
+              </div>
+              <div className="p-6">
+                <h3 className="title-font text-lg font-medium text-gray-900 mb-3">
+                  Local Coffee Shop
+                </h3>
+                <p className="leading-relaxed mb-3">
+                  Sample coffee shop for local businesses to connect with their
+                  customers.
+                </p>
+                <div className="flex items-center flex-wrap ">
+                  <Link
+                    href="https://rshcom-coffee-template.netlify.app/"
+                    className="text text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
+                  >
+                    Preview Site
+                  </Link>
+                  <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                    <svg
+                      className="w-4 h-4 mr-1"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      viewBox="0 0 24 24"
                     >
-                      Preview Site
-                    </Link>
-                    <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                      <svg
-                        className="w-4 h-4 mr-1"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                        <circle cx="12" cy="12" r="3"></circle>
-                      </svg>
-                      1.2K
-                    </span>
-                    <span className="text-gray-400 inline-flex items-center leading-none text-sm">
-                      <svg
-                        className="w-4 h-4 mr-1"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                      </svg>
-                      6
-                    </span>
-                  </div>
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    1.2K
+                  </span>
+                  <span className="text-gray-400 inline-flex items-center leading-none text-sm">
+                    <svg
+                      className="w-4 h-4 mr-1"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                    </svg>
+                    6
+                  </span>
                 </div>
               </div>
             </div>
-            <div className="p-4 md:w-1/3">
-              <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full">
+
+            <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full">
+              <div className="object-cover h-64 w-full relative">
                 <Image
-                  className="w-full object-cover object-center"
-                  loading="lazy"
                   src="https://rshogan.imgix.net/projects/svelte-tailwindcss-product-template/product_design.png"
-                  width={500}
-                  height={281}
+                  layout="fill"
                   alt="Product Shop Template"
                 />
-                <div className="p-6">
-                  <h3 className="title-font text-lg font-medium text-gray-900 mb-3">
-                    Product Shop
-                  </h3>
-                  <p className="leading-relaxed mb-3">
-                    Sample product shop for local businesses to promote their
-                    product and sell online.
-                  </p>
-                  <div className="flex items-center flex-wrap">
-                    <Link
-                      href="https://rshogan-svelte-tailwindcss-product-template.vercel.app/"
-                      className="text text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
+              </div>
+              <div className="p-6">
+                <h3 className="title-font text-lg font-medium text-gray-900 mb-3">
+                  Product Shop
+                </h3>
+                <p className="leading-relaxed mb-3">
+                  Sample product shop for local businesses to promote their
+                  product and sell online.
+                </p>
+                <div className="flex items-center flex-wrap">
+                  <Link
+                    href="https://rshogan-svelte-tailwindcss-product-template.vercel.app/"
+                    className="text text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
+                  >
+                    Preview Site
+                  </Link>
+                  <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                    <svg
+                      className="w-4 h-4 mr-1"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      viewBox="0 0 24 24"
                     >
-                      Preview Site
-                    </Link>
-                    <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                      <svg
-                        className="w-4 h-4 mr-1"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                        <circle cx="12" cy="12" r="3"></circle>
-                      </svg>
-                      1.2K
-                    </span>
-                    <span className="text-gray-400 inline-flex items-center leading-none text-sm">
-                      <svg
-                        className="w-4 h-4 mr-1"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                      </svg>
-                      6
-                    </span>
-                  </div>
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    1.2K
+                  </span>
+                  <span className="text-gray-400 inline-flex items-center leading-none text-sm">
+                    <svg
+                      className="w-4 h-4 mr-1"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                    </svg>
+                    6
+                  </span>
                 </div>
               </div>
             </div>
-            <div className="p-4 md:w-1/3">
-              <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full">
+
+            <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full">
+              <div className="object-cover h-64 w-full relative">
                 <Image
-                  className="xl:w-full object-fill object-center"
-                  loading="lazy"
                   src="https://rshogan.imgix.net/projects/svelte-tailwindcss-deck-project/deck_design.png"
-                  width={500}
-                  height={281}
+                  layout="fill"
                   alt="Construction Site Template"
                 />
-                <div className="p-6">
-                  <h3 className="title-font text-lg font-medium text-gray-900 mb-3">
-                    Construction Site
-                  </h3>
-                  <p className="leading-relaxed mb-3">
-                    Sample construction site for local businesses to show off
-                    their work!
-                  </p>
-                  <div className="flex items-center flex-wrap ">
-                    <p className="text-indigo-500 inline-flex items-center md:mb-2 disabled lg:mb-0">
-                      <span className="italic text-xs">Coming Soon</span>
-                      {/* <svg
+              </div>
+              <div className="p-6">
+                <h3 className="title-font text-lg font-medium text-gray-900 mb-3">
+                  Construction Site
+                </h3>
+                <p className="leading-relaxed mb-3">
+                  Sample construction site for local businesses to show off
+                  their work!
+                </p>
+                <div className="flex items-center flex-wrap ">
+                  <p className="text-indigo-500 inline-flex items-center md:mb-2 disabled lg:mb-0">
+                    <span className="italic text-xs">Coming Soon</span>
+                    {/* <svg
                         className="w-4 h-4 ml-2"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -332,37 +326,36 @@ export function Index() {
                         <path d="M5 12h14"></path>
                         <path d="M12 5l7 7-7 7"></path>
                       </svg> */}
-                    </p>
-                    <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                      <svg
-                        className="w-4 h-4 mr-1"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                        <circle cx="12" cy="12" r="3"></circle>
-                      </svg>
-                      1.2K
-                    </span>
-                    <span className="text-gray-400 inline-flex items-center leading-none text-sm">
-                      <svg
-                        className="w-4 h-4 mr-1"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                      </svg>
-                      6
-                    </span>
-                  </div>
+                  </p>
+                  <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                    <svg
+                      className="w-4 h-4 mr-1"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    1.2K
+                  </span>
+                  <span className="text-gray-400 inline-flex items-center leading-none text-sm">
+                    <svg
+                      className="w-4 h-4 mr-1"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                    </svg>
+                    6
+                  </span>
                 </div>
               </div>
             </div>
