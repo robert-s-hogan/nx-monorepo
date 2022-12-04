@@ -453,6 +453,16 @@ export function Index() {
               alt="Jessica Hogan MA Logo"
             />
           </Link>
+          <Link href="https://www.broadwaymedia.com/" target="_blank">
+            <Image
+              className="mx-auto"
+              src="https://global-uploads.webflow.com/5fda52485229dd713d28f150/6243d2cd5b39455aafc9dbeb_web-slug.png"
+              height={50}
+              width={89}
+              loading="lazy"
+              alt="Broadway Media Distribution"
+            />
+          </Link>
         </div>
       </div>
       {/* Testimonials */}
