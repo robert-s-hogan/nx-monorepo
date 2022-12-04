@@ -70,7 +70,7 @@ export function Index() {
       {/* Skill */}
       <section className="py-24 bg-neutral-200">
         <div className="px-4 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             <div className="p-6 overflow-hidden text-center border-2 border-white bg-white rounded hover:border-tertiary-500 text-black">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -175,14 +175,18 @@ export function Index() {
           <div className="flex flex-wrap -m-4">
             <div className="p-4 md:w-1/3">
               <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden">
-                <Image
-                  className="lg:h-64 md:h-36 w-full object-contain object-center"
-                  loading="lazy"
-                  src="https://rshogan.imgix.net/projects/tailwindcss-cofee-shop/rsh_coffee_hero.png"
-                  height={256}
-                  width={400}
-                  alt="Local Coffee Shop Template"
-                />
+                <div
+                  style={{ height: '281px', width: '500px' }}
+                  className="relative"
+                >
+                  <Image
+                    className="w-full object-contain object-center"
+                    loading="lazy"
+                    src="https://rshogan.imgix.net/projects/tailwindcss-cofee-shop/rsh_coffee_hero.png"
+                    layout="fill"
+                    alt="Local Coffee Shop Template"
+                  />
+                </div>
                 <div className="p-6">
                   <h3 className="title-font text-lg font-medium text-gray-900 mb-3">
                     Local Coffee Shop
@@ -235,14 +239,18 @@ export function Index() {
             </div>
             <div className="p-4 md:w-1/3">
               <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden">
-                <Image
-                  className="lg:h-64 md:h-36 w-full object-cover object-center"
-                  loading="lazy"
-                  src="https://rshogan.imgix.net/projects/svelte-tailwindcss-product-template/product_design.png"
-                  height={256}
-                  width={400}
-                  alt="Product Shop Template"
-                />
+                <div
+                  style={{ height: '281px', width: '500px' }}
+                  className="relative"
+                >
+                  <Image
+                    className="w-full object-cover object-center"
+                    loading="lazy"
+                    src="https://rshogan.imgix.net/projects/svelte-tailwindcss-product-template/product_design.png"
+                    layout="fill"
+                    alt="Product Shop Template"
+                  />
+                </div>
                 <div className="p-6">
                   <h3 className="title-font text-lg font-medium text-gray-900 mb-3">
                     Product Shop
@@ -295,14 +303,18 @@ export function Index() {
             </div>
             <div className="p-4 md:w-1/3">
               <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden">
-                <Image
-                  className="lg:h-64 md:h-36 w-full object-cover object-center"
-                  loading="lazy"
-                  src="https://rshogan.imgix.net/projects/svelte-tailwindcss-deck-project/deck_design.png"
-                  height={256}
-                  width={400}
-                  alt="Construction Site Template"
-                />
+                <div
+                  style={{ height: '281px', width: '500px' }}
+                  className="relative"
+                >
+                  <Image
+                    className="xl:w-full object-fill object-center"
+                    loading="lazy"
+                    src="https://rshogan.imgix.net/projects/svelte-tailwindcss-deck-project/deck_design.png"
+                    layout="fill"
+                    alt="Construction Site Template"
+                  />
+                </div>
                 <div className="p-6">
                   <h3 className="title-font text-lg font-medium text-gray-900 mb-3">
                     Construction Site
@@ -455,16 +467,15 @@ export function Index() {
             >
               <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
             </svg>
-            <p className="leading-relaxed text-lg">
+            <p className="leading-relaxed text-lg mb-6">
               Robert helped me create a website and set up my blog. I had zero
               experience and had no idea how to go about it. Thanks to Roberts
               help, my site is up and running, and I am very pleased with how it
               looks. Robert was so patient and knowledgeable. He made the
               process easy and enjoyable. I highly recommend Robert!
             </p>
-            <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"></span>
             <Image
-              className="object-cover w-16 h-16 mx-auto rounded-full"
+              className="object-cover mx-auto rounded-full"
               alt="Woman Testimonial Portrait"
               height={64}
               width={64}
@@ -659,11 +670,11 @@ export function Index() {
             role="document"
           >
             <div className="bg-white border-2 rounded-lg shadow-lg relative flex flex-col outline-none focus:outline-none w-5/6 mx-auto">
-              <div className="modal-body relative p-0 flex-auto">
+              <div className="modal-body relative p-4 flex-auto">
                 <div className="overflow-hidden">
                   <button
                     type="button"
-                    className="border-0 close absolute top-0 right-0 my-1"
+                    className="border-0 close absolute top-0 right-0 my-0"
                     data-dismiss="modal"
                     aria-label="Close"
                     onClick={() => setShowModal(!showModal)}
