@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Form from '../components/form';
 import HeroImg from '../public/images/hero_img.jpg';
 import Testimonial from '../public/images/rshhogan_testimonials_ellen_2.avif';
+import RSH_logo from '../public/images/rsh_logo_Crop.jpg';
 
 export function Index() {
   const [showModal, setShowModal] = useState(false);
@@ -15,7 +16,7 @@ export function Index() {
           <div className="flex justify-between text-white p-4 lg:px-0 text-2xl max-w-4xl">
             <Link href="/" className="flex items-center justify-center">
               <Image
-                src="https://rshogan.imgix.net/personal/logos/rsh_logo_Crop.jpg"
+                src={RSH_logo}
                 width={48}
                 height={40}
                 className=""
