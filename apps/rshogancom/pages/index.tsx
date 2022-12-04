@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import Form from '../components/form';
 import HeroImg from '../public/images/hero_img.jpg';
+import Testimonial from '../public/images/rshhogan_testimonials_ellen_2.avif';
 
 export function Index() {
   const [showModal, setShowModal] = useState(false);
@@ -466,7 +467,7 @@ export function Index() {
               alt="Woman Testimonial Portrait"
               height={64}
               width={64}
-              src="https://rshogan.imgix.net/personal/img/rshhogan_testimonials_ellen_2.jpeg"
+              src={Testimonial}
             />
 
             <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm mt-3">
