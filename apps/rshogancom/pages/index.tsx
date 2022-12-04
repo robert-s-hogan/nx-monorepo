@@ -6,6 +6,7 @@ import Form from '../components/form';
 import HeroImg from '../public/images/hero_img.jpg';
 import Testimonial from '../public/images/rshhogan_testimonials_ellen_2.avif';
 import RSH_logo from '../public/images/rsh_logo_Crop.jpg';
+import BMDLogo from '../public/images/bmd_logo.webp';
 
 export function Index() {
   const [showModal, setShowModal] = useState(false);
@@ -381,7 +382,7 @@ export function Index() {
           I am proud to have collaborated with some awesome companies:
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center">
           <Link href="https://www.onedemocracy.org/" target="_blank">
             <Image
               className="mx-auto"
@@ -456,9 +457,9 @@ export function Index() {
           <Link href="https://www.broadwaymedia.com/" target="_blank">
             <Image
               className="mx-auto"
-              src="https://global-uploads.webflow.com/5fda52485229dd713d28f150/6243d2cd5b39455aafc9dbeb_web-slug.png"
-              height={50}
-              width={89}
+              src={BMDLogo}
+              height={65}
+              width={88}
               loading="lazy"
               alt="Broadway Media Distribution"
             />
