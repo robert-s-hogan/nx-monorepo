@@ -133,7 +133,7 @@ code {
 }
 
 a {
-  @apply text-vivid-400 hover:text-vivid-600 visited:text-vivid-400 relative;
+  @apply text-black hover:text-vivid-600 visited:text-vivid-400 relative decoration-vivid-600;
 }
 
 button {
