@@ -539,7 +539,7 @@ export function Index() {
               We should queue up a chat. I’ll buy the coffee.
             </p>
             <button
-              className="w-1/2 mx-auto mt-6 lg:mt-0 lg:py-0 lg:rounded-full py-3 px-4 lg:px-10 border-2 lg:w-1/4 hover:bg-white hover:text-vivid-500"
+              className="w-1/2 mx-auto mt-6 lg:mt-0 lg:py-0 lg:rounded-full py-3 px-4 lg:px-10 border-2 lg:w-1/4 bg-white  hover:border-white hover:bg-white"
               onClick={() => setShowModal(!showModal)}
             >
               Lets do this
