@@ -18,6 +18,12 @@ export function Index() {
           name="description"
           content="Robert S. Hogan is a software engineer with a passion for building web applications and mobile apps. He has experience with React, Next.js, ChakraUI, and more."
         />
+        <link
+          rel="icon"
+          type="image/png"
+          href="../static/favicon.ico"
+          sizes="16x16"
+        />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
@@ -56,10 +62,10 @@ export function Index() {
         <p className="text-center text-white">
           I design and code beautifully simple things, and I love what I do.
         </p>
-        <div className="h-96 w-64 object-contain flex justify-center mx-auto">
+        <div className="h-96 w-64 object-fill flex justify-center mx-auto">
           <Image
-            height={384}
-            width={256}
+            height={500}
+            width={770}
             placeholder="blur"
             priority
             src={HeroImg}
