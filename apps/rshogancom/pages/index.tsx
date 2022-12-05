@@ -13,7 +13,12 @@ export function Index() {
   return (
     <>
       <Head>
-        <title>Welcome to rshogancom!</title>
+        <title>Engineer - Robert S. Hogan</title>
+        <meta
+          name="description"
+          content="Robert S. Hogan is a software engineer with a passion for building web applications and mobile apps. He has experience with React, Next.js, ChakraUI, and more."
+        />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
       <header className="bg-white">
