@@ -29,6 +29,7 @@ export function Index() {
                   src={RSH_logo}
                   width={48}
                   height={40}
+                  priority
                   className=""
                   alt="Robert Hogan's Logo"
                 />
@@ -54,6 +55,8 @@ export function Index() {
           <Image
             height={394}
             width={256}
+            placeholder="blur"
+            priority
             src={HeroImg}
             className="rounded-lg"
             alt="Robert's Professional Shot"
