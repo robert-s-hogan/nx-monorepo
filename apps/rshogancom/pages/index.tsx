@@ -58,7 +58,7 @@ export function Index() {
         </p>
         <div className="h-96 w-64 object-contain flex justify-center mx-auto">
           <Image
-            height={394}
+            height={384}
             width={256}
             placeholder="blur"
             priority
