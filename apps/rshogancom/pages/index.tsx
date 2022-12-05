@@ -368,103 +368,111 @@ export function Index() {
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center">
-          <Link href="https://www.onedemocracy.org/" passHref>
-            <a>
-              <Image
-                className="mx-auto"
-                src="https://rshogan.imgix.net/clients/one-democracy/od_logo.png"
-                height={50}
-                width={87}
-                loading="lazy"
-                alt="One Democracy Logo"
-              />
-            </a>
-          </Link>
-          <Link href="https://www.mgisolutions.com/" passHref>
-            <a>
-              <Image
-                className="mx-auto"
-                src="https://rshogan.imgix.net/personal/img/mgi_solutions.svg"
-                height={50}
-                width={190}
-                loading="lazy"
-                alt="MGI Solutions Logo"
-              />
-            </a>
-          </Link>
-          <Link href="https://anitaliandish.com/" passHref>
-            <a>
-              <Image
-                className="mx-auto"
-                src="https://rshogan.imgix.net/clients/AnItalianDish.com/an_italian_dish-removebg-preview.png"
-                height={50}
-                width={200}
-                loading="lazy"
-                alt="An Italian Dish Logo"
-              />
-            </a>
-          </Link>
+          <div className="flex justify-center">
+            <Link href="https://www.onedemocracy.org/" passHref>
+              <a>
+                <Image
+                  src="https://rshogan.imgix.net/clients/one-democracy/od_logo.png"
+                  height={50}
+                  width={87}
+                  loading="lazy"
+                  alt="One Democracy Logo"
+                />
+              </a>
+            </Link>
+          </div>
+          <div className="flex justify-center">
+            <Link href="https://www.mgisolutions.com/" passHref>
+              <a>
+                <Image
+                  src="https://rshogan.imgix.net/personal/img/mgi_solutions.svg"
+                  height={50}
+                  width={190}
+                  loading="lazy"
+                  alt="MGI Solutions Logo"
+                />
+              </a>
+            </Link>
+          </div>
+          <div className="flex justify-center">
+            <Link href="https://anitaliandish.com/" passHref>
+              <a>
+                <Image
+                  src="https://rshogan.imgix.net/clients/AnItalianDish.com/an_italian_dish-removebg-preview.png"
+                  height={50}
+                  width={200}
+                  loading="lazy"
+                  alt="An Italian Dish Logo"
+                />
+              </a>
+            </Link>
+          </div>
 
-          <Link href="https://www.thomashenrywines.com/" passHref>
-            <a>
-              <Image
-                className="mx-auto"
-                src="https://rshogan.imgix.net/personal/img/thomas_henry_wines.png"
-                height={50}
-                width={89}
-                loading="lazy"
-                alt="Thomas Henry Wines Logo"
-              />
-            </a>
-          </Link>
-          <Link href="https://www.thekrealty.com/" passHref>
-            <a>
-              <Image
-                className="mx-auto"
-                src="https://rshogan.imgix.net/clients/priti-kothari/priti_logo-removebg-preview.png"
-                width={100}
-                height={100}
-                loading="lazy"
-                alt="K Realty Logo"
-              />
-            </a>
-          </Link>
-          <Link href="https://ticketsaver.net/" passHref>
-            <a>
-              <Image
-                className="mx-auto"
-                src="https://rshogan.imgix.net/clients/ticket-saver/logo-nobg.jpg"
-                height={75}
-                width={193}
-                loading="lazy"
-                alt="Ticket Saver Logo"
-              />
-            </a>
-          </Link>
-          <Link href="https://www.jessicahoganma.com/" passHref>
-            <a>
-              <Image
-                className="mx-auto"
-                src="https://rshogan.imgix.net/personal/logos/jh_logo_white.png"
-                height={50}
-                width={89}
-                loading="lazy"
-                alt="Jessica Hogan MA Logo"
-              />
-            </a>
-          </Link>
-          <Link href="https://www.broadwaymedia.com/" passHref>
-            <a>
-              <Image
-                className="mx-auto"
-                src={BMDLogo}
-                height={65}
-                width={88}
-                loading="lazy"
-                alt="Broadway Media Distribution"
-              />
-            </a>
-          </Link>
+          <div className="flex justify-center">
+            <Link href="https://www.thomashenrywines.com/" passHref>
+              <a>
+                <Image
+                  src="https://rshogan.imgix.net/personal/img/thomas_henry_wines.png"
+                  height={50}
+                  width={89}
+                  loading="lazy"
+                  alt="Thomas Henry Wines Logo"
+                />
+              </a>
+            </Link>
+          </div>
+          <div className="flex justify-center">
+            <Link href="https://www.thekrealty.com/" passHref>
+              <a>
+                <Image
+                  src="https://rshogan.imgix.net/clients/priti-kothari/priti_logo-removebg-preview.png"
+                  width={100}
+                  height={100}
+                  loading="lazy"
+                  alt="K Realty Logo"
+                />
+              </a>
+            </Link>
+          </div>
+          <div className="flex justify-center">
+            <Link href="https://ticketsaver.net/" passHref>
+              <a>
+                <Image
+                  src="https://rshogan.imgix.net/clients/ticket-saver/logo-nobg.jpg"
+                  height={75}
+                  width={193}
+                  loading="lazy"
+                  alt="Ticket Saver Logo"
+                />
+              </a>
+            </Link>
+          </div>
+          <div className="flex justify-center">
+            <Link href="https://www.jessicahoganma.com/" passHref>
+              <a>
+                <Image
+                  src="https://rshogan.imgix.net/personal/logos/jh_logo_white.png"
+                  height={50}
+                  width={89}
+                  loading="lazy"
+                  alt="Jessica Hogan MA Logo"
+                />
+              </a>
+            </Link>
+          </div>
+          <div className="flex justify-center">
+            <Link href="https://www.broadwaymedia.com/" passHref>
+              <a>
+                <Image
+                  src={BMDLogo}
+                  height={65}
+                  width={88}
+                  loading="lazy"
+                  alt="Broadway Media Distribution"
+                />
+              </a>
+            </Link>
+          </div>
         </div>
       </div>
       {/* Testimonials */}
