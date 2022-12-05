@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
 
-import HeroImg from '../public/images/hero_img.jpg';
+import HeroImg from '../public/images/rsh_hero_circle.jpg';
 import Testimonial from '../public/images/rshhogan_testimonials_ellen_2.avif';
 import RSH_logo from '../public/images/rsh_logo_Crop.jpg';
 import BMDLogo from '../public/images/bmd_logo.webp';
@@ -56,13 +56,7 @@ export function Index() {
       </header>
       {/* Hero */}
       <section className="hero max-h-full bg-gradient-to-br from-primary-900 to-primary-700 py-8 md:py-24 space-y-4">
-        <h1 className="text-xl md:text-3xl font-bold text-center text-white md:order-1">
-          Web Developer, UI/UX Engineer
-        </h1>
-        <p className="text-center text-white">
-          I design and code beautifully simple things, and I love what I do.
-        </p>
-        <div className="h-96 w-64 object-fill flex justify-center mx-auto">
+        <div className="h-48 w-48 lg:h-64 lg:w-64 object-scale-down flex justify-center mx-auto rounded-lg">
           <Image
             height={500}
             width={770}
@@ -73,6 +67,12 @@ export function Index() {
             alt="Robert's Professional Shot"
           />
         </div>
+        <h1 className="text-xl md:text-3xl font-bold text-center text-white md:order-1">
+          Web Developer, UI/UX Engineer
+        </h1>
+        <p className="text-center text-white">
+          I design and code beautifully simple things, and I love what I do.
+        </p>
       </section>
       {/* Hi Im Robert */}
       <section className="w-full bg-white py-24 flex flex-col justify-center text-center px-4">
