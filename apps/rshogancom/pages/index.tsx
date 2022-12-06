@@ -62,7 +62,7 @@ export function Index() {
             placeholder="blur"
             priority={true}
             objectFit="contain"
-            objectPoisition="center"
+            objectPosition="center"
             src={HeroImg}
             className="rounded-lg"
             alt="Robert's Professional Shot"
