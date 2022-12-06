@@ -56,7 +56,7 @@ export function Index() {
       </header>
       {/* Hero */}
       <section className="hero max-h-full bg-gradient-to-br from-primary-900 to-primary-700 py-8 md:py-24 space-y-4">
-        <div className="h-48 w-48 lg:h-64 lg:w-64 object-scale-down flex justify-center mx-auto rounded-lg relative">
+        <div className="h-24 sm:36 md:48 w-24 sm:36 md:48 lg:h-64 lg:w-64 object-scale-down flex justify-center mx-auto rounded-lg relative">
           <Image
             layout="fill"
             placeholder="blur"
