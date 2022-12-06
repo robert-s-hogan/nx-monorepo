@@ -60,7 +60,7 @@ export function Index() {
           <Image
             layout="fill"
             placeholder="blur"
-            priority
+            priority={true}
             objectFit="contain"
             objectPoisition="center"
             src={HeroImg}
