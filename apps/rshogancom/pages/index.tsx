@@ -19,7 +19,7 @@ export function Index() {
           content="Robert S. Hogan is a software engineer with a passion for building web applications and mobile apps. He has experience with React, Next.js, ChakraUI, and more."
         />
         <link
-          rel="icon"
+          rel="preload"
           type="image/png"
           href="../static/favicon.ico"
           sizes="16x16"
