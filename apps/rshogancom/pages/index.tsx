@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Seo } from '@with-nx/react-ui';
+import { Seo, Button } from '@with-nx/react-ui';
 
 import HeroImg from '../public/images/rsh_hero_circle.jpg';
 import Testimonial from '../public/images/rshhogan_testimonials_ellen_2.avif';
@@ -11,6 +11,7 @@ import BMDLogo from '../public/images/bmd_logo.webp';
 
 export function Index() {
   const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       <Seo
@@ -47,7 +48,7 @@ export function Index() {
         </div>
       </header>
       {/* Hero */}
-      <section className="hero max-h-full bg-gradient-to-br from-primary-900 to-primary-700 py-8 md:py-24 space-y-4">
+      <section className="hero max-h-full bg-gradient-to-br from-primary-900 to-primary-700 dark:bg-gradient-to-r dark:from-neutral-900 dark:from-neutral-100 py-8 md:py-24 space-y-4">
         <div className="h-24 sm:36 md:48 w-24 sm:36 md:48 lg:h-64 lg:w-64 object-scale-down flex justify-center mx-auto rounded-lg relative">
           <Image
             layout="fill"
@@ -522,7 +523,7 @@ export function Index() {
       </section>
       {/* Start a Project  */}
       <section className="pb-32 -mt-32 md:-mt-24 lg:-mt-16 text-white text-center">
-        <div className="bg-gradient-to-r from-vivid-900 to-vivid-600 max-w-7xl w-5/6 mx-auto bg-gray-700 text-white rounded-lg shadow-lg overflow-hidden">
+        <div className="bg-gradient-to-r from-vivid-900 to-vivid-600  max-w-7xl w-5/6 mx-auto bg-gray-700 text-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex flex-col lg:flex-row lg:space-x-6 w-3/4 lg:w-5/6 mx-auto justify-center py-12">
             <h2 className="text-white text-2xl font-bold lg:w-1/4">
               Start a project

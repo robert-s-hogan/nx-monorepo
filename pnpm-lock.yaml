@@ -20,6 +20,7 @@ specifiers:
   '@typescript-eslint/parser': ~5.33.1
   autoprefixer: ^10.4.13
   babel-jest: 28.1.1
+  classnames: ^2.3.2
   core-js: ^3.6.5
   cypress: ^10.2.0
   eslint: ~8.15.0
@@ -48,6 +49,7 @@ specifiers:
 
 dependencies:
   '@nrwl/next': 14.6.3_3mmsyz4plho2txpbz33c5rglfq
+  classnames: 2.3.2
   core-js: 3.26.1
   next: 12.2.5_672uxklweod7ene3nqtsh262ca
   react: 18.2.0
@@ -3954,6 +3956,10 @@ packages:
 
   /cjs-module-lexer/1.2.2:
     resolution: {integrity: sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==}
+
+  /classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
 
   /clean-stack/2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}

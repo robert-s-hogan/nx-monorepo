@@ -1,6 +1,3 @@
-@tailwind components;
-@tailwind base;
-@tailwind utilities;
 @import url(https://fonts.googleapis.com/css2?family=Michroma&family=PT+Sans&display=swap);
 
 @tailwind base;
@@ -137,7 +134,7 @@ a {
 }
 
 button {
-  @apply text-sm border-2 inline-block align-middle border-vivid-500 hover:text-vivid-500 hover:bg-transparent bg-vivid-500 text-black font-bold py-2 px-6 rounded-full transition ease-in-out duration-300;
+  @apply text-sm border-2 inline-block align-middle border-vivid-500 hover:text-vivid-500 hover:bg-transparent bg-vivid-500 dark:border-vivid-500 text-black font-bold py-2 px-6 rounded-full transition ease-in-out duration-300;
 }
 
 button.outline {
