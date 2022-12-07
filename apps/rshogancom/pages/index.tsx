@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
 
+import { Seo } from '@with-nx/react-ui';
+
 import HeroImg from '../public/images/rsh_hero_circle.jpg';
 import Testimonial from '../public/images/rshhogan_testimonials_ellen_2.avif';
 import RSH_logo from '../public/images/rsh_logo_Crop.jpg';
@@ -12,20 +14,11 @@ export function Index() {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <Head>
-        <title>Engineer - Robert S. Hogan</title>
-        <meta
-          name="description"
-          content="Robert S. Hogan is a software engineer with a passion for building web applications and mobile apps. He has experience with React, Next.js, ChakraUI, and more."
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href="../static/favicon.ico"
-          sizes="16x16"
-        />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <Seo
+        title="Engineer - Robert S. Hogan"
+        description="Robert S. Hogan is a software engineer with a passion for building web applications and mobile apps. He has experience with React, Next.js, ChakraUI, and more."
+        faviconPath="../static/favicon.ico"
+      />
 
       <header className="bg-white">
         <div className="w-full mx-auto py-0 md:py-4 lg:px-0 text-lg md:text-2xl lg:max-w-4xl ">
