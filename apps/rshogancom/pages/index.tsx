@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Head from 'next/head';
 
 import { Seo } from '@with-nx/react-ui';
 

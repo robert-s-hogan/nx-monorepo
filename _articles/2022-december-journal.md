@@ -19,3 +19,11 @@ Other error(s) I ran into were related to pnpm install issues. I had 4-5 librari
 Outside of the scss and pnpm issue, most of the transition was pretty smooth. I copied over the folders opening two VS Codes and drag and dropping the folders to their new home. Then working through the library issues.
 
 I'm excited to start building out the components and libraries!
+
+## December 6th
+
+Today I worked with another developer to plan out our video editor components across a Electron and Next.JS applications. We talked about having a few different UI libraries to start with and use across our apps. Two of our applications use ChakraUI pretty heavily and the other is pure react with scss. Eventually, we want to use pure react components for performance. The ChakraUI library will be mostly to deliver quick features and used heavily to quickly communicate ideas back to the shareholders.
+
+I also worked on a multi-step checkout form for our customer uploads. I found an example online and use it as a model. Right now, the multi-step checkout is purely UX with the back-end coming soon. I'll have to do various file size checks and progress bar updates in the process. I have a rough idea but I will be waiting to dive in until I receive the back-end needs.
+
+I'm excited to start making the components truely reusable across all our apps!
