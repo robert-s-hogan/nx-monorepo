@@ -88,7 +88,7 @@ export function Index() {
       {/* Skill */}
       <section className="py-24 bg-neutral-200">
         <div className="px-4 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-12 md:px-8 lg:gap-24 lg:px-16 xl:gap-8 xl:px-0">
             <div className="p-6 overflow-hidden text-center border-2 border-white bg-white rounded hover:border-tertiary-500 text-black">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
