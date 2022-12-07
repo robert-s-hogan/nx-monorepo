@@ -57,8 +57,6 @@ export function Index() {
             objectFit="contain"
             objectPosition="center"
             src={HeroImg}
-            width={290}
-            height={290}
             className="rounded-full"
             alt="Robert's Professional Shot"
           />

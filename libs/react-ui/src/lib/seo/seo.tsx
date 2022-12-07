@@ -11,7 +11,6 @@ export function Seo(props: SeoProps) {
   const { title, description, faviconPath } = props;
   return (
     <Head>
-      <p>{faviconPath}</p>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
