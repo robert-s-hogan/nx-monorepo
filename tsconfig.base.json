@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@with-nx/library": ["libs/library/src/index.ts"],
       "@with-nx/react-ui": ["libs/react-ui/src/index.ts"]
     }
   },

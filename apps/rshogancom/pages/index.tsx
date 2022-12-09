@@ -4,10 +4,20 @@ import Link from 'next/link';
 
 import { Seo, Button } from '@with-nx/react-ui';
 
-import HeroImg from '../public/images/rsh_hero_circle.jpg';
-import Testimonial from '../public/images/rshhogan_testimonials_ellen_2.avif';
 import RSH_logo from '../public/images/rsh_logo_Crop.jpg';
+
+import HeroImg from '../public/images/rsh_hero_circle.jpg';
+
+import OneDemocracy from '../public/images/one_democracy.webp';
+import MGISolution from '../public/images/mgi_solutions.svg';
+import AnItalianDish from '../public/images/an_italian_dish.png';
+import ThomasHenryWines from '../public/images/thomas_henry_wines.png';
+import KRealty from '../public/images/k_realty.webp';
+import TicketSaver from '../public/images/ticket_saver.jpeg';
+import JHogan from '../public/images/jhogan.webp';
 import BMDLogo from '../public/images/bmd_logo.webp';
+
+import Testimonial from '../public/images/rshhogan_testimonials_ellen_2.avif';
 
 export function Index() {
   const [showModal, setShowModal] = useState(false);
@@ -40,15 +50,15 @@ export function Index() {
               </div>
             </Link>
             <nav className="flex justify-center">
-              <button onClick={() => setShowModal(!showModal)}>
+              <Button onClick={() => setShowModal(!showModal)}>
                 Say Hello
-              </button>
+              </Button>
             </nav>
           </div>
         </div>
       </header>
       {/* Hero */}
-      <section className="hero max-h-full bg-gradient-to-br from-primary-900 to-primary-700 dark:bg-gradient-to-r dark:from-neutral-900 dark:from-neutral-100 py-8 md:py-24 space-y-4">
+      <section className="hero max-h-full bg-gradient-to-br from-primary-900 to-primary-700 dark:bg-gradient-to-r  py-8 md:py-24 space-y-4">
         <div className="h-24 sm:36 md:48 w-24 sm:36 md:48 lg:h-64 lg:w-64 object-scale-down flex justify-center mx-auto rounded-lg relative">
           <Image
             layout="fill"
@@ -380,7 +390,7 @@ export function Index() {
             <Link href="https://www.onedemocracy.org/" passHref>
               <a>
                 <Image
-                  src="https://rshogan.imgix.net/clients/one-democracy/od_logo.png"
+                  src={OneDemocracy}
                   height={50}
                   width={87}
                   loading="lazy"
@@ -393,7 +403,7 @@ export function Index() {
             <Link href="https://www.mgisolutions.com/" passHref>
               <a>
                 <Image
-                  src="https://rshogan.imgix.net/personal/img/mgi_solutions.svg"
+                  src={MGISolution}
                   height={50}
                   width={190}
                   loading="lazy"
@@ -406,7 +416,7 @@ export function Index() {
             <Link href="https://anitaliandish.com/" passHref>
               <a>
                 <Image
-                  src="https://rshogan.imgix.net/clients/AnItalianDish.com/an_italian_dish-removebg-preview.png"
+                  src={AnItalianDish}
                   height={50}
                   width={200}
                   loading="lazy"
@@ -420,7 +430,7 @@ export function Index() {
             <Link href="https://www.thomashenrywines.com/" passHref>
               <a>
                 <Image
-                  src="https://rshogan.imgix.net/personal/img/thomas_henry_wines.png"
+                  src={ThomasHenryWines}
                   height={50}
                   width={89}
                   loading="lazy"
@@ -433,7 +443,7 @@ export function Index() {
             <Link href="https://www.thekrealty.com/" passHref>
               <a>
                 <Image
-                  src="https://rshogan.imgix.net/clients/priti-kothari/priti_logo-removebg-preview.png"
+                  src={KRealty}
                   width={100}
                   height={100}
                   loading="lazy"
@@ -446,7 +456,7 @@ export function Index() {
             <Link href="https://ticketsaver.net/" passHref>
               <a>
                 <Image
-                  src="https://rshogan.imgix.net/clients/ticket-saver/logo-nobg.jpg"
+                  src={TicketSaver}
                   height={75}
                   width={193}
                   loading="lazy"
@@ -459,7 +469,7 @@ export function Index() {
             <Link href="https://www.jessicahoganma.com/" passHref>
               <a>
                 <Image
-                  src="https://rshogan.imgix.net/personal/logos/jh_logo_white.png"
+                  src={JHogan}
                   height={50}
                   width={89}
                   loading="lazy"

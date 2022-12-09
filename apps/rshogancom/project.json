@@ -9,7 +9,8 @@
       "defaultConfiguration": "production",
       "options": {
         "root": "apps/rshogancom",
-        "outputPath": "dist/apps/rshogancom"
+        "outputPath": "dist/apps/rshogancom",
+        "webpackConfig": "apps/rshogancom/webpack.config.js"
       },
       "configurations": {
         "development": {

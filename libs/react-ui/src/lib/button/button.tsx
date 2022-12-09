@@ -20,12 +20,12 @@ export const ButtonSize = {
 
 /* eslint-disable-next-line */
 export interface ButtonProps {
-  onClick: () => void;
-  className: string;
+  onClick?: () => void;
+  className?: string;
   // theme: string;
   children: React.ReactNode;
   // type: ButtonTypes;
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 export type ButtonTypes = 'submit' | 'reset' | ' button';
