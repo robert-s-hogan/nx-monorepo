@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "dbsmarin": "apps/dbsmarin",
+    "dbsmarin-e2e": "apps/dbsmarin-e2e",
     "react-ui": "libs/react-ui",
     "rshogancom": "apps/rshogancom",
     "rshogancom-e2e": "apps/rshogancom-e2e"

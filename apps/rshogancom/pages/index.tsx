@@ -542,12 +542,12 @@ export function Index() {
               Interested in working together? <span className="lg:block"></span>
               We should queue up a chat. I’ll buy the coffee.
             </p>
-            <button
-              className="w-1/2 mx-auto mt-6 lg:mt-0 lg:py-0 lg:rounded-full py-3 px-4 lg:px-10 border-2 lg:w-1/4 bg-white  hover:border-white hover:bg-white"
+            <Button
+              className="outline w-1/2 mx-auto mt-6 lg:mt-0 lg:py-0   lg:px-10 lg:w-1/4"
               onClick={() => setShowModal(!showModal)}
             >
               Lets do this
-            </button>
+            </Button>
           </div>
         </div>
       </section>
@@ -698,20 +698,21 @@ export function Index() {
             <div className="bg-white border-2 rounded-lg shadow-lg relative flex flex-col outline-none focus:outline-none w-5/6 mx-auto">
               <div className="modal-body relative p-4 flex-auto">
                 <div className="overflow-hidden">
-                  <button
+                  <Button
                     type="button"
-                    className="border-0 close absolute top-0 right-0 my-0"
+                    className="icon border-0 close absolute top-0 right-0 my-0"
                     data-dismiss="modal"
                     aria-label="Close"
                     onClick={() => setShowModal(!showModal)}
-                  >
-                    <span
-                      className="text-5xl font-light text-right  text-black"
-                      aria-hidden="true"
-                    >
-                      &times;
-                    </span>
-                  </button>
+                    icon={
+                      <span
+                        className="text-5xl font-light text-right  text-black"
+                        aria-hidden="true"
+                      >
+                        &times;
+                      </span>
+                    }
+                  />
                   <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg space-y-4">
                       <h2>Thanks for taking the time to reach out!</h2>
@@ -820,12 +821,9 @@ export function Index() {
                         />
                       </div>
 
-                      <button
-                        type="submit"
-                        className="bg-vivid-500 md:w-32 font-bold py-3 px-6 rounded-lg mt-3 text-black hover:bg-vivid-600 transition duration-200"
-                      >
+                      <Button type="submit" className="md:w-32 mt-3">
                         Submit
-                      </button>
+                      </Button>
                     </form>
                   </div>
                 </div>

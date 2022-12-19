@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/rshogancom",
+  "sourceRoot": "apps/dbsmarin",
   "projectType": "application",
   "targets": {
     "build": {
@@ -8,12 +8,13 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/rshogancom",
-        "outputPath": "dist/apps/rshogancom"
+        "root": "apps/dbsmarin",
+        "outputPath": "dist/apps/dbsmarin",
+        "webpackConfig": "apps/dbsmarin/webpack.config.js"
       },
       "configurations": {
         "development": {
-          "outputPath": "apps/rshogancom"
+          "outputPath": "apps/dbsmarin"
         },
         "production": {}
       }
@@ -22,16 +23,16 @@
       "executor": "@nrwl/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "rshogancom:build",
+        "buildTarget": "dbsmarin:build",
         "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "rshogancom:build:development",
+          "buildTarget": "dbsmarin:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "rshogancom:build:production",
+          "buildTarget": "dbsmarin:build:production",
           "dev": false
         }
       }
@@ -39,14 +40,14 @@
     "export": {
       "executor": "@nrwl/next:export",
       "options": {
-        "buildTarget": "rshogancom:build:production"
+        "buildTarget": "dbsmarin:build:production"
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/rshogancom"],
+      "outputs": ["coverage/apps/dbsmarin"],
       "options": {
-        "jestConfig": "apps/rshogancom/jest.config.ts",
+        "jestConfig": "apps/dbsmarin/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -54,7 +55,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/rshogancom/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/dbsmarin/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },

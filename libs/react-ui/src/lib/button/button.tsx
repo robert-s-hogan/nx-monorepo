@@ -1,28 +1,11 @@
-import classnames from 'classnames';
 // import styles from './button.module.css';
-
-export const ButtonType = {
-  BUTTON: 'button',
-  RESET: 'reset',
-  SUBMIT: 'submit',
-};
-
-export const ButtonTheme = {
-  DEFAULT: 'default',
-  ROUNDED: 'rounded',
-};
-
-export const ButtonSize = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large',
-};
 
 /* eslint-disable-next-line */
 export interface ButtonProps {
   onClick?: () => void;
   className?: string;
   // theme: string;
+  icon?: React.ReactNode;
   children: React.ReactNode;
   // type: ButtonTypes;
   disabled?: boolean;
@@ -31,7 +14,7 @@ export interface ButtonProps {
 export type ButtonTypes = 'submit' | 'reset' | ' button';
 
 export function Button(props: ButtonProps) {
-  const { onClick, className, children, disabled } = props;
+  const { onClick, children, disabled, className, icon } = props;
 
   // const classProps: string = classnames(
   //   styles.button,
@@ -49,7 +32,7 @@ export function Button(props: ButtonProps) {
       className={className}
       // theme={theme}
     >
-      {children}
+      {icon ? icon : children}
     </button>
   );
 }
