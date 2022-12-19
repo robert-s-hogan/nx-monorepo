@@ -73,20 +73,17 @@ export function Index() {
       <main className="px-6 py-12 lg:py-24 md:px-12 text-center lg:text-left">
         <div className="container mx-auto xl:px-32 text-gray-800">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="mt-12 lg:mt-0" styles={{ zIndex: 10 }}>
+            <div className="mt-12 lg:mt-0" style={{ zIndex: 10 }}>
               <h1
                 className="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12"
-                styles={{ color: 'hsl(218, 81%, 95%)' }}
+                style={{ color: 'hsl(218, 81%, 95%)' }}
               >
                 The best offer <br />
-                <span styles={{ color: 'hsl(218, 81%, 75%)' }}>
+                <span style={{ color: 'hsl(218, 81%, 75%)' }}>
                   for your business
                 </span>
               </h1>
-              <p
-                className="opacity-70"
-                styles={{ color: 'hsl(218, 81%, 85%)' }}
-              >
+              <p className="opacity-70" style={{ color: 'hsl(218, 81%, 85%)' }}>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Temporibus, expedita iusto veniam atque, magni tempora mollitia
                 dolorum consequatur nulla, neque debitis eos reprehenderit quasi
