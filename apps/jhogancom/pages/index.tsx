@@ -8,6 +8,11 @@ export function Index() {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
+      <Seo
+        title="Data Scientist and Data Analyst - Jessica Hogan M.A."
+        description="I want to help you make the best data-driven decisions and translate data into actionable insights. As a Data Scientist and Data Analyst, I translate data into actionable insights. I have experience with SQL, Excel, reporting, dashboards and statistics.Jessica Hogan M.A."
+        faviconPath="../static/favicon.ico"
+      />
       <header className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between py-4 items-center text-black">
           <NextLink href="/">
