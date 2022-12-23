@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import NextLink from 'next/link';
 
-import { Seo, Button } from '@with-nx/react-ui';
+import { Seo } from '@with-nx/react-ui';
 
 export function Index() {
   const [showModal, setShowModal] = useState(false);
