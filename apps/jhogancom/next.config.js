@@ -18,6 +18,11 @@ module.exports = withNx(nextConfig);
 
 module.exports = {
   images: {
-    domains: ['rshogan.imgix.net', 'images.pexels.com', 'images.unsplash.com'],
+    domains: [
+      'rshogan.imgix.net',
+      'images.pexels.com',
+      'images.unsplash.com',
+      'img.icons8.com',
+    ],
   },
 };

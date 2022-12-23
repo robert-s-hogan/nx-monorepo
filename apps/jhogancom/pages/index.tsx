@@ -13,7 +13,7 @@ export function Index() {
         description="I want to help you make the best data-driven decisions and translate data into actionable insights. As a Data Scientist and Data Analyst, I translate data into actionable insights. I have experience with SQL, Excel, reporting, dashboards and statistics.Jessica Hogan M.A."
         faviconPath="../static/favicon.ico"
       />
-      <header className="max-w-6xl mx-auto px-6">
+      <header className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between py-4 items-center text-black">
           <NextLink href="/">
             <Image
@@ -98,7 +98,7 @@ export function Index() {
           </div>
         </div>
       </section>
-      <section id="projects" className="w-full max-w-6xl px-6 mx-auto py-8">
+      <section id="projects" className="w-full max-w-7xl px-6 mx-auto py-8">
         <h2 className="text-3xl font-semibold text-gray-800 mt-4">Projects</h2>
         <p>
           As a Data Scientist and Data Analyst, I translate data into actionable
@@ -106,7 +106,7 @@ export function Index() {
           statistics.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-8">
           <div className="overflow-hidden bg-white rounded-lg border border-opacity-20 border-blue hover:shadow-2xl dark:bg-gray-800 text-left">
             <Image
               width="355"
@@ -149,20 +149,23 @@ export function Index() {
                   className="text-blue hover:text-black"
                   href="https://github.com/jessicahoganma/Python_SQL/blob/main/README.md"
                   target="_blank"
+                  passHref
                   rel="noreferrer"
                 >
-                  <svg
-                    fill="currentColor"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="0"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6"
-                    viewBox="0 0 640 640"
-                  >
-                    <path d="M319.988 7.973C143.293 7.973 0 151.242 0 327.96c0 141.392 91.678 261.298 218.826 303.63 16.004 2.964 21.886-6.957 21.886-15.414 0-7.63-.319-32.835-.449-59.552-89.032 19.359-107.8-37.772-107.8-37.772-14.552-36.993-35.529-46.831-35.529-46.831-29.032-19.879 2.209-19.442 2.209-19.442 32.126 2.245 49.04 32.954 49.04 32.954 28.56 48.922 74.883 34.76 93.131 26.598 2.882-20.681 11.15-34.807 20.315-42.803-71.08-8.067-145.797-35.516-145.797-158.14 0-34.926 12.52-63.485 32.965-85.88-3.33-8.078-14.291-40.606 3.083-84.674 0 0 26.87-8.61 88.029 32.8 25.512-7.075 52.878-10.642 80.056-10.76 27.2.118 54.614 3.673 80.162 10.76 61.076-41.386 87.922-32.8 87.922-32.8 17.398 44.08 6.485 76.631 3.154 84.675 20.516 22.394 32.93 50.953 32.93 85.879 0 122.907-74.883 149.93-146.117 157.856 11.481 9.921 21.733 29.398 21.733 59.233 0 42.792-.366 77.28-.366 87.804 0 8.516 5.764 18.473 21.992 15.354 127.076-42.354 218.637-162.274 218.637-303.582 0-176.695-143.269-319.988-320-319.988l-.023.107z" />
-                  </svg>
+                  <a target="_blank" rel="noreferrer">
+                    <svg
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="0"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6"
+                      viewBox="0 0 640 640"
+                    >
+                      <path d="M319.988 7.973C143.293 7.973 0 151.242 0 327.96c0 141.392 91.678 261.298 218.826 303.63 16.004 2.964 21.886-6.957 21.886-15.414 0-7.63-.319-32.835-.449-59.552-89.032 19.359-107.8-37.772-107.8-37.772-14.552-36.993-35.529-46.831-35.529-46.831-29.032-19.879 2.209-19.442 2.209-19.442 32.126 2.245 49.04 32.954 49.04 32.954 28.56 48.922 74.883 34.76 93.131 26.598 2.882-20.681 11.15-34.807 20.315-42.803-71.08-8.067-145.797-35.516-145.797-158.14 0-34.926 12.52-63.485 32.965-85.88-3.33-8.078-14.291-40.606 3.083-84.674 0 0 26.87-8.61 88.029 32.8 25.512-7.075 52.878-10.642 80.056-10.76 27.2.118 54.614 3.673 80.162 10.76 61.076-41.386 87.922-32.8 87.922-32.8 17.398 44.08 6.485 76.631 3.154 84.675 20.516 22.394 32.93 50.953 32.93 85.879 0 122.907-74.883 149.93-146.117 157.856 11.481 9.921 21.733 29.398 21.733 59.233 0 42.792-.366 77.28-.366 87.804 0 8.516 5.764 18.473 21.992 15.354 127.076-42.354 218.637-162.274 218.637-303.582 0-176.695-143.269-319.988-320-319.988l-.023.107z" />
+                    </svg>
+                  </a>
                 </NextLink>
               </div>
             </div>
@@ -210,20 +213,23 @@ export function Index() {
                   className="text-blue hover:text-black"
                   href="https://github.com/jessicahoganma/SQL_hospital_Project"
                   target="_blank"
+                  passHref
                   rel="noreferrer"
                 >
-                  <svg
-                    fill="currentColor"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="0"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6"
-                    viewBox="0 0 640 640"
-                  >
-                    <path d="M319.988 7.973C143.293 7.973 0 151.242 0 327.96c0 141.392 91.678 261.298 218.826 303.63 16.004 2.964 21.886-6.957 21.886-15.414 0-7.63-.319-32.835-.449-59.552-89.032 19.359-107.8-37.772-107.8-37.772-14.552-36.993-35.529-46.831-35.529-46.831-29.032-19.879 2.209-19.442 2.209-19.442 32.126 2.245 49.04 32.954 49.04 32.954 28.56 48.922 74.883 34.76 93.131 26.598 2.882-20.681 11.15-34.807 20.315-42.803-71.08-8.067-145.797-35.516-145.797-158.14 0-34.926 12.52-63.485 32.965-85.88-3.33-8.078-14.291-40.606 3.083-84.674 0 0 26.87-8.61 88.029 32.8 25.512-7.075 52.878-10.642 80.056-10.76 27.2.118 54.614 3.673 80.162 10.76 61.076-41.386 87.922-32.8 87.922-32.8 17.398 44.08 6.485 76.631 3.154 84.675 20.516 22.394 32.93 50.953 32.93 85.879 0 122.907-74.883 149.93-146.117 157.856 11.481 9.921 21.733 29.398 21.733 59.233 0 42.792-.366 77.28-.366 87.804 0 8.516 5.764 18.473 21.992 15.354 127.076-42.354 218.637-162.274 218.637-303.582 0-176.695-143.269-319.988-320-319.988l-.023.107z" />
-                  </svg>
+                  <a target="_blank" rel="noreferrer">
+                    <svg
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="0"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6"
+                      viewBox="0 0 640 640"
+                    >
+                      <path d="M319.988 7.973C143.293 7.973 0 151.242 0 327.96c0 141.392 91.678 261.298 218.826 303.63 16.004 2.964 21.886-6.957 21.886-15.414 0-7.63-.319-32.835-.449-59.552-89.032 19.359-107.8-37.772-107.8-37.772-14.552-36.993-35.529-46.831-35.529-46.831-29.032-19.879 2.209-19.442 2.209-19.442 32.126 2.245 49.04 32.954 49.04 32.954 28.56 48.922 74.883 34.76 93.131 26.598 2.882-20.681 11.15-34.807 20.315-42.803-71.08-8.067-145.797-35.516-145.797-158.14 0-34.926 12.52-63.485 32.965-85.88-3.33-8.078-14.291-40.606 3.083-84.674 0 0 26.87-8.61 88.029 32.8 25.512-7.075 52.878-10.642 80.056-10.76 27.2.118 54.614 3.673 80.162 10.76 61.076-41.386 87.922-32.8 87.922-32.8 17.398 44.08 6.485 76.631 3.154 84.675 20.516 22.394 32.93 50.953 32.93 85.879 0 122.907-74.883 149.93-146.117 157.856 11.481 9.921 21.733 29.398 21.733 59.233 0 42.792-.366 77.28-.366 87.804 0 8.516 5.764 18.473 21.992 15.354 127.076-42.354 218.637-162.274 218.637-303.582 0-176.695-143.269-319.988-320-319.988l-.023.107z" />
+                    </svg>
+                  </a>
                 </NextLink>
               </div>
             </div>
@@ -268,26 +274,82 @@ export function Index() {
                 using SPSS.
               </p>
 
-              <div className="flex justify-end mt-4 text-gray-700 dark:text-gray-200">
+              <div className="flex justify-end mt-10 text-gray-700 dark:text-gray-200">
                 <NextLink
                   href="https://csu-csus.esploro.exlibrisgroup.com/esploro/outputs/graduate/Parental-status-and-life-satisfaction-a/99257831096601671"
                   target="_blank"
                   rel="noreferrer"
+                  passHref
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
+                  <a target="_blank" rel="noreferrer">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                      />
+                    </svg>
+                  </a>
+                </NextLink>
+              </div>
+            </div>
+          </div>
+          <div className="overflow-hidden bg-white rounded-lg border border-opacity-20 border-blue hover:shadow-2xl dark:bg-gray-800 text-left">
+            <Image
+              width="355"
+              height="224"
+              className="object-cover object-center w-full h-56"
+              src="https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="avatar"
+            />
+
+            <div className="flex items-center px-4 py-3 bg-peach">
+              <Image
+                height="32"
+                width="32"
+                src="https://img.icons8.com/external-phatplus-lineal-phatplus/512/external-marketing-behavior-phatplus-lineal-phatplus.png"
+                alt="python"
+              />
+              <h3 className="mx-3 text-lg font-semibold text-black">
+                Python for Marketing
+              </h3>
+            </div>
+            <div className="px-4 py-4">
+              <p className="py-2 text-gray-700 dark:text-gray-400">
+                In this project I used various resources to clean and merge
+                datasets from Google Analytics as well as create visualizations,
+                analyze timeseries and build alerts for for marketing
+                activities.
+              </p>
+
+              <div className="flex justify-end mt-0 text-gray-700 dark:text-gray-200">
+                <NextLink
+                  passHref
+                  href="https://github.com/jessicahoganma/Python-For-Marketing"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <a target="_blank" rel="noreferrer">
+                    <svg
+                      fill="currentColor"
+                      stroke="currentColor"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-                    />
-                  </svg>
+                      strokeWidth="0"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6"
+                      viewBox="0 0 640 640"
+                    >
+                      <path d="M319.988 7.973C143.293 7.973 0 151.242 0 327.96c0 141.392 91.678 261.298 218.826 303.63 16.004 2.964 21.886-6.957 21.886-15.414 0-7.63-.319-32.835-.449-59.552-89.032 19.359-107.8-37.772-107.8-37.772-14.552-36.993-35.529-46.831-35.529-46.831-29.032-19.879 2.209-19.442 2.209-19.442 32.126 2.245 49.04 32.954 49.04 32.954 28.56 48.922 74.883 34.76 93.131 26.598 2.882-20.681 11.15-34.807 20.315-42.803-71.08-8.067-145.797-35.516-145.797-158.14 0-34.926 12.52-63.485 32.965-85.88-3.33-8.078-14.291-40.606 3.083-84.674 0 0 26.87-8.61 88.029 32.8 25.512-7.075 52.878-10.642 80.056-10.76 27.2.118 54.614 3.673 80.162 10.76 61.076-41.386 87.922-32.8 87.922-32.8 17.398 44.08 6.485 76.631 3.154 84.675 20.516 22.394 32.93 50.953 32.93 85.879 0 122.907-74.883 149.93-146.117 157.856 11.481 9.921 21.733 29.398 21.733 59.233 0 42.792-.366 77.28-.366 87.804 0 8.516 5.764 18.473 21.992 15.354 127.076-42.354 218.637-162.274 218.637-303.582 0-176.695-143.269-319.988-320-319.988l-.023.107z" />
+                    </svg>
+                  </a>
                 </NextLink>
               </div>
             </div>
@@ -295,7 +357,7 @@ export function Index() {
         </div>
       </section>
       <section id="who-i-am" className="pb-24">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <section className="">
             <div className="container py-8 mx-auto">
               <div className="items-center lg:grid lg:grid-cols-3">
@@ -466,7 +528,7 @@ export function Index() {
       </section>
       <section
         id="contact"
-        className="max-w-6xl mx-auto pb-8 text-white text-center -mt-16"
+        className="max-w-7xl mx-auto pb-8 text-white text-center -mt-16"
       >
         <div className="w-11/12 lg:w-full mx-auto bg-orange text-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex flex-col md:flex-row md:items-center md:space-x-6 w-11/12 lg:w-3/4 mx-auto justify-center py-8">
@@ -487,7 +549,7 @@ export function Index() {
         </div>
       </section>
       <footer className="text-gray-600 body-font">
-        <div className="max-w-6xl mx-auto px-6 py-8 flex items-center sm:flex-row flex-col">
+        <div className="max-w-7xl mx-auto px-6 py-8 flex items-center sm:flex-row flex-col">
           <Image
             width="82"
             height="32"
