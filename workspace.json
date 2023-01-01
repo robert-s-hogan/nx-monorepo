@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "daoism": "apps/daoism",
+    "daoism-e2e": "apps/daoism-e2e",
     "dbsmarin": "apps/dbsmarin",
     "dbsmarin-e2e": "apps/dbsmarin-e2e",
     "jhogancom": "apps/jhogancom",

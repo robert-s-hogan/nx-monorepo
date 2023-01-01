@@ -33,6 +33,7 @@ specifiers:
   eslint-plugin-react-hooks: 4.6.0
   jest: 28.1.1
   jest-environment-jsdom: 28.1.1
+  keen-slider: ^6.8.5
   next: 12.2.5
   nx: 14.6.3
   nx-ignore: ^15.3.1
@@ -43,6 +44,7 @@ specifiers:
   react-router-dom: 6.3.0
   react-test-renderer: 18.2.0
   regenerator-runtime: 0.13.7
+  swr: ^2.0.0
   tailwindcss: ^3.2.4
   ts-jest: 28.0.5
   ts-node: 10.9.1
@@ -52,12 +54,14 @@ specifiers:
 dependencies:
   '@nrwl/next': 14.6.3_3mmsyz4plho2txpbz33c5rglfq
   core-js: 3.26.1
+  keen-slider: 6.8.5
   next: 12.2.5_672uxklweod7ene3nqtsh262ca
   nx-ignore: 15.3.1_4n64a3med7c7gpq22ar5fmyi5e
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-router-dom: 6.3.0_biqbaboplfbrettd7655fr4n2y
   regenerator-runtime: 0.13.7
+  swr: 2.0.0_react@18.2.0
   tslib: 2.4.1
 
 devDependencies:
@@ -7190,6 +7194,10 @@ packages:
       array-includes: 3.1.6
       object.assign: 4.1.4
 
+  /keen-slider/6.8.5:
+    resolution: {integrity: sha512-9yoosfffgTCrkmbX8kCUMWsn9KDgPSkxBof5/0yXde001D1xao7i9ppfxQCCK0MLnoCa+Rdssby0jFbTTUM4rw==}
+    dev: false
+
   /kind-of/6.0.3:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
@@ -9494,6 +9502,16 @@ packages:
       csso: 4.2.0
       picocolors: 1.0.0
       stable: 0.1.8
+
+  /swr/2.0.0_react@18.2.0:
+    resolution: {integrity: sha512-IhUx5yPkX+Fut3h0SqZycnaNLXLXsb2ECFq0Y29cxnK7d8r7auY2JWNbCW3IX+EqXUg3rwNJFlhrw5Ye/b6k7w==}
+    engines: {pnpm: '7'}
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
 
   /symbol-tree/3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
