@@ -15,8 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@with-nx/atoms": ["libs/atoms/src/index.ts"],
       "@with-nx/library": ["libs/library/src/index.ts"],
-      "@with-nx/react-ui": ["libs/react-ui/src/index.ts"]
+      "@with-nx/react-ui": ["libs/react-ui/src/index.ts"],
+      "@with-nx/react-ui/atoms": ["libs/react-ui/atoms/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

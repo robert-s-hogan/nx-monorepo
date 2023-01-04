@@ -14,4 +14,10 @@ const nextConfig = {
   },
 };
 
+module.exports = {
+  images: {
+    domains: ['wei-wu-wei.vercel.app'],
+  },
+};
+
 module.exports = withNx(nextConfig);
