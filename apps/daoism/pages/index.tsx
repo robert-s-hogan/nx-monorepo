@@ -1,12 +1,12 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 import useSWR from 'swr';
 import Hero from '/public/images/hero_pooh.png';
 
-import {
-  useKeenSlider,
-  KeenSliderPlugin,
-  KeenSliderInstance,
-} from 'keen-slider/react';
+// import {
+//   useKeenSlider,
+//   KeenSliderPlugin,
+//   KeenSliderInstance,
+// } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
