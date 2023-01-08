@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Card from './card';
+import NavbarMenu from './navbar-menu';
 
-describe('Card', () => {
+describe('NavbarMenu', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Card />);
+    const { baseElement } = render(<NavbarMenu />);
     expect(baseElement).toBeTruthy();
   });
 });

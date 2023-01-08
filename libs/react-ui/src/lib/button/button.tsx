@@ -1,38 +1,22 @@
-// import styles from './button.module.css';
+/**
+ * This component is an atom, it is the smallest unit of the application.
+ */
 
 /* eslint-disable-next-line */
-export interface ButtonProps {
-  onClick?: () => void;
-  className?: string;
-  // theme: string;
-  icon?: React.ReactNode;
+interface ButtonProps {
   children: React.ReactNode;
-  // type: ButtonTypes;
-  disabled?: boolean;
+  onClick: () => void;
+  className?: string;
+  text?: string;
 }
 
-export type ButtonTypes = 'submit' | 'reset' | ' button';
-
 export function Button(props: ButtonProps) {
-  const { onClick, children, disabled, className, icon } = props;
-
-  // const classProps: string = classnames(
-  //   styles.button,
-  //   styles[theme],
-  //   styles[size],
-  //   { [styles.disabled]: disabled },
-  //   className
-  // );
+  const { onClick, children, className } = props;
 
   return (
-    <button
-      onClick={onClick}
-      // type={type}
-      disabled={disabled}
-      className={className}
-      // theme={theme}
-    >
-      {icon ? icon : children}
+    <button onClick={onClick} className={className}>
+      {children}
+      {!children && props.text}
     </button>
   );
 }

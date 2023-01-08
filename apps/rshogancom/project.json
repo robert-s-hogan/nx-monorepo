@@ -1,4 +1,5 @@
 {
+  "name": "rshogancom",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/rshogancom",
   "projectType": "application",
@@ -44,7 +45,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/rshogancom"],
+      "outputs": ["{workspaceRoot}/coverage/apps/rshogancom"],
       "options": {
         "jestConfig": "apps/rshogancom/jest.config.ts",
         "passWithNoTests": true

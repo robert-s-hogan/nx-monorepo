@@ -15,13 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@with-nx/atoms": ["libs/atoms/src/index.ts"],
       "@with-nx/library": ["libs/library/src/index.ts"],
       "@with-nx/markdown": ["libs/markdown/src/index.ts"],
       "@with-nx/react-ui": ["libs/react-ui/src/index.ts"],
-      "@with-nx/react-ui/atoms": ["libs/react-ui/atoms/src/index.ts"],
       "@with-nx/shared": ["libs/shared/src/index.ts"],
-      "@with-nx/shared/mdx-elements": ["libs/shared/mdx-elements/src/index.ts"]
+      "@with-nx/shared/mdx-elements": ["libs/shared/mdx-elements/src/index.ts"],
+      "@with-nx/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
