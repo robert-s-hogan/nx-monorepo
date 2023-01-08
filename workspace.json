@@ -3,14 +3,14 @@
   "version": 2,
   "projects": {
     "daoism": "apps/daoism",
-    "daoism-e2e": "apps/daoism-e2e",
     "dbsmarin": "apps/dbsmarin",
-    "dbsmarin-e2e": "apps/dbsmarin-e2e",
+    "devblog": "apps/devblog",
     "jhogancom": "apps/jhogancom",
-    "jhogancom-e2e": "apps/jhogancom-e2e",
+    "markdown": "libs/markdown",
     "react-ui": "libs/react-ui",
     "react-ui-atoms": "libs/react-ui/atoms",
     "rshogancom": "apps/rshogancom",
-    "rshogancom-e2e": "apps/rshogancom-e2e"
+    "shared": "libs/shared",
+    "shared-mdx-elements": "libs/shared/mdx-elements"
   }
 }

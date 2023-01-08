@@ -699,20 +699,19 @@ export function Index() {
               <div className="modal-body relative p-4 flex-auto">
                 <div className="overflow-hidden">
                   <Button
-                    type="button"
                     className="icon border-0 close absolute top-0 right-0 my-0"
-                    data-dismiss="modal"
-                    aria-label="Close"
+                    // data-dismiss="modal"
+                    // aria-label="Close"
                     onClick={() => setShowModal(!showModal)}
-                    icon={
-                      <span
-                        className="text-5xl font-light text-right  text-black"
-                        aria-hidden="true"
-                      >
-                        &times;
-                      </span>
-                    }
-                  />
+                    // icon={}
+                  >
+                    <span
+                      className="text-5xl font-light text-right  text-black"
+                      aria-hidden="true"
+                    >
+                      &times;
+                    </span>
+                  </Button>
                   <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg space-y-4">
                       <h2>Thanks for taking the time to reach out!</h2>

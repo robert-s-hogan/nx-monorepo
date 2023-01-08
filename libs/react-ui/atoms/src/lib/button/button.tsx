@@ -1,6 +1,21 @@
 import './button.module.css';
 
-export type ButtonTypes = 'submit' | 'reset' | ' button';
+export const ButtonType = {
+  BUTTON: 'button',
+  RESET: 'reset',
+  SUBMIT: 'submit',
+};
+
+export const ButtonTheme = {
+  DEFAULT: 'default',
+  ROUNDED: 'rounded',
+};
+
+export const ButtonSize = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large',
+};
 
 /* eslint-disable-next-line */
 export interface ButtonProps {
@@ -11,19 +26,38 @@ export interface ButtonProps {
   type?: ButtonTypes;
 }
 
-export function Button(props: ButtonProps) {
-  const { onClick, className, children, disabled } = props;
+type Props = {
+  type: string;
+  theme: string;
+  size: string;
+  onClick: Function;
+  children: React.Node;
+  className: string;
+  disabled: boolean;
+};
+
+const Button = (props: Props): React.Element<*> => {
+  const { type, onClick, children, theme, size, className, disabled } = props;
 
   return (
     <button
+      type={type}
       onClick={onClick}
-      // type={type}
       disabled={disabled}
-      className={className}
+      className={classProps}
     >
       {children}
     </button>
   );
-}
+};
+
+Button.defaultProps = {
+  type: ButtonType.BUTTON,
+  theme: ButtonTheme.DEFAULT,
+  size: ButtonSize.MEDIUM,
+  onClick: () => {},
+  className: '',
+  disabled: false,
+};
 
 export default Button;
