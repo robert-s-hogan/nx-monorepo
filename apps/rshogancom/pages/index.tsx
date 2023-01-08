@@ -820,9 +820,9 @@ export function Index() {
                         />
                       </div>
 
-                      <Button type="submit" className="md:w-32 mt-3">
+                      <button type="submit" className="md:w-32 mt-3">
                         Submit
-                      </Button>
+                      </button>
                     </form>
                   </div>
                 </div>
