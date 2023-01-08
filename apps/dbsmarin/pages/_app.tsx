@@ -6,7 +6,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to dbsmarin!</title>
+        <title>Home | dbsmarin</title>
       </Head>
       <main className="app">
         <Component {...pageProps} />
