@@ -692,7 +692,9 @@ export function Index() {
                       <span
                         className="text-5xl font-light text-right  text-black"
                         aria-hidden="true"
-                      ></span>
+                      >
+                        &times;
+                      </span>
                     }
                   />
                   <div className="grid grid-cols-1 md:grid-cols-2">
