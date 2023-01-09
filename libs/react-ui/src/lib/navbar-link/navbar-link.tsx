@@ -1,11 +1,10 @@
 /**
-  NavbarLink (Molecule)
-  
-    The NavbarLink component is a molecule that represents a single link within a Navbar. It consists of an anchor element with the specified href prop as its target.
+  NavbarLink (Atom)
+  The NavbarLink component is an atom that represents a single link in a navigation bar. It consists of an a element with the specified href and label props.
 
   Props
-
-    href (string): The target URL for the link.
+  href (string): The target URL for the link.
+  label (string): The label for the link.
  */
 
 import React from 'react';

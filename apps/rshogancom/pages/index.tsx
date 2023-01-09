@@ -50,9 +50,11 @@ export function Index() {
               </div>
             </Link>
             <nav className="flex justify-center">
-              <Button onClick={() => setShowModal(!showModal)}>
-                Say Hello
-              </Button>
+              <Button
+                onClick={() => setShowModal(!showModal)}
+                label="Say Hello"
+                type="submit"
+              />
             </nav>
           </div>
         </div>
@@ -388,107 +390,91 @@ export function Index() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center">
           <div className="flex justify-center">
             <Link href="https://www.onedemocracy.org/" passHref>
-              <a>
-                <Image
-                  src={OneDemocracy}
-                  height={50}
-                  width={87}
-                  loading="lazy"
-                  alt="One Democracy Logo"
-                />
-              </a>
+              <Image
+                src={OneDemocracy}
+                height={50}
+                width={87}
+                loading="lazy"
+                alt="One Democracy Logo"
+              />
             </Link>
           </div>
           <div className="flex justify-center">
             <Link href="https://www.mgisolutions.com/" passHref>
-              <a>
-                <Image
-                  src={MGISolution}
-                  height={50}
-                  width={190}
-                  loading="lazy"
-                  alt="MGI Solutions Logo"
-                />
-              </a>
+              <Image
+                src={MGISolution}
+                height={50}
+                width={190}
+                loading="lazy"
+                alt="MGI Solutions Logo"
+              />
             </Link>
           </div>
           <div className="flex justify-center">
             <Link href="https://anitaliandish.com/" passHref>
-              <a>
-                <Image
-                  src={AnItalianDish}
-                  height={50}
-                  width={200}
-                  loading="lazy"
-                  alt="An Italian Dish Logo"
-                />
-              </a>
+              <Image
+                src={AnItalianDish}
+                height={50}
+                width={200}
+                loading="lazy"
+                alt="An Italian Dish Logo"
+              />
             </Link>
           </div>
 
           <div className="flex justify-center">
             <Link href="https://www.thomashenrywines.com/" passHref>
-              <a>
-                <Image
-                  src={ThomasHenryWines}
-                  height={50}
-                  width={89}
-                  loading="lazy"
-                  alt="Thomas Henry Wines Logo"
-                />
-              </a>
+              <Image
+                src={ThomasHenryWines}
+                height={50}
+                width={89}
+                loading="lazy"
+                alt="Thomas Henry Wines Logo"
+              />
             </Link>
           </div>
           <div className="flex justify-center">
             <Link href="https://www.thekrealty.com/" passHref>
-              <a>
-                <Image
-                  src={KRealty}
-                  width={100}
-                  height={100}
-                  loading="lazy"
-                  alt="K Realty Logo"
-                />
-              </a>
+              <Image
+                src={KRealty}
+                width={100}
+                height={100}
+                loading="lazy"
+                alt="K Realty Logo"
+              />
             </Link>
           </div>
           <div className="flex justify-center">
             <Link href="https://ticketsaver.net/" passHref>
-              <a>
-                <Image
-                  src={TicketSaver}
-                  height={75}
-                  width={193}
-                  loading="lazy"
-                  alt="Ticket Saver Logo"
-                />
-              </a>
+              <Image
+                src={TicketSaver}
+                height={75}
+                width={193}
+                loading="lazy"
+                alt="Ticket Saver Logo"
+              />
             </Link>
           </div>
           <div className="flex justify-center">
             <Link href="https://www.jessicahoganma.com/" passHref>
-              <a>
-                <Image
-                  src={JHogan}
-                  height={50}
-                  width={89}
-                  loading="lazy"
-                  alt="Jessica Hogan MA Logo"
-                />
-              </a>
+              <Image
+                src={JHogan}
+                height={50}
+                width={89}
+                loading="lazy"
+                alt="Jessica Hogan MA Logo"
+              />
             </Link>
           </div>
           <div className="flex justify-center">
             <Link href="https://www.broadwaymedia.com/" passHref>
-              <a>
-                <Image
-                  src={BMDLogo}
-                  height={65}
-                  width={88}
-                  loading="lazy"
-                  alt="Broadway Media Distribution"
-                />
-              </a>
+              <Image
+                src={BMDLogo}
+                height={65}
+                width={88}
+                loading="lazy"
+                alt="Broadway Media Distribution"
+              />
             </Link>
           </div>
         </div>
@@ -525,7 +511,7 @@ export function Index() {
             </h2>
             <p className="text-gray-500">
               <Link href="https://anitaliandish.com/" passHref>
-                <a>AnItalianDish.com</a>
+                AnItalianDish.com
               </Link>
             </p>
           </div>
@@ -543,11 +529,10 @@ export function Index() {
               We should queue up a chat. I’ll buy the coffee.
             </p>
             <Button
-              className="outline w-1/2 mx-auto mt-6 lg:mt-0 lg:py-0   lg:px-10 lg:w-1/4"
+              className="outline w-1/2 mx-auto mt-6 lg:mt-0 lg:py-0  lg:px-10 lg:w-1/4"
               onClick={() => setShowModal(!showModal)}
-            >
-              Lets do this
-            </Button>
+              label="Lets do this"
+            />
           </div>
         </div>
       </section>
@@ -703,15 +688,13 @@ export function Index() {
                     // data-dismiss="modal"
                     // aria-label="Close"
                     onClick={() => setShowModal(!showModal)}
-                    // icon={}
-                  >
-                    <span
-                      className="text-5xl font-light text-right  text-black"
-                      aria-hidden="true"
-                    >
-                      &times;
-                    </span>
-                  </Button>
+                    icon={
+                      <span
+                        className="text-5xl font-light text-right  text-black"
+                        aria-hidden="true"
+                      ></span>
+                    }
+                  />
                   <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg space-y-4">
                       <h2>Thanks for taking the time to reach out!</h2>

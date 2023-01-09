@@ -1,7 +1,11 @@
 /* 
   NavbarMenu (Organism)
-  
-  The NavbarMenu component is an organism that combines the Navbar and NavbarLink components to create a fully functional navigation menu. It includes a button that toggles the display of the Navbar when clicked, and the Navbar component is rendered with the links prop passed
+  The NavbarMenu component is an organism that represents a navigation menu. It consists of an unordered list of NavbarLink components based on the links prop.
+
+  Props
+  links (array): An array of objects representing the links to be rendered in the NavbarMenu. Each object should have the following properties:
+  href (string): The target URL for the link.
+  label (string): The label for the link.
  */
 
 import React, { useState } from 'react';
