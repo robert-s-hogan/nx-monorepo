@@ -1,11 +1,17 @@
 /**
   Button (Atom)
-  The Button component is an atom that represents a basic button element. It consists of a button element with the specified type, label, and onClick props.
+  The Button component is an atom that represents a basic button element. It consists of a button element with the specified type, label, icon, onClick, className, disabled, style, title, and aria-label props.
 
   Props
-  type (string): The type of the button element. Can be one of "button", "submit", or "reset".
   label (string): The label for the button.
+  icon (React.ReactNode): A React element or node to be rendered before the label.
   onClick (function): A function to be called when the button is clicked.
+  type (string): The type of the button element. Can be one of "button", "submit", or "reset".
+  className (string): A class name to be added to the button element.
+  disabled (boolean): A boolean value indicating whether the button should be disabled.
+  style (object): An object containing CSS styles to be applied to the button element.
+  title (string): A string to be displayed as a tooltip when the button is hovered.
+  aria-label (string): A string to be used as an accessible label for the button element.
 */
 
 import React, { ButtonHTMLAttributes } from 'react';
@@ -14,9 +20,13 @@ import React, { ButtonHTMLAttributes } from 'react';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
   icon?: React.ReactNode;
-  onClick?: () => void;
+  onClick: () => void;
   type?: 'button' | 'submit' | 'reset';
   className?: string;
+  disabled?: boolean;
+  style?: React.CSSProperties;
+  title?: string;
+  'aria-label'?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -25,9 +35,20 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   type,
   className,
+  disabled,
+  style,
+  title,
   ...props
 }) => (
-  <button type={type} onClick={onClick} className={className} {...props}>
+  <button
+    type={type}
+    onClick={onClick}
+    className={className}
+    disabled={disabled}
+    style={style}
+    title={title}
+    {...props}
+  >
     {icon ? icon : null} {label ? label : null}
   </button>
 );
