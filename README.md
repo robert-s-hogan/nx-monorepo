@@ -18,7 +18,7 @@ Run `pnpm nx build <app_name>` to build the project. The build artifacts will be
 
 To Build \*_every_ app
 
-``bash
+```bash
 pnpm nx run-many --targets=build --all
 
 ```
@@ -56,4 +56,7 @@ Run `pnpm nx g @nrwl/react:setup-tailwind --project=<your app here>` to install 
 ### Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
+
+```
+
 ```
