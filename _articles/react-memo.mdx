@@ -1,0 +1,56 @@
+---
+title: 'Reviewing usage of React.memo'
+excerpt: 'See my notes and discoveries regarding React.memo.'
+date: '2023-01-17T05:35:07.322Z'
+author:
+  name: Robert Hogan
+---
+
+Here are my notes and discoveries regarding React.memo.
+
+## 1.17.23
+
+### When do I use React.memo?
+
+[Source](https://reactjs.org/docs/react-api.html#reactmemo)
+
+> If your function component renders the same result given the same props, you can wrap it in a call to React.memo for a performance boost in some cases by memoizing the result. This means that React will skip rendering the component, and reuse the last rendered result.
+
+### My Findings
+
+Basically, you want to use it on simple components that has primitive prop(s). Memoization concept and React.memo are pretty different. React.memo is a lot simplier and reduced in scope. The best way to use React.memo is when your component has limited prop options.
+
+For example, if you have a component that has a prop of `color` and it can only be `red`, `blue`, or `green`, then you can use React.memo. If you have a component that has a prop of `color` and it can be any color, then you should not use React.memo.
+
+Each time React.memo renders a new color then we can cache the result. If the color is the same, then we can use the cached result. This is a simple example of how React.memo works.
+
+### Example
+
+```jsx
+import React from 'react';
+
+const Color = ({ color }) => {
+  console.log('rendering');
+  return <div style={{ color }}>{color}</div>;
+};
+
+const MemoizedColor = React.memo(Color);
+
+const App = () => {
+  const [color, setColor] = React.useState('red');
+  return (
+    <div>
+      <button onClick={() => setColor('red')}>Red</button>
+      <button onClick={() => setColor('blue')}>Blue</button>
+      <button onClick={() => setColor('green')}>Green</button>
+      <MemoizedColor color={color} />
+    </div>
+  );
+};
+
+export default App;
+```
+
+### Conclusion
+
+React.memo is a great tool to use when you have a component that has limited prop options. It is not a tool to use when you have a component that has a prop that can be any value. It is a tool to use when you have a component that has a prop that can only be a limited set of values.
