@@ -5,9 +5,7 @@ import Link from 'next/link';
 import { Seo, Button } from '@with-nx/react-ui';
 
 import RSH_logo from '../public/images/rsh_logo_Crop.jpg';
-
 import HeroImg from '../public/images/rsh_hero_circle.jpg';
-
 import OneDemocracy from '../public/images/one_democracy.webp';
 import MGISolution from '../public/images/mgi_solutions.svg';
 import AnItalianDish from '../public/images/an_italian_dish.png';
