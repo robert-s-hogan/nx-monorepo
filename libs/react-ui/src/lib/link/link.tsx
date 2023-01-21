@@ -15,6 +15,7 @@ export interface LinkProps {
   children: React.ReactNode;
   className?: string;
   target?: string;
+  rel?: string;
 }
 
 export const Link: React.FC<LinkProps> = ({
@@ -22,8 +23,9 @@ export const Link: React.FC<LinkProps> = ({
   children,
   className,
   target,
+  rel,
 }) => (
-  <a className={className} href={href} target={target}>
+  <a className={className} href={href} target={target} rel={rel}>
     {children}
   </a>
 );

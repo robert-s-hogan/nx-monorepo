@@ -1,0 +1,16 @@
+{
+  "name": "react-ui-organisms",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/react-ui/organisms/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/react-ui/organisms/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}
