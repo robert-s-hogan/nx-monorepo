@@ -12,13 +12,19 @@ import React from 'react';
 /* eslint-disable-next-line */
 export interface LinkProps {
   href: string;
-  label: string;
-  className: string;
+  children: React.ReactNode;
+  className?: string;
+  target?: string;
 }
 
-export const Link: React.FC<LinkProps> = ({ href, label, className }) => (
-  <a className={className} href={href}>
-    {label}
+export const Link: React.FC<LinkProps> = ({
+  href,
+  children,
+  className,
+  target,
+}) => (
+  <a className={className} href={href} target={target}>
+    {children}
   </a>
 );
 

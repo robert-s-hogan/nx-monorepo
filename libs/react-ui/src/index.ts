@@ -1,3 +1,4 @@
+export * from './lib/modal/modal';
 export * from './lib/checkbox/checkbox';
 export * from './lib/form-input/form-input';
 export * from './lib/list/list';
