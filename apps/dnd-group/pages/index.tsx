@@ -1,4 +1,5 @@
 import styles from './index.module.css';
+import Layout from '../components/layout/Layout';
 
 export function Index() {
   /*
@@ -7,7 +8,7 @@ export function Index() {
    * Note: The corresponding styles are in the ./index.css file.
    */
   return (
-    <div className={styles.page}>
+    <Layout>
       <div className="wrapper">
         <div className="container">
           <div id="welcome">
@@ -408,7 +409,7 @@ export function Index() {
           </p>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 
