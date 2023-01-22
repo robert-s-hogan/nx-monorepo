@@ -4,8 +4,9 @@ import Link from 'next/link';
 import { Seo, Button } from '@with-nx/react-ui';
 
 import RSHModal from '../components/RSHModal';
-import PageLayout from '../components/PageLayout';
+import Layout from '../components/layout/Layout';
 import { useModal } from '@with-nx/react-hooks';
+
 import HeroImg from '../public/images/rsh_hero_circle.jpg';
 import OneDemocracy from '../public/images/one_democracy.webp';
 import MGISolution from '../public/images/mgi_solutions.svg';
@@ -15,20 +16,18 @@ import KRealty from '../public/images/k_realty.webp';
 import TicketSaver from '../public/images/ticket_saver.jpeg';
 import JHogan from '../public/images/jhogan.webp';
 import BMDLogo from '../public/images/bmd_logo.webp';
-
 import Testimonial from '../public/images/rshhogan_testimonials_ellen_2.avif';
 
 export function Index() {
   const { isShowing, toggle } = useModal();
 
   return (
-    <PageLayout>
+    <Layout>
       <Seo
         title="Engineer - Robert S. Hogan"
         description="Robert S. Hogan is a software engineer with a passion for building web applications and mobile apps. He has experience with React, Next.js, ChakraUI, and more."
         faviconPath="../static/favicon.ico"
       />
-
       {/* Hero */}
       <section className="hero max-h-full bg-gradient-to-br from-primary-900 to-primary-700 dark:bg-gradient-to-r  py-8 md:py-24 space-y-4">
         <div className="h-48 w-48 lg:h-64 lg:w-64 object-scale-down flex justify-center mx-auto rounded-lg relative">
@@ -364,7 +363,7 @@ export function Index() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center">
           <div className="flex justify-center">
-            <Link href="https://www.onedemocracy.org/" passHref>
+            <Link href="https://www.onedemocracy.org/">
               <Image
                 src={OneDemocracy}
                 height={50}
@@ -375,7 +374,7 @@ export function Index() {
             </Link>
           </div>
           <div className="flex justify-center">
-            <Link href="https://www.mgisolutions.com/" passHref>
+            <Link href="https://www.mgisolutions.com/">
               <Image
                 src={MGISolution}
                 height={50}
@@ -386,7 +385,7 @@ export function Index() {
             </Link>
           </div>
           <div className="flex justify-center">
-            <Link href="https://anitaliandish.com/" passHref>
+            <Link href="https://anitaliandish.com/">
               <Image
                 src={AnItalianDish}
                 height={50}
@@ -398,7 +397,7 @@ export function Index() {
           </div>
 
           <div className="flex justify-center">
-            <Link href="https://www.thomashenrywines.com/" passHref>
+            <Link href="https://www.thomashenrywines.com/">
               <Image
                 src={ThomasHenryWines}
                 height={50}
@@ -409,7 +408,7 @@ export function Index() {
             </Link>
           </div>
           <div className="flex justify-center">
-            <Link href="https://www.thekrealty.com/" passHref>
+            <Link href="https://www.thekrealty.com/">
               <Image
                 src={KRealty}
                 width={100}
@@ -420,7 +419,7 @@ export function Index() {
             </Link>
           </div>
           <div className="flex justify-center">
-            <Link href="https://ticketsaver.net/" passHref>
+            <Link href="https://ticketsaver.net/">
               <Image
                 src={TicketSaver}
                 height={75}
@@ -431,7 +430,7 @@ export function Index() {
             </Link>
           </div>
           <div className="flex justify-center">
-            <Link href="https://www.jessicahoganma.com/" passHref>
+            <Link href="https://www.jessicahoganma.com/">
               <Image
                 src={JHogan}
                 height={50}
@@ -442,7 +441,7 @@ export function Index() {
             </Link>
           </div>
           <div className="flex justify-center">
-            <Link href="https://www.broadwaymedia.com/" passHref>
+            <Link href="https://www.broadwaymedia.com/">
               <Image
                 src={BMDLogo}
                 height={65}
@@ -485,9 +484,7 @@ export function Index() {
               Ellen S.
             </h2>
             <p className="text-gray-500">
-              <Link href="https://anitaliandish.com/" passHref>
-                AnItalianDish.com
-              </Link>
+              <Link href="https://anitaliandish.com/">AnItalianDish.com</Link>
             </p>
           </div>
         </div>
@@ -622,7 +619,7 @@ export function Index() {
           </button>
         </form>
       </RSHModal>
-    </PageLayout>
+    </Layout>
   );
 }
 

@@ -1,9 +1,9 @@
-import PageLayout from '../components/PageLayout';
+import Layout from '../components/layout/Layout';
 import { Heading, Link } from '@with-nx/react-ui';
 
 export default function Custom404() {
   return (
-    <PageLayout>
+    <Layout>
       <div className="container mx-auto my-48 md:my-80 lg:my-28 xl:my-48 2xl:my-72">
         <div className="space-y-4 px-5">
           <Heading level={1} className="text-5xl">
@@ -33,6 +33,6 @@ export default function Custom404() {
           </Link>
         </div>
       </div>
-    </PageLayout>
+    </Layout>
   );
 }
