@@ -1,6 +1,7 @@
 // import Image from 'next/image';
 import useSWR from 'swr';
 import Hero from '/public/images/hero_pooh.png';
+import Layout from '../components/layout/Layout';
 
 // import {
 //   useKeenSlider,
@@ -93,9 +94,10 @@ export function Index() {
   if (!data) return <div>loading...</div>;
 
   return (
-    <div className="w-full bg-brand-black h-full py-32">
-      <div className="max-w-5xl mx-auto px-5">
-        {/* <nav className="flex justify-between items-center py-4">
+    <Layout>
+      <div className="w-full bg-brand-black h-full py-32">
+        <div className="max-w-5xl mx-auto px-5">
+          {/* <nav className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-4">
             <div className="text-white font-bold text-2xl">道教 (Daoism)</div>
           </div>
@@ -105,7 +107,7 @@ export function Index() {
             <div className="text-white font-bold text-xl">Contact</div>
           </div>
         </nav> */}
-        {/* 
+          {/* 
         <div ref={sliderRef} className="keen-slider text-white">
           {data.map((chapter, index) => (
             <div
@@ -132,7 +134,7 @@ export function Index() {
           ))}
         </div> */}
 
-        {/* <div className="relative w-auto h-auto md:w-full">
+          {/* <div className="relative w-auto h-auto md:w-full">
           <Image src={Hero} alt="daoism" className="rounded-lg" />
         </div>
         <div className="space-x-2 mx-4 flex relative flex-wrap -mt-12">
@@ -146,8 +148,9 @@ export function Index() {
             }
           })}
         </div> */}
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 
