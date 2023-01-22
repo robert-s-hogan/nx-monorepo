@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-import Layout from '../components/layout';
+import Layout from '../components/layout/Layout';
 import { Seo, Link } from '@with-nx/react-ui';
 
 export function Index() {
