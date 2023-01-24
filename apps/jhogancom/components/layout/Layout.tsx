@@ -1,7 +1,9 @@
+import dynamic from 'next/dynamic';
 import { PageLayout } from '@with-nx/react-ui/templates';
 
-import Footer from './Footer';
 import Header from './Header';
+
+const Footer = dynamic(() => import('./Footer'), { ssr: false });
 
 interface LayoutProps {
   children: React.ReactNode;
