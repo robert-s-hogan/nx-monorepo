@@ -60,6 +60,7 @@ specifiers:
   prettier: ^2.6.2
   react: 18.2.0
   react-dom: 18.2.0
+  react-hotjar: ^5.4.1
   react-router-dom: 6.4.3
   react-test-renderer: 18.2.0
   reading-time: ^1.5.0
@@ -87,6 +88,7 @@ dependencies:
   nx-ignore: 15.3.1_ev5gbmhah3dvoxrny3bxdtunmi
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-hotjar: 5.4.1
   react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
   reading-time: 1.5.0
   regenerator-runtime: 0.13.7
@@ -15962,6 +15964,10 @@ packages:
       react-dom: 18.2.0_react@18.2.0
       react-is: 17.0.2
     dev: true
+
+  /react-hotjar/5.4.1:
+    resolution: {integrity: sha512-2205ONuPZzAFAQaIG2BQf/l8nePf5ir16vF7S/RT937JYvw3c7WSH65XRnL3sT4GMpU4eDzesB964xNE5wjGPQ==}
+    dev: false
 
   /react-inspector/5.1.1_react@18.2.0:
     resolution: {integrity: sha512-GURDaYzoLbW8pMGXwYPDBIv6nqei4kK7LPRZ9q9HCZF54wqXz/dnylBp/kfE9XmekBhHvLDdcYeyIwSrvtOiWg==}
