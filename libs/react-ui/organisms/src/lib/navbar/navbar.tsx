@@ -10,7 +10,7 @@
   isOpen (boolean): A boolean value indicating whether the NavbarMenu should be displayed.
  */
 
-import { NavbarMenu } from '@with-nx/react-ui-molecules';
+import { NavbarMenu } from '@with-nx/react-ui/molecules';
 
 interface NavbarProps {
   links: {
