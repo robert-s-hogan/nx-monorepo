@@ -17,7 +17,7 @@ const links = [
 
 const logo = <Image src={Logo} height={50} width={50} alt="Logo" />;
 
-const Footer = dynamic(() => import('./layout/Footer'));
+const Footer = dynamic(() => import('./layout/Footer'), { ssr: false });
 
 const RenderNavbar = () => {
   return (
