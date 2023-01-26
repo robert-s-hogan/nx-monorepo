@@ -1,6 +1,6 @@
-import { Button, Navbar, Footer } from '@with-nx/react-ui';
+import { Navbar } from '@with-nx/react-ui';
 import Image from 'next/image';
-import Dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 
 import Logo from './rsh_logo_Crop.jpg';
 
@@ -16,6 +16,8 @@ const links = [
 ];
 
 const logo = <Image src={Logo} height={50} width={50} alt="Logo" />;
+
+const Footer = dynamic(() => import('./layout/Footer'));
 
 const RenderNavbar = () => {
   return (
@@ -42,7 +44,7 @@ const RenderLayout = ({ children, meta }) => {
       <div className="container mx-auto max-w-4xl py-12">
         <div className="space-y-4">{children}</div>
       </div>
-      <Footer className="container mx-auto max-w-4xl bg-blue-700 text-white" />
+      <Footer />
     </div>
   );
 };
