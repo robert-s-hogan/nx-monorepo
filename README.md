@@ -68,6 +68,10 @@ ex:
 
 `import { Button } from '@with-nx/react-ui/atoms';`
 
+### Add tailwindCSS to a project
+
+`nx g @nrwl/react:setup-tailwind --project=<your app here>`
+
 ### Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.

@@ -23,7 +23,7 @@ const RenderNavbar = () => {
   return (
     <>
       <Navbar
-        className="flex justify-between container max-w-4xl mx-auto py-2"
+        className="flex justify-between container max-w-4xl mx-auto py-2 space-x-4"
         links={links}
         logo={logo}
         isOpen={true}
