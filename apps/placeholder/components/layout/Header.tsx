@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const logo = (
   <Image
-    src="https://via.placeholder.com/300.png/09f/fff "
+    src="https://via.placeholder.com/300.png/09f/fff"
     height={50}
     width={50}
     alt="Logo"

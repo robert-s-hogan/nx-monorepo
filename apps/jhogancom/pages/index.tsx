@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 import Layout from '../components/layout/Layout';
 import { Seo, Link } from '@with-nx/react-ui';
+import { Hero } from '@with-nx/react-ui/organisms';
 
 export function Index() {
   const [showModal, setShowModal] = useState(false);
@@ -14,7 +15,18 @@ export function Index() {
         faviconPath="../static/favicon.ico"
       />
 
-      <section
+      <Hero
+        title="Hi, I am Jessica. Data Scientist and Data Analyst"
+        subtitle="I want to help you make the best data-driven decisions and translate
+        data into actionable insights."
+        // backgroundImage="https://via.placeholder.com/1500"
+        buttonClassName="btn-primary"
+        buttonText="Contact Me"
+        onButtonClick={() => console.log('clicked')}
+        className="h-max w-full py-32 flex flex-col justify-center items-center text-black space-y-4 text-center bg-gradient-to-br from-peach to-mint"
+      />
+
+      {/* <section
         className="bg-gradient-to-br from-peach to-mint scroll-smooth w-full"
         style={{ height: '80vh' }}
       >
@@ -61,7 +73,7 @@ export function Index() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
       <section id="projects" className="w-full max-w-7xl px-6 mx-auto py-8">
         <h2 className="text-3xl font-semibold text-gray-800 mt-4">Projects</h2>
         <p>

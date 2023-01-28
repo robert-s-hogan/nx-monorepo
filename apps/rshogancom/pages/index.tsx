@@ -503,8 +503,9 @@ export function Index() {
             <Button
               className="outline w-1/2 mx-auto mt-6 lg:mt-0 lg:py-0  lg:px-10 lg:w-1/4"
               onClick={toggle}
-              label="Lets do this"
-            />
+            >
+              Lets do this
+            </Button>
           </div>
         </div>
       </section>

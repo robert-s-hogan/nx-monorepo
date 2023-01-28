@@ -27,7 +27,9 @@ const Header = () => {
               </div>
             </Link>
             <nav className="flex justify-center">
-              <Button onClick={toggle} label="Say Hello" type="submit" />
+              <Button onClick={toggle} type="submit">
+                Say Hello
+              </Button>
             </nav>
           </div>
         </div>

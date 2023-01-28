@@ -9,6 +9,11 @@
   style (object): An object containing CSS styles to be applied to the heading element.
   aria-labelledby (string): An id of an element which labels the heading.
   tabIndex (number) : Tabbing order of an element
+
+  EXAMPLE:
+  <Heading level={1} className="my-heading-class" id="my-heading-id" aria-labelledby="my-labelling-element-id" tabIndex={1}>
+    Heading Text
+  </Heading>
 */
 
 import React from 'react';

@@ -2,7 +2,7 @@ import { Navbar } from '@with-nx/react-ui';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-import Logo from './rsh_logo_Crop.jpg';
+import Logo from '../public/rsh_logo.svg';
 
 const links = [
   {

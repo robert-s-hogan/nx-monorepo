@@ -18,7 +18,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 
 /* eslint-disable-next-line */
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  label?: string;
+  children?: React.ReactNode;
   icon?: React.ReactNode;
   onClick: () => void;
   type?: 'button' | 'submit' | 'reset';
@@ -30,7 +30,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: React.FC<ButtonProps> = ({
-  label,
+  children,
   icon,
   onClick,
   type,
@@ -49,7 +49,7 @@ export const Button: React.FC<ButtonProps> = ({
     title={title}
     {...props}
   >
-    {icon ? icon : null} {label ? label : null}
+    {children ? children : null} {icon ? icon : null}
   </button>
 );
 
