@@ -22,6 +22,8 @@ interface NavbarProps {
   logo?: React.ReactNode;
   isOpen: boolean;
   className?: string;
+  isDarkMode?: boolean;
+  toggleButton?: React.ReactNode;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -29,10 +31,13 @@ export const Navbar: React.FC<NavbarProps> = ({
   logo,
   isOpen,
   className,
+  isDarkMode = false,
+  toggleButton,
 }) => (
   <nav className={className}>
     {logo ? <a href="/">{logo}</a> : null}
-    {isOpen && <NavbarMenu links={links} />}
+
+    {isOpen && <NavbarMenu links={links} toggleButton={toggleButton} />}
   </nav>
 );
 

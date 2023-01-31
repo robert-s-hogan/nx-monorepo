@@ -1,5 +1,7 @@
 import { Navbar } from '@with-nx/react-ui';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import { FiSun, FiMoon } from 'react-icons/fi';
 
 const logo = (
   <Image
@@ -30,6 +32,17 @@ const links = [
 ];
 
 const Header = () => {
+  const { theme, setTheme } = useTheme();
+
+  const toggleButton = (
+    <button
+      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      className="btn-primary text-sm text-white bg-black rounded dark:bg-white dark:text-black"
+    >
+      {theme === 'light' ? <FiMoon /> : <FiSun />}
+    </button>
+  );
+
   return (
     <header className="w-full">
       <Navbar
@@ -37,6 +50,7 @@ const Header = () => {
         links={links}
         logo={logo}
         isOpen={true}
+        toggleButton={toggleButton}
       />
     </header>
   );
