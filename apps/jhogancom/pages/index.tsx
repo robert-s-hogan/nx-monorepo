@@ -83,7 +83,7 @@ export function Index() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-8">
-          <div className="overflow-hidden rounded-lg dark:bg-black border border-opacity-20 border-blue hover:shadow-2xl hover:scale-125 hover:z-10 transition delay-150 text-left">
+          <div className="overflow-hidden rounded-lg dark:bg-black border border-opacity-20 border-blue hover:shadow-2xl transition delay-150 text-left">
             <Image
               width="355"
               height="224"
@@ -144,7 +144,7 @@ export function Index() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-lg dark:bg-black border border-opacity-20 border-blue hover:shadow-2xl hover:scale-125 hover:z-10 transition delay-150 dark:bg-gray-800 text-left">
+          <div className="overflow-hidden rounded-lg dark:bg-black border border-opacity-20 border-blue hover:shadow-2xl transition delay-150 dark:bg-gray-800 text-left">
             <Image
               width="355"
               height="224"
@@ -205,7 +205,7 @@ export function Index() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-lg dark:bg-black border border-opacity-20 border-blue hover:shadow-2xl hover:scale-125 hover:z-10 transition delay-150 dark:bg-gray-800 text-left">
+          <div className="overflow-hidden rounded-lg dark:bg-black border border-opacity-20 border-blue hover:shadow-2xl transition delay-150 dark:bg-gray-800 text-left">
             <Image
               width="355"
               height="224"
@@ -268,7 +268,7 @@ export function Index() {
               </div>
             </div>
           </div>
-          <div className="overflow-hidden rounded-lg dark:bg-black border border-opacity-20 border-blue hover:shadow-2xl hover:scale-125 hover:z-10 transition delay-150 dark:bg-gray-800 text-left">
+          <div className="overflow-hidden rounded-lg dark:bg-black border border-opacity-20 border-blue hover:shadow-2xl transition delay-150 dark:bg-gray-800 text-left">
             <Image
               width="355"
               height="224"
