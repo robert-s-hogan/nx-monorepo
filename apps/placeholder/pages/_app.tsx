@@ -7,7 +7,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
       <Head>
-        <title>Home | Placeholder</title>
+        <title>Home | Placeholder App</title>
       </Head>
       <Component {...pageProps} />
     </ThemeProvider>
