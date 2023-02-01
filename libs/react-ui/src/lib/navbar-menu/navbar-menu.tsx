@@ -24,12 +24,12 @@ export const NavbarMenu: React.FC<NavbarMenuProps> = ({
   toggleButton,
 }) => (
   <ul className="flex space-x-4 items-center">
-    {toggleButton && <li>{toggleButton}</li>}
     {links.map((link) => (
       <li key={link.href}>
         <NavbarLink href={link.href} label={link.label} />
       </li>
     ))}
+    {toggleButton && <li>{toggleButton}</li>}
   </ul>
 );
 

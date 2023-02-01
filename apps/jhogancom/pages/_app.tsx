@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useEffect } from 'react';
+import { ThemeProvider } from 'next-themes';
 
 import './styles.css';
 import { GoogleTagManager } from '@with-nx/analytics';
@@ -11,7 +12,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
     hotjar.initialize(3336768, 6);
   }, []);
   return (
-    <>
+    <ThemeProvider attribute="class">
       <Head>
         <title>Home - JessicaHoganMA.com</title>
       </Head>
@@ -19,7 +20,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </main>
       <GoogleTagManager />
-    </>
+    </ThemeProvider>
   );
 }
 

@@ -23,7 +23,7 @@ export function Index() {
         buttonClassName="btn-primary"
         buttonText="Contact Me"
         onButtonClick={() => console.log('clicked')}
-        className="h-max w-full py-32 flex flex-col justify-center items-center text-black space-y-4 text-center bg-gradient-to-br from-peach to-mint"
+        className="h-max w-full py-32 flex flex-col justify-center items-center text-black space-y-4 text-center bg-gradient-to-br from-peach to-mint dark:bg-gradient-to-r"
       />
 
       {/* <section
@@ -83,7 +83,7 @@ export function Index() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-8">
-          <div className="overflow-hidden bg-white rounded-lg border border-opacity-20 border-blue hover:shadow-2xl dark:bg-gray-800 text-left">
+          <div className="overflow-hidden rounded-lg dark:bg-black border border-opacity-20 border-blue hover:shadow-2xl hover:scale-125 hover:z-10 transition delay-150 text-left">
             <Image
               width="355"
               height="224"
@@ -108,19 +108,19 @@ export function Index() {
                 />
               </svg>
 
-              <h1 className="mx-3 text-lg font-semibold text-black">
+              <h3 className="mx-3 text-lg font-semibold text-black">
                 Python Project
-              </h1>
+              </h3>
             </div>
 
             <div className="px-4 py-4">
-              <p className="py-2 text-gray-700 dark:text-gray-400">
+              <p className="py-2 ">
                 For this project I used the MySQL Connector, Python and pandas
                 to implement a database on MySQL Server to create, read, update
                 and delete data.
               </p>
 
-              <div className="flex justify-end mt-4 text-gray-700 dark:text-gray-200">
+              <div className="flex justify-end mt-4">
                 <Link
                   target="_blank"
                   rel="noreferrer"
@@ -144,7 +144,7 @@ export function Index() {
             </div>
           </div>
 
-          <div className="overflow-hidden bg-white rounded-lg border border-opacity-20 border-blue hover:shadow-2xl dark:bg-gray-800 text-left">
+          <div className="overflow-hidden rounded-lg dark:bg-black border border-opacity-20 border-blue hover:shadow-2xl hover:scale-125 hover:z-10 transition delay-150 dark:bg-gray-800 text-left">
             <Image
               width="355"
               height="224"
@@ -169,13 +169,13 @@ export function Index() {
                 />
               </svg>
 
-              <h1 className="mx-3 text-lg font-semibold text-black">
+              <h3 className="mx-3 text-lg font-semibold text-black">
                 SQL Project
-              </h1>
+              </h3>
             </div>
 
             <div className="px-4 py-4">
-              <p className="py-2 text-gray-700 dark:text-gray-400">
+              <p className="py-2 ">
                 I developed a relational database from scratch through MYSQL
                 Community Server. I used Lucidchart (for my ERD), GitHub and
                 PopSQL.
@@ -205,7 +205,7 @@ export function Index() {
             </div>
           </div>
 
-          <div className="overflow-hidden bg-white rounded-lg border border-opacity-20 border-blue hover:shadow-2xl dark:bg-gray-800 text-left">
+          <div className="overflow-hidden rounded-lg dark:bg-black border border-opacity-20 border-blue hover:shadow-2xl hover:scale-125 hover:z-10 transition delay-150 dark:bg-gray-800 text-left">
             <Image
               width="355"
               height="224"
@@ -238,7 +238,7 @@ export function Index() {
             </div>
 
             <div className="px-4 py-4">
-              <p className="py-2 text-gray-700 dark:text-gray-400">
+              <p className="py-2 ">
                 My master’s thesis is a quantitative research project that
                 measured California residents’ attitudes towards parenthood
                 using SPSS.
@@ -268,7 +268,7 @@ export function Index() {
               </div>
             </div>
           </div>
-          <div className="overflow-hidden bg-white rounded-lg border border-opacity-20 border-blue hover:shadow-2xl dark:bg-gray-800 text-left">
+          <div className="overflow-hidden rounded-lg dark:bg-black border border-opacity-20 border-blue hover:shadow-2xl hover:scale-125 hover:z-10 transition delay-150 dark:bg-gray-800 text-left">
             <Image
               width="355"
               height="224"
@@ -289,7 +289,7 @@ export function Index() {
               </h3>
             </div>
             <div className="px-4 py-4">
-              <p className="py-2 text-gray-700 dark:text-gray-400">
+              <p className="py-2 ">
                 In this project I used various resources to clean and merge
                 datasets from Google Analytics as well as create visualizations,
                 analyze timeseries and build alerts for for marketing

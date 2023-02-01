@@ -43,4 +43,7 @@
   .btn-primary {
     @apply bg-orange hover:opacity-80 px-8 py-2 rounded-lg text-lg text-white;
   }
+  .text-primary {
+    @apply text-white dark:text-orange;
+  }
 }
