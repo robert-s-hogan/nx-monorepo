@@ -37,16 +37,16 @@ const Header = () => {
   const toggleButton = (
     <button
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      className="btn-primary text-sm text-white bg-black rounded dark:bg-white dark:text-black"
+      className="btn-primary text-sm"
     >
       {theme === 'light' ? <FiMoon /> : <FiSun />}
     </button>
   );
 
   return (
-    <header className="w-full">
+    <header className="w-full bg-header">
       <Navbar
-        className="flex justify-between container max-w-4xl mx-auto py-2 space-x-4"
+        className="flex justify-between container max-w-7xl mx-auto py-2 space-x-4 "
         links={links}
         logo={logo}
         isOpen={true}

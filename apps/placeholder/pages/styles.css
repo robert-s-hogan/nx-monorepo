@@ -34,6 +34,14 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-yellow-500 text-black text-xl px-3 py-2 rounded-lg;
+    @apply bg-indigo-500 text-white text-xl px-3 py-2 rounded-lg;
+  }
+  .text-primary {
+    @apply text-black dark:text-white;
+  }
+  .bg-footer,
+  .bg-header,
+  .bg-hero {
+    @apply bg-white dark:bg-slate-800;
   }
 }

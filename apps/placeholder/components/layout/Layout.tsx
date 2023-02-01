@@ -11,8 +11,15 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <PageLayout header={<Header />} footer={<Footer />}>
-      <main role="main" className="w-full h-full flex-grow overflow-auto">
+    <PageLayout
+      className="max-w-7xl container mx-auto "
+      header={<Header />}
+      footer={<Footer />}
+    >
+      <main
+        role="main"
+        className="max-w-7xl container mx-auto h-full flex-grow overflow-auto"
+      >
         {children}
       </main>
     </PageLayout>

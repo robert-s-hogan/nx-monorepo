@@ -7,12 +7,12 @@ function Index() {
       <Hero
         title="Welcome to placeholder!"
         subtitle="This is a placeholder for your next project."
-        backgroundImage="https://via.placeholder.com/1500"
+        // backgroundImage="https://via.placeholder.com/1500"
         buttonClassName="btn-primary"
         buttonText="Get Started"
         buttonIcon={<span>👉</span>}
         onButtonClick={() => console.log('clicked')}
-        className="h-max py-32 flex flex-col justify-center items-center text-white space-y-4"
+        className="h-max py-32 flex flex-col justify-center items-center text-primary space-y-4 bg-hero"
       />
     </Layout>
   );
