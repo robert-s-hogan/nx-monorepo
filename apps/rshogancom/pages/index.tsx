@@ -2,12 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Seo, Button } from '@with-nx/react-ui';
-
-import RSHModal from '../components/RSHModal';
-import Layout from '../components/layout/Layout';
 import { useModal } from '@with-nx/react-hooks';
 
-import HeroImg from '../public/images/rsh_hero_circle.jpg';
+import ContactModal from '../components/ContactModal';
+import RSHModal from '../components/RSHModal';
+import Layout from '../components/layout/Layout';
+import HeroSection from '../components/HeroSection';
+
 import OneDemocracy from '../public/images/one_democracy.webp';
 import MGISolution from '../public/images/mgi_solutions.svg';
 import AnItalianDish from '../public/images/an_italian_dish.png';
@@ -28,26 +29,8 @@ export function Index() {
         description="Robert S. Hogan is a software engineer with a passion for building web applications and mobile apps. He has experience with React, Next.js, ChakraUI, and more."
         faviconPath="../static/favicon.ico"
       />
-      {/* Hero */}
-      <section className="hero max-h-full bg-gradient-to-br from-primary-900 to-primary-700 dark:bg-gradient-to-r  py-8 md:py-24 space-y-4">
-        <div className="h-48 w-48 lg:h-64 lg:w-64 object-scale-down flex justify-center mx-auto rounded-lg relative">
-          <Image
-            placeholder="blur"
-            priority={true}
-            objectFit="contain"
-            objectPosition="center"
-            src={HeroImg}
-            className="rounded-full"
-            alt="Robert's Professional Shot"
-          />
-        </div>
-        <h1 className="text-xl md:text-3xl font-bold text-center text-white md:order-1">
-          Web Developer, UI/UX Engineer
-        </h1>
-        <p className="text-center text-white">
-          I design and code beautifully simple things, and I love what I do.
-        </p>
-      </section>
+
+      <HeroSection />
       {/* Hi Im Robert */}
       <section className="w-full bg-white py-24 flex flex-col justify-center text-center px-4">
         <div className="max-w-4xl mx-auto">

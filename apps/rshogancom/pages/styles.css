@@ -129,7 +129,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
 }
 
-a {
+a,
+.text-primary {
   @apply text-black hover:text-vivid-600 visited:text-vivid-400 relative decoration-vivid-600;
 }
 
