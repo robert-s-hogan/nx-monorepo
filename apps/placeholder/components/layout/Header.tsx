@@ -2,6 +2,7 @@ import { Navbar } from '@with-nx/react-ui';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon } from 'react-icons/fi';
+import { NavbarLinkType } from '@with-nx/react-ui/atoms';
 
 const logo = (
   <Image
@@ -12,22 +13,26 @@ const logo = (
   />
 );
 
-const links = [
+const links: { href: string; label: string; type?: NavbarLinkType }[] = [
   {
     href: '/',
     label: 'Home',
+    type: NavbarLinkType.Link,
   },
   {
     href: '/blog',
     label: 'Blog',
+    type: NavbarLinkType.Link,
   },
   {
     href: '/about',
     label: 'About',
+    type: NavbarLinkType.Link,
   },
   {
     href: '/contact',
     label: 'Contact',
+    type: NavbarLinkType.Button,
   },
 ];
 

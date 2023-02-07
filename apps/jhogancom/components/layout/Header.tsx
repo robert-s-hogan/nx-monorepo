@@ -27,6 +27,7 @@ import { Navbar } from '@with-nx/react-ui';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { Moon, Sun } from 'react-feather';
+import { NavbarLinkType } from '@with-nx/react-ui/atoms';
 
 const logo = (
   <Image
@@ -38,14 +39,21 @@ const logo = (
   />
 );
 
-const links = [
+const links: { href: string; label: string; type?: NavbarLinkType }[] = [
   {
     href: '/#projects',
     label: 'Projects',
+    type: NavbarLinkType.Link,
   },
   {
     href: '/#who-i-am',
     label: 'Who I Am',
+    type: NavbarLinkType.Link,
+  },
+  {
+    href: '/#contact',
+    label: 'Contact',
+    type: NavbarLinkType.Button,
   },
 ];
 

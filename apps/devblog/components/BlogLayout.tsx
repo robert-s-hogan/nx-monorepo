@@ -1,17 +1,25 @@
 import { Navbar } from '@with-nx/react-ui';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { NavbarLinkType } from '@with-nx/react-ui/atoms';
 
 import Logo from '../public/rsh_logo.svg';
 
-const links = [
+const links: { href: string; label: string; type?: NavbarLinkType }[] = [
   {
     href: '/',
     label: 'Home',
+    type: NavbarLinkType.Link,
   },
   {
-    href: '/blog',
-    label: 'Blog',
+    href: '/about',
+    label: 'About',
+    type: NavbarLinkType.Link,
+  },
+  {
+    href: '/contact',
+    label: 'Contact',
+    type: NavbarLinkType.Button,
   },
 ];
 

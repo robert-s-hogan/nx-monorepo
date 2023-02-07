@@ -11,13 +11,13 @@
  */
 
 import React from 'react';
-import { NavbarLink } from '@with-nx/react-ui';
-import { NavbarMenu } from '@with-nx/react-ui';
+import { NavbarMenu } from '@with-nx/react-ui/molecules';
 
 interface NavbarProps {
   links: {
     href: string;
     label: string;
+    type?: 'link' | 'button';
   }[];
   logo?: React.ReactNode;
   isOpen: boolean;

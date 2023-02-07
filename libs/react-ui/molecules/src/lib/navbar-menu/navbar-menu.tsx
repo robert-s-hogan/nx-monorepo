@@ -14,14 +14,19 @@ interface NavbarMenuProps {
   links: {
     href: string;
     label: string;
+    type?: 'link' | 'button';
   }[];
+  toggleButton?: React.ReactNode;
 }
 
-export const NavbarMenu: React.FC<NavbarMenuProps> = ({ links }) => (
+export const NavbarMenu: React.FC<NavbarMenuProps> = ({
+  links,
+  toggleButton,
+}) => (
   <ul className="flex space-x-4">
     {links.map((link) => (
       <li key={link.href}>
-        <NavbarLink href={link.href} label={link.label} />
+        <NavbarLink href={link.href}>{link.label}</NavbarLink>
       </li>
     ))}
   </ul>

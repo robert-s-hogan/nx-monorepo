@@ -7,14 +7,34 @@
   label (string): The label for the link.
  */
 
+import React from 'react';
+import { Button } from '@with-nx/react-ui';
+
+export enum NavbarLinkType {
+  Link = 'link',
+  Button = 'button',
+}
 /* eslint-disable-next-line */
 export interface NavbarLinkProps {
   href: string;
-  label: string;
+  type?: NavbarLinkType;
+  onClick?: () => void;
+  children?: React.ReactNode;
 }
 
-export const NavbarLink: React.FC<NavbarLinkProps> = ({ href, label }) => (
-  <a href={href}>{label}</a>
+export const NavbarLink: React.FC<NavbarLinkProps> = ({
+  href,
+  type = NavbarLinkType.Link,
+  onClick,
+  children,
+}) => (
+  <>
+    {type === NavbarLinkType.Link ? (
+      <a href={href}>{children}</a>
+    ) : (
+      <Button onClick={() => (window.location.href = href)}>{children}</Button>
+    )}
+  </>
 );
 
 export default NavbarLink;

@@ -16,6 +16,7 @@ interface NavbarProps {
   links: {
     href: string;
     label: string;
+    type: 'link' | 'button';
   }[];
   logo?: React.ReactNode;
   isOpen: boolean;
