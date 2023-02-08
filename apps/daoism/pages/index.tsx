@@ -1,7 +1,7 @@
 // import Image from 'next/image';
 import useSWR from 'swr';
 import Hero from '/public/images/hero_pooh.png';
-import Layout from '../components/layout/Layout';
+import DaoismLayout from '../components/layout/DaoismLayout';
 
 // import {
 //   useKeenSlider,
@@ -94,7 +94,7 @@ export function Index() {
   if (!data) return <div>loading...</div>;
 
   return (
-    <Layout>
+    <DaoismLayout>
       <div className="w-full bg-brand-black h-full py-32">
         <div className="max-w-5xl mx-auto px-5">
           {/* <nav className="flex justify-between items-center py-4">
@@ -150,7 +150,7 @@ export function Index() {
         </div> */}
         </div>
       </div>
-    </Layout>
+    </DaoismLayout>
   );
 }
 

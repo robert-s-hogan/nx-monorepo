@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
 import { PageLayout } from '@with-nx/react-ui/templates';
 
-import Header from './Header';
+import DaoismHeader from './DaoismHeader';
 
-const Footer = dynamic(() => import('./Footer'), { ssr: false });
+const DaoismFooter = dynamic(() => import('./DaoismFooter'), { ssr: false });
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <PageLayout header={<Header />} footer={<Footer />}>
+    <PageLayout header={<DaoismHeader />} footer={<DaoismFooter />}>
       {children}
     </PageLayout>
   );
