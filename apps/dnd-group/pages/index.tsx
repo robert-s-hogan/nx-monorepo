@@ -1,14 +1,8 @@
-import styles from './index.module.css';
-import Layout from '../components/layout/Layout';
+import DndGroupLayout from '../components/layout/DndGroupLayout';
 
 export function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.css file.
-   */
   return (
-    <Layout>
+    <DndGroupLayout>
       <div className="wrapper">
         <div className="container">
           <div id="welcome">
@@ -409,7 +403,7 @@ export function Index() {
           </p>
         </div>
       </div>
-    </Layout>
+    </DndGroupLayout>
   );
 }
 

@@ -1,9 +1,11 @@
 import dynamic from 'next/dynamic';
 import { PageLayout } from '@with-nx/react-ui/templates';
 
-import Header from './Header';
+import DndGroupHeader from './DndGroupHeader';
 
-const Footer = dynamic(() => import('./Footer'), { ssr: false });
+const DndGroupFooter = dynamic(() => import('./DndGroupFooter'), {
+  ssr: false,
+});
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -11,7 +13,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <PageLayout header={<Header />} footer={<Footer />}>
+    <PageLayout header={<DndGroupHeader />} footer={<DndGroupFooter />}>
       {children}
     </PageLayout>
   );
