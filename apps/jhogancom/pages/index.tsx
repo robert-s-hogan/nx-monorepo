@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { useModal } from '@with-nx/react-hooks';
 
-import Layout from '../components/layout/Layout';
+import JHoganComLayout from '../components/layout/JHoganComLayout';
 import { Seo, Link } from '@with-nx/react-ui';
 import { Hero } from '@with-nx/react-ui/organisms';
 
@@ -12,7 +12,7 @@ export function Index() {
   const { isShowing, toggle } = useModal();
 
   return (
-    <Layout>
+    <JHoganComLayout>
       <Seo
         title="Data Scientist and Data Analyst - Jessica Hogan M.A."
         description="I want to help you make the best data-driven decisions and translate data into actionable insights. As a Data Scientist and Data Analyst, I translate data into actionable insights. I have experience with SQL, Excel, reporting, dashboards and statistics.Jessica Hogan M.A."
@@ -624,7 +624,7 @@ export function Index() {
           </form>
         </div>
       </JHModal>
-    </Layout>
+    </JHoganComLayout>
   );
 }
 

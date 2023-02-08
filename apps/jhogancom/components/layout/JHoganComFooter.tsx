@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const Footer = () => {
+const JHoganComFooter = () => {
   return (
     <footer className="text-gray-600 body-font">
       <div className="max-w-7xl mx-auto px-6 py-8 flex items-center sm:flex-row flex-col">
@@ -138,4 +138,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default JHoganComFooter;

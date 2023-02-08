@@ -57,7 +57,7 @@ const links: { href: string; label: string; type?: NavbarLinkType }[] = [
   },
 ];
 
-const Header = () => {
+const JHoganComHeader = () => {
   const { theme, setTheme } = useTheme();
 
   const toggleButton = (
@@ -82,4 +82,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default JHoganComHeader;
