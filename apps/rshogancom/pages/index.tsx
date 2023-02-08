@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { Seo, Button } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
 
-import ContactModal from '../components/ContactModal';
 import RSHModal from '../components/RSHModal';
 import RSHoganComLayout from '../components/layout/RSHoganComLayout';
 import HeroSection from '../components/HeroSection';
