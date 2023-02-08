@@ -6,7 +6,7 @@ import { useModal } from '@with-nx/react-hooks';
 
 import ContactModal from '../components/ContactModal';
 import RSHModal from '../components/RSHModal';
-import Layout from '../components/layout/Layout';
+import RSHoganComLayout from '../components/layout/RSHoganComLayout';
 import HeroSection from '../components/HeroSection';
 
 import OneDemocracy from '../public/images/one_democracy.webp';
@@ -23,7 +23,7 @@ export function Index() {
   const { isShowing, toggle } = useModal();
 
   return (
-    <Layout>
+    <RSHoganComLayout>
       <Seo
         title="Engineer - Robert S. Hogan"
         description="Robert S. Hogan is a software engineer with a passion for building web applications and mobile apps. He has experience with React, Next.js, ChakraUI, and more."
@@ -603,7 +603,7 @@ export function Index() {
           </button>
         </form>
       </RSHModal>
-    </Layout>
+    </RSHoganComLayout>
   );
 }
 

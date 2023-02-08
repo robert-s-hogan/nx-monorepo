@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Link } from '@with-nx/react-ui';
 
-const Footer = () => {
+const RSHoganComFooter = () => {
   return (
     <footer className="max-w-4xl mx-auto text-center py-8">
       <Image
@@ -135,4 +135,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default RSHoganComFooter;

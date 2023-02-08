@@ -8,7 +8,7 @@ import { useModal } from '@with-nx/react-hooks';
 import RSHModal from '../../components/RSHModal';
 import RSH_logo from '../../public/images/rsh_logo_Crop.jpg';
 
-const Header = () => {
+const RSHoganComHeader = () => {
   const { isShowing, toggle } = useModal();
 
   return (
@@ -155,4 +155,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default RSHoganComHeader;
