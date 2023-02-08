@@ -1,4 +1,4 @@
-const Header = () => {
+const DbsMarinHeader = () => {
   return (
     <nav className="max-w-4xl container bg-white w-full flex relative justify-between items-center mx-auto h-20">
       <div className="inline-flex">
@@ -70,4 +70,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default DbsMarinHeader;

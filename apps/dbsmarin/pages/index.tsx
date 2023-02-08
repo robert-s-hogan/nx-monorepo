@@ -1,8 +1,8 @@
-import Layout from '../components/layout/Layout';
+import DbsMarinLayout from '../components/layout/DbsMarinLayout';
 
 export function Index() {
   return (
-    <Layout>
+    <DbsMarinLayout>
       <main className="px-6 py-12 lg:py-24 md:px-12 text-center lg:text-left">
         <div className="container mx-auto xl:px-32 text-gray-800">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -154,7 +154,7 @@ export function Index() {
           </div>
         </div>
       </main>
-    </Layout>
+    </DbsMarinLayout>
   );
 }
 

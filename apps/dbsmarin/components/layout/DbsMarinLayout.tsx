@@ -1,9 +1,11 @@
 import dynamic from 'next/dynamic';
 import { PageLayout } from '@with-nx/react-ui/templates';
 
-import Header from './Header';
+import DbsMarinHeader from './DbsMarinHeader';
 
-const Footer = dynamic(() => import('./Footer'), { ssr: false });
+const DbsMarinFooter = dynamic(() => import('./DbsMarinFooter'), {
+  ssr: false,
+});
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -11,7 +13,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <PageLayout header={<Header />} footer={<Footer />}>
+    <PageLayout header={<DbsMarinHeader />} footer={<DbsMarinFooter />}>
       {children}
     </PageLayout>
   );
