@@ -19,7 +19,7 @@ import { Navbar } from '@with-nx/react-ui/organisms';
 //   },
 // ];
 
-const Header = () => {
+const ConquestOfHeroesHeader = () => {
   return (
     <>
       {/* <Navbar
@@ -33,4 +33,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default ConquestOfHeroesHeader;

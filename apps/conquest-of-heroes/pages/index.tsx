@@ -1,5 +1,5 @@
 import styles from './index.module.css';
-import Layout from '../components/layout/Layout';
+import ConquestOfHeroesLayout from '../components/layout/ConquestOfHeroesLayout';
 
 export function Index() {
   /*
@@ -8,7 +8,7 @@ export function Index() {
    * Note: The corresponding styles are in the ./index.css file.
    */
   return (
-    <Layout>
+    <ConquestOfHeroesLayout>
       <div className={styles.page}>
         <div className="wrapper">
           <div className="container">
@@ -411,7 +411,7 @@ export function Index() {
           </div>
         </div>
       </div>
-    </Layout>
+    </ConquestOfHeroesLayout>
   );
 }
 
