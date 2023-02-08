@@ -1,9 +1,9 @@
-const Footer = () => {
+const PlaceholderFooter = () => {
   return (
     <footer className="max-w-7xl container mx-auto h-12 flex items-center bg-footer">
-      Footer
+      PlaceholderFooter
     </footer>
   );
 };
 
-export default Footer;
+export default PlaceholderFooter;

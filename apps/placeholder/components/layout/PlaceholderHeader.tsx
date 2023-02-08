@@ -36,7 +36,7 @@ const links: { href: string; label: string; type?: NavbarLinkType }[] = [
   },
 ];
 
-const Header = () => {
+const PlaceholderHeader = () => {
   const { theme, setTheme } = useTheme();
 
   const toggleButton = (
@@ -61,4 +61,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default PlaceholderHeader;

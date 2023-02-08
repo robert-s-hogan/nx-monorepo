@@ -1,9 +1,11 @@
 import dynamic from 'next/dynamic';
 import { PageLayout } from '@with-nx/react-ui/templates';
 
-import Header from './Header';
+import PlaceholderHeader from './PlaceholderHeader';
 
-const Footer = dynamic(() => import('./Footer'), { ssr: false });
+const PlaceholderFooter = dynamic(() => import('./PlaceholderFooter'), {
+  ssr: false,
+});
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,8 +15,8 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <PageLayout
       className="max-w-7xl container mx-auto "
-      header={<Header />}
-      footer={<Footer />}
+      header={<PlaceholderHeader />}
+      footer={<PlaceholderFooter />}
     >
       <main
         role="main"
