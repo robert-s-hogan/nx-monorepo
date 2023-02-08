@@ -25,7 +25,9 @@ const links: { href: string; label: string; type?: NavbarLinkType }[] = [
 
 const logo = <Image src={Logo} height={50} width={50} alt="Logo" />;
 
-const Footer = dynamic(() => import('./layout/Footer'), { ssr: false });
+const DevBlogFooter = dynamic(() => import('./layout/DevBlogFooter'), {
+  ssr: false,
+});
 
 const RenderNavbar = () => {
   return (
@@ -52,7 +54,7 @@ const RenderLayout = ({ children, meta }) => {
       <div className="container mx-auto max-w-4xl py-12">
         <div className="space-y-4">{children}</div>
       </div>
-      <Footer />
+      <DevBlogFooter />
     </div>
   );
 };

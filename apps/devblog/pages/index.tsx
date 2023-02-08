@@ -1,4 +1,4 @@
-import Layout from '../components/layout/Layout';
+import DevBlogLayout from '../components/layout/DevBlogLayout';
 
 export function Index() {
   /*
@@ -7,7 +7,7 @@ export function Index() {
    * Note: The corresponding styles are in the ./index.css file.
    */
   return (
-    <Layout>
+    <DevBlogLayout>
       <div className="container mx-auto">
         <div className="wrapper">
           <div className="container">
@@ -20,7 +20,7 @@ export function Index() {
           </div>
         </div>
       </div>
-    </Layout>
+    </DevBlogLayout>
   );
 }
 

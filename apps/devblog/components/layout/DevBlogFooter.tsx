@@ -1,11 +1,9 @@
-import React from 'react';
-
-const Footer = () => {
+const DevBlogFooter = () => {
   return (
     <div className="container mx-auto max-w-4xl bg-blue-700 text-white">
-      Footer
+      DevBlogFooter
     </div>
   );
 };
 
-export default Footer;
+export default DevBlogFooter;
