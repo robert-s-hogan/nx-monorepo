@@ -1,0 +1,275 @@
+/* colors */
+$yellow: #fed064;
+$pink: #a11f49;
+$white: #f3f0f8;
+$orange: #fe9364;
+$bg-color: #a67a71;
+
+@mixin transform($info) {
+  transform: $info;
+  -webkit-transform: $info;
+  -moz-transform: $info;
+  -ms-transform: $info;
+}
+@mixin gradient($type, $info) {
+  background: #{$type}-gradient($info);
+  background: -webkit-#{$type}-gradient($info);
+  background: -moz-#{$type}-gradient($info);
+  background: -ms-#{$type}-gradient($info);
+}
+@mixin browsers($info) {
+  animation: $info;
+  -webkit-animation: $info;
+  -moz-animation: $info;
+  -ms-animation: $info;
+  -o-animation: $info;
+}
+@mixin animation($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+}
+
+.content-wrapper {
+  overflow: hidden;
+  position: absolute;
+  @include gradient(radial, ($orange, darken($pink, 10)));
+}
+
+.mountain {
+  position: absolute;
+  &.m1 {
+    background-color: darken($pink, 10);
+    border-radius: 100%;
+    height: 200px;
+    width: 120%;
+    left: -10%;
+    bottom: -15%;
+    @include transform(rotate(-9deg));
+  }
+  &.m2 {
+    background-color: darken($pink, 15);
+    border-radius: 40% 0% 0 0;
+    height: 280px;
+    right: 0;
+    left: -15%;
+    top: 50%;
+    bottom: -50%;
+    @include transform(rotate(6deg));
+  }
+}
+
+.cactus {
+  border-radius: 30% 30% 0 0;
+  position: absolute;
+  .arm {
+    position: absolute;
+    &.left {
+      border-radius: 60% 60% 0% 60%;
+    }
+    &.right {
+      border-radius: 60% 60% 60% 0;
+    }
+  }
+  &.c1 {
+    background-color: darken($pink, 0);
+    bottom: 142px;
+    height: 30px;
+    right: 70px;
+    width: 7px;
+    .arm {
+      background-color: darken($pink, 0);
+      width: 6px;
+      &.left {
+        height: 15px;
+        left: -10px;
+        top: 7px;
+        &:after {
+          background-color: darken($pink, 0);
+          bottom: 0;
+          content: '';
+          height: 4px;
+          position: absolute;
+          right: -5px;
+          width: 5px;
+        }
+      }
+      &.right {
+        height: 13px;
+        right: -10px;
+        top: 3px;
+        &:after {
+          background-color: darken($pink, 0);
+          bottom: 0;
+          content: '';
+          height: 4px;
+          position: absolute;
+          left: -5px;
+          width: 5px;
+        }
+      }
+    }
+  }
+  &.c2 {
+    background-color: darken($pink, 15);
+    bottom: 188px;
+    height: 25px;
+    left: 40px;
+    width: 5px;
+    .arm {
+      background-color: darken($pink, 15);
+      width: 4px;
+      &.left {
+        height: 10px;
+        left: -8px;
+        top: 3px;
+        &:after {
+          background-color: darken($pink, 15);
+          bottom: 0;
+          content: '';
+          height: 4px;
+          position: absolute;
+          right: -5px;
+          width: 5px;
+        }
+      }
+      &.right {
+        height: 14px;
+        right: -9px;
+        top: 3px;
+        &:after {
+          background-color: darken($pink, 15);
+          bottom: 0;
+          content: '';
+          height: 4px;
+          position: absolute;
+          left: -5px;
+          width: 5px;
+        }
+      }
+    }
+  }
+}
+
+.sun {
+  background-color: $yellow;
+  border-radius: 100%;
+  bottom: 40%;
+  height: 100px;
+  left: 0;
+  opacity: 0.4;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 100px;
+  @include browsers(sunshineBef ease-in-out 10s infinite);
+  &:before {
+    background-color: $yellow;
+    border-radius: 100%;
+    content: '';
+    height: 130px;
+    left: -15px;
+    opacity: 0.4;
+    position: absolute;
+    top: -15px;
+    width: 130px;
+    @include browsers(sunshineBef ease-in-out 10s infinite);
+  }
+  &:after {
+    background-color: $yellow;
+    border-radius: 100%;
+    content: '';
+    height: 165px;
+    left: -30px;
+    opacity: 0.2;
+    position: absolute;
+    top: -30px;
+    width: 165px;
+    @include browsers(sunshineAft ease-in-out 10s infinite);
+  }
+}
+
+.star {
+  background-color: $white;
+  height: 1px;
+  position: absolute;
+  width: 1px;
+}
+
+// creating random positioned stars
+@for $i from 1 through 15 {
+  .s#{$i} {
+    $speed: random(15) + 10 + s;
+    $delay: -(random(25)) + s;
+    left: random(90) + 0%;
+    top: random(30) + 2%;
+    @include browsers(shiningStar $speed $delay infinite);
+  }
+}
+
+/* animations */
+@include animation(shiningStar) {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@include animation(sunshineBef) {
+  0% {
+    opacity: 0.4;
+  }
+  25% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+@include animation(sunshineAft) {
+  0% {
+    opacity: 0.2;
+  }
+  25% {
+    opacity: 0.05;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  75% {
+    opacity: 0.05;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}

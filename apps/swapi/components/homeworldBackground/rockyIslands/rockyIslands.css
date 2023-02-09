@@ -1,0 +1,162 @@
+.bg-rockyIslands {
+  background: #1a2432;
+}
+
+.sky {
+  display: flex;
+  height: 55%;
+  position: relative;
+}
+
+.moon {
+  margin: auto;
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  background-color: pink;
+  position: relative;
+  box-shadow: 0 0 0 0.6em #2c394b, 0 0 0 1.4em #1f2938, 0 0 0 2em #1c2735;
+}
+
+.stars {
+  position: absolute;
+  top: -20%;
+  right: -30%;
+  bottom: 0;
+  left: -30%;
+  color: #404c5d;
+  text-align: right;
+  animation: shine 5s linear infinite;
+}
+
+.stars:before,
+.stars:after {
+  position: absolute;
+  content: '*';
+  color: #404c5d;
+  z-index: 2;
+}
+
+.stars:before {
+  top: 30%;
+  right: -4%;
+  animation: shine 5s linear infinite alternate-reverse;
+}
+
+.stars:after {
+  top: 10%;
+  right: 10%;
+  animation: shine 3.5s linear infinite;
+}
+
+.stars2 {
+  top: -5%;
+  right: 40%;
+  text-align: left;
+  transform: rotate(-90deg);
+}
+
+.stars2:after {
+  top: 5%;
+  right: 20%;
+}
+
+.stars2:before {
+  top: -10%;
+  right: 40%;
+}
+
+.shooting-star {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+  width: 0.3em;
+  height: 0.3em;
+  animation: cometFlight 8s ease infinite;
+}
+
+.mountains {
+  top: 50%;
+  left: -30%;
+  border-left: 8em solid transparent;
+  border-right: 8em solid transparent;
+  border-bottom: 8em solid #2c80e7;
+  width: 0;
+  height: 0;
+  overflow: visible;
+  position: relative;
+}
+
+.mountains:before,
+.mountains:after {
+  position: absolute;
+  top: 0.65em;
+  content: '';
+}
+
+.mountains:before {
+  top: 5em;
+  left: 2.5em;
+  border-left: 3em solid transparent;
+  border-right: 3em solid transparent;
+  border-bottom: 3.5em solid #f1f1f1;
+  z-index: 1;
+}
+
+.mountains:after {
+  top: 2.2em;
+  right: -1em;
+  border-left: 5em solid transparent;
+  border-right: 5em solid transparent;
+  border-bottom: 6em solid #2e63a5;
+}
+
+.lake {
+  position: absolute;
+  right: 0;
+  bottom: -40%;
+  left: -30%;
+  background-color: #2ce7b9;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  animation: lakeMovement 2s linear infinite;
+}
+
+@keyframes cometFlight {
+  0% {
+    top: 0;
+    right: -50%;
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    right: 60%;
+    opacity: 0;
+  }
+}
+
+@keyframes shine {
+  0%,
+  100% {
+    color: #404c5d;
+  }
+  50% {
+    color: #8e9399;
+  }
+}
+
+@keyframes lakeMovement {
+  0%,
+  100% {
+    box-shadow: -45px 5px 0 0 #2ce7b9, 45px 5px 0 0 #27b797,
+      -25px 10px 0 0 #238676, 25px 10px 0 0 #238676, -5px 15px 0 0 #1f5a58,
+      5px 15px 0 0 #1f5a58, 0 20px 0 0 #1d4b4c, -20px 20px 0 0 #1b383f,
+      50px 20px 0 0 #1b383f, 0 25px 0 0 #1b383f;
+  }
+  50% {
+    box-shadow: -55px 5px 0 0 #2ce7b9, 55px 5px 0 0 #27b797,
+      -35px 10px 0 0 #238676, 35px 10px 0 0 #238676, -10px 15px 0 0 #1f5a58,
+      10px 15px 0 0 #1f5a58, 5px 20px 0 0 #1d4b4c, -15px 20px 0 0 #1b383f,
+      60px 20px 0 0 #1b383f, -10px 25px 0 0 #1b383f;
+  }
+}

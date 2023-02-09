@@ -1,0 +1,151 @@
+.scene {
+  height: inherit;
+  left: -33%;
+  top: -1%;
+  position: absolute;
+}
+
+#leaves-1,
+#leaves-2 {
+  animation: leaves 5s ease-in-out infinite;
+}
+#bush {
+  animation: shake 1s 1s both 6;
+}
+#bush-1 {
+  animation: shake 1s both 3s 4;
+}
+#bush-2 {
+  animation: shake 1s both 2s 5;
+}
+.cls-1 {
+  fill: #98e1ed;
+}
+
+.cls-2 {
+  fill: #194759;
+}
+
+.cls-3,
+.cls-5 {
+  fill: #669970;
+}
+
+.cls-4 {
+  fill: #417656;
+}
+
+.cls-5 {
+  stroke: #52755b;
+}
+
+.cls-16,
+.cls-17,
+.cls-18,
+.cls-19,
+.cls-20,
+.cls-26,
+.cls-5 {
+  stroke-miterlimit: 10;
+}
+
+.cls-6 {
+  fill: #0d7637;
+}
+
+.cls-7 {
+  fill: #2f1810;
+}
+
+.cls-8 {
+  fill: #401201;
+}
+
+.cls-9 {
+  fill: #c19272;
+}
+
+.cls-10 {
+  fill: #024c10;
+}
+
+.cls-11 {
+  fill: #88ba7b;
+}
+
+.cls-12 {
+  fill: #99bf86;
+}
+
+.cls-13 {
+  fill: #3d5859;
+}
+
+.cls-14 {
+  fill: #059954;
+}
+
+.cls-15 {
+  fill: #7a573b;
+}
+
+.cls-16,
+.cls-17,
+.cls-18,
+.cls-20,
+.cls-26 {
+  fill: none;
+}
+
+.cls-16,
+.cls-17,
+.cls-18,
+.cls-19,
+.cls-20 {
+  stroke: #000;
+}
+
+.cls-16 {
+  stroke-width: 6.27px;
+}
+
+.cls-17 {
+  stroke-width: 10.97px;
+}
+
+.cls-18 {
+  stroke-width: 4.7px;
+}
+
+.cls-19 {
+  stroke-width: 7.2px;
+}
+
+.cls-20 {
+  stroke-width: 3.13px;
+}
+
+.cls-21 {
+  fill: #5d3811;
+}
+
+.cls-22 {
+  fill: #ffc6a8;
+}
+
+.cls-23 {
+  fill: #345365;
+}
+
+.cls-24 {
+  fill: #edf7f5;
+}
+
+.cls-25 {
+  fill: #c96;
+}
+
+.cls-26 {
+  stroke: #401201;
+  stroke-width: 50px;
+}
