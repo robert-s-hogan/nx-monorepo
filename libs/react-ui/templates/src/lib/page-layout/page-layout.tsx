@@ -6,6 +6,8 @@ export interface PageLayoutProps {
   children: React.ReactNode;
   footer: React.ReactNode;
   className?: string;
+  hideNavBar?: boolean;
+  hideFooter?: boolean;
 }
 
 export const PageLayout: React.FC<PageLayoutProps> = ({
@@ -13,12 +15,14 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   children,
   footer,
   className,
+  hideNavBar: hideNavBarProp,
+  hideFooter: hideFooterProp,
 }) => {
   return (
     <div className={className}>
-      {header}
+      {hideNavBarProp ? '' : header}
       {children}
-      {footer}
+      {hideFooterProp ? '' : footer}
     </div>
   );
 };
