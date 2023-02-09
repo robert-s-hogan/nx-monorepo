@@ -16,9 +16,29 @@ interface RSHoganComLayoutProps {
   hideNavBar?: boolean;
 }
 
-const RSHoganComLayout = ({ children }: RSHoganComLayoutProps) => {
+const RSHoganComLayout: React.FC<RSHoganComLayoutProps> = ({
+  children,
+  className,
+  title,
+  description,
+  hideNavBar: hideNavBarProp,
+}: RSHoganComLayoutProps) => {
   return (
-    <PageLayout header={<RSHoganComHeader />} footer={<RSHoganComFooter />}>
+    <PageLayout
+      header={hideNavBarProp ? '' : <RSHoganComHeader />}
+      footer={<RSHoganComFooter />}
+    >
+      <Head>
+        <title>{title ? title : 'Home | Robert Hogan'}</title>
+        <meta
+          name="description"
+          content={
+            description
+              ? description
+              : 'Robert Hogan Web Developer, UI/UX Engineer. I design and code beautifully simple things, and I love what I do.'
+          }
+        />
+      </Head>
       {children}
     </PageLayout>
   );
