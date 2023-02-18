@@ -30,8 +30,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   className,
 }) => (
   <nav className={className}>
-    {logo ? <a href="/">{logo}</a> : null}
+    <a href="/">{logo}</a>
     {isOpen && <NavbarMenu links={links} />}
+    <NavbarMenu links={links} />
   </nav>
 );
 
