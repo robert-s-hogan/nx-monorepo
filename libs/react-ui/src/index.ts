@@ -1,3 +1,6 @@
+export * from './lib/dropdown/dropdown';
+export * from './lib/icon/icon';
+export * from './lib/search-bar/search-bar';
 export * from './lib/checkbox/checkbox';
 export * from './lib/form-input/form-input';
 export * from './lib/list/list';
