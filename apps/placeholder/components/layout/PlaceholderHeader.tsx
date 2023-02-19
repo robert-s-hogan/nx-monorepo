@@ -1,8 +1,7 @@
-import { Navbar } from '@with-nx/react-ui';
+import { Navbar, NavbarLinkType } from '@with-nx/react-ui';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon } from 'react-icons/fi';
-import { NavbarLinkType } from '@with-nx/react-ui';
 
 const logo = (
   <Image
@@ -13,26 +12,35 @@ const logo = (
   />
 );
 
-const links: { href: string; label: string; type?: NavbarLinkType }[] = [
+const links: {
+  href: string;
+  label: string;
+  type?: NavbarLinkType;
+  className?: string;
+}[] = [
   {
     href: '/',
     label: 'Home',
     type: NavbarLinkType.Link,
+    className: 'text-white',
   },
   {
     href: '/blog',
     label: 'Blog',
     type: NavbarLinkType.Link,
+    className: 'text-white',
   },
   {
     href: '/about',
     label: 'About',
     type: NavbarLinkType.Link,
+    className: 'text-white',
   },
   {
     href: '/contact',
     label: 'Contact',
     type: NavbarLinkType.Button,
+    className: 'btn-primary text-sm',
   },
 ];
 

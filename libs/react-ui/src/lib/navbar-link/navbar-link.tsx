@@ -14,25 +14,31 @@ export enum NavbarLinkType {
   Link = 'link',
   Button = 'button',
 }
-/* eslint-disable-next-line */
-export interface NavbarLinkProps {
+
+interface NavbarLinkProps {
   href: string;
   type?: NavbarLinkType;
   onClick?: () => void;
   children?: React.ReactNode;
+  className?: string;
 }
 
 export const NavbarLink: React.FC<NavbarLinkProps> = ({
   href,
-  type = NavbarLinkType.Link,
+  type = 'link',
   onClick,
   children,
+  className,
 }) => (
   <>
-    {type === NavbarLinkType.Link ? (
-      <a href={href}>{children}</a>
+    {type === 'link' ? (
+      <a href={href} className={className}>
+        {children}
+      </a>
     ) : (
-      <Button onClick={() => (window.location.href = href)}>{children}</Button>
+      <Button onClick={onClick} className={className}>
+        {children}
+      </Button>
     )}
   </>
 );
