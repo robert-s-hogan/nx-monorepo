@@ -2,7 +2,7 @@ import { Navbar } from '@with-nx/react-ui';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon } from 'react-icons/fi';
-import { NavbarLinkType } from '@with-nx/react-ui/atoms';
+import { NavbarLinkType } from '@with-nx/react-ui';
 
 const logo = (
   <Image

@@ -66,7 +66,7 @@ Libraries are shareable across libraries and applications. They can be imported 
 
 ex:
 
-`import { Button } from '@with-nx/react-ui/atoms';`
+`import { Button } from '@with-nx/react-ui';`
 
 ### Add tailwindCSS to a project
 

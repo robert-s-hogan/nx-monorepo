@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import Image from 'next/image';
 import { useModal } from '@with-nx/react-hooks';
 
 import JHoganComLayout from '../components/layout/JHoganComLayout';
 import { Seo, Link } from '@with-nx/react-ui';
-import { Hero } from '@with-nx/react-ui/organisms';
+import { Hero } from '@with-nx/react-ui';
 
 import JHModal from '../components/JHModal';
 

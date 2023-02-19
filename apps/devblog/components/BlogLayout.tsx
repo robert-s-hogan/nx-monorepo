@@ -1,7 +1,7 @@
 import { Navbar } from '@with-nx/react-ui';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import { NavbarLinkType } from '@with-nx/react-ui/atoms';
+import { NavbarLinkType } from '@with-nx/react-ui';
 
 import Logo from '../public/rsh_logo.svg';
 

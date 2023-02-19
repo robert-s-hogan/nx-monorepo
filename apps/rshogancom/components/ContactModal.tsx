@@ -1,5 +1,5 @@
 import { Link } from '@with-nx/react-ui';
-import { Modal } from '@with-nx/react-ui/atoms';
+import { Modal } from '@with-nx/react-ui';
 
 interface RSHModalProps {
   isShowing: boolean;

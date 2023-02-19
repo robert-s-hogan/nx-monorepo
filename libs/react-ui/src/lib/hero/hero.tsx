@@ -1,4 +1,5 @@
-import { Heading, Button } from '@with-nx/react-ui';
+import Heading from '../heading/heading';
+import Button from '../button/button';
 
 /* eslint-disable-next-line */
 export interface HeroProps {

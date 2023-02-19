@@ -1,7 +1,5 @@
-import { Hero } from '@with-nx/react-ui/organisms';
+import { Hero, Button, Modal } from '@with-nx/react-ui';
 import Image from 'next/image';
-import { Button } from '@with-nx/react-ui';
-import { Modal } from '@with-nx/react-ui/atoms';
 import NextLink from 'next/link';
 import { useModal } from '@with-nx/react-hooks';
 import { Calendly } from '@with-nx/analytics';

@@ -1,5 +1,5 @@
 import PlaceholderLayout from '../components/layout/PlaceholderLayout';
-import { Hero } from '@with-nx/react-ui/organisms';
+import { Hero } from '@with-nx/react-ui';
 
 function Index() {
   return (

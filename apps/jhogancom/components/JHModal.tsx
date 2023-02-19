@@ -1,5 +1,5 @@
 import { Button } from '@with-nx/react-ui';
-import { Modal } from '@with-nx/react-ui/atoms';
+import { Modal } from '@with-nx/react-ui';
 
 interface JHModalProps {
   isShowing: boolean;

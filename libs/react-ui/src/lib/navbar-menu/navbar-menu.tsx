@@ -8,7 +8,7 @@
   label (string): The label for the link.
  */
 
-import { NavbarLink } from '@with-nx/react-ui/atoms';
+import NavbarLink from '../navbar-link/navbar-link';
 
 interface NavbarMenuProps {
   links: {

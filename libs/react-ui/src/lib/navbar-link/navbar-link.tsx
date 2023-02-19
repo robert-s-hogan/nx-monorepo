@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { Button } from '@with-nx/react-ui';
+import Button from '../button/button';
 
 export enum NavbarLinkType {
   Link = 'link',

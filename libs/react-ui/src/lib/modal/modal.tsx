@@ -1,4 +1,4 @@
-import { Button } from '@with-nx/react-ui';
+import Button from '../button/button';
 
 interface ModalProps {
   isShowing: boolean;

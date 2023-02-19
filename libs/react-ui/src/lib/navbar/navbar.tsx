@@ -11,7 +11,7 @@
  */
 
 import React from 'react';
-import { NavbarMenu } from '@with-nx/react-ui/molecules';
+import NavbarMenu from '../navbar-menu/navbar-menu';
 
 interface NavbarProps {
   links: {

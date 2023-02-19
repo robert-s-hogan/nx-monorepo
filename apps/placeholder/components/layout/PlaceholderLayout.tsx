@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { PageLayout } from '@with-nx/react-ui/templates';
+import { PageLayout } from '@with-nx/react-ui';
 
 import PlaceholderHeader from './PlaceholderHeader';
 
