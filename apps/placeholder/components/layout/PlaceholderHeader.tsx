@@ -47,6 +47,34 @@ const links: {
   },
 ];
 
+const dropdowns = [
+  {
+    options: [
+      { label: 'Option 1', value: 'option-1' },
+      { label: 'Option 2', value: 'option-2' },
+      { label: 'Option 3', value: 'option-3' },
+    ],
+    value: 'option-1',
+    onChange: (value) => handleDropdownChange(value, 0),
+  },
+  {
+    options: [
+      { label: 'Option A', value: 'option-a' },
+      { label: 'Option B', value: 'option-b' },
+      { label: 'Option C', value: 'option-c' },
+    ],
+    value: 'option-a',
+    onChange: (value) => handleDropdownChange(value, 1),
+  },
+];
+
+const handleDropdownChange = (
+  value: string | number,
+  dropdownIndex: number
+) => {
+  console.log(`Selected value for dropdown ${dropdownIndex}: ${value}`);
+};
+
 const PlaceholderHeader = () => {
   const { theme, setTheme } = useTheme();
 
@@ -76,6 +104,15 @@ const PlaceholderHeader = () => {
         isOpen={true}
         toggleButton={toggleButton}
         searchBarProps={{ placeholder: 'Search', icon: searchIcon }}
+      />
+
+      <Navbar
+        className="flex justify-between container max-w-7xl mx-auto py-2 space-x-4 "
+        links={links}
+        logo={logo}
+        isOpen={true}
+        toggleButton={toggleButton}
+        dropdowns={dropdowns}
       />
     </header>
   );
