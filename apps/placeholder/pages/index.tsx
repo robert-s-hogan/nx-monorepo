@@ -3,7 +3,7 @@ import { Hero } from '@with-nx/react-ui/organisms';
 
 function Index() {
   return (
-    <PlaceholderLayout>
+    <PlaceholderLayout title="Home">
       <Hero
         title="Welcome to placeholder!"
         subtitle="This is a placeholder for your next project."
