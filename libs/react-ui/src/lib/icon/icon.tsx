@@ -1,5 +1,13 @@
 /*
 
+ * Icon (Atom)
+ * The Icon component is an atom that represents an icon. It accepts a `children` prop as the content to be rendered inside the icon, and a `className` prop to apply custom styles to the icon.
+ *
+ * Props:
+ * children (React.ReactNode): The content to be rendered inside the icon.
+ * className (string): A string of custom class names to apply to the icon.
+ 
+
 Example usage:
 
 import Icon from './Icon';
