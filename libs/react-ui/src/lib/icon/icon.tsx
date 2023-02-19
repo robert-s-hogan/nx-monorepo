@@ -1,3 +1,19 @@
+/*
+
+Example usage:
+
+import Icon from './Icon';
+
+function MyComponent() {
+  return (
+    <div>
+      <Icon className="my-icon-class">icon content</Icon>
+    </div>
+  );
+}
+
+*/
+
 /* eslint-disable-next-line */
 import React from 'react';
 
