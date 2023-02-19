@@ -36,9 +36,9 @@ const SearchBar: React.FC<SearchBarProps> = ({
   icon,
 }) => {
   return (
-    <div className="search-bar">
-      <input type="text" placeholder={placeholder} />
+    <div className="search-bar flex items-center">
       <Icon className="search-icon">{icon}</Icon>
+      <input type="text" placeholder={placeholder} />
     </div>
   );
 };

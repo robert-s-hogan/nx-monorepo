@@ -36,6 +36,9 @@
   .btn-primary {
     @apply bg-indigo-500 text-white text-xl px-3 py-2 rounded-lg;
   }
+  .btn-primary:hover {
+    @apply bg-indigo-900 transition-colors duration-300;
+  }
   .text-primary {
     @apply text-black dark:text-white;
   }
@@ -43,5 +46,11 @@
   .bg-header,
   .bg-hero {
     @apply bg-white dark:bg-slate-800;
+  }
+  .search-bar {
+    @apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 py-1 px-3 space-x-4 rounded-md h-full w-full;
+  }
+  .search-bar input {
+    @apply bg-transparent border-none outline-none w-full;
   }
 }

@@ -2,6 +2,7 @@ import { Navbar, NavbarLinkType } from '@with-nx/react-ui';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon } from 'react-icons/fi';
+import { Search } from 'react-feather';
 
 const logo = (
   <Image
@@ -11,6 +12,8 @@ const logo = (
     alt="Logo"
   />
 );
+
+const searchIcon = <Search />;
 
 const links: {
   href: string;
@@ -64,6 +67,15 @@ const PlaceholderHeader = () => {
         logo={logo}
         isOpen={true}
         toggleButton={toggleButton}
+      />
+      <Navbar
+        showSearchBar={true}
+        className="flex justify-between container max-w-7xl mx-auto py-2 space-x-4 "
+        links={links}
+        logo={logo}
+        isOpen={true}
+        toggleButton={toggleButton}
+        searchBarProps={{ placeholder: 'Search', icon: searchIcon }}
       />
     </header>
   );

@@ -12,6 +12,7 @@
 
 import React from 'react';
 import NavbarMenu from '../navbar-menu/navbar-menu';
+import SearchBar, { SearchBarProps } from '../search-bar/search-bar';
 
 interface NavbarProps {
   links: {
@@ -24,6 +25,8 @@ interface NavbarProps {
   className?: string;
   isDarkMode?: boolean;
   toggleButton?: React.ReactNode;
+  showSearchBar?: boolean;
+  searchBarProps?: SearchBarProps & { icon?: React.ReactNode };
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -33,9 +36,16 @@ export const Navbar: React.FC<NavbarProps> = ({
   className,
   isDarkMode = false,
   toggleButton,
+  showSearchBar = false,
+  searchBarProps,
 }) => (
   <nav className={className}>
-    {logo ? <a href="/">{logo}</a> : null}
+    <div className="navbar-left items-center flex space-x-4">
+      {logo ? <a href="/">{logo}</a> : null}
+      {showSearchBar && (
+        <SearchBar {...searchBarProps} icon={searchBarProps?.icon} />
+      )}
+    </div>
 
     {isOpen && <NavbarMenu links={links} toggleButton={toggleButton} />}
   </nav>
