@@ -72,6 +72,7 @@ const handleDropdownChange = (
   value: string | number,
   dropdownIndex: number
 ) => {
+  const selectedValue = event.target.value;
   console.log(`Selected value for dropdown ${dropdownIndex}: ${value}`);
 };
 

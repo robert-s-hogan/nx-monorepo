@@ -13,9 +13,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <ThemeProvider attribute="class">
-      <Head>
-        <title>Home - JessicaHoganMA.com</title>
-      </Head>
       <main className="app">
         <Component {...pageProps} />
       </main>
