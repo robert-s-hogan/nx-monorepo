@@ -42,6 +42,7 @@ interface StepperProps {
   plusIcon: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  errorMessage?: string;
 }
 
 export const Stepper: React.FC<StepperProps> = ({
@@ -51,9 +52,12 @@ export const Stepper: React.FC<StepperProps> = ({
   plusIcon,
   className,
   style,
+  errorMessage,
 }) => {
   const handleDecrement = () => {
-    onValueChange(value - 1);
+    if (value > 1) {
+      onValueChange(value - 1);
+    }
   };
 
   const handleIncrement = () => {
@@ -67,13 +71,22 @@ export const Stepper: React.FC<StepperProps> = ({
       }`}
       style={style}
     >
-      <Button className={stepperStyles.btn} onClick={handleDecrement}>
+      <Button
+        className={stepperStyles.btn}
+        onClick={handleDecrement}
+        disabled={value < 2}
+      >
         {minusIcon}
       </Button>
       <span className={stepperStyles.value}>{value}</span>
       <Button className={stepperStyles.btn} onClick={handleIncrement}>
         {plusIcon}
       </Button>
+      {value < 1 && (
+        <div className={stepperStyles.error}>
+          {errorMessage || 'Minimum value is 1'}
+        </div>
+      )}
     </div>
   );
 };
