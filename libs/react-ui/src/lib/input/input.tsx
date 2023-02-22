@@ -1,6 +1,6 @@
 /**
-  FormInput (Atom)
-  The FormInput component is an atom that represents a basic form input element. It consists of a input element with the specified label, type, name, value, onChange, className, id, style, onClick, ariaLabel, and required props.
+  Input (Atom)
+  The Input component is an atom that represents a basic form input element. It consists of a input element with the specified label, type, name, value, onChange, className, id, style, onClick, ariaLabel, and required props.
   Props:
   label (string): The text label for the form input.
   type (string): The type of the input element, can be one of text, email, password, etc.
@@ -18,7 +18,7 @@
 import React from 'react';
 
 /* eslint-disable-next-line */
-export interface FormInputProps {
+export interface InputProps {
   label: string;
   type: string;
   name: string;
@@ -32,7 +32,7 @@ export interface FormInputProps {
   required?: boolean;
 }
 
-export const FormInput: React.FC<FormInputProps> = ({
+export const Input: React.FC<InputProps> = ({
   label,
   type,
   name,
@@ -62,4 +62,4 @@ export const FormInput: React.FC<FormInputProps> = ({
   );
 };
 
-export default FormInput;
+export default Input;

@@ -1,7 +1,13 @@
 import PlaceholderLayout from '../components/layout/PlaceholderLayout';
-import { Hero } from '@with-nx/react-ui';
+import { useState } from 'react';
+import { Hero, Stepper } from '@with-nx/react-ui';
+import { FiMinus, FiPlus } from 'react-icons/fi';
 
 function Index() {
+  const [quantity, setQuantity] = useState(1);
+  const handleQuantityChange = (newQuantity: number) => {
+    setQuantity(newQuantity);
+  };
   return (
     <PlaceholderLayout title="Home">
       <Hero
@@ -13,6 +19,13 @@ function Index() {
         buttonIcon={<span>👉</span>}
         onButtonClick={() => console.log('clicked')}
         className="h-max py-32 flex flex-col justify-center items-center text-primary space-y-4 bg-hero"
+      />
+
+      <Stepper
+        value={quantity}
+        onValueChange={handleQuantityChange}
+        minusIcon={<FiMinus />}
+        plusIcon={<FiPlus />}
       />
     </PlaceholderLayout>
   );

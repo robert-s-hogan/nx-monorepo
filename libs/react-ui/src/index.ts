@@ -1,3 +1,5 @@
+export * from './lib/input/input';
+export * from './lib/stepper/stepper';
 export * from './lib/header/header';
 export * from './lib/page-layout/page-layout';
 export * from './lib/hero/hero';
@@ -8,7 +10,6 @@ export * from './lib/dropdown/dropdown';
 export * from './lib/icon/icon';
 export * from './lib/search-bar/search-bar';
 export * from './lib/checkbox/checkbox';
-export * from './lib/form-input/form-input';
 export * from './lib/list/list';
 export * from './lib/radio/radio';
 export * from './lib/select/select';

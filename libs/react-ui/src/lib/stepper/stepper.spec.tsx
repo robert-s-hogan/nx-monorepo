@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import FormInput from './form-input';
+import Stepper from './stepper';
 
-describe('FormInput', () => {
+describe('Stepper', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<FormInput />);
+    const { baseElement } = render(<Stepper />);
     expect(baseElement).toBeTruthy();
   });
 });
