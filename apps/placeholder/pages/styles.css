@@ -42,6 +42,12 @@
   .text-primary {
     @apply text-black dark:text-white;
   }
+  .btn-status {
+    @apply bg-green-500 text-white text-xl px-3 py-2 rounded-lg;
+  }
+  .btn-disabled {
+    @apply bg-gray-300 text-gray-700 cursor-not-allowed;
+  }
   .bg-footer,
   .bg-header,
   .bg-hero {

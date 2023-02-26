@@ -26,6 +26,10 @@ export default function useMultiStepForm({
     setStepData((prevData) => ({ ...prevData, [name]: value }));
   };
 
+  const handleStepBack = () => {
+    setCurrentStep((prev) => prev - 1);
+  };
+
   useEffect(() => {
     setStepValid(
       steps.map((step) => {
@@ -58,5 +62,6 @@ export default function useMultiStepForm({
     currentStep,
     handleStepChange,
     handleStepSubmit,
+    handleStepBack,
   };
 }

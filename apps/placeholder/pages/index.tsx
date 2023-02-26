@@ -1,7 +1,7 @@
 import PlaceholderLayout from '../components/layout/PlaceholderLayout';
 import { useState } from 'react';
 import { Hero, Stepper, PageIndicator, MultiStepForm } from '@with-nx/react-ui';
-import { FiMinus, FiPlus } from 'react-icons/fi';
+import { FiMinus, FiPlus, FiCheck } from 'react-icons/fi';
 
 function Index() {
   const [quantity, setQuantity] = useState(1);
@@ -95,7 +95,12 @@ function Index() {
           <PageIndicator page={page} total={15} className="bg-blue-500" />
         </div>
 
-        <MultiStepForm steps={steps} onSubmit={onSubmit} />
+        <MultiStepForm
+          steps={steps}
+          onSubmit={onSubmit}
+          className="grid grid-cols-1"
+          okayButtonIcon={<FiCheck />}
+        />
       </div>
     </PlaceholderLayout>
   );

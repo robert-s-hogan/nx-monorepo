@@ -1,4 +1,5 @@
-import styles from './multi-step-form.module.css';
+import { ReactNode } from 'react';
+import multiStepFormStyles from './multi-step-form.module.css';
 import { useMultiStepForm } from '@with-nx/react-hooks';
 
 /* eslint-disable-next-line */
@@ -15,35 +16,71 @@ export type FormStep = {
 export interface MultiStepFormProps {
   steps: FormStep[];
   onSubmit: (data: Record<string, any>) => void;
+  className?: string;
+  okayButtonIcon?: ReactNode;
 }
 
-export function MultiStepForm({ steps, onSubmit }: MultiStepFormProps) {
+export function MultiStepForm({
+  steps,
+  onSubmit,
+  className,
+  okayButtonIcon,
+}: MultiStepFormProps) {
   const {
     stepData,
     stepValid,
     currentStep,
     handleStepChange,
     handleStepSubmit,
+    handleStepBack,
   } = useMultiStepForm({ steps, onSubmit });
 
-  const StepComponent = steps[currentStep].component;
+  const StepComponent = steps[currentStep]?.component;
 
-  console.log(`currentStep`, currentStep);
-  console.log(`stepValid`, stepValid);
-  console.log(`!stepValid[currentStep]`, !stepValid[currentStep]);
+  const isLastStep = currentStep === steps.length - 1;
+  const buttonText = isLastStep ? 'Submit' : 'Next';
+  const statusButtonText = !stepValid[currentStep]
+    ? 'Please fill out field'
+    : 'Okay';
 
   return (
     <form onSubmit={handleStepSubmit}>
-      <StepComponent data={stepData} onChange={handleStepChange} />
-      {currentStep !== steps.length - 1 && (
-        <button
-          className="btn-primary"
-          type="submit"
-          disabled={!stepValid[currentStep]}
-        >
-          Next
-        </button>
-      )}
+      <div className={className}>
+        <StepComponent data={stepData} onChange={handleStepChange} />
+      </div>
+      <button
+        type="button"
+        className={`btn-status block ${
+          !stepValid[currentStep] ? 'btn-disabled' : ''
+        }`}
+        disabled
+      >
+        {!stepValid[currentStep] ? (
+          <div className="flex items-center space-x-4">{statusButtonText}</div>
+        ) : (
+          <div className="flex items-center space-x-4">
+            {okayButtonIcon}
+            {statusButtonText}
+          </div>
+        )}
+      </button>
+
+      <button
+        className="btn-secondary"
+        type="button"
+        onClick={handleStepBack}
+        disabled={currentStep === 0}
+      >
+        Back
+      </button>
+      <button
+        className="btn-primary"
+        type={isLastStep ? 'submit' : 'button'}
+        disabled={!stepValid[currentStep]}
+        onClick={handleStepSubmit}
+      >
+        {buttonText}
+      </button>
     </form>
   );
 }
