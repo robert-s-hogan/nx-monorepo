@@ -20,7 +20,7 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({ name }) => {
     <div className="flex items-center justify-between">
       {/* <Icon icon={project.icon} size={24} color="black" /> */}
 
-      <h3 className="mx-3 text-lg font-semibold text-black">{name}</h3>
+      <h3 className="text-lg font-semibold text-black">{name}</h3>
     </div>
   );
 };
