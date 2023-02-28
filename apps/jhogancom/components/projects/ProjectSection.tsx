@@ -4,28 +4,23 @@ import Link from 'next/link';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-import useSWR from 'swr';
 import ProjectItem from './ProjectItem';
 import { projectStaticData } from '../../data/projects';
 import { useRouter } from 'next/router';
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
-
 const ProjectSection = () => {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const pathname = router.pathname;
 
-  // const isLoading = !data && !error;
-
-  // useEffect(() => {
-  //   if (isLoading) {
-  //     setTimeout(() => {
-  //       setIsLoading(false);
-  //     }, 1000);
-  //   }
-  // }, [isLoading]);
+  useEffect(() => {
+    if (isLoading) {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 500);
+    }
+  }, [isLoading]);
 
   return (
     <div className="space-y-4">
