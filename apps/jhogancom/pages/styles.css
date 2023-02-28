@@ -47,3 +47,10 @@
     @apply text-white dark:text-orange;
   }
 }
+
+a {
+  @apply text-black dark:text-white;
+}
+a:hover {
+  @apply text-orange;
+}

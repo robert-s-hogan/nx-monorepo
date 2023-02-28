@@ -13,19 +13,16 @@
 
   function MyComponent() {
     return (
-      <SearchBar
-        placeholder="Search"
-        icon={<Camera />}
+      <SearchBar 
+        placeholder="Search for something" 
+        icon={<FaSearch />} 
       />
     );
   }
 
 */
 
-import Icon from '../icon/icon';
-
 /* eslint-disable-next-line */
-
 export interface SearchBarProps {
   placeholder?: string;
   icon?: React.ReactNode;
@@ -37,7 +34,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   return (
     <div className="search-bar flex items-center">
-      <Icon className="search-icon">{icon}</Icon>
+      {icon && <span className="search-icon">{icon}</span>}
       <input type="text" placeholder={placeholder} />
     </div>
   );

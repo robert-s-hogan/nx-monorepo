@@ -11,57 +11,319 @@ function Index() {
     console.log(data);
   };
 
+  const availableProjectors = [
+    {
+      name: 'Projector 1',
+      price: 100,
+      image: 'https://picsum.photos/200/300',
+    },
+    {
+      name: 'Projector 2',
+      price: 200,
+      image: 'https://picsum.photos/200/300',
+    },
+    {
+      name: 'Projector 3',
+      price: 300,
+      image: 'https://picsum.photos/200/300',
+    },
+  ];
+
   const steps = [
     {
-      name: 'Step 1',
+      name: 'rentalStartDate',
       component: ({ data, onChange }) => (
-        <div>
-          <label htmlFor="name">Name</label>
+        <div className="flex flex-col space-y-4">
+          <label htmlFor="rental-start-date" className="block">
+            Rental Start Date
+          </label>
           <input
-            id="name"
-            type="text"
-            value={data.name}
-            onChange={(event) => onChange('name', event.target.value)}
+            className="input"
+            id="rental-start-date"
+            type="date"
+            value={data.rentalStartDate}
+            onChange={(event) =>
+              onChange('rentalStartDate', event.target.value)
+            }
           />
         </div>
       ),
       validation: (data) => {
-        return data?.name?.length > 0;
+        return data?.rentalStartDate?.length > 0;
       },
     },
 
     {
-      name: 'Step 2',
+      name: 'rentalEndDate',
       component: ({ data, onChange }) => (
-        <div>
-          <label htmlFor="email">Email</label>
+        <div className="flex flex-col space-y-4">
+          <label htmlFor="rental-end-date">Rental End Date</label>
           <input
-            id="email"
-            type="email"
-            value={data.email}
-            onChange={(event) => onChange('email', event.target.value)}
+            className="input"
+            id="rental-end-date"
+            type="date"
+            value={data.rentalEndDate}
+            onChange={(event) => onChange('rentalEndDate', event.target.value)}
           />
         </div>
       ),
       validation: (data) => {
-        return data?.email?.length > 0;
+        return data?.rentalEndDate?.length > 0;
       },
     },
     {
-      name: 'Step 3',
+      name: 'availableProjectors',
       component: ({ data, onChange }) => (
-        <div>
-          <label htmlFor="phone">Phone</label>
+        <div className="flex flex-col space-y-4">
+          <label htmlFor="availableProjectors">Available Projectors</label>
+          <select
+            id="availableProjectors"
+            onChange={(event) =>
+              onChange('availableProjectors', event.target.value)
+            }
+          >
+            <option value="">Select a projector</option>
+            {availableProjectors.map((projector) => (
+              <option key={projector.name} value={projector.name}>
+                {projector.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      ),
+      validation: (data) => {
+        return data?.availableProjectors?.length > 0;
+      },
+    },
+    {
+      name: 'uploadYourDocuments',
+      component: ({ data, onChange }) => (
+        <div className="flex flex-col space-y-4">
+          <label htmlFor="uploadCoi">COI (Optional)</label>
           <input
-            id="phone"
-            type="tel"
-            value={data.phone}
-            onChange={(event) => onChange('phone', event.target.value)}
+            className="input"
+            id="uploadCoi"
+            type="file"
+            onChange={(event) => onChange('uploadCoi', event.target.value)}
+          />
+          <label htmlFor="uploadDL">Drivers License (Optional)</label>
+          <input
+            className="input"
+            id="uploadDL"
+            type="file"
+            onChange={(event) => onChange('uploadDL', event.target.value)}
           />
         </div>
       ),
       validation: (data) => {
-        return data?.phone?.length > 0;
+        return true;
+      },
+    },
+    {
+      name: 'whatIsYourAddress',
+      component: ({ data, onChange }) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="lg:col-span-2">
+            <label htmlFor="firstName" className="block">
+              First Name
+            </label>
+            <input
+              className="input"
+              id="firstName"
+              type="text"
+              value={data.firstName}
+              onChange={(event) => onChange('firstName', event.target.value)}
+            />
+          </div>
+          <div className="lg:col-span-2">
+            <label htmlFor="lastName" className="block">
+              Last Name
+            </label>
+            <input
+              className="input"
+              id="lastName"
+              type="text"
+              value={data.lastName}
+              onChange={(event) => onChange('lastName', event.target.value)}
+            />
+          </div>
+
+          <div className="lg:col-span-2">
+            {' '}
+            <label htmlFor="companyName" className="block">
+              Company Name (Optional)
+            </label>
+            <input
+              className="input"
+              id="companyName"
+              type="text"
+              value={data.companyName}
+              onChange={(event) => onChange('companyName', event.target.value)}
+            />
+          </div>
+
+          <div className="lg:col-span-2">
+            {' '}
+            <label htmlFor="email" className="block">
+              Email
+            </label>
+            <input
+              className="input"
+              id="email"
+              type="email"
+              value={data.email}
+              onChange={(event) => onChange('email', event.target.value)}
+            />
+          </div>
+
+          <div className="md:col-span-2 lg:col-span-4">
+            <label htmlFor="streetAddress" className="block">
+              Street Address
+            </label>
+            <input
+              className="input"
+              id="streetAddress"
+              type="text"
+              value={data.streetAddress}
+              onChange={(event) =>
+                onChange('streetAddress', event.target.value)
+              }
+            />
+          </div>
+
+          <div className="">
+            <label htmlFor="city" className="block">
+              City
+            </label>
+            <input
+              className="input"
+              id="city"
+              type="text"
+              value={data.city}
+              onChange={(event) => onChange('city', event.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="state" className="block">
+              State
+            </label>
+            <input
+              className="input"
+              id="state"
+              type="text"
+              value={data.state}
+              onChange={(event) => onChange('state', event.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="zipCode" className="block">
+              Zip Code
+            </label>
+            <input
+              className="input"
+              id="zipCode"
+              type="text"
+              value={data.zipCode}
+              onChange={(event) => onChange('zipCode', event.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="country" className="block">
+              Country
+            </label>
+            <input
+              className="input"
+              id="country"
+              type="text"
+              value={data.country}
+              onChange={(event) => onChange('country', event.target.value)}
+            />
+          </div>
+        </div>
+      ),
+      validation: (data) => {
+        return (
+          data?.firstName?.length > 0 &&
+          data?.lastName?.length > 0 &&
+          data?.companyName?.length > 0 &&
+          data?.email?.length > 0 &&
+          data?.streetAddress?.length > 0 &&
+          data?.city?.length > 0 &&
+          data?.state?.length > 0 &&
+          data?.zipCode?.length > 0 &&
+          data?.country?.length > 0
+        );
+      },
+    },
+    {
+      name: 'confirmOrderDetails',
+      component: ({ data, onChange }) => (
+        <div className="flex flex-col">
+          <div className="table">
+            <div className="table-row">
+              <div className="table-cell">Item</div>
+              <div className="table-cell">Unit Price</div>
+              <div className="table-cell">Total Price</div>
+            </div>
+            <div className="table-row">
+              <div className="table-cell">Stage Projector Lite</div>
+              <div className="table-cell">$100 x 4 weeks</div>
+              <div className="table-cell">$400</div>
+            </div>
+            <div className="table-row">
+              <div className="table-cell">Shipping</div>
+              <div className="table-cell">$400</div>
+              <div className="table-cell">$400</div>
+            </div>
+            <div className="table-row">
+              <div className="table-cell">Rush Fee</div>
+              <div className="table-cell">$400</div>
+              <div className="table-cell">$400</div>
+            </div>
+            <div className="table-row">
+              <div className="table-cell">Total</div>
+              <div className="table-cell"></div>
+              <div className="table-cell">$400</div>
+            </div>
+          </div>
+          <div className="flex space-x-4">
+            <button className="btn-primary">Pay With Card </button>
+            or
+            <button
+              className="btn-primary"
+              onClick={() => onChange('paymentMethod', 'purchaseOrder')}
+            >
+              Pay With Purchase Order
+            </button>
+          </div>
+        </div>
+      ),
+      validation: (data) => {
+        return true;
+      },
+    },
+    {
+      name: 'uploadDocuments',
+      component: ({ data, onChange }) => (
+        <div className="flex flex-col space-y-4">
+          <label htmlFor="upload-documents" className="block">
+            Upload Documents
+          </label>
+          <input
+            id="upload-documents"
+            type="file"
+            onChange={(event) => onChange('documents', event.target.value)}
+          />
+          <div className="flex space-x-4">
+            <button className="btn-success">Complete Order</button>
+          </div>
+        </div>
+      ),
+      validation: (data) => {
+        return true;
       },
     },
   ];
@@ -98,8 +360,9 @@ function Index() {
         <MultiStepForm
           steps={steps}
           onSubmit={onSubmit}
-          className="grid grid-cols-1"
+          className=" bg-white p-5 text-black rounded pb-14"
           okayButtonIcon={<FiCheck />}
+          showButtonStatus={[true, true, true, true, true, false, false]}
         />
       </div>
     </PlaceholderLayout>

@@ -70,9 +70,9 @@ const JHoganComHeader = () => {
   );
 
   return (
-    <header className="max-w-7xl mx-auto px-6 bg-header">
+    <header className="px-6 bg-header">
       <Navbar
-        className="flex justify-between container max-w-7xl mx-auto space-x-4 py-4 items-center "
+        className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black dark:text-white "
         links={links}
         logo={logo}
         isOpen={true}

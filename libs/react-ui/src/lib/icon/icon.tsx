@@ -10,28 +10,32 @@
 
 Example usage:
 
+import { FaCoffee } from 'react-icons/fa';
 import Icon from './Icon';
 
 function MyComponent() {
   return (
     <div>
-      <Icon className="my-icon-class">icon content</Icon>
+      <Icon
+        className="my-icon-class"
+        icon={<FaCoffee style={{ color: 'red', fontSize: '2em' }} />}
+      />
     </div>
   );
 }
 
 */
 
-/* eslint-disable-next-line */
 import React from 'react';
 
-interface IconProps {
-  children: React.ReactNode;
+/* eslint-disable-next-line */
+export interface IconProps {
+  icon: React.ReactNode;
   className?: string;
 }
 
-const Icon: React.FC<IconProps> = ({ children, className = '' }) => {
-  return <span className={className}>{children}</span>;
+export const Icon: React.FC<IconProps> = ({ icon, className = '' }) => {
+  return <span className={className}>{icon}</span>;
 };
 
 Icon.defaultProps = {
