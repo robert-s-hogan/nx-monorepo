@@ -27,7 +27,7 @@ export function Index() {
         buttonClassName="btn-primary"
         buttonText="Contact Me"
         onButtonClick={toggle}
-        className="h-max w-full py-32 flex flex-col justify-center items-center text-black space-y-4 text-center bg-gradient-to-br from-peach to-mint dark:bg-gradient-to-r"
+        className="h-max w-full py-32 flex flex-col justify-center items-center text-black space-y-4 text-center bg-gradient-to-br from-peach to-mint dark:bg-gradient-to-r px-4 xl:px-0"
       />
 
       {/* <section
@@ -78,7 +78,7 @@ export function Index() {
           </div>
         </div>
       </section> */}
-      <div className="py-8">
+      <div className="py-8 px-4 xl:px-0">
         <ProjectSection />
       </div>
       {/* <p className="text-center">
@@ -86,7 +86,7 @@ export function Index() {
           View all Projects
         </Link>
       </p> */}
-      <section id="who-i-am" className="pb-24">
+      <section id="who-i-am" className="pb-24 px-4 xl:px-0">
         <div className="container mx-auto">
           <section className="">
             <div className="container py-8 mx-auto">
@@ -248,7 +248,7 @@ export function Index() {
         id="contact"
         className="max-w-7xl mx-auto pb-8 text-white text-center -mt-16"
       >
-        <div className="w-11/12 lg:w-full mx-auto bg-orange text-white rounded-lg shadow-lg overflow-hidden">
+        <div className="w-11/12 lg:w-3/4 mx-auto bg-orange text-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex flex-col md:flex-row md:items-center md:space-x-6 w-11/12 lg:w-3/4 mx-auto justify-center py-8">
             <h2 className="text-white text-2xl font-semibold">
               Start a project
