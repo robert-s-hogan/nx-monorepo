@@ -73,6 +73,7 @@ specifiers:
   react-feather: ^2.0.10
   react-hotjar: ^5.4.1
   react-icons: ^4.7.1
+  react-loading-skeleton: ^3.1.1
   react-redux: ^8.0.5
   react-router-dom: 6.4.3
   react-test-renderer: 18.2.0
@@ -114,6 +115,7 @@ dependencies:
   react-feather: 2.0.10_react@18.2.0
   react-hotjar: 5.4.1
   react-icons: 4.7.1_react@18.2.0
+  react-loading-skeleton: 3.1.1_react@18.2.0
   react-redux: 8.0.5_mf75ijjtc77tpoazzqkaxwwqkq
   react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
   reading-time: 1.5.0
@@ -17542,6 +17544,14 @@ packages:
 
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
+
+  /react-loading-skeleton/3.1.1_react@18.2.0:
+    resolution: {integrity: sha512-gQeNzzKXlevvquRDOhN5kas5VE7toTKrpmE9BpUdf0iip9c5ae0LcVbulh5ebO2CFl4RrYsyLuDtYGyrh1h1iA==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /react-redux/8.0.5_mf75ijjtc77tpoazzqkaxwwqkq:
     resolution: {integrity: sha512-Q2f6fCKxPFpkXt1qNRZdEDLlScsDWyrgSj0mliK59qU6W5gvBiKkdMEG2lJzhd1rCctf0hb6EtePPLZ2e0m1uw==}
