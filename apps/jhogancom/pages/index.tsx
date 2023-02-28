@@ -87,7 +87,7 @@ export function Index() {
         </Link>
       </p> */}
       <section id="who-i-am" className="pb-24">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="container mx-auto">
           <section className="">
             <div className="container py-8 mx-auto">
               <div className="items-center lg:grid lg:grid-cols-3">
