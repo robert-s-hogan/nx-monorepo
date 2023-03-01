@@ -18,7 +18,7 @@ const ProjectSection = () => {
     if (isLoading) {
       setTimeout(() => {
         setIsLoading(false);
-      }, 500);
+      }, 1500);
     }
   }, [isLoading]);
 
@@ -61,7 +61,7 @@ const ProjectSection = () => {
                   }`}
                 >
                   {isLoading ? (
-                    <Skeleton height={30} width={335} />
+                    <Skeleton height={30} width="100%" />
                   ) : (
                     <ProjectItem name={project.name} />
                   )}
@@ -70,7 +70,7 @@ const ProjectSection = () => {
                 <div className="px-4 py-4 flex flex-col justify-between h-64">
                   <p className="py-2 flex-grow">
                     {isLoading ? (
-                      <Skeleton count={5} width={335} />
+                      <Skeleton count={5} width="100%" />
                     ) : project.description.length > 200 ? (
                       project.description.substring(0, 200) + '...'
                     ) : (
