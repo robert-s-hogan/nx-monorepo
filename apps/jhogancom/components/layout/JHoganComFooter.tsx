@@ -1,9 +1,10 @@
 import Image from 'next/image';
 
 const JHoganComFooter = () => {
+  const copyright = new Date().getFullYear();
   return (
-    <footer className="text-gray-600 body-font">
-      <div className="container mx-auto px-6 py-8 flex items-center sm:flex-row flex-col">
+    <footer>
+      <div className="container mx-auto max-w-7xl w-full flex flex-col justify-center items-center px-4 sm:flex-row py-8">
         <Image
           width="82"
           height="32"
@@ -12,9 +13,9 @@ const JHoganComFooter = () => {
           className="h-8"
         />
         <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-          © 2022 Jessica Hogan
+          © {copyright} Jessica Hogan
         </p>
-        <span className="inline-flex sm:ml-auto sm:mt-0 pt-4 justify-center sm:justify-start">
+        <span className="inline-flex sm:ml-auto sm:mt-0 justify-center sm:justify-start">
           <a
             className="text-blue hover:text-black"
             href="mailto:jessicahoganma@gmail.com"

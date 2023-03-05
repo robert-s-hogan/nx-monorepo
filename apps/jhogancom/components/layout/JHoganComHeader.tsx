@@ -1,33 +1,9 @@
-///         <nav className="flex ">
-//           <div className="hidden md:inline-flex md:flex-end md:space-x-4 text-sm text-black">
-//             <NextLink
-//               className="flex justify-center items-center p-2"
-//               href="/#projects"
-//             >
-//               Projects
-//             </NextLink>
-//             <NextLink
-//               className="flex justify-center items-center p-2"
-//               href="/#who-i-am"
-//             >
-//               Who I Am
-//             </NextLink>
-//           </div>
-//           <button className="text-black cursor-pointer mr-0 border-none focus:outline-none md:hidden">
-//             <svg width="32" height="24">
-//               <line id="top" x1="0" y1="2" x2="32" y2="2" />
-//               <line id="middle" x1="8" y1="12" x2="32" y2="12" />
-//               <line id="bottom" x1="0" y1="22" x2="32" y2="22" />
-//             </svg>
-//           </button>
-//           <nav className="hidden text-gray-500 uppercase text-bold sm:block"></nav>
-//         </nav>
-
 import { Navbar } from '@with-nx/react-ui';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { Moon, Sun } from 'react-feather';
 import { NavbarLinkType } from '@with-nx/react-ui';
+import { Section } from '@with-nx/react-tailwind-ui';
 
 const logo = (
   <Image
@@ -50,11 +26,6 @@ const links: { href: string; label: string; type?: NavbarLinkType }[] = [
     label: 'Who I Am',
     type: NavbarLinkType.Link,
   },
-  {
-    href: '/#contact',
-    label: 'Contact',
-    type: NavbarLinkType.Button,
-  },
 ];
 
 const JHoganComHeader = () => {
@@ -70,14 +41,16 @@ const JHoganComHeader = () => {
   );
 
   return (
-    <header className="px-6 bg-header">
-      <Navbar
-        className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black dark:text-white "
-        links={links}
-        logo={logo}
-        isOpen={true}
-        toggleButton={toggleButton}
-      />
+    <header>
+      <div className="container mx-auto max-w-7xl w-full flex flex-col justify-center items-center px-4">
+        <Navbar
+          className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black dark:text-white "
+          links={links}
+          logo={logo}
+          isOpen={true}
+          toggleButton={toggleButton}
+        />
+      </div>
     </header>
   );
 };

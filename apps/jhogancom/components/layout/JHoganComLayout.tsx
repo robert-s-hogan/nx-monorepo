@@ -39,7 +39,7 @@ const JHoganComLayout: React.FC<JHoganComLayoutProps> = ({
           }
         />
       </Head>
-      <div className="container mx-auto">{children}</div>
+      {children}
     </PageLayout>
   );
 };
