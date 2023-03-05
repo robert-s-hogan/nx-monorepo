@@ -1,6 +1,7 @@
 import PlaceholderLayout from '../components/layout/PlaceholderLayout';
 import { useState } from 'react';
 import { Hero, Stepper, PageIndicator, MultiStepForm } from '@with-nx/react-ui';
+import { Card } from '@with-nx/react-tailwind-ui';
 import { FiMinus, FiPlus, FiCheck } from 'react-icons/fi';
 
 function Index() {
@@ -344,26 +345,62 @@ function Index() {
         onButtonClick={() => console.log('clicked')}
         className="h-max py-32 flex flex-col justify-center items-center text-primary space-y-4 bg-hero"
       />
-      <div className="space-y-12 space-x-8">
-        <Stepper
-          value={quantity}
-          onValueChange={handleQuantityChange}
-          minusIcon={<FiMinus />}
-          plusIcon={<FiPlus />}
-        />
-
-        <div className="space-y-8">
-          <p>PageIndicator: @with-nx/react-ui</p>
-          <PageIndicator page={page} total={15} className="bg-blue-500" />
+      <div className="space-y-12 space-x-8 px-8">
+        <div className="p-8 border border-red-500 space-y-4">
+          <p>import Stepper from @with-nx/react-ui</p>
+          <Stepper
+            value={quantity}
+            onValueChange={handleQuantityChange}
+            minusIcon={<FiMinus />}
+            plusIcon={<FiPlus />}
+          />
         </div>
 
-        <MultiStepForm
-          steps={steps}
-          onSubmit={onSubmit}
-          className=" bg-white p-5 text-black rounded pb-14"
-          okayButtonIcon={<FiCheck />}
-          showButtonStatus={[true, true, true, true, true, false, false]}
-        />
+        <div className="p-8 border border-red-500 space-y-4">
+          <p>import PageIndicator @with-nx/react-ui</p>
+          <PageIndicator page={page} total={15} className="bg-red-500" />
+        </div>
+
+        <div className="p-8 border border-red-500 space-y-4">
+          <p>import MultiStepForm @with-nx/react-ui</p>
+          <MultiStepForm
+            steps={steps}
+            onSubmit={onSubmit}
+            className=" bg-white text-black rounded pb-14"
+            okayButtonIcon={<FiCheck />}
+            showButtonStatus={[true, true, true, true, true, false, false]}
+          />
+        </div>
+
+        <div className="p-8 border border-red-500 space-y-4">
+          <p>import Card @with-nx/react-tailwind-ui</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card
+              title="Card Title"
+              description="Card description"
+              image="https://via.placeholder.com/150"
+              label="Label"
+              price={100}
+              discountedPrice={50}
+            />
+            <Card
+              title="Card Title"
+              description="Card description"
+              image="https://via.placeholder.com/150"
+              label="Label"
+              price={100}
+              discountedPrice={50}
+            />
+            <Card
+              title="Card Title"
+              description="Card description"
+              image="https://via.placeholder.com/150"
+              label="Label"
+              price={100}
+              discountedPrice={50}
+            />
+          </div>
+        </div>
       </div>
     </PlaceholderLayout>
   );

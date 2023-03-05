@@ -46,6 +46,9 @@
   .text-primary {
     @apply text-white dark:text-orange;
   }
+  .card {
+    @apply transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110;
+  }
 }
 
 a {
