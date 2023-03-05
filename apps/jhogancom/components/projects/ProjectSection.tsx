@@ -38,7 +38,7 @@ const ProjectSection = () => {
               // <Link href={`/projects/${project.slug}`} key={project.name}>
               <div
                 key={project.name}
-                className="overflow-hidden rounded-lg dark:bg-black border border-opacity-20 border-blue hover:shadow-2xl transition delay-150 text-left"
+                className="overflow-hidden rounded-lg border border-opacity-20 border-blue hover:shadow-2xl transition delay-150 text-left"
               >
                 {isLoading ? (
                   <Skeleton

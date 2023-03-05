@@ -40,7 +40,7 @@ export function JHModal({
               onClick={toggle}
             >
               <div
-                className="bg-white text-black dark:bg-black dark:text-white border-2 rounded-lg shadow-lg relative flex flex-col outline-none focus:outline-none w-5/6 mx-auto"
+                className="bg-white text-black dark:text-white border-2 rounded-lg shadow-lg relative flex flex-col outline-none focus:outline-none w-5/6 mx-auto"
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
