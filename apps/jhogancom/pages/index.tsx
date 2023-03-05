@@ -245,13 +245,12 @@ export function Index() {
         toggle={toggle}
         title="Thanks for taking the time to reach out!"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 w-full">
-          <div className="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg space-y-4">
-            <h2>Thanks for taking the time to reach out!</h2>
-            <p className="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 ">
-              Fill in the form to start a conversation
-            </p>
-
+        <div className="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg space-y-4">
+          <h2>
+            Thanks for taking the time to reach out! Fill in the form to start a
+            conversation
+          </h2>
+          <div className="grid grid-cols-2">
             <div className="flex items-center mt-4 text-gray-600 dark:text-gray-400">
               <svg
                 fill="none"
@@ -275,7 +274,7 @@ export function Index() {
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 />
               </svg>
-              <div className="ml-4 text-md tracking-wide font-semibold w-40">
+              <div className="ml-4 text-md tracking-wide font-semibold w-full">
                 Sonoma County, CA
               </div>
             </div>
@@ -297,67 +296,68 @@ export function Index() {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              <div className="ml-4 text-md tracking-wide font-semibold w-40">
+              <div className="ml-4 text-md tracking-wide font-semibold w-full">
                 <Link className="text" href="mailto:robert@robertshogan.com">
-                  <p className="text-black dark:text-white">Email me</p>
+                  <p className="text-black dark:text-white underline">
+                    Email me
+                  </p>
                 </Link>
               </div>
             </div>
           </div>
-
-          <form
-            className="p-6 flex flex-col justify-center"
-            action="https://submit-form.com/F8kispbK"
-          >
-            <div className="flex flex-col">
-              <label htmlFor="name" className="hidden">
-                Full Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Full Name"
-                required
-                className="w-100 mt-2 py-3 px-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
-              />
-            </div>
-
-            <div className="flex flex-col mt-2">
-              <label htmlFor="email" className="hidden">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Email"
-                required
-                className="w-100 mt-2 py-3 px-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
-              />
-            </div>
-
-            <div className="flex flex-col mt-2">
-              <label htmlFor="message" className="hidden">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                placeholder="What would you like to start building?"
-                className="w-100 mt-2 py-3 px-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full mt-3 bg-orange hover:opacity-80 px-8 py-2 rounded-lg text-lg text-white"
-            >
-              Submit
-            </button>
-          </form>
         </div>
+        <form
+          className="px-6 flex flex-col justify-center mb-6"
+          action="https://submit-form.com/F8kispbK"
+        >
+          <div className="flex flex-col">
+            <label htmlFor="name" className="hidden">
+              Full Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Full Name"
+              required
+              className="w-100 mt-2 py-3 px-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+            />
+          </div>
+
+          <div className="flex flex-col mt-2">
+            <label htmlFor="email" className="hidden">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+              className="w-100 mt-2 py-3 px-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+            />
+          </div>
+
+          <div className="flex flex-col mt-2">
+            <label htmlFor="message" className="hidden">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              placeholder="What would you like to start building?"
+              className="w-100 mt-2 py-3 px-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full mt-3 bg-orange hover:opacity-80 px-8 py-2 rounded-lg text-lg text-white"
+          >
+            Submit
+          </button>
+        </form>
       </JHModal>
     </JHoganComLayout>
   );

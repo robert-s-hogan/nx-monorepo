@@ -81,7 +81,7 @@ const RSHModal = ({
       </div>
 
       <form
-        className="p-6 flex flex-col justify-center"
+        className="py-6 flex flex-col justify-center"
         action="https://submit-form.com/Mj5aEdSo"
       >
         <div className="flex flex-col">
