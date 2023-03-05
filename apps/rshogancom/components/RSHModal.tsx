@@ -7,7 +7,7 @@ interface RSHModalProps {
   title?: string;
   description?: string;
   icon?: React.ReactNode;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   hide?: () => void;
 }
 
