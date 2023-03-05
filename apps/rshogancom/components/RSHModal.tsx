@@ -35,7 +35,7 @@ export function RSHModal({
             style={{ background: 'rgba(0, 0, 0, 0.5)' }}
           >
             <div
-              className="modal-dialog relative w-auto my-6 mx-auto max-w-3xl"
+              className="modal-dialog relative w-auto my-6 mx-auto max-w-5xl"
               role="document"
               onClick={toggle}
             >
@@ -45,7 +45,7 @@ export function RSHModal({
                   e.stopPropagation();
                 }}
               >
-                <div className="modal-body relative p-4 flex-auto">
+                <div className="modal-body relative p-0 md:p-4 xl:p-8 flex-auto">
                   <div className="overflow-hidden mt-12">
                     <Button
                       className="icon border-0 close absolute top-0 right-0 my-0"

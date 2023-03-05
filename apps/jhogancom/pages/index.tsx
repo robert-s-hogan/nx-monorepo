@@ -223,10 +223,10 @@ export function Index() {
       <Section id="contact" minHeight="150px">
         <div className="lg:w-3/4 xl:w-full mx-auto bg-orange text-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex flex-col md:flex-row md:items-center md:space-x-6 w-11/12 lg:w-3/4 mx-auto justify-center py-8">
-            <h2 className="text-white text-2xl font-semibold xl:text-center">
+            <h2 className="text-white text-2xl font-semibold text-center">
               Start a project
             </h2>
-            <p className="mt-2 text-white md:flex-auto xl:text-center">
+            <p className="mt-2 text-white md:flex-auto text-center">
               Interested in working together? <span className="md:block"></span>
               We should queue up a chat. I’ll buy the coffee.
             </p>
@@ -245,7 +245,7 @@ export function Index() {
         toggle={toggle}
         title="Thanks for taking the time to reach out!"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 w-full">
           <div className="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg space-y-4">
             <h2>Thanks for taking the time to reach out!</h2>
             <p className="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 ">

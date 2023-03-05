@@ -35,7 +35,7 @@ export function JHModal({
             style={{ background: 'rgba(0, 0, 0, 0.5)' }}
           >
             <div
-              className="modal-dialog relative w-auto my-6 mx-auto max-w-3xl"
+              className="modal-dialog relative w-auto my-6 mx-auto max-w-5xl"
               role="document"
               onClick={toggle}
             >
@@ -45,7 +45,7 @@ export function JHModal({
                   e.stopPropagation();
                 }}
               >
-                <div className="modal-body relative p-4 flex-auto">
+                <div className="modal-body relative p-0 md:p-4 xl:p-8 flex-auto">
                   <div className="overflow-hidden">
                     <Button
                       className="icon border-0 close absolute top-1 right-2 my-0"
