@@ -1,6 +1,12 @@
 import PlaceholderLayout from '../components/layout/PlaceholderLayout';
 import { useState } from 'react';
-import { Hero, Stepper, PageIndicator, MultiStepForm } from '@with-nx/react-ui';
+import {
+  Hero,
+  Stepper,
+  PageIndicator,
+  MultiStepForm,
+  Form,
+} from '@with-nx/react-ui';
 import { Card, ImageCarousel } from '@with-nx/react-tailwind-ui';
 import { FiMinus, FiPlus, FiCheck } from 'react-icons/fi';
 
@@ -333,6 +339,36 @@ function Index() {
     setQuantity(newQuantity);
   };
 
+  // Used in Form component
+  const fields = [
+    {
+      name: 'Name',
+      label: 'Name',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'Email',
+      label: 'Email',
+      type: 'email',
+      required: true,
+      validation: (value: string) => {
+        const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        return isValidEmail ? undefined : 'Invalid email address';
+      },
+    },
+    {
+      name: 'Message',
+      label: 'Message',
+      type: 'textarea',
+      required: true,
+    },
+  ];
+
+  const handleSubmit = (data: { [key: string]: string }) => {
+    console.log(data);
+  };
+
   return (
     <PlaceholderLayout title="Home">
       <Hero
@@ -411,6 +447,11 @@ function Index() {
               'https://via.placeholder.com/350',
             ]}
           />
+        </div>
+
+        <div className="p-8 border border-red-500 space-y-4">
+          <p>import Form @with-nx/react-ui</p>
+          <Form onSubmit={handleSubmit} fields={fields} />
         </div>
       </div>
     </PlaceholderLayout>

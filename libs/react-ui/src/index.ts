@@ -1,3 +1,4 @@
+export * from './lib/form/form';
 export * from './lib/multi-step-form/multi-step-form';
 export * from './lib/page-indicator/page-indicator';
 export * from './lib/tooltip-icon/tooltip-icon';
