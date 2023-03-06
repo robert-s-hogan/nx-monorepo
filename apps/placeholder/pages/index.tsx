@@ -1,7 +1,7 @@
 import PlaceholderLayout from '../components/layout/PlaceholderLayout';
 import { useState } from 'react';
 import { Hero, Stepper, PageIndicator, MultiStepForm } from '@with-nx/react-ui';
-import { Card } from '@with-nx/react-tailwind-ui';
+import { Card, ImageCarousel } from '@with-nx/react-tailwind-ui';
 import { FiMinus, FiPlus, FiCheck } from 'react-icons/fi';
 
 function Index() {
@@ -400,6 +400,17 @@ function Index() {
               discountedPrice={50}
             />
           </div>
+        </div>
+
+        <div className="p-8 border border-red-500 space-y-4">
+          <p>import ImageCarousel @with-nx/react-tailwind-ui</p>
+          <ImageCarousel
+            images={[
+              'https://via.placeholder.com/150',
+              'https://via.placeholder.com/250',
+              'https://via.placeholder.com/350',
+            ]}
+          />
         </div>
       </div>
     </PlaceholderLayout>
