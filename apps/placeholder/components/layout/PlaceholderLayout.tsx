@@ -30,7 +30,7 @@ const PlaceholderLayout: React.FC<PlaceholderLayoutProps> = ({
       footer={<PlaceholderFooter />}
     >
       <Head>
-        <title>{title ? `${title} | ` : ''} Placeholder</title>
+        <title>{`${title ? `${title} | Placeholder` : 'Placeholder'}`}</title>
         <meta
           name="description"
           content={

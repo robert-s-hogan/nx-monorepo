@@ -255,7 +255,6 @@ function Index() {
         return (
           data?.firstName?.length > 0 &&
           data?.lastName?.length > 0 &&
-          data?.companyName?.length > 0 &&
           data?.email?.length > 0 &&
           data?.streetAddress?.length > 0 &&
           data?.city?.length > 0 &&
