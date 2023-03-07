@@ -1,13 +1,11 @@
 import styles from './card.module.css';
 
 /* eslint-disable-next-line */
-export interface CardProps {}
-
 export interface CardProps {
-  image: string;
-  title: string;
-  description: string;
-  price: number;
+  image?: string;
+  title?: string;
+  description?: string;
+  price?: number;
   discountedPrice?: number;
   label: string;
   onClick?: () => void;

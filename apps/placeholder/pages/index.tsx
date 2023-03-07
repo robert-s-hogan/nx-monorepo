@@ -10,6 +10,10 @@ import {
 import { Card, ImageCarousel } from '@with-nx/react-tailwind-ui';
 import { FiMinus, FiPlus, FiCheck } from 'react-icons/fi';
 
+import { motion } from 'framer-motion';
+import { Box } from 'simple-effing-primitive-layout';
+import { useRouter } from 'next/router';
+
 function Index() {
   const [quantity, setQuantity] = useState(1);
   const [page, setPage] = useState(0);
@@ -364,6 +368,53 @@ function Index() {
     },
   ];
 
+  const AnimatedCard = () => {
+    return <Box parse="w:252 h:141.75" image="url(rsh_logo_Crop.jpg)"></Box>;
+  };
+
+  const Row = () => {
+    return (
+      <Box parse="d:flex">
+        {[...Array(50)].map((item, i) => (
+          <Box key={i} parse="ma:9 ">
+            <AnimatedCard />
+          </Box>
+        ))}
+      </Box>
+    );
+  };
+
+  const AnimatedRow = ({ x, direction = 'right', duration = 10 }) => {
+    const animate = direction === 'right' ? 500 : -500;
+
+    return (
+      <motion.div
+        animate={{ x: animate }}
+        initial={{ x }}
+        transition={{
+          delay: 0,
+          duration: duration,
+          repeat: Infinity,
+          repeatType: 'mirror',
+          repeatDelay: 0,
+          type: 'tween',
+        }}
+      >
+        <Row></Row>
+      </motion.div>
+    );
+  };
+
+  const Animated = () => {
+    return (
+      <Box>
+        <AnimatedRow direction="right" x={-83} duration={8}></AnimatedRow>
+        <AnimatedRow direction="left" x={79} duration={20}></AnimatedRow>
+        <AnimatedRow direction="right" x={0} duration={10}></AnimatedRow>
+      </Box>
+    );
+  };
+
   const handleSubmit = (data: { [key: string]: string }) => {
     console.log(data);
   };
@@ -416,7 +467,7 @@ function Index() {
               image="https://via.placeholder.com/150"
               label="Label"
               price={100}
-              discountedPrice={50}
+              discountedPrice={80}
             />
             <Card
               title="Card Title"
@@ -424,7 +475,7 @@ function Index() {
               image="https://via.placeholder.com/150"
               label="Label"
               price={100}
-              discountedPrice={50}
+              discountedPrice={80}
             />
             <Card
               title="Card Title"
@@ -432,7 +483,7 @@ function Index() {
               image="https://via.placeholder.com/150"
               label="Label"
               price={100}
-              discountedPrice={50}
+              discountedPrice={80}
             />
           </div>
         </div>
@@ -451,6 +502,26 @@ function Index() {
         <div className="p-8 border border-red-500 space-y-4">
           <p>import Form @with-nx/react-ui</p>
           <Form onSubmit={handleSubmit} fields={fields} />
+        </div>
+
+        <div className="p-8 border border-red-500 space-y-4">
+          <p>Stage Player Web Animated section</p>
+          <div className="relative h-96 overflow-hidden">
+            <Box
+              parse="p:absolute t:0 l:0 w:100% h:100% z:2 i:2"
+              style={{
+                backgroundImage:
+                  'linear-gradient(67.62deg, #02070E 21.87%, rgba(2, 7, 14, 0) 46.87%, #02070E 97.4%)',
+              }}
+              className="overflow-hidden"
+            ></Box>
+            <Box
+              parse="p:absolute b:unset r:unset t:50% l:50%"
+              style={{ transform: 'translateX(-50%) rotate(-15deg)' }}
+            >
+              <Animated />
+            </Box>
+          </div>
         </div>
       </div>
     </PlaceholderLayout>
