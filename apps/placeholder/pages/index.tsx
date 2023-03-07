@@ -13,6 +13,9 @@ import { FiMinus, FiPlus, FiCheck } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { Box } from 'simple-effing-primitive-layout';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+
+import rshLogo from '../public/rsh_logo_Crop.jpg';
 
 function Index() {
   const [quantity, setQuantity] = useState(1);
@@ -369,18 +372,28 @@ function Index() {
   ];
 
   const AnimatedCard = () => {
-    return <Box parse="w:252 h:141.75" image="url(rsh_logo_Crop.jpg)"></Box>;
+    return (
+      <div className="w-48 h-32 relative">
+        <Image
+          src={rshLogo}
+          alt="rsh logo"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+        />
+      </div>
+    );
   };
 
   const Row = () => {
     return (
-      <Box parse="d:flex">
+      <div className="flex">
         {[...Array(50)].map((item, i) => (
-          <Box key={i} parse="ma:9 ">
+          <div className="m-2" key={i}>
             <AnimatedCard />
-          </Box>
+          </div>
         ))}
-      </Box>
+      </div>
     );
   };
 
@@ -407,11 +420,11 @@ function Index() {
 
   const Animated = () => {
     return (
-      <Box>
+      <div>
         <AnimatedRow direction="right" x={-83} duration={8}></AnimatedRow>
         <AnimatedRow direction="left" x={79} duration={20}></AnimatedRow>
         <AnimatedRow direction="right" x={0} duration={10}></AnimatedRow>
-      </Box>
+      </div>
     );
   };
 
@@ -507,20 +520,22 @@ function Index() {
         <div className="p-8 border border-red-500 space-y-4">
           <p>Stage Player Web Animated section</p>
           <div className="relative h-96 overflow-hidden">
-            <Box
-              parse="p:absolute t:0 l:0 w:100% h:100% z:2 i:2"
-              style={{
-                backgroundImage:
-                  'linear-gradient(67.62deg, #02070E 21.87%, rgba(2, 7, 14, 0) 46.87%, #02070E 97.4%)',
-              }}
-              className="overflow-hidden"
-            ></Box>
-            <Box
-              parse="p:absolute b:unset r:unset t:50% l:50%"
-              style={{ transform: 'translateX(-50%) rotate(-15deg)' }}
-            >
-              <Animated />
-            </Box>
+            <div className="absolute inset-0 z-10 w-full h-full">
+              <Box
+                parse="p:absolute t:0 l:0 w:100% h:100% z:2 i:2"
+                style={{
+                  backgroundImage:
+                    'linear-gradient(67.62deg, #02070E 21.87%, rgba(2, 7, 14, 0) 46.87%, #02070E 97.4%)',
+                }}
+                className="overflow-hidden"
+              ></Box>
+              <Box
+                parse="p:absolute b:unset r:unset t:50% l:50%"
+                style={{ transform: 'translateX(-50%) rotate(-15deg)' }}
+              >
+                <Animated />
+              </Box>
+            </div>
           </div>
         </div>
       </div>
