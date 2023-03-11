@@ -3,6 +3,7 @@ import {
   Text,
   Box,
   Grid,
+  Heading,
   Flex,
   GridItem,
   Table,
@@ -13,6 +14,11 @@ import {
   Icon,
   Th,
   TableContainer,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from '@chakra-ui/react';
 import { MdOutlineGroups } from 'react-icons/md';
 // import {
@@ -373,109 +379,122 @@ export default function Map({
   //   }
   // }
   return (
-    <GridItem>
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      <Grid
-        templateColumns={{ base: '1fr', md: 'repeat(3,1fr)' }}
-        mt={24}
-        mb={4}
-        gap={1}
-      >
-        {mapSize.map((size, index) => (
-          <GridItem
-            textAlign="center"
-            key={index}
-            colStart={index === 3 ? 2 : ''}
-            colEnd={index === 3 ? 3 : ''}
-          >
-            <Box
-              height="200px"
-              bg="gray.200"
-              alignItems="center"
-              display="flex"
-              flex-direction="column"
-              justifyContent="center"
-              position="relative"
-              my={index === 0 || index === 2 ? 24 : 0}
-              mt={index === 1 || index === 3 ? '-6rem' : ''}
-              mb={index === 1 || index === 3 ? '-6rem' : ''}
+    <Box pt={8}>
+      <Accordion allowMultiple>
+        <AccordionItem>
+          <AccordionButton>
+            <Box flex="1" textAlign="left">
+              <Heading as="h3" size="md">
+                Map
+              </Heading>
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
+          <AccordionPanel pb={4}>
+            <Grid
+              templateColumns={{ base: '1fr', md: 'repeat(3,1fr)' }}
+              mt={24}
+              mb={4}
+              gap={1}
             >
-              {oppositionStartingPotion === index && (
-                <Text fontSize="4xl" color="red.500">
-                  <FontAwesomeIcon icon={faDragon} />
-                </Text>
-              )}
-              {playerStartingPotion === index && (
-                <Text fontSize="4xl" color="green.500">
-                  <FontAwesomeIcon icon={faPeopleGroup} />
-                </Text>
-              )}
-              {index === 0 && (
-                <QuadrantOne objects={objects} structures={data} />
-              )}
-              {index === 1 && (
-                <QuadrantTwo objects={objects} structures={data} />
-              )}
-              {index === 2 && (
-                <QuadrantThree objects={objects} structures={data} />
-              )}
-              {index === 3 && (
-                <QuadrantFour objects={objects} structures={data} />
-              )}
-              {/* <Flex mt={2} alignItems="center">
+              {mapSize.map((size, index) => (
+                <GridItem
+                  textAlign="center"
+                  key={index}
+                  colStart={index === 3 ? 2 : ''}
+                  colEnd={index === 3 ? 3 : ''}
+                >
+                  <Box
+                    height="200px"
+                    bg="gray.200"
+                    alignItems="center"
+                    display="flex"
+                    flex-direction="column"
+                    justifyContent="center"
+                    position="relative"
+                    my={index === 0 || index === 2 ? 24 : 0}
+                    mt={index === 1 || index === 3 ? '-6rem' : ''}
+                    mb={index === 1 || index === 3 ? '-6rem' : ''}
+                  >
+                    {oppositionStartingPotion === index && (
+                      <Text fontSize="4xl" color="red.500">
+                        <FontAwesomeIcon icon={faDragon} />
+                      </Text>
+                    )}
+                    {playerStartingPotion === index && (
+                      <Text fontSize="4xl" color="green.500">
+                        <FontAwesomeIcon icon={faPeopleGroup} />
+                      </Text>
+                    )}
+                    {index === 0 && (
+                      <QuadrantOne objects={objects} structures={data} />
+                    )}
+                    {index === 1 && (
+                      <QuadrantTwo objects={objects} structures={data} />
+                    )}
+                    {index === 2 && (
+                      <QuadrantThree objects={objects} structures={data} />
+                    )}
+                    {index === 3 && (
+                      <QuadrantFour objects={objects} structures={data} />
+                    )}
+                    {/* <Flex mt={2} alignItems="center">
                 {randomItem1 === index && (
                   <Text fontSize="3xl" ml={2}> */}
-              {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
-              {/* r1
+                    {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
+                    {/* r1
                   </Text>
                 )}
                 {randomItem2 === index && (
                   <Text fontSize="3xl" ml={2}> */}
-              {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
-              {/* r2
+                    {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
+                    {/* r2
                   </Text>
                 )}
                 {randomItem3 === index && (
                   <Text fontSize="3xl" ml={2}> */}
-              {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
-              {/* r3
+                    {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
+                    {/* r3
                   </Text>
                 )}
                 {randomItem4 === index && (
                   <Text fontSize="3xl" ml={2}>
                     <Icon as={selectItem(randomNumber(1, 122))} /> */}
-              {/* r4
+                    {/* r4
                   </Text>
                 )}
                 {randomItem5 === index && (
                   <Text fontSize="3xl" ml={2}> */}
-              {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
-              {/* r5
+                    {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
+                    {/* r5
                   </Text>
                 )}
                 {randomItem6 === index && (
                   <Text fontSize="3xl" ml={2}> */}
-              {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
-              {/* r6
+                    {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
+                    {/* r6
                   </Text>
                 )}
                 {randomItem7 === index && (
                   <Text fontSize="3xl" ml={2}> */}
-              {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
-              {/* r7
+                    {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
+                    {/* r7
                   </Text>
                 )}
                 {randomItem8 === index && (
                   <Text fontSize="3xl" ml={2}> */}
-              {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
-              {/* r8
+                    {/* <Icon as={selectItem(randomNumber(1, 122))} /> */}
+                    {/* r8
                   </Text>
                 )}
               </Flex> */}
-            </Box>
-          </GridItem>
-        ))}
-      </Grid>
-    </GridItem>
+                  </Box>
+                </GridItem>
+              ))}
+            </Grid>
+          </AccordionPanel>
+        </AccordionItem>
+      </Accordion>
+    </Box>
   );
 }

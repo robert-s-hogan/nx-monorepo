@@ -95,6 +95,7 @@ export default function EncounterDetails({
   const playerLevel = getPlayerLevel(value.playerExperienceLevel);
   const adventuringDayXPLimit = getAdventuringDayXPLimit(playerLevel);
   const adjustedAdventuringDayXPLimit = adventuringDayXPLimit * playerCount;
+  const playerExperienceLevel = value?.playerExperienceLevel;
   const encounterAdjustedExperience = value.encounterAdjustedExperience; //manual input
   const encounterExperience = value.encounterExperience; // manual input
   const xpThresholdByDifficulty = getEncounterMultipliers(
@@ -102,6 +103,18 @@ export default function EncounterDetails({
     value.playerCount
   );
   const xpThreshold = xpThresholdByDifficulty * value.playerCount;
+
+  const displayDifficultyText = () => {
+    if (randomDifficulty === 0) {
+      return 'Easy';
+    } else if (randomDifficulty === 1) {
+      return 'Medium';
+    } else if (randomDifficulty === 2) {
+      return 'Hard';
+    } else if (randomDifficulty === 3) {
+      return 'Deadly';
+    }
+  };
 
   return (
     <>
@@ -114,10 +127,9 @@ export default function EncounterDetails({
         gap="1"
         color="blackAlpha.700"
         fontWeight="bold"
-        mt={4}
       >
         <GridItem border="1px">
-          <Accordion defaultIndex={[0]} allowMultiple px={2}>
+          <Accordion allowMultiple px={2}>
             <AccordionItem>
               <AccordionButton>
                 <Text fontSize="lg" fontWeight="bold">
@@ -235,7 +247,47 @@ export default function EncounterDetails({
           </Accordion>
         </GridItem>
         <GridItem px={2}>
-          <Accordion defaultIndex={[0]} allowMultiple>
+          <Accordion allowMultiple>
+            <AccordionItem>
+              <AccordionButton>
+                <Text fontSize="lg" fontWeight="bold">
+                  XP
+                </Text>
+                <AccordionIcon />
+              </AccordionButton>
+              <AccordionPanel pb={4}>
+                <pre style={{ fontSize: '0.8rem' }}>
+                  <Grid gridTemplateColumns="repeat(2, minmax(0, 1fr))" gap={1}>
+                    <GridItem>Number of Players:</GridItem>
+                    <GridItem>{playerCount}</GridItem>
+                    <GridItem>Player Experience - Start</GridItem>
+                    <GridItem>{playerExperienceLevel}</GridItem>
+                    <GridItem>Level of Player Characters - Start:</GridItem>
+                    <GridItem>{playerLevel}</GridItem>
+                    <GridItem>Adventuring Day XP Limit:</GridItem>
+                    <GridItem>{adjustedAdventuringDayXPLimit}</GridItem>
+                    <GridItem>Adventuring Day XP - Start:</GridItem>
+                    <GridItem>
+                      {adjustedAdventuringDayXPLimit} (same as Adventuring Day
+                      XP Limit)
+                    </GridItem>
+                    <GridItem>Encounter Difficulty Options</GridItem>
+                    <GridItem>{displayDifficultyText()}</GridItem>
+                    <GridItem>Encounter Adjusted Experience:</GridItem>
+                    <GridItem>{encounterAdjustedExperience}</GridItem>
+                    <GridItem>Encounter Experience:</GridItem>
+                    <GridItem>{encounterExperience}</GridItem>
+                    {/* <GridItem>Adventuring Day XP Limit:</GridItem>
+                    <GridItem>{adventuringDayXPLimit}</GridItem>
+
+                    <GridItem>XP Threshold: {xpThreshold}</GridItem>
+                    <GridItem>
+                      XP Threshold by Difficulty: {xpThresholdByDifficulty}
+                    </GridItem> */}
+                  </Grid>
+                </pre>
+              </AccordionPanel>
+            </AccordionItem>
             <AccordionItem>
               <AccordionButton>
                 <Text fontSize="lg" fontWeight="bold">

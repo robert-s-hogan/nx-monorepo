@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import { Text, Box } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
+import { Text, Box, Button } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
+import { FiRotateCcw } from 'react-icons/fi';
 import { pickStructureArray } from '../../lib/pickStructureArray';
 
 const QuadrantOne = ({ objects, structures }) => {
@@ -19,8 +20,37 @@ const QuadrantOne = ({ objects, structures }) => {
   const randomStructureThree = randomNumber(1, structures.length);
   const randomStructureFour = randomNumber(1, structures.length);
 
+  const randomizeQuandrant = () => {
+    setRandomArray([
+      randomItemOne,
+      randomItemTwo,
+      randomItemThree,
+      randomItemFour,
+      randomStructureOne,
+      randomStructureTwo,
+      randomStructureThree,
+      randomStructureFour,
+    ]);
+
+    console.log(randomArray);
+  };
+
+  useEffect(() => {
+    randomizeQuandrant();
+  }, []);
+
   return (
     <>
+      <Button
+        onClick={randomizeQuandrant}
+        zIndex="9999"
+        position="absolute"
+        top="0"
+        right="0"
+        variant="transparent"
+      >
+        <FiRotateCcw color="green" size={16} />
+      </Button>
       {/* <pre>{JSON.stringify(structures[randomStructureOne].icon, null, 2)}</pre> */}
       <Box position="absolute" top="5" left="5" right="5" bottom="5">
         {randomItemOne && (

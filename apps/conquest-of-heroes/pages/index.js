@@ -6,6 +6,7 @@ import {
   Input,
   Button,
   Text,
+  Box,
   Link,
   Table,
   Tabs,
@@ -14,6 +15,11 @@ import {
   Tab,
   TabPanel,
   Thead,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
   Tbody,
   Select,
   Tr,
@@ -43,12 +49,12 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 export default function Home() {
   const dispatch = useDispatch();
 
-  const [playerCount, setPlayerCount] = useState(3);
+  const [playerCount, setPlayerCount] = useState(4);
   const [playerExperienceLevel, setplayerExperienceLevel] = useState(2700);
   const [encounterAdjustedExperience, setEncounterAdjustedExperience] =
-    useState(300);
-  const [encounterExperience, setEncounterExperience] = useState(300);
-  const [submitIsLoading, setSubmitIsLoading] = useState(false);
+    useState(1500);
+  const [encounterExperience, setEncounterExperience] = useState(1500);
+  const [submitIsLoading, setSubmitIsLoading] = useState(true);
 
   const encounterData = useSelector((state) => state.encounter);
 
@@ -138,7 +144,6 @@ export default function Home() {
       })
     );
     setSubmitIsLoading(false);
-    router.push('/encounter');
   }
 
   function handlePlayerCountChange(e) {
@@ -166,88 +171,118 @@ export default function Home() {
   return (
     <Layout>
       <Stack spacing={8}>
-        <Text fontSize="xl">Welcome to Conquest of Heroes</Text>
+        <Accordion defaultIndex={[0]} allowMultiple>
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Text fontSize="xl">Welcome to Conquest of Heroes</Text>
 
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="playerCount">How many players?</label>
-          <Input
-            id="playerCount"
-            name="playerCount"
-            text="number"
-            onChange={handlePlayerCountChange}
-            value={playerCount}
-          />
-          <label htmlFor="playerExperienceLevel">
-            Starting Player Experience
-          </label>
-          <Input
-            id="playerExperienceLevel"
-            name="playerExperienceLevel"
-            text="number"
-            onChange={handlePlayerExperienceLevelChange}
-            value={playerExperienceLevel}
-          />
-          <label htmlFor="encounterAdjustedExperience">
-            Encounter Adjust Experience
-          </label>
-          <Input
-            id="encounterAdjustedExperience"
-            name="encounterAdjustedExperience"
-            text="number"
-            onChange={handleEncounterAdjustedExperienceChange}
-            value={encounterAdjustedExperience}
-          />
-
-          <label htmlFor="encounterExperience">Encounter Experience</label>
-          <Input
-            id="encounterExperience"
-            name="encounterExperience"
-            text="number"
-            onChange={handleEncounterExperienceChange}
-            value={encounterExperience}
-          />
-          <Button type="submit" colorScheme="blue" mt={4} maxW={48}>
-            Start Encounter
-          </Button>
-        </form>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              <form onSubmit={handleSubmit}>
+                <Grid
+                  templateColumns={{
+                    base: 'repeat(2, 1fr)',
+                    lg: 'repeat(4, 1fr)',
+                  }}
+                  gap={6}
+                >
+                  <GridItem>
+                    <label htmlFor="playerCount">How many players?</label>
+                    <Input
+                      id="playerCount"
+                      name="playerCount"
+                      text="number"
+                      onChange={handlePlayerCountChange}
+                      value={playerCount}
+                    />
+                  </GridItem>
+                  <GridItem>
+                    <label htmlFor="playerExperienceLevel">
+                      Starting Player Experience
+                    </label>
+                    <Input
+                      id="playerExperienceLevel"
+                      name="playerExperienceLevel"
+                      text="number"
+                      onChange={handlePlayerExperienceLevelChange}
+                      value={playerExperienceLevel}
+                    />
+                  </GridItem>
+                  <GridItem>
+                    <label htmlFor="encounterAdjustedExperience">
+                      Encounter Adjust Experience
+                    </label>
+                    <Input
+                      id="encounterAdjustedExperience"
+                      name="encounterAdjustedExperience"
+                      text="number"
+                      onChange={handleEncounterAdjustedExperienceChange}
+                      value={encounterAdjustedExperience}
+                    />
+                  </GridItem>
+                  <GridItem>
+                    <label htmlFor="encounterExperience">
+                      Encounter Experience
+                    </label>
+                    <Input
+                      id="encounterExperience"
+                      name="encounterExperience"
+                      text="number"
+                      onChange={handleEncounterExperienceChange}
+                      value={encounterExperience}
+                    />
+                  </GridItem>
+                </Grid>
+                <Button type="submit" colorScheme="blue" mt={4} maxW={48}>
+                  Start Encounter
+                </Button>
+              </form>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
       </Stack>
-
-      {/* <EncounterDetails
-              monsters={monsters}
-              amountOfItems={amountOfItems}
-              objects={objects}
-              oppositionStartingPotion={oppositionStartingPotion}
-              playerStartingPotion={playerStartingPotion}
-              dimensions={sharedMapDimensions}
-              difficulty={difficultyLevel}
-              terrainType={selectedTerrainType}
-              weatherSeverity={selectedWeatherSeverity}
-              weatherChange={selectedWeatherChange}
-              timeOfDay={selectedTimeOfDay}
-              objectives={selectedObjective}
-              weatherType={selectedWeatherType}
-              challengeRating={challengeRating}
-              hasWeather={selectedHasWeather}
-              intro={intro}
-            /> */}
-
-      {/* <Map
-              monsters={monsters}
-              amountOfItems={amountOfItems}
-              objects={objects}
-              oppositionStartingPotion={oppositionStartingPotion}
-              playerStartingPotion={playerStartingPotion}
-              dimensions={sharedMapDimensions}
-              difficulty={difficultyLevel}
-              terrainType={selectedTerrainType}
-              weatherSeverity={selectedWeatherSeverity}
-              weatherChange={selectedWeatherChange}
-              timeOfDay={selectedTimeOfDay}
-              objectives={selectedObjective}
-              weatherType={selectedWeatherType}
-              challengeRating={challengeRating}
-              hasWeather={selectedHasWeather}
-            /> */}
+      {!submitIsLoading ? (
+        <Box mt={8}>
+          <EncounterDetails
+            monsters={monsters}
+            amountOfItems={amountOfItems}
+            objects={objects}
+            oppositionStartingPotion={oppositionStartingPotion}
+            playerStartingPotion={playerStartingPotion}
+            dimensions={sharedMapDimensions}
+            difficulty={difficultyLevel}
+            terrainType={selectedTerrainType}
+            weatherSeverity={selectedWeatherSeverity}
+            weatherChange={selectedWeatherChange}
+            timeOfDay={selectedTimeOfDay}
+            objectives={selectedObjective}
+            weatherType={selectedWeatherType}
+            challengeRating={challengeRating}
+            hasWeather={selectedHasWeather}
+            intro={intro}
+          />
+          <Map
+            monsters={monsters}
+            amountOfItems={amountOfItems}
+            objects={objects}
+            oppositionStartingPotion={oppositionStartingPotion}
+            playerStartingPotion={playerStartingPotion}
+            dimensions={sharedMapDimensions}
+            difficulty={difficultyLevel}
+            terrainType={selectedTerrainType}
+            weatherSeverity={selectedWeatherSeverity}
+            weatherChange={selectedWeatherChange}
+            timeOfDay={selectedTimeOfDay}
+            objectives={selectedObjective}
+            weatherType={selectedWeatherType}
+            challengeRating={challengeRating}
+            hasWeather={selectedHasWeather}
+          />
+        </Box>
+      ) : null}
 
       {/* <Success
               monsters={monsters}
