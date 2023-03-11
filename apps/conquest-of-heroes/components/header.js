@@ -32,15 +32,23 @@ export default function Header() {
   const router = useRouter();
 
   return (
-    <Container maxW={{ md: '4xl', lg: '7xl' }}>
+    <Container maxW={{ md: '4xl', xl: 'full' }} px={{ xl: 48 }}>
       <header>
         <Head>
           <title>Conquest of Heroes</title>
-          <meta name="description" content="Conquest of Heroes a DND Dungeon Master Tool" />
+          <meta
+            name="description"
+            content="Conquest of Heroes a DND Dungeon Master Tool"
+          />
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <Flex py={4} alignItems="center" justifyContent="space-between" minW="100%">
+        <Flex
+          py={4}
+          alignItems="center"
+          justifyContent="space-between"
+          minW="100%"
+        >
           <Menu>
             <MenuButton>
               <HamburgerIcon fontSize="3xl" />
@@ -48,7 +56,9 @@ export default function Header() {
             <MenuList py={0}>
               <MenuItem onClick={() => router.push('/')}>Home</MenuItem>
               <MenuGroup title="Data">
-                <MenuItem onClick={() => router.push('/spells')}>Spells</MenuItem>
+                <MenuItem onClick={() => router.push('/spells')}>
+                  Spells
+                </MenuItem>
                 {/* <MenuItem>My Account</MenuItem>
                 <MenuItem>Payments </MenuItem> */}
               </MenuGroup>
