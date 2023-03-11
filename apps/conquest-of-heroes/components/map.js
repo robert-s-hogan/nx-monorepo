@@ -401,8 +401,8 @@ export default function Map({
                 <GridItem
                   textAlign="center"
                   key={index}
-                  colStart={index === 3 ? 2 : ''}
-                  colEnd={index === 3 ? 3 : ''}
+                  colStart={{ lg: index === 3 ? 2 : '' }}
+                  colEnd={{ lg: index === 3 ? 3 : '' }}
                 >
                   <Box
                     height="200px"
@@ -412,9 +412,9 @@ export default function Map({
                     flex-direction="column"
                     justifyContent="center"
                     position="relative"
-                    my={index === 0 || index === 2 ? 24 : 0}
-                    mt={index === 1 || index === 3 ? '-6rem' : ''}
-                    mb={index === 1 || index === 3 ? '-6rem' : ''}
+                    my={{ lg: index === 0 || index === 2 ? 24 : 0 }}
+                    mt={{ lg: index === 1 || index === 3 ? '-6rem' : '' }}
+                    mb={{ lg: index === 1 || index === 3 ? '-6rem' : '' }}
                   >
                     {oppositionStartingPotion === index && (
                       <Text fontSize="4xl" color="red.500">
