@@ -136,7 +136,8 @@ export default function Map({
   if (!data) return <Text>Loading...</Text>;
   if (error) return <Text>Error: {error.message}</Text>;
 
-  const randomNumber = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+  const randomNumber = (min, max) =>
+    Math.floor(Math.random() * (max - min)) + min;
   const mapSize = [1, 2, 3, 4];
 
   // function selectItem(number) {
@@ -374,9 +375,19 @@ export default function Map({
   return (
     <GridItem>
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      <Grid templateColumns={{ base: '1fr', md: 'repeat(2,1fr)' }} mt={1} mb={4} gap={1}>
+      <Grid
+        templateColumns={{ base: '1fr', md: 'repeat(3,1fr)' }}
+        mt={24}
+        mb={4}
+        gap={1}
+      >
         {mapSize.map((size, index) => (
-          <GridItem textAlign="center" key={index}>
+          <GridItem
+            textAlign="center"
+            key={index}
+            colStart={index === 3 ? 2 : ''}
+            colEnd={index === 3 ? 3 : ''}
+          >
             <Box
               height="200px"
               bg="gray.200"
@@ -385,6 +396,9 @@ export default function Map({
               flex-direction="column"
               justifyContent="center"
               position="relative"
+              my={index === 0 || index === 2 ? 24 : 0}
+              mt={index === 1 || index === 3 ? '-6rem' : ''}
+              mb={index === 1 || index === 3 ? '-6rem' : ''}
             >
               {oppositionStartingPotion === index && (
                 <Text fontSize="4xl" color="red.500">
@@ -396,10 +410,18 @@ export default function Map({
                   <FontAwesomeIcon icon={faPeopleGroup} />
                 </Text>
               )}
-              {index === 0 && <QuadrantOne objects={objects} structures={data} />}
-              {index === 1 && <QuadrantTwo objects={objects} structures={data} />}
-              {index === 2 && <QuadrantThree objects={objects} structures={data} />}
-              {index === 3 && <QuadrantFour objects={objects} structures={data} />}
+              {index === 0 && (
+                <QuadrantOne objects={objects} structures={data} />
+              )}
+              {index === 1 && (
+                <QuadrantTwo objects={objects} structures={data} />
+              )}
+              {index === 2 && (
+                <QuadrantThree objects={objects} structures={data} />
+              )}
+              {index === 3 && (
+                <QuadrantFour objects={objects} structures={data} />
+              )}
               {/* <Flex mt={2} alignItems="center">
                 {randomItem1 === index && (
                   <Text fontSize="3xl" ml={2}> */}

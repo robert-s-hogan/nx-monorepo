@@ -7,7 +7,7 @@ export default function Layout({ children }) {
   return (
     <div>
       <Header />
-      <Container maxW={{ md: '4xl', lg: '7xl' }}>
+      <Container maxW={{ md: '4xl', xl: 'full' }} px={{ xl: 48 }}>
         <main>{children}</main>
       </Container>
       <Footer />

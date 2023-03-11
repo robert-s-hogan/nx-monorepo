@@ -1,23 +1,5 @@
 import { useState, useEffect } from 'react';
-import {
-  Text,
-  Button,
-  Grid,
-  GridItem,
-  Table,
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  Thead,
-  Tbody,
-  Select,
-  Tr,
-  Th,
-  Td,
-  TableContainer,
-} from '@chakra-ui/react';
+import { Text, Heading } from '@chakra-ui/react';
 // import { TriangleDownIcon } from '@chakra-ui/icons';
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
@@ -39,11 +21,26 @@ export default function Encounter({ fetcher }) {
   const router = useRouter();
   const { data, isLoading, isError } = useEncounter('/api/encounter', fetcher);
 
+  const mapSize = 4;
+
+  useEffect(() => {
+    const unloadHandler = (event) => {
+      event.preventDefault();
+      event.returnValue = '';
+    };
+
+    window.addEventListener('beforeunload', unloadHandler);
+
+    return () => {
+      window.removeEventListener('beforeunload', unloadHandler);
+    };
+  }, []);
+
   if (isLoading) return <Loading />;
   if (isError) return <Text>Error</Text>;
 
-  const mapSize = 4;
-  const { difficulty, monsters, mapInfo, quest, encounterModifier } = data;
+  const { difficulty, monsters, mapInfo, quest, encounterModifier, intro } =
+    data;
   const {
     hasWeather,
     weatherSeverity,
@@ -60,7 +57,8 @@ export default function Encounter({ fetcher }) {
   const { playerCount, playerLevelStart } = encounterModifier;
   const { objectives } = quest;
 
-  const randomNumber = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+  const randomNumber = (min, max) =>
+    Math.floor(Math.random() * (max - min)) + min;
 
   let mapDimensions = randomNumber(0, dimensions.length);
   const mapTerrainType = randomNumber(0, terrainType.length);
@@ -82,7 +80,10 @@ export default function Encounter({ fetcher }) {
   const selectedWeatherChange = weatherChange[mapWeatherChange];
 
   const playerStartingPotion = randomNumber(0, playerStartingPotions.length);
-  let oppositionStartingPotion = randomNumber(0, oppositionStartingPotions.length);
+  let oppositionStartingPotion = randomNumber(
+    0,
+    oppositionStartingPotions.length
+  );
 
   const difficultyLevel = randomNumber(0, difficulty.length);
   const selectedDifficulty = difficulty[difficultyLevel];
@@ -93,7 +94,10 @@ export default function Encounter({ fetcher }) {
   const amountOfItems = randomNumber(1, 16);
 
   while (oppositionStartingPotion === playerStartingPotion) {
-    oppositionStartingPotion = randomNumber(0, oppositionStartingPotions.length);
+    oppositionStartingPotion = randomNumber(
+      0,
+      oppositionStartingPotions.length
+    );
   }
 
   function loadPage() {
@@ -104,88 +108,47 @@ export default function Encounter({ fetcher }) {
 
   return (
     <Layout maxW="full">
-      <pre>
-        <code>{JSON.stringify(encounterData, null, 2)}</code>
-      </pre>
-      <Button colorScheme="blue" onClick={() => loadPage()} mt={3}>
-        Reload
-      </Button>
-      <Tabs
-        isFitted
-        variant="enclosed-colored"
-        colorScheme="blue"
-        mt={4}
-        border="1px"
-        borderRadius="6px"
-        borderColor="gray.200"
-      >
-        <TabList mb="0">
-          <Tab
-            borderTop="none"
-            borderLeft="none"
-            _selected={{
-              fontWeight: 'bold',
-              color: 'white',
-              bg: 'gray.800',
-              borderTopRadius: '6px',
-            }}
-          >
-            Encounter
-          </Tab>
-          <Tab
-            borderTop="none"
-            borderLeft="none"
-            _selected={{
-              fontWeight: 'bold',
-              color: 'white',
-              bg: 'gray.800',
-              borderTopRadius: '6px',
-            }}
-          >
-            Map
-          </Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel>
-            <EncounterDetails
-              monsters={monsters}
-              amountOfItems={amountOfItems}
-              objects={objects}
-              oppositionStartingPotion={oppositionStartingPotion}
-              playerStartingPotion={playerStartingPotion}
-              dimensions={sharedMapDimensions}
-              difficulty={difficultyLevel}
-              terrainType={selectedTerrainType}
-              weatherSeverity={selectedWeatherSeverity}
-              weatherChange={selectedWeatherChange}
-              timeOfDay={selectedTimeOfDay}
-              objectives={selectedObjective}
-              weatherType={selectedWeatherType}
-              challengeRating={challengeRating}
-              hasWeather={selectedHasWeather}
-            />
-          </TabPanel>
-          <TabPanel>
-            <Map
-              monsters={monsters}
-              amountOfItems={amountOfItems}
-              objects={objects}
-              oppositionStartingPotion={oppositionStartingPotion}
-              playerStartingPotion={playerStartingPotion}
-              dimensions={sharedMapDimensions}
-              difficulty={difficultyLevel}
-              terrainType={selectedTerrainType}
-              weatherSeverity={selectedWeatherSeverity}
-              weatherChange={selectedWeatherChange}
-              timeOfDay={selectedTimeOfDay}
-              objectives={selectedObjective}
-              weatherType={selectedWeatherType}
-              challengeRating={challengeRating}
-              hasWeather={selectedHasWeather}
-            />
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
+      <Heading as="h2" size="lg" my={4}>
+        Encounter Details
+      </Heading>
+      <EncounterDetails
+        monsters={monsters}
+        amountOfItems={amountOfItems}
+        objects={objects}
+        oppositionStartingPotion={oppositionStartingPotion}
+        playerStartingPotion={playerStartingPotion}
+        dimensions={sharedMapDimensions}
+        difficulty={difficultyLevel}
+        terrainType={selectedTerrainType}
+        weatherSeverity={selectedWeatherSeverity}
+        weatherChange={selectedWeatherChange}
+        timeOfDay={selectedTimeOfDay}
+        objectives={selectedObjective}
+        weatherType={selectedWeatherType}
+        challengeRating={challengeRating}
+        hasWeather={selectedHasWeather}
+        intro={intro}
+      />
+      <Heading as="h2" size="lg" my={4}>
+        Map
+      </Heading>
+      <Map
+        monsters={monsters}
+        amountOfItems={amountOfItems}
+        objects={objects}
+        oppositionStartingPotion={oppositionStartingPotion}
+        playerStartingPotion={playerStartingPotion}
+        dimensions={sharedMapDimensions}
+        difficulty={difficultyLevel}
+        terrainType={selectedTerrainType}
+        weatherSeverity={selectedWeatherSeverity}
+        weatherChange={selectedWeatherChange}
+        timeOfDay={selectedTimeOfDay}
+        objectives={selectedObjective}
+        weatherType={selectedWeatherType}
+        challengeRating={challengeRating}
+        hasWeather={selectedHasWeather}
+      />
     </Layout>
   );
 }
