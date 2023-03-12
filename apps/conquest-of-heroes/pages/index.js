@@ -49,6 +49,10 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 export default function Home() {
   const dispatch = useDispatch();
 
+  const [items5e, _items5e] = useState([]);
+  const [armor5e, _armor5e] = useState([]);
+  const [magicItems5e, _magicItems5e] = useState([]);
+  const [combinedObjects, _combinedObjects] = useState([]);
   const [playerCount, setPlayerCount] = useState(4);
   const [playerExperienceLevel, setplayerExperienceLevel] = useState(2700);
   const [encounterAdjustedExperience, setEncounterAdjustedExperience] =
@@ -61,6 +65,33 @@ export default function Home() {
   const router = useRouter();
   const { data, isLoading, isError } = useEncounter('/api/encounter', fetcher);
 
+  const fetchItemsData = async () => {
+    const response = await fetch('https://api.open5e.com/weapons/?limit=100');
+    const data = await response.json();
+    _magicItems5e(data.results);
+    return data;
+  };
+  const fetchMagicItemsData = async () => {
+    const response = await fetch('https://api.open5e.com/magicitems/?limit=5');
+    const data = await response.json();
+    _items5e(data.results);
+    return data;
+  };
+  const fetchArmorData = async () => {
+    const response = await fetch('https://api.open5e.com/armor/?limit=100');
+    const data = await response.json();
+    _armor5e(data.results);
+    return data;
+  };
+  useEffect(() => {
+    fetchItemsData();
+    fetchArmorData();
+    fetchMagicItemsData();
+  }, []);
+  useEffect(() => {
+    const combined = [...items5e, ...armor5e, ...magicItems5e];
+    _combinedObjects(combined);
+  }, [items5e, armor5e]);
   if (isLoading) return <Loading />;
   if (isError) return <Text>Error</Text>;
 
@@ -249,7 +280,7 @@ export default function Home() {
           <EncounterDetails
             monsters={monsters}
             amountOfItems={amountOfItems}
-            objects={objects}
+            objects={combinedObjects}
             oppositionStartingPotion={oppositionStartingPotion}
             playerStartingPotion={playerStartingPotion}
             dimensions={sharedMapDimensions}
@@ -267,7 +298,7 @@ export default function Home() {
           <Map
             monsters={monsters}
             amountOfItems={amountOfItems}
-            objects={objects}
+            objects={combinedObjects}
             oppositionStartingPotion={oppositionStartingPotion}
             playerStartingPotion={playerStartingPotion}
             dimensions={sharedMapDimensions}

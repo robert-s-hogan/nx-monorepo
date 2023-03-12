@@ -1,8 +1,21 @@
 import { useState, useEffect } from 'react';
-import { Text, Box, Button } from '@chakra-ui/react';
+import {
+  Text,
+  Box,
+  VStack,
+  Button,
+  Flex,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverHeader,
+  PopoverBody,
+} from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
-import { FiRotateCcw } from 'react-icons/fi';
+import { FiRotateCcw, FiAlertCircle } from 'react-icons/fi';
 import { pickStructureArray } from '../../lib/pickStructureArray';
 
 const QuadrantFour = ({ objects, structures }) => {
@@ -39,26 +52,117 @@ const QuadrantFour = ({ objects, structures }) => {
     randomizeQuandrant();
   }, []);
 
+  const restrictedObjects = objects.map(
+    ({
+      name,
+      ac_string,
+      category,
+      cost,
+      stealth_disadvantage,
+      weight,
+      type,
+      desc,
+      requires_attunement,
+      rarity,
+    }) => ({
+      name,
+      ac_string,
+      category,
+      cost,
+      stealth_disadvantage,
+      weight,
+      type,
+      desc,
+      requires_attunement,
+      rarity,
+    })
+  );
+
   return (
     <>
       <Button
         onClick={randomizeQuandrant}
-        zIndex="9999"
+        zIndex="10"
         position="absolute"
-        top="0"
-        right="0"
+        bottom="-2"
+        left="-3"
         variant="transparent"
       >
         <FiRotateCcw color="green" size={16} />
       </Button>
       {/* <pre>{JSON.stringify(structures[randomStructureOne].icon, null, 2)}</pre> */}
-      <Box position="absolute" top="5" left="5" right="5" bottom="5">
+      <Box position="absolute" top="5">
         {randomItemOne && (
-          <Text fontSize="xs">{objects[randomItemOne].name}</Text>
+          <Popover trigger="hover" p={4} overflowY="visible">
+            <PopoverTrigger>
+              <Flex itemsAlign="center" justifyContent="center">
+                <Text fontSize="xs" mr={1}>
+                  {restrictedObjects[randomItemOne].name.slice(0, 15)}
+                  {restrictedObjects[randomItemOne].name.length > 15
+                    ? '...'
+                    : ''}
+                </Text>
+                <FiAlertCircle color="blue" size={12} />
+              </Flex>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>
+                {restrictedObjects[randomItemOne].name}
+              </PopoverHeader>
+              <PopoverBody>
+                <VStack align="flex-start" spacing={0}>
+                  {Object.entries(restrictedObjects[randomItemOne]).map(
+                    ([key, value]) => {
+                      if (!value) {
+                        return null;
+                      }
+                      return (
+                        <div key={key}>
+                          <strong>{key}: </strong>
+                          {value}
+                        </div>
+                      );
+                    }
+                  )}
+                </VStack>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
         )}
         {randomStructureOne && (
-          <Text fontSize="xs">{structures[randomStructureOne].name}</Text>
+          <Popover trigger="hover" p={4} overflowY="visible">
+            <PopoverTrigger>
+              <Flex itemsAlign="center">
+                <Text fontSize="xs" mr={1}>
+                  {structures[randomStructureOne].name}
+                </Text>
+                <FiAlertCircle color="blue" size={12} />
+              </Flex>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>
+                {structures[randomStructureOne].name}
+              </PopoverHeader>
+              <PopoverBody>
+                <VStack align="flex-start" spacing={0}>
+                  {Object.entries(structures[randomStructureOne]).map(
+                    ([key, value]) => (
+                      <div key={key}>
+                        <strong>{key}: </strong>
+                        {value}
+                      </div>
+                    )
+                  )}
+                </VStack>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
         )}
+
         {/* {randomStructureOne && (
           <FontAwesomeIcon
             icon={pickStructureArray(structures[randomStructureOne].icon)}
@@ -68,11 +172,76 @@ const QuadrantFour = ({ objects, structures }) => {
       </Box>
       <Box position="absolute" left="5" right="5" bottom="5">
         {randomItemTwo && (
-          <Text fontSize="xs">{objects[randomItemTwo].name}</Text>
+          <Popover trigger="hover" p={4} overflowY="visible">
+            <PopoverTrigger>
+              <Flex itemsAlign="center" justifyContent="center">
+                <Text fontSize="xs" mr={1}>
+                  {restrictedObjects[randomItemTwo].name.slice(0, 15)}
+                  {restrictedObjects[randomItemTwo].name.length > 15
+                    ? '...'
+                    : ''}
+                </Text>
+                <FiAlertCircle color="blue" size={12} />
+              </Flex>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>
+                {restrictedObjects[randomItemTwo].name}
+              </PopoverHeader>
+              <PopoverBody>
+                <VStack align="flex-start" spacing={0}>
+                  {Object.entries(restrictedObjects[randomItemTwo]).map(
+                    ([key, value]) => {
+                      if (!value) {
+                        return null;
+                      }
+                      return (
+                        <div key={key}>
+                          <strong>{key}: </strong>
+                          {value}
+                        </div>
+                      );
+                    }
+                  )}
+                </VStack>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
         )}
         {randomStructureTwo && (
-          <Text fontSize="xs">{structures[randomStructureTwo].name}</Text>
+          <Popover trigger="hover" p={4} overflowY="visible">
+            <PopoverTrigger>
+              <Flex itemsAlign="center" justifyContent="center">
+                <Text fontSize="xs" mr={1}>
+                  {structures[randomStructureTwo].name}{' '}
+                </Text>
+                <FiAlertCircle color="blue" size={12} />
+              </Flex>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>
+                {structures[randomStructureTwo].name}
+              </PopoverHeader>
+              <PopoverBody>
+                <VStack align="flex-start" spacing={0}>
+                  {Object.entries(structures[randomStructureTwo]).map(
+                    ([key, value]) => (
+                      <div key={key}>
+                        <strong>{key}: </strong>
+                        {value}
+                      </div>
+                    )
+                  )}
+                </VStack>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
         )}
+
         {/* {randomStructureTwo && (
           <FontAwesomeIcon
             icon={pickStructureArray(structures[randomStructureTwo].icon)}
@@ -82,10 +251,74 @@ const QuadrantFour = ({ objects, structures }) => {
       </Box>
       <Box position="absolute" right="5">
         {randomItemThree && (
-          <Text fontSize="xs">{objects[randomItemThree].name}</Text>
+          <Popover trigger="hover" p={4} overflowY="visible">
+            <PopoverTrigger>
+              <Flex itemsAlign="center" justifyContent="flex-end">
+                <Text fontSize="xs" mr={1}>
+                  {restrictedObjects[randomItemThree].name.slice(0, 15)}
+                  {restrictedObjects[randomItemThree].name.length > 15
+                    ? '...'
+                    : ''}
+                </Text>
+                <FiAlertCircle color="blue" size={12} />
+              </Flex>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>
+                {restrictedObjects[randomItemThree].name}
+              </PopoverHeader>
+              <PopoverBody>
+                <VStack align="flex-start" spacing={0}>
+                  {Object.entries(restrictedObjects[randomItemThree]).map(
+                    ([key, value]) => {
+                      if (!value) {
+                        return null;
+                      }
+                      return (
+                        <div key={key}>
+                          <strong>{key}: </strong>
+                          {value}
+                        </div>
+                      );
+                    }
+                  )}
+                </VStack>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
         )}
         {randomStructureThree && (
-          <Text fontSize="xs">{structures[randomStructureThree].name}</Text>
+          <Popover trigger="hover" p={4} overflowY="visible">
+            <PopoverTrigger>
+              <Flex itemsAlign="center" justifyContent="flex-end">
+                <Text fontSize="xs" mr={1}>
+                  {structures[randomStructureThree].name}
+                </Text>
+                <FiAlertCircle color="blue" size={12} />
+              </Flex>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>
+                {structures[randomStructureThree].name}
+              </PopoverHeader>
+              <PopoverBody>
+                <VStack align="flex-start" spacing={0}>
+                  {Object.entries(structures[randomStructureThree]).map(
+                    ([key, value]) => (
+                      <div key={key}>
+                        <strong>{key}: </strong>
+                        {value}
+                      </div>
+                    )
+                  )}
+                </VStack>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
         )}
         {/* {randomStructureThree && (
           <FontAwesomeIcon
@@ -96,10 +329,74 @@ const QuadrantFour = ({ objects, structures }) => {
       </Box>
       <Box position="absolute" left="5">
         {randomItemFour && (
-          <Text fontSize="xs">{objects[randomItemFour].name}</Text>
+          <Popover trigger="hover" p={4} overflowY="visible">
+            <PopoverTrigger>
+              <Flex itemsAlign="center" justifyContent="flex-end">
+                <Text fontSize="xs" mr={1}>
+                  {restrictedObjects[randomItemFour].name.slice(0, 15)}
+                  {restrictedObjects[randomItemFour].name.length > 15
+                    ? '...'
+                    : ''}
+                </Text>
+                <FiAlertCircle color="blue" size={12} />
+              </Flex>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>
+                {restrictedObjects[randomItemFour].name}
+              </PopoverHeader>
+              <PopoverBody>
+                <VStack align="flex-start" spacing={0}>
+                  {Object.entries(restrictedObjects[randomItemFour]).map(
+                    ([key, value]) => {
+                      if (!value) {
+                        return null;
+                      }
+                      return (
+                        <div key={key}>
+                          <strong>{key}: </strong>
+                          {value}
+                        </div>
+                      );
+                    }
+                  )}
+                </VStack>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
         )}
         {randomStructureFour && (
-          <Text fontSize="xs">{structures[randomStructureFour].name}</Text>
+          <Popover trigger="hover" p={4} overflowY="visible">
+            <PopoverTrigger>
+              <Flex itemsAlign="center" justifyContent="flex-start">
+                <Text fontSize="xs" mr={1}>
+                  {structures[randomStructureOne].name}
+                </Text>
+                <FiAlertCircle color="blue" size={12} />
+              </Flex>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>
+                {structures[randomStructureOne].name}
+              </PopoverHeader>
+              <PopoverBody>
+                <VStack align="flex-start" spacing={0}>
+                  {Object.entries(structures[randomStructureOne]).map(
+                    ([key, value]) => (
+                      <div key={key}>
+                        <strong>{key}: </strong>
+                        {value}
+                      </div>
+                    )
+                  )}
+                </VStack>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
         )}
         {/* {randomStructureFour && (
           <FontAwesomeIcon

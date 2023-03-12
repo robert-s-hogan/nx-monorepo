@@ -381,7 +381,7 @@ export default function Map({
   return (
     <Box pt={8}>
       <Accordion allowMultiple>
-        <AccordionItem>
+        <AccordionItem height="500px">
           <AccordionButton>
             <Box flex="1" textAlign="left">
               <Heading as="h3" size="md">
@@ -414,7 +414,7 @@ export default function Map({
                     position="relative"
                     my={{ lg: index === 0 || index === 2 ? 24 : 0 }}
                     mt={{ lg: index === 1 || index === 3 ? '-6rem' : '' }}
-                    mb={{ lg: index === 1 || index === 3 ? '-6rem' : '' }}
+                    mb={{ lg: index === 1 ? '-6rem' : '' }}
                   >
                     {oppositionStartingPotion === index && (
                       <Text fontSize="4xl" color="red.500">

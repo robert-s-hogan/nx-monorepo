@@ -32,7 +32,7 @@ export default function Header() {
   const router = useRouter();
 
   return (
-    <Container maxW={{ md: '4xl', xl: 'full' }} px={{ xl: 48 }}>
+    <Container maxW={{ md: '4xl', xl: 'full' }} px={{ base: 4, xl: 48 }}>
       <header>
         <Head>
           <title>Conquest of Heroes</title>
@@ -55,13 +55,13 @@ export default function Header() {
             </MenuButton>
             <MenuList py={0}>
               <MenuItem onClick={() => router.push('/')}>Home</MenuItem>
-              <MenuGroup title="Data">
+              {/* <MenuGroup title="Data">
                 <MenuItem onClick={() => router.push('/spells')}>
                   Spells
                 </MenuItem>
-                {/* <MenuItem>My Account</MenuItem>
-                <MenuItem>Payments </MenuItem> */}
-              </MenuGroup>
+                <MenuItem>My Account</MenuItem>
+                <MenuItem>Payments </MenuItem>
+              </MenuGroup> */}
             </MenuList>
           </Menu>
           <Box fontSize="2rem">
