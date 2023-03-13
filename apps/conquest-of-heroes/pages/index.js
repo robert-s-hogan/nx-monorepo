@@ -146,7 +146,8 @@ export default function Home() {
   );
 
   const calculateFinishEncounterExperienceLevel = getLevelFromXP(
-    playerExperienceStart + encounterExperience / playerCount
+    parseInt(playerExperienceStart) +
+      parseInt(encounterExperience) / parseInt(playerCount)
   );
 
   const adventuringDayXpLimit = getAdventuringDayXPLimit(
@@ -198,6 +199,10 @@ export default function Home() {
 
   const longRestNeeded =
     adventuringDayXpFinish < xpThresholdsByCharacterLevelEasy ? true : false;
+
+  const playerExperienceFinish =
+    parseInt(playerExperienceStart) +
+    parseInt(encounterExperience) / parseInt(playerCount);
 
   return (
     <Layout>
@@ -452,8 +457,7 @@ export default function Home() {
                         </p>
                         <p>
                           Player Experience - Finish:
-                          {playerExperienceStart +
-                            encounterExperience / playerCount}
+                          {playerExperienceFinish}
                         </p>
                         <p>
                           Level of Players Characters - Finish:
