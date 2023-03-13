@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   Grid,
   GridItem,
@@ -7,97 +7,68 @@ import {
   Button,
   Text,
   Box,
-  Link,
-  Table,
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  Thead,
+  Heading,
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-  Tbody,
-  Select,
-  Tr,
-  Th,
-  Td,
-  TableContainer,
+  Textarea,
 } from '@chakra-ui/react';
-// import { TriangleDownIcon } from '@chakra-ui/icons';
-import useSWR from 'swr';
 import { useRouter } from 'next/router';
-import { useEncounter } from '../hooks/useEncounter';
-import { useCounter } from '../hooks/useCounter';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { useEncounter } from '../hooks/useEncounter';
 import Loading from '../components/loading';
-import EncounterDetails from '../components/encounterDetails';
 import Map from '../components/map';
-import Caravan from '../components/caravan';
-import Success from '../components/success';
-import DropDown from '../components/dropDown';
 import { setEncounterInformation } from '../features/encounterSlice';
-
+import { useCharacter } from '../hooks/useCharacter';
+import { useFetchItems5e } from '../hooks/useFetchItems5e';
 import Layout from '../components/layout';
+import { randomNumber } from '../lib/randomNumber';
+import GenerateMadLib from '../components/GenerateMadLib';
+
+import { xpThresholdsByCharacterLevel } from '../lib/xpTables';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Home() {
   const dispatch = useDispatch();
 
-  const [items5e, _items5e] = useState([]);
-  const [armor5e, _armor5e] = useState([]);
-  const [magicItems5e, _magicItems5e] = useState([]);
-  const [combinedObjects, _combinedObjects] = useState([]);
-  const [playerCount, setPlayerCount] = useState(4);
-  const [playerExperienceLevel, setplayerExperienceLevel] = useState(2700);
-  const [encounterAdjustedExperience, setEncounterAdjustedExperience] =
-    useState(1500);
-  const [encounterExperience, setEncounterExperience] = useState(1500);
-  const [submitIsLoading, setSubmitIsLoading] = useState(true);
+  const {
+    playerCount,
+    _playerCount,
+    playerExperienceStart,
+    _playerExperienceStart,
+    encounterAdjustedExperience,
+    _encounterAdjustedExperience,
+    encounterExperience,
+    _encounterExperience,
+    getLevelFromXP,
+    getAdventuringDayXPLimit,
+    calculateLevelOfPlayersCharactersStart,
+    getXPThresholdsByCharacterLevel,
+    adventuringDayXp,
+  } = useCharacter();
+  const { combinedObjects, loading, error } = useFetchItems5e();
 
-  const encounterData = useSelector((state) => state.encounter);
+  const [isSubmitting, _isSubmitting] = useState(false);
+  const [shortRest, _shortRest] = useState(0);
+  const [totalShortRestsAllows, _totalShortRestsAllows] = useState(2);
 
-  const router = useRouter();
-  const { data, isLoading, isError } = useEncounter('/api/encounter', fetcher);
+  const {
+    isLoading: encounterLoading,
+    error: encounterError,
+    difficulty,
+    monsters,
+    mapInfo,
+    quest,
+    encounterModifier,
+  } = useEncounter('/api/encounter');
 
-  const fetchItemsData = async () => {
-    const response = await fetch('https://api.open5e.com/weapons/?limit=100');
-    const data = await response.json();
-    _magicItems5e(data.results);
-    return data;
-  };
-  const fetchMagicItemsData = async () => {
-    const response = await fetch('https://api.open5e.com/magicitems/?limit=5');
-    const data = await response.json();
-    _items5e(data.results);
-    return data;
-  };
-  const fetchArmorData = async () => {
-    const response = await fetch('https://api.open5e.com/armor/?limit=100');
-    const data = await response.json();
-    _armor5e(data.results);
-    return data;
-  };
-  useEffect(() => {
-    fetchItemsData();
-    fetchArmorData();
-    fetchMagicItemsData();
-  }, []);
-  useEffect(() => {
-    const combined = [...items5e, ...armor5e, ...magicItems5e];
-    _combinedObjects(combined);
-  }, [items5e, armor5e]);
-  if (isLoading) return <Loading />;
-  if (isError) return <Text>Error</Text>;
+  if (encounterLoading) return <Loading />;
+  if (encounterError) return <Text>Error</Text>;
 
-  const mapSize = 4;
-  const { difficulty, monsters, mapInfo, quest, encounterModifier, intro } =
-    data;
   const {
     hasWeather,
     weatherSeverity,
@@ -108,13 +79,10 @@ export default function Home() {
     timeOfDay,
     playerStartingPotions,
     oppositionStartingPotions,
-    objects,
   } = mapInfo;
+
   const { challengeRating } = monsters;
   const { objectives } = quest;
-
-  const randomNumber = (min, max) =>
-    Math.floor(Math.random() * (max - min)) + min;
 
   let mapDimensions = randomNumber(0, dimensions.length);
   const mapTerrainType = randomNumber(0, terrainType.length);
@@ -141,14 +109,8 @@ export default function Home() {
     oppositionStartingPotions.length
   );
 
-  const difficultyLevel = randomNumber(0, difficulty.length);
-  const selectedDifficulty = difficulty[difficultyLevel];
-
   const questObjective = randomNumber(0, objectives.length);
   const selectedObjective = objectives[questObjective];
-
-  const introText = randomNumber(0, intro.length);
-  const selectedIntroText = intro[introText];
 
   const amountOfItems = randomNumber(1, 16);
 
@@ -159,38 +121,10 @@ export default function Home() {
     );
   }
 
-  function loadPage() {
-    router.push('/');
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
-    setSubmitIsLoading(true);
-    dispatch(
-      setEncounterInformation({
-        playerExperienceLevel,
-        playerCount,
-        encounterAdjustedExperience,
-        encounterExperience,
-      })
-    );
-    setSubmitIsLoading(false);
-  }
 
-  function handlePlayerCountChange(e) {
-    setPlayerCount(e.target.value);
-  }
-
-  function handlePlayerExperienceLevelChange(e) {
-    setplayerExperienceLevel(e.target.value);
-  }
-
-  function handleEncounterExperienceChange(e) {
-    setEncounterExperience(e.target.value);
-  }
-
-  function handleEncounterAdjustedExperienceChange(e) {
-    setEncounterAdjustedExperience(e.target.value);
+    _isSubmitting(false);
   }
 
   const sharedMapDimensions = dimensions[mapDimensions];
@@ -198,6 +132,72 @@ export default function Home() {
   const doesAppear = ['Yes', 'No'];
   const isCaravan = randomNumber(0, doesAppear.length);
   const doesApper = doesAppear[isCaravan];
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  const calculateStartedPlayerExperienceLevel = getLevelFromXP(
+    playerExperienceStart
+  );
+
+  const calculateFinishEncounterExperienceLevel = getLevelFromXP(
+    playerExperienceStart + encounterExperience / playerCount
+  );
+
+  const adventuringDayXpLimit = getAdventuringDayXPLimit(
+    calculateStartedPlayerExperienceLevel
+  );
+
+  const calculatedAdventuringDayXp = adventuringDayXpLimit * playerCount;
+  const selectedDifficulty = difficulty[randomNumber(0, difficulty.length)];
+
+  const convertDiffulctyToText = (difficulty) => {
+    switch (difficulty) {
+      case 0:
+        return 'Easy';
+      case 1:
+        return 'Medium';
+      case 2:
+        return 'Hard';
+      default:
+        return 'Deadly';
+    }
+  };
+
+  const xpThresholdsByCharacterLevelEasy = getXPThresholdsByCharacterLevel(
+    0,
+    calculateStartedPlayerExperienceLevel
+  );
+
+  const xpThresholdsByCharacterLevelMedium = getXPThresholdsByCharacterLevel(
+    1,
+    calculateStartedPlayerExperienceLevel
+  );
+
+  const xpThresholdsByCharacterLevelHard = getXPThresholdsByCharacterLevel(
+    2,
+    calculateStartedPlayerExperienceLevel
+  );
+
+  const xpThresholdsByCharacterLevelDeadly = getXPThresholdsByCharacterLevel(
+    3,
+    calculateStartedPlayerExperienceLevel
+  );
+
+  const adventuringDayXpFinish =
+    calculatedAdventuringDayXp - encounterExperience;
+
+  const percentOfAdventuringDayXpRemaining = Math.round(
+    (adventuringDayXpFinish / calculatedAdventuringDayXp) * 100
+  );
+
+  const longRestNeeded =
+    adventuringDayXpFinish < xpThresholdsByCharacterLevelEasy ? true : false;
 
   return (
     <Layout>
@@ -226,7 +226,7 @@ export default function Home() {
                       id="playerCount"
                       name="playerCount"
                       text="number"
-                      onChange={handlePlayerCountChange}
+                      onChange={(e) => _playerCount(e.target.value)}
                       value={playerCount}
                     />
                   </GridItem>
@@ -238,8 +238,8 @@ export default function Home() {
                       id="playerExperienceLevel"
                       name="playerExperienceLevel"
                       text="number"
-                      onChange={handlePlayerExperienceLevelChange}
-                      value={playerExperienceLevel}
+                      onChange={(e) => _playerExperienceStart(e.target.value)}
+                      value={playerExperienceStart}
                     />
                   </GridItem>
                   <GridItem>
@@ -250,7 +250,9 @@ export default function Home() {
                       id="encounterAdjustedExperience"
                       name="encounterAdjustedExperience"
                       text="number"
-                      onChange={handleEncounterAdjustedExperienceChange}
+                      onChange={(e) =>
+                        _encounterAdjustedExperience(e.target.value)
+                      }
                       value={encounterAdjustedExperience}
                     />
                   </GridItem>
@@ -262,7 +264,7 @@ export default function Home() {
                       id="encounterExperience"
                       name="encounterExperience"
                       text="number"
-                      onChange={handleEncounterExperienceChange}
+                      onChange={(e) => _encounterExperience(e.target.value)}
                       value={encounterExperience}
                     />
                   </GridItem>
@@ -275,26 +277,235 @@ export default function Home() {
           </AccordionItem>
         </Accordion>
       </Stack>
-      {!submitIsLoading ? (
+      {!isSubmitting ? (
         <Box mt={8}>
-          <EncounterDetails
-            monsters={monsters}
-            amountOfItems={amountOfItems}
-            objects={combinedObjects}
-            oppositionStartingPotion={oppositionStartingPotion}
-            playerStartingPotion={playerStartingPotion}
-            dimensions={sharedMapDimensions}
-            difficulty={difficultyLevel}
-            terrainType={selectedTerrainType}
-            weatherSeverity={selectedWeatherSeverity}
-            weatherChange={selectedWeatherChange}
-            timeOfDay={selectedTimeOfDay}
-            objectives={selectedObjective}
-            weatherType={selectedWeatherType}
-            challengeRating={challengeRating}
-            hasWeather={selectedHasWeather}
-            intro={intro}
-          />
+          <Grid
+            ml={0}
+            gridTemplateColumns={{
+              base: '1fr',
+            }}
+            gap="1"
+            color="blackAlpha.700"
+            fontWeight="bold"
+          >
+            <GridItem border="1px">
+              <Accordion allowMultiple px={2}>
+                <AccordionItem>
+                  <AccordionButton>
+                    <Text fontSize="lg" fontWeight="bold">
+                      INTRO
+                    </Text>
+                    <AccordionIcon />
+                  </AccordionButton>
+                  <AccordionPanel pb={4}>
+                    <Text fontSize="2xl" fontWeight="light" fontStyle="italic">
+                      <GenerateMadLib />
+                    </Text>
+                  </AccordionPanel>
+                </AccordionItem>
+
+                <AccordionItem>
+                  <AccordionButton>
+                    <Text fontSize="lg" fontWeight="bold">
+                      MAP DETAILS
+                    </Text>
+                    <AccordionIcon />
+                  </AccordionButton>
+                  <AccordionPanel>
+                    <Grid
+                      gridTemplateColumns={{
+                        base: 'repeat(2, minmax(0, 1fr))',
+                        md: 'repeat(3, minmax(0,1f))',
+                      }}
+                      gap={2}
+                    >
+                      <GridItem>
+                        <Text fontSize="xs">Category</Text>
+                      </GridItem>
+                      <GridItem>
+                        <Text fontSize="xs" fontWeight="bold">
+                          Value
+                        </Text>
+                      </GridItem>
+
+                      <GridItem>
+                        <Text fontSize="xs">Map Terrain Type</Text>
+                      </GridItem>
+                      <GridItem>
+                        <Text fontSize="xs" fontWeight="bold">
+                          {selectedTerrainType}
+                        </Text>
+                      </GridItem>
+                      <GridItem>
+                        <Text fontSize="xs">Map Dimensions</Text>
+                      </GridItem>
+                      <GridItem>
+                        <Text fontSize="xs" fontWeight="bold">
+                          {sharedMapDimensions}ft x {sharedMapDimensions}ft
+                        </Text>
+                      </GridItem>
+                      <GridItem>
+                        <Text fontSize="xs" fontWeight="bold">
+                          Has Weather?
+                        </Text>
+                      </GridItem>
+                      <GridItem>
+                        <Text fontSize="xs" fontWeight="bold">
+                          {selectedHasWeather === 'No' ? 'No' : 'Yes'}
+                        </Text>
+
+                        {selectedHasWeather === 'Yes' && (
+                          <Text fontSize="xs" fontWeight="bold">
+                            {selectedWeatherSeverity}
+                            &nbsp;
+                            {selectedWeatherType}, &nbsp;(
+                            {selectedWeatherChange})
+                          </Text>
+                        )}
+                      </GridItem>
+                      <GridItem>
+                        <Text fontSize="xs" fontWeight="bold">
+                          Time of Day
+                        </Text>
+                      </GridItem>
+                      <GridItem>
+                        <Text fontSize="xs" fontWeight="bold">
+                          {selectedTimeOfDay}
+                        </Text>
+                      </GridItem>
+                    </Grid>
+                  </AccordionPanel>
+                </AccordionItem>
+
+                <AccordionItem>
+                  <Text fontWeight="bold" ml={4} py={2}>
+                    OBJECTIVE: {selectedObjective}
+                  </Text>
+                </AccordionItem>
+              </Accordion>
+            </GridItem>
+            <GridItem px={2}>
+              <Accordion allowMultiple>
+                <AccordionItem>
+                  <AccordionButton>
+                    <Text fontSize="lg" fontWeight="bold">
+                      XP
+                    </Text>
+                    <AccordionIcon />
+                  </AccordionButton>
+                  <AccordionPanel pb={4}>
+                    <Heading>Encounter Information</Heading>
+                    <Grid
+                      templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }}
+                      gap={6}
+                    >
+                      <GridItem border="1px" p={4}>
+                        <p>Manual Inputs:</p>
+                        <br />
+                        <p>playerCount: {playerCount}</p>
+                        <p>playerExperienceStart: {playerExperienceStart}</p>
+                        <p>
+                          encounterAdjustedExperience:{' '}
+                          {encounterAdjustedExperience}
+                        </p>
+                        <p>encounterExperience: {encounterExperience}</p>
+                      </GridItem>
+                      <GridItem border="1px" p={4}>
+                        <h2>Calculated Values</h2>
+                        <br />
+                        <p>
+                          levelOfPlayersCharactersStart:{' '}
+                          {calculateStartedPlayerExperienceLevel}
+                        </p>
+                        <p>
+                          adventuringDayXpLimit: {calculatedAdventuringDayXp}
+                        </p>
+                        <p>
+                          XP Thresholds By Character Level - Easy:{' '}
+                          {xpThresholdsByCharacterLevelEasy}
+                        </p>
+                        <p>
+                          XP Thresholds By Character Level - Medium:{' '}
+                          {xpThresholdsByCharacterLevelMedium}
+                        </p>
+                        <p>
+                          XP Thresholds By Character Level - Hard:{' '}
+                          {xpThresholdsByCharacterLevelHard}
+                        </p>
+                        <p>
+                          XP Thresholds By Character Level - Deadly:{' '}
+                          {xpThresholdsByCharacterLevelDeadly}
+                        </p>
+                        <p>
+                          adventuringDayXpStart: {calculatedAdventuringDayXp}
+                        </p>
+                        <p>
+                          Encounter Difficulty Options:{' '}
+                          {convertDiffulctyToText(selectedDifficulty)}
+                        </p>
+                        <p>
+                          Adventuring Day XP - Finish: {adventuringDayXpFinish}
+                        </p>
+                        <p>
+                          Player Experience - Earned From Encounter: {''}
+                          {encounterExperience / playerCount}
+                        </p>
+                        <p>
+                          Player Experience - Finish:
+                          {playerExperienceStart +
+                            encounterExperience / playerCount}
+                        </p>
+                        <p>
+                          Level of Players Characters - Finish:
+                          {calculateFinishEncounterExperienceLevel}
+                        </p>
+                        <p>
+                          % of Adventuring Day XP Remaining:
+                          {percentOfAdventuringDayXpRemaining}%
+                        </p>
+                        <p>
+                          Short Rest Needed? First One 68%:{' '}
+                          {percentOfAdventuringDayXpRemaining < 68
+                            ? 'Yes'
+                            : 'No'}
+                        </p>
+                        <p>
+                          Short Rest Needed? Second One 34%:{' '}
+                          {percentOfAdventuringDayXpRemaining < 34
+                            ? 'Yes'
+                            : 'No'}
+                        </p>
+                        <p>
+                          Short Rest Counter - Start: {totalShortRestsAllows}
+                        </p>
+                        <p>
+                          Short Rest Counter - Finish: {totalShortRestsAllows}
+                        </p>
+                        <p>
+                          Long Rest Needed?: {longRestNeeded ? 'Yes' : 'No'}
+                        </p>
+                      </GridItem>
+                    </Grid>
+                  </AccordionPanel>
+                </AccordionItem>
+              </Accordion>
+
+              <Accordion allowMultiple>
+                <AccordionItem>
+                  <AccordionButton>
+                    <Text fontSize="lg" fontWeight="bold">
+                      Notes and Comments
+                    </Text>
+                    <AccordionIcon />
+                  </AccordionButton>
+                  <AccordionPanel pb={4} height="100%">
+                    <Textarea placeholder="" style={{ height: '100%' }} />
+                  </AccordionPanel>
+                </AccordionItem>
+              </Accordion>
+            </GridItem>
+          </Grid>
+
           <Map
             monsters={monsters}
             amountOfItems={amountOfItems}
@@ -302,7 +513,7 @@ export default function Home() {
             oppositionStartingPotion={oppositionStartingPotion}
             playerStartingPotion={playerStartingPotion}
             dimensions={sharedMapDimensions}
-            difficulty={difficultyLevel}
+            // difficulty={selectedDifficulty}
             terrainType={selectedTerrainType}
             weatherSeverity={selectedWeatherSeverity}
             weatherChange={selectedWeatherChange}
@@ -314,24 +525,6 @@ export default function Home() {
           />
         </Box>
       ) : null}
-
-      {/* <Success
-              monsters={monsters}
-              amountOfItems={amountOfItems}
-              objects={objects}
-              oppositionStartingPotion={oppositionStartingPotion}
-              playerStartingPotion={playerStartingPotion}
-              dimensions={sharedMapDimensions}
-              difficulty={difficultyLevel}
-              terrainType={selectedTerrainType}
-              weatherSeverity={selectedWeatherSeverity}
-              weatherChange={selectedWeatherChange}
-              timeOfDay={selectedTimeOfDay}
-              objectives={selectedObjective}
-              weatherType={selectedWeatherType}
-              challengeRating={challengeRating}
-              hasWeather={selectedHasWeather}
-            /> */}
     </Layout>
   );
 }

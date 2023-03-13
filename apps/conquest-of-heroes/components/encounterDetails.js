@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Text,
   Grid,
@@ -13,11 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { setEncounter } from '../features/encounterSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  getPlayerLevel,
-  getAdventuringDayXPLimit,
-  getEncounterMultipliers,
-} from '../lib/xpFunctions';
+import { useCharacter } from '../hooks/useCharacter';
 
 export default function EncounterDetails({
   monsters,
@@ -37,12 +33,23 @@ export default function EncounterDetails({
   dimensions,
   intro,
 }) {
-  const dispatch = useDispatch();
+  const {
+    playerCount,
+    _playerCount,
+    playerStartLevel,
+    _playerStartLevel,
+    getLevelFromXP,
+    getAdventuringDayXPLimit,
+    calculateLevelOfPlayersCharactersStart,
+    getXPThresholdsByCharacterLevel,
+    adventuringDayXp,
+  } = useCharacter();
+
   const encounterData = useSelector((state) => state.encounter);
   const { value } = encounterData;
 
   const { arrival, atmosphere, range, details, sense, location } = intro;
-  const { senseDescription, senseObject, senseDegree, lighting } = sense;
+  const { senseDescription, senseObject, senseDegree } = sense;
   const { locationDescription, locationLandscape } = location;
 
   const { locationObject, locationDuration } = locationLandscape;
@@ -84,25 +91,36 @@ export default function EncounterDetails({
   const randomSenseLighting = randomNumber(0, senseLighting.length);
   const selectedRandomSenseLighting = senseLighting[randomSenseLighting];
 
-  const [playerCount, setPlayerCount] = useState(value.playerCount);
-  const [playerStartLevel, setPlayerStartLevel] = useState(
-    value.playerExperienceStart
-  );
-
   const randomDifficulty = difficulty;
 
   // XP calculation
-  const playerLevel = getPlayerLevel(value.playerExperienceLevel);
+  const playerLevel = calculateLevelOfPlayersCharactersStart(
+    value.playerExperienceLevel
+  );
   const adventuringDayXPLimit = getAdventuringDayXPLimit(playerLevel);
   const adjustedAdventuringDayXPLimit = adventuringDayXPLimit * playerCount;
   const playerExperienceLevel = value?.playerExperienceLevel;
   const encounterAdjustedExperience = value.encounterAdjustedExperience; //manual input
   const encounterExperience = value.encounterExperience; // manual input
-  const xpThresholdByDifficulty = getEncounterMultipliers(
-    difficulty,
-    value.playerCount
+  const playerExperienceEarnedFromEncounter =
+    encounterExperience / value.playerCount;
+
+  const xpThresholdsByCharacterLevelEasy = getXPThresholdsByCharacterLevel(
+    0,
+    playerCount
   );
-  const xpThreshold = xpThresholdByDifficulty * value.playerCount;
+  const xpThresholdsByCharacterLevelMedium = getXPThresholdsByCharacterLevel(
+    1,
+    playerCount
+  );
+  const xpThresholdsByCharacterLevelHard = getXPThresholdsByCharacterLevel(
+    2,
+    playerCount
+  );
+  const xpThresholdsByCharacterLevelDeadly = getXPThresholdsByCharacterLevel(
+    3,
+    playerCount
+  );
 
   const displayDifficultyText = () => {
     if (randomDifficulty === 0) {
@@ -266,6 +284,15 @@ export default function EncounterDetails({
                     <GridItem>{playerLevel}</GridItem>
                     <GridItem>Adventuring Day XP Limit:</GridItem>
                     <GridItem>{adjustedAdventuringDayXPLimit}</GridItem>
+                    <GridItem>xpThresholdsByCharacterLevelEasy</GridItem>
+                    <GridItem>{xpThresholdsByCharacterLevelEasy}</GridItem>
+                    <GridItem>xpThresholdsByCharacterLevelMedium</GridItem>
+                    <GridItem>{xpThresholdsByCharacterLevelMedium}</GridItem>
+                    <GridItem>xpThresholdsByCharacterLevelHard</GridItem>
+                    <GridItem>{xpThresholdsByCharacterLevelHard}</GridItem>
+                    <GridItem>xpThresholdsByCharacterLevelDeadly</GridItem>
+                    <GridItem>{xpThresholdsByCharacterLevelDeadly}</GridItem>
+
                     <GridItem>Adventuring Day XP - Start:</GridItem>
                     <GridItem>
                       {adjustedAdventuringDayXPLimit} (same as Adventuring Day
@@ -277,6 +304,24 @@ export default function EncounterDetails({
                     <GridItem>{encounterAdjustedExperience}</GridItem>
                     <GridItem>Encounter Experience:</GridItem>
                     <GridItem>{encounterExperience}</GridItem>
+                    <GridItem>Adventuring Day XP - Finish:</GridItem>
+                    <GridItem>
+                      {adjustedAdventuringDayXPLimit -
+                        encounterAdjustedExperience}
+                    </GridItem>
+                    <GridItem>
+                      Player Experience - Earned from Encounter:
+                    </GridItem>
+                    <GridItem>
+                      {encounterExperience / value.playerCount}
+                    </GridItem>
+                    <GridItem>Player Experience - Finish:</GridItem>
+                    <GridItem>
+                      {playerExperienceEarnedFromEncounter +
+                        playerExperienceLevel}
+                    </GridItem>
+                    <GridItem>Level of Player Character - Finish</GridItem>
+                    <GridItem></GridItem>
                     {/* <GridItem>Adventuring Day XP Limit:</GridItem>
                     <GridItem>{adventuringDayXPLimit}</GridItem>
 

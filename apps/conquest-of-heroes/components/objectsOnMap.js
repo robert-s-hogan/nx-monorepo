@@ -10,12 +10,10 @@ function ObjectsOnMap({ objects, mapSize }) {
     return Math.floor(Math.random() * (mapSize - low + 1)) + low;
   };
 
-  console.log(`randomNumber is ${randomNumber(1, mapSize)}`);
-
   const pickRandom = (arr, count) => {
     const _arr = [...arr];
     return [...Array(count)].map(
-      () => _arr.splice(Math.floor(Math.random() * _arr.length), 1)[0],
+      () => _arr.splice(Math.floor(Math.random() * _arr.length), 1)[0]
     );
   };
 

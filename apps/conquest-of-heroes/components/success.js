@@ -22,11 +22,11 @@ import {
 } from '@chakra-ui/react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  getPlayerLevel,
+  calculateLevelOfPlayersCharactersStart,
   getAdventuringDayXPLimit,
   getEncounterMultipliers,
   adventuringDayXp,
-} from '../lib/xpFunctions';
+} from '../lib/xpTables';
 
 export default function Results({
   monsters,
@@ -51,13 +51,17 @@ export default function Results({
 
   const [playerCount, setPlayerCount] = useState();
   const [playerExperienceLevel, setPlayerExperienceLevel] = useState();
-  const [encounterAdjustedExperience, setEncounterAdjustedExperience] = useState();
+  const [encounterAdjustedExperience, setEncounterAdjustedExperience] =
+    useState();
   const [encounterExperience, setEncounterExperience] = useState();
   const [playerLevel, setPlayerLevel] = useState();
 
-  const calculatePlayerLevel = getPlayerLevel(value.playerExperienceLevel);
+  const calculatePlayerLevel = calculateLevelOfPlayersCharactersStart(
+    value.playerExperienceLevel
+  );
 
-  const calculateXPThresholdByDifficulty = adventuringDayXp(calculatePlayerLevel);
+  const calculateXPThresholdByDifficulty =
+    adventuringDayXp(calculatePlayerLevel);
   const xpThreshold = calculateXPThresholdByDifficulty * playerCount;
   const calculateXPThreshold = calculateXPThresholdByDifficulty * playerCount;
 
@@ -68,13 +72,18 @@ export default function Results({
   const adjustedAdventuringDayXPLimit = adventuringDayXPLimit * playerCount;
 
   const longRest = ['yes', 'no'];
-  const randomNumber = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+  const randomNumber = (min, max) =>
+    Math.floor(Math.random() * (max - min)) + min;
   const longRestNeeded = longRest[randomNumber(0, 2)];
 
   let adventuringDayXPFinish = xpThreshold - encounterAdjustedExperience;
 
-  const percentOfAdventuringDayXPOne = (adventuringDayXPFinish / xpThreshold).toFixed(2);
-  const percentOfAdventuringDayXPTwo = (adventuringDayXPFinish / xpThreshold).toFixed(2);
+  const percentOfAdventuringDayXPOne = (
+    adventuringDayXPFinish / xpThreshold
+  ).toFixed(2);
+  const percentOfAdventuringDayXPTwo = (
+    adventuringDayXPFinish / xpThreshold
+  ).toFixed(2);
   const advenuringDayXPStart =
     (xpThreshold + adventuringDayXPFinish) * percentOfAdventuringDayXPOne;
 
@@ -143,7 +152,8 @@ export default function Results({
                       {xpThreshold}
                     </Text>
                     <Text fontSize="xs" fontWeight="bold" fontStyle="italic">
-                      {calculateXPThresholdByDifficulty} threshold * {playerCount}&nbsp; players
+                      {calculateXPThresholdByDifficulty} threshold *{' '}
+                      {playerCount}&nbsp; players
                     </Text>
                   </GridItem>
 
@@ -173,7 +183,11 @@ export default function Results({
                           <Text fontSize="xl" fontWeight="bold">
                             {xpThreshold}
                           </Text>
-                          <Text fontSize="xs" fontWeight="bold" fontStyle="italic">
+                          <Text
+                            fontSize="xs"
+                            fontWeight="bold"
+                            fontStyle="italic"
+                          >
                             pulled from adventuring day xp limit
                           </Text>
                         </>
@@ -184,7 +198,11 @@ export default function Results({
                               <Text fontSize="xl" size="xs" fontWeight="bold">
                                 {xpThreshold}
                               </Text>
-                              <Text fontSize="xs" fontWeight="bold" fontStyle="italic">
+                              <Text
+                                fontSize="xs"
+                                fontWeight="bold"
+                                fontStyle="italic"
+                              >
                                 ADxpLimit and long rest is true
                               </Text>
                             </>
@@ -193,7 +211,11 @@ export default function Results({
                               <Text fontSize="xl" size="xs" fontWeight="bold">
                                 {advenuringDayXPStart}
                               </Text>
-                              <Text fontSize="xs" fontWeight="bold" fontStyle="italic">
+                              <Text
+                                fontSize="xs"
+                                fontWeight="bold"
+                                fontStyle="italic"
+                              >
                                 {xpThreshold} + {adventuringDayXPFinish} *{' '}
                                 {percentOfAdventuringDayXPOne}
                               </Text>
@@ -229,8 +251,13 @@ export default function Results({
                           <Text fontSize="xl" fontWeight="bold">
                             {percentOfAdventuringDayXPTwo}
                           </Text>
-                          <Text fontSize="xs" fontWeight="bold" fontStyle="italic">
-                            {adventuringDayXPFinish} / {xpThreshold} (multiple encounters)
+                          <Text
+                            fontSize="xs"
+                            fontWeight="bold"
+                            fontStyle="italic"
+                          >
+                            {adventuringDayXPFinish} / {xpThreshold} (multiple
+                            encounters)
                           </Text>
                         </>
                       ) : (
@@ -238,8 +265,13 @@ export default function Results({
                           <Text fontSize="xl" fontWeight="bold">
                             {percentOfAdventuringDayXPOne}
                           </Text>
-                          <Text fontSize="xs" fontWeight="bold" fontStyle="italic">
-                            {adventuringDayXPFinish} / {xpThreshold} (first encounter)
+                          <Text
+                            fontSize="xs"
+                            fontWeight="bold"
+                            fontStyle="italic"
+                          >
+                            {adventuringDayXPFinish} / {xpThreshold} (first
+                            encounter)
                           </Text>
                         </>
                       )}

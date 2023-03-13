@@ -44,8 +44,6 @@ const QuadrantThree = ({ objects, structures }) => {
       randomStructureThree,
       randomStructureFour,
     ]);
-
-    console.log(randomArray);
   };
 
   useEffect(() => {
