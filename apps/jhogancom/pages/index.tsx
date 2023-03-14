@@ -82,7 +82,7 @@ export function Index() {
           <div className="lg:col-span-2 lg:mr-24">
             <h2 className="text-3xl font-semibold text-gray-800">Who I am</h2>
 
-            <p className="text-gray-500 my-5 text-justify">
+            <p className="text-gray-500 my-5">
               I am a Data Scientist and Data Analyst based in Sonoma County,
               California. I have a master’s degree and over eight years
               experience providing actionable insights. I have a diverse
