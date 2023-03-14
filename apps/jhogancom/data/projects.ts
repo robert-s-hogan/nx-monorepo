@@ -7,6 +7,8 @@ export const projectStaticData = [
       'For this project, I used Udemy class data from Kaggle.com to try and predict which classes are successful using Pandas, matplotlib and scikit-learn.',
     link: 'https://github.com/jessicahoganma/machine_learning_udemy_class_data',
     image: '/images/machine-learning-project.webp',
+    featured: true,
+    order: 1,
   },
   {
     name: 'Python for Marketing',
@@ -17,6 +19,8 @@ export const projectStaticData = [
     link: 'https://github.com/jessicahoganma/Python-For-Marketing',
     image:
       'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    featured: true,
+    order: 2,
   },
   {
     name: "Master's Thesis",
@@ -36,6 +40,8 @@ export const projectStaticData = [
       'For this project I used the MySQL Connector, Python and pandas to implement a database on MySQL Server to create, read, update and delete data. ',
     link: 'https://github.com/jessicahoganma/Python_SQL/blob/main/README.md',
     image: '/images/python-project.jpeg',
+    featured: true,
+    order: 3,
   },
   {
     name: 'SQL Project',

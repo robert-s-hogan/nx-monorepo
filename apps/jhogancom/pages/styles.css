@@ -47,7 +47,10 @@
     @apply text-white dark:text-orange;
   }
   .card {
-    @apply transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110;
+    @apply transition duration-500 ease-in-out transform;
+  }
+  .card:hover {
+    @apply -translate-y-1 scale-110 z-50;
   }
 }
 
