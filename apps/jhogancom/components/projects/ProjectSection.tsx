@@ -33,7 +33,7 @@ const ProjectSection = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
         {projectStaticData.map((project, index) => {
-          if (index < 4 || pathname !== '/') {
+          if (index < 3 || pathname !== '/') {
             return (
               // <Link href={`/projects/${project.slug}`} key={project.name}>
               <div
