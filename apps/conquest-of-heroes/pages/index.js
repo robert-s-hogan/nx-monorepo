@@ -14,6 +14,7 @@ import {
   AccordionPanel,
   AccordionIcon,
   Textarea,
+  Flex,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
@@ -147,7 +148,7 @@ export default function Home() {
 
   const calculateFinishEncounterExperienceLevel = getLevelFromXP(
     parseInt(playerExperienceStart) +
-      parseInt(encounterExperience) / parseInt(playerCount)
+      parseInt(encounterAdjustedExperience) / parseInt(playerCount)
   );
 
   const adventuringDayXpLimit = getAdventuringDayXPLimit(
@@ -203,6 +204,8 @@ export default function Home() {
   const playerExperienceFinish =
     parseInt(playerExperienceStart) +
     parseInt(encounterExperience) / parseInt(playerCount);
+
+  const slicecombinedObjects = combinedObjects.slice(0, 4);
 
   return (
     <Layout>
@@ -529,6 +532,58 @@ export default function Home() {
           />
         </Box>
       ) : null}
+
+      <Grid
+        templateColumns={{
+          base: 'repeat(1,1fr)',
+          xl: 'repeat(4,1fr)',
+        }}
+        gap={1}
+        mt={12}
+      >
+        {slicecombinedObjects.map((object, index) => (
+          <GridItem key={index}>
+            <Flex
+              borderRadius="20px"
+              bg="white"
+              p="20px"
+              alignItems="center"
+              direction="column"
+              border="1px solid #E2E8F0"
+            >
+              {Object.entries(object).map(([key, value]) => {
+                // exclude these keys
+                if (
+                  key === 'document__slug' ||
+                  key === 'document__license_url' ||
+                  key === 'document__title' ||
+                  key === 'document__slug' ||
+                  key === 'slug'
+                ) {
+                  return null;
+                }
+
+                return (
+                  <Flex
+                    flexDirection="column"
+                    mb="10px"
+                    key={key}
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    <Text color="gray.500" fontWeight="500">
+                      {key}
+                    </Text>
+                    <Text fontWeight="600" color="black" fontSize="xl">
+                      {value}
+                    </Text>
+                  </Flex>
+                );
+              })}
+            </Flex>
+          </GridItem>
+        ))}
+      </Grid>
     </Layout>
   );
 }

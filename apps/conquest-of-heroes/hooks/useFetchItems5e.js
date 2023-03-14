@@ -8,11 +8,11 @@ const fetcher = async (url) => {
 
 export const useFetchItems5e = () => {
   const { data: items5e, error: itemsError } = useSWR(
-    'https://api.open5e.com/weapons/?limit=100',
+    'https://api.open5e.com/weapons/?limit=2000',
     fetcher
   );
   const { data: armor5e, error: armorError } = useSWR(
-    'https://api.open5e.com/armor/?limit=100',
+    'https://api.open5e.com/armor/?limit=2000',
     fetcher
   );
   const { data: magicItems5e, error: magicError } = useSWR(
@@ -24,6 +24,14 @@ export const useFetchItems5e = () => {
     ...(armor5e?.results ?? []),
     ...(magicItems5e?.results ?? []),
   ];
+
+  for (let i = combinedObjects.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [combinedObjects[i], combinedObjects[j]] = [
+      combinedObjects[j],
+      combinedObjects[i],
+    ];
+  }
 
   const loading = !items5e && !armor5e && !magicItems5e;
   const error = itemsError || armorError || magicError;
