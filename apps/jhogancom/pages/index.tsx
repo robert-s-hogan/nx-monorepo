@@ -84,7 +84,7 @@ export function Index() {
 
             <p className="text-gray-500 my-5 text-justify">
               I am a Data Scientist and Data Analyst based in Sonoma County,
-              California. I have a master’s degree and over five years
+              California. I have a master’s degree and over eight years
               experience providing actionable insights. I have a diverse
               background working in both public and private sectors from
               research to marketing which gives me a unique eye in which to
@@ -246,12 +246,12 @@ export function Index() {
         title="Thanks for taking the time to reach out!"
       >
         <div className="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg space-y-4">
-          <h2>
+          <h2 className="text-black font-semibold text-center">
             Thanks for taking the time to reach out! Fill in the form to start a
             conversation
           </h2>
-          <div className="grid grid-cols-2">
-            <div className="flex items-center mt-4 text-gray-600 dark:text-gray-400">
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="flex items-center mt-4 text-black">
               <svg
                 fill="none"
                 stroke="currentColor"
@@ -274,12 +274,12 @@ export function Index() {
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 />
               </svg>
-              <div className="ml-4 text-md tracking-wide font-semibold w-full">
+              <div className="ml-4 text-md tracking-wide font-semibold w-full ">
                 Sonoma County, CA
               </div>
             </div>
 
-            <div className="flex items-center mt-2 text-gray-600 dark:text-gray-400">
+            <div className="flex items-center mt-2 text-black">
               <svg
                 fill="none"
                 stroke="currentColor"
@@ -296,11 +296,9 @@ export function Index() {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              <div className="ml-4 text-md tracking-wide font-semibold w-full">
+              <div className="ml-4 text-md tracking-wide font-semibold w-full text-black">
                 <Link className="text" href="mailto:robert@robertshogan.com">
-                  <p className="text-black dark:text-white underline">
-                    Email me
-                  </p>
+                  <p className="text-black underline">Email me</p>
                 </Link>
               </div>
             </div>

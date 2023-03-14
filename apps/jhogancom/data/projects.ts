@@ -40,6 +40,7 @@ export const projectStaticData = [
     image: '/images/masters-thesis.jpeg',
     // icon: iconsMap['file-text'],
   },
+
   {
     name: 'Python Project',
     slug: 'python-project',
