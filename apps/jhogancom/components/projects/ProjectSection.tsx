@@ -31,7 +31,7 @@ const ProjectSection = () => {
         statistics.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {projectStaticData.map((project, index) => {
           if (index < 3 || pathname !== '/') {
             return (
