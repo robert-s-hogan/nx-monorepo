@@ -1,0 +1,16 @@
+{
+  "name": "nextjs-hooks",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/nextjs-hooks/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/nextjs-hooks/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}
