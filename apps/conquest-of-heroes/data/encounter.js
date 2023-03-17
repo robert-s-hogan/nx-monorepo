@@ -1,3 +1,5 @@
+const disadvantageAttackIcons = ['TbBow', 'GiIceSpellCast', 'GiSlingshot'];
+
 export const encounter = {
   difficulty: [0, 1, 2, 3],
   monsters: {
@@ -428,36 +430,315 @@ export const encounter = {
   map: {
     weather: {
       severity: [
-        'clear',
-        'partly cloudy',
-        'cloudy',
-        'overcast',
-        'foggy',
-        'hazy',
-        'smoky',
-        'dust',
-        'mist',
-        'drizzle',
-        'light rain',
-        'rain',
-        'heavy rain',
-        'freezing rain',
-        'sleet',
-        'hail',
-        'thunderstorm',
-        'tropical storm',
-        'hurricane',
-        'tornado',
-        'snow',
-        'blizzard',
-        'ice storm',
-        'heat wave',
-        'cold wave',
-        'high wind',
-        'dust storm',
-        'sandstorm',
-        'flood',
-        'drought',
+        {
+          type: 'clear',
+          description: 'Clear skies with no clouds in sight.',
+          color: {
+            start: '#FFFFFF',
+            end: '#C9C9C9',
+          },
+          icon: [],
+        },
+        {
+          type: 'partly cloudy',
+          description: 'Partially covered by clouds, with some sun visible.',
+          color: {
+            start: '#FFFFFF',
+            end: '#C9C9C9',
+          },
+          icon: [],
+        },
+        {
+          type: 'cloudy',
+          description: 'Completely covered by clouds with no sun visible.',
+          color: {
+            start: '#C9C9C9',
+            end: '#7F7F7F',
+          },
+          icons: [],
+        },
+        {
+          type: 'overcast',
+          description:
+            'Completely covered by clouds with no sun visible and possible drizzle or light rain.',
+          color: {
+            start: '#7F7F7F',
+            end: '#7F7F7F',
+          },
+          icon: [],
+        },
+        {
+          type: 'foggy',
+          description: 'Visibility is reduced due to fog or mist.',
+          color: {
+            start: '#7F7F7F',
+            end: '#7F7F7F',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'hazy',
+          description: 'Visibility is reduced due to haze or smog.',
+          color: {
+            start: '#7F7F7F',
+            end: '#7F7F7F',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'smoky',
+          description: 'Visibility is reduced due to smoke or pollution.',
+          color: {
+            start: '#7F7F7F',
+            end: '#7F7F7F',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'dust',
+          description: 'Visibility is reduced due to dust or sand in the air.',
+          color: {
+            start: '#F6D5A1',
+            end: '#F9BDA5',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'mist',
+          description:
+            'Light, fine rain or drizzle in the air that reduces visibility.',
+          color: {
+            start: '#C9C9C9',
+            end: '#7F7F7F',
+          },
+          icon: [],
+        },
+        {
+          type: 'drizzle',
+          description: 'Light rain that falls in very fine drops.',
+          color: {
+            start: '#C9C9C9',
+            end: '#7F7F7F',
+          },
+          icons: ['BsFillDropletFill'],
+        },
+        {
+          type: 'light rain',
+          description: 'Light rain that falls in small drops.',
+          color: {
+            start: '#C9C9C9',
+            end: '#7F7F7F',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'rain',
+          description: 'Steady rain that falls in moderate to heavy drops.',
+          color: {
+            start: '#C9C9C9',
+            end: '#7F7F7F',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'heavy rain',
+          description:
+            'Intense rainfall that causes flash flooding and/or landslides.',
+          color: {
+            start: '#5B5B5B',
+            end: '#262626',
+          },
+          icons: ['WiRain'],
+        },
+        {
+          type: 'freezing rain',
+          description:
+            'Rain that freezes upon contact with the ground or other surfaces.',
+          color: {
+            start: '#BDE1FF',
+            end: '#9CB3D6',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'sleet',
+          description: 'Rain mixed with snow or ice pellets.',
+          color: {
+            start: '#D6EAF8',
+            end: '#A9CCE3',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'hail',
+          description:
+            'Pellets of ice that fall from the sky and can cause damage to buildings, cars, and crops.',
+          color: {
+            start: '#D6EAF8',
+            end: '#A9CCE3',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'thunderstorm',
+          description:
+            'A storm with thunder and lightning, often accompanied by heavy rain, gusty winds, and hail.',
+          color: {
+            start: '#1F618D',
+            end: '#2980B9',
+          },
+          icons: ['IoThunderstormOutline', 'WiRain', 'BsCloudHailFill'],
+        },
+        {
+          type: 'tropical storm',
+          description:
+            'A storm system with a defined center, sustained winds of 39-73 mph, and heavy rain that can cause flash flooding and landslides.',
+          color: {
+            start: '#85C1E9',
+            end: '#5DADE2',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'hurricane',
+          description:
+            'A tropical storm system with sustained winds of 74 mph or higher, heavy rain, and storm surge that can cause significant damage to buildings, infrastructure, and communities.',
+          color: {
+            start: '#E74C3C',
+            end: '#C0392B',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'tornado',
+          description:
+            'A violently rotating column of air that extends from the ground to the base of a thunderstorm, often causing significant damage to buildings, cars, and other structures.',
+          color: {
+            start: '#424242',
+            end: '#212121',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'flood',
+          description:
+            'An overflow of water that submerges land that is usually dry and can cause property damage, travel disruptions, and loss of life.',
+          color: {
+            start: '#2471A3',
+            end: '#1B4F72',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'drought',
+          description:
+            'A prolonged period of abnormally low precipitation that can cause water shortages, crop damage, and other ecological and economic impacts.',
+          color: {
+            start: '#F7DC6F',
+            end: '#F1C40F',
+          },
+          icons: [],
+        },
+        {
+          type: 'snow',
+          description:
+            'Frozen precipitation that falls from the sky in flakes, which can accumulate on the ground and cause travel disruptions and power outages.',
+          color: {
+            start: '#D0ECE7',
+            end: '#ADD8C7',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'blizzard',
+          description:
+            'A severe snowstorm with sustained winds of at least 35 mph and blowing snow that reduces visibility to less than a quarter mile for three hours or more.',
+          color: {
+            start: '#E6E6E6',
+            end: '#C9C9C9',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'ice storm',
+          description:
+            'A storm that produces freezing rain or sleet, which can cause widespread damage to trees, power lines, and buildings.',
+          color: {
+            start: '#BDE1FF',
+            end: '#9CB3D6',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'heat wave',
+          description:
+            'A prolonged period of excessive heat, often accompanied by high humidity, that can cause heat exhaustion, heat stroke, and other heat-related illnesses.',
+          color: {
+            start: '#F8C471',
+            end: '#E67E22',
+          },
+          icons: [],
+        },
+        {
+          type: 'cold wave',
+          description:
+            'A prolonged period of extreme cold temperatures, often accompanied by strong winds, snow, and ice, that can cause hypothermia, frostbite, and other cold-related illnesses.',
+          color: {
+            start: '#D6EAF8',
+            end: '#A9CCE3',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'high wind',
+          description:
+            'Sustained winds of 40 mph or higher that can cause power outages, property damage, and travel disruptions.',
+          color: {
+            start: '#7FB3D5',
+            end: '#4B77BE',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'dust storm',
+          description:
+            'A severe weather condition characterized by strong winds and dust or sand that can reduce visibility to near zero, cause power outages, and damage property.',
+          color: {
+            start: '#F7DC6F',
+            end: '#F4D03F',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'sandstorm',
+          description:
+            'A severe weather condition characterized by strong winds and sand that can reduce visibility to near zero, cause power outages, and damage property.',
+          color: {
+            start: '#F7DC6F',
+            end: '#F4D03F',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'flood',
+          description:
+            'An overflow of water that submerges land that is usually dry and can cause property damage, travel disruptions, and loss of life.',
+          color: {
+            start: '#3498DB',
+            end: '#2980B9',
+          },
+          icons: disadvantageAttackIcons,
+        },
+        {
+          type: 'drought',
+          description:
+            'A prolonged period of abnormally low precipitation that can cause water shortages, crop damage, and other ecological and economic impacts.',
+          color: {
+            start: '#F2A359',
+            end: '#F7D9C4',
+          },
+          icons: [],
+        },
       ],
       type: [
         'clear',

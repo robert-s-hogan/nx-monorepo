@@ -9,6 +9,7 @@ export function useEncounter() {
   const difficulty = data?.difficulty ?? '';
   const monsters = data?.monsters ?? [];
   const mapInfo = data?.mapInfo ?? {};
+  const map = data?.map ?? {};
   const quest = data?.quest ?? {};
   const encounterModifier = data?.encounterModifier ?? '';
   const intro = data?.intro ?? [];
@@ -19,6 +20,7 @@ export function useEncounter() {
     difficulty,
     monsters,
     mapInfo,
+    map,
     quest,
     encounterModifier,
     intro,

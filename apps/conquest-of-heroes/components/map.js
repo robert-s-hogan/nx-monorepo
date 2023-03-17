@@ -74,7 +74,7 @@ export default function Map({
 
   return (
     <Box pt={8}>
-      <Accordion allowMultiple>
+      <Accordion allowMultiple defaultIndex={[0]}>
         <AccordionItem>
           <AccordionButton>
             <Box flex="1" textAlign="left">

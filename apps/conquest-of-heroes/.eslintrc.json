@@ -8,11 +8,14 @@
   "ignorePatterns": ["!**/*", ".next/**/*"],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "files": ["*.tsx", "*.jsx"],
       "rules": {
-        "@next/next/no-html-link-for-pages": [
+        "react/self-closing-comp": [
           "error",
-          "apps/conquest-of-heroes/pages"
+          {
+            "component": true,
+            "html": true
+          }
         ]
       }
     },

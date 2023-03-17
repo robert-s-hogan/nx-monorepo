@@ -296,8 +296,8 @@ export default function Home() {
             color="blackAlpha.700"
             fontWeight="bold"
           >
-            <GridItem border="1px">
-              <Accordion allowMultiple px={2}>
+            <GridItem>
+              <Accordion allowMultiple defaultIndex={[0]}>
                 <AccordionItem>
                   <AccordionButton>
                     <Text fontSize="lg" fontWeight="bold">
@@ -306,7 +306,7 @@ export default function Home() {
                     <AccordionIcon />
                   </AccordionButton>
                   <AccordionPanel pb={4}>
-                    <Text fontSize="2xl" fontWeight="light" fontStyle="italic">
+                    <Text fontSize="lg" fontWeight="light" fontStyle="italic">
                       <GenerateMadLib />
                     </Text>
                   </AccordionPanel>
@@ -392,7 +392,7 @@ export default function Home() {
                 </AccordionItem>
               </Accordion>
             </GridItem>
-            <GridItem px={2}>
+            <GridItem>
               <Accordion allowMultiple>
                 <AccordionItem>
                   <AccordionButton>
