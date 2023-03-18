@@ -9,15 +9,7 @@
   "overrides": [
     {
       "files": ["*.tsx", "*.jsx"],
-      "rules": {
-        "react/self-closing-comp": [
-          "error",
-          {
-            "component": true,
-            "html": true
-          }
-        ]
-      }
+      "rules": {}
     },
     {
       "files": ["*.ts", "*.tsx"],

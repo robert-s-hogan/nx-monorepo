@@ -1,0 +1,93 @@
+import generateRandomWeapon from '../utils/generateRandomWeapon';
+
+export const Weapons = [
+  { name: 'spear', type: 'weapon', value: 50 },
+  { name: 'dagger', type: 'weapon', value: 25 },
+  { name: 'bow', type: 'weapon', value: 100 },
+  { name: 'crossbow', type: 'weapon', value: 150 },
+  { name: 'longsword', type: 'weapon', value: 75 },
+  { name: 'shortsword', type: 'weapon', value: 50 },
+  { name: 'rapier', type: 'weapon', value: 100 },
+  { name: 'scimitar', type: 'weapon', value: 75 },
+  { name: 'flail', type: 'weapon', value: 75 },
+  { name: 'mace', type: 'weapon', value: 75 },
+  { name: 'warhammer', type: 'weapon', value: 100 },
+  { name: 'battleaxe', type: 'weapon', value: 100 },
+  { name: 'greataxe', type: 'weapon', value: 150 },
+  { name: 'halberd', type: 'weapon', value: 200 },
+  { name: 'pike', type: 'weapon', value: 200 },
+  { name: 'trident', type: 'weapon', value: 50 },
+  { name: 'whip', type: 'weapon', value: 25 },
+  { name: 'blowgun', type: 'weapon', value: 100 },
+  { name: 'hand crossbow', type: 'weapon', value: 75 },
+  { name: 'heavy crossbow', type: 'weapon', value: 150 },
+  { name: 'javelin', type: 'weapon', value: 25 },
+  { name: 'light hammer', type: 'weapon', value: 50 },
+  { name: 'dart', type: 'weapon', value: 5 },
+  { name: 'longbow', type: 'weapon', value: 75 },
+  { name: 'net', type: 'weapon', value: 50 },
+  { name: 'sling', type: 'weapon', value: 5 },
+  { name: 'quarterstaff', type: 'weapon', value: 25 },
+  { name: 'glaive', type: 'weapon', value: 200 },
+  { name: 'greatsword', type: 'weapon', value: 150 },
+  { name: 'lance', type: 'weapon', value: 75 },
+  { name: 'maul', type: 'weapon', value: 150 },
+  { name: 'morningstar', type: 'weapon', value: 75 },
+  { name: 'shortbow', type: 'weapon', value: 50 },
+  { name: 'sickle', type: 'weapon', value: 25 },
+  { name: 'war pick', type: 'weapon', value: 75 },
+  { name: 'falchion', type: 'weapon', value: 100 },
+  { name: 'khopesh', type: 'weapon', value: 75 },
+  { name: 'estoc', type: 'weapon', value: 150 },
+  { name: 'kukri', type: 'weapon', value: 25 },
+  { name: 'sai', type: 'weapon', value: 25 },
+  {
+    name: 'katana',
+    type: 'weapon',
+    value: 350,
+  },
+  {
+    name: 'nunchaku',
+    type: 'weapon',
+    value: 75,
+  },
+  {
+    name: 'wakizashi',
+    type: 'weapon',
+    value: 200,
+  },
+  {
+    name: 'yari',
+    type: 'weapon',
+    value: 125,
+  },
+  {
+    name: 'bo staff',
+    type: 'weapon',
+    value: 50,
+  },
+  {
+    name: 'kama',
+    type: 'weapon',
+    value: 100,
+  },
+  {
+    name: 'tonfa',
+    type: 'weapon',
+    value: 75,
+  },
+  {
+    name: 'club',
+    type: 'weapon',
+    value: 10,
+  },
+  {
+    name: 'greatclub',
+    type: 'weapon',
+    value: 20,
+  },
+];
+
+export const FullWeapons = Weapons.map(({ name, value }) =>
+  generateRandomWeapon(name, value)
+);

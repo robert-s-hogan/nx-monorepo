@@ -801,97 +801,633 @@ export const encounter = {
       ],
     },
     terrain: {
-      type: [
-        'alpine lake',
-        'arctic',
-        'artesian Spring',
-        'badlands',
-        'barren',
-        'bay',
-        'bayou',
-        'beach',
-        'bog',
-        'caldera',
-        'canals',
-        'canyon',
-        'caves',
-        'cliffs',
-        'crater',
-        'desert',
-        'dry Lake Bed',
-        'dunes',
-        'estuary',
-        'farmland',
-        'fault',
-        'fields',
-        'fissured',
-        'fjords',
-        'forest',
-        'feysers',
-        'flacier',
-        'frassland',
-        'harbor',
-        'jills',
-        'hot Spring',
-        'ice Sheet',
-        'island',
-        'jungle',
-        'kelp Bed',
-        'lake',
-        'lava Field',
-        'lava Tube',
-        'marsh',
-        'meadow',
-        'mine',
-        'mountain',
-        'nettles & Brambles',
-        'oasis',
-        'ocean',
-        'orchard',
-        'permafrost',
-        'plains',
-        'plateau',
-        'pond',
-        'prairie',
-        'quicksand',
-        'rain forest',
-        'rapids',
-        'reef',
-        'river',
-        'river delta',
-        'rocky',
-        'sand dunes',
-        'sandbar',
-        'savannah',
-        'scrubland',
-        'seaside',
-        'sewers',
-        'shallow sea',
-        'sink hole',
-        'spring',
-        'strip mine',
-        'swamp',
-        'taiga (snow forest)',
-        'tide pool',
-        'tropical island',
-        'tundra',
-        'tunnels',
-        'underground',
-        'underground sea',
-        'valley',
-        'vineyard',
-        'volcanic',
-        'volcanic island',
-        'wastelands',
-        'waterfalls',
-        'wetlands',
-        'wildlands',
-        'wind blasted',
-        'floating island',
-        'colosseum',
-        'pirate ships',
-        'moving train',
-      ],
+      type: {
+        'rain-forest': {
+          movement: 'disadvantage',
+          color: {
+            start: '#1a9850',
+            end: '#006837',
+          },
+        },
+        desert: {
+          movement: 'normal',
+          color: {
+            start: '#fdae61',
+            end: '#d7191c',
+          },
+        },
+        ocean: {
+          movement: 'impossible',
+          color: {
+            start: '#74add1',
+            end: '#4575b4',
+          },
+        },
+        'alpine-lake': {
+          movement: 'normal',
+          color: {
+            start: '#6EB3E3',
+            end: '#3D8EC5',
+          },
+        },
+        arctic: {
+          movement: 'disadvantage',
+          color: {
+            start: '#B0D4E7',
+            end: '#8ABAD3',
+          },
+        },
+        'artesian-spring': {
+          movement: 'normal',
+          color: {
+            start: '#B8E186',
+            end: '#7BA05B',
+          },
+        },
+        badlands: {
+          movement: 'normal',
+          color: {
+            start: '#E9A947',
+            end: '#C47E2C',
+          },
+        },
+        barren: {
+          movement: 'normal',
+          color: {
+            start: '#E9E9E9',
+            end: '#B3B3B3',
+          },
+        },
+        bay: {
+          movement: 'normal',
+          color: {
+            start: '#559AC8',
+            end: '#2D6AA9',
+          },
+        },
+        bayou: {
+          movement: 'disadvantage',
+          color: {
+            start: '#8CC3A3',
+            end: '#3C8978',
+          },
+        },
+        beach: {
+          movement: 'normal',
+          color: {
+            start: '#FFF4CC',
+            end: '#FFE066',
+          },
+        },
+        bog: {
+          movement: 'difficult',
+          color: {
+            start: '#9BC2CF',
+            end: '#4F86C6',
+          },
+        },
+        caldera: {
+          movement: 'impossible',
+          color: {
+            start: '#DE725C',
+            end: '#A61E21',
+          },
+        },
+        canals: {
+          movement: 'normal',
+          color: {
+            start: '#B3B3B3',
+            end: '#707070',
+          },
+        },
+        canyon: {
+          movement: 'difficult',
+          color: {
+            start: '#D2B48C',
+            end: '#9C7042',
+          },
+        },
+        caves: {
+          movement: 'difficult',
+          color: {
+            start: '#84817A',
+            end: '#3E3B37',
+          },
+        },
+        cliffs: {
+          movement: 'difficult',
+          color: {
+            start: '#B8B8B8',
+            end: '#5B5B5B',
+          },
+        },
+        crater: {
+          movement: 'impossible',
+          color: {
+            start: '#F9CB9C',
+            end: '#F17535',
+          },
+        },
+
+        'dry-lake-bed': {
+          movement: 'normal',
+          color: {
+            start: '#E6E6E6',
+            end: '#999999',
+          },
+        },
+        dunes: {
+          movement: 'difficult',
+          color: {
+            start: '#D1CFCF',
+            end: '#696666',
+          },
+        },
+        estuary: {
+          movement: 'difficult',
+          color: {
+            start: '#D4DEB9',
+            end: '#93B5A3',
+          },
+        },
+        farmland: {
+          movement: 'normal',
+          color: {
+            start: '#8B9B72',
+            end: '#607044',
+          },
+        },
+        fault: {
+          movement: 'difficult',
+          color: {
+            start: '#E1C4A4',
+            end: '#B5814D',
+          },
+        },
+        fields: {
+          movement: 'normal',
+          color: {
+            start: '#DBD1B8',
+            end: '#988F72',
+          },
+        },
+        fissured: {
+          movement: 'difficult',
+          color: {
+            start: '#B6B3A6',
+            end: '#5D5B54',
+          },
+        },
+        fjords: {
+          movement: 'difficult',
+          color: {
+            start: '#A5C8D5',
+            end: '#5E9EA5',
+          },
+        },
+        forest: {
+          movement: 'difficult',
+          color: {
+            start: '#009933',
+            end: '#006600',
+          },
+        },
+        geysers: {
+          movement: 'difficult',
+          color: {
+            start: '#F9EBAE',
+            end: '#F4976C',
+          },
+        },
+        glacier: {
+          movement: 'difficult',
+          color: {
+            start: '#B4C5D6',
+            end: '#5F758C',
+          },
+        },
+        grassland: {
+          movement: 'normal',
+          color: {
+            start: '#C2C87E',
+            end: '#808D3C',
+          },
+        },
+        harbor: {
+          movement: 'normal',
+          color: {
+            start: '#ADC7DE',
+            end: '#4F7C9D',
+          },
+        },
+        hills: {
+          movement: 'normal',
+          color: {
+            start: '#B7B09C',
+            end: '#7E7763',
+          },
+        },
+        'hot-spring': {
+          movement: 'difficult',
+          color: {
+            start: '#F9DCC4',
+            end: '#E29C45',
+          },
+        },
+        'ice-sheet': {
+          movement: 'impossible',
+          color: {
+            start: '#B7BDC6',
+            end: '#727F8F',
+          },
+        },
+        island: {
+          movement: 'normal',
+          color: {
+            start: '#FFF4CC',
+            end: '#FFE066',
+          },
+        },
+        jungle: {
+          movement: 'difficult',
+          color: {
+            start: '#75B79E',
+            end: '#367459',
+          },
+        },
+        'kelp-bed': {
+          movement: 'difficult',
+          color: {
+            start: '#98BFAA',
+            end: '#4D7F66',
+          },
+        },
+        lake: {
+          movement: 'normal',
+          color: {
+            start: '#0E6BA8',
+            end: '#0E3E6B',
+          },
+        },
+        'lava-field': {
+          movement: 'difficult',
+          color: {
+            start: '#C2B280',
+            end: '#7E6B32',
+          },
+        },
+        'lava-tube': {
+          movement: 'difficult',
+          color: {
+            start: '#A79C94',
+            end: '#544F4A',
+          },
+        },
+        marsh: {
+          movement: 'difficult',
+          color: {
+            start: '#C4A57D',
+            end: '#6D4C41',
+          },
+        },
+        meadow: {
+          movement: 'normal',
+          color: {
+            start: '#C2C87E',
+            end: '#808D3C',
+          },
+        },
+        mine: {
+          movement: 'difficult',
+          color: {
+            start: '#7E7763',
+            end: '#544F4A',
+          },
+        },
+        mountain: {
+          movement: 'difficult',
+          color: {
+            start: '#B0B0B0',
+            end: '#6D6D6D',
+          },
+        },
+        'nettles & Brambles': {
+          movement: 'difficult',
+          color: {
+            start: '#6D6D6D',
+            end: '#000000',
+          },
+        },
+        oasis: {
+          movement: 'normal',
+          color: {
+            start: '#A3C87E',
+            end: '#4E8D3C',
+          },
+        },
+
+        orchard: {
+          movement: 'normal',
+          color: {
+            start: '#C2C87E',
+            end: '#808D3C',
+          },
+        },
+        permafrost: {
+          movement: 'difficult',
+          color: {
+            start: '#C2C5C6',
+            end: '#73797C',
+          },
+        },
+        plains: {
+          movement: 'normal',
+          color: {
+            start: '#C2C87E',
+            end: '#808D3C',
+          },
+        },
+        plateau: {
+          movement: 'normal',
+          color: {
+            start: '#B0B0B0',
+            end: '#6D6D6D',
+          },
+        },
+        pond: {
+          movement: 'normal',
+          color: {
+            start: '#006699',
+            end: '#003366',
+          },
+        },
+        prairie: {
+          movement: 'normal',
+          color: {
+            start: '#C2C87E',
+            end: '#808D3C',
+          },
+        },
+        quicksand: {
+          movement: 'difficult',
+          color: {
+            start: '#D2B48C',
+            end: '#7F5217',
+          },
+        },
+        rapids: {
+          movement: 'difficult',
+          color: {
+            start: '#ADC7DE',
+            end: '#4F7C9D',
+          },
+        },
+        reef: {
+          movement: 'difficult',
+          color: {
+            start: '#C4A57D',
+            end: '#6D4C41',
+          },
+        },
+        river: {
+          movement: 'normal',
+          color: {
+            start: '#006699',
+            end: '#003366',
+          },
+        },
+        'river delta': {
+          movement: 'normal',
+          color: {
+            start: '#006699',
+            end: '#003366',
+          },
+        },
+        rocky: {
+          movement: 'difficult',
+          color: {
+            start: '#A5A5A5',
+            end: '#5E5E5E',
+          },
+        },
+        'sand dunes': {
+          movement: 'difficult',
+          color: {
+            start: '#C2B280',
+            end: '#7E6B32',
+          },
+        },
+        sandbar: {
+          movement: 'normal',
+          color: {
+            start: '#ADC7DE',
+            end: '#4F7C9D',
+          },
+        },
+        savannah: {
+          movement: 'normal',
+          color: {
+            start: '#DDBB8B',
+            end: '#AA6C39',
+          },
+        },
+        scrubland: {
+          movement: 'normal',
+          color: {
+            start: '#C4A57D',
+            end: '#6D4C41',
+          },
+        },
+        seaside: {
+          movement: 'normal',
+          color: {
+            start: '#0B4F6C',
+            end: '#ADC7DE',
+          },
+        },
+        sewers: {
+          movement: 'difficult',
+          color: {
+            start: '#3D3D3D',
+            end: '#000000',
+          },
+        },
+        'shallow sea': {
+          movement: 'normal',
+          color: {
+            start: '#0B4F6C',
+            end: '#ADC7DE',
+          },
+        },
+        'sink hole': {
+          movement: 'difficult',
+          color: {
+            start: '#B8B8B8',
+            end: '#575757',
+          },
+        },
+        spring: {
+          movement: 'normal',
+          color: {
+            start: '#006699',
+            end: '#003366',
+          },
+        },
+        'strip mine': {
+          movement: 'difficult',
+          color: {
+            start: '#B0B0B0',
+            end: '#6D6D6D',
+          },
+        },
+        swamp: {
+          movement: 'difficult',
+          color: {
+            start: '#6D6D6D',
+            end: '#000000',
+          },
+        },
+        'taiga (snow forest)': {
+          movement: 'difficult',
+          color: {
+            start: '#A3C87E',
+            end: '#4E8D3C',
+          },
+        },
+        'tide pool': {
+          movement: 'normal',
+          color: {
+            start: '#006699',
+            end: '#003366',
+          },
+        },
+        'tropical island': {
+          movement: 'normal',
+          color: {
+            start: '#A3C87E',
+            end: '#4E8D3C',
+          },
+        },
+        tundra: {
+          movement: 'difficult',
+          color: {
+            start: '#B0B0B0',
+            end: '#6D6D6D',
+          },
+        },
+        tunnels: {
+          movement: 'difficult',
+          color: {
+            start: '#C2C5C6',
+            end: '#73797C',
+          },
+        },
+        underground: {
+          movement: 'difficult',
+          color: {
+            start: '#C2C5C6',
+            end: '#73797C',
+          },
+        },
+        'underground sea': {
+          movement: 'difficult',
+          color: {
+            start: '#0B4F6C',
+            end: '#ADC7DE',
+          },
+        },
+        valley: {
+          movement: 'normal',
+          color: {
+            start: '#B0B0B0',
+            end: '#6D6D6D',
+          },
+        },
+        vineyard: {
+          movement: 'normal',
+          color: {
+            start: '#DDBB8B',
+            end: '#AA6C39',
+          },
+        },
+        volcanic: {
+          movement: 'difficult',
+          color: {
+            start: '#D64343',
+            end: '#8B0A0A',
+          },
+        },
+        'volcanic island': {
+          movement: 'difficult',
+          color: {
+            start: '#D64343',
+            end: '#8B0A0A',
+          },
+        },
+        wastelands: {
+          movement: 'difficult',
+          color: {
+            start: '#B8B8B8',
+            end: '#575757',
+          },
+        },
+        waterfalls: {
+          movement: 'normal',
+          color: {
+            start: '#ADC7DE',
+            end: '#4F7C9D',
+          },
+        },
+        wetlands: {
+          movement: 'difficult',
+          color: {
+            start: '#C4A57D',
+            end: '#6D4C41',
+          },
+        },
+        wildlands: {
+          movement: 'normal',
+          color: {
+            start: '#A3C87E',
+            end: '#4E8D3C',
+          },
+        },
+        'wind blasted': {
+          movement: 'difficult',
+          color: {
+            start: '#C2C5C6',
+            end: '#73797C',
+          },
+        },
+        'floating island': {
+          movement: 'difficult',
+          color: {
+            start: '#ADC7DE',
+            end: '#4F7C9D',
+          },
+        },
+        colosseum: {
+          movement: 'normal',
+          color: {
+            start: '#C2C5C6',
+            end: '#73797C',
+          },
+        },
+        'pirate ships': {
+          movement: 'difficult',
+          color: {
+            start: '#3D3D3D',
+            end: '#000000',
+          },
+        },
+        'moving-train': {
+          movement: 'normal',
+          color: {
+            start: '#424242',
+            end: '#1E1E1E',
+          },
+        },
+      },
       dimensions: [
         '100',
         '200',
@@ -905,64 +1441,394 @@ export const encounter = {
       ],
     },
     time: {
-      ofDay: [
-        'Morning',
-        'Sunrise',
-        'Sunup',
-        'Sunset',
-        'Dawn',
-        'Daylight',
-        'Early Morning',
-        'Late Morning',
-        'Early Afternoon',
-        'Late Afternoon',
-        'Early Evening',
-        'Late Evening',
-        'AM',
-        'PM',
-        'At the crack of dawn',
-        'Bedtime',
-        'Breakfast',
-        'Dinner time',
-        'Lunch time',
-        'Eventide',
-        'The witching hour',
-        'Past Midnight',
-        'Tea time',
-        'Mid morning',
-        'Mid afternoon',
-        'Mid evening',
-        'Office hours',
-        'Visting hours',
-        'Quarter to midnight',
-        'Quarter to morning',
-        'Quarter to afternoon',
-        'Quarter to evening',
-        'Quarter to bedtime',
-        'Quarter to breakfast',
-        'Quarter to dinner',
-        'Quarter to lunch',
-        'Quarter to tea time',
-        'Quarter to office hours',
-        'Quarter to visiting hours',
-        'Quarter to eventide',
-        'Quarter to the witching hour',
-        'Quarter to past midnight',
-        'Quarter to tea time',
-        'Quarter to mid morning',
-        'Quarter to mid afternoon',
-        'Quarter to mid evening',
-        'Quarter to office hours',
-        'Quarter to visiting hours',
-        'Twilight',
-        'Noon',
-        'Midday',
-        'Afternoon',
-        'Evening',
-        'Dusk',
-        'Night',
-        'Midnight',
-      ],
+      ofDay: {
+        morning: {
+          visibility: 'normal',
+          color: {
+            start: '#F0E6A8',
+            end: '#F0C930',
+          },
+        },
+        sunrise: {
+          visibility: 'normal',
+          color: {
+            start: '#F7D48B',
+            end: '#F8A13C',
+          },
+        },
+        'sun-up': {
+          visibility: 'normal',
+          color: {
+            start: '#F7D48B',
+            end: '#F8A13C',
+          },
+        },
+        sunset: {
+          visibility: 'normal',
+          color: {
+            start: '#F4A259',
+            end: '#D74D4D',
+          },
+        },
+        dawn: {
+          visibility: 'normal',
+          color: {
+            start: '#C7D3DC',
+            end: '#6B7C85',
+          },
+        },
+        'day-light': {
+          visibility: 'normal',
+          color: {
+            start: '#F7D48B',
+            end: '#F8A13C',
+          },
+        },
+        'early-morning': {
+          visibility: 'normal',
+          color: {
+            start: '#F0E6A8',
+            end: '#F0C930',
+          },
+        },
+        'late-morning': {
+          visibility: 'normal',
+          color: {
+            start: '#F0E6A8',
+            end: '#F0C930',
+          },
+        },
+        'early-afternoon': {
+          visibility: 'normal',
+          color: {
+            start: '#F7D48B',
+            end: '#F8A13C',
+          },
+        },
+        'late-afternoon': {
+          visibility: 'normal',
+          color: {
+            start: '#F7D48B',
+            end: '#F8A13C',
+          },
+        },
+        'early-evening': {
+          visibility: 'normal',
+          color: {
+            start: '#F4A259',
+            end: '#D74D4D',
+          },
+        },
+        'late-evening': {
+          visibility: 'normal',
+          color: {
+            start: '#F4A259',
+            end: '#D74D4D',
+          },
+        },
+        AM: {
+          visibility: 'normal',
+          color: {
+            start: '#C7D3DC',
+            end: '#6B7C85',
+          },
+        },
+        PM: {
+          visibility: 'normal',
+          color: {
+            start: '#F4A259',
+            end: '#D74D4D',
+          },
+        },
+        'at-the-crack-of-dawn': {
+          visibility: 'normal',
+          color: {
+            start: '#C7D3DC',
+            end: '#6B7C85',
+          },
+        },
+        'bed-time': {
+          visibility: 'difficult',
+          color: {
+            start: '#474747',
+            end: '#000000',
+          },
+        },
+        breakfast: {
+          visibility: 'normal',
+          color: {
+            start: '#F0E6A8',
+            end: '#F0C930',
+          },
+        },
+        'dinner-time': {
+          visibility: 'normal',
+          color: {
+            start: '#F4A259',
+            end: '#D74D4D',
+          },
+        },
+        'lunch-time': {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        eventide: {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        'the-witching-hour': {
+          visibility: 'difficult',
+          color: {
+            start: '#000000',
+            end: '#3f3f3f',
+          },
+        },
+        'past-midnight': {
+          visibility: 'difficult',
+          color: {
+            start: '#000000',
+            end: '#3f3f3f',
+          },
+        },
+        'tea-time': {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        'mid-morning': {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        'mid-afternoon': {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        'mid-evening': {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        'office-hours': {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        'visiting-hours': {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        'quarter-to-midnight': {
+          visibility: 'difficult',
+          color: {
+            start: '#000000',
+            end: '#3f3f3f',
+          },
+        },
+        'quarter-to-morning': {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        quartertoafternoon: {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        quartertoevening: {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        quartertobedtime: {
+          visibility: 'difficult',
+          color: {
+            start: '#000000',
+            end: '#3f3f3f',
+          },
+        },
+        quartertobreakfast: {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        quartertodinner: {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        quartertolunch: {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        quartertoteatime: {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        quartertoofficehours: {
+          visibility: 'normal',
+          color: {
+            start: '#f2bf64',
+            end: '#f28943',
+          },
+        },
+        'quarter-to-visiting-hours': {
+          visibility: 'normal',
+          color: {
+            start: '#F4A261',
+            end: '#E76F51',
+          },
+        },
+        'quarter-to-eventide': {
+          visibility: 'normal',
+          color: {
+            start: '#457B9D',
+            end: '#1D3557',
+          },
+        },
+        'quarter-to-the-witching-hour': {
+          visibility: 'difficult',
+          color: {
+            start: '#7209B7',
+            end: '#2B2D42',
+          },
+        },
+        'quarter-to-past-midnight': {
+          visibility: 'difficult',
+          color: {
+            start: '#03045E',
+            end: '#00A896',
+          },
+        },
+        'quarter-to-tea-time': {
+          visibility: 'normal',
+          color: {
+            start: '#E63946',
+            end: '#F1FAEE',
+          },
+        },
+        'quarter-to-mid-morning': {
+          visibility: 'normal',
+          color: {
+            start: '#FFC107',
+            end: '#003049',
+          },
+        },
+        'quarter-to-mid-afternoon': {
+          visibility: 'normal',
+          color: {
+            start: '#219EBC',
+            end: '#023047',
+          },
+        },
+        'quarter-to-mid-evening': {
+          visibility: 'normal',
+          color: {
+            start: '#4CAF50',
+            end: '#1A1D24',
+          },
+        },
+        'quarter-to-office-hours': {
+          visibility: 'normal',
+          color: {
+            start: '#0077B6',
+            end: '#1D3557',
+          },
+        },
+
+        twilight: {
+          visibility: 'normal',
+          color: {
+            start: '#A8DADC',
+            end: '#1D3557',
+          },
+        },
+        noon: {
+          visibility: 'normal',
+          color: {
+            start: '#9D0208',
+            end: '#FFC300',
+          },
+        },
+        'mid-day': {
+          visibility: 'normal',
+          color: {
+            start: '#FFC300',
+            end: '#0077B6',
+          },
+        },
+        afternoon: {
+          visibility: 'normal',
+          color: {
+            start: '#F6D55C',
+            end: '#3CAEA3',
+          },
+        },
+        evening: {
+          visibility: 'normal',
+          color: {
+            start: '#F48C06',
+            end: '#3D405B',
+          },
+        },
+        dusk: {
+          visibility: 'normal',
+          color: {
+            start: '#F4A261',
+            end: '#E76F51',
+          },
+        },
+        night: {
+          visibility: 'difficult',
+          color: {
+            start: '#0B0C10',
+            end: '#1F2833',
+          },
+        },
+        midnight: {
+          visibility: 'difficult',
+          color: {
+            start: '#0B0C10',
+            end: '#1F2833',
+          },
+        },
+      },
     },
     positions: {
       player: [1],
@@ -1124,27 +1990,102 @@ export const encounter = {
       },
       {
         name: 'Barn',
+        description:
+          'An old, weathered barn with a rusty metal roof and peeling red paint.',
+        image: 'barn.png',
+        location: { x: 20, y: 15 },
+        interactable: false,
+        loot: ['hay bale', 'old tools'],
+        rarity: 'common',
+        condition: 'worn',
+        size: 'large',
+        value: 100,
       },
       {
         name: 'Barrel',
+        description: 'A small wooden barrel with metal hoops.',
+        image: 'barrel.png',
+        location: { x: 5, y: 8 },
+        interactable: true,
+        loot: ['food', 'water'],
+        rarity: 'common',
+        condition: 'used',
+        size: 'small',
+        value: 10,
       },
       {
         name: 'Barrels',
+        description:
+          'Several wooden barrels with metal hoops, stacked together.',
+        image: 'barrels.png',
+        location: { x: 7, y: 12 },
+        interactable: true,
+        loot: ['food', 'water'],
+        rarity: 'common',
+        condition: 'used',
+        size: 'medium',
+        value: 20,
       },
       {
         name: 'Beehive (angry)',
+        description: 'A buzzing, angry beehive, swarming with bees.',
+        image: 'beehive_angry.png',
+        location: { x: 15, y: 10 },
+        interactable: true,
+        loot: ['honey', 'beeswax'],
+        rarity: 'uncommon',
+        condition: 'active',
+        size: 'small',
+        value: 30,
       },
       {
         name: 'Beehive (passive)',
+        description: 'A peaceful beehive, with bees quietly buzzing around.',
+        image: 'beehive_passive.png',
+        location: { x: 12, y: 5 },
+        interactable: true,
+        loot: ['honey', 'beeswax'],
+        rarity: 'uncommon',
+        condition: 'active',
+        size: 'small',
+        value: 40,
       },
       {
         name: 'Books (all pages missing or blank)',
+        description: 'A stack of books with all the pages missing or blank.',
+        image: 'books_blank.png',
+        location: { x: 3, y: 18 },
+        interactable: false,
+        loot: [],
+        rarity: 'common',
+        condition: 'ruined',
+        size: 'small',
+        value: 5,
       },
       {
         name: 'Bookshelf (ruined)',
+        description:
+          'A wooden bookshelf with broken shelves and rotting books.',
+        image: 'bookshelf_ruined.png',
+        location: { x: 9, y: 11 },
+        interactable: false,
+        loot: [],
+        rarity: 'common',
+        condition: 'ruined',
+        size: 'medium',
+        value: 15,
       },
       {
         name: 'Boulder (L)',
+        description: 'A large, smooth boulder.',
+        image: 'boulder_large.png',
+        location: { x: 6, y: 4 },
+        interactable: false,
+        loot: [],
+        rarity: 'common',
+        condition: 'intact',
+        size: 'large',
+        value: 25,
       },
       {
         name: 'Boulders (M)',

@@ -74,7 +74,7 @@ export default function Map({
 
   return (
     <Box pt={8}>
-      <Accordion allowMultiple defaultIndex={[0]}>
+      <Accordion allowMultiple>
         <AccordionItem>
           <AccordionButton>
             <Box flex="1" textAlign="left">
@@ -84,7 +84,7 @@ export default function Map({
             </Box>
             <AccordionIcon />
           </AccordionButton>
-          <AccordionPanel pb={4} height="500px">
+          <AccordionPanel pb={4} height="600px">
             <Grid
               templateColumns={{ base: '1fr', md: 'repeat(3,1fr)' }}
               mt={24}
