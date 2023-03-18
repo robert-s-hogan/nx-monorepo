@@ -1,22 +1,19 @@
 const getRandomElement = (array) => {
   return array[Math.floor(Math.random() * array.length)];
 };
-
-const weaponRarities = ['common', 'uncommon', 'rare', 'very rare', 'legendary'];
-const weaponConditions = ['new', 'good', 'used', 'damaged', 'broken'];
-const weaponSizes = ['small', 'medium', 'large'];
+const itemRarities = ['common', 'uncommon', 'rare', 'very rare', 'legendary'];
+const itemConditions = ['new', 'good', 'used', 'damaged', 'broken'];
 const quadrantOptions = [1, 2, 3];
-const lootOptions = [
-  'elvish engraving',
-  'dwarven engraving',
-  'orcish engraving',
-];
+const sizeOptions = ['small', 'medium', 'large'];
+const interactableOptions = [true, false];
+const lootOptions = ['gold', 'silver', 'copper', 'gems', 'lint', 'leaves'];
 
-const generateRandomWeapon = (name, value) => {
-  const rarity = getRandomElement(weaponRarities);
-  const condition = getRandomElement(weaponConditions);
-  const size = getRandomElement(weaponSizes);
+const generateRandomItem = (name, type, value) => {
+  const rarity = getRandomElement(itemRarities);
+  const condition = getRandomElement(itemConditions);
   const quadrant = getRandomElement(quadrantOptions);
+  const size = getRandomElement(sizeOptions);
+  const interactable = getRandomElement(interactableOptions);
   const loot = getRandomElement(lootOptions);
 
   let rarityMultiplier;
@@ -65,20 +62,20 @@ const generateRandomWeapon = (name, value) => {
     value * rarityMultiplier * conditionMultiplier
   );
 
-  const description = `This ${condition} ${name} is a ${size} weapon with a ${rarity} rarity.`;
+  const description = `This ${type} ${condition} ${name} is a ${rarity} item.`;
 
   return {
-    type: 'weapon',
+    type: type,
     name,
     description,
     location: quadrant,
-    interactable: true,
+    size,
+    interactable,
     loot: loot,
     rarity,
     condition,
-    size,
     value: calculatedValue,
   };
 };
 
-export default generateRandomWeapon;
+export default generateRandomItem;

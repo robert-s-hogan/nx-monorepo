@@ -36,6 +36,7 @@ const RandomItems = () => {
           <DynamicObjectComponent key={index} data={item} />
         ))}
       </Grid>
+      <pre>{JSON.stringify(items, null, 2)}</pre>
     </VStack>
   );
 };

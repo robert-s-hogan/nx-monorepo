@@ -16,14 +16,15 @@ const DynamicObjectComponent = ({ data }) => {
   const renderWeapon = (weapon) => {
     return (
       <GridItem colSpan={1} bg="gray.100" p={4} rounded="md">
-        <Heading as="h4" height={24} display="flex" alignItems="center">
+        <Heading as="h4" fontSize="1rem" display="flex" alignItems="center">
           {weapon.name}
         </Heading>
         <ul>
-          <Box height={24}>{weapon.description}</Box>
+          {/* <Box height={24}>{weapon.description}</Box> */}
+          <li>Type: {weapon.type}</li>
           <li>Quadrant: {weapon.location}</li>
-          <li>Interactable: {weapon.interactable}</li>
-          <li>Loot: {weapon.loot}</li>
+          <li>Interactable: {weapon.interactable ? 'true' : 'false'}</li>
+          <li>Loot: {weapon.loot ? weapon.loot : 'none'}</li>
           <li>Rarity: {weapon.rarity}</li>
           <li>Condition: {weapon.condition}</li>
           <li>Size: {weapon.size}</li>
@@ -33,14 +34,31 @@ const DynamicObjectComponent = ({ data }) => {
     );
   };
 
-  // const renderStructure = () => {
-  //   // ...Render structure component...
-  // };
+  const renderRandomItem = (item) => {
+    return (
+      <GridItem colSpan={1} bg="gray.100" p={4} rounded="md">
+        <Heading as="h4" fontSize="1rem" display="flex" alignItems="center">
+          {item.name}
+        </Heading>
+        <ul>
+          {/* <Box height={24}>{item.description}</Box> */}
+          <li>type: {item.type}</li>
+          <li>Quadrant: {item.location}</li>
+          <li>Interactable: {item.interactable ? 'true' : 'false'}</li>
+          <li>Loot:{item.loot ? item.loot : 'none'}</li>
+          <li>Rarity: {item.rarity}</li>
+          <li>Condition: {item.condition}</li>
+          <li>Size: {item.size}</li>
+          <li>Value: {item.value}</li>
+        </ul>
+      </GridItem>
+    );
+  };
 
   if (data.type === 'weapon') {
     return renderWeapon(data);
   } else {
-    return <div>Invalid object type</div>; // or return <></>; for an empty element
+    return renderRandomItem(data);
   }
 
   // ...Rest of the component implementation...
