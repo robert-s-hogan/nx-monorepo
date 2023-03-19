@@ -5,7 +5,7 @@ const getRandomElement = (array) => {
 const weaponRarities = ['common', 'uncommon', 'rare', 'very rare', 'legendary'];
 const weaponConditions = ['new', 'good', 'used', 'damaged', 'broken'];
 const weaponSizes = ['small', 'medium', 'large'];
-const quadrantOptions = [1, 2, 3];
+const quadrantOptions = [0, 1, 2, 3];
 const lootOptions = [
   'elvish engraving',
   'dwarven engraving',

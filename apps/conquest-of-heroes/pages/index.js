@@ -30,6 +30,7 @@ import { useFetchItems5e } from '../hooks/useFetchItems5e';
 import Layout from '../components/layout';
 import { randomNumber } from '../lib/randomNumber';
 import GenerateMadLib from '../components/GenerateMadLib';
+import RandomCustomItems from '../components/RandomCustomItems';
 
 import { xpThresholdsByCharacterLevel } from '../lib/xpTables';
 
@@ -211,8 +212,9 @@ export default function Home() {
 
   return (
     <Layout>
+      <RandomCustomItems />
       <Stack spacing={8}>
-        <Accordion defaultIndex={[0]} allowMultiple>
+        <Accordion allowMultiple>
           <AccordionItem>
             <h2>
               <AccordionButton>
@@ -299,7 +301,7 @@ export default function Home() {
             fontWeight="bold"
           >
             <GridItem>
-              <Accordion allowMultiple defaultIndex={[0]}>
+              <Accordion allowMultiple>
                 <AccordionItem>
                   <AccordionButton>
                     <Text fontSize="lg" fontWeight="bold">
@@ -535,7 +537,7 @@ export default function Home() {
         </Box>
       ) : null}
 
-      <RandomItems />
+      {/* <RandomItems /> */}
     </Layout>
   );
 }

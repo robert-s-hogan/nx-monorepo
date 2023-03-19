@@ -1,12 +1,14 @@
 // utils/generateRandomObject.js
 import { FullWeapons } from '../categories/Weapons';
 import { FullItems } from '../categories/Items';
+import { FullCustomItems } from '../categories/CustomItems';
 
 // import { Structures } from '../categories/Structures';
 
 const categories = {
-  weapons: FullWeapons,
-  items: FullItems,
+  // weapons: FullWeapons,
+  // items: FullItems,
+  customItems: FullCustomItems,
   // Add more categories here
 };
 

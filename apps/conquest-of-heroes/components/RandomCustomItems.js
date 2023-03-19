@@ -1,23 +1,25 @@
 import { useState } from 'react';
 import DynamicObjectComponent from '../components/DynamicObjectComponent';
-import { generateRandomCategoryObject } from '../utils/generateRandomObject';
-
+import { CustomItems } from '../categories/CustomItems';
 import { Grid, Button, VStack, Heading } from '@chakra-ui/react';
+import generateCustomItem from '../utils/generateCustomItem';
 
-const generateRandomItems = (count) => {
+const generateCustomItems = (count) => {
   const items = [];
   for (let i = 0; i < count; i++) {
-    const randomItem = generateRandomCategoryObject();
+    const randomIndex = Math.floor(Math.random() * CustomItems.length);
+    const { name, type, effects } = CustomItems[randomIndex];
+    const randomItem = generateCustomItem(name, type, effects);
     items.push(randomItem);
   }
   return items;
 };
 
-const RandomItems = () => {
-  const [items, setItems] = useState(generateRandomItems(4));
+const RandomCustomItems = () => {
+  const [items, setItems] = useState(generateCustomItems(10));
 
   const refreshItems = () => {
-    const newItems = generateRandomItems(4);
+    const newItems = generateCustomItems(10);
     setItems(newItems);
   };
 
@@ -29,7 +31,7 @@ const RandomItems = () => {
       </Button>
 
       <Grid
-        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(4, 1fr)' }}
+        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(5, 1fr)' }}
         gap={6}
       >
         {items.map((item, index) => (
@@ -40,4 +42,4 @@ const RandomItems = () => {
   );
 };
 
-export default RandomItems;
+export default RandomCustomItems;

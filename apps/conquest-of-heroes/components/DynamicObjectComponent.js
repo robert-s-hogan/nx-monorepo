@@ -1,4 +1,4 @@
-import { GridItem, Heading, Box } from '@chakra-ui/react';
+import { GridItem, Heading } from '@chakra-ui/react';
 
 const DynamicObjectComponent = ({ data }) => {
   function objectToString(obj) {
@@ -55,13 +55,28 @@ const DynamicObjectComponent = ({ data }) => {
     );
   };
 
-  if (data.type === 'weapon') {
+  const renderCustomItem = (customItem) => {
+    return (
+      <GridItem colSpan={1} bg="gray.100" p={4} rounded="md">
+        <Heading as="h4" fontSize="1rem" display="flex" alignItems="center">
+          {customItem.name}
+        </Heading>
+        <ul>
+          {customItem.effects.map((effect, index) => (
+            <li key={index}>{effect}</li>
+          ))}
+        </ul>
+      </GridItem>
+    );
+  };
+
+  if (data.type === 'custom-item') {
+    return renderCustomItem(data);
+  } else if (data.type === 'weapon') {
     return renderWeapon(data);
   } else {
     return renderRandomItem(data);
   }
-
-  // ...Rest of the component implementation...
 };
 
 export default DynamicObjectComponent;
