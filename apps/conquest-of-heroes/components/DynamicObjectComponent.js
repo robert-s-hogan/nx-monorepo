@@ -1,6 +1,12 @@
-import { GridItem, Heading, VStack } from '@chakra-ui/react';
+import { GridItem, Heading, Text, VStack, Flex } from '@chakra-ui/react';
 import { ImUnlocked } from 'react-icons/im';
-import { GiLockedChest } from 'react-icons/gi';
+import {
+  GiLockedChest,
+  GiChestArmor,
+  GiGemChain,
+  GiSwitchWeapon,
+  GiRomanShield,
+} from 'react-icons/gi';
 
 const DynamicObjectComponent = ({ data, locked, onClick }) => {
   function objectToString(obj) {
@@ -61,17 +67,45 @@ const DynamicObjectComponent = ({ data, locked, onClick }) => {
     return (
       <GridItem
         colSpan={1}
-        bg="gray.100"
+        bg={locked ? 'gray.100' : 'white'}
         p={4}
         rounded="md"
         onClick={onClick}
         cursor="pointer"
+        border="1px solid"
+        borderColor="gray.300"
       >
         <VStack spacing={4} align="left">
-          {locked ? <GiLockedChest /> : <ImUnlocked />}
+          <Flex alignSelf="flex-end">
+            {locked ? <GiLockedChest /> : <ImUnlocked />}
+          </Flex>
           <Heading as="h4" fontSize="1rem" display="flex" alignItems="center">
-            {customItem.name}
+            <Flex alignItems="center">
+              {customItem.name === 'Weapon' ? (
+                <Flex alignItems="center">
+                  <GiSwitchWeapon size={24} />
+                  <Text ml={2}>Weapon</Text>
+                </Flex>
+              ) : customItem.name === 'Armor' ? (
+                <Flex alignItems="center">
+                  <GiChestArmor size={24} />
+
+                  <Text ml={2}>Armor</Text>
+                </Flex>
+              ) : customItem.name === 'Accessory' ? (
+                <Flex alignItems="center">
+                  <GiGemChain size={24} />
+                  <Text ml={2}>Accessory</Text>
+                </Flex>
+              ) : (
+                <Flex alignItems="center">
+                  <GiRomanShield size={24} />
+                  <Text ml={2}>Shield</Text>
+                </Flex>
+              )}
+            </Flex>
           </Heading>
+
           <ul>
             {customItem.effects.map((effect, index) => (
               <li key={index}>{effect}</li>
