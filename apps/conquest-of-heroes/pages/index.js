@@ -514,7 +514,19 @@ export default function Home() {
           />
         </Box>
       ) : null}
-      <RandomCustomItems />
+      <Accordion allowMultiple>
+        <AccordionItem borderTop="none">
+          <AccordionButton>
+            <Text fontSize="lg" fontWeight="bold">
+              Custom Items
+            </Text>
+            <AccordionIcon />
+          </AccordionButton>
+          <AccordionPanel pb={4}>
+            <RandomCustomItems />
+          </AccordionPanel>
+        </AccordionItem>
+      </Accordion>
 
       {/* <RandomItems /> */}
     </Layout>
