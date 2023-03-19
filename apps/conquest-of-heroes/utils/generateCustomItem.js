@@ -23,11 +23,16 @@ const generateCustomItem = (name, type, effects) => {
   const numEffects = Math.floor(Math.random() * 7);
 
   const generatedEffects = [];
-  console.log('Effects array:', effects);
+  const uniqueEffects = new Set();
 
   for (let i = 0; i < numEffects; i++) {
     const randomEffectIndex = Math.floor(Math.random() * effects.length);
     const effect = effects[randomEffectIndex];
+    if (uniqueEffects.has(effect)) {
+      continue;
+    }
+
+    uniqueEffects.add(effect);
 
     const isGood = Math.random() < 0.5;
     console.log('Current effect:', effect);

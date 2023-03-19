@@ -54,7 +54,6 @@ export default function SimpleSidebar({ children }) {
             <SidebarContent onClose={onClose} />
           </DrawerContent>
         </Drawer>
-        {/* mobilenav */}
         <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
         <Box height="screen" ml={{ base: 0, md: 60 }}>
           <Image
