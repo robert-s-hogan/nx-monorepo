@@ -3,7 +3,7 @@ import { Tr, Td } from '@chakra-ui/react';
 
 function ObjectsOnMap({ objects, mapSize }) {
   const [randomArray, setRandomArray] = useState([]);
-  const [objectsOnMap, setObjectsOnMap] = useState(16);
+  const [objectsOnMap] = useState(16);
 
   const randomNumber = (min, mapSize) => {
     const low = 1;

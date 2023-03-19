@@ -1,14 +1,9 @@
-import Layout from '../components/layout';
 import {
   VStack,
   Button,
-  Flex,
-  Box,
   FormControl,
   FormLabel,
-  Heading,
   Input,
-  Checkbox,
 } from '@chakra-ui/react';
 import { useFormik } from 'formik';
 

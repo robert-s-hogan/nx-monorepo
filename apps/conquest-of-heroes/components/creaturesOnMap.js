@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Tr, Box, Td, Text, Flex } from '@chakra-ui/react';
 
 function CreaturesOnMap({ monsters }) {
-  const [randomArray, setRandomArray] = useState([]);
-  const [creaturesOnMap] = useState(16);
+  const [randomArray] = useState([]);
 
   return (
     <Tr>

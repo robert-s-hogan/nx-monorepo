@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 
 import { FormControl, Input, Button, FormLabel } from '@chakra-ui/react';
 

@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import {
   Text,
   Box,
   Grid,
   Heading,
-  Flex,
   GridItem,
   Accordion,
   AccordionItem,
@@ -34,14 +32,10 @@ export default function Map({
   amountOfItems,
   dimensions,
 }) {
-  const [randomArray, setRandomArray] = useState([]);
+  const [setRandomArray] = useState([]);
 
   const { data, error } = useSWR('/api/structures', fetcher);
-  const {
-    combinedObjects,
-    loading,
-    error: FetchItemsError,
-  } = useFetchItems5e();
+  const { combinedObjects, error: FetchItemsError } = useFetchItems5e();
 
   const randomNumber = (min, max) =>
     Math.floor(Math.random() * (max - min)) + min;

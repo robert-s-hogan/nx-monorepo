@@ -1,39 +1,33 @@
 import Head from 'next/head';
 import NextLink from 'next/link';
-import { useRouter } from 'next/router';
 import LoginForm from './LoginForm';
 import {
   Flex,
   Container,
   Box,
-  UnorderedList,
   Link,
-  ListItem,
   MenuList,
-  Button,
-  HStack,
   MenuGroup,
   Menu,
   MenuButton,
-  MenuItem,
+  HStack,
 } from '@chakra-ui/react';
-import {
-  ChevronDownIcon,
-  HamburgerIcon,
-  IconButton,
-  AddIcon,
-  ExternalLinkIcon,
-  RepeatIcon,
-  EditIcon,
-} from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHatWizard } from '@fortawesome/free-solid-svg-icons';
+import { keyframes } from '@emotion/react';
+
+const rotate = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
 
 export default function Header() {
-  const router = useRouter();
-
   return (
-    <Container maxW={{ md: '4xl', xl: 'full' }} px={{ base: 4, xl: 48 }}>
+    <Container maxW={{ md: '4xl', xl: 'full' }} px={{ base: 4, xl: 52 }}>
       <header>
         <Head>
           <title>Conquest of Heroes</title>
@@ -53,25 +47,35 @@ export default function Header() {
           <Box fontSize="2rem">
             <NextLink href="/" passHref>
               <Link>
-                <FontAwesomeIcon icon={faHatWizard} />
+                <FontAwesomeIcon
+                  icon={faHatWizard}
+                  css={{
+                    animation: `${rotate} 5s linear infinite`,
+                  }}
+                />
               </Link>
             </NextLink>
           </Box>
-          <Menu closeOnSelect={false}>
-            <MenuButton>Login</MenuButton>
-            <MenuList py={0} keepMounted>
-              {/* <MenuItem onClick={() => router.push('/')}>Home</MenuItem> */}
-              <MenuGroup>
-                {/* <MenuItem onClick={() => router.push('/spells')}>
+          <HStack spacing={4}>
+            <Menu closeOnSelect={false}>
+              <MenuButton>Login</MenuButton>
+              <MenuList py={0} keepMounted>
+                {/* <MenuItem onClick={() => router.push('/')}>Home</MenuItem> */}
+                <MenuGroup>
+                  {/* <MenuItem onClick={() => router.push('/spells')}>
                   Spells
                 </MenuItem> */}
-                {/* <MenuItem>My Account</MenuItem> */}
-                <Box px={4} py={4}>
-                  <LoginForm />
-                </Box>
-              </MenuGroup>
-            </MenuList>
-          </Menu>
+                  {/* <MenuItem>My Account</MenuItem> */}
+                  <Box px={4} py={4}>
+                    <LoginForm />
+                  </Box>
+                </MenuGroup>
+              </MenuList>
+            </Menu>
+            <NextLink href="/admin" passHref>
+              <Link>Admin</Link>
+            </NextLink>
+          </HStack>
         </Flex>
       </header>
     </Container>

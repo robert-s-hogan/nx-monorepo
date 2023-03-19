@@ -2,7 +2,7 @@ import '../styles/globals.css';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import useSWR, { SWRConfig } from 'swr';
+import { SWRConfig } from 'swr';
 import { store } from '../features/store';
 import { Provider } from 'react-redux';
 import { RandomValuesProvider } from '../store/RandomValuesProvider';

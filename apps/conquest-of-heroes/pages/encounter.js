@@ -1,27 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Text, Heading } from '@chakra-ui/react';
 // import { TriangleDownIcon } from '@chakra-ui/icons';
-import useSWR from 'swr';
-import { useRouter } from 'next/router';
 import { useEncounter } from '../hooks/useEncounter';
-import { useCounter } from '../hooks/useCounter';
-import { useSelector, useDispatch } from 'react-redux';
-import { setEncounter } from '../features/encounterSlice';
 
 import Layout from '../components/layout';
 import Loading from '../components/loading';
 import EncounterDetails from '../components/encounterDetails';
 import Map from '../components/map';
-import DropDown from '../components/dropDown';
 
 export default function Encounter({ fetcher }) {
-  const dispatch = useDispatch();
-  const encounterData = useSelector((state) => state.encounter);
-
-  const router = useRouter();
   const { data, isLoading, isError } = useEncounter('/api/encounter', fetcher);
-
-  const mapSize = 4;
 
   useEffect(() => {
     const unloadHandler = (event) => {
@@ -39,8 +27,7 @@ export default function Encounter({ fetcher }) {
   if (isLoading) return <Loading />;
   if (isError) return <Text>Error</Text>;
 
-  const { difficulty, monsters, mapInfo, quest, encounterModifier, intro } =
-    data;
+  const { difficulty, monsters, mapInfo, quest, intro } = data;
   const {
     hasWeather,
     weatherSeverity,
@@ -54,7 +41,6 @@ export default function Encounter({ fetcher }) {
     objects,
   } = mapInfo;
   const { challengeRating } = monsters;
-  const { playerCount, playerLevelStart } = encounterModifier;
   const { objectives } = quest;
 
   const randomNumber = (min, max) =>
@@ -86,7 +72,6 @@ export default function Encounter({ fetcher }) {
   );
 
   const difficultyLevel = randomNumber(0, difficulty.length);
-  const selectedDifficulty = difficulty[difficultyLevel];
 
   const questObjective = randomNumber(0, objectives.length);
   const selectedObjective = objectives[questObjective];
@@ -98,10 +83,6 @@ export default function Encounter({ fetcher }) {
       0,
       oppositionStartingPotions.length
     );
-  }
-
-  function loadPage() {
-    router.push('/encounter');
   }
 
   const sharedMapDimensions = dimensions[mapDimensions];

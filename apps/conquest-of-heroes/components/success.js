@@ -1,30 +1,8 @@
 import { useState, useEffect } from 'react';
-import {
-  Text,
-  Button,
-  Grid,
-  GridItem,
-  Table,
-  Tabs,
-  Stack,
-  Input,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  Thead,
-  Tbody,
-  Select,
-  Tr,
-  Th,
-  Td,
-  TableContainer,
-} from '@chakra-ui/react';
-import { useSelector, useDispatch } from 'react-redux';
+import { Text, Grid, GridItem, Stack } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
 import {
   calculateLevelOfPlayersCharactersStart,
-  getAdventuringDayXPLimit,
-  getEncounterMultipliers,
   adventuringDayXp,
 } from '../lib/xpTables';
 
@@ -45,16 +23,14 @@ export default function Results({
   challengeRating,
   hasWeather,
 }) {
-  const dispatch = useDispatch();
   const encounterData = useSelector((state) => state.encounter);
   const { value } = encounterData;
 
   const [playerCount, setPlayerCount] = useState();
-  const [playerExperienceLevel, setPlayerExperienceLevel] = useState();
+  const [setPlayerExperienceLevel] = useState();
   const [encounterAdjustedExperience, setEncounterAdjustedExperience] =
     useState();
-  const [encounterExperience, setEncounterExperience] = useState();
-  const [playerLevel, setPlayerLevel] = useState();
+  const [setEncounterExperience] = useState();
 
   const calculatePlayerLevel = calculateLevelOfPlayersCharactersStart(
     value.playerExperienceLevel
@@ -63,13 +39,6 @@ export default function Results({
   const calculateXPThresholdByDifficulty =
     adventuringDayXp(calculatePlayerLevel);
   const xpThreshold = calculateXPThresholdByDifficulty * playerCount;
-  const calculateXPThreshold = calculateXPThresholdByDifficulty * playerCount;
-
-  const randomDifficulty = difficulty;
-
-  // XP calculation
-  const adventuringDayXPLimit = getAdventuringDayXPLimit(calculatePlayerLevel);
-  const adjustedAdventuringDayXPLimit = adventuringDayXPLimit * playerCount;
 
   const longRest = ['yes', 'no'];
   const randomNumber = (min, max) =>

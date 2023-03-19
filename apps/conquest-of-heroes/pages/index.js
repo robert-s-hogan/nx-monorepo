@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import RandomItems from '../components/RandomItems';
 
 import {
   Grid,
@@ -16,15 +15,11 @@ import {
   AccordionPanel,
   AccordionIcon,
   Textarea,
-  Flex,
 } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
-import { useSelector, useDispatch } from 'react-redux';
 
 import { useEncounter } from '../hooks/useEncounter';
 import Loading from '../components/loading';
 import Map from '../components/map';
-import { setEncounterInformation } from '../features/encounterSlice';
 import { useCharacter } from '../hooks/useCharacter';
 import { useFetchItems5e } from '../hooks/useFetchItems5e';
 import Layout from '../components/layout';
@@ -32,13 +27,7 @@ import { randomNumber } from '../lib/randomNumber';
 import GenerateMadLib from '../components/GenerateMadLib';
 import RandomCustomItems from '../components/RandomCustomItems';
 
-import { xpThresholdsByCharacterLevel } from '../lib/xpTables';
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
 export default function Home() {
-  const dispatch = useDispatch();
-
   const {
     playerCount,
     _playerCount,
@@ -50,15 +39,12 @@ export default function Home() {
     _encounterExperience,
     getLevelFromXP,
     getAdventuringDayXPLimit,
-    calculateLevelOfPlayersCharactersStart,
     getXPThresholdsByCharacterLevel,
-    adventuringDayXp,
   } = useCharacter();
   const { combinedObjects, loading, error } = useFetchItems5e();
 
   const [isSubmitting, _isSubmitting] = useState(false);
-  const [shortRest, _shortRest] = useState(0);
-  const [totalShortRestsAllows, _totalShortRestsAllows] = useState(2);
+  const [totalShortRestsAllows] = useState(2);
 
   const {
     isLoading: encounterLoading,
@@ -67,7 +53,6 @@ export default function Home() {
     monsters,
     mapInfo,
     quest,
-    encounterModifier,
   } = useEncounter('/api/encounter');
 
   if (encounterLoading) return <Loading />;
@@ -132,10 +117,6 @@ export default function Home() {
   }
 
   const sharedMapDimensions = dimensions[mapDimensions];
-
-  const doesAppear = ['Yes', 'No'];
-  const isCaravan = randomNumber(0, doesAppear.length);
-  const doesApper = doesAppear[isCaravan];
 
   if (loading) {
     return <div>Loading...</div>;
@@ -207,8 +188,6 @@ export default function Home() {
   const playerExperienceFinish =
     parseInt(playerExperienceStart) +
     parseInt(encounterExperience) / parseInt(playerCount);
-
-  const slicecombinedObjects = combinedObjects.slice(0, 4);
 
   return (
     <Layout>

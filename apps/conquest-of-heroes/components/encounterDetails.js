@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react';
 import {
   Text,
   Grid,
   GridItem,
-  VStack,
   Textarea,
   Accordion,
   AccordionItem,
@@ -11,8 +9,7 @@ import {
   AccordionPanel,
   AccordionIcon,
 } from '@chakra-ui/react';
-import { setEncounter } from '../features/encounterSlice';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useCharacter } from '../hooks/useCharacter';
 
 export default function EncounterDetails({
@@ -35,14 +32,9 @@ export default function EncounterDetails({
 }) {
   const {
     playerCount,
-    _playerCount,
-    playerStartLevel,
-    _playerStartLevel,
-    getLevelFromXP,
     getAdventuringDayXPLimit,
     calculateLevelOfPlayersCharactersStart,
     getXPThresholdsByCharacterLevel,
-    adventuringDayXp,
   } = useCharacter();
 
   const encounterData = useSelector((state) => state.encounter);
@@ -50,15 +42,9 @@ export default function EncounterDetails({
 
   const { arrival, atmosphere, range, details, sense, location } = intro;
   const { senseDescription, senseObject, senseDegree } = sense;
-  const { locationDescription, locationLandscape } = location;
+  const { locationDescription } = location;
 
-  const { locationObject, locationDuration } = locationLandscape;
-
-  const { senseSmell, senseSound, senseTaste, senseTouch, senseLighting } =
-    senseDescription;
-
-  const { forest } = location;
-  let locations = forest;
+  const { senseLighting } = senseDescription;
 
   const randomNumber = (min, max) =>
     Math.floor(Math.random() * (max - min)) + min;
@@ -75,9 +61,6 @@ export default function EncounterDetails({
 
   const randomAtmosphere = randomNumber(0, atmosphere.length);
   const selectedRandomAtmosphere = atmosphere[randomAtmosphere];
-
-  const randomSense = randomNumber(0, sense.length);
-  const selectedRandomSense = sense[randomSense];
 
   const randomSenseObject = randomNumber(0, senseObject.length);
   const selectedRandomSenseObject = senseObject[randomSenseObject];

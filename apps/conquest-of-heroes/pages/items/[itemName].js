@@ -1,7 +1,6 @@
 import { items } from '../../data/caravan';
 
 export default function Items({ item }) {
-  const name = 'itemName';
   return (
     <ul>
       {item.name && <li>{item.name}</li>}

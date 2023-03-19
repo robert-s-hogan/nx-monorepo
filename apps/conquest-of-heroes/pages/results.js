@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
 import {
   Button,
   Text,
@@ -36,14 +35,18 @@ export default function Results({ fetcher }) {
     rewardMultiplier,
   } = data;
 
-  const randomNumber = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+  const randomNumber = (min, max) =>
+    Math.floor(Math.random() * (max - min)) + min;
 
   const isCaravan = randomNumber(0, doesAppear.length);
   const restNeeded = randomNumber(0, rest.length);
   const restTypeNeeded = randomNumber(0, restType.length);
   const rewardMultiplierNeeded = randomNumber(1, rewardMultiplier.length);
   const timeSpentRestingLevel = randomNumber(0, timeSpentResting.length);
-  const timeBetweenEncountersLevel = randomNumber(0, timeBetweenEncounters.length);
+  const timeBetweenEncountersLevel = randomNumber(
+    0,
+    timeBetweenEncounters.length
+  );
 
   const d6 = randomNumber(1, 7);
 
@@ -61,7 +64,6 @@ export default function Results({ fetcher }) {
   }
 
   function printGoldEquation(multiplier) {
-    const value = d6 * multiplier;
     return `${multiplier}d6 x 50`;
   }
 
@@ -126,7 +128,9 @@ export default function Results({ fetcher }) {
                     </Tr>
                     <Tr>
                       <Td>Time Between Encounters</Td>
-                      <Td>{timeBetweenEncounters[timeBetweenEncountersLevel]}</Td>
+                      <Td>
+                        {timeBetweenEncounters[timeBetweenEncountersLevel]}
+                      </Td>
                     </Tr>
                   </>
                 )}

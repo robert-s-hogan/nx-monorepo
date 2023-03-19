@@ -49,12 +49,6 @@ const GenerateMadLib = () => {
     'no monster';
   const selectedObjective = generateRandomValue(quest.objectives);
 
-  const keenEye = Math.random() >= 0.5;
-  const perception =
-    keenEye && selectedSenses.includes('Keen Eye')
-      ? ' (Passive Perception 17+)'
-      : '';
-
   if (encounterLoading) return <div>Loading...</div>;
   if (encounterError) return <div>Error: {encounterError}</div>;
 
