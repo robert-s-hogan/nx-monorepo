@@ -114,17 +114,23 @@ const generateCustomItem = (name, type, effects) => {
             : effect.type
         } (${diceAmount}d${Math.abs(evenDie)})`
       );
+    } else if (
+      effect.type === 'ADV against Exhaustion' ||
+      effect.type === 'Immune to being Blinded' ||
+      effect.type === 'Immune to being Charmed'
+    ) {
+      generatedEffects.push(`${effect.type}`);
     } else {
       generatedEffects.push(
         `${
           effect.type === 'Ability Score'
             ? `${abilityScore} `
             : effect.type === 'Set Ability Score to'
-            ? `Set ${abilityScore} to ${displayValue}`
+            ? `Set ${abilityScore} to `
             : effect.type === 'Plus Ability Score'
             ? `${abilityScore}`
             : effect.type
-        } ${effect.type !== 'Condition' ? '' : displayValue}`
+        } ${displayValue}`
       );
     }
   }

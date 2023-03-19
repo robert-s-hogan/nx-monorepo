@@ -32,7 +32,7 @@ export default function Map({
   amountOfItems,
   dimensions,
 }) {
-  const [setRandomArray] = useState([]);
+  const [randomArray, setRandomArray] = useState([]);
 
   const { data, error } = useSWR('/api/structures', fetcher);
   const { combinedObjects, error: FetchItemsError } = useFetchItems5e();

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 function RandomItemPerMap({ name, amountOfItems, objects }) {
-  const [setRandomArray] = useState([]);
+  const [randomArray, setRandomArray] = useState([]);
 
   const filledArray = [];
   for (let i = 0; i < amountOfItems; i + 1) {
@@ -11,7 +11,7 @@ function RandomItemPerMap({ name, amountOfItems, objects }) {
   const pickRandom = (arr, count) => {
     const _arr = [...arr];
     return [...Array(count)].map(
-      () => _arr.splice(Math.floor(Math.random() * _arr.length), 1)[0],
+      () => _arr.splice(Math.floor(Math.random() * _arr.length), 1)[0]
     );
   };
 

@@ -18,7 +18,7 @@ import { FiRotateCcw, FiAlertCircle } from 'react-icons/fi';
 const QuadrantOne = ({ structures }) => {
   const randomNumber = (min, max) =>
     Math.floor(Math.random() * (max - min)) + min;
-  const [setRandomArray] = useState([]);
+  const [randomArray, setRandomArray] = useState([]);
 
   const randomStructureOne = randomNumber(1, structures.length);
   const randomStructureTwo = randomNumber(1, structures.length);
