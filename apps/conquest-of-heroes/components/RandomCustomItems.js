@@ -31,7 +31,7 @@ const RandomCustomItems = () => {
       </Button>
 
       <Grid
-        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(5, 1fr)' }}
+        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(4, 1fr)' }}
         gap={6}
       >
         {items.map((item, index) => (

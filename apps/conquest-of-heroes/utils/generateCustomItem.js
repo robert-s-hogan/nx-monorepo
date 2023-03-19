@@ -1,4 +1,14 @@
 const generateCustomItem = (name, type, effects) => {
+  // Ability score options
+  const abilityScores = [
+    'Strength',
+    'Dexterity',
+    'Constitution',
+    'Intelligence',
+    'Wisdom',
+    'Charisma',
+  ];
+
   // Randomly select the number of effects (0-6)
   const numEffects = Math.floor(Math.random() * 7);
 
@@ -17,7 +27,18 @@ const generateCustomItem = (name, type, effects) => {
       Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
     const displayValue = isGood ? `+${value}` : `${value}`;
 
-    generatedEffects.push(`${effect.type} ${displayValue}`);
+    // Randomly select an ability score
+    const randomAbilityScoreIndex = Math.floor(
+      Math.random() * abilityScores.length
+    );
+    const abilityScore = abilityScores[randomAbilityScoreIndex];
+
+    // Add the effect with the ability score description
+    generatedEffects.push(
+      `${
+        effect.type === 'Ability Score' ? `${abilityScore} ` : effect.type
+      } ${displayValue}`
+    );
   }
 
   return {
