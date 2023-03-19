@@ -10,7 +10,7 @@ const generateCustomItems = (count) => {
   for (let i = 0; i < count; i++) {
     const randomIndex = Math.floor(Math.random() * CustomItems.length);
     const { name, type, effects } = CustomItems[randomIndex];
-    // Make a copy of the shared effects to avoid modifying the original array
+
     const copiedEffects = [...effects];
     const randomItem = generateCustomItem(name, type, copiedEffects);
     items.push({ ...randomItem, locked: false });
