@@ -1,4 +1,4 @@
-import { GridItem, Heading } from '@chakra-ui/react';
+import { GridItem, Heading, VStack } from '@chakra-ui/react';
 import { ImUnlocked } from 'react-icons/im';
 import { GiLockedChest } from 'react-icons/gi';
 
@@ -67,15 +67,17 @@ const DynamicObjectComponent = ({ data, locked, onClick }) => {
         onClick={onClick}
         cursor="pointer"
       >
-        {locked ? <GiLockedChest /> : <ImUnlocked />}
-        <Heading as="h4" fontSize="1rem" display="flex" alignItems="center">
-          {customItem.name}
-        </Heading>
-        <ul>
-          {customItem.effects.map((effect, index) => (
-            <li key={index}>{effect}</li>
-          ))}
-        </ul>
+        <VStack spacing={4} align="left">
+          {locked ? <GiLockedChest /> : <ImUnlocked />}
+          <Heading as="h4" fontSize="1rem" display="flex" alignItems="center">
+            {customItem.name}
+          </Heading>
+          <ul>
+            {customItem.effects.map((effect, index) => (
+              <li key={index}>{effect}</li>
+            ))}
+          </ul>
+        </VStack>
       </GridItem>
     );
   };

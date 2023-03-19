@@ -9,7 +9,9 @@ const generateCustomItems = (count) => {
   for (let i = 0; i < count; i++) {
     const randomIndex = Math.floor(Math.random() * CustomItems.length);
     const { name, type, effects } = CustomItems[randomIndex];
-    const randomItem = generateCustomItem(name, type, effects);
+    // Make a copy of the shared effects to avoid modifying the original array
+    const copiedEffects = [...effects];
+    const randomItem = generateCustomItem(name, type, copiedEffects);
     items.push({ ...randomItem, locked: false });
   }
   return items;
@@ -42,7 +44,10 @@ const RandomCustomItems = () => {
       </Button>
 
       <Grid
-        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(4, 1fr)' }}
+        templateColumns={{
+          base: 'repeat(2, 1fr)',
+          md: 'repeat(4, 1fr)',
+        }}
         gap={6}
       >
         {items.map((item, index) => (
