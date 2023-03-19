@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import DynamicObjectComponent from '../components/DynamicObjectComponent';
 import { CustomItems } from '../categories/CustomItems';
-import { Grid, Button, VStack, Heading, Flex, Icon } from '@chakra-ui/react';
+import { Grid, VStack, Heading, Flex, Icon } from '@chakra-ui/react';
 import generateCustomItem from '../utils/generateCustomItem';
 import { WiRefresh } from 'react-icons/wi';
 
