@@ -1,3 +1,28 @@
+const goodConditions = [
+  {
+    type: 'ADV against Exhaustion',
+    good: { min: 0, max: 0 },
+    bad: { min: 0, max: 0 },
+    advantage: true,
+    disadvantage: null,
+  },
+  {
+    type: 'Immune to being Blinded',
+    good: { min: 0, max: 0 },
+    bad: { min: 0, max: 0 },
+    advantage: null,
+    disadvantage: null,
+  },
+  {
+    type: 'Immune to being Charmed',
+    good: { min: 0, max: 0 },
+    bad: { min: 0, max: 0 },
+    advantage: null,
+    disadvantage: null,
+  },
+  // ... and so on for all the other conditions
+];
+
 const sharedEffects = [
   {
     type: 'Plus Ability Score',
@@ -66,6 +91,33 @@ const sharedEffects = [
     diceAmount: null,
     advantage: null,
   },
+  {
+    type: 'Concentration',
+    good: {
+      min: 0,
+      max: 2,
+    },
+    bad: {
+      min: 0,
+      max: 2,
+    },
+    diceAmount: null,
+    disadvantage: null, // true | false | null
+  },
+  {
+    type: 'Condition',
+    good: {
+      min: 0,
+      max: 2,
+    },
+    bad: {
+      min: 0,
+      max: 2,
+    },
+    diceAmount: null,
+    disadvantage: null, // true | false | null
+  },
+  ...goodConditions,
 
   // Add more effects here if needed
 ];
