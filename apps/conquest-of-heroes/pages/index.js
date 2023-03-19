@@ -268,7 +268,7 @@ export default function Home() {
         </Accordion>
       </Stack>
       {!isSubmitting ? (
-        <Box mt={8}>
+        <Box>
           <Grid
             ml={0}
             gridTemplateColumns={{
@@ -280,7 +280,7 @@ export default function Home() {
           >
             <GridItem>
               <Accordion allowMultiple>
-                <AccordionItem>
+                <AccordionItem borderTop="none">
                   <AccordionButton>
                     <Text fontSize="lg" fontWeight="bold">
                       INTRO
@@ -376,7 +376,7 @@ export default function Home() {
             </GridItem>
             <GridItem>
               <Accordion allowMultiple>
-                <AccordionItem>
+                <AccordionItem borderTop="none">
                   <AccordionButton>
                     <Text fontSize="lg" fontWeight="bold">
                       XP
@@ -388,6 +388,7 @@ export default function Home() {
                     <Grid
                       templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }}
                       gap={6}
+                      pt={4}
                     >
                       <GridItem border="1px" p={4}>
                         <p>Manual Inputs:</p>
@@ -480,7 +481,7 @@ export default function Home() {
               </Accordion>
 
               <Accordion allowMultiple>
-                <AccordionItem>
+                <AccordionItem borderTop="none">
                   <AccordionButton>
                     <Text fontSize="lg" fontWeight="bold">
                       Notes and Comments
@@ -494,7 +495,6 @@ export default function Home() {
               </Accordion>
             </GridItem>
           </Grid>
-
           <Map
             monsters={monsters}
             amountOfItems={amountOfItems}

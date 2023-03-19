@@ -26,10 +26,10 @@ import Layout from '../components/layout';
 import SchemaImage from '../assets/admin_schema.png';
 
 const LinkItems = [
-  { name: 'Trending', icon: FiTrendingUp },
-  { name: 'Explore', icon: FiCompass },
-  { name: 'Favourites', icon: FiStar },
-  { name: 'Settings', icon: FiSettings },
+  { name: 'Link1', icon: FiTrendingUp },
+  { name: 'Link2', icon: FiCompass },
+  { name: 'Link3', icon: FiStar },
+  { name: 'Link4', icon: FiSettings },
 ];
 
 export default function SimpleSidebar({ children }) {
@@ -56,19 +56,14 @@ export default function SimpleSidebar({ children }) {
         </Drawer>
         {/* mobilenav */}
         <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
-        <Box ml={{ base: 0 }} p="4" bg="gray.100" minH="100vh">
-          {children}
+        <Box height="screen" ml={{ base: 0, md: 60 }}>
+          <Image
+            src={SchemaImage}
+            alt="admin schema"
+            width={1000}
+            height={1000}
+          />
         </Box>
-      </Box>
-      <Box
-        height="screen"
-        borderTop="1px"
-        borderTopColor={useColorModeValue('gray.200', 'gray.700')}
-      >
-        <Heading as="h1" size="2xl">
-          Content
-        </Heading>
-        <Image src={SchemaImage} alt="admin schema" width={500} height={500} />
       </Box>
     </Layout>
   );

@@ -67,9 +67,9 @@ export default function Map({
   if (error && FetchItemsError) return <Text>Error: {error.message}</Text>;
 
   return (
-    <Box pt={8}>
+    <Box>
       <Accordion allowMultiple>
-        <AccordionItem>
+        <AccordionItem borderTop="none">
           <AccordionButton>
             <Box flex="1" textAlign="left">
               <Heading as="h3" size="md">
