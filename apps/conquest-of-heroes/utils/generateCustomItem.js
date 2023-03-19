@@ -1,3 +1,5 @@
+import { getRandomIncrementOfTen } from './getRandomIncrementOfTen';
+
 const conditionTypes = [
   'Blinded',
   'Charmed',
@@ -62,7 +64,12 @@ const generateCustomItem = (name, type, effects) => {
 
       generatedEffects.push(`${prefix} ${conditionType}`);
     } else if (effect.type === 'Blindsight') {
-      generatedEffects.push(`Gain Blindsight out to a range of ${value}ft`);
+      generatedEffects.push(
+        `Gain Blindsight out to a range of ${getRandomIncrementOfTen(
+          minValue,
+          maxValue
+        )}ft`
+      );
     } else if (effect.type === 'Attacks') {
       const minRoll = effect.bad.min;
       const maxRoll = effect.bad.max;
@@ -113,7 +120,7 @@ const generateCustomItem = (name, type, effects) => {
           effect.type === 'Ability Score'
             ? `${abilityScore} `
             : effect.type === 'Set Ability Score to'
-            ? `Set ${abilityScore} to`
+            ? `Set ${abilityScore} to ${displayValue}`
             : effect.type === 'Plus Ability Score'
             ? `${abilityScore}`
             : effect.type
