@@ -38,7 +38,7 @@ const RandomCustomItems = () => {
 
   return (
     <VStack spacing={4} align="left" pb={24}>
-      <Heading>Random Items Generated</Heading>
+      <Heading>Custom Item List (10)</Heading>
       <Button onClick={refreshItems} w={32}>
         Refresh Items
       </Button>

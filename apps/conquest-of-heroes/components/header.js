@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
+import LoginForm from './LoginForm';
 import {
   Flex,
   Container,
@@ -49,21 +50,6 @@ export default function Header() {
           justifyContent="space-between"
           minW="100%"
         >
-          <Menu>
-            <MenuButton>
-              <HamburgerIcon fontSize="3xl" />
-            </MenuButton>
-            <MenuList py={0}>
-              <MenuItem onClick={() => router.push('/')}>Home</MenuItem>
-              {/* <MenuGroup title="Data">
-                <MenuItem onClick={() => router.push('/spells')}>
-                  Spells
-                </MenuItem>
-                <MenuItem>My Account</MenuItem>
-                <MenuItem>Payments </MenuItem>
-              </MenuGroup> */}
-            </MenuList>
-          </Menu>
           <Box fontSize="2rem">
             <NextLink href="/" passHref>
               <Link>
@@ -71,6 +57,21 @@ export default function Header() {
               </Link>
             </NextLink>
           </Box>
+          <Menu closeOnSelect={false}>
+            <MenuButton>Login</MenuButton>
+            <MenuList py={0} keepMounted>
+              {/* <MenuItem onClick={() => router.push('/')}>Home</MenuItem> */}
+              <MenuGroup>
+                {/* <MenuItem onClick={() => router.push('/spells')}>
+                  Spells
+                </MenuItem> */}
+                {/* <MenuItem>My Account</MenuItem> */}
+                <Box px={4} py={4}>
+                  <LoginForm />
+                </Box>
+              </MenuGroup>
+            </MenuList>
+          </Menu>
         </Flex>
       </header>
     </Container>

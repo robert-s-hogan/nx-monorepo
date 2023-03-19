@@ -212,7 +212,6 @@ export default function Home() {
 
   return (
     <Layout>
-      <RandomCustomItems />
       <Stack spacing={8}>
         <Accordion allowMultiple>
           <AccordionItem>
@@ -536,6 +535,7 @@ export default function Home() {
           />
         </Box>
       ) : null}
+      <RandomCustomItems />
 
       {/* <RandomItems /> */}
     </Layout>
