@@ -1,6 +1,8 @@
 import { GridItem, Heading } from '@chakra-ui/react';
+import { ImUnlocked } from 'react-icons/im';
+import { GiLockedChest } from 'react-icons/gi';
 
-const DynamicObjectComponent = ({ data }) => {
+const DynamicObjectComponent = ({ data, locked, onClick }) => {
   function objectToString(obj) {
     let str = '';
     for (let i = 0; i < Object.keys(obj).length; i++) {
@@ -57,7 +59,15 @@ const DynamicObjectComponent = ({ data }) => {
 
   const renderCustomItem = (customItem) => {
     return (
-      <GridItem colSpan={1} bg="gray.100" p={4} rounded="md">
+      <GridItem
+        colSpan={1}
+        bg="gray.100"
+        p={4}
+        rounded="md"
+        onClick={onClick}
+        cursor="pointer"
+      >
+        {locked ? <GiLockedChest /> : <ImUnlocked />}
         <Heading as="h4" fontSize="1rem" display="flex" alignItems="center">
           {customItem.name}
         </Heading>
