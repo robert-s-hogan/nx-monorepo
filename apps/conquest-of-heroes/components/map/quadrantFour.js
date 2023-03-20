@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react';
 import { FiRotateCcw, FiAlertCircle } from 'react-icons/fi';
 
-const QuadrantFour = ({ structures }) => {
+const QuadrantFour = ({ structures, generatedStructure }) => {
   const randomNumber = (min, max) =>
     Math.floor(Math.random() * (max - min)) + min;
   const [randomArray, setRandomArray] = useState([]);
@@ -156,7 +156,7 @@ const QuadrantFour = ({ structures }) => {
             <PopoverTrigger>
               <Flex itemsAlign="center" justifyContent="flex-start">
                 <Text fontSize="xs" mr={1}>
-                  {structures[randomStructureOne].name}
+                  {generatedStructure.name}
                 </Text>
                 <FiAlertCircle color="blue" size={12} />
               </Flex>
@@ -164,21 +164,8 @@ const QuadrantFour = ({ structures }) => {
             <PopoverContent>
               <PopoverArrow />
               <PopoverCloseButton />
-              <PopoverHeader>
-                {structures[randomStructureOne].name}
-              </PopoverHeader>
-              <PopoverBody>
-                <VStack align="flex-start" spacing={0}>
-                  {Object.entries(structures[randomStructureOne]).map(
-                    ([key, value]) => (
-                      <div key={key}>
-                        <strong>{key}: </strong>
-                        {value}
-                      </div>
-                    )
-                  )}
-                </VStack>
-              </PopoverBody>
+              <PopoverHeader>{generatedStructure.name}</PopoverHeader>
+              <PopoverBody>{generatedStructure.description}</PopoverBody>
             </PopoverContent>
           </Popover>
         )}

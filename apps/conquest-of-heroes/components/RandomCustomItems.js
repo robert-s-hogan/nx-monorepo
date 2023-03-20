@@ -35,12 +35,12 @@ const RandomCustomItems = () => {
     setItems(newItems);
   };
 
-  console.log(`items`, items);
-
   return (
     <VStack spacing={4} align="left" pb={24} pt={8}>
       <Flex alignItems="center">
-        <Heading mr={2}>Custom Item List (10)</Heading>
+        <Heading as="h5" mr={2}>
+          Custom Item List (10)
+        </Heading>
         <button
           onClick={refreshItems}
           variant="ghost"

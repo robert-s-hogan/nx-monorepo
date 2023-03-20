@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react';
 import { FiRotateCcw, FiAlertCircle } from 'react-icons/fi';
 
-const QuadrantOne = ({ structures }) => {
+const QuadrantOne = ({ structures, generatedStructure }) => {
   const randomNumber = (min, max) =>
     Math.floor(Math.random() * (max - min)) + min;
   const [randomArray, setRandomArray] = useState([]);

@@ -9,16 +9,21 @@ import { RandomValuesProvider } from '../store/RandomValuesProvider';
 
 config.autoAddCss = false;
 
-const colors = {
-  brand: {
-    900: '#1a365d',
-    800: '#153e75',
-    700: '#2a69ac',
-    darkGreen: '#004d00',
+const theme = extendTheme({
+  components: {
+    Heading: {
+      baseStyle: {
+        color: 'light-green',
+      },
+    },
   },
-};
+  colors: {
+    brand: {
+      darkGreen: '#004d00',
+    },
+  },
+});
 
-const theme = extendTheme({ colors });
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 function MyApp({ Component, pageProps }) {

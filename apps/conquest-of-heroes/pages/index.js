@@ -25,7 +25,9 @@ import { useFetchItems5e } from '../hooks/useFetchItems5e';
 import Layout from '../components/layout';
 import { randomNumber } from '../lib/randomNumber';
 import GenerateMadLib from '../components/GenerateMadLib';
+
 import RandomCustomItems from '../components/RandomCustomItems';
+import RandomStructure from '../components/RandomStructure';
 
 export default function Home() {
   const {

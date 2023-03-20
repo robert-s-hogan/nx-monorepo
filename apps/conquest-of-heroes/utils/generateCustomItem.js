@@ -35,7 +35,6 @@ const generateCustomItem = (name, type, effects) => {
     uniqueEffects.add(effect);
 
     const isGood = Math.random() < 0.5;
-    console.log('Current effect:', effect);
 
     const valueRange = isGood ? effect.good : effect.bad;
     const minValue = valueRange.min;

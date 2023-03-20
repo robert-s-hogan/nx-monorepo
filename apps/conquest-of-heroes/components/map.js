@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
   Text,
+  Button,
   Box,
   Grid,
   Heading,
@@ -14,26 +15,28 @@ import {
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPeopleGroup, faDragon } from '@fortawesome/free-solid-svg-icons';
-import QuadrantOne from './map/quadrantOne';
-import QuadrantTwo from './map/quadrantTwo';
-import QuadrantThree from './map/quadrantThree';
-import QuadrantFour from './map/quadrantFour';
+import Quadrant from './map/Quadrant';
+
 import useSWR from 'swr';
 
 import { useFetchItems5e } from '../hooks/useFetchItems5e';
+import { generateStructures } from '../utils/generateStructures';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Map({
   monsters,
   objects,
-  oppositionStartingPotion,
+  oppositionStartingPotion: initialOppositionStartingPotion,
   playerStartingPotion,
   amountOfItems,
   dimensions,
 }) {
+  const [oppositionStartingPotion, setOppositionStartingPotion] = useState(
+    initialOppositionStartingPotion
+  );
   const [randomArray, setRandomArray] = useState([]);
-
+  const randomCount = Math.floor(Math.random() * 5) + 1;
   const { data, error } = useSWR('/api/structures', fetcher);
   const { combinedObjects, error: FetchItemsError } = useFetchItems5e();
 
@@ -42,6 +45,9 @@ export default function Map({
 
   const mapSize = [1, 2, 3, 4];
 
+  const [generatedStructures, setGeneratedStructures] = useState(
+    generateStructures(mapSize.length)
+  );
   const randomizedObjects = () => {
     const randomArray = [];
     const availableIndexes = Array.from(
@@ -59,6 +65,12 @@ export default function Map({
     setRandomArray(randomArray);
   };
 
+  const refreshMap = () => {
+    setGeneratedStructures((prevState) => generateStructures(mapSize.length));
+    setOppositionStartingPotion(randomNumber(0, 3));
+    randomizedObjects();
+  };
+
   useEffect(() => {
     randomizedObjects();
   }, []);
@@ -68,7 +80,7 @@ export default function Map({
 
   return (
     <Box>
-      <Accordion allowMultiple>
+      <Accordion allowMultiple defaultIndex={[0]}>
         <AccordionItem borderTop="none">
           <AccordionButton>
             <Box flex="1" textAlign="left">
@@ -79,6 +91,9 @@ export default function Map({
             <AccordionIcon />
           </AccordionButton>
           <AccordionPanel pb={4} height="600px">
+            {/* <Button mt={4} onClick={refreshMap}>
+              Refresh Map
+            </Button> */}
             <Grid
               templateColumns={{ base: '1fr', md: 'repeat(3,1fr)' }}
               mt={24}
@@ -101,21 +116,31 @@ export default function Map({
                     justifyContent="center"
                     position="relative"
                     my={{ lg: index === 0 || index === 2 ? 24 : 0 }}
-                    mt={{ lg: index === 1 || index === 3 ? '-6rem' : '' }}
+                    mt={{
+                      lg: index === 1 ? '-6rem' : index === 3 ? '-3.5rem' : '',
+                    }}
                     mb={{ lg: index === 1 ? '-6rem' : '' }}
                   >
-                    {oppositionStartingPotion === index && (
-                      <Text fontSize="4xl" color="red.500">
+                    <Quadrant
+                      structures={data}
+                      generatedStructures={generatedStructures[index]}
+                      quadrantIndex={index}
+                      oppositionStartingPotion={oppositionStartingPotion}
+                    />
+                    {oppositionStartingPotion === index && index !== 3 && (
+                      <Text
+                        fontSize="2xl"
+                        width="100%"
+                        background="red.500"
+                        color="white"
+                        position="absolute"
+                        bottom="-2rem"
+                      >
                         <FontAwesomeIcon icon={faDragon} />
                       </Text>
                     )}
-
-                    {index === 0 && <QuadrantOne structures={data} />}
-                    {index === 1 && <QuadrantTwo structures={data} />}
-                    {index === 2 && <QuadrantThree structures={data} />}
                     {index === 3 && (
                       <>
-                        <QuadrantFour structures={data} />
                         <Text
                           fontSize="2xl"
                           width="100%"
