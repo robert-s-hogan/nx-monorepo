@@ -3602,8 +3602,8 @@ export const encounter = {
       'Night',
       'Midnight',
     ],
-    playerStartingPotions: ['1', '2', '3', '4'],
-    oppositionStartingPotions: ['1', '2', '3', '4'],
+    playerStartingPotions: ['3'],
+    oppositionStartingPotions: ['0', '1', '2'],
     objects: [
       {
         name: 'Altar (broken/ruins)',

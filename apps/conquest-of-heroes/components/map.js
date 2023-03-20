@@ -94,6 +94,11 @@ export default function Map({
             {/* <Button mt={4} onClick={refreshMap}>
               Refresh Map
             </Button> */}
+            <p>oppositionStartingPotion: {oppositionStartingPotion}</p>
+            <p>
+              initialOppositionStartingPotion: {initialOppositionStartingPotion}
+            </p>
+
             <Grid
               templateColumns={{ base: '1fr', md: 'repeat(3,1fr)' }}
               mt={24}
