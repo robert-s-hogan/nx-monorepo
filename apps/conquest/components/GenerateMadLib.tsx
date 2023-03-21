@@ -14,7 +14,6 @@ const GenerateMadLib = () => {
 
   const { generateRandomValue }: RandomValues = useRandomValues();
 
-  // Replace the random selection of values with calls to generateRandomValue method
   const selectedArrival =
     generateRandomValue(intro.arrival) ?? 'unexpectedly arrive at';
   const selectedAtmosphere = generateRandomValue(intro.atmosphere) ?? 'empty';
