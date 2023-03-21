@@ -24,14 +24,9 @@ const Quadrant = ({
       <Flex direction="column" alignItems="center" justifyContent="center">
         <VStack>
           {generatedStructures.map((generatedStructure, index) => (
-            <Popover
-              key={generatedStructure.name[0]}
-              trigger="hover"
-              p={4}
-              overflowY="visible"
-            >
+            <Popover key={generatedStructure.name[0]} trigger="hover">
               <PopoverTrigger>
-                <Flex itemsAlign="center" justifyContent="flex-start">
+                <Flex alignItems="center" justifyContent="flex-start">
                   <Text fontSize="xs" mr={1}>
                     {generatedStructure.name}
                   </Text>

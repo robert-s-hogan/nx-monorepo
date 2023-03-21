@@ -1,15 +1,7 @@
-// utils/generateRandomObject.js
-import { FullWeapons } from '../categories/Weapons';
-import { FullItems } from '../categories/Items';
-import { FullCustomItems } from '../categories/CustomItems';
-
-// import { Structures } from '../categories/Structures';
+import { CustomItems } from '../categories/CustomItems';
 
 const categories = {
-  // weapons: FullWeapons,
-  // items: FullItems,
-  customItems: FullCustomItems,
-  // Add more categories here
+  customItems: CustomItems,
 };
 
 const getRandomElement = (array) => {

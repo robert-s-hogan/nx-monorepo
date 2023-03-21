@@ -18,16 +18,14 @@ import {
 } from '@chakra-ui/react';
 
 import { useEncounter } from '../hooks/useEncounter';
-import Loading from '../components/loading';
-import Map from '../components/map';
+import Loading from '../components/Loading';
+import Map from '../components/Map';
 import { useCharacter } from '../hooks/useCharacter';
 import { useFetchItems5e } from '../hooks/useFetchItems5e';
 import ConquestLayout from '../components/layout/ConquestLayout';
 import { randomNumber } from '../lib/randomNumber';
 import GenerateMadLib from '../components/GenerateMadLib';
-
 import RandomCustomItems from '../components/RandomCustomItems';
-import RandomStructure from '../components/RandomStructure';
 
 export default function Home() {
   const {
@@ -140,8 +138,7 @@ export default function Home() {
   );
 
   const calculateFinishEncounterExperienceLevel = getLevelFromXP(
-    parseInt(playerExperienceStart) +
-      parseInt(encounterAdjustedExperience) / parseInt(playerCount)
+    playerExperienceStart + encounterAdjustedExperience / playerCount
   );
 
   const adventuringDayXpLimit = getAdventuringDayXPLimit(
@@ -195,8 +192,7 @@ export default function Home() {
     adventuringDayXpFinish < xpThresholdsByCharacterLevelEasy ? true : false;
 
   const playerExperienceFinish =
-    parseInt(playerExperienceStart) +
-    parseInt(encounterExperience) / parseInt(playerCount);
+    playerExperienceStart + encounterExperience / playerCount;
 
   return (
     <ConquestLayout>
@@ -224,8 +220,13 @@ export default function Home() {
                     <Input
                       id="playerCount"
                       name="playerCount"
-                      text="number"
-                      onChange={(e) => _playerCount(e.target.value)}
+                      type="number"
+                      onChange={(e) => {
+                        const parsedValue = parseInt(e.target.value);
+                        if (!isNaN(parsedValue)) {
+                          _playerCount(parsedValue);
+                        }
+                      }}
                       value={playerCount}
                     />
                   </GridItem>
@@ -236,8 +237,13 @@ export default function Home() {
                     <Input
                       id="playerExperienceLevel"
                       name="playerExperienceLevel"
-                      text="number"
-                      onChange={(e) => _playerExperienceStart(e.target.value)}
+                      type="number"
+                      onChange={(e) => {
+                        const parsedValue = parseInt(e.target.value);
+                        if (!isNaN(parsedValue)) {
+                          _playerExperienceStart(parsedValue);
+                        }
+                      }}
                       value={playerExperienceStart}
                     />
                   </GridItem>
@@ -248,10 +254,13 @@ export default function Home() {
                     <Input
                       id="encounterAdjustedExperience"
                       name="encounterAdjustedExperience"
-                      text="number"
-                      onChange={(e) =>
-                        _encounterAdjustedExperience(e.target.value)
-                      }
+                      type="number"
+                      onChange={(e) => {
+                        const parsedValue = parseInt(e.target.value);
+                        if (!isNaN(parsedValue)) {
+                          _encounterAdjustedExperience(parsedValue);
+                        }
+                      }}
                       value={encounterAdjustedExperience}
                     />
                   </GridItem>
@@ -262,8 +271,13 @@ export default function Home() {
                     <Input
                       id="encounterExperience"
                       name="encounterExperience"
-                      text="number"
-                      onChange={(e) => _encounterExperience(e.target.value)}
+                      type="number"
+                      onChange={(e) => {
+                        const parsedValue = parseInt(e.target.value);
+                        if (!isNaN(parsedValue)) {
+                          _encounterExperience(parsedValue);
+                        }
+                      }}
                       value={encounterExperience}
                     />
                   </GridItem>
@@ -511,7 +525,7 @@ export default function Home() {
             oppositionStartingPotion={oppositionStartingPotion}
             playerStartingPotion={playerStartingPotion}
             dimensions={sharedMapDimensions}
-            // difficulty={selectedDifficulty}
+            difficulty={selectedDifficulty}
             terrainType={selectedTerrainType}
             weatherSeverity={selectedWeatherSeverity}
             weatherChange={selectedWeatherChange}

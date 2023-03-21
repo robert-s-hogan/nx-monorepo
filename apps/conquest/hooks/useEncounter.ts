@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
-
+const fetcher = (...args: Parameters<typeof fetch>): Promise<any> =>
+  fetch(...args).then((res) => res.json());
 export function useEncounter() {
   const { data, error } = useSWR('/api/encounter', fetcher);
 

@@ -14,9 +14,8 @@ import {
 } from '@chakra-ui/react';
 import useSWR from 'swr';
 
-import ItemsInCaravan from '../components/itemsInCaravan';
 import ConquestLayout from '../components/layout/ConquestLayout';
-import Loading from '../components/loading';
+import Loading from '../components/Loading';
 
 export default function Results({ fetcher }) {
   const router = useRouter();
@@ -155,7 +154,7 @@ export default function Results({ fetcher }) {
                     </Tr>
                   </Thead>
                   <Tbody>
-                    <ItemsInCaravan caravanItems={caravanItems} />
+                    {/* <ItemsInCaravan caravanItems={caravanItems} /> */}
                   </Tbody>
                 </Table>
               </TableContainer>

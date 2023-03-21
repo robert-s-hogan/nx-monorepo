@@ -10,8 +10,8 @@ import DaoismLayout from '../components/layout/DaoismLayout';
 // } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
-
+const fetcher = (...args: Parameters<typeof fetch>): Promise<any> =>
+  fetch(...args).then((res) => res.json());
 // function ThumbnailPlugin(
 //   mainRef: MutableRefObject<KeenSliderInstance | null>
 // ): KeenSliderPlugin {

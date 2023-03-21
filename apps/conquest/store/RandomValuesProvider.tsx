@@ -1,6 +1,12 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
-const RandomValuesContext = createContext(null);
+export interface RandomValues {
+  generateRandomValue: (value: any) => any;
+}
+
+const RandomValuesContext = createContext<RandomValues>({
+  generateRandomValue: () => null,
+});
 
 export const RandomValuesProvider = ({ children }) => {
   const [randomValues, setRandomValues] = useState({});
@@ -32,7 +38,7 @@ export const RandomValuesProvider = ({ children }) => {
     setRandomValue('myRandomValue', Math.random());
   }, []);
 
-  const value = {
+  const contextValue = {
     generateRandomValue,
     getRandomValues,
     setRandomValue,
@@ -41,7 +47,7 @@ export const RandomValuesProvider = ({ children }) => {
   };
 
   return (
-    <RandomValuesContext.Provider value={value}>
+    <RandomValuesContext.Provider value={contextValue}>
       {children}
     </RandomValuesContext.Provider>
   );

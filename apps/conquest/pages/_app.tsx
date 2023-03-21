@@ -24,12 +24,12 @@ const theme = extendTheme({
   },
 });
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
+const fetcher = (...args: Parameters<typeof fetch>): Promise<any> =>
+  fetch(...args).then((res) => res.json());
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <RandomValuesProvider value={{}}>
+      <RandomValuesProvider>
         <ChakraProvider theme={theme}>
           <SWRConfig value={{ fetcher }}>
             <Component {...pageProps} />

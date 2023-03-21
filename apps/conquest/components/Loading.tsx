@@ -41,7 +41,7 @@ function Loading() {
       flexDirection="column"
     >
       <VStack spacing={8}>
-        <Box align="center">
+        <Box>
           <FontAwesomeIcon icon={faDiceD20} />
         </Box>
         <Text>Loading...</Text>

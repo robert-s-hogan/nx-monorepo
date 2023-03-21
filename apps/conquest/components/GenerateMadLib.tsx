@@ -1,5 +1,5 @@
 import { useEncounter } from '../hooks/useEncounter';
-import { useRandomValues } from '../store/RandomValuesProvider';
+import { useRandomValues, RandomValues } from '../store/RandomValuesProvider';
 
 const GenerateMadLib = () => {
   const {
@@ -12,7 +12,7 @@ const GenerateMadLib = () => {
     quest,
   } = useEncounter();
 
-  const { generateRandomValue } = useRandomValues(); // Use the generateRandomValue method to generate random values
+  const { generateRandomValue }: RandomValues = useRandomValues();
 
   // Replace the random selection of values with calls to generateRandomValue method
   const selectedArrival =

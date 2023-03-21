@@ -21,16 +21,44 @@ import useSWR from 'swr';
 import { useFetchItems5e } from '../hooks/useFetchItems5e';
 import { generateStructures } from '../utils/generateStructures';
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+const fetcher = (...args: Parameters<typeof fetch>): Promise<any> =>
+  fetch(...args).then((res) => res.json());
+
+interface MapProps {
+  monsters: any;
+  amountOfItems: number;
+  objects: any;
+  playerStartingPotion: number;
+  dimensions: number;
+  terrainType: string;
+  oppositionStartingPotion: number;
+  difficulty: number;
+  weatherSeverity: number;
+  weatherChange: number;
+  timeOfDay: number;
+  objectives: any;
+  weatherType: number;
+  challengeRating: number;
+  hasWeather: boolean;
+}
 
 export default function Map({
   monsters,
-  objects,
-  oppositionStartingPotion: initialOppositionStartingPotion,
-  playerStartingPotion,
   amountOfItems,
+  objects,
+  playerStartingPotion,
   dimensions,
-}) {
+  terrainType,
+  oppositionStartingPotion: initialOppositionStartingPotion,
+  difficulty,
+  weatherSeverity,
+  weatherChange,
+  timeOfDay,
+  objectives,
+  weatherType,
+  challengeRating,
+  hasWeather,
+}: MapProps) {
   const [oppositionStartingPotion, setOppositionStartingPotion] = useState(
     initialOppositionStartingPotion
   );
@@ -104,8 +132,8 @@ export default function Map({
                 <GridItem
                   textAlign="center"
                   key={index}
-                  colStart={{ lg: index === 3 ? 2 : '' }}
-                  colEnd={{ lg: index === 3 ? 3 : '' }}
+                  colStart={{ lg: index === 3 ? 2 : undefined }}
+                  colEnd={{ lg: index === 3 ? 3 : undefined }}
                 >
                   <Box
                     height="200px"

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import DynamicObjectComponent from '../components/DynamicObjectComponent';
 import { CustomItems } from '../categories/CustomItems';
-import { Grid, VStack, Heading, Flex, Icon } from '@chakra-ui/react';
+import { Grid, VStack, Heading, Flex, Icon, Button } from '@chakra-ui/react';
 import generateCustomItem from '../utils/generateCustomItem';
 import { WiRefresh } from 'react-icons/wi';
 
@@ -41,7 +41,7 @@ const RandomCustomItems = () => {
         <Heading as="h5" mr={2}>
           Custom Item List (10)
         </Heading>
-        <button
+        <Button
           onClick={refreshItems}
           variant="ghost"
           _hover={{ background: 'transparent' }}
@@ -52,7 +52,7 @@ const RandomCustomItems = () => {
             color="light-green"
             _hover={{ color: 'darkGreen' }}
           />
-        </button>
+        </Button>
       </Flex>
 
       <Grid

@@ -8,7 +8,17 @@ import {
   GiRomanShield,
 } from 'react-icons/gi';
 
-const DynamicObjectComponent = ({ data, locked, onClick }) => {
+interface DynamicObjectComponentProps {
+  data: any;
+  locked?: boolean;
+  onClick?: () => void;
+}
+
+const DynamicObjectComponent: React.FC<DynamicObjectComponentProps> = ({
+  data,
+  locked = false,
+  onClick,
+}) => {
   function objectToString(obj) {
     let str = '';
     for (let i = 0; i < Object.keys(obj).length; i++) {
