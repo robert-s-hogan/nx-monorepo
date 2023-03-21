@@ -15,7 +15,7 @@ import Banner from './Banner'
 import { Container, VStack, Box, Flex, Text } from '@chakra-ui/react'
 // @ts-ignore
 import NavBar from './NavBar.tsx'
-import CurtainWarmerBg from '../public/login_curtains.jpg'
+import CurtainWarmerBg from '../assets/images/login_curtains.jpg'
 
 interface Props {
   meta?: {

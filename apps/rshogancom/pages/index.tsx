@@ -8,15 +8,15 @@ import RSHModal from '../components/RSHModal';
 import RSHoganComLayout from '../components/layout/RSHoganComLayout';
 import HeroSection from '../components/HeroSection';
 
-import OneDemocracy from '../public/images/one_democracy.webp';
-import MGISolution from '../public/images/mgi_solutions.svg';
-import AnItalianDish from '../public/images/an_italian_dish.png';
-import ThomasHenryWines from '../public/images/thomas_henry_wines.png';
-import KRealty from '../public/images/k_realty.webp';
-import TicketSaver from '../public/images/ticket_saver.jpeg';
-import JHogan from '../public/images/jhogan.webp';
-import BMDLogo from '../public/images/bmd_logo.webp';
-import Testimonial from '../public/images/rshhogan_testimonials_ellen_2.avif';
+import OneDemocracy from '../assets/images/one_democracy.webp';
+import MGISolution from '../assets/images/mgi_solutions.svg';
+import AnItalianDish from '../assets/images/an_italian_dish.png';
+import ThomasHenryWines from '../assets/images/thomas_henry_wines.png';
+import KRealty from '../assets/images/k_realty.webp';
+import TicketSaver from '../assets/images/ticket_saver.jpeg';
+import JHogan from '../assets/images/jhogan.webp';
+import BMDLogo from '../assets/images/bmd_logo.webp';
+import Testimonial from '../assets/images/rshhogan_testimonials_ellen_2.avif';
 
 export function Index() {
   const { isShowing, toggle } = useModal();

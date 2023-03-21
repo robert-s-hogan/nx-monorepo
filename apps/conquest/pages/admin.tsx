@@ -22,7 +22,7 @@ import {
 } from 'react-icons/fi';
 
 import ConquestLayout from '../components/layout/ConquestLayout';
-import SchemaImage from '../assets/admin_schema.png';
+import SchemaImage from '../assets/images/admin_schema.png';
 
 const LinkItems = [
   { name: 'Link1', icon: FiTrendingUp },

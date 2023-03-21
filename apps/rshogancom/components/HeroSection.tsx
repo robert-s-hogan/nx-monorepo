@@ -6,7 +6,7 @@ import { Calendly } from '@with-nx/analytics';
 import Script from 'next/script';
 import RSHModal from './RSHModal';
 
-import HeroImg from '../public/images/rsh_hero_circle.jpg';
+import HeroImg from '../assets/images/rsh_hero_circle.jpg';
 
 const HeroSection = () => {
   const { isShowing, toggle } = useModal();

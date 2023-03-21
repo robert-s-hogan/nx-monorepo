@@ -15,7 +15,7 @@ import { Box } from 'simple-effing-primitive-layout';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
-import rshLogo from '../public/rsh_logo_Crop.jpg';
+import rshLogo from '../assets/images/rsh_logo_Crop.jpg';
 
 function Index() {
   const [quantity, setQuantity] = useState(1);

@@ -6,7 +6,7 @@ import Script from 'next/script';
 import { useModal } from '@with-nx/react-hooks';
 import RSHModal from '../RSHModal';
 
-import RSH_logo from '../../public/images/rsh_logo_Crop.jpg';
+import RSH_logo from '../../assets/images/rsh_logo_Crop.jpg';
 
 const RSHoganComHeader = () => {
   const { isShowing, toggle } = useModal();
