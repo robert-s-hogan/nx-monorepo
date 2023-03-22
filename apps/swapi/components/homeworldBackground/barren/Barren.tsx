@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-// import './barren.scss';
 
 interface Props {
   homeworld: string;
