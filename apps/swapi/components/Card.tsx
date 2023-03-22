@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 
-import CardTitle from '../cardTitle/CardTitle';
-import CardFace from '../cardFace/CardFace';
-// import CardHomeworld from '../cardHomeworld/CardHomeworld';
-import HomeworldBackground from '../homeworldBackground/HomeworldBackground';
+import CardTitle from './CardTitle';
+import CardFace from './CardFace';
+import CardHomeworld from './CardHomeworld';
+import HomeworldBackground from './homeworldBackground/HomeworldBackground';
 
 interface Props {
   name: string;
-  mass: number;
-  height: number;
+  mass: string;
+  height: string;
   hair_color: string;
   skin_color: string;
   eye_color: string;
-  birth_year: number;
+  birth_year: string;
   homeworld: string;
   gender: string;
 }
