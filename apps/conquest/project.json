@@ -24,7 +24,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "conquest:build",
-        "dev": true
+        "dev": true,
+        "proxyConfig": "apps/conquest/proxy.conf.json"
       },
       "configurations": {
         "development": {

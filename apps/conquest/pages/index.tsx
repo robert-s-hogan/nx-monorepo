@@ -20,12 +20,14 @@ import {
 import { useEncounter } from '../hooks/useEncounter';
 import Loading from '../components/Loading';
 import Map from '../components/Map';
+import LoginForm from '../components/LoginForm';
 import { useCharacter } from '../hooks/useCharacter';
 import { useFetchItems5e } from '../hooks/useFetchItems5e';
 import ConquestLayout from '../components/layout/ConquestLayout';
 import { randomNumber } from '../lib/randomNumber';
 import GenerateMadLib from '../components/GenerateMadLib';
 import RandomCustomItems from '../components/RandomCustomItems';
+import { useIsAuthenticated } from '../hooks/useAuth';
 
 export default function Home() {
   const {
@@ -41,162 +43,177 @@ export default function Home() {
     getAdventuringDayXPLimit,
     getXPThresholdsByCharacterLevel,
   } = useCharacter();
-  const { combinedObjects, loading, error } = useFetchItems5e();
+  // const { combinedObjects, loading, error } = useFetchItems5e();
 
   const [isSubmitting, _isSubmitting] = useState(false);
   const [totalShortRestsAllows] = useState(2);
   const [homeLoading, setHomeLoading] = useState(true);
 
-  const {
-    isLoading: encounterLoading,
-    error: encounterError,
-    difficulty,
-    monsters,
-    mapInfo,
-    quest,
-  } = useEncounter();
+  const isAuthenticated = useIsAuthenticated();
 
-  useEffect(() => {
-    if (!loading && !encounterLoading) {
-      setHomeLoading(false);
-    }
-  }, [loading, encounterLoading]);
+  // const {
+  //   isLoading: encounterLoading,
+  //   error: encounterError,
+  //   difficulty,
+  //   monsters,
+  //   mapInfo,
+  //   quest,
+  // } = useEncounter();
 
-  if (encounterLoading || loading || homeLoading) return <Loading />;
-  if (encounterError) return <Text>Error</Text>;
+  // useEffect(() => {
+  //   if (!loading && !encounterLoading) {
+  //     setHomeLoading(false);
+  //   }
+  // }, [loading, encounterLoading]);
 
-  const {
-    hasWeather,
-    weatherSeverity,
-    weatherType,
-    weatherChange,
-    terrainType,
-    dimensions,
-    timeOfDay,
-    playerStartingPotions,
-    oppositionStartingPotions,
-  } = mapInfo;
+  // if (encounterLoading || loading || homeLoading) return <Loading />;
+  // if (encounterError) return <Text>Error</Text>;
 
-  const { challengeRating } = monsters;
-  const { objectives } = quest;
+  // const {
+  //   hasWeather,
+  //   weatherSeverity,
+  //   weatherType,
+  //   weatherChange,
+  //   terrainType,
+  //   dimensions,
+  //   timeOfDay,
+  //   playerStartingPotions,
+  //   oppositionStartingPotions,
+  // } = mapInfo;
 
-  const mapDimensions = randomNumber(0, dimensions.length);
-  const mapTerrainType = randomNumber(0, terrainType.length);
-  const selectedTerrainType = terrainType[mapTerrainType];
+  // const { challengeRating } = monsters;
+  // const { objectives } = quest;
 
-  const mapTimeOfDay = randomNumber(0, timeOfDay.length);
-  const selectedTimeOfDay = timeOfDay[mapTimeOfDay];
+  // const mapDimensions = randomNumber(0, dimensions.length);
+  // const mapTerrainType = randomNumber(0, terrainType.length);
+  // const selectedTerrainType = terrainType[mapTerrainType];
 
-  const mapHasWeather = randomNumber(0, hasWeather.length);
-  const selectedHasWeather = hasWeather[mapHasWeather];
+  // const mapTimeOfDay = randomNumber(0, timeOfDay.length);
+  // const selectedTimeOfDay = timeOfDay[mapTimeOfDay];
 
-  const mapWeatherType = randomNumber(0, weatherType.length);
-  const selectedWeatherType = weatherType[mapWeatherType];
+  // const mapHasWeather = randomNumber(0, hasWeather.length);
+  // const selectedHasWeather = hasWeather[mapHasWeather];
 
-  const mapWeatherSeverity = randomNumber(0, weatherSeverity.length);
-  const selectedWeatherSeverity = weatherSeverity[mapWeatherSeverity];
+  // const mapWeatherType = randomNumber(0, weatherType.length);
+  // const selectedWeatherType = weatherType[mapWeatherType];
 
-  const mapWeatherChange = randomNumber(0, weatherChange.length);
-  const selectedWeatherChange = weatherChange[mapWeatherChange];
+  // const mapWeatherSeverity = randomNumber(0, weatherSeverity.length);
+  // const selectedWeatherSeverity = weatherSeverity[mapWeatherSeverity];
 
-  const playerStartingPotion = randomNumber(0, playerStartingPotions.length);
-  let oppositionStartingPotion = randomNumber(
-    0,
-    oppositionStartingPotions.length
-  );
+  // const mapWeatherChange = randomNumber(0, weatherChange.length);
+  // const selectedWeatherChange = weatherChange[mapWeatherChange];
 
-  const questObjective = randomNumber(0, objectives.length);
-  const selectedObjective = objectives[questObjective];
+  // const playerStartingPotion = randomNumber(0, playerStartingPotions.length);
+  // let oppositionStartingPotion = randomNumber(
+  //   0,
+  //   oppositionStartingPotions.length
+  // );
 
-  const amountOfItems = randomNumber(1, 16);
+  // const questObjective = randomNumber(0, objectives.length);
+  // const selectedObjective = objectives[questObjective];
 
-  while (oppositionStartingPotion === playerStartingPotion) {
-    oppositionStartingPotion = randomNumber(
-      0,
-      oppositionStartingPotions.length
-    );
-  }
+  // const amountOfItems = randomNumber(1, 16);
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  // while (oppositionStartingPotion === playerStartingPotion) {
+  //   oppositionStartingPotion = randomNumber(
+  //     0,
+  //     oppositionStartingPotions.length
+  //   );
+  // }
 
-    _isSubmitting(false);
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
 
-  const sharedMapDimensions = dimensions[mapDimensions];
+  //   _isSubmitting(false);
+  // }
 
-  if (loading) {
-    return <Loading />;
-  }
+  // const sharedMapDimensions = dimensions[mapDimensions];
 
-  if (error) {
-    return <div>{error}</div>;
-  }
+  // if (loading) {
+  //   return <Loading />;
+  // }
 
-  const calculateStartedPlayerExperienceLevel = getLevelFromXP(
-    playerExperienceStart
-  );
+  // if (error) {
+  //   return <div>{error}</div>;
+  // }
 
-  const calculateFinishEncounterExperienceLevel = getLevelFromXP(
-    playerExperienceStart + encounterAdjustedExperience / playerCount
-  );
+  // const calculateStartedPlayerExperienceLevel = getLevelFromXP(
+  //   playerExperienceStart
+  // );
 
-  const adventuringDayXpLimit = getAdventuringDayXPLimit(
-    calculateStartedPlayerExperienceLevel
-  );
+  // const calculateFinishEncounterExperienceLevel = getLevelFromXP(
+  //   playerExperienceStart + encounterAdjustedExperience / playerCount
+  // );
 
-  const calculatedAdventuringDayXp = adventuringDayXpLimit * playerCount;
-  const selectedDifficulty = difficulty[randomNumber(0, difficulty.length)];
+  // const adventuringDayXpLimit = getAdventuringDayXPLimit(
+  //   calculateStartedPlayerExperienceLevel
+  // );
 
-  const convertDiffulctyToText = (difficulty) => {
-    switch (difficulty) {
-      case 0:
-        return 'Easy';
-      case 1:
-        return 'Medium';
-      case 2:
-        return 'Hard';
-      default:
-        return 'Deadly';
-    }
-  };
+  // const calculatedAdventuringDayXp = adventuringDayXpLimit * playerCount;
+  // const selectedDifficulty = difficulty[randomNumber(0, difficulty.length)];
 
-  const xpThresholdsByCharacterLevelEasy = getXPThresholdsByCharacterLevel(
-    0,
-    calculateStartedPlayerExperienceLevel
-  );
+  // const convertDiffulctyToText = (difficulty) => {
+  //   switch (difficulty) {
+  //     case 0:
+  //       return 'Easy';
+  //     case 1:
+  //       return 'Medium';
+  //     case 2:
+  //       return 'Hard';
+  //     default:
+  //       return 'Deadly';
+  //   }
+  // };
 
-  const xpThresholdsByCharacterLevelMedium = getXPThresholdsByCharacterLevel(
-    1,
-    calculateStartedPlayerExperienceLevel
-  );
+  // const xpThresholdsByCharacterLevelEasy = getXPThresholdsByCharacterLevel(
+  //   0,
+  //   calculateStartedPlayerExperienceLevel
+  // );
 
-  const xpThresholdsByCharacterLevelHard = getXPThresholdsByCharacterLevel(
-    2,
-    calculateStartedPlayerExperienceLevel
-  );
+  // const xpThresholdsByCharacterLevelMedium = getXPThresholdsByCharacterLevel(
+  //   1,
+  //   calculateStartedPlayerExperienceLevel
+  // );
 
-  const xpThresholdsByCharacterLevelDeadly = getXPThresholdsByCharacterLevel(
-    3,
-    calculateStartedPlayerExperienceLevel
-  );
+  // const xpThresholdsByCharacterLevelHard = getXPThresholdsByCharacterLevel(
+  //   2,
+  //   calculateStartedPlayerExperienceLevel
+  // );
 
-  const adventuringDayXpFinish =
-    calculatedAdventuringDayXp - encounterExperience;
+  // const xpThresholdsByCharacterLevelDeadly = getXPThresholdsByCharacterLevel(
+  //   3,
+  //   calculateStartedPlayerExperienceLevel
+  // );
 
-  const percentOfAdventuringDayXpRemaining = Math.round(
-    (adventuringDayXpFinish / calculatedAdventuringDayXp) * 100
-  );
+  // const adventuringDayXpFinish =
+  //   calculatedAdventuringDayXp - encounterExperience;
 
-  const longRestNeeded =
-    adventuringDayXpFinish < xpThresholdsByCharacterLevelEasy ? true : false;
+  // const percentOfAdventuringDayXpRemaining = Math.round(
+  //   (adventuringDayXpFinish / calculatedAdventuringDayXp) * 100
+  // );
 
-  const playerExperienceFinish =
-    playerExperienceStart + encounterExperience / playerCount;
+  // const longRestNeeded =
+  //   adventuringDayXpFinish < xpThresholdsByCharacterLevelEasy ? true : false;
+
+  // const playerExperienceFinish =
+  //   playerExperienceStart + encounterExperience / playerCount;
 
   return (
     <ConquestLayout>
-      <Stack spacing={8}>
+      <section className="h-screen w-full">
+        <div className="container h-full px-6 py-24 w-full">
+          <div className="grid grid-cols-2 gap-16 w-full">
+            <img
+              src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+              className="w-full"
+              alt="Phone image"
+            />
+
+            <LoginForm />
+          </div>
+        </div>
+      </section>
+      {/*      <Stack spacing={8}>
         <Accordion allowMultiple>
           <AccordionItem>
             <h2>
@@ -325,7 +342,7 @@ export default function Home() {
                     <AccordionIcon />
                   </AccordionButton>
                   <AccordionPanel>
-                    <Grid
+                    {/* <Grid
                       gridTemplateColumns={{
                         base: 'repeat(2, minmax(0, 1fr))',
                         md: 'repeat(3, minmax(0,1f))',
@@ -392,7 +409,8 @@ export default function Home() {
 
                 <AccordionItem>
                   <Text fontWeight="bold" ml={4} py={2}>
-                    OBJECTIVE: {selectedObjective}
+                    OBJECTIVE:
+                    {selectedObjective}
                   </Text>
                 </AccordionItem>
               </Accordion>
@@ -518,7 +536,7 @@ export default function Home() {
               </Accordion>
             </GridItem>
           </Grid>
-          <Map
+          {/* <Map
             monsters={monsters}
             amountOfItems={amountOfItems}
             objects={combinedObjects}
@@ -551,7 +569,7 @@ export default function Home() {
         </AccordionItem>
       </Accordion>
 
-      {/* <RandomItems /> */}
+ <RandomItems /> */}
     </ConquestLayout>
   );
 }
