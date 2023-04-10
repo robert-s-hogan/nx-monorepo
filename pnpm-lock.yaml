@@ -112,9 +112,6 @@ dependencies:
   next-themes:
     specifier: ^0.2.1
     version: 0.2.1(next@13.1.1)(react-dom@18.2.0)(react@18.2.0)
-  nx-ignore:
-    specifier: ^15.6.0
-    version: 15.6.0
   passport:
     specifier: ^0.6.0
     version: 0.6.0
@@ -11414,6 +11411,7 @@ packages:
       graceful-fs: 4.2.11
       jsonfile: 6.1.0
       universalify: 2.0.0
+    dev: true
 
   /fs-extra@11.1.0:
     resolution: {integrity: sha512-0rcTq621PD5jM/e0a3EJoGC/1TC5ZBCERW82LQuwfGnCa1V8w7dpYH1yNu+SLb6E5dkeCBzKEyLGlFrnr+dUyw==}
@@ -15381,14 +15379,6 @@ packages:
   /nwsapi@2.2.3:
     resolution: {integrity: sha512-jscxIO4/VKScHlbmFBdV1Z6LXnLO+ZR4VMtypudUdfwtKxUN3TQcNFIHLwKtrUbDyHN4/GycY9+oRGZ2XMXYPw==}
     dev: true
-
-  /nx-ignore@15.6.0:
-    resolution: {integrity: sha512-lsoxwjnCi01vSuKfaZuY1T5BK1TA88tYvDHFGVyOjVVb90volD1x0evp3mBAjSXHk3jQyb68Ln2UN+7or4zFNg==}
-    hasBin: true
-    dependencies:
-      '@swc/helpers': 0.4.14
-      fs-extra: 10.1.0
-    dev: false
 
   /nx@15.9.2:
     resolution: {integrity: sha512-wtcs+wsuplSckvgk+bV+/XuGlo+sVWzSG0RpgWBjQYeqA3QsVFEAPVY66Z5cSoukDbTV77ddcAjEw+Rz8oOR1A==}
