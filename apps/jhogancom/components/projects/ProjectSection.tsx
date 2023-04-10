@@ -19,7 +19,6 @@ const ProjectSection = () => {
   const otherProjects = sortedProjects.filter((project) => !project.featured);
 
   useEffect(() => {
-    // Simulate data fetching
     setTimeout(() => {
       setLoading(false);
     }, 2000);
