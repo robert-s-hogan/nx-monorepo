@@ -74,11 +74,8 @@ const ProjectSection = () => {
                   </Text>
 
                   <div className="flex justify-between items-end flex-shrink-0">
-                    {project.tags.map((tag, index) => (
-                      <Text key={index} loading={loading}>
-                        #{tag}
-                      </Text>
-                    ))}
+                    <Text loading={loading}>#{project.tags[0]}</Text>
+
                     <Link
                       target="_blank"
                       rel="noreferrer"
@@ -132,11 +129,7 @@ const ProjectSection = () => {
                   </Text>
 
                   <div className="flex justify-between items-end flex-shrink-0">
-                    {project.tags.map((tag, index) => (
-                      <Text key={index} loading={loading}>
-                        #{tag}
-                      </Text>
-                    ))}
+                    <Text loading={loading}>#{project.tags[0]}</Text>
 
                     <Link
                       target="_blank"
