@@ -20,9 +20,6 @@ const nextConfig = {
       'img.icons8.com',
     ],
   },
-  future: {
-    webpack5: true,
-  },
 };
 
 module.exports = withNx(nextConfig);
