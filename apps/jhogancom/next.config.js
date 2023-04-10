@@ -32,21 +32,6 @@ const nextConfig = {
       };
     }
 
-    // Add Babel configuration
-    config.module.rules.push({
-      test: /\.(tsx|ts|js|mjs|jsx)$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['next/babel'],
-          plugins: ['@babel/plugin-transform-runtime'],
-        },
-      },
-    });
-
-    config.resolve.extensions.push('.tsx', '.ts', '.js', '.jsx');
-
     return config;
   },
 };
