@@ -12,9 +12,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <ThemeProvider attribute="class">
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
+      <Component {...pageProps} />
       <GoogleTagManager />
     </ThemeProvider>
   );
