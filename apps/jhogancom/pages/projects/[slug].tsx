@@ -88,7 +88,7 @@ export default function Projects({ project }) {
             </div>
           </div>
 
-          <img
+          <Image
             className="hidden md:block object-cover w-1/4 h-screen rounded-full ring-2 ring-gray-500/50 ring-offset-[30px]"
             src="https://i.ibb.co/Byd813Q/mateus-campos-felipe-Zxd-JFg-SGQBA-unsplash.jpg"
             alt="Your Name Here"
