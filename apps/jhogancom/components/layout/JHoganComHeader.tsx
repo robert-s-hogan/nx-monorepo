@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { NavbarLinkType } from '@with-nx/react-ui';
-import { Section } from '@with-nx/react-tailwind-ui';
 import { useState, useEffect } from 'react';
 
 const logo = (
