@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import Image, { ImageProps } from 'next/image';
 import { Skeleton } from '@with-nx/react-ui';
 
-interface SkeletonImageProps extends ImageProps {
+export interface SkeletonImageProps extends ImageProps {
   alt: string;
   isLoading?: boolean;
 }
-const SkeletonImage: React.FC<SkeletonImageProps> = ({
+export const SkeletonImage: React.FC<SkeletonImageProps> = ({
   alt,
   isLoading,
   ...props
