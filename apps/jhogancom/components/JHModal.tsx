@@ -49,8 +49,6 @@ export function JHModal({
                 <div className="relative bg-white rounded-lg shadow">
                   <Button
                     className="icon border-0 close absolute top-1 right-2 my-0"
-                    // data-dismiss="modal"
-                    // aria-label="Close"
                     onClick={toggle}
                     icon={
                       <button
