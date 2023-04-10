@@ -1,5 +1,4 @@
-import { Skeleton as SkeletonComponent } from './lib/skeleton/skeleton';
-
+export * from './lib/skeleton/skeleton';
 export * from './lib/skeleton-text/skeleton-text';
 export * from './lib/progress/progress';
 export * from './lib/popover/popover';
@@ -31,5 +30,3 @@ export * from './lib/footer/footer';
 export * from './lib/navbar/navbar';
 export * from './lib/button/button';
 export * from './lib/seo/seo';
-
-export const Skeleton = SkeletonComponent;
