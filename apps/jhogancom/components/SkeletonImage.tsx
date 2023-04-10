@@ -6,7 +6,6 @@ interface SkeletonImageProps extends ImageProps {
   alt: string;
   isLoading?: boolean;
 }
-
 const SkeletonImage: React.FC<SkeletonImageProps> = ({
   alt,
   isLoading,
