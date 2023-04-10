@@ -12,7 +12,7 @@
     "isolatedModules": true,
     "incremental": true,
     "types": ["jest", "node"],
-    "lib": ["dom", "dom.iterable", "esnext"] // Add this line,
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
   "exclude": ["node_modules", "jest.config.ts"]
