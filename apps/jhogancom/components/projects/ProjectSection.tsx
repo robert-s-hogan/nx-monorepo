@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import SkeletonImage from '../SkeletonImage';
 import Link from 'next/link';
+import { Text } from '@with-nx/react-ui';
 
-import ProjectItem from './ProjectItem';
 import { projectStaticData } from '../../data/projects';
 import { useRouter } from 'next/router';
 import { FiGithub } from 'react-icons/fi';
 
 const ProjectSection = () => {
+  const [loading, setLoading] = useState(true);
+
   const router = useRouter();
 
   const pathname = router.pathname;
@@ -15,6 +17,13 @@ const ProjectSection = () => {
   const sortedProjects = projectStaticData.sort((a, b) => a.order - b.order);
   const featuredProjects = sortedProjects.filter((project) => project.featured);
   const otherProjects = sortedProjects.filter((project) => !project.featured);
+
+  useEffect(() => {
+    // Simulate data fetching
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   return (
     <div className="space-y-4">
@@ -31,34 +40,45 @@ const ProjectSection = () => {
             {featuredProjects.map((project) => (
               <div
                 key={project.name}
-                className="card overflow-hidden rounded-lg border bg-white border-opacity-20 border-blue text-left"
+                className="card overflow-hidden rounded-lg border border-opacity-20 border-blue text-left"
               >
                 <div className="relative h-56 w-full">
-                  <Image
-                    fill
-                    priority
-                    // className="object-cover object-center"
+                  <SkeletonImage
+                    width={355}
+                    height={224}
+                    className="object-cover object-center w-full h-56"
                     src={project.image}
-                    sizes="(max-width: 768px) 100vw,
-                    (max-width: 1200px) 50vw,
-                    33vw"
-                    alt="avatar"
+                    alt={project.name}
+                    isLoading={loading}
                   />
                 </div>
 
                 <div className={`flex items-center px-4 py-3 bg-peach`}>
-                  <ProjectItem name={project.name} />
+                  <Text
+                    className="text-lg font-semibold text-black"
+                    loading={loading}
+                  >
+                    {project.name}
+                  </Text>
                 </div>
 
                 <div className="px-4 py-4 flex flex-col justify-between h-64">
-                  <p className="py-2 flex-grow">
+                  <Text
+                    className="py-2 flex-grow"
+                    loading={loading}
+                    loadingRows={4}
+                  >
                     {project.description.length > 200
                       ? project.description.substring(0, 200) + '...'
                       : project.description}
-                  </p>
+                  </Text>
 
                   <div className="flex justify-between items-end flex-shrink-0">
-                    <p>{project.tags.map((tag) => `#${tag} `)}</p>
+                    {project.tags.map((tag, index) => (
+                      <Text key={index} loading={loading}>
+                        #{tag}
+                      </Text>
+                    ))}
                     <Link
                       target="_blank"
                       rel="noreferrer"
@@ -81,27 +101,43 @@ const ProjectSection = () => {
                 key={project.name}
                 className="card overflow-hidden rounded-lg border bg-white border-opacity-20 border-blue text-left"
               >
-                <Image
-                  width="355"
-                  height="224"
-                  className="object-cover object-center w-full h-56"
-                  src={project.image}
-                  alt="avatar"
-                />
-
+                <div className="relative h-56 w-full">
+                  <SkeletonImage
+                    width="355"
+                    height="224"
+                    className="object-cover object-center w-full h-56"
+                    src={project.image}
+                    alt="avatar"
+                    isLoading={loading}
+                  />
+                </div>
                 <div className={`flex items-center px-4 py-3 bg-peach`}>
-                  <ProjectItem name={project.name} />
+                  <Text
+                    className="text-lg font-semibold text-black"
+                    loading={loading}
+                  >
+                    {project.name}
+                  </Text>
                 </div>
 
                 <div className="px-4 py-4 flex flex-col justify-between h-64">
-                  <p className="py-2 flex-grow">
+                  <Text
+                    className="py-2 flex-grow"
+                    loadingRows={4}
+                    loading={loading}
+                  >
                     {project.description.length > 200
                       ? project.description.substring(0, 200) + '...'
                       : project.description}
-                  </p>
+                  </Text>
 
                   <div className="flex justify-between items-end flex-shrink-0">
-                    <p>{project.tags.map((tag) => `#${tag} `)}</p>
+                    {project.tags.map((tag, index) => (
+                      <Text key={index} loading={loading}>
+                        #{tag}
+                      </Text>
+                    ))}
+
                     <Link
                       target="_blank"
                       rel="noreferrer"

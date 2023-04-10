@@ -1,3 +1,4 @@
+export * from './lib/skeleton-text/skeleton-text';
 export * from './lib/skeleton/skeleton';
 export * from './lib/progress/progress';
 export * from './lib/popover/popover';

@@ -15,7 +15,6 @@ import {
   FiGithub,
   FiMapPin,
 } from 'react-icons/fi';
-import { Activity, Airplay } from '@with-nx/icons/feather';
 
 import JHModal from '../components/JHModal';
 import JHPortrait from '../public/images/jessica_portrait.webp';
