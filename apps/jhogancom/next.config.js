@@ -14,7 +14,6 @@ const nextConfig = {
   },
   images: {
     domains: [
-      'localhost',
       'rshogan.imgix.net',
       'images.pexels.com',
       'images.unsplash.com',
@@ -23,16 +22,6 @@ const nextConfig = {
   },
   future: {
     webpack5: true,
-  },
-  webpack: (config, { isServer, webpack }) => {
-    // Fixes npm packages that depend on `fs` module
-    if (!isServer) {
-      config.resolve.fallback = {
-        fs: false,
-      };
-    }
-
-    return config;
   },
 };
 
