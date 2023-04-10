@@ -1,9 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-
+import { FindOneOptions } from 'typeorm';
+//entities
 import { Campaign } from './campaign.entity';
 
+//dtos
 import { CreateCampaignDto } from './dto/create-campaign.dto';
 import { UpdateCampaignDto } from './dto/update-campaign.dto';
 
@@ -13,13 +15,12 @@ export class CampaignService {
     @InjectRepository(Campaign)
     private campaignRepository: Repository<Campaign>
   ) {}
+
   async create(
     createCampaignDto: CreateCampaignDto
   ): Promise<{ campaign: Campaign }> {
-    // Perform calculations and create the campaign
     const newCampaign = this.campaignRepository.create(createCampaignDto);
     const createdCampaign = await this.campaignRepository.save(newCampaign);
-
     return {
       campaign: createdCampaign,
     };
@@ -32,15 +33,36 @@ export class CampaignService {
       campaigns,
     };
   }
-  async findOne(id: number): Promise<{ campaign: Campaign }> {
-    const campaign = await this.campaignRepository.findOne({
-      where: { id: id },
-    });
 
-    return {
-      campaign,
-    };
+  async findOne(
+    id: number,
+    options?: FindOneOptions<Campaign>
+  ): Promise<Campaign> {
+    try {
+      const campaign = await this.campaignRepository.findOne({
+        where: { id },
+        ...options,
+      });
+      console.log(`Campaign: ${JSON.stringify(campaign)}`);
+      if (!campaign) {
+        throw new NotFoundException(`Campaign with ID ${id} not found`);
+      }
+      return campaign;
+    } catch (error) {
+      console.error('Error in findOne:', error);
+      throw error;
+    }
   }
+
+  // async findOne(id: number): Promise<{ campaign: Campaign }> {
+  //   const campaign = await this.campaignRepository.findOne({
+  //     where: { id: id },
+  //   });
+
+  //   return {
+  //     campaign,
+  //   };
+  // }
 
   async update(
     id: number,

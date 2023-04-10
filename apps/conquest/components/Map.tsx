@@ -1,193 +1,396 @@
-import { useEffect, useState } from 'react';
-import {
-  Text,
-  Box,
-  Grid,
-  Heading,
-  GridItem,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-} from '@chakra-ui/react';
-
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPeopleGroup, faDragon } from '@fortawesome/free-solid-svg-icons';
-import Quadrant from './map/Quadrant';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import DraggableIcon from './map/DraggableIcon';
+import { FiChevronRight } from 'react-icons/fi';
+import { Popover } from '@with-nx/react-ui';
 
-import useSWR from 'swr';
+import DroppableGridBox from './map/DroppableGridBox';
+import { randomNumber } from '../lib/randomNumber';
 
-import { useFetchItems5e } from '../hooks/useFetchItems5e';
-import { generateStructures } from '../utils/generateStructures';
+import { useEncounterData } from '../hooks/useEncounterData';
+import { GiDoubleDragon } from 'react-icons/gi';
+import { MdGroups3, MdRefresh } from 'react-icons/md';
 
-const fetcher = (...args: Parameters<typeof fetch>): Promise<any> =>
-  fetch(...args).then((res) => res.json());
+export default function Map({ randomDimension }) {
+  // const { combinedObjects, error: FetchItemsError } = useFetchItems5e();
+  const { data: encounterData, isLoading, error } = useEncounterData();
 
-interface MapProps {
-  monsters: any;
-  amountOfItems: number;
-  objects: any;
-  playerStartingPotion: number;
-  dimensions: number;
-  terrainType: string;
-  oppositionStartingPotion: number;
-  difficulty: number;
-  weatherSeverity: number;
-  weatherChange: number;
-  timeOfDay: number;
-  objectives: any;
-  weatherType: number;
-  challengeRating: number;
-  hasWeather: boolean;
-}
+  const [updatedMapData, setUpdatedMapData] = useState(encounterData?.map_data);
 
-export default function Map({
-  monsters,
-  amountOfItems,
-  objects,
-  playerStartingPotion,
-  dimensions,
-  terrainType,
-  oppositionStartingPotion: initialOppositionStartingPotion,
-  difficulty,
-  weatherSeverity,
-  weatherChange,
-  timeOfDay,
-  objectives,
-  weatherType,
-  challengeRating,
-  hasWeather,
-}: MapProps) {
-  const [oppositionStartingPotion, setOppositionStartingPotion] = useState(
-    initialOppositionStartingPotion
+  const terrainKeys = Object.keys(encounterData.terrain_type);
+  const randomTerrainIndex = randomNumber(0, terrainKeys.length - 1);
+  const randomTerrainType = terrainKeys[randomTerrainIndex];
+
+  const weatherSeverityKeys = Object.keys(encounterData.weather_severity);
+  const randomWeatherSeverityIndex = randomNumber(
+    0,
+    weatherSeverityKeys.length - 1
   );
-  const [randomArray, setRandomArray] = useState([]);
-  const randomCount = Math.floor(Math.random() * 5) + 1;
-  const { data, error } = useSWR('/api/structures', fetcher);
-  const { combinedObjects, error: FetchItemsError } = useFetchItems5e();
+  const randomWeatherSeverity = weatherSeverityKeys[randomWeatherSeverityIndex];
 
-  const randomNumber = (min, max) =>
-    Math.floor(Math.random() * (max - min)) + min;
+  const randomWeatherChange = randomNumber(1, 3);
+  const weatherChange = encounterData.weather_change[randomWeatherChange];
 
-  const mapSize = [1, 2, 3, 4];
+  const timeOfDay = randomNumber(1, 3);
+  const randomTimeOfDay = encounterData.time_of_day[timeOfDay];
 
-  const [generatedStructures, setGeneratedStructures] = useState(
-    generateStructures(mapSize.length)
+  const objective = randomNumber(1, 3);
+  const randomObjective = encounterData.objectives[objective];
+
+  const [itemPositionsState, setItemPositionsState] = useState(
+    encounterData.map_data.map((item) =>
+      getUniqueRandomPositions(item.name.length + 1)
+    )
   );
-  const randomizedObjects = () => {
-    const randomArray = [];
-    const availableIndexes = Array.from(
-      { length: combinedObjects.length },
-      (_, i) => i
-    );
+  const removeItem = (mapIndex, itemIndex) => {
+    const currentItem = updatedMapData[mapIndex].icon[itemIndex];
 
-    for (let i = 0; i < 4; i++) {
-      const randomIndex = randomNumber(0, availableIndexes.length - 1);
-      const randomObject = combinedObjects[availableIndexes[randomIndex]];
-      randomArray.push(randomObject);
-      availableIndexes.splice(randomIndex, 1);
+    if (
+      currentItem === FontAwesomeIcon &&
+      (updatedMapData[mapIndex].name[itemIndex] === 'faDragon' ||
+        updatedMapData[mapIndex].name[itemIndex] === 'faPeopleGroup')
+    ) {
+      return; // Do not remove the icon if it's faDragon or faPeopleGroup
     }
 
-    setRandomArray(randomArray);
+    const confirmation = window.confirm(
+      'Are you sure you want to remove this item from the map?'
+    );
+    if (confirmation) {
+      const newMapData = [...updatedMapData];
+      newMapData[mapIndex].name[itemIndex] = ''; // Set the removed item to an empty string
+      setUpdatedMapData(newMapData);
+
+      const newItemPositions = [...itemPositionsState];
+      newItemPositions[mapIndex] = getUniqueRandomPositions(
+        newMapData[mapIndex].name.length + 1
+      );
+      setItemPositionsState(newItemPositions);
+    }
   };
 
-  const refreshMap = () => {
-    setGeneratedStructures((prevState) => generateStructures(mapSize.length));
-    setOppositionStartingPotion(randomNumber(0, 3));
-    randomizedObjects();
+  function getPositionClasses(position, index) {
+    const offset = index * 60;
+    switch (position) {
+      case 'top-left':
+        return {
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          marginTop: offset,
+          marginLeft: offset,
+        };
+      case 'top-center':
+        return {
+          position: 'absolute',
+          top: 0,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          marginTop: offset,
+        };
+      case 'top-right':
+        return {
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          marginTop: offset,
+          marginRight: offset,
+        };
+      case 'center-left':
+        return {
+          position: 'absolute',
+          top: '50%',
+          left: 0,
+          transform: 'translateY(-50%)',
+          marginLeft: offset,
+        };
+      case 'center-center':
+        return {
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        };
+      case 'center-right':
+        return {
+          position: 'absolute',
+          top: '50%',
+          right: 0,
+          transform: 'translateY(-50%)',
+          marginRight: offset,
+        };
+      case 'bottom-left':
+        return {
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          marginBottom: offset,
+          marginLeft: offset,
+        };
+      case 'bottom-center':
+        return {
+          position: 'absolute',
+          bottom: 0,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          marginBottom: offset,
+        };
+      case 'bottom-right':
+        return {
+          position: 'absolute',
+          bottom: 0,
+          right: 0,
+          marginBottom: offset,
+          marginRight: offset,
+        };
+      case 'center-between-top-right':
+        return {
+          position: 'absolute',
+          top: 0,
+          right: '50%',
+          transform: 'translateY(-50%) translateX(50%)',
+          marginTop: offset,
+        };
+      case 'center-between-top-left':
+        return {
+          position: 'absolute',
+          top: 0,
+          left: '50%',
+          transform: 'translateY(-50%) translateX(-50%)',
+          marginTop: offset,
+        };
+      case 'center-between-bottom-right':
+        return {
+          position: 'absolute',
+          bottom: 0,
+          right: '50%',
+          transform: 'translateY(50%) translateX(50%)',
+          marginBottom: offset,
+        };
+      case 'center-between-bottom-left':
+        return {
+          position: 'absolute',
+          bottom: 0,
+          left: '50%',
+          transform: 'translateY(50%) translateX(-50%)',
+          marginBottom: offset,
+        };
+      default:
+        return {};
+    }
+  }
+
+  function getUniqueRandomPositions(itemCount) {
+    const positions = [
+      'top-left',
+      'top-center',
+      'top-right',
+      'center-left',
+      'center-center',
+      'center-right',
+      'bottom-left',
+      'bottom-center',
+      'bottom-right',
+      'center-between-top-right',
+      'center-between-top-left',
+      'center-between-bottom-right',
+      'center-between-bottom-left',
+    ];
+
+    const uniquePositions = [];
+    for (let i = 0; i < itemCount; i++) {
+      let randomIndex = Math.floor(Math.random() * positions.length);
+      while (uniquePositions.includes(positions[randomIndex])) {
+        randomIndex = Math.floor(Math.random() * positions.length);
+      }
+      uniquePositions.push(positions[randomIndex]);
+      positions.splice(randomIndex, 1);
+    }
+
+    return uniquePositions;
+  }
+
+  const handleAddItem = (item, targetIndex) => {
+    const newUpdatedMapData = [...updatedMapData];
+    if (newUpdatedMapData[targetIndex]) {
+      newUpdatedMapData[targetIndex].name.push(item.name);
+      newUpdatedMapData[targetIndex].icon.push(item.icon);
+    }
+    setUpdatedMapData(newUpdatedMapData);
+
+    const newItemPositions = [...itemPositionsState];
+    newItemPositions[targetIndex] = getUniqueRandomPositions(
+      newUpdatedMapData[targetIndex]?.name.length + 1 || 0
+    );
+    setItemPositionsState(newItemPositions);
   };
+
+  const disadvantageAttackIcons = ['TbBow', 'GiIceSpellCast', 'GiSlingshot'];
 
   useEffect(() => {
-    randomizedObjects();
-  }, []);
+    if (encounterData) {
+      setUpdatedMapData(encounterData.map_data);
+    }
+  }, [encounterData]);
 
-  if (!data) return <Text>Loading...</Text>;
-  if (error && FetchItemsError) return <Text>Error: {error.message}</Text>;
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (!encounterData) {
+    return <div>No data available</div>;
+  }
+
+  function refreshItems() {
+    const newItemPositions = updatedMapData.map((item) =>
+      getUniqueRandomPositions(item.name.length + 1)
+    );
+    setItemPositionsState(newItemPositions);
+  }
+
+  const handleDrop = (item, targetIndex) => {
+    const sourceIndex = parseInt(item.id.split('-')[2]);
+    const itemIndex = parseInt(item.id.split('-')[1]);
+
+    // Move item to new position
+    const newUpdatedMapData = [...updatedMapData];
+    if (newUpdatedMapData[sourceIndex]) {
+      newUpdatedMapData[sourceIndex].name[itemIndex] = '';
+    }
+    if (newUpdatedMapData[targetIndex]) {
+      newUpdatedMapData[targetIndex].name.push(item.name);
+      newUpdatedMapData[targetIndex].icon.push(item.icon);
+    }
+    setUpdatedMapData(newUpdatedMapData);
+
+    // Update positions state
+    const newItemPositions = [...itemPositionsState];
+    newItemPositions[sourceIndex] = getUniqueRandomPositions(
+      newUpdatedMapData[sourceIndex]?.name.length + 1 || 0
+    );
+    newItemPositions[targetIndex] = getUniqueRandomPositions(
+      newUpdatedMapData[targetIndex]?.name.length + 1 || 0
+    );
+    setItemPositionsState(newItemPositions);
+  };
+
+  const popoverTrigger = (
+    <div className="flex items-center">
+      <p className="uppercase text-xs">details</p>
+      <FiChevronRight />
+    </div>
+  );
+
+  const mapPopoverContent = (
+    <div className="w-64 p-3 card border">
+      <div className="space-y-1 text-left">
+        <p className="text-sm">Dimensions: {randomDimension}</p>
+        <p className="text-sm">Terrain: {randomTerrainType}</p>
+        <p className="text-sm">Weather: {randomWeatherSeverity}</p>
+        <p className="text-sm">Weather Change: {weatherChange}</p>
+        <p className="text-sm">Time of Day: {randomTimeOfDay}</p>
+      </div>
+    </div>
+  );
 
   return (
-    <Box>
-      <Accordion allowMultiple defaultIndex={[0]}>
-        <AccordionItem borderTop="none">
-          <AccordionButton>
-            <Box flex="1" textAlign="left">
-              <Heading as="h3" size="md">
-                Map
-              </Heading>
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-          <AccordionPanel pb={4} height="600px">
-            {/* <Button mt={4} onClick={refreshMap}>
-              Refresh Map
-            </Button> */}
+    <div className="relative">
+      <div>
+        <div className="flex items-center space-x-4">
+          <button
+            className="w-auto border-none text-green-500 hover:text-indigo-500 px-0"
+            onClick={refreshItems}
+          >
+            <MdRefresh size={24} />
+          </button>
+          <p>MAP</p>
+          <button className="w-auto flex items-center border-none pl-0 font-light text-xs">
+            <Popover trigger={popoverTrigger} content={mapPopoverContent} />
+          </button>
+        </div>
+        <p>OBJECTIVE: {randomObjective}</p>
+      </div>
 
-            <Grid
-              templateColumns={{ base: '1fr', md: 'repeat(3,1fr)' }}
-              mt={24}
-              mb={4}
-              gap={1}
-            >
-              {mapSize.map((size, index) => (
-                <GridItem
-                  textAlign="center"
-                  key={index}
-                  colStart={{ lg: index === 3 ? 2 : undefined }}
-                  colEnd={{ lg: index === 3 ? 3 : undefined }}
-                >
-                  <Box
-                    height="200px"
-                    bg="gray.200"
-                    alignItems="center"
-                    display="flex"
-                    flex-direction="column"
-                    justifyContent="center"
-                    position="relative"
-                    my={{ lg: index === 0 || index === 2 ? 24 : 0 }}
-                    mt={{
-                      lg: index === 1 ? '-6rem' : index === 3 ? '-3.5rem' : '',
-                    }}
-                    mb={{ lg: index === 1 ? '-6rem' : '' }}
+      <DndProvider backend={HTML5Backend}>
+        <div className="map h-[1600px] w-[1600px] relative">
+          <div className={`h-full w-full p-8`}>
+            <div className={`grid grid-cols-12 mt-6 px-64 w-full`}>
+              {updatedMapData.map((item, index) => {
+                const itemPositions = itemPositionsState[index];
+
+                return (
+                  <DroppableGridBox
+                    key={`${index}`}
+                    onDrop={(item) => handleDrop(item, index)}
+                    onAddItem={(item) => handleAddItem(item, index)}
                   >
-                    <Quadrant
-                      structures={data}
-                      generatedStructures={generatedStructures[index]}
-                      quadrantIndex={index}
-                      oppositionStartingPotion={oppositionStartingPotion}
-                    />
-                    {oppositionStartingPotion === index && index !== 3 && (
-                      <Text
-                        fontSize="2xl"
-                        width="100%"
-                        background="red.500"
-                        color="white"
-                        position="absolute"
-                        bottom="-2rem"
-                      >
-                        <FontAwesomeIcon icon={faDragon} />
-                      </Text>
-                    )}
-                    {index === 3 && (
-                      <>
-                        <Text
-                          fontSize="2xl"
-                          width="100%"
-                          background="green.500"
-                          color="white"
-                          position="absolute"
-                          bottom="-2rem"
+                    {item.name.map((itemName, itemIndex) => {
+                      if (!itemName) return null;
+                      const positionClasses = getPositionClasses(
+                        itemPositions[itemIndex],
+                        itemIndex
+                      );
+                      const Icon = item.icon[itemIndex];
+
+                      return (
+                        <div
+                          key={`${itemName}-${itemIndex}`}
+                          // style={positionClasses}
                         >
-                          <FontAwesomeIcon icon={faPeopleGroup} />
-                        </Text>
-                      </>
+                          {/* <DraggableIcon
+                            id={`${itemName}-${itemIndex}`}
+                            icon={Icon}
+                            name={itemName}
+                            onRemove={() => removeItem(index, itemIndex)}
+                          /> */}
+                        </div>
+                      );
+                    })}
+
+                    {index === 4 && (
+                      <div
+                      // style={getPositionClasses(
+                      //   itemPositions[item.name.length],
+                      //   0
+                      // )}
+                      >
+                        {/* <DraggableIcon
+                          id={`player-group-${index}`}
+                          icon={GiDoubleDragon}
+                          name="faDragon"
+                          customIconProps={{ icon: GiDoubleDragon }}
+                        /> */}
+                      </div>
                     )}
-                  </Box>
-                </GridItem>
-              ))}
-            </Grid>
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
-    </Box>
+
+                    {item.isEnemy && (
+                      <div
+                      // style={getPositionClasses(
+                      //   itemPositions[item.name.length],
+                      //   0
+                      // )}
+                      >
+                        {/* <DraggableIcon
+                          id={`player-group-${index}`}
+                          icon={MdGroups3}
+                          name="faPeopleGroup"
+                          customIconProps={{ icon: MdGroups3 }}
+                        /> */}
+                      </div>
+                    )}
+                  </DroppableGridBox>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </DndProvider>
+    </div>
   );
 }

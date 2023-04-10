@@ -1,34 +1,39 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+
+//controllers
 import { AppController } from './app.controller';
+
+//services
 import { AppService } from './app.service';
-import { Campaign } from '../campaign/campaign.entity';
-import { User } from '../user/user.entity';
+
+//modules
 import { CampaignModule } from '../campaign/campaign.module';
 import { UserModule } from '../user/user.module';
 import { AuthModule } from '../auth/auth.module';
+import { EncounterModule } from '../encounter/encounter.module';
+import { CharacterAdvancementModule } from '../character-advancement/character-advancement.module';
+
+import { ormconfig } from './ormconfig';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: 'src/.env',
+    }),
     ScheduleModule.forRoot(),
     UserModule,
     CampaignModule,
     AuthModule,
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: process.env.DB_HOST || 'localhost',
-      port: +process.env.DB_PORT || 5432,
-      username: process.env.DB_USER || 'admin',
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME || 'conquest',
-      entities: [User, Campaign],
-      synchronize: true,
+    EncounterModule,
+    CharacterAdvancementModule,
+    TypeOrmModule.forRootAsync({
+      useFactory: ormconfig,
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
@@ -38,4 +43,16 @@ import { AuthModule } from '../auth/auth.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  static forRoot(options: TypeOrmModuleOptions) {
+    return {
+      module: AppModule,
+      providers: [
+        {
+          provide: 'CONQUEST_API_OPTIONS',
+          useValue: options,
+        },
+      ],
+    };
+  }
+}

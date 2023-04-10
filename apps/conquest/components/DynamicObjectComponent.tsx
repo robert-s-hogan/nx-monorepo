@@ -1,4 +1,3 @@
-import { GridItem, Heading, Text, VStack, Flex } from '@chakra-ui/react';
 import { ImUnlocked } from 'react-icons/im';
 import {
   GiLockedChest,
@@ -33,10 +32,8 @@ const DynamicObjectComponent: React.FC<DynamicObjectComponentProps> = ({
 
   const renderWeapon = (weapon) => {
     return (
-      <GridItem colSpan={1} bg="gray.100" p={4} rounded="md">
-        <Heading as="h4" fontSize="1rem" display="flex" alignItems="center">
-          {weapon.name}
-        </Heading>
+      <div className="col-span-1 bg-gray 100 p-4 rounded-md">
+        <h4 className="flex items-center">{weapon.name}</h4>
         <ul>
           {/* <Box height={24}>{weapon.description}</Box> */}
           <li>Type: {weapon.type}</li>
@@ -48,16 +45,14 @@ const DynamicObjectComponent: React.FC<DynamicObjectComponentProps> = ({
           <li>Size: {weapon.size}</li>
           <li>Value: {weapon.value}</li>
         </ul>
-      </GridItem>
+      </div>
     );
   };
 
   const renderRandomItem = (item) => {
     return (
-      <GridItem colSpan={1} bg="gray.100" p={4} rounded="md">
-        <Heading as="h4" fontSize="1rem" display="flex" alignItems="center">
-          {item.name}
-        </Heading>
+      <div className="col-span-1 bg-gray 100 p-4 rounded-md">
+        <h4 className="flex items-center">{item.name}</h4>
         <ul>
           {/* <Box height={24}>{item.description}</Box> */}
           <li>type: {item.type}</li>
@@ -69,60 +64,56 @@ const DynamicObjectComponent: React.FC<DynamicObjectComponentProps> = ({
           <li>Size: {item.size}</li>
           <li>Value: {item.value}</li>
         </ul>
-      </GridItem>
+      </div>
     );
   };
 
   const renderCustomItem = (customItem) => {
     return (
-      <GridItem
-        colSpan={1}
-        bg={locked ? 'gray.100' : 'white'}
-        p={4}
-        rounded="md"
+      <div
+        className={`col-span-1 p-4 rounded-md border border-gray-300 ${
+          locked ? 'bg-gray-100' : 'bg-white'
+        }`}
         onClick={onClick}
-        cursor="pointer"
-        border="1px solid"
-        borderColor="gray.300"
       >
-        <VStack spacing={4} align="left">
-          <Flex alignSelf="flex-end">
+        <div className="space-y-4 flex items-start">
+          <div className="flex items-end">
             {locked ? <GiLockedChest /> : <ImUnlocked />}
-          </Flex>
-          <Heading as="h4" fontSize="1rem" display="flex" alignItems="center">
-            <Flex alignItems="center">
+          </div>
+          <h4 className="flex items-center">
+            <div className="flex items-center">
               {customItem.name === 'Weapon' ? (
-                <Flex alignItems="center">
+                <div className="flex items-center">
                   <GiSwitchWeapon size={24} />
-                  <Text ml={2}>Weapon</Text>
-                </Flex>
+                  <p className="ml-2">Weapon</p>
+                </div>
               ) : customItem.name === 'Armor' ? (
-                <Flex alignItems="center">
+                <div className="flex items-center">
                   <GiChestArmor size={24} />
 
-                  <Text ml={2}>Armor</Text>
-                </Flex>
+                  <p className="ml-2">Armor</p>
+                </div>
               ) : customItem.name === 'Accessory' ? (
-                <Flex alignItems="center">
+                <div className="flex items-center">
                   <GiGemChain size={24} />
-                  <Text ml={2}>Accessory</Text>
-                </Flex>
+                  <p className="ml-2">Accessory</p>
+                </div>
               ) : (
-                <Flex alignItems="center">
+                <div className="flex items-center">
                   <GiRomanShield size={24} />
-                  <Text ml={2}>Shield</Text>
-                </Flex>
+                  <p className="ml-2">Shield</p>
+                </div>
               )}
-            </Flex>
-          </Heading>
+            </div>
+          </h4>
 
           <ul>
             {customItem.effects.map((effect, index) => (
               <li key={index}>{effect}</li>
             ))}
           </ul>
-        </VStack>
-      </GridItem>
+        </div>{' '}
+      </div>
     );
   };
 

@@ -1,21 +1,4 @@
-import { useState, useEffect } from 'react';
-
-import {
-  Grid,
-  GridItem,
-  Stack,
-  Input,
-  Button,
-  Text,
-  Box,
-  Heading,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  Textarea,
-} from '@chakra-ui/react';
+import { useState } from 'react';
 
 import { useEncounter } from '../hooks/useEncounter';
 import Loading from '../components/Loading';
@@ -27,7 +10,6 @@ import ConquestLayout from '../components/layout/ConquestLayout';
 import { randomNumber } from '../lib/randomNumber';
 import GenerateMadLib from '../components/GenerateMadLib';
 import RandomCustomItems from '../components/RandomCustomItems';
-import { useIsAuthenticated } from '../hooks/useAuth';
 
 export default function Home() {
   const {
@@ -48,8 +30,6 @@ export default function Home() {
   const [isSubmitting, _isSubmitting] = useState(false);
   const [totalShortRestsAllows] = useState(2);
   const [homeLoading, setHomeLoading] = useState(true);
-
-  const isAuthenticated = useIsAuthenticated();
 
   // const {
   //   isLoading: encounterLoading,
@@ -201,16 +181,8 @@ export default function Home() {
   return (
     <ConquestLayout>
       <section className="h-screen w-full">
-        <div className="container h-full px-6 py-24 w-full">
-          <div className="grid grid-cols-2 gap-16 w-full">
-            <img
-              src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-              className="w-full"
-              alt="Phone image"
-            />
-
-            <LoginForm />
-          </div>
+        <div className="flex items-center justify-center h-1/2">
+          <h1 className="text-center">Welcome to Conquest of Heroes</h1>
         </div>
       </section>
       {/*      <Stack spacing={8}>

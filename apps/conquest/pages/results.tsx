@@ -1,17 +1,4 @@
 import { useRouter } from 'next/router';
-import {
-  Button,
-  Text,
-  Grid,
-  GridItem,
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  TableContainer,
-} from '@chakra-ui/react';
 import useSWR from 'swr';
 
 import ConquestLayout from '../components/layout/ConquestLayout';
@@ -28,7 +15,6 @@ export default function Results({ fetcher }) {
     timeSpentResting,
     timeBetweenEncounters,
     doesAppear,
-    caravanItems,
     rest,
     restType,
     rewardMultiplier,
@@ -72,80 +58,64 @@ export default function Results({ fetcher }) {
 
   return (
     <ConquestLayout>
-      <Text fontSize="2xl" fontWeight="bold">
+      <div className="text-2xl font-bold">
         Success! canIhasCaravan? {isCaravan ? 'No' : 'Yes'}
-      </Text>
-      <Button colorScheme="blue" onClick={() => loadPage()} mt={3}>
-        Reload
-      </Button>
-      <Grid
-        gridTemplateColumns={{
-          base: 'repeat(1, minmax(200px, 1fr))',
-          md: 'repeat(3, minmax(200px, 1fr))',
-        }}
-        gap={3}
-        color="blackAlpha.700"
-        fontWeight="bold"
-        mt={4}
-      >
-        <GridItem>
-          <TableContainer border="1px" maxWidth="100%">
-            <Text fontSize="xl" ml={2}>
-              Rewards
-            </Text>
-            <Table variant="simple" size="sm">
-              <Thead>
-                <Tr>
-                  <Th>Category</Th>
-                  <Th>Value</Th>
-                  <Th>Equation</Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                <Tr>
-                  <Td>Gold Earned</Td>
-                  <Td>
-                    {diceRolls} - {diceRollTotal(d6, rewardMultiplierNeeded)}g
-                  </Td>
-                  <Td>{printGoldEquation(rewardMultiplierNeeded)}</Td>
-                </Tr>
-                <Tr>
-                  <Td>Rest Needed?</Td>
-                  <Td>{rest[restNeeded]}</Td>
-                  <Td />
-                </Tr>
-                {rest[restNeeded] === 'true' && (
-                  <>
-                    <Tr>
-                      <Td>Rest Type</Td>
-                      <Td>{restType[restTypeNeeded]}</Td>
-                      <Td />
-                    </Tr>
-                    <Tr>
-                      <Td>Time Spent Resting</Td>
-                      <Td>{timeSpentResting[timeSpentRestingLevel]}</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>Time Between Encounters</Td>
-                      <Td>
-                        {timeBetweenEncounters[timeBetweenEncountersLevel]}
-                      </Td>
-                    </Tr>
-                  </>
-                )}
-              </Tbody>
-            </Table>
-          </TableContainer>
-        </GridItem>
+      </div>
+      <button onClick={() => loadPage()}>Reload</button>
 
-        <GridItem colSpan={{ md: 2 }}>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 font-bold mt-4">
+        {/* <TableContainer border="1px" maxWidth="100%">
+          <Text fontSize="xl" ml={2}>
+            Rewards
+          </Text>
+          <Table variant="simple" size="sm">
+            <Thead>
+              <Tr>
+                <Th>Category</Th>
+                <Th>Value</Th>
+                <Th>Equation</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              <Tr>
+                <Td>Gold Earned</Td>
+                <Td>
+                  {diceRolls} - {diceRollTotal(d6, rewardMultiplierNeeded)}g
+                </Td>
+                <Td>{printGoldEquation(rewardMultiplierNeeded)}</Td>
+              </Tr>
+              <Tr>
+                <Td>Rest Needed?</Td>
+                <Td>{rest[restNeeded]}</Td>
+                <Td />
+              </Tr>
+              {rest[restNeeded] === 'true' && (
+                <>
+                  <Tr>
+                    <Td>Rest Type</Td>
+                    <Td>{restType[restTypeNeeded]}</Td>
+                    <Td />
+                  </Tr>
+                  <Tr>
+                    <Td>Time Spent Resting</Td>
+                    <Td>{timeSpentResting[timeSpentRestingLevel]}</Td>
+                  </Tr>
+                  <Tr>
+                    <Td>Time Between Encounters</Td>
+                    <Td>{timeBetweenEncounters[timeBetweenEncountersLevel]}</Td>
+                  </Tr>
+                </>
+              )}
+            </Tbody>
+          </Table>
+        </TableContainer> */}
+
+        {/* <div className="md:col-span-2">
           {doesAppear[isCaravan] === 'success' &&
             restType[restTypeNeeded] === 'short' &&
             rest[restNeeded] === 'true' && (
               <TableContainer border="1px" width="100%">
-                <Text fontSize="xl" ml={2}>
-                  Caravan Success
-                </Text>
+                <p className="text-xl ml-2">Caravan Success</p>
                 <Table variant="simple" size="sm">
                   <Thead>
                     <Tr>
@@ -154,13 +124,14 @@ export default function Results({ fetcher }) {
                     </Tr>
                   </Thead>
                   <Tbody>
-                    {/* <ItemsInCaravan caravanItems={caravanItems} /> */}
+             <ItemsInCaravan caravanItems={caravanItems} />
                   </Tbody>
                 </Table>
               </TableContainer>
             )}
-        </GridItem>
-      </Grid>
+        </div>
+         */}
+      </div>
     </ConquestLayout>
   );
 }

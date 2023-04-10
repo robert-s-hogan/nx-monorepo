@@ -75,6 +75,39 @@
   select {
     @apply bg-slate-100 text-slate-900 py-1 px-3 rounded-md h-full w-full;
   }
+  .popver-container {
+    @apply bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-md shadow-lg p-4;
+  }
+  .popover-trigger {
+    @apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 py-1 px-3 rounded-md;
+  }
+  .popover-trigger:hover {
+    @apply bg-slate-200 dark:bg-slate-800;
+  }
+  .popover-trigger:focus {
+    @apply bg-slate-200 dark:bg-slate-800;
+  }
+  .popover-trigger:active {
+    @apply bg-slate-200 dark:bg-slate-800;
+  }
+  .popover-trigger:disabled {
+    @apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 py-1 px-3 rounded-md cursor-not-allowed;
+  }
+  .popover-content {
+    @apply bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-md shadow-lg p-4;
+  }
+  .progress-horizontal-container {
+    @apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-md h-2 w-full;
+  }
+  .progress-horizontal-value {
+    @apply bg-indigo-500 text-white text-xl px-3 py-2 rounded-lg;
+  }
+  .progress-circular-container {
+    @apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-md h-2 w-full;
+  }
+  .progress-circular-value {
+    @apply bg-indigo-500 text-white text-xl px-3 py-2 rounded-lg;
+  }
 }
 
 button[disabled] {

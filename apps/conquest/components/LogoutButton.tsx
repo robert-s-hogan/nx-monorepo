@@ -1,9 +1,17 @@
 import { useAuth } from '../hooks/useAuth';
 
-const LogoutButton = () => {
+interface LogoutButtonProps {
+  className?: string;
+}
+
+const LogoutButton = ({ className }: LogoutButtonProps) => {
   const { logout } = useAuth();
 
-  return <button onClick={logout}>Logout</button>;
+  return (
+    <button onClick={logout} className={className}>
+      Logout
+    </button>
+  );
 };
 
 export default LogoutButton;

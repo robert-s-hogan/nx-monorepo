@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import DynamicObjectComponent from '../components/DynamicObjectComponent';
 import { CustomItems } from '../categories/CustomItems';
-import { Grid, VStack, Heading, Flex, Icon, Button } from '@chakra-ui/react';
 import generateCustomItem from '../utils/generateCustomItem';
 import { WiRefresh } from 'react-icons/wi';
 
@@ -36,32 +35,15 @@ const RandomCustomItems = () => {
   };
 
   return (
-    <VStack spacing={4} align="left" pb={24} pt={8}>
-      <Flex alignItems="center">
-        <Heading as="h5" mr={2}>
-          Custom Item List (10)
-        </Heading>
-        <Button
-          onClick={refreshItems}
-          variant="ghost"
-          _hover={{ background: 'transparent' }}
-        >
-          <Icon
-            as={WiRefresh}
-            boxSize={10} // Adjust the size as needed
-            color="light-green"
-            _hover={{ color: 'darkGreen' }}
-          />
-        </Button>
-      </Flex>
+    <div className="space-y-4 flex justify-start pb-24 pt-8">
+      <div className="flex items-center">
+        <h6 className="mr-2">Custom Item List (10)</h6>
+        <button onClick={refreshItems}>
+          <WiRefresh />
+        </button>
+      </div>
 
-      <Grid
-        templateColumns={{
-          base: 'repeat(1, 1fr)',
-          lg: 'repeat(2, 1fr)',
-        }}
-        gap={6}
-      >
+      <div className="grid-cols-2 gap-6">
         {items.map((item, index) => (
           <DynamicObjectComponent
             key={index}
@@ -70,8 +52,8 @@ const RandomCustomItems = () => {
             locked={item.locked}
           />
         ))}
-      </Grid>
-    </VStack>
+      </div>
+    </div>
   );
 };
 

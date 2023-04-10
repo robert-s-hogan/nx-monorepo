@@ -8,6 +8,7 @@ interface ModalProps {
   icon?: React.ReactNode;
   children: React.ReactNode;
   onClick?: () => void;
+  buttonLocation?: 'left' | 'right';
 }
 
 export const Modal = ({
@@ -17,11 +18,12 @@ export const Modal = ({
   description,
   icon,
   children,
+  onClick,
+  buttonLocation = 'right',
 }: ModalProps) => {
   return isShowing ? (
     <div onClick={toggle} id="overlay">
       <div onClick={(e) => e.stopPropagation()}>
-        <Button onClick={toggle}></Button>
         <h2>{title}</h2>
         {description && <p>{description}</p>}
         {children}

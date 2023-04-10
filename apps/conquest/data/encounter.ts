@@ -743,7 +743,7 @@ export const encounter = {
       type: [
         'clear',
         'cloudy',
-        'ccid rain',
+        'acid rain',
         'flash flood',
         'sandstorm',
         'wildfire',

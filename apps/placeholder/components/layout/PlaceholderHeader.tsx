@@ -2,7 +2,7 @@ import { Navbar, NavbarLinkType } from '@with-nx/react-ui';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon } from 'react-icons/fi';
-import { Search } from 'react-feather';
+import { FiSearch } from 'react-icons/fi';
 
 const logo = (
   <Image
@@ -13,7 +13,7 @@ const logo = (
   />
 );
 
-const searchIcon = <Search />;
+const searchIcon = <FiSearch />;
 
 const links: {
   href: string;

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiceD20 } from '@fortawesome/free-solid-svg-icons';
-import { Flex, Box, Text, VStack } from '@chakra-ui/react';
 
 const loadingMessages = [
   "When the DM asks you, 'Really, you sure?', you should always say 'no'.",
@@ -34,20 +33,15 @@ function Loading() {
   }, []);
 
   return (
-    <Flex
-      height="100vh"
-      textAlign="center"
-      justifyContent="center"
-      flexDirection="column"
-    >
-      <VStack spacing={8}>
-        <Box>
+    <div className="flex h-100vh text-center justify-center flex-col">
+      <div className="space-y-8">
+        <div>
           <FontAwesomeIcon icon={faDiceD20} />
-        </Box>
-        <Text>Loading...</Text>
-        <Text fontSize="lg">{message || 'Loading message...'}</Text>
-      </VStack>
-    </Flex>
+        </div>
+        <p>Loading...</p>
+        <p className="text-lg">{message || 'Loading message...'}</p>
+      </div>
+    </div>
   );
 }
 export default Loading;

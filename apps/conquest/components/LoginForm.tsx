@@ -1,18 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../hooks/useAuth';
 
-import {
-  VStack,
-  Button,
-  FormControl,
-  FormLabel,
-  Input,
-} from '@chakra-ui/react';
-
 const LoginForm = () => {
   const [email, _email] = useState('realuser@aol.com');
   const [password, _password] = useState('realuser');
-  const [username, _username] = useState('realuser');
 
   const auth = useAuth();
 
@@ -26,46 +17,34 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <VStack spacing={4} align="flex-start">
-        <FormControl>
-          <FormLabel htmlFor="username">Username</FormLabel>
-          <Input
-            id="username"
-            name="username"
-            type="text"
-            variant="filled"
-            value={username}
-            onChange={(e) => _username(e.target.value)}
-          />
-        </FormControl>
-        <FormControl>
-          <FormLabel htmlFor="email">Email Address</FormLabel>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            variant="filled"
-            value={email}
-            onChange={(e) => _email(e.target.value)}
-          />
-        </FormControl>
-        <FormControl>
-          <FormLabel htmlFor="password">Password</FormLabel>
-          <Input
-            id="password"
-            name="password"
-            type="password"
-            variant="filled"
-            value={password}
-            onChange={(e) => _password(e.target.value)}
-          />
-        </FormControl>
+    <form onSubmit={handleSubmit} className="p-8">
+      <h1 className="text-2xl font-bold">Welcome to Conquest</h1>
+      <div className="space-y-4 flex items-start flex-col ">
+        <label className="sr-only" htmlFor="email">
+          Email Address
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          value={email}
+          onChange={(e) => _email(e.target.value)}
+        />
+        <label className="sr-only" htmlFor="password">
+          Password
+        </label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          value={password}
+          onChange={(e) => _password(e.target.value)}
+        />
 
-        <Button type="submit" colorScheme="purple" width="full">
-          Login
-        </Button>
-      </VStack>
+        <button type="submit" className="btn-primary">
+          Continue
+        </button>
+      </div>
     </form>
   );
 };

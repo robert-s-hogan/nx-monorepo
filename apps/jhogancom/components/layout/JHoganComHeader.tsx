@@ -1,9 +1,10 @@
 import { Navbar } from '@with-nx/react-ui';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import { Moon, Sun } from 'react-feather';
+import { FiMoon, FiSun } from 'react-icons/fi';
 import { NavbarLinkType } from '@with-nx/react-ui';
 import { Section } from '@with-nx/react-tailwind-ui';
+import { useState, useEffect } from 'react';
 
 const logo = (
   <Image
@@ -31,14 +32,20 @@ const links: { href: string; label: string; type?: NavbarLinkType }[] = [
 const JHoganComHeader = () => {
   const { theme, setTheme } = useTheme();
 
-  const toggleButton = (
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const toggleButton = isMounted ? (
     <button
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       className="my-auto h-6"
     >
-      {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+      {theme === 'light' ? <FiMoon size={20} /> : <FiSun size={20} />}
     </button>
-  );
+  ) : null;
 
   return (
     <header>

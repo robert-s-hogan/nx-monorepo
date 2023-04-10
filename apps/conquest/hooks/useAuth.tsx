@@ -5,6 +5,7 @@ type AuthContextType = {
   user: any;
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
+  isLoading?: boolean;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -24,12 +25,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const router = useRouter();
   const [user, setUser] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const fetchUserData = async () => {
+      const token = localStorage.getItem('token');
 
-    if (token) {
-      const fetchUserData = async () => {
+      if (token) {
+        setIsLoading(true);
         try {
           const response = await fetch('http://localhost:3333/api/auth/user', {
             method: 'GET',
@@ -39,21 +42,28 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
             },
           });
 
-          if (response.ok) {
+          if (response.status === 200) {
             const data = await response.json();
             setUser(data);
           }
         } catch (error) {
           console.error('Error fetching user data:', error);
         }
-      };
+        setIsLoading(false);
+      } else {
+        setIsLoading(false);
+      }
+    };
 
+    const token = localStorage.getItem('token');
+    if (token) {
       fetchUserData();
+    } else {
+      setIsLoading(false);
     }
   }, []);
 
   const login = async (email: string, password: string) => {
-    console.log(`Logging in with email: ${email} and password: ${password}`);
     const response = await fetch('http://localhost:3333/api/auth/login', {
       method: 'POST',
       headers: {
@@ -65,17 +75,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       }),
     });
 
-    if (response.ok) {
+    if (response.status === 200) {
       const data = await response.json();
-      console.log('Login response data:', data); // Add this line
+      console.log('Login response data:', data);
+      console.log(`token: ${data.access_token}`);
 
       setUser(data);
       localStorage.setItem('token', data.access_token);
       router.push('/admin');
       return data;
     } else {
-      const errorText = await response.text(); // Add this line
-      console.error('Authentication failed:', errorText); // Modify this line
+      const errorText = await response.text();
+      console.error('Authentication failed:', errorText);
 
       throw new Error('Authentication failed');
     }
@@ -89,7 +100,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     router.push('/');
   };
 
-  const value = { user, login, logout };
+  const value = { user, login, logout, isLoading };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

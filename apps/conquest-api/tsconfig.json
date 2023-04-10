@@ -11,6 +11,11 @@
     }
   ],
   "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "resolveJsonModule": true,
     "esModuleInterop": true
   }
 }

@@ -1,4 +1,4 @@
-import { GitHub } from 'react-feather';
+import { FiGithub } from 'react-icons/fi';
 
 const Header: React.FC = () => {
   return (
@@ -8,7 +8,7 @@ const Header: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <GitHub />
+        <FiGithub size={24} />
       </a>
     </header>
   );

@@ -3,12 +3,15 @@
  * This is only a minimal backend to get started.
  */
 
-import { Logger } from '@nestjs/common';
+import { Logger, BadRequestException } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app/app.module';
 import { HttpExceptionFilter } from './http-exception-filter';
 import { ValidationPipe } from '@nestjs/common';
+import { config as loadEnvConfig } from 'dotenv';
+
+loadEnvConfig();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -21,6 +24,13 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
+      exceptionFactory: (errors) => {
+        const messages = errors.map(
+          (error) =>
+            `${error.property} - ${Object.values(error.constraints).join(', ')}`
+        );
+        return new BadRequestException(messages);
+      },
       forbidNonWhitelisted: true,
       transform: true,
     })
@@ -29,6 +39,7 @@ async function bootstrap() {
     .setTitle('Your API title')
     .setDescription('Your API description')
     .setVersion('1.0')
+    .addBearerAuth()
     .addTag('your-tag')
     .build();
   const document = SwaggerModule.createDocument(app, config);

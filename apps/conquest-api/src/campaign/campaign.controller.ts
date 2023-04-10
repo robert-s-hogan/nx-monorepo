@@ -5,17 +5,22 @@ import {
   Put,
   Delete,
   Body,
+  ParseIntPipe,
   Param,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
-
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiBearerAuth,
+} from '@nestjs/swagger';
+import { FindOneOptions } from 'typeorm';
 import { CreateCampaignDto } from './dto/create-campaign.dto';
 import { UpdateCampaignDto } from './dto/update-campaign.dto';
-
 import { CampaignService } from './campaign.service';
-import { Campaign } from './campaign.entity';
 
 @ApiTags('campaign')
+@ApiBearerAuth()
 @Controller('campaign')
 export class CampaignController {
   constructor(private campaignService: CampaignService) {}
@@ -47,8 +52,22 @@ export class CampaignController {
     status: 200,
     description: 'The campaign has been successfully retrieved.',
   })
-  async findOne(@Param('id') id: number) {
-    return this.campaignService.findOne(id);
+  async findOne(@Param('id', ParseIntPipe) id: number) {
+    console.log(`ID: ${id}`);
+    const options: FindOneOptions = {
+      relations: ['encounters'], // Fetch the related encounters
+    };
+    console.log(`Options: ${JSON.stringify(options)}`);
+    const campaign = await this.campaignService.findOne(id, options);
+    console.log(`Campaign: ${JSON.stringify(campaign)}`);
+    const campaignWithEncounterIds = {
+      ...campaign,
+      encounters: campaign.encounters.map((encounter) => encounter.id), // Map encounters to their IDs
+    };
+    console.log(
+      `Campaign with encounter IDs: ${JSON.stringify(campaignWithEncounterIds)}`
+    );
+    return { data: campaignWithEncounterIds };
   }
 
   @Put(':id')
@@ -73,6 +92,4 @@ export class CampaignController {
   async remove(@Param('id') id: number) {
     return this.campaignService.remove(id);
   }
-
-  // Add other controller methods here if needed
 }

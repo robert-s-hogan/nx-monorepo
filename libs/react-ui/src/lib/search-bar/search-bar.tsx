@@ -9,7 +9,7 @@
 
   Example usage:
 
-  import { Camera } from 'react-feather';
+  import { FiCamera } from 'react-icons/fi';
 
   function MyComponent() {
     return (

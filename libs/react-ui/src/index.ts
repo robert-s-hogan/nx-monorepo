@@ -1,3 +1,6 @@
+export * from './lib/skeleton/skeleton';
+export * from './lib/progress/progress';
+export * from './lib/popover/popover';
 export * from './lib/form/form';
 export * from './lib/multi-step-form/multi-step-form';
 export * from './lib/page-indicator/page-indicator';

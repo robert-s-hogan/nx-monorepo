@@ -30,13 +30,11 @@ export default function ConquestLayout({
               : 'Conquest of Heroes a DND Dungeon Master Tool.'
           }
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="./assets/conquest_logo.ico" />
       </Head>
 
-      <div className="w-full bg-gray-300">
-        <div className="max-w-7xl container mx-auto">
-          <main>{children}</main>
-        </div>
+      <div className="max-w-full container mx-auto">
+        <main>{children}</main>
       </div>
     </PageLayout>
   );
