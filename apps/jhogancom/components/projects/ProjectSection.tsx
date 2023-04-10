@@ -21,7 +21,7 @@ const ProjectSection = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1600);
   }, []);
 
   return (
