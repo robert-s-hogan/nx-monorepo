@@ -1,0 +1,16 @@
+{
+  "name": "icons-feather",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/icons/feather/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/icons/feather/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}
