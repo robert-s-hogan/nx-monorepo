@@ -9,7 +9,7 @@ import RSHModal from './RSHModal';
 import HeroImg from '../assets/images/rsh_hero_circle.jpg';
 
 const HeroSection = () => {
-  const { isShowing, toggle } = useModal();
+  // const { isShowing, toggle } = useModal();
 
   return (
     <Hero
