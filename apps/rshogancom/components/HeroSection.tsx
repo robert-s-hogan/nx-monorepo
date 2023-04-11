@@ -20,8 +20,6 @@ const HeroSection = () => {
         <Image
           placeholder="blur"
           priority={true}
-          objectFit="contain"
-          objectPosition="center"
           src={HeroImg}
           className="rounded-full"
           alt="Robert's Professional Shot"
