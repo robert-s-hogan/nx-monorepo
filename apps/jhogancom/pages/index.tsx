@@ -103,32 +103,32 @@ export function Index() {
               </Link>
 
               <Link
-                className="text-blue hover:text-black ml-3"
+                className="text-blue hover:text-black hover:scale-110 ml-3"
                 href="https://www.facebook.com/jessicahoganma"
               >
                 <FiFacebook className="w-6 h-6" />
               </Link>
               <Link
-                className="ml-3 text-blue hover:text-black"
+                className="ml-3 text-blue hover:text-black hover:scale-110"
                 href="https://twitter.com/jessicahoganma"
               >
                 <FiTwitter className="w-6 h-6" />
               </Link>
               <Link
-                className="ml-3 text-blue hover:text-black"
+                className="ml-3 text-blue hover:text-black hover:scale-110"
                 href="https://www.instagram.com/jessica_hogan_ma/"
               >
                 <FiInstagram className="w-6 h-6" />
               </Link>
               <Link
                 href="https://www.linkedin.com/in/jessicahoganma/"
-                className="ml-3 text-blue hover:text-black"
+                className="ml-3 text-blue hover:text-black hover:scale-110"
               >
                 <FiLinkedin className="w-6 h-6" />
               </Link>
 
               <Link
-                className="text-blue hover:text-black ml-3"
+                className="text-blue hover:text-black hover:scale-110 ml-3"
                 href="https://github.com/jessicahoganma"
               >
                 <FiGithub className="w-6 h-6" />

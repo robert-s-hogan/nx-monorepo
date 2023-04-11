@@ -11,6 +11,7 @@ const SkeletonText: React.FC<SkeletonTextProps> = ({ rows }) => {
     <React.Fragment>
       {new Array(rows || 1).fill(
         <div
+          key={Math.random()}
           className={`skeleton-text ${skeletonTextStyles.textSkeleton}`}
         ></div>
       )}
