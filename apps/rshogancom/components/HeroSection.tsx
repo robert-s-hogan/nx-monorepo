@@ -39,7 +39,6 @@ const HeroSection = () => {
           View Projects
         </NextLink>
       </div> */}
-
       {/* <RSHModal isShowing={isShowing} hide={toggle}>
         <Calendly url="https://calendly.com/robert-s-hogan/30min" />
       </RSHModal> */}
