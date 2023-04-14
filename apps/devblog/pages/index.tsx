@@ -80,6 +80,7 @@ export function Index() {
                 <div key={project.title} className="card">
                   <div className="card-body">
                     <h3 className="card-title text-black">{project.title}</h3>
+                    <p className="card-text">{project.description}</p>
                   </div>
                 </div>
               );
