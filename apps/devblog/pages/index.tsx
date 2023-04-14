@@ -58,6 +58,10 @@ export function Index() {
               </svg>
             </Link>
           </div>
+          <div>
+            <h2>Featured Projects</h2>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3"></div>
         </div>
       </div>
     </DevBlogLayout>
