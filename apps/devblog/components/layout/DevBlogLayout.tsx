@@ -23,7 +23,7 @@ const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
 }: DevBlogLayoutProps) => {
   return (
     <PageLayout
-      className={className ? className : 'w-full'}
+      className={className ? className : 'w-full bg-gray-800 h-screen'}
       header={hideNavBarProp ? '' : <DevBlogHeader />}
       footer={<DevBlogFooter />}
     >
@@ -38,7 +38,7 @@ const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
           }
         />
       </Head>
-      <div className="container mx-auto">{children}</div>
+      <div className="container mx-auto max-w-7xl">{children}</div>
     </PageLayout>
   );
 };

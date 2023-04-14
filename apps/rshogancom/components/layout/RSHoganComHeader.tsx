@@ -18,8 +18,8 @@ const RSHoganComHeader = () => {
         src="https://assets.calendly.com/assets/external/widget.js"
       /> */}
       <header className="bg-white">
-        <div className="w-full mx-auto py-0 md:py-4 lg:px-0 text-lg md:text-2xl lg:max-w-4xl ">
-          <div className="flex justify-between text-white p-4 lg:px-0 text-2xl max-w-4xl">
+        <div className="w-full mx-auto py-0 md:py-4 lg:px-0 text-lg md:text-2xl lg:max-w-7xl ">
+          <div className="flex justify-between text-white p-4 lg:px-0 text-2xl max-w-7xl">
             <NextLink href="/" className="flex items-center justify-center">
               <div>
                 <Image

@@ -8,17 +8,9 @@ export function Index() {
    */
   return (
     <DevBlogLayout>
-      <div className="container mx-auto">
-        <div className="wrapper">
-          <div className="container">
-            <div id="welcome">
-              <h1>
-                <span> Hello there, </span>
-                Welcome devblog 👋
-              </h1>
-            </div>
-          </div>
-        </div>
+      <div className="container max-w-7xl mx-auto">
+        <h1>Hello, I am Robert Hogan Front End Developer and UI/UX Engineer</h1>
+        <p>This site is currently under construction so dont judge me</p>
       </div>
     </DevBlogLayout>
   );

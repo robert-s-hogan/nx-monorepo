@@ -1,6 +1,6 @@
 const DbsMarinHeader = () => {
   return (
-    <nav className="max-w-4xl container bg-white w-full flex relative justify-between items-center mx-auto h-20">
+    <nav className="max-w-7xl container bg-white w-full flex relative justify-between items-center mx-auto h-20">
       <div className="inline-flex">
         <div className="hidden md:block">
           <svg width="102" height="32" fill="currentcolor">

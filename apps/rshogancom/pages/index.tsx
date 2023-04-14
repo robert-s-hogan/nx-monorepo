@@ -32,7 +32,7 @@ export function Index() {
       <HeroSection />
       {/* Hi Im Robert */}
       <section className="w-full bg-white py-24 flex flex-col justify-center text-center px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-black text-2xl font-bold mb-6">
             Hi, I’m Robert.
             <br /> Nice to meet you.
@@ -437,7 +437,7 @@ export function Index() {
       </div>
       {/* Testimonials */}
       <section className="w-full bg-white body-font pb-12">
-        <div className="max-w-4xl mx-auto px-5 py-24">
+        <div className="max-w-7xl mx-auto px-5 py-24">
           <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <Layout className="px-2">
       <Hero />
-      <div className="flex justify-center max-w-4xl xl:max-w-7xl container mx-auto mt-8">
+      <div className="flex justify-center max-w-7xl xl:max-w-7xl container mx-auto mt-8">
         <form
           className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full md:mx-2"
           onSubmit={handleFormSubmit}
@@ -71,7 +71,7 @@ export default function Home() {
           </span>
         </p>
       )}
-      <div className="max-w-4xl lg:max-w-6xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto my-4">
+      <div className="max-w-7xl lg:max-w-6xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto my-4">
         {data && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 w-full">
             {data.results.map((char) => (

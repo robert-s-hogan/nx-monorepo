@@ -149,7 +149,7 @@ const Admin: React.FC = () => {
         {/* <pre>{JSON.stringify(campaigns, null, 2)}</pre> */}
       </div>
       <section className="h-screen w-full">
-        <div className="container max-w-4xl mx-auto">
+        <div className="container max-w-7xl mx-auto">
           <div className="space-y-2">
             <div className="flex items-center space-x-2">
               <h1>Admin</h1>

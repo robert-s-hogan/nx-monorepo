@@ -23,7 +23,7 @@ const Loading: React.FC = () => {
   if (isError) return <div>Error occurred while fetching data</div>;
 
   return (
-    <div className="flex justify-center max-w-4xl container mx-auto my-8">
+    <div className="flex justify-center max-w-7xl container mx-auto my-8">
       <form
         onSubmit={handleFormSubmit}
         className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full mx-2"

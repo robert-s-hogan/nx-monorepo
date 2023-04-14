@@ -1,0 +1,26 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.gridItem {
+  border: 1px solid #ccc;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-weight: light;
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2rem;
+}
+.date {
+  font-size: 0.75rem;
+}
+.category {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}

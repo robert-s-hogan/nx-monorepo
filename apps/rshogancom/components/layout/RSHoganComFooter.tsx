@@ -3,7 +3,7 @@ import { Link } from '@with-nx/react-ui';
 
 const RSHoganComFooter = () => {
   return (
-    <footer className="max-w-4xl mx-auto text-center py-8">
+    <footer className="max-w-7xl mx-auto text-center py-8">
       <Image
         src="https://rshogan.imgix.net/personal/logos/rsh_logo_with_text_nobg.png"
         loading="lazy"
