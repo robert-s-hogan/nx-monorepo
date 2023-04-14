@@ -27,7 +27,7 @@ export function Index() {
           <h1>
             Hello, I am Robert Hogan Front End Developer and UI/UX Engineer
           </h1>
-          <p>This site is currently under construction so dont judge me</p>
+          <p>Moving my site from Netlify/Gatsby to Vercel/NX/Next.js</p>
           <div className="space-x-4 flex">
             <Link
               href="mailto:robert@robertshogan.com"
