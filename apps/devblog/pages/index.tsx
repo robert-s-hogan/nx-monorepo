@@ -2,11 +2,24 @@ import DevBlogLayout from '../components/layout/DevBlogLayout';
 import { Link } from '@with-nx/react-ui';
 
 export function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.css file.
-   */
+  const projectData = [
+    {
+      title: 'Project 1',
+      description: 'This is a project',
+      link: 'https://www.google.com',
+    },
+    {
+      title: 'Project 2',
+      description: 'This is a project',
+      link: 'https://www.google.com',
+    },
+    {
+      title: 'Project 3',
+      description: 'This is a project',
+      link: 'https://www.google.com',
+    },
+  ];
+
   return (
     <DevBlogLayout>
       <div className="container max-w-7xl mx-auto">
@@ -61,10 +74,16 @@ export function Index() {
           <div>
             <h2>Featured Projects</h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3">
-            <div className="card">Project 1</div>
-            <div className="card">Project 2</div>
-            <div className="card">Project 3</div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {projectData.map((project) => {
+              return (
+                <div key={project.title} className="card">
+                  <div className="card-body">
+                    <h3 className="card-title text-black">{project.title}</h3>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
