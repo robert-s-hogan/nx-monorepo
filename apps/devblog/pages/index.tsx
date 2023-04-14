@@ -61,7 +61,11 @@ export function Index() {
           <div>
             <h2>Featured Projects</h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-3">
+            <div className="card">Project 1</div>
+            <div className="card">Project 2</div>
+            <div className="card">Project 3</div>
+          </div>
         </div>
       </div>
     </DevBlogLayout>
