@@ -23,8 +23,6 @@ const nextConfig = {
   },
 };
 
-module.exports = withNx(nextConfig);
-
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
@@ -34,4 +32,4 @@ const withMDX = require('@next/mdx')({
 });
 
 // Merge MDX config with Next.js config
-module.exports = withMDX(nextConfig);
+module.exports = withNx(withMDX(nextConfig));
