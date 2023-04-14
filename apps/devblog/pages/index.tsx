@@ -9,8 +9,12 @@ export function Index() {
   return (
     <DevBlogLayout>
       <div className="container max-w-7xl mx-auto">
-        <h1>Hello, I am Robert Hogan Front End Developer and UI/UX Engineer</h1>
-        <p>This site is currently under construction so dont judge me</p>
+        <div className="space-y-4">
+          <h1>
+            Hello, I am Robert Hogan Front End Developer and UI/UX Engineer
+          </h1>
+          <p>This site is currently under construction so dont judge me</p>
+        </div>
       </div>
     </DevBlogLayout>
   );
