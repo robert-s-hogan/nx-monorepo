@@ -28,13 +28,13 @@ const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
       footer={<DevBlogFooter />}
     >
       <Head>
-        <title>{title ? title : 'Daosim'}</title>
+        <title>{title ? title : 'Robert Hogans Blog'}</title>
         <meta
           name="description"
           content={
             description
               ? description
-              : 'A site dedicated to daoism and eastern philosophy.'
+              : 'Here is my site where I talk about web developement.'
           }
         />
       </Head>
