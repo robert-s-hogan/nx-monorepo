@@ -33,7 +33,7 @@ const CartContext = createContext<{
 // Create the reducer function
 function cartReducer(state: CartState, action: CartAction): CartState {
   switch (action.type) {
-    case 'ADD_ITEM':
+    case 'ADD_ITEM': {
       // Check if the item already exists in the cart
       const itemExists = state.cartItems.find(
         (item) => item.id === action.payload.id
@@ -56,27 +56,27 @@ function cartReducer(state: CartState, action: CartAction): CartState {
           cartItems: [...state.cartItems, { ...action.payload, quantity: 1 }],
         };
       }
-
-    case 'REMOVE_ITEM':
+    }
+    case 'REMOVE_ITEM': {
       return {
         ...state,
         cartItems: state.cartItems.filter((item) => item.id !== action.payload),
       };
-
-    case 'UPDATE_ITEM':
+    }
+    case 'UPDATE_ITEM': {
       return {
         ...state,
         cartItems: state.cartItems.map((item) =>
           item.id === action.payload.id ? action.payload : item
         ),
       };
-
-    case 'CLEAR_CART':
+    }
+    case 'CLEAR_CART': {
       return {
         ...state,
         cartItems: [],
       };
-
+    }
     default:
       return state;
   }
