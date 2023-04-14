@@ -9,8 +9,6 @@ import Script from 'next/script';
 import HeroImg from '../assets/images/rsh_hero_circle.jpg';
 
 const HeroSection = () => {
-  // const { isShowing, toggle } = useModal();
-
   return (
     <Hero
       layout="custom"
