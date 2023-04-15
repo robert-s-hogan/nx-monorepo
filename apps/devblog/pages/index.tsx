@@ -3,8 +3,16 @@ import { Link, Button } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
 import Image from 'next/image';
 import { FaReact } from 'react-icons/fa';
-import { SiJavascript, SiCss3, SiNextdotjs, SiGraphql } from 'react-icons/si';
+import {
+  SiJavascript,
+  SiCss3,
+  SiNextdotjs,
+  SiNx,
+  SiReactquery,
+  SiTailwindcss,
+} from 'react-icons/si';
 import { TbApi } from 'react-icons/tb';
+import { BiWrench } from 'react-icons/bi';
 
 import { projectsData } from '../data/projects';
 import RSHPortrait from '../public/images/portrait.jpg';
@@ -22,6 +30,12 @@ export function Index() {
         return <SiJavascript className="javascript " />;
       case 'CSS':
         return <SiCss3 className="css" />;
+      case 'NX':
+        return <SiNx className="nx" />;
+      case 'ReactQuery':
+        return <SiReactquery className="react-query" />;
+      case 'TailwindCSS':
+        return <SiTailwindcss className="tailwindcss" />;
       // Add more cases for other categories here
       default:
         return null;
@@ -30,10 +44,10 @@ export function Index() {
 
   return (
     <DevBlogLayout>
-      <div className="container max-w-7xl mx-auto">
+      <section className="container max-w-7xl mx-auto">
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center w-3/4 mx-auto">
               <div className="space-y-4">
                 <h1>
                   Hello, I am Robert Hogan <br /> Front End{' '}
@@ -92,17 +106,24 @@ export function Index() {
                 </div>
               </div>
             </div>
-            <Image
-              src={RSHPortrait}
-              height={770}
-              width={500}
-              className="rounded-lg"
-              alt="Robert Hogans Portrait"
-            />
+            <div className="mx-auto">
+              <Image
+                src={RSHPortrait}
+                height={770}
+                width={500}
+                className="rounded-lg"
+                alt="Robert Hogans Portrait"
+              />
+            </div>
           </div>
         </div>
         <section className="space-y-6">
-          <h2>Featured Projects</h2>
+          <div className="space-y-2">
+            <h2>Featured Projects</h2>
+            <p className="sub-title">
+              All my projects are hosted inside the same private NX monorepo
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {projectsData.map((project) => {
@@ -118,7 +139,7 @@ export function Index() {
                         return (
                           <span
                             key={cat}
-                            className="text-3xl text-black bg-gray-200 rounded-full px-2 py-1 mr-2"
+                            className="text-3xl text-black bg-gray-200 rounded-full p-1"
                           >
                             {getIconForCategory(cat)}
                           </span>
@@ -131,9 +152,14 @@ export function Index() {
                           className="btn-primary"
                           disabled={project.isUnderConstruction}
                         >
-                          {project.isUnderConstruction
-                            ? 'Under Construction'
-                            : 'Live Project'}
+                          {project.isUnderConstruction ? (
+                            <div className="flex items-center">
+                              <BiWrench size={18} className="mr-2" />
+                              Under Construction
+                            </div>
+                          ) : (
+                            'Live Project'
+                          )}
                         </Button>
                       </Link>
                       <Link
@@ -150,7 +176,7 @@ export function Index() {
             })}
           </div>
         </section>
-      </div>
+      </section>
     </DevBlogLayout>
   );
 }

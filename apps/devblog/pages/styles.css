@@ -49,19 +49,19 @@
     @apply bg-[#f25626] text-white px-3 py-2 rounded-lg;
   }
   .card {
-    @apply bg-gray-200 shadow-lg rounded-lg p-4;
+    @apply bg-gray-200 shadow-lg rounded-lg p-6;
   }
   .card-body {
     @apply flex flex-col space-y-6;
   }
   .card-title {
-    @apply text-xl font-bold;
+    @apply text-2xl font-semibold;
   }
   .card-text {
-    @apply text-lg;
+    @apply text-lg font-light;
   }
   .sub-title {
-    @apply text-2xl;
+    @apply text-xl;
   }
 }
 
@@ -87,6 +87,14 @@
 
 .css {
   @apply text-[#264de4];
+}
+
+.react-query {
+  @apply text-[#f94354];
+}
+
+.tailwindcss {
+  @apply text-[#3490dc];
 }
 
 section {

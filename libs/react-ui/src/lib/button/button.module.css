@@ -5,3 +5,8 @@
 .button:hover {
   transform: scale(1.05);
 }
+
+.button[disabled]:hover {
+  cursor: not-allowed;
+  transform: none;
+}

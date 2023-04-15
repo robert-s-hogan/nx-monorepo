@@ -5,16 +5,16 @@ export const projectsData = [
       'This project was for a Front End Engineer position that consumes a free API and creates pagination to view all entries.',
     link: 'https://react-fetch-star-wars.vercel.app/',
     github: 'https://github.com/robert-s-hogan/react-fetch-star-wars',
-    category: ['React', 'Next', 'API', 'Pagination'],
+    category: ['React', 'Next', 'API', 'ReactQuery', 'NX', 'TailwindCSS'],
     isUnderConstruction: false,
   },
   {
     title: 'Local Coffee Shop',
     description:
       'Sample coffee shop template using TailwindCSS, Gatsby, and hosted on Netlify.',
-    link: 'https://rshcom-coffee-template.netlify.app/',
+    // link: 'https://rshcom-coffee-template.netlify.app/',
     github: 'https://github.com/robert-s-hogan/gatsby-coffee-shop',
-    category: ['React', 'Next'],
+    category: ['React', 'Next', 'NX', 'TailwindCSS'],
     isUnderConstruction: true,
   },
   {
