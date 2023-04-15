@@ -11,7 +11,11 @@ module.exports = {
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#f25626',
+      },
+    },
   },
   plugins: [],
   presets: [require('../../tailwind-workspace-preset.js')],

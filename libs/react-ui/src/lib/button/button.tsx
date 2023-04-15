@@ -15,12 +15,13 @@
 */
 
 import React, { ButtonHTMLAttributes } from 'react';
+import buttonStyles from './button.module.css';
 
 /* eslint-disable-next-line */
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
   icon?: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   className?: string;
   disabled?: boolean;
@@ -43,7 +44,7 @@ export const Button: React.FC<ButtonProps> = ({
   <button
     type={type}
     onClick={onClick}
-    className={className}
+    className={`${buttonStyles.button} ${className}`}
     disabled={disabled}
     style={style}
     title={title}

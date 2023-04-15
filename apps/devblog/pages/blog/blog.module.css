@@ -11,13 +11,14 @@
   flex-direction: column;
 }
 .title {
-  font-weight: light;
   text-align: center;
   margin: 2rem 0;
   font-size: 2rem;
+  color: #333;
 }
 .date {
   font-size: 0.75rem;
+  color: #333;
 }
 .category {
   font-size: 1rem;

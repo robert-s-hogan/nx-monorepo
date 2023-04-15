@@ -27,13 +27,13 @@ export default function Home({ allPostsData }) {
               .join(' ');
 
             return (
-              <div key={id} className={blogStyles.gridItem}>
+              <div key={id} className={`${blogStyles.gridItem} card`}>
                 <a href={`/blog/${id}`}>
                   <p className={`${categoryClassNames} ${blogStyles.category}`}>
                     {categories}
                   </p>
-                  <p className={blogStyles.date}>{date}</p>
-                  <p className={blogStyles.title}>{title}</p>
+                  <p className={`${blogStyles.date}`}>{date}</p>
+                  <p className={`${blogStyles.title} card-title`}>{title}</p>
                 </a>
               </div>
             );

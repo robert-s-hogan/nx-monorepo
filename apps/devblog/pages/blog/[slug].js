@@ -30,9 +30,12 @@ export default function Post({ postData }) {
 
   return (
     <DevBlogLayout>
-      <article>
+      <article className="space-y-8">
         <h1>{postData.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div
+          className="space-y-6"
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+        />
       </article>
     </DevBlogLayout>
   );
