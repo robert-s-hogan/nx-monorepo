@@ -28,6 +28,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   style?: React.CSSProperties;
   title?: string;
   'aria-label'?: string;
+  loading?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -39,18 +40,22 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   style,
   title,
+  loading,
   ...props
 }) => (
   <button
     type={type}
     onClick={onClick}
-    className={`${buttonStyles.button} ${className}`}
-    disabled={disabled}
+    className={`${buttonStyles.button} ${className} ${
+      icon ? buttonStyles.buttonRow : ''
+    } `}
+    disabled={disabled || loading}
     style={style}
     title={title}
     {...props}
   >
-    {children ? children : null} {icon ? icon : null}
+    {icon ? icon : null} {children ? children : null}
+    {loading ? <span className={buttonStyles.loader}></span> : null}
   </button>
 );
 

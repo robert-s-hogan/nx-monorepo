@@ -38,7 +38,7 @@ const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
           }
         />
       </Head>
-      <div className="container mx-auto max-w-7xl selection:bg-primary">
+      <div className="container mx-auto max-w-full selection:bg-primary">
         {children}
       </div>
     </PageLayout>

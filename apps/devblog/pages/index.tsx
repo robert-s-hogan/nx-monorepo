@@ -44,7 +44,7 @@ export function Index() {
 
   return (
     <DevBlogLayout>
-      <section className="container max-w-7xl mx-auto">
+      <section className="container max-w-7xl mx-auto px-4">
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="flex justify-center items-center w-3/4 mx-auto">
@@ -125,7 +125,7 @@ export function Index() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             {projectsData.map((project) => {
               return (
                 <div key={project.title} className="card">
@@ -151,12 +151,16 @@ export function Index() {
                         <Button
                           className="btn-primary"
                           disabled={project.isUnderConstruction}
+                          icon={
+                            project.isUnderConstruction ? (
+                              <BiWrench size={18} className="mr-2" />
+                            ) : (
+                              ''
+                            )
+                          }
                         >
                           {project.isUnderConstruction ? (
-                            <div className="flex items-center">
-                              <BiWrench size={18} className="mr-2" />
-                              Under Construction
-                            </div>
+                            <span>Under Construction</span>
                           ) : (
                             'Live Project'
                           )}
