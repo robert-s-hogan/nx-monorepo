@@ -29,7 +29,12 @@ const RSHoganComLayout: React.FC<RSHoganComLayoutProps> = ({
       footer={<RSHoganComFooter />}
     >
       <Head>
-        <title>{title ? title : 'Home | Robert Hogan'}</title>
+        <title>{title ? title : 'UI/UX Engineer | Robert Hogan'}</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+        <link rel="icon" type="image/png" href="/favicon.ico" />
         <meta
           name="description"
           content={
