@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Calendly from './calendly';
+import Seo from './seo';
 
-describe('Calendly', () => {
+describe('Seo', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Calendly />);
+    const { baseElement } = render(<Seo />);
     expect(baseElement).toBeTruthy();
   });
 });

@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { PageLayout } from '@with-nx/react-ui';
 import { useRouter } from 'next/router';
+import { Seo } from '@with-nx/nextjs-react-ui';
 
 import DevBlogHeader from './DevBlogHeader';
 
@@ -31,22 +32,21 @@ const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
       header={hideNavBarProp ? '' : <DevBlogHeader />}
       footer={<DevBlogFooter />}
     >
-      <Head>
-        <title>{title ? title : 'Robert Hogans Blog'}</title>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, viewport-fit=cover"
-        />
-        <link rel="icon" type="image/png" href="/favicon.ico" />
-        <meta
-          name="description"
-          content={
-            description
-              ? description
-              : 'Here is my site where I talk about web developement.'
-          }
-        />
-      </Head>
+      <Seo
+        title={title ? title : 'Portfolio | Robert Hogan'}
+        description={
+          description
+            ? description
+            : 'Here is my site where I talk about web developement.'
+        }
+        url="https://www.robertshogan.com"
+        faviconPath="/favicon.ico"
+        image="/images/portrait.jpg"
+        twitterHandle="@robert_s_hogan"
+        siteName="Robert Hogans Blog"
+        appleTouchIconPath="/apple-touch-icon.png"
+        keywords="UI, UX, Front end, engineer, web developer"
+      />
       <div
         className={`container mx-auto ${
           hideMaxWidth7xl ? 'max-w-full' : 'max-w-7xl'

@@ -81,6 +81,7 @@
     "typeorm": "^0.3.12"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.14.5",
     "@nestjs/schematics": "^9.0.4",
     "@nestjs/testing": "^9.3.11",
     "@nestjs/typeorm": "^9.0.1",
@@ -104,6 +105,8 @@
     "@storybook/manager-webpack5": "^6.5.16",
     "@storybook/react": "^6.5.16",
     "@svgr/webpack": "^5.5.0",
+    "@swc/core": "^1.2.173",
+    "@swc/jest": "0.2.20",
     "@testing-library/react": "14.0.0",
     "@types/jest": "^29.5.0",
     "@types/node": "18.14.2",
