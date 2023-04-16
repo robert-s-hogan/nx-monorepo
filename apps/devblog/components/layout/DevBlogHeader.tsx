@@ -6,13 +6,7 @@ import { useState, useEffect } from 'react';
 import RSHLogo from '../../public/images/rsh_logo.png';
 
 const logo = (
-  <Image
-    src={RSHLogo}
-    alt="Robert's Dev Logo"
-    height="41"
-    width="48"
-    className="h-8"
-  />
+  <Image src={RSHLogo} alt="Robert's Dev Logo" height={41} width={48} />
 );
 
 const links: { href: string; label: string; type?: NavbarLinkType }[] = [
@@ -58,6 +52,7 @@ const DevBlogHeader = () => {
           links={links}
           logo={logo}
           isOpen={true}
+          logoText="Robert Hogan's Portfolio"
           toggleButton={toggleButton}
         />
       </div>

@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { getPostData, getAllPostIds } from '../../../../_articles';
 import DevBlogLayout from '../../components/layout/DevBlogLayout';
+import Image from 'next/image';
 
 export async function getStaticPaths() {
   const paths = getAllPostIds().map((id) => ({
@@ -36,6 +37,16 @@ export default function Post({ postData }) {
           className="space-y-6"
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
         />
+        {postData.image && ( // Only render the image if postData.image exists
+          <div>
+            <Image
+              src={postData.image}
+              alt={`Image for ${postData.title}`}
+              width={600} // Adjust the width and height as needed
+              height={400}
+            />
+          </div>
+        )}
       </article>
     </DevBlogLayout>
   );

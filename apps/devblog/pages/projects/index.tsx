@@ -69,7 +69,13 @@ const Projects = () => {
                     })}
                   </div>
                   <div className="w-full flex justify-between text-black mt-8">
-                    <Link href={project.link} target="_blank">
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      className={
+                        project.isUnderConstruction ? 'no-underline' : ''
+                      }
+                    >
                       <Button
                         className="btn-primary"
                         disabled={project.isUnderConstruction}

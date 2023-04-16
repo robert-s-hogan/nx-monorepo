@@ -13,7 +13,6 @@ import {
 } from 'react-icons/si';
 import { TbApi } from 'react-icons/tb';
 import { BiWrench } from 'react-icons/bi';
-import { useRouter } from 'next/router';
 
 import { projectsData } from '../data/projects';
 import RSHPortrait from '../public/images/portrait.jpg';
@@ -42,7 +41,6 @@ export function Index() {
         return null;
     }
   }
-  const router = useRouter();
   return (
     <DevBlogLayout>
       <section className="container max-w-7xl mx-auto px-4">
@@ -112,6 +110,7 @@ export function Index() {
                 src={RSHPortrait}
                 height={770}
                 width={500}
+                priority
                 className="rounded-lg"
                 alt="Robert Hogans Portrait"
               />
@@ -149,7 +148,13 @@ export function Index() {
                         })}
                       </div>
                       <div className="w-full flex justify-between text-black mt-8">
-                        <Link href={project.link} target="_blank">
+                        <Link
+                          href={project.link}
+                          target="_blank"
+                          className={
+                            project.isUnderConstruction ? 'no-underline' : ''
+                          }
+                        >
                           <Button
                             className="btn-primary"
                             disabled={project.isUnderConstruction}
@@ -173,7 +178,10 @@ export function Index() {
                           target="_blank"
                           className="hover:text-vivid-500"
                         >
-                          <FiGithub size={24} color="black" />
+                          <FiGithub
+                            size={24}
+                            className="text-black hover:text-vivid-500"
+                          />
                         </Link>
                       </div>
                     </div>

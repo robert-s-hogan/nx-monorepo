@@ -63,6 +63,9 @@
   .sub-title {
     @apply text-xl;
   }
+  .logo-text {
+    @apply no-underline;
+  }
 }
 
 .react {
@@ -104,6 +107,26 @@ button[disabled] {
   @apply bg-gray-300 text-gray-500 cursor-not-allowed;
 }
 
+a button span {
+  @apply no-underline;
+}
+
 #__next {
   height: 100%;
+}
+
+a {
+  @apply underline decoration-primary;
+}
+
+a:hover {
+  @apply text-gray-300 opacity-90;
+}
+
+pre {
+  @apply bg-gray-100 rounded-lg p-4 overflow-x-auto;
+}
+
+code {
+  @apply text-gray-800 font-mono;
 }

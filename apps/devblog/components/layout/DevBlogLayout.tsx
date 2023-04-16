@@ -27,7 +27,7 @@ const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
   const hideMaxWidth7xl = asPath.includes('projects/dnd-interactive-map');
   return (
     <PageLayout
-      className={`w-full bg-gray-800 min-h-screen ${className}`}
+      className={`w-full min-h-screen ${className}`}
       header={hideNavBarProp ? '' : <DevBlogHeader />}
       footer={<DevBlogFooter />}
     >
@@ -37,6 +37,7 @@ const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
+        <link rel="icon" type="image/png" href="/favicon.ico" />
         <meta
           name="description"
           content={

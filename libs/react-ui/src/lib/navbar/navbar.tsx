@@ -22,6 +22,7 @@ interface NavbarProps {
     type?: 'link' | 'button';
   }[];
   logo?: React.ReactNode;
+  logoText?: string;
   isOpen: boolean;
   className?: string;
   isDarkMode?: boolean;
@@ -34,6 +35,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({
   links,
   logo,
+  logoText,
   isOpen,
   className,
   isDarkMode = false,
@@ -45,6 +47,11 @@ export const Navbar: React.FC<NavbarProps> = ({
   <nav className={className}>
     <div className="navbar-left items-center flex space-x-4">
       {logo ? <a href="/">{logo}</a> : null}
+      {logoText ? (
+        <a href="/" className="logo-text text-sm md:text-base font-semibold">
+          {logoText}
+        </a>
+      ) : null}
       {showSearchBar && (
         <SearchBar {...searchBarProps} icon={searchBarProps?.icon} />
       )}

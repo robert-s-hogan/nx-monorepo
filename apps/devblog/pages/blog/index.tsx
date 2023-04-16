@@ -28,7 +28,7 @@ export default function Home({ allPostsData }) {
 
             return (
               <div key={id} className={`${blogStyles.gridItem} card`}>
-                <a href={`/blog/${id}`}>
+                <a href={`/blog/${id}`} className="no-underline">
                   <p className={`${categoryClassNames} ${blogStyles.category}`}>
                     {categories}
                   </p>

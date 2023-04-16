@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app';
 import './styles.css';
+import '../styles/themes.css';
 import { GoogleTagManager } from '@with-nx/analytics';
 import { ThemeProvider } from 'next-themes';
 

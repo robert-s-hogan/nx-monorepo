@@ -1,0 +1,37 @@
+.dark {
+  --bg-color: #1a202c;
+  --text-color: #e2e8f0;
+  --heading-color: #fff;
+  --link-color: #fff;
+  --button-bg-color: #4a5568;
+  --button-text-color: #ffffff;
+}
+
+.light {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --heading-color: #00000;
+  --link-color: #000;
+  --button-bg-color: #3182ce;
+  --button-text-color: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--heading-color);
+}
+
+a {
+  color: var(--link-color);
+}
