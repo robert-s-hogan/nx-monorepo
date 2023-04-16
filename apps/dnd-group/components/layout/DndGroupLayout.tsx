@@ -32,6 +32,11 @@ const DndGroupLayout: React.FC<DndGroupLayoutProps> = ({
       <Head>
         <title>{title ? title : 'Daosim'}</title>
         <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+        <link rel="icon" type="image/png" href="/favicon.ico" />
+        <meta
           name="description"
           content={
             description
