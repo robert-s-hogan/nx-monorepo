@@ -27,7 +27,7 @@ function SwapiLayout({
         }
         url="https://swapi-nx.vercel.app/"
         faviconPath="/favicon.ico"
-        image="/images/portrait.jpg"
+        image="/images/Portrait.png"
         twitterHandle="@robert_s_hogan"
         siteName="Robert Hogan's SWAPI Project"
         appleTouchIconPath="/apple-touch-icon.png"
