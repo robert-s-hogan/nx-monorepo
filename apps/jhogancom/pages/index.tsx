@@ -3,7 +3,7 @@ import { useModal } from '@with-nx/react-hooks';
 
 import JHoganComLayout from '../components/layout/JHoganComLayout';
 import ProjectSection from '../components/projects/ProjectSection';
-import { Seo, Link } from '@with-nx/react-ui';
+import { Link } from '@with-nx/react-ui';
 import { Hero, Section } from '@with-nx/react-tailwind-ui';
 import {
   FiArrowRight,
@@ -24,10 +24,6 @@ export function Index() {
 
   return (
     <JHoganComLayout>
-      <Seo
-        title="Data Scientist and Data Analyst - Jessica Hogan M.A."
-        description="I want to help you make the best data-driven decisions and translate data into actionable insights. As a Data Scientist and Data Analyst, I translate data into actionable insights. I have experience with SQL, Excel, reporting, dashboards and statistics."
-      />
       <Hero
         id="hero"
         backgroundImage="https://via.placeholder.com/1500"
