@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
+import { Seo } from '@with-nx/nextjs-react-ui';
 import { PageLayout } from '@with-nx/react-ui';
 
 import RSHoganComHeader from './RSHoganComHeader';
@@ -28,22 +28,22 @@ const RSHoganComLayout: React.FC<RSHoganComLayoutProps> = ({
       header={hideNavBarProp ? '' : <RSHoganComHeader />}
       footer={<RSHoganComFooter />}
     >
-      <Head>
-        <title>{title ? title : 'UI/UX Engineer | Robert Hogan'}</title>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, viewport-fit=cover"
-        />
-        <link rel="icon" type="image/png" href="/favicon.ico" />
-        <meta
-          name="description"
-          content={
-            description
-              ? description
-              : 'Robert Hogan Web Developer, UI/UX Engineer. I design and code beautifully simple things, and I love what I do.'
-          }
-        />
-      </Head>
+      <Seo
+        title={title ? title : 'UI/UX Engineer | Robert Hogan'}
+        description={
+          description
+            ? description
+            : 'Meet Robert, a talented Web Developer and UI/UX Engineer with a passion for designing and coding beautifully simple digital products. Explore his impressive portfolio of projects and discover how he can help enhance your digital presence.'
+        }
+        url="https://www.robertshogan.com"
+        faviconPath="/favicon.ico"
+        image="/images/portrait.jpg"
+        twitterHandle="@robert_s_hogan"
+        siteName="Robert Hogans Blog"
+        appleTouchIconPath="/apple-touch-icon.png"
+        keywords="Robert, Web Developer, UI/UX Engineer, freelance designer, remote work, responsive, optimize digital marketing, design projects, Front end"
+      />
+
       {children}
     </PageLayout>
   );

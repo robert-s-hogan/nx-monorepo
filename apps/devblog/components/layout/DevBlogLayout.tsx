@@ -36,15 +36,15 @@ const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
         description={
           description
             ? description
-            : 'Meet Robert, a talented Web Developer and UI/UX Engineer with a passion for designing and coding beautifully simple digital products. Explore his impressive portfolio of projects and discover how he can help enhance your digital presence.'
+            : 'Explore Robert Hogans portfolio as a Front End UI/UX Engineer, showcasing his expertise in creating innovative web solutions with cutting-edge technologies like Vercel, NX, and Next.js. Discover his featured projects, including an interactive map, memory game, and more.'
         }
-        url="https://www.robertshogan.com"
+        url="https://www.roberthogan.dev/"
         faviconPath="/favicon.ico"
         image="/images/portrait.jpg"
         twitterHandle="@robert_s_hogan"
-        siteName="Robert Hogans Blog"
+        siteName="Robert Hogans Portfolio"
         appleTouchIconPath="/apple-touch-icon.png"
-        keywords="Robert, Web Developer, UI/UX Engineer, freelance designer, remote work, responsive, optimize digital marketing, design projects, Front end"
+        keywords="Robert Hogan, Portfolio, Front End UI/UX Engineer, Vercel, NX, Next.js, featured projects, private NX monorepo, Star Wars API Pagination, interactive map, Memory Game, Game of Concentration, vanilla javascript, web development, web solutions."
       />
       <div
         className={`container mx-auto ${

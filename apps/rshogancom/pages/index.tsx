@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Seo, Button } from '@with-nx/react-ui';
+import { Button } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
 import RSHModal from '../components/RSHModal';
 
@@ -23,11 +23,6 @@ export function Index() {
 
   return (
     <RSHoganComLayout>
-      <Seo
-        title="Engineer - Robert S. Hogan"
-        description="Robert S. Hogan is a software engineer with a passion for building web applications and mobile apps. He has experience with React, Next.js, ChakraUI, and more."
-      />
-
       <HeroSection />
       {/* Hi Im Robert */}
       <section className="w-full bg-white py-24 flex flex-col justify-center text-center px-4">
