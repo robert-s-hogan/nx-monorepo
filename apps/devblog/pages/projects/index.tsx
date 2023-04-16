@@ -2,7 +2,6 @@ import React from 'react';
 import DevBlogLayout from '../../components/layout/DevBlogLayout';
 import { Link, Button, Text, Heading } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
-import Image from 'next/image';
 import { FaReact } from 'react-icons/fa';
 import {
   SiJavascript,
@@ -14,7 +13,6 @@ import {
 } from 'react-icons/si';
 import { TbApi } from 'react-icons/tb';
 import { BiWrench } from 'react-icons/bi';
-import { useRouter } from 'next/router';
 import { projectsData } from '../../data/projects';
 
 const Projects = () => {
@@ -41,16 +39,15 @@ const Projects = () => {
         return null;
     }
   }
-  const router = useRouter();
   return (
     <DevBlogLayout>
-      <section className="space-y-6">
+      <section className="space-y-6 px-4">
         <Heading level={1}>Projects</Heading>
         <Text className="sub-title">
           Here are all my projects I have worked on (still moving projects over
           to the monorepo) &#129318;
         </Text>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {projectsData.map((project) => {
             return (
               <div key={project.title} className="card">

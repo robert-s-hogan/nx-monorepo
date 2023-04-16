@@ -15,6 +15,9 @@ const KonvaMap = () => {
       isDragging: false,
     }));
   }
+  const handleTouchMove = (e) => {
+    e.evt.preventDefault();
+  };
 
   const [players, setPlayers] = useState(generateShapes());
   const [stageSize, setStageSize] = useState({
@@ -48,7 +51,11 @@ const KonvaMap = () => {
   };
 
   return (
-    <Stage width={stageSize.width} height={stageSize.height}>
+    <Stage
+      width={stageSize.width}
+      height={stageSize.height}
+      onTouchMove={handleTouchMove}
+    >
       <Layer>
         {players.map((player) => (
           <Player

@@ -48,7 +48,7 @@ export function Index() {
       <section className="container max-w-7xl mx-auto px-4">
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="flex justify-center items-center w-3/4 mx-auto">
+            <div className="flex justify-center items-center w-full md:w-3/4 mx-auto">
               <div className="space-y-4">
                 <h1>
                   Hello, I am Robert Hogan <br /> Front End{' '}
@@ -107,7 +107,7 @@ export function Index() {
                 </div>
               </div>
             </div>
-            <div className="mx-auto">
+            <div className="mx-auto mt-8 md:mt-0">
               <Image
                 src={RSHPortrait}
                 height={770}
