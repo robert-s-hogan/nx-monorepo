@@ -1,3 +1,6 @@
+export * from './lib/box/box';
+export * from './lib/section/section';
+export * from './lib/grid/grid';
 export * from './lib/skeleton/skeleton';
 export * from './lib/skeleton-text/skeleton-text';
 export * from './lib/progress/progress';
