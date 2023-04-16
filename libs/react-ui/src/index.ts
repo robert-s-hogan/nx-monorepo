@@ -1,3 +1,4 @@
+export * from './lib/flex/flex';
 export * from './lib/box/box';
 export * from './lib/section/section';
 export * from './lib/grid/grid';
