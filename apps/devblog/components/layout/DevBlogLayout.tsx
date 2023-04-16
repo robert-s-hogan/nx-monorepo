@@ -36,7 +36,7 @@ const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
         description={
           description
             ? description
-            : 'Here is my site where I talk about web developement.'
+            : 'Meet Robert, a talented Web Developer and UI/UX Engineer with a passion for designing and coding beautifully simple digital products. Explore his impressive portfolio of projects and discover how he can help enhance your digital presence.'
         }
         url="https://www.robertshogan.com"
         faviconPath="/favicon.ico"
@@ -44,7 +44,7 @@ const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
         twitterHandle="@robert_s_hogan"
         siteName="Robert Hogans Blog"
         appleTouchIconPath="/apple-touch-icon.png"
-        keywords="UI, UX, Front end, engineer, web developer"
+        keywords="Robert, Web Developer, UI/UX Engineer, freelance designer, remote work, responsive, optimize digital marketing, design projects, Front end"
       />
       <div
         className={`container mx-auto ${
