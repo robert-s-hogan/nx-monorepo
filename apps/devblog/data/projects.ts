@@ -9,14 +9,14 @@ export const projectsData = [
     isUnderConstruction: false,
   },
   {
-    title: 'Local Coffee Shop',
-    description:
-      'Sample coffee shop template using TailwindCSS, Gatsby, and hosted on Netlify.',
-    // link: 'https://rshcom-coffee-template.netlify.app/',
-    github: 'https://github.com/robert-s-hogan/gatsby-coffee-shop',
+    title: 'Interactive Map',
+    description: 'This project will be used for an DND app as a dungeon map.',
+    link: 'https://www.roberthogan.dev/projects/dnd-interactive-map',
+    github: '',
     category: ['React', 'Next', 'NX', 'TailwindCSS'],
-    isUnderConstruction: true,
+    isUnderConstruction: false,
   },
+
   {
     title: 'Memory Game',
     description:
@@ -25,5 +25,14 @@ export const projectsData = [
     github: 'https://github.com/robert-s-hogan/Project-Memory-Game',
     category: ['JavaScript', 'CSS'],
     isUnderConstruction: false,
+  },
+  {
+    title: 'Local Coffee Shop',
+    description:
+      'Sample coffee shop template using TailwindCSS, Gatsby, and hosted on Netlify.',
+    // link: 'https://rshcom-coffee-template.netlify.app/',
+    github: 'https://github.com/robert-s-hogan/gatsby-coffee-shop',
+    category: ['React', 'Next', 'NX', 'TailwindCSS'],
+    isUnderConstruction: true,
   },
 ];

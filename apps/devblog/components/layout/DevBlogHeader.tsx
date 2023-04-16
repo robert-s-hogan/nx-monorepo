@@ -21,11 +21,11 @@ const links: { href: string; label: string; type?: NavbarLinkType }[] = [
     label: 'Blog',
     type: NavbarLinkType.Link,
   },
-  // {
-  //   href: '/#who-i-am',
-  //   label: 'Who I Am',
-  //   type: NavbarLinkType.Link,
-  // },
+  {
+    href: '/projects',
+    label: 'Projects',
+    type: NavbarLinkType.Link,
+  },
 ];
 
 const DevBlogHeader = () => {

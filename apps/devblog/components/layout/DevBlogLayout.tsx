@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { PageLayout } from '@with-nx/react-ui';
+import { useRouter } from 'next/router';
 
 import DevBlogHeader from './DevBlogHeader';
 
@@ -21,9 +22,12 @@ const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
   description,
   hideNavBar: hideNavBarProp,
 }: DevBlogLayoutProps) => {
+  const router = useRouter();
+  const asPath = router.asPath;
+  const hideMaxWidth7xl = asPath.includes('projects/dnd-interactive-map');
   return (
     <PageLayout
-      className={className ? className : 'w-full bg-gray-800 min-h-screen'}
+      className={`w-full bg-gray-800 min-h-screen ${className}`}
       header={hideNavBarProp ? '' : <DevBlogHeader />}
       footer={<DevBlogFooter />}
     >
@@ -38,7 +42,11 @@ const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
           }
         />
       </Head>
-      <div className="container mx-auto max-w-full selection:bg-primary">
+      <div
+        className={`container mx-auto ${
+          hideMaxWidth7xl ? 'max-w-full' : 'max-w-7xl'
+        } selection:bg-primary ${className}`}
+      >
         {children}
       </div>
     </PageLayout>
