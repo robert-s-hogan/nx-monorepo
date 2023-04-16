@@ -26,7 +26,6 @@ export function Index() {
       <Seo
         title="Engineer - Robert S. Hogan"
         description="Robert S. Hogan is a software engineer with a passion for building web applications and mobile apps. He has experience with React, Next.js, ChakraUI, and more."
-        faviconPath="../static/favicon.ico"
       />
 
       <HeroSection />

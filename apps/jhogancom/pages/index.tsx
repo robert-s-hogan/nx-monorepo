@@ -27,7 +27,6 @@ export function Index() {
       <Seo
         title="Data Scientist and Data Analyst - Jessica Hogan M.A."
         description="I want to help you make the best data-driven decisions and translate data into actionable insights. As a Data Scientist and Data Analyst, I translate data into actionable insights. I have experience with SQL, Excel, reporting, dashboards and statistics."
-        faviconPath="../static/favicon.ico"
       />
       <Hero
         id="hero"
