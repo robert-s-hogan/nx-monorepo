@@ -3,15 +3,9 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { FiSearch } from 'react-icons/fi';
+import PlaceholderImage from '../../public/images/1500.png';
 
-const logo = (
-  <Image
-    src="https://via.placeholder.com/300.png/09f/fff"
-    height={50}
-    width={50}
-    alt="Logo"
-  />
-);
+const logo = <Image src={PlaceholderImage} height={50} width={50} alt="Logo" />;
 
 const searchIcon = <FiSearch />;
 

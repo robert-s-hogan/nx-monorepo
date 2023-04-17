@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { projectStaticData } from '../../data/projects';
 import JHoganComLayout from '../../components/layout/JHoganComLayout';
+import JHLogo from '../../public/images/jh_logo.webp';
 
 export async function getStaticPaths() {
   const paths = projectStaticData.map((project) => ({
@@ -90,7 +91,7 @@ export default function Projects({ project }) {
 
           <Image
             className="hidden md:block object-cover w-1/4 h-screen rounded-full ring-2 ring-gray-500/50 ring-offset-[30px]"
-            src="https://i.ibb.co/Byd813Q/mateus-campos-felipe-Zxd-JFg-SGQBA-unsplash.jpg"
+            src={JHLogo}
             alt="Your Name Here"
           />
 

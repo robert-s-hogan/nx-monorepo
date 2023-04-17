@@ -1,14 +1,15 @@
 import Image from 'next/image';
 import { Link } from '@with-nx/react-ui';
+import RSHLogo from '../../public/images/rsh_logo.png';
 
 const RSHoganComFooter = () => {
   return (
     <footer className="max-w-7xl mx-auto text-center py-8">
       <Image
-        src="https://rshogan.imgix.net/personal/logos/rsh_logo_with_text_nobg.png"
+        src={RSHLogo}
         loading="lazy"
-        height={100}
-        width={198}
+        height={50}
+        width={99}
         className="mx-auto -mt-12 mb-24"
         alt="RobertsHogan Logo"
       />

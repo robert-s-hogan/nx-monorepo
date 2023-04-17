@@ -20,7 +20,7 @@ export default function Custom404() {
           <p className="pb-4 md:pb-8">
             You can also{' '}
             <Link
-              href="https://www.broadwaymedia.com/about/contact-us"
+              href="mailto:robert@robertshogan.com?subject=404%20Error%20on%20robertshogan.com"
               className="text-catalog-primary underline"
               target="_blank"
             >

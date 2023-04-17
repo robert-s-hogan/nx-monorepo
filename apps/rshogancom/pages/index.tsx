@@ -8,6 +8,12 @@ import RSHModal from '../components/RSHModal';
 import RSHoganComLayout from '../components/layout/RSHoganComLayout';
 import HeroSection from '../components/HeroSection';
 
+//projects
+import CoffeeShop from '../public/images/coffee_shop.png';
+import ProductShop from '../public/images/product_shop.png';
+import DeckShop from '../public/images/deck_shop.png';
+
+//collaborators
 import OneDemocracy from '../assets/images/one_democracy.webp';
 import MGISolution from '../assets/images/mgi_solutions.svg';
 import AnItalianDish from '../assets/images/an_italian_dish.png';
@@ -151,7 +157,7 @@ export function Index() {
                 <Image
                   width={750}
                   height={500}
-                  src="https://rshogan.imgix.net/projects/tailwindcss-cofee-shop/rsh_coffee_hero.png"
+                  src={CoffeeShop}
                   alt="Local Coffee Shop Template"
                   className="object-contain"
                 />
@@ -209,7 +215,7 @@ export function Index() {
                 <Image
                   width={750}
                   height={500}
-                  src="https://rshogan.imgix.net/projects/svelte-tailwindcss-product-template/product_design.png"
+                  src={ProductShop}
                   alt="Product Shop Template"
                   className="object-contain"
                 />
@@ -267,7 +273,7 @@ export function Index() {
                 <Image
                   width={750}
                   height={500}
-                  src="https://rshogan.imgix.net/projects/svelte-tailwindcss-deck-project/deck_design.png"
+                  src={DeckShop}
                   alt="Construction Site Template"
                 />
               </div>

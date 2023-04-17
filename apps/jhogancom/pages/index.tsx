@@ -24,11 +24,7 @@ export function Index() {
 
   return (
     <JHoganComLayout>
-      <Hero
-        id="hero"
-        backgroundImage="https://via.placeholder.com/1500"
-        height="620px"
-      >
+      <Hero id="hero" height="620px">
         <div className="bg-gradient-to-br from-peach to-mint scroll-smooth w-full h-full">
           <div className="flex justify-center flex-col items-center h-full text-center">
             <h1 className="font-semibold text-4xl text-black">

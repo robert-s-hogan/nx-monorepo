@@ -4,10 +4,11 @@ import { useTheme } from 'next-themes';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { NavbarLinkType } from '@with-nx/react-ui';
 import { useState, useEffect } from 'react';
+import JHLogo from '../../public/images/jh_logo_white.webp';
 
 const logo = (
   <Image
-    src="https://rshogan.imgix.net/personal/logos/jh_logo_white.png"
+    src={JHLogo}
     alt="Jessica Hogan's Logo"
     height="32"
     width="82"

@@ -16,6 +16,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 import rshLogo from '../assets/images/rsh_logo_Crop.jpg';
+import PlaceholderImage from '../public/images/1500.png';
 
 function Index() {
   const [quantity, setQuantity] = useState(1);
@@ -29,17 +30,17 @@ function Index() {
     {
       name: 'Projector 1',
       price: 100,
-      image: 'https://picsum.photos/200/300',
+      image: PlaceholderImage,
     },
     {
       name: 'Projector 2',
       price: 200,
-      image: 'https://picsum.photos/200/300',
+      image: PlaceholderImage,
     },
     {
       name: 'Projector 3',
       price: 300,
-      image: 'https://picsum.photos/200/300',
+      image: PlaceholderImage,
     },
   ];
 
@@ -437,7 +438,6 @@ function Index() {
       <Hero
         title="Welcome to placeholder!"
         subtitle="This is a placeholder for your next project."
-        // backgroundImage="https://via.placeholder.com/1500"
         buttonClassName="btn-primary"
         buttonText="Get Started"
         buttonIcon={<span>👉</span>}
@@ -477,7 +477,7 @@ function Index() {
             <Card
               title="Card Title"
               description="Card description"
-              image="https://via.placeholder.com/150"
+              image={PlaceholderImage}
               label="Label"
               price={100}
               discountedPrice={80}
@@ -485,7 +485,7 @@ function Index() {
             <Card
               title="Card Title"
               description="Card description"
-              image="https://via.placeholder.com/150"
+              image={PlaceholderImage}
               label="Label"
               price={100}
               discountedPrice={80}
@@ -493,7 +493,7 @@ function Index() {
             <Card
               title="Card Title"
               description="Card description"
-              image="https://via.placeholder.com/150"
+              image={PlaceholderImage}
               label="Label"
               price={100}
               discountedPrice={80}
@@ -505,9 +505,9 @@ function Index() {
           <p>import ImageCarousel @with-nx/react-tailwind-ui</p>
           <ImageCarousel
             images={[
-              'https://via.placeholder.com/150',
-              'https://via.placeholder.com/250',
-              'https://via.placeholder.com/350',
+              { PlaceholderImage },
+              { PlaceholderImage },
+              { PlaceholderImage },
             ]}
           />
         </div>
