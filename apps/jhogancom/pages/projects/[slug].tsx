@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { projectStaticData } from '../../data/projects';
 import JHoganComLayout from '../../components/layout/JHoganComLayout';
-import JHLogo from '../../public/images/jh_logo.webp';
+import JHLogo from '../../public/images/jh_logo_white.webp';
 
 export async function getStaticPaths() {
   const paths = projectStaticData.map((project) => ({

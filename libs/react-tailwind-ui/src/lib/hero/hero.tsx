@@ -18,13 +18,13 @@
 */
 
 /* eslint-disable-next-line */
-type HeroSectionProps = {
-  backgroundImage: string;
+interface HeroSectionProps {
+  backgroundImage?: string;
   height: string;
   children: React.ReactNode;
   backgroundSize?: string;
   id?: string;
-};
+}
 
 export const Hero = ({
   backgroundImage,
@@ -32,7 +32,7 @@ export const Hero = ({
   children,
   backgroundSize = 'cover',
   id,
-}) => {
+}: HeroSectionProps) => {
   return (
     <section
       id={id ? id : ''}

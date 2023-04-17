@@ -477,7 +477,7 @@ function Index() {
             <Card
               title="Card Title"
               description="Card description"
-              image={PlaceholderImage}
+              image="../public/images/1500.png"
               label="Label"
               price={100}
               discountedPrice={80}
@@ -485,7 +485,7 @@ function Index() {
             <Card
               title="Card Title"
               description="Card description"
-              image={PlaceholderImage}
+              image="../public/images/1500.png"
               label="Label"
               price={100}
               discountedPrice={80}
@@ -493,7 +493,7 @@ function Index() {
             <Card
               title="Card Title"
               description="Card description"
-              image={PlaceholderImage}
+              image="../public/images/1500.png"
               label="Label"
               price={100}
               discountedPrice={80}
@@ -505,9 +505,9 @@ function Index() {
           <p>import ImageCarousel @with-nx/react-tailwind-ui</p>
           <ImageCarousel
             images={[
-              { PlaceholderImage },
-              { PlaceholderImage },
-              { PlaceholderImage },
+              '../public/images/1500.png',
+              '../public/images/1500.png',
+              '../public/images/1500.png',
             ]}
           />
         </div>
