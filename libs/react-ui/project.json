@@ -7,14 +7,20 @@
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["libs/react-ui/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "libs/react-ui/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/react-ui"],
+      "outputs": [
+        "{workspaceRoot}/coverage/libs/react-ui"
+      ],
       "options": {
         "jestConfig": "libs/react-ui/jest.config.ts",
         "passWithNoTests": true
@@ -23,11 +29,9 @@
     "storybook": {
       "executor": "@nrwl/storybook:storybook",
       "options": {
-        "uiFramework": "@storybook/react",
         "port": 4400,
-        "config": {
-          "configFolder": "libs/react-ui/.storybook"
-        }
+        "configDir": "libs/react-ui/.storybook",
+        "uiFramework": "@storybook/react"
       },
       "configurations": {
         "ci": {
@@ -37,17 +41,29 @@
     },
     "build-storybook": {
       "executor": "@nrwl/storybook:build",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputDir}"
+      ],
       "options": {
-        "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/react-ui",
-        "config": {
-          "configFolder": "libs/react-ui/.storybook"
-        }
+        "outputDir": "dist/storybook/react-ui",
+        "configDir": "libs/react-ui/.storybook",
+        "uiFramework": "@storybook/react"
       },
       "configurations": {
         "ci": {
           "quiet": true
+        }
+      }
+    },
+    "static-storybook": {
+      "executor": "@nrwl/web:file-server",
+      "options": {
+        "buildTarget": "react-ui:build-storybook",
+        "staticFilePath": "dist/storybook/react-ui"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "react-ui:build-storybook:ci"
         }
       }
     }
