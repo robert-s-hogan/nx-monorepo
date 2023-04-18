@@ -28,16 +28,6 @@ export function Index() {
   return (
     <ChilloutLayout>
       <div className="h-screen w-full relative">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          id="myVideo"
-          className="h-screen w-full object-cover absolute -z-10"
-        >
-          <source src="/landing-video.mp4" type="video/mp4" />
-        </video>
         <Flex className="h-full flex-col justify-center items-center text-center text-white px:2 lg:px-6 space-y-10">
           <Heading level={1} className="uppercase lg:text-7xl">
             We keep you cool

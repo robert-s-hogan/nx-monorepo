@@ -19,7 +19,7 @@ interface ChilloutLayoutProps {
 
 const ChilloutLayout: React.FC<ChilloutLayoutProps> = ({
   children,
-  className,
+  className = '',
   title,
   description,
   hideNavBar: hideNavBarProp,
@@ -33,6 +33,16 @@ const ChilloutLayout: React.FC<ChilloutLayoutProps> = ({
       header={hideNavBarProp ? '' : <ChilloutHeader />}
       footer={<ChilloutFooter />}
     >
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        id="myVideo"
+        className="h-screen w-full object-cover absolute -z-10"
+      >
+        <source src="/landing-video.mp4" type="video/mp4" />
+      </video>
       <Seo
         title={title ? title : 'Portfolio | Robert Hogan'}
         description={
