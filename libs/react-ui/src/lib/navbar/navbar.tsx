@@ -46,9 +46,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => (
   <nav className={className}>
     <div className="navbar-left items-center flex space-x-4">
-      {logo ? <a href="/">{logo}</a> : null}
+      {logo ? (
+        <a href="/" className="navbar-logo">
+          {logo}
+        </a>
+      ) : null}
       {logoText ? (
-        <a href="/" className="logo-text text-sm md:text-base font-semibold">
+        <a
+          href="/"
+          className="navbar-logo-text text-sm md:text-base font-semibold"
+        >
           {logoText}
         </a>
       ) : null}

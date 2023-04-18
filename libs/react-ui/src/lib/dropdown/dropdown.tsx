@@ -49,14 +49,19 @@ export interface DropdownProps {
   className?: string;
 }
 
-export function Dropdown({ options, value, onChange }: DropdownProps) {
+export function Dropdown({
+  options,
+  value,
+  onChange,
+  className,
+}: DropdownProps) {
   const handleOnChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = event.target.value;
     onChange(selectedValue);
   };
 
   return (
-    <select value={value} onChange={handleOnChange}>
+    <select className={className} value={value} onChange={handleOnChange}>
       {options.map((option) => (
         <option key={option.value} value={option.value}>
           {option.label}

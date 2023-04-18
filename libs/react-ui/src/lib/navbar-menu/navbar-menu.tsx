@@ -24,7 +24,7 @@ export const NavbarMenu: React.FC<NavbarMenuProps> = ({
   links,
   toggleButton,
 }) => (
-  <ul className="flex space-x-4 items-center">
+  <ul className={`navbar-menu flex space-x-4 items-center`}>
     {links.map((link) => (
       <li key={link.href}>
         <NavbarLink
