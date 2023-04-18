@@ -57,14 +57,16 @@ const DevBlogHeader = () => {
 
   return (
     <header>
-      <div className="mx-auto max-w-7xl w-full flex flex-col justify-center items-center">
-        <Navbar
-          className="flex justify-between container mx-auto space-x-4 py-4 items-center bg-opacity-10"
-          links={links}
-          logo={logo}
-          isOpen={true}
-          toggleButton={toggleButton}
-        />
+      <div className="w-full bg-primary bg-opacity-60">
+        <div className="mx-auto max-w-7xl w-full flex flex-col justify-center items-center">
+          <Navbar
+            className="flex justify-between container mx-auto space-x-4 py-4 items-center "
+            links={links}
+            logo={logo}
+            isOpen={true}
+            toggleButton={toggleButton}
+          />
+        </div>
       </div>
     </header>
   );

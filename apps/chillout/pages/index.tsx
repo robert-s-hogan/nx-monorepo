@@ -57,6 +57,7 @@ export function Index() {
           ))}
         </div>
       </div>
+      <div className="mt-3 lg:mt-52" />
     </ChilloutLayout>
   );
 }

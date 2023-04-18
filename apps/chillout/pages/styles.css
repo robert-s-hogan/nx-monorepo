@@ -44,11 +44,14 @@
 }
 
 @layer components {
+  header {
+    @apply bg-transparent text-white absolute inset-0;
+  }
   .navbar-menu ul {
     @apply flex flex-col ml-auto text-white font-bold md:items-center lg:flex-row duration-300 ease-out;
   }
   .navbar-menu li a {
-    @apply hover:text-blue-100 uppercase text-white;
+    @apply hover:text-blue-100 uppercase text-white font-semibold;
   }
   .sub-title {
     @apply text-xl lg:text-2xl;
