@@ -1,3 +1,7 @@
+export * from './lib/tabs/tabs';
+export * from './lib/tab-list/tab-list';
+export * from './lib/tab-panel/tab-panel';
+export * from './lib/tab/tab';
 export * from './lib/flex/flex';
 export * from './lib/box/box';
 export * from './lib/section/section';
