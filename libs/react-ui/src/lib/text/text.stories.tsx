@@ -1,18 +1,22 @@
-import type { Meta } from '@storybook/react';
-import {  Text  }  from './text';
+import React from 'react';
+import { Meta, Story } from '@storybook/react';
+import { Text, TextProps } from './text';
 
-
-
-
-
-const Story: Meta<typeof Text> = {
+const meta: Meta = {
   component: Text,
-  title: 'Text', 
+  title: 'Text',
 };
-export default Story;
+export default meta;
 
+const Template: Story<TextProps> = (args) => <Text {...args}>Sample Text</Text>;
 
-export const Primary = {
-  args: {
-  },
+export const Primary = Template.bind({});
+Primary.args = {
+  className: '',
+  id: '',
+  style: {},
+  onClick: undefined,
+  'aria-label': '',
+  loading: false,
+  loadingRows: 1,
 };

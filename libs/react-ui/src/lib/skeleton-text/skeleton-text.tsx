@@ -9,12 +9,12 @@ interface SkeletonTextProps {
 const SkeletonText: React.FC<SkeletonTextProps> = ({ rows }) => {
   return (
     <React.Fragment>
-      {new Array(rows || 1).fill(
+      {new Array(rows || 1).fill(null).map((_, index) => (
         <div
-          key={Math.random()}
+          key={`skeleton-text-${index}`}
           className={`skeleton-text ${skeletonTextStyles.textSkeleton}`}
         ></div>
-      )}
+      ))}
     </React.Fragment>
   );
 };

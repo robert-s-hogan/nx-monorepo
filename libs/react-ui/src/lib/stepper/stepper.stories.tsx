@@ -1,18 +1,23 @@
-import type { Meta } from '@storybook/react';
-import {  Stepper  }  from './stepper';
+import React from 'react';
+import { Meta, Story } from '@storybook/react';
+import { FiMinus, FiPlus } from 'react-icons/fi';
+import { Stepper, StepperProps } from './stepper';
 
-
-
-
-
-const Story: Meta<typeof Stepper> = {
+const meta: Meta = {
   component: Stepper,
-  title: 'Stepper', 
+  title: 'Stepper',
 };
-export default Story;
+export default meta;
 
+const Template: Story<StepperProps> = (args) => <Stepper {...args} />;
 
-export const Primary = {
-  args: {
+export const Primary = Template.bind({});
+Primary.args = {
+  value: 1,
+  onValueChange: (newValue: number) => {
+    console.log('New Value:', newValue);
   },
+  minusIcon: <FiMinus />,
+  plusIcon: <FiPlus />,
+  className: 'my-stepper',
 };

@@ -7,15 +7,24 @@ export interface BoxProps {
   className?: string;
   role?: string;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  style?: React.CSSProperties;
 }
 
-export function Box({ id, children, className, role, onClick }: BoxProps) {
+export function Box({
+  id,
+  children,
+  className,
+  role,
+  onClick,
+  style,
+}: BoxProps) {
   return (
     <div
-      className={`${reactUIBoxStyles.box} ${className}`}
+      className={`box ${reactUIBoxStyles.box} ${className}`}
       id={id}
       role={role}
       onClick={onClick}
+      style={style}
     >
       {children}
     </div>

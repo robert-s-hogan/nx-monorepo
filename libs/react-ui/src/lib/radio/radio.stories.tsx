@@ -1,18 +1,20 @@
-import type { Meta } from '@storybook/react';
-import {  Radio  }  from './radio';
+import React from 'react';
+import { Meta, Story } from '@storybook/react';
+import { Radio, RadioProps } from './radio';
 
-
-
-
-
-const Story: Meta<typeof Radio> = {
+const meta: Meta = {
   component: Radio,
-  title: 'Radio', 
+  title: 'Radio',
 };
-export default Story;
+export default meta;
 
+const Template: Story<RadioProps> = (args) => <Radio {...args} />;
 
-export const Primary = {
-  args: {
-  },
+export const Primary = Template.bind({});
+Primary.args = {
+  label: 'Option 1',
+  name: 'exampleRadioGroup',
+  value: 'option1',
+  checked: false,
+  onChange: (value) => console.log(`Radio button selected: ${value}`),
 };

@@ -1,17 +1,18 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Seo } from './seo';
+import React from 'react';
+import { Meta, Story } from '@storybook/react';
+import { Seo, SeoProps } from './seo';
 
-const Story: ComponentMeta<typeof Seo> = {
+const meta: Meta = {
   component: Seo,
   title: 'Seo',
 };
-export default Story;
+export default meta;
 
-const Template: ComponentStory<typeof Seo> = (args) => <Seo {...args} />;
+const Template: Story<SeoProps> = (args) => <Seo {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  title: '',
-  description: '',
-  faviconPath: '',
+  title: 'Example Title',
+  description: 'Example Description',
+  faviconPath: '/path/to/favicon.png',
 };

@@ -1,19 +1,18 @@
-import type { Meta } from '@storybook/react';
-import {  TooltipText  }  from './tooltip-text';
+import React from 'react';
+import { Meta, Story } from '@storybook/react';
+import { TooltipText, TooltipTextProps } from './tooltip-text';
 
-
-
-
-
-const Story: Meta<typeof TooltipText> = {
+const meta: Meta = {
   component: TooltipText,
-  title: 'TooltipText', 
+  title: 'TooltipText',
 };
-export default Story;
+export default meta;
 
+const Template: Story<TooltipTextProps> = (args) => <TooltipText {...args} />;
 
-export const Primary = {
-  args: {
-    className:  '',
-  },
+export const Primary = Template.bind({});
+Primary.args = {
+  children: 'Sample Tooltip Text',
+  className: '',
+  style: {},
 };

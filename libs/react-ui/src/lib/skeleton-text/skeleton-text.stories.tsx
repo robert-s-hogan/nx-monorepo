@@ -1,18 +1,21 @@
-import type { Meta } from '@storybook/react';
-import {  SkeletonText  }  from './skeleton-text';
+import React from 'react';
+import { Meta, Story } from '@storybook/react';
+import { SkeletonText, SkeletonTextProps } from './skeleton-text';
 
-
-
-
-
-const Story: Meta<typeof SkeletonText> = {
+const meta: Meta = {
   component: SkeletonText,
-  title: 'SkeletonText', 
+  title: 'SkeletonText',
 };
-export default Story;
+export default meta;
 
+const Template: Story<SkeletonTextProps> = (args) => <SkeletonText {...args} />;
 
-export const Primary = {
-  args: {
-  },
+export const Primary = Template.bind({});
+Primary.args = {
+  rows: 1,
+};
+
+export const MultipleRows = Template.bind({});
+MultipleRows.args = {
+  rows: 3,
 };

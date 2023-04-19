@@ -1,18 +1,22 @@
-import type { Meta } from '@storybook/react';
-import {  Link  }  from './link';
+import React from 'react';
+import { Meta, Story } from '@storybook/react';
+import { Link, LinkProps } from './link';
 
-
-
-
-
-const Story: Meta<typeof Link> = {
+const meta: Meta = {
   component: Link,
-  title: 'Link', 
+  title: 'Link',
 };
-export default Story;
+export default meta;
 
+const Template: Story<LinkProps> = (args) => (
+  <Link {...args}>Example Link</Link>
+);
 
-export const Primary = {
-  args: {
-  },
+export const Primary = Template.bind({});
+Primary.args = {
+  href: 'https://example.com',
+  children: 'Example Link',
+  className: 'link-class',
+  target: '_blank',
+  rel: 'noopener noreferrer',
 };

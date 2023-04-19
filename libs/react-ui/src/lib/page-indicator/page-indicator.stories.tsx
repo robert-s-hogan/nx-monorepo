@@ -1,21 +1,20 @@
-import type { Meta } from '@storybook/react';
-import {  PageIndicator  }  from './page-indicator';
+import React from 'react';
+import { Meta, Story } from '@storybook/react';
+import { PageIndicator, PageIndicatorProps } from './page-indicator';
 
-
-
-
-
-const Story: Meta<typeof PageIndicator> = {
+const meta: Meta = {
   component: PageIndicator,
-  title: 'PageIndicator', 
+  title: 'PageIndicator',
 };
-export default Story;
+export default meta;
 
+const Template: Story<PageIndicatorProps> = (args) => (
+  <PageIndicator {...args} />
+);
 
-export const Primary = {
-  args: {
-    page:  0,
-    total:  0,
-    className:  '',
-  },
+export const Primary = Template.bind({});
+Primary.args = {
+  page: 2,
+  total: 5,
+  className: 'bg-blue-500',
 };

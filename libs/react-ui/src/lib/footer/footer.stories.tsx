@@ -1,18 +1,24 @@
-import type { Meta } from '@storybook/react';
-import {  Footer  }  from './footer';
+import React from 'react';
+import { Meta, Story } from '@storybook/react';
+import { Footer, FooterProps } from './footer';
 
-
-
-
-
-const Story: Meta<typeof Footer> = {
+const meta: Meta = {
   component: Footer,
-  title: 'Footer', 
-};
-export default Story;
-
-
-export const Primary = {
-  args: {
+  title: 'Footer',
+  argTypes: {
+    className: { control: 'text' },
   },
+};
+export default meta;
+
+const Template: Story<FooterProps> = (args) => <Footer {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  className: '',
+};
+
+export const CustomClass = Template.bind({});
+CustomClass.args = {
+  className: 'bg-gray-200 p-4',
 };

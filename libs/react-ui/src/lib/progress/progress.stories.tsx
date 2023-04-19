@@ -1,18 +1,25 @@
-import type { Meta } from '@storybook/react';
-import {  Progress  }  from './progress';
+import React from 'react';
+import { Meta, Story } from '@storybook/react';
+import { Progress, ProgressProps } from './progress';
 
-
-
-
-
-const Story: Meta<typeof Progress> = {
+const meta: Meta = {
   component: Progress,
-  title: 'Progress', 
+  title: 'Progress',
 };
-export default Story;
+export default meta;
 
+const Template: Story<ProgressProps> = (args) => <Progress {...args} />;
 
-export const Primary = {
-  args: {
-  },
+export const Horizontal = Template.bind({});
+Horizontal.args = {
+  value: 50,
+  maxValue: 100,
+  type: 'horizontal',
+};
+
+export const Circular = Template.bind({});
+Circular.args = {
+  value: 50,
+  maxValue: 100,
+  type: 'circular',
 };
