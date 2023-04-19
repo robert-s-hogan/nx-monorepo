@@ -53,6 +53,8 @@ const CharacterStatsCard = ({ character }: { character: Character }) => {
                 type={saveType.toUpperCase()}
                 baseValue={save.base}
                 modifier={save.modifier}
+                value={true}
+                icon={true}
               />
             );
           })}

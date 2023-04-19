@@ -16,7 +16,6 @@ export async function getSortedPostsData() {
       const fileContents = fs.readFileSync(fullPath, 'utf8');
 
       const matterResult = matter(fileContents);
-      console.log('Image:', matterResult.data.image);
 
       const processedContent = await remark()
         .use(remarkHtml)

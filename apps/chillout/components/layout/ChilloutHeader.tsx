@@ -1,4 +1,4 @@
-import { Navbar, NavbarLinkType } from '@with-nx/react-ui';
+import { Navbar, ButtonProps, LinkProps } from '@with-nx/react-ui';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiMoon, FiSun } from 'react-icons/fi';
@@ -15,21 +15,24 @@ const logo = (
   />
 );
 
-const links: { href: string; label: string; type?: NavbarLinkType }[] = [
+const links: (
+  | (LinkProps & { type?: 'link'; className?: string })
+  | (ButtonProps & { type: 'button'; className?: string })
+)[] = [
   {
     href: '/products',
-    label: 'View Products',
-    type: NavbarLinkType.Link,
+    children: 'View Products',
+    className: 'link',
   },
   {
     href: '/contact',
-    label: 'Contact',
-    type: NavbarLinkType.Link,
+    children: 'Contact',
+    className: 'link',
   },
   {
     href: '/checkout',
-    label: 'Checkout',
-    type: NavbarLinkType.Link,
+    children: 'Checkout',
+    className: 'nav-button',
   },
 ];
 
@@ -60,7 +63,7 @@ const DevBlogHeader = () => {
       <div className="w-full bg-primary bg-opacity-60">
         <div className="mx-auto max-w-7xl w-full flex flex-col justify-center items-center">
           <Navbar
-            className="flex justify-between container mx-auto space-x-4 py-4 items-center "
+            className="flex justify-between container mx-auto space-x-4 py-4 items-center z-10"
             links={links}
             logo={logo}
             isOpen={true}

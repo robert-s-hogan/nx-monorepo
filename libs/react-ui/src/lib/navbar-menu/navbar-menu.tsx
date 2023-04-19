@@ -8,34 +8,33 @@
   label (string): The label for the link.
  */
 
-import NavbarLink, { NavbarLinkType } from '../navbar-link/navbar-link';
+import React from 'react';
+import Button, { ButtonProps } from '../button/button';
+import Link, { LinkProps } from '../link/link';
 
 interface NavbarMenuProps {
-  links: {
-    href: string;
-    label: string;
-    className?: string;
-    type?: 'link' | 'button';
-  }[];
+  links: (
+    | (LinkProps & { type?: 'link'; className?: string })
+    | (ButtonProps & { type: 'button'; className?: string })
+  )[];
   toggleButton?: React.ReactNode;
 }
+
+type LinkItem = Extract<NavbarMenuProps['links'][0], { type?: 'link' }>;
+type ButtonItem = Extract<NavbarMenuProps['links'][0], { type: 'button' }>;
 
 export const NavbarMenu: React.FC<NavbarMenuProps> = ({
   links,
   toggleButton,
 }) => (
   <ul className={`navbar-menu flex space-x-4 items-center`}>
-    {links.map((link) => (
-      <li key={link.href}>
-        <NavbarLink
-          href={link.href}
-          type={
-            link.type === 'button' ? NavbarLinkType.Button : NavbarLinkType.Link
-          }
-          className={link.className}
-        >
-          {link.label}
-        </NavbarLink>
+    {links.map((link, index) => (
+      <li key={index}>
+        {link.type === 'button' ? (
+          <Button {...(link as ButtonItem)}>{link.children}</Button>
+        ) : (
+          <Link {...(link as LinkItem)}>{link.children}</Link>
+        )}
       </li>
     ))}
     {toggleButton ? <li>{toggleButton}</li> : null}

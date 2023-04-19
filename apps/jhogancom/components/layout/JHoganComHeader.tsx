@@ -1,8 +1,7 @@
-import { Navbar } from '@with-nx/react-ui';
+import { Navbar, ButtonProps, LinkProps } from '@with-nx/react-ui';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiMoon, FiSun } from 'react-icons/fi';
-import { NavbarLinkType } from '@with-nx/react-ui';
 import { useState, useEffect } from 'react';
 import JHLogo from '../../public/images/jh_logo_white.webp';
 
@@ -16,16 +15,19 @@ const logo = (
   />
 );
 
-const links: { href: string; label: string; type?: NavbarLinkType }[] = [
+const links: (
+  | (LinkProps & { type?: 'link'; className?: string })
+  | (ButtonProps & { type: 'button'; className?: string })
+)[] = [
   {
     href: '/#projects',
-    label: 'Projects',
-    type: NavbarLinkType.Link,
+    children: 'Projects',
+    className: 'link',
   },
   {
     href: '/#who-i-am',
-    label: 'Who I Am',
-    type: NavbarLinkType.Link,
+    children: 'Who I Am',
+    className: 'link',
   },
 ];
 

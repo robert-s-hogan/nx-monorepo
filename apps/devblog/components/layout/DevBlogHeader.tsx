@@ -1,4 +1,4 @@
-import { Navbar, NavbarLinkType } from '@with-nx/react-ui';
+import { Navbar, ButtonProps, LinkProps } from '@with-nx/react-ui';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiMoon, FiSun } from 'react-icons/fi';
@@ -9,16 +9,19 @@ const logo = (
   <Image src={RSHLogo} alt="Robert's Dev Logo" height={41} width={48} />
 );
 
-const links: { href: string; label: string; type?: NavbarLinkType }[] = [
+const links: (
+  | (LinkProps & { type?: 'link'; className?: string })
+  | (ButtonProps & { type: 'button'; className?: string })
+)[] = [
   {
     href: '/blog',
-    label: 'Blog',
-    type: NavbarLinkType.Link,
+    children: 'Blog',
+    className: 'link',
   },
   {
     href: '/projects',
-    label: 'Projects',
-    type: NavbarLinkType.Link,
+    children: 'Projects',
+    className: 'link',
   },
 ];
 

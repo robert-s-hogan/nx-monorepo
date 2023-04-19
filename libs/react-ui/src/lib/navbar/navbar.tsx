@@ -12,15 +12,16 @@
 
 import React from 'react';
 import NavbarMenu from '../navbar-menu/navbar-menu';
+import { ButtonProps } from '../button/button';
+import { LinkProps } from '../link/link';
 import SearchBar, { SearchBarProps } from '../search-bar/search-bar';
 import Dropdown, { DropdownProps } from '../dropdown/dropdown';
 
 interface NavbarProps {
-  links: {
-    href: string;
-    label: string;
-    type?: 'link' | 'button';
-  }[];
+  links: (
+    | (LinkProps & { type?: 'link'; className?: string })
+    | (ButtonProps & { type: 'button'; className?: string })
+  )[];
   logo?: React.ReactNode;
   logoText?: string;
   isOpen: boolean;

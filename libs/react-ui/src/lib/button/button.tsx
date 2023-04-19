@@ -18,7 +18,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 import buttonStyles from './button.module.css';
 
 /* eslint-disable-next-line */
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
   icon?: React.ReactNode;
   onClick?: () => void;

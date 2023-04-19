@@ -1,4 +1,4 @@
-import { Navbar, NavbarLinkType } from '@with-nx/react-ui';
+import { Navbar, ButtonProps, LinkProps } from '@with-nx/react-ui';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon } from 'react-icons/fi';
@@ -9,35 +9,29 @@ const logo = <Image src={PlaceholderImage} height={50} width={50} alt="Logo" />;
 
 const searchIcon = <FiSearch />;
 
-const links: {
-  href: string;
-  label: string;
-  type?: NavbarLinkType;
-  className?: string;
-}[] = [
+const links: (
+  | (LinkProps & { type?: 'link'; className?: string })
+  | (ButtonProps & { type: 'button'; className?: string })
+)[] = [
   {
     href: '/',
-    label: 'Home',
-    type: NavbarLinkType.Link,
-    className: 'text-white',
+    children: 'Home',
+    className: 'link',
   },
   {
     href: '/blog',
-    label: 'Blog',
-    type: NavbarLinkType.Link,
-    className: 'text-white',
+    children: 'Blog',
+    className: 'link',
   },
   {
     href: '/about',
-    label: 'About',
-    type: NavbarLinkType.Link,
-    className: 'text-white',
+    children: 'About',
+    className: 'link',
   },
   {
     href: '/contact',
-    label: 'Contact',
-    type: NavbarLinkType.Button,
-    className: 'btn-primary text-sm',
+    children: 'Contact',
+    className: 'nav-button',
   },
 ];
 
