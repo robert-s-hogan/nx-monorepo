@@ -35,7 +35,7 @@ const links: (
   },
 ];
 
-const dropdowns = [
+const selects = [
   {
     options: [
       { label: 'Option 1', value: 'option-1' },
@@ -100,7 +100,7 @@ const PlaceholderHeader = () => {
         logo={logo}
         isOpen={true}
         toggleButton={toggleButton}
-        dropdowns={dropdowns}
+        selects={selects}
       />
     </header>
   );

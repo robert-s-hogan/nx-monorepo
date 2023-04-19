@@ -26,7 +26,7 @@ const CampaignPage = ({ campaign }: CampaignProps) => {
     id: campaign.id,
     name: campaign.name,
     player_experience_start: campaign.player_experience_start,
-    group_alive: campaign.group_alive === 'true' ? true : false,
+    // group_alive: campaign.group_alive === 'true' ? true : false,
     notes: campaign.notes,
   });
 
@@ -53,11 +53,11 @@ const CampaignPage = ({ campaign }: CampaignProps) => {
 
     const bodyData = {
       name: campaignData.name,
-      player_count: campaignData.player_count,
+      // player_count: campaignData.player_count,
       player_experience_start: campaignData.player_experience_start,
-      group_alive: campaignData.group_alive,
-      rests: campaignData.rests,
-      notes: campaignData.notes,
+      // group_alive: campaignData.group_alive,
+      // rests: campaignData.rests,
+      // notes: campaignData.notes,
     };
 
     try {
@@ -258,12 +258,12 @@ const CampaignPage = ({ campaign }: CampaignProps) => {
                         <select
                           name="group_alive"
                           id="group_alive"
-                          value={campaignData.group_alive ? 'true' : 'false'}
+                          // value={campaignData.group_alive ? 'true' : 'false'}
                           onChange={(e) =>
                             setCampaignData({
                               ...campaignData,
-                              group_alive:
-                                e.target.value === 'true' ? true : false,
+                              // group_alive:
+                              //   e.target.value === 'true' ? true : false,
                             })
                           }
                         >

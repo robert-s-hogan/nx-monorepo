@@ -33,8 +33,13 @@ import React, { useState } from 'react';
 /* eslint-disable-next-line */
 export interface SelectProps {
   options: SelectOption[];
+  value: string;
   onChange: (value: string) => void;
-  value?: string;
+  className?: string;
+  id?: string;
+  style?: React.CSSProperties;
+  ariaLabel?: string;
+  required?: boolean;
 }
 
 interface SelectOption {
@@ -42,17 +47,31 @@ interface SelectOption {
   label: string;
 }
 
-export const Select: React.FC<SelectProps> = ({ options, onChange, value }) => {
-  const [selectedValue, setSelectedValue] = useState(value || options[0].value);
-
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newValue = event.target.value;
-    setSelectedValue(newValue);
-    onChange(newValue);
+export const Select: React.FC<SelectProps> = ({
+  options,
+  onChange,
+  value,
+  className,
+  id,
+  style,
+  ariaLabel,
+  required,
+}) => {
+  const handleOnChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedValue = event.target.value;
+    onChange(selectedValue);
   };
 
   return (
-    <select value={selectedValue} onChange={handleChange}>
+    <select
+      className={className}
+      id={id}
+      style={style}
+      aria-label={ariaLabel}
+      required={required}
+      value={value}
+      onChange={handleOnChange}
+    >
       {options.map((option) => (
         <option key={option.value} value={option.value}>
           {option.label}

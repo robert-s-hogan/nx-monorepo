@@ -166,6 +166,7 @@ const CharacterStatsCard = ({ character }: { character: Character }) => {
               baseValue={stats.str.base}
               modifier={stats.str.modifier}
               icon={icon}
+              value={stats.speed}
             />
             <StatIcon
               type="DEX"
@@ -195,13 +196,13 @@ const CharacterStatsCard = ({ character }: { character: Character }) => {
               baseValue={stats.wis.base}
               modifier={stats.wis.modifier}
             />
-            <StatIcon
+            {/* <StatIcon
               type="CHA"
-              value={stats.cha}
+              value={stats.wis}
               icon={icon}
               baseValue={stats.cha.base}
               modifier={stats.cha.modifier}
-            />
+            /> */}
           </div>
 
           <div className="space-y-2 mt-4">
@@ -210,20 +211,20 @@ const CharacterStatsCard = ({ character }: { character: Character }) => {
           <div className="space-y-2 mt-4">
             <p>
               <span className="font-semibold">Languages</span>:{' '}
-              {stats?.languages?.base.map((language) => language).join(', ')}
+              {/* {stats?.languages?.base.map((language) => language).join(', ')} */}
             </p>
             <p>Proficiencies</p>
             <p>
               <span className="font-semibold">Weapons</span>:{' '}
-              {stats?.proficiencies?.weapons.map((weapon) => weapon).join(', ')}
+              {/* {stats?.proficiencies?.weapons.map((weapon) => weapon).join(', ')} */}
             </p>
             <p>
               <span className="font-semibold">Armor</span>:{' '}
-              {stats?.proficiencies?.armor.map((armor) => armor).join(', ')}
+              {/* {stats?.proficiencies?.armor.map((armor) => armor).join(', ')} */}
             </p>
             <p>
               <span className="font-semibold">Tools</span>:{' '}
-              {stats?.proficiencies?.tools.map((tool) => tool).join(', ')}
+              {/* {stats?.proficiencies?.tools.map((tool) => tool).join(', ')} */}
             </p>
             <div className="w-full">
               <span className="font-semibold">Notes</span>:
@@ -233,7 +234,7 @@ const CharacterStatsCard = ({ character }: { character: Character }) => {
         <div id="right-character-grid">
           <h3>Senses</h3>
           <div className="grid grid-cols-2 item-center text-center">
-            <StatIcon
+            {/* <StatIcon
               type="PASSIVE PERCEPTION"
               value={stats.passive_perception}
               icon={icon}
@@ -246,7 +247,7 @@ const CharacterStatsCard = ({ character }: { character: Character }) => {
               icon={icon}
               baseValue={stats.dark_vision.base}
               modifier={stats.dark_vision.modifier}
-            />
+            /> */}
           </div>
           {/* <Skills skills={skills} /> */}
         </div>

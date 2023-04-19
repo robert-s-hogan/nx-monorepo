@@ -15,7 +15,7 @@ import NavbarMenu from '../navbar-menu/navbar-menu';
 import { ButtonProps } from '../button/button';
 import { LinkProps } from '../link/link';
 import SearchBar, { SearchBarProps } from '../search-bar/search-bar';
-import Dropdown, { DropdownProps } from '../dropdown/dropdown';
+import Select, { SelectProps } from '../select/select';
 
 interface NavbarProps {
   links: (
@@ -30,7 +30,7 @@ interface NavbarProps {
   toggleButton?: React.ReactNode;
   showSearchBar?: boolean;
   searchBarProps?: SearchBarProps & { icon?: React.ReactNode };
-  dropdowns?: DropdownProps[];
+  selects?: (SelectProps & { className?: string })[];
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -43,7 +43,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   toggleButton,
   showSearchBar = false,
   searchBarProps,
-  dropdowns,
+  selects,
 }) => (
   <nav className={className}>
     <div className="navbar-left items-center flex space-x-4">
@@ -63,9 +63,9 @@ export const Navbar: React.FC<NavbarProps> = ({
       {showSearchBar && (
         <SearchBar {...searchBarProps} icon={searchBarProps?.icon} />
       )}
-      {dropdowns &&
-        dropdowns.map((dropdownProps, index) => (
-          <Dropdown key={index} {...dropdownProps} />
+      {selects &&
+        selects.map((selectProps, index) => (
+          <Select key={index} {...selectProps} />
         ))}
     </div>
 

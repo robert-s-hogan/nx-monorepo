@@ -14,7 +14,7 @@ import {
   GiSpartanHelmet,
   GiPocketBow,
   GiCrossbow,
-  GiAxe,
+  GiAce,
   GiBootStomp,
   GiGauntlet,
   GiBroadDagger,
@@ -44,6 +44,7 @@ import {
   GoRocket,
 } from 'react-icons/go';
 import { BsFillEyeFill } from 'react-icons/bs';
+import { MockEncounterData } from '../types/types';
 
 export function generateMapData() {
   const mapData = [];
@@ -120,7 +121,7 @@ export const itemIcons = {
   Helmet: GiSpartanHelmet,
   Dagger: GiBroadDagger,
   Crossbow: GiCrossbow,
-  Axe: GiAxe,
+  Axe: GiAce,
   Boots: GiBootStomp,
   Gauntlet: GiGauntlet,
   Tome: FaBook,
@@ -199,27 +200,28 @@ export const positions = [
 ];
 
 export function regenerateValues() {
-  const newEncounterData = cloneDeep(encounterData);
+  // const newEncounterData = cloneDeep(encounterData);
+  const newEncounterData = [];
 
-  newEncounterData.map_data.forEach((item) => {
-    item.name = [];
-  });
+  // newEncounterData.map_data.forEach((item) => {
+  //   item.name = [];
+  // });
 
-  newEncounterData.map_data.forEach((item) => {
-    const itemCount = Math.floor(Math.random() * 5) + 1;
-    const items = [];
+  // newEncounterData.map_data.forEach((item) => {
+  //   const itemCount = Math.floor(Math.random() * 5) + 1;
+  //   const items = [];
 
-    for (let j = 0; j < itemCount; j++) {
-      items.push(getRandomItem(itemArray));
-    }
+  //   for (let j = 0; j < itemCount; j++) {
+  //     items.push(getRandomItem(itemArray));
+  //   }
 
-    item.name = items;
-  });
+  //   item.name = items;
+  // });
 
-  _encounterData(newEncounterData);
+  // _encounterData(newEncounterData);
 }
 
-export const mockApiResponse: EncounterData = {
+export const mockApiResponse: any = {
   player_count: 4,
   player_experience_start: 500,
   encounter_adjusted_experience: 1000,
@@ -299,7 +301,6 @@ export const mockApiResponse: EncounterData = {
         proficiencies: {
           weapons: ['Martial Weapons', 'Simple Weapons'],
           armor: ['Heavy Armor', 'Light Armor', 'Medium Armor', 'Shields'],
-          weapons: ['Martial Weapons', 'Simple Weapons'],
           tools: ['Disguise Kit', "Smith's Tools", 'Tantan'],
         },
         saves: {
@@ -1597,7 +1598,7 @@ export const mockApiResponse: EncounterData = {
   has_weather: [true, false],
 };
 
-export const fetchEncounterData = async (): Promise<EncounterData> => {
+export const fetchEncounterData = async (): Promise<any> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(mockApiResponse);

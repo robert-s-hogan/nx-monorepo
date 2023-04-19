@@ -167,7 +167,7 @@ const Admin: React.FC = () => {
               <h2>Campaigns</h2>
               {/* {campaignsData?campaigns?.length && <p>({campaignsData?.length})</p>} */}
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
               {campaignsData?.campaigns.map((campaign) => (
                 <div
                   key={campaign.id}
@@ -187,7 +187,7 @@ const Admin: React.FC = () => {
                       </button>
                     )}
                   </div>
-                  {/* <pre>{JSON.stringify(campaign, null, 2)}</pre> */}
+                  {/* <pre>{JSON.stringify(campaign, null, 2)}</pre>
                   <Link href={`/campaigns/${campaign.id}`}>
                     <div className="admin-card" key={campaign.id}>
                       <h5 className="admin-card-title">{campaign.name}</h5>
@@ -207,7 +207,7 @@ const Admin: React.FC = () => {
                                 <div className="bg-blue-600 h-2.5 rounded-full w-4"></div>
                               </div>
                               3
-                              {/* {campaign.percentageOfAdventuringDayXpRemaining} */}
+                              {/* {campaign.percentageOfAdventuringDayXpRemaining}
                             </div>
                           </div>
 
@@ -223,7 +223,7 @@ const Admin: React.FC = () => {
                   </Link>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

@@ -1,4 +1,4 @@
-import { Entity, EntityType } from '../types/types';
+// import { Entity, EntityType } from '../../types/types';
 import { generateStats } from './statsTable';
 import { generateSkills } from './skillsTable';
 import { getRandomLanguage } from './languagesTable';
@@ -6,7 +6,7 @@ import { generateRace } from './racesTable';
 import { generateFeats } from './featsTable';
 import { generateClass } from './classTable';
 
-export const generateEntity = (type: EntityType, seed?: number): Entity => {
+export const generateEntity = (type: any, seed?: number) => {
   const entityStats = generateStats(seed);
   // const entitySkills = generateSkills(seed);
   const entityRace = generateRace(seed);
