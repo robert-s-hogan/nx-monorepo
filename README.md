@@ -72,6 +72,12 @@ ex:
 
 `nx g @nrwl/react:setup-tailwind --project=<your app here>`
 
+### Storybook commands
+
+Run storybook server locally
+
+`pnpm nx run react-ui:storybook --serve`
+
 ### Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.

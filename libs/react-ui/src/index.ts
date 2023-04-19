@@ -1,3 +1,4 @@
+export * from './lib/pagination/pagination';
 export * from './lib/tabs/tabs';
 export * from './lib/tab-list/tab-list';
 export * from './lib/tab-panel/tab-panel';

@@ -1,4 +1,4 @@
-import styles from './carousel.module.css';
+import carouselStyles from './carousel.module.css';
 import React, { useState } from 'react';
 import Button from '../button/button';
 
@@ -7,7 +7,9 @@ export interface CarouselProps {
   images: string[];
 }
 
-export function Carousel({ images }: CarouselProps) {
+export const Carousel: React.FC<CarouselProps> = ({
+  images,
+}: CarouselProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const goToPreviousImage = () => {
@@ -26,21 +28,24 @@ export function Carousel({ images }: CarouselProps) {
       <img
         src={images[currentImageIndex]}
         alt={`Carousel Image ${currentImageIndex}`}
+        className={`carousel-image ${carouselStyles.carouselImage}`}
       />
       <div className="carousel-buttons">
         <Button
           icon={<span>&larr;</span>}
           onClick={goToPreviousImage}
           aria-label="Previous Image"
+          className={`carousel-button-left ${carouselStyles.carouselButtonLeft}`}
         />
         <Button
           icon={<span>&rarr;</span>}
           onClick={goToNextImage}
           aria-label="Next Image"
+          className={`carousel-button-right ${carouselStyles.carouselButtonRight}`}
         />
       </div>
     </div>
   );
-}
+};
 
 export default Carousel;

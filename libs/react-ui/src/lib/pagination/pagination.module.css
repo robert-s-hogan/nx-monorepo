@@ -1,0 +1,27 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.pageNumber {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: #666;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 16px;
+  margin: 0 4px;
+  transition: all 0.3s ease;
+}
+
+.pageNumber:hover {
+  background-color: #ddd;
+  color: #333;
+}
+
+.currentPage {
+  background-color: #333;
+  border-color: #333;
+  color: #fff;
+}

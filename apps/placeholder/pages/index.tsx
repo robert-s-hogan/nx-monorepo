@@ -22,6 +22,12 @@ function Index() {
   const [quantity, setQuantity] = useState(1);
   const [page, setPage] = useState(0);
 
+  const images = [
+    '../public/images/1500.png',
+    '../public/images/1500.png',
+    '../public/images/1500.png',
+  ];
+
   const onSubmit = (data: any) => {
     console.log(data);
   };
@@ -537,6 +543,11 @@ function Index() {
               </Box>
             </div>
           </div>
+        </div>
+
+        <div className="p-8 border border-red-500 space-y-4">
+          <p>import Carousel @with-nx/react-ui</p>
+          {/* <Carousel images={images} /> */}
         </div>
       </div>
     </PlaceholderLayout>

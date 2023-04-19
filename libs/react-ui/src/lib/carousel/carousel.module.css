@@ -1,7 +1,31 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.carousel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.carouselImage {
+  width: 100%;
+}
+
+.carouselButtonLeft,
+.carouselButtonRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+  border: none;
+  background: none;
+  color: white;
+  cursor: pointer;
+}
+
+.carouselButtonLeft {
+  left: 1em;
+}
+
+.carouselButtonRight {
+  right: 1em;
+}
