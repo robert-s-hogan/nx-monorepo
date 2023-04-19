@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import UseApi from './use-api';
+import Carousel from './carousel';
 
-describe('UseApi', () => {
+describe('Carousel', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<UseApi />);
+    const { baseElement } = render(<Carousel />);
     expect(baseElement).toBeTruthy();
   });
 });
