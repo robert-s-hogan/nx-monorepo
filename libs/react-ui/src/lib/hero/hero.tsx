@@ -45,9 +45,8 @@ export const Hero: React.FC<HeroProps> = ({
             className={buttonClassName}
             onClick={onButtonClick}
             icon={buttonIcon}
-          >
-            {buttonText}
-          </Button>
+            label={buttonText}
+          />
         )}
       </>
     );

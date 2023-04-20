@@ -1,18 +1,42 @@
-import type { Meta } from '@storybook/react';
-import {  NavbarMenu  }  from './navbar-menu';
+import React from 'react';
+import type { Meta, Story } from '@storybook/react';
+import { NavbarMenu, NavbarMenuProps } from './navbar-menu';
 
-
-
-
-
-const Story: Meta<typeof NavbarMenu> = {
+const meta: Meta = {
   component: NavbarMenu,
-  title: 'NavbarMenu', 
+  title: 'NavbarMenu',
 };
-export default Story;
+export default meta;
 
+const Template: Story<NavbarMenuProps> = (args) => <NavbarMenu {...args} />;
 
-export const Primary = {
-  args: {
-  },
+export const Primary = Template.bind({});
+Primary.args = {
+  links: [
+    {
+      type: 'link',
+      href: '/',
+      label: 'Home',
+      children: 'Home',
+    },
+    {
+      type: 'link',
+      href: '/about',
+      label: 'About',
+      children: 'About',
+    },
+    {
+      type: 'link',
+      href: '/contact',
+      label: 'Contact',
+      children: 'Contact',
+    },
+    {
+      type: 'button',
+      onClick: () => {
+        alert('Button clicked!');
+      },
+      children: 'Button',
+    },
+  ],
 };

@@ -1,3 +1,7 @@
+export * from './lib/breadcrumbs/breadcrumbs';
+export * from './lib/card/card';
+export * from './lib/spinner/spinner';
+export * from './lib/badge/badge';
 export * from './lib/pagination/pagination';
 export * from './lib/tabs/tabs';
 export * from './lib/tab-list/tab-list';

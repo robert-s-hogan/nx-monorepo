@@ -36,7 +36,7 @@ export function Index() {
             Here you’ll want to write something super slick and succinct. Bonus
             points for subtle poetic prose
           </Text>
-          <Button className="btn-primary">See How</Button>
+          <Button className="btn-primary" label="See How" />
         </Flex>
 
         <div className="relative lg:flex lg:flex-row text-left justify-center items-center pt-18 pb-30 -mt-32 lg:-mt-52 z-10">

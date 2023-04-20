@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { SkeletonText, SkeletonTextProps } from './skeleton-text';
+import SkeletonText, { SkeletonTextProps } from './skeleton-text';
 
 const meta: Meta = {
   component: SkeletonText,

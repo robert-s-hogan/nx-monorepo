@@ -75,13 +75,16 @@ export const Stepper: React.FC<StepperProps> = ({
         className={stepperStyles.btn}
         onClick={handleDecrement}
         disabled={value < 2}
-      >
-        {minusIcon}
-      </Button>
+        icon={minusIcon}
+        label=""
+      />
       <span className={stepperStyles.value}>{value}</span>
-      <Button className={stepperStyles.btn} onClick={handleIncrement}>
-        {plusIcon}
-      </Button>
+      <Button
+        className={stepperStyles.btn}
+        onClick={handleIncrement}
+        label={''}
+        icon={plusIcon}
+      />
       {value < 1 && (
         <div className={stepperStyles.error}>
           {errorMessage || 'Minimum value is 1'}

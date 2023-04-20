@@ -33,9 +33,7 @@ const RSHoganComHeader = () => {
               </div>
             </NextLink>
             <nav className="flex justify-center">
-              <Button onClick={toggle} type="submit">
-                Say Hello
-              </Button>
+              <Button onClick={toggle} type="submit" label="Say Hello" />
             </nav>
           </div>
         </div>

@@ -165,13 +165,12 @@ export function Index() {
                                 ''
                               )
                             }
-                          >
-                            {project.isUnderConstruction ? (
-                              <span>Under Construction</span>
-                            ) : (
-                              'Live Project'
-                            )}
-                          </Button>
+                            label={
+                              project.isUnderConstruction
+                                ? 'Under Construction'
+                                : 'Live Project'
+                            }
+                          />
                         </Link>
                         <Link
                           href={project.github}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import Pagination, { PaginationProps } from './pagination';
+import paginationStyles from './pagination.module.css';
 
 const meta: Meta = {
   component: Pagination,

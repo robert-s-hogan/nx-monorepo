@@ -52,6 +52,7 @@ export function ConquestModal({
                       className="icon border-0 close absolute top-5 left-7 my-0"
                       // data-dismiss="modal"
                       // aria-label="Close"
+                      label=""
                       onClick={toggle}
                       icon={
                         <>
