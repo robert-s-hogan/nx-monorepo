@@ -5,6 +5,7 @@ import SkeletonText, { SkeletonTextProps } from './skeleton-text';
 const meta: Meta = {
   component: SkeletonText,
   title: 'SkeletonText',
+  title: 'Atoms/SkeletonText',
 };
 export default meta;
 

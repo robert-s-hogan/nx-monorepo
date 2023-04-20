@@ -5,6 +5,7 @@ import { Skeleton, SkeletonProps } from './skeleton';
 const meta: Meta = {
   component: Skeleton,
   title: 'Skeleton',
+  title: 'Atoms/Skeleton',
 };
 export default meta;
 

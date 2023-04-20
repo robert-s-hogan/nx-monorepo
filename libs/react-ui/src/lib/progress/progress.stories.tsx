@@ -5,6 +5,7 @@ import { Progress, ProgressProps } from './progress';
 const meta: Meta = {
   component: Progress,
   title: 'Progress',
+  title: 'Atoms/Progress',
 };
 export default meta;
 

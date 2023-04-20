@@ -5,6 +5,7 @@ import { TooltipText, TooltipTextProps } from './tooltip-text';
 const meta: Meta = {
   component: TooltipText,
   title: 'TooltipText',
+  title: 'Atoms/TooltipText',
 };
 export default meta;
 

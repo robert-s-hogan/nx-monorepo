@@ -5,6 +5,7 @@ import { Modal, ModalProps } from './modal';
 const meta: Meta = {
   component: Modal,
   title: 'Modal',
+  title: 'Atoms/Modal',
 };
 export default meta;
 

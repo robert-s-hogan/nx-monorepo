@@ -5,6 +5,7 @@ import { Input, InputProps } from './input';
 const meta: Meta = {
   component: Input,
   title: 'Input',
+  title: 'Atoms/Input',
 };
 export default meta;
 

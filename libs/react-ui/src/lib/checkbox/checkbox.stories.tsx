@@ -5,6 +5,7 @@ import { Checkbox, CheckboxProps } from './checkbox';
 const meta: Meta = {
   component: Checkbox,
   title: 'Checkbox',
+  title: 'Atoms/Checkbox',
   argTypes: {
     label: { control: 'text' },
     onChange: { action: 'onChange executed!' },

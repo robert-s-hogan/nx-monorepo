@@ -5,6 +5,7 @@ import { Box, BoxProps } from './box';
 const meta: Meta = {
   component: Box,
   title: 'Box',
+  title: 'Atoms/Box',
   argTypes: {
     id: { control: 'text' },
     children: { control: 'text' },

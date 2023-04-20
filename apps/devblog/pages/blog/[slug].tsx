@@ -7,6 +7,7 @@ export async function getStaticPaths() {
   const paths = getAllPostIds().map((id) => ({
     params: { slug: id },
   }));
+  console.log(`paths`, paths);
   return {
     paths,
     fallback: false,
@@ -14,7 +15,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  console.log(`params`, params);
   const postData = await getPostData(params.slug);
+  console.log(`postData`, postData);
   return {
     props: {
       postData,
@@ -24,6 +27,7 @@ export async function getStaticProps({ params }) {
 
 export default function Post({ postData }) {
   const router = useRouter();
+  console.log(`Post: postData`, postData);
 
   if (router.isFallback) {
     return <div>Loading...</div>;

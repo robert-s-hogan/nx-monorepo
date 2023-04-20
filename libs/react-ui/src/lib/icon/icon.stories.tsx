@@ -6,6 +6,7 @@ import { FaCoffee } from 'react-icons/fa';
 const meta: Meta = {
   component: Icon,
   title: 'Icon',
+  title: 'Atoms/Icon',
 };
 export default meta;
 

@@ -6,6 +6,7 @@ import { FaInfoCircle } from 'react-icons/fa';
 const meta: Meta = {
   component: TooltipIcon,
   title: 'TooltipIcon',
+  title: 'Atoms/TooltipIcon',
 };
 export default meta;
 

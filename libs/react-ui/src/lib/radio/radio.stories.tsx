@@ -5,6 +5,7 @@ import { Radio, RadioProps } from './radio';
 const meta: Meta = {
   component: Radio,
   title: 'Radio',
+  title: 'Atoms/Radio',
 };
 export default meta;
 

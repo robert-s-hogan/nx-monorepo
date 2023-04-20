@@ -6,6 +6,7 @@ import paginationStyles from './pagination.module.css';
 const meta: Meta = {
   component: Pagination,
   title: 'Pagination',
+  title: 'Atoms/Pagination',
 };
 export default meta;
 

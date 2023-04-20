@@ -20,6 +20,7 @@ const data = [
 const meta: Meta = {
   component: Tabs,
   title: 'Tabs',
+  title: 'Atoms/Tabs',
 };
 export default meta;
 

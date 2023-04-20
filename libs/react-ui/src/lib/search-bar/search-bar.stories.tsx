@@ -7,6 +7,7 @@ import { FaSearch } from 'react-icons/fa';
 const meta: Meta = {
   component: SearchBar,
   title: 'SearchBar',
+  title: 'Molecules/SearchBar',
 };
 export default meta;
 

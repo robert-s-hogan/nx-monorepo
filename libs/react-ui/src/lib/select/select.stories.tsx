@@ -5,6 +5,7 @@ import { Select, SelectProps } from './select';
 const meta: Meta = {
   component: Select,
   title: 'Select',
+  title: 'Molecules/Select',
 };
 export default meta;
 

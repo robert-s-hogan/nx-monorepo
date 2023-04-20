@@ -1,6 +1,7 @@
 import DevBlogLayout from '../../components/layout/DevBlogLayout';
 import { getSortedPostsData } from '../../../../_articles';
 import blogStyles from './blog.module.css';
+import Link from 'next/link';
 
 export async function getStaticProps() {
   const allPostsData = await getSortedPostsData();
@@ -28,13 +29,13 @@ export default function Home({ allPostsData }) {
 
             return (
               <div key={id} className={`${blogStyles.gridItem} card`}>
-                <a href={`/blog/${id}`} className="no-underline">
+                <Link href={`/blog/${id}`} className="no-underline">
                   <p className={`${categoryClassNames} ${blogStyles.category}`}>
                     {categories}
                   </p>
                   <p className={`${blogStyles.date}`}>{date}</p>
                   <p className={`${blogStyles.title} card-title`}>{title}</p>
-                </a>
+                </Link>
               </div>
             );
           })}
