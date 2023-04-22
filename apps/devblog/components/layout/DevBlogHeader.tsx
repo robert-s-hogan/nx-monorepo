@@ -13,11 +13,11 @@ const links: (
   | (LinkProps & { type?: 'link'; className?: string })
   | (ButtonProps & { type: 'button'; className?: string })
 )[] = [
-  // {
-  //   href: '/blog',
-  //   children: 'Blog',
-  //   className: 'link',
-  // },
+  {
+    href: '/blog',
+    children: 'Blog',
+    className: 'link',
+  },
   {
     href: '/projects',
     children: 'Projects',

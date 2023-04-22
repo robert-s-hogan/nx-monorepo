@@ -16,12 +16,10 @@ export async function getSortedPostsData() {
       const fileContents = fs.readFileSync(fullPath, 'utf8');
 
       const matterResult = matter(fileContents);
-      console.log(`matterResults`, matterResult);
       const processedContent = await remark()
         .use(remarkHtml)
         .process(matterResult.content);
       const contentHtml = processedContent.toString();
-      console.log(`contentHtml`, contentHtml);
       return {
         id,
         ...matterResult.data,
@@ -47,7 +45,6 @@ export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const matterResult = matter(fileContents);
-  console.log(`matterResults`, matterResult);
 
   const processedContent = await remark()
     .use(remarkHtml)

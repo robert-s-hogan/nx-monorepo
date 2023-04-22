@@ -29,7 +29,7 @@ export default function Home({ allPostsData }) {
 
             return (
               <div key={id} className={`${blogStyles.gridItem} card`}>
-                <Link href={`/blog/${id}`} className="no-underline">
+                <Link href={`/blog/${id}.mdx`} className="no-underline">
                   <p className={`${categoryClassNames} ${blogStyles.category}`}>
                     {categories}
                   </p>
