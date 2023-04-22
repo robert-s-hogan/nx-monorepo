@@ -35,6 +35,9 @@
   h6 {
     @apply text-base;
   }
+  p {
+    @apply text-base;
+  }
 }
 
 @layer components {
@@ -50,6 +53,15 @@
   .card:hover {
     @apply -translate-y-1 scale-110 z-50;
   }
+  .skeleton-text-container {
+    @apply space-y-2;
+  }
+  .skeleton {
+    @apply w-[100px];
+  }
+  .skeleton-text {
+    @apply h-6 rounded w-full;
+  }
 }
 
 a {
@@ -57,4 +69,8 @@ a {
 }
 a:hover {
   @apply text-orange;
+}
+
+.text {
+  @apply text-base;
 }

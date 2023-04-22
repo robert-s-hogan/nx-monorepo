@@ -7,6 +7,7 @@ export interface SectionProps {
   className?: string;
   role?: string;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  style?: React.CSSProperties;
 }
 
 export function Section({
@@ -15,6 +16,7 @@ export function Section({
   className,
   role,
   onClick,
+  style,
 }: SectionProps) {
   return (
     <section
@@ -22,6 +24,7 @@ export function Section({
       id={id}
       role={role}
       onClick={onClick}
+      style={style}
     >
       {children}
     </section>

@@ -66,34 +66,35 @@ const ProjectSection = () => {
                 <div className={`flex items-center px-4 py-3 bg-peach`}>
                   <Text
                     className="text-lg font-semibold text-black"
-                    loading={loading}
+                    isLoading={loading}
+                    height={28}
                   >
                     {project.name}
                   </Text>
                 </div>
 
                 <div className="px-4 py-4 flex flex-col justify-between h-64">
-                  <Text
-                    className="py-2 flex-grow"
-                    loading={loading}
-                    loadingRows={4}
-                  >
+                  <Text className="py-2 flex-grow" isLoading={loading} rows={4}>
                     {project.description.length > 200
                       ? project.description.substring(0, 200) + '...'
                       : project.description}
                   </Text>
 
                   <div className="flex justify-between items-end flex-shrink-0">
-                    <Text loading={loading}>#{project.tags[0]}</Text>
+                    <Text isLoading={loading} height={24}>
+                      #{project.tags}
+                    </Text>
 
-                    <Link
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-blue hover:text-black"
-                      href={project.link}
-                    >
-                      <FiGithub size={24} />
-                    </Link>
+                    <Text isLoading={loading} height={24} width={24}>
+                      <Link
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-blue hover:text-black"
+                        href={project.link}
+                      >
+                        <FiGithub size={24} />
+                      </Link>
+                    </Text>
                   </div>
                 </div>
               </div>
@@ -124,25 +125,21 @@ const ProjectSection = () => {
                 <div className={`flex items-center px-4 py-3 bg-peach`}>
                   <Text
                     className="text-lg font-semibold text-black"
-                    loading={loading}
+                    isLoading={loading}
                   >
                     {project.name}
                   </Text>
                 </div>
 
                 <div className="px-4 py-4 flex flex-col justify-between h-64">
-                  <Text
-                    className="py-2 flex-grow"
-                    loadingRows={4}
-                    loading={loading}
-                  >
+                  <Text className="py-2 flex-grow" rows={4} isLoading={loading}>
                     {project.description.length > 200
                       ? project.description.substring(0, 200) + '...'
                       : project.description}
                   </Text>
 
                   <div className="flex justify-between items-end flex-shrink-0">
-                    <Text loading={loading}>#{project.tags[0]}</Text>
+                    <Text isLoading={loading}>#{project.tags}</Text>
 
                     <Link
                       target="_blank"

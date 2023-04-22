@@ -11,7 +11,7 @@
   children (React.ReactNode): The children to be rendered inside the text element.
 */
 
-import SkeletonText from '../skeleton-text/skeleton-text';
+import Skeleton from '../skeleton/skeleton';
 
 /* eslint-disable-next-line */
 export interface TextProps {
@@ -22,8 +22,11 @@ export interface TextProps {
   style?: React.CSSProperties;
   onClick?: (event: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => void;
   'aria-label'?: string;
-  loading?: boolean;
-  loadingRows?: number;
+  isLoading?: boolean;
+  rows?: number;
+  rowWidth?: number;
+  height?: number;
+  width?: number;
 }
 
 export const Text: React.FC<TextProps> = ({
@@ -34,19 +37,32 @@ export const Text: React.FC<TextProps> = ({
   style,
   onClick,
   'aria-label': ariaLabel,
-  loading,
-  loadingRows,
+  isLoading,
+  rows = 1,
+  rowWidth = 100,
+  height = 16,
+  width = 100,
 }) => {
   return (
-    <p
-      className={className}
+    <div
+      className={`text ${className}`}
       id={id}
       style={style}
       onClick={onClick}
       aria-label={ariaLabel}
     >
-      {loading ? <SkeletonText rows={loadingRows} /> : children}
-    </p>
+      {isLoading ? (
+        <Skeleton
+          rows={rows}
+          isLoading={isLoading}
+          rowWidth={rowWidth}
+          height={height}
+          width={width}
+        />
+      ) : (
+        children
+      )}
+    </div>
   );
 };
 

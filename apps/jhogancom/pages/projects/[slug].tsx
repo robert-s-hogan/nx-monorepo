@@ -61,11 +61,12 @@ export default function Projects({ project }) {
             <div className="flex flex-col">
               <h3 className="text-xl font-bold">Technologies used:</h3>
               <br />
-              {project.tags.map((tag) => (
-                <span key={tag} className="text-lg">
-                  <span className="text-blue-600 text-capitalize">{tag}</span>
+
+              <span className="text-lg">
+                <span className="text-blue-600 text-capitalize">
+                  {project.tags}
                 </span>
-              ))}
+              </span>
             </div>
             <div className="px-2">
               <h3 className="text-xl font-bold">Summary</h3>
