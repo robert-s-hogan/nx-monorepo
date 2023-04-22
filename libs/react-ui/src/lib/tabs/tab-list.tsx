@@ -1,5 +1,5 @@
 import styles from './tab-list.module.css';
-import Tab from '../tab/tab';
+import Tab from './tab';
 
 /* eslint-disable-next-line */
 export interface TabListProps {

@@ -22,9 +22,9 @@
 // const App = ()
 
 import React, { useState } from 'react';
-import TabList from '../tab-list/tab-list';
-import TabPanel from '../tab-panel/tab-panel';
-import styles from '../tabs.module.css';
+import TabList from './tab-list';
+import TabPanel from './tab-panel';
+import styles from './tabs.module.css';
 
 /* eslint-disable-next-line */
 export interface TabsProps {

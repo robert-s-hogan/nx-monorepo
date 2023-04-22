@@ -1,5 +1,5 @@
 import React from 'react';
-import { Links } from '@with-nx/react-ui';
+import { List } from '@with-nx/react-ui';
 
 interface FooterProps {
   className: string;
@@ -19,8 +19,8 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
 
   return (
     <footer className={className}>
-      <Links links={links1} />
-      <Links links={links2} />
+      <List items={links1} />
+      <List items={links2} />
     </footer>
   );
 };
