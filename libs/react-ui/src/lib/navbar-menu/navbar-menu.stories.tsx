@@ -5,6 +5,7 @@ import { NavbarMenu, NavbarMenuProps } from './navbar-menu';
 const meta: Meta = {
   component: NavbarMenu,
   title: 'NavbarMenu',
+  title: 'Organisms/NavbarMenu',
 };
 export default meta;
 

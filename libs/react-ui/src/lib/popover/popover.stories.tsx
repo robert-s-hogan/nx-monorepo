@@ -5,6 +5,7 @@ import { Popover, PopoverProps } from './popover';
 const meta: Meta = {
   component: Popover,
   title: 'Popover',
+  title: 'Molecules/Popover',
 };
 export default meta;
 

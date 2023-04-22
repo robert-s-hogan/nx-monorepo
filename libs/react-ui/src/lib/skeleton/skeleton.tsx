@@ -5,11 +5,13 @@ import skeletonStyles from './skeleton.module.css';
 export interface SkeletonProps {
   width?: string | number;
   height?: string | number;
+  isLoading?: boolean;
 }
 
 export const Skeleton: React.FC<SkeletonProps> = ({
   width = '100%',
   height = '100%',
+  isLoading = false,
 }) => {
   const styles = {
     width: typeof width === 'number' ? `${width}px` : width,
@@ -17,7 +19,14 @@ export const Skeleton: React.FC<SkeletonProps> = ({
   };
 
   return (
-    <div className={`skeleton ${skeletonStyles.skeleton}`} style={styles}></div>
+    <>
+      {isLoading && (
+        <div
+          className={`skeleton ${skeletonStyles.skeleton}`}
+          style={styles}
+        ></div>
+      )}
+    </>
   );
 };
 

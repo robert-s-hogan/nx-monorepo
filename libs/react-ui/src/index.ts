@@ -1,3 +1,4 @@
+export * from './lib/tooltip/tooltip';
 export * from './lib/breadcrumbs/breadcrumbs';
 export * from './lib/card/card';
 export * from './lib/spinner/spinner';
@@ -18,8 +19,6 @@ export * from './lib/popover/popover';
 export * from './lib/form/form';
 export * from './lib/multi-step-form/multi-step-form';
 export * from './lib/page-indicator/page-indicator';
-export * from './lib/tooltip-icon/tooltip-icon';
-export * from './lib/tooltip-text/tooltip-text';
 export * from './lib/input/input';
 export * from './lib/stepper/stepper';
 export * from './lib/header/header';

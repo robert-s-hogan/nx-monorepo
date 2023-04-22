@@ -1,0 +1,29 @@
+/* tooltip.module.css */
+.tooltip {
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.tooltipIcon {
+}
+
+.tooltipText {
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tooltipTop {
+  margin-top: 1rem;
+}
+
+.tooltipRight {
+  /* right location specific styles */
+}
+
+.tooltipLeft {
+  /* left location specific styles */
+}
+
+.tooltipBottom {
+  /* bottom location specific styles */
+}

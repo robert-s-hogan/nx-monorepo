@@ -5,6 +5,7 @@ import { List, ListProps } from './list';
 const meta: Meta = {
   component: List,
   title: 'List',
+  title: 'Atoms/List',
 };
 export default meta;
 

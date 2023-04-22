@@ -5,6 +5,7 @@ import { Form, FormProps } from './form';
 const meta: Meta = {
   component: Form,
   title: 'Form',
+  title: 'Molecules/Form',
 };
 export default meta;
 

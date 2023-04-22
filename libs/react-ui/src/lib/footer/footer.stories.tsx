@@ -5,6 +5,7 @@ import { Footer, FooterProps } from './footer';
 const meta: Meta = {
   component: Footer,
   title: 'Footer',
+  title: 'Organisms/Footer',
   argTypes: {
     className: { control: 'text' },
   },

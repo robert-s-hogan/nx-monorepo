@@ -5,6 +5,7 @@ import { Seo, SeoProps } from './seo';
 const meta: Meta = {
   component: Seo,
   title: 'Seo',
+  title: 'Organisms/Seo',
 };
 export default meta;
 

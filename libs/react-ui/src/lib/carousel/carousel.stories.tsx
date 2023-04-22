@@ -5,6 +5,7 @@ import Carousel, { CarouselProps } from './carousel';
 const meta: Meta = {
   component: Carousel,
   title: 'Carousel',
+  title: 'Organisms/Carousel',
 };
 export default meta;
 

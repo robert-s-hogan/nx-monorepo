@@ -6,6 +6,7 @@ import { Stepper, StepperProps } from './stepper';
 const meta: Meta = {
   component: Stepper,
   title: 'Stepper',
+  title: 'Organisms/Stepper',
 };
 export default meta;
 

@@ -5,6 +5,7 @@ import { Flex, FlexProps } from './flex';
 const meta: Meta = {
   component: Flex,
   title: 'Flex',
+  title: 'Atoms/Flex',
   argTypes: {
     id: { control: 'text' },
     className: { control: 'text' },

@@ -5,6 +5,7 @@ import { PageIndicator, PageIndicatorProps } from './page-indicator';
 const meta: Meta = {
   component: PageIndicator,
   title: 'PageIndicator',
+  title: 'Organisms/PageIndicator',
 };
 export default meta;
 

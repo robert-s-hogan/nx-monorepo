@@ -5,6 +5,7 @@ import { Section, SectionProps } from './section';
 const meta: Meta = {
   component: Section,
   title: 'Section',
+  title: 'Atoms/Section',
 };
 export default meta;
 

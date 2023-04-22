@@ -5,6 +5,7 @@ import { Link, LinkProps } from './link';
 const meta: Meta = {
   component: Link,
   title: 'Link',
+  title: 'Atoms/Link',
 };
 export default meta;
 

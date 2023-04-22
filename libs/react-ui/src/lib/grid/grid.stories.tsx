@@ -5,6 +5,7 @@ import { Grid, GridProps } from './grid';
 const meta: Meta = {
   component: Grid,
   title: 'Grid',
+  title: 'Atoms/Grid',
 };
 export default meta;
 

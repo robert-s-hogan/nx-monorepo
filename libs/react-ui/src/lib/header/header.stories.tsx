@@ -5,6 +5,7 @@ import { Header, HeaderProps } from './header';
 const meta: Meta = {
   component: Header,
   title: 'Header',
+  title: 'Organisms/Header',
 };
 export default meta;
 

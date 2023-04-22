@@ -5,6 +5,7 @@ import { MultiStepForm, MultiStepFormProps, FormStep } from './multi-step-form';
 const meta: Meta = {
   component: MultiStepForm,
   title: 'MultiStepForm',
+  title: 'Organisms/MultiStepForm',
 };
 export default meta;
 

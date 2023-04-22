@@ -5,6 +5,7 @@ import { PageLayout, PageLayoutProps } from './page-layout';
 const meta: Meta = {
   component: PageLayout,
   title: 'PageLayout',
+  title: 'Organisms/PageLayout',
 };
 export default meta;
 

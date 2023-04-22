@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import SkeletonImage from '../SkeletonImage';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Text } from '@with-nx/react-ui';
+import { Skeleton } from '@with-nx/react-ui';
 
 import { projectStaticData } from '../../data/projects';
 import { useRouter } from 'next/router';
@@ -9,6 +10,7 @@ import { FiGithub } from 'react-icons/fi';
 
 const ProjectSection = () => {
   const [loading, setLoading] = useState(true);
+  const [hydrated, setHydrated] = useState(true);
 
   const router = useRouter();
 
@@ -19,10 +21,16 @@ const ProjectSection = () => {
   const otherProjects = sortedProjects.filter((project) => !project.featured);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1600);
+    setHydrated(true);
   }, []);
+
+  useEffect(() => {
+    if (hydrated) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1600);
+    }
+  }, [hydrated]);
 
   return (
     <div className="space-y-4">
@@ -42,14 +50,17 @@ const ProjectSection = () => {
                 className="card overflow-hidden rounded-lg border border-opacity-20 border-blue text-left"
               >
                 <div className="relative h-56 w-full">
-                  <SkeletonImage
-                    width={355}
-                    height={224}
-                    className="object-cover object-center w-full h-56"
-                    src={project.image}
-                    alt={project.name}
-                    isLoading={loading}
-                  />
+                  {loading ? (
+                    <Skeleton height={224} isLoading={loading} />
+                  ) : (
+                    <Image
+                      width={355}
+                      height={224}
+                      className="object-cover object-center w-full h-56"
+                      src={project.image}
+                      alt={project.name}
+                    />
+                  )}
                 </div>
 
                 <div className={`flex items-center px-4 py-3 bg-peach`}>
@@ -98,14 +109,17 @@ const ProjectSection = () => {
                 className="card overflow-hidden rounded-lg border bg-white border-opacity-20 border-blue text-left"
               >
                 <div className="relative h-56 w-full">
-                  <SkeletonImage
-                    width="355"
-                    height="224"
-                    className="object-cover object-center w-full h-56"
-                    src={project.image}
-                    alt="avatar"
-                    isLoading={loading}
-                  />
+                  {loading ? (
+                    <Skeleton height={224} isLoading={loading} />
+                  ) : (
+                    <Image
+                      width={355}
+                      height={224}
+                      className="object-cover object-center w-full h-56"
+                      src={project.image}
+                      alt={project.name}
+                    />
+                  )}
                 </div>
                 <div className={`flex items-center px-4 py-3 bg-peach`}>
                   <Text

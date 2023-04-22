@@ -5,6 +5,7 @@ import { Hero, HeroProps } from './hero';
 const meta: Meta = {
   component: Hero,
   title: 'Hero',
+  title: 'Organisms/Hero',
 };
 export default meta;
 
