@@ -467,10 +467,10 @@ type EncounterPageProps = {
 //                     <p className="">NPC</p>
 //                     {npcPopoverContent(entityData)}
 //                   </div>
-//                   <div class="flex items-center justify-center">
-//                     <div class="border h-px w-full" />
-//                     <span class="mx-4">{randomDimension}&nbsp;ft</span>
-//                     <div class="border h-px w-full" />
+//                   <div className="flex items-center justify-center">
+//                     <div className="border h-px w-full" />
+//                     <span className="mx-4">{randomDimension}&nbsp;ft</span>
+//                     <div className="border h-px w-full" />
 //                   </div>
 //                   <DesertSvg mapDimensions={randomDimension}>
 //                     <div className="flex justify-center items-center h-full w-full">

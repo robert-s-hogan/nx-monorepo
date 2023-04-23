@@ -19,7 +19,7 @@ The default file path is '/public/' so make sure you have that folder and the im
 
 ```js
 //Index
-import BgImage from '../assets/images/background_image.jpg'
+import BgImage from '../assets/images/background_image.jpg';
 
 export default function Index() {
   return (
@@ -34,7 +34,7 @@ export default function Index() {
     >
       Overlayed Text
     </div>
-  )
+  );
 }
 ```
 
