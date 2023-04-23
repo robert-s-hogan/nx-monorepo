@@ -40,7 +40,7 @@ export default function Index() {
 
 ## Finally, here is a CSS only solution.
 
-<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="oNdergM" data-user="robertshogan" >
+<p className="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="oNdergM" data-user="robertshogan" >
   <span>See the Pen <a href="https://codepen.io/robertshogan/pen/oNdergM">
   Hero Image using CSS</a> by Robert Hogan (<a href="https://codepen.io/robertshogan">@robertshogan</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>

@@ -8,11 +8,23 @@ draft: false
 
 ```js
 <Box position="relative">
-  <Image src={BgImage} alt="hero" layout="fill" objectFit="cover" objectPosition="center" />
+  <Image
+    src={BgImage}
+    alt="hero"
+    layout="fill"
+    objectFit="cover"
+    objectPosition="center"
+  />
 
-  <Flex height="50vh" direction="column" alignItems="center" justifyContent="center" width="100vw">
+  <Flex
+    height="50vh"
+    direction="column"
+    alignItems="center"
+    justifyContent="center"
+    width="100vw"
+  >
     <Container maxW={{ base: '4xl', xl: '7xl' }} my={4}>
-      <VStack spacing={4} align="center">
+      <VStack spacing={4}>
         <Box
           position="relative"
           width={{ base: '200px', md: '250px' }}
@@ -23,10 +35,10 @@ draft: false
             <Image layout="fill" src={Logo} alt="StagePlayer Logo" priority />
           </Center>
         </Box>
-        <Text fontSize={{ base: '2rem' }} color="brand.100" textAlign="center">
+        <Text fontSize={{ base: '2rem' }} color="brand.100" text>
           Your source for professional-quality digital backdrops
         </Text>
-        <Text fontSize={{ base: '1rem' }} color="whiteAlpha.900" textAlign="center">
+        <Text fontSize={{ base: '1rem' }} color="whiteAlpha.900" text>
           Placeholder text.
         </Text>
       </VStack>
