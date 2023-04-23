@@ -152,7 +152,7 @@ export function Index() {
             see more? <a href="mailto:robert@robertshogan.com">Email me</a>.
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 flex-wrap -m-4 gap-6 md:px-24 lg:px-16">
-            {/* <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full card">
+            <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full card">
               <div className="object-cover h-64 w-full relative overflow-hidden">
                 <Image
                   width={750}
@@ -172,7 +172,7 @@ export function Index() {
                 </p>
                 <div className="flex items-center flex-wrap ">
                   <Link
-                    href="https://rshcom-coffee-template.netlify.app/"
+                    href="https://coffe-shop-nx.vercel.app/"
                     className="text text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
                     target="_blank"
                   >
@@ -209,7 +209,7 @@ export function Index() {
                   </span>
                 </div>
               </div>
-            </div> */}
+            </div>
 
             <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full card">
               <div className="object-cover h-64 w-full relative overflow-hidden">
