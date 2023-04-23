@@ -231,7 +231,7 @@ export function Index() {
                 </p>
                 <div className="flex items-center flex-wrap">
                   <Link
-                    href="https://chillout-kuqkaqvwf-robertshogancom.vercel.app/"
+                    href="https://chillout-7unez0zyz-robertshogancom.vercel.app/"
                     className="text text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
                     target="_blank"
                   >
