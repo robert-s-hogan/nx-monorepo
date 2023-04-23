@@ -48,19 +48,19 @@ const ChilloutLayout: React.FC<ChilloutLayoutProps> = ({
         </video>
       )}
       <Seo
-        title={title ? title : 'Chillout | Robert Hogan'}
+        title={title ? title : 'We Keep You Cool | Premium Cooling Solutions'}
         description={
           description
             ? description
-            : 'Explore Robert Hogans portfolio as a Front End UI/UX Engineer, showcasing his expertise in creating innovative web solutions with cutting-edge technologies like Vercel, NX, and Next.js. Discover his featured projects, including an interactive map, memory game, and more.'
+            : 'Discover top-quality cooling products and solutions at We Keep You Cool. Explore our extensive range of air conditioners, innovative features, and professional services to keep your home and office cool and comfortable.'
         }
-        url="https://www.roberthogan.dev/"
+        url="https://www.wekeepyoucool.com/"
         faviconPath="/favicon.ico"
-        image="/images/portrait.jpg"
-        twitterHandle="@robert_s_hogan"
-        siteName="Robert Hogans Portfolio"
+        image="/images/cooling-logo.jpg"
+        twitterHandle="@WeKeepYouCool"
+        siteName="We Keep You Cool"
         appleTouchIconPath="/apple-touch-icon.png"
-        keywords="Robert Hogan, Portfolio, Front End UI/UX Engineer, Vercel, NX, Next.js, featured projects, private NX monorepo, Star Wars API Pagination, interactive map, Memory Game, Game of Concentration, vanilla javascript, web development, web solutions."
+        keywords="cooling solutions, air conditioners, home cooling, office cooling, cooling products, energy-efficient, innovative features, professional services, We Keep You Cool"
       />
       <div
         className={`container mx-auto ${

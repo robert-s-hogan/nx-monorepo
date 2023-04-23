@@ -34,19 +34,23 @@ const ChilloutLayout: React.FC<ChilloutLayoutProps> = ({
       footer={<AccountantFooter />}
     >
       <Seo
-        title={title ? title : 'Chillout | Robert Hogan'}
+        title={
+          title
+            ? title
+            : 'Cleveland Accounting Services & Consulting | Expert Tax Solutions'
+        }
         description={
           description
             ? description
-            : 'Explore Robert Hogans portfolio as a Front End UI/UX Engineer, showcasing his expertise in creating innovative web solutions with cutting-edge technologies like Vercel, NX, and Next.js. Discover his featured projects, including an interactive map, memory game, and more.'
+            : 'Cleveland Accounting Services & Consulting offers comprehensive accounting, bookkeeping, and tax solutions for businesses. Our team of dedicated experts is ready to help with accurate bookkeeping, business registration, and tax preparation services.'
         }
-        url="https://www.roberthogan.dev/"
+        url="https://accountant-nx.vercel.app/"
         faviconPath="/favicon.ico"
-        image="/images/portrait.jpg"
-        twitterHandle="@robert_s_hogan"
-        siteName="Robert Hogans Portfolio"
+        image="/images/accounting-logo.jpg"
+        twitterHandle="@ClevelandAccounting"
+        siteName="Cleveland Accounting Services & Consulting"
         appleTouchIconPath="/apple-touch-icon.png"
-        keywords="Robert Hogan, Portfolio, Front End UI/UX Engineer, Vercel, NX, Next.js, featured projects, private NX monorepo, Star Wars API Pagination, interactive map, Memory Game, Game of Concentration, vanilla javascript, web development, web solutions."
+        keywords="Cleveland, Accounting, Services, Consulting, bookkeeping, tax, expert, business registration, tax preparation, financial services, accounting solutions, Cleveland accounting firm"
       />
       <div
         className={`container mx-auto ${

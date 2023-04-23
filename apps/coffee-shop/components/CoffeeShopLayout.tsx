@@ -29,24 +29,28 @@ const ChilloutLayout: React.FC<ChilloutLayoutProps> = ({
   const hideMaxWidth7xl = asPath.includes('projects/dnd-interactive-map');
   return (
     <PageLayout
-      className={`w-full ${className}`}
+      className={`w-full  ${className}`}
       header={hideNavBarProp ? '' : <CoffeeShopHeader />}
       footer={<CoffeeShopFooter />}
     >
       <Seo
-        title={title ? title : 'Chillout | Robert Hogan'}
+        title={
+          title
+            ? title
+            : 'Coffee Shop Marketing Expert | Attract More Coffee Lovers'
+        }
         description={
           description
             ? description
-            : 'Explore Robert Hogans portfolio as a Front End UI/UX Engineer, showcasing his expertise in creating innovative web solutions with cutting-edge technologies like Vercel, NX, and Next.js. Discover his featured projects, including an interactive map, memory game, and more.'
+            : 'Boost your coffee shop business with our expert marketing services. We specialize in website design, SEO, and social media management to help coffee shops attract more customers and create a loyal following. Discover the difference today!'
         }
-        url="https://www.roberthogan.dev/"
+        url="https://coffe-shop-nx.vercel.app/"
         faviconPath="/favicon.ico"
-        image="/images/portrait.jpg"
-        twitterHandle="@robert_s_hogan"
-        siteName="Robert Hogans Portfolio"
+        image="/images/coffee_hero.png"
+        twitterHandle="@CoffeeShopMarketingExpert"
+        siteName="Coffee Shop Marketing Expert"
         appleTouchIconPath="/apple-touch-icon.png"
-        keywords="Robert Hogan, Portfolio, Front End UI/UX Engineer, Vercel, NX, Next.js, featured projects, private NX monorepo, Star Wars API Pagination, interactive map, Memory Game, Game of Concentration, vanilla javascript, web development, web solutions."
+        keywords="coffee shop marketing, website design, SEO, social media management, coffee lovers, customer growth, coffee shop success, marketing services, coffee shop promotion"
       />
       <div
         className={`container mx-auto ${
