@@ -155,8 +155,8 @@ export function Index() {
             <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full card">
               <div className="object-cover h-64 w-full relative overflow-hidden">
                 <Image
-                  width={750}
-                  height={500}
+                  width={450}
+                  height={300}
                   src={CoffeeShop}
                   alt="Local Coffee Shop Template"
                   className="object-contain"
@@ -214,8 +214,8 @@ export function Index() {
             <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full card">
               <div className="object-cover h-64 w-full relative overflow-hidden">
                 <Image
-                  width={750}
-                  height={500}
+                  width={450}
+                  height={300}
                   src={ProductShop}
                   alt="Product Shop Template"
                   className="object-contain"
@@ -273,8 +273,8 @@ export function Index() {
             <div className="h-full border border-black border-opacity-40 rounded-lg overflow-hidden w-full card">
               <div className="object-cover h-64 w-full relative overflow-hidden">
                 <Image
-                  width={750}
-                  height={500}
+                  width={450}
+                  height={300}
                   src={DeckShop}
                   alt="Construction Site Template"
                 />
