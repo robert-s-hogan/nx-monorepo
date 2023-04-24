@@ -1,9 +1,13 @@
+import { Button } from '@with-nx/react-ui';
+import { useState, useEffect } from 'react';
+
 interface Props {
   page: number;
   nextPage: string;
   previousPage: string;
   count: number;
   changePage: (newPage: number) => void;
+  isLoading: boolean;
 }
 
 const Pagination: React.FC<Props> = ({
@@ -12,7 +16,9 @@ const Pagination: React.FC<Props> = ({
   previousPage,
   count,
   changePage,
+  isLoading,
 }) => {
+  const [loadingPage, setLoadingPage] = useState<number | null>(null);
   const totalPages = Math.ceil(count / 10);
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
@@ -20,42 +26,54 @@ const Pagination: React.FC<Props> = ({
     const pageNumber = url.split('=')[1];
     return parseInt(pageNumber);
   };
+
+  const handleChangePage = (newPage: number) => {
+    setLoadingPage(newPage);
+    changePage(newPage);
+  };
+
+  useEffect(() => {
+    if (!isLoading && loadingPage !== null) {
+      setLoadingPage(null);
+    }
+  }, [isLoading, loadingPage]);
+
   return (
     <div className="mt-4 flex flex-wrap justify-between">
-      <button
+      <Button
         className={`letter-box bg-orange uppercase ${
           previousPage === null ? 'disabled' : ''
         }`}
         onClick={() =>
-          previousPage && changePage(extractPageNumber(previousPage))
+          previousPage && handleChangePage(extractPageNumber(previousPage))
         }
         disabled={previousPage === null}
-      >
-        Back
-      </button>
+        loading={isLoading}
+        label="Back"
+      />
       <div className="flex items-center space-x-1">
         {pages.map((pageNumber) => (
-          <button
+          <Button
             key={pageNumber}
             className={`letter-box bg-orange px-1 lg:px-3 ${
               pageNumber === page ? 'font-bold disabled' : ''
             }`}
-            onClick={() => changePage(pageNumber)}
+            onClick={() => handleChangePage(pageNumber)}
             disabled={previousPage === null}
-          >
-            {pageNumber}
-          </button>
+            loading={isLoading}
+            label={pageNumber.toString()}
+          />
         ))}
       </div>
-      <button
+      <Button
         className={`letter-box bg-orange uppercase ${
           nextPage === null ? 'disabled' : ''
         }`}
         onClick={() => nextPage && changePage(extractPageNumber(nextPage))}
         disabled={nextPage === null}
-      >
-        Next
-      </button>
+        loading={isLoading}
+        label="Next"
+      />
     </div>
   );
 };

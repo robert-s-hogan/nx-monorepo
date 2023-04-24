@@ -36,8 +36,11 @@ export const Button: React.FC<ButtonProps> = ({
     style={style}
     {...props}
   >
-    {icon ? icon : null} {label}
-    {loading ? <span className={buttonStyles.loader}></span> : null}
+    {loading ? (
+      <span className={buttonStyles.loader}></span>
+    ) : (
+      `${icon ? icon : ''} ${label}`
+    )}
   </button>
 );
 

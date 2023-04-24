@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -13,11 +13,18 @@ export default function Home() {
   const [searchResults, setSearchResults] = useState(false);
   const [nextPage, setNextPage] = useState(1);
   const [previousPage, setPreviousPage] = useState(null);
+  const [initialLoad, setInitialLoad] = useState(true);
 
   const { data, isLoading, isError } = useSWRApi<Person>(
     `people/?page=${nextPage}`,
     character
   );
+
+  useEffect(() => {
+    if (data) {
+      setInitialLoad(false);
+    }
+  }, [data]);
 
   const page = data
     ? data.next
@@ -39,8 +46,10 @@ export default function Home() {
     setCharacter('');
   };
 
-  if (isLoading) return <Loading />;
+  if (isLoading && initialLoad) return <Loading />;
   if (isError) return <div>Error occurred while fetching data</div>;
+
+  console.log(`data`, data);
 
   return (
     <Layout className="px-2">
@@ -92,10 +101,11 @@ export default function Home() {
         )}
         <Pagination
           page={page}
-          nextPage={data.next}
-          previousPage={data.previous}
-          count={data.count}
+          nextPage={data?.next || null}
+          previousPage={data?.previous || null}
+          count={data?.count || 0}
           changePage={changePage}
+          isLoading={isLoading}
         />
       </div>
 

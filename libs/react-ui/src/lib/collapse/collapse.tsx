@@ -1,30 +1,6 @@
-/*
-import React, { useState } from "react";
-import Collapse from "@with-nx/react-ui";
-
-const MyComponent: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleCollapse = () => {
-    setIsOpen(!isOpen);
-  };
-
-  return (
-    <div>
-      <Collapse isOpen={isOpen} startingHeight={0}>
-        {children}
-          </Collapse>
-        </div>
-      );
-    };
-    
-    export default MyComponent;
-*/
-
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './collapse.module.css';
 
-/* eslint-disable-next-line */
 export interface CollapseProps {
   isOpen: boolean;
   startingHeight: number;
@@ -40,8 +16,23 @@ export function Collapse({
   style,
   className,
 }: CollapseProps) {
+  const [height, setHeight] = useState(startingHeight);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      setHeight(ref.current?.scrollHeight || 0);
+    } else {
+      setHeight(startingHeight);
+    }
+  }, [isOpen, startingHeight]);
+
   return (
-    <div isOpen={isOpen} startingHeight={0} style={style} className={className}>
+    <div
+      style={{ ...style, height: `${height}px`, overflow: 'hidden' }}
+      className={className}
+      ref={ref}
+    >
       {children}
     </div>
   );
