@@ -9,7 +9,7 @@ class MyDocument extends Document {
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com/"
-            crossorigin
+            crossOrigin
           />
 
           {/* Google Analytics */}
