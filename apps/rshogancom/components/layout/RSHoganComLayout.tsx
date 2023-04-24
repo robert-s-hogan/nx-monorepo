@@ -28,7 +28,7 @@ const RSHoganComLayout: React.FC<RSHoganComLayoutProps> = ({
       header={hideNavBarProp ? '' : <RSHoganComHeader />}
       footer={<RSHoganComFooter />}
     >
-      {/* <Seo
+      <Seo
         title={title ? title : 'UI/UX Engineer | Robert Hogan'}
         description={
           description
@@ -42,7 +42,7 @@ const RSHoganComLayout: React.FC<RSHoganComLayoutProps> = ({
         siteName="Robert Hogans Blog"
         appleTouchIconPath="/apple-touch-icon.png"
         keywords="Robert, Web Developer, UI/UX Engineer, freelance designer, remote work, responsive, optimize digital marketing, design projects, Front end"
-      /> */}
+      />
 
       {children}
     </PageLayout>
