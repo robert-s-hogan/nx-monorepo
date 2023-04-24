@@ -30,7 +30,6 @@ export function Seo(props: SeoProps) {
   const defaultImage = '/default-image.jpg';
   return (
     <Head>
-      <html lang="en" />
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta
