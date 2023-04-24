@@ -16,6 +16,7 @@ export interface LinkProps {
   className?: string;
   target?: string;
   rel?: string;
+  aria-label?: string;
 }
 
 export const Link: React.FC<LinkProps> = ({
@@ -24,8 +25,9 @@ export const Link: React.FC<LinkProps> = ({
   className,
   target,
   rel,
+  'aria-label',
 }) => (
-  <a className={className} href={href} target={target} rel={rel}>
+  <a className={className} href={href} target={target} rel={rel} aria-label={aria-label}>
     {children}
   </a>
 );
