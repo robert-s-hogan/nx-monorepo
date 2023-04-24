@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 class MyDocument extends Document {
   render() {
@@ -6,23 +7,31 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* Google Analytics */}
-          <script
+          <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-            async
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
+            strategy="lazyOnload"
+            onLoad={() => {
               window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
+              function gtag(...args: any[]) {
+                window.dataLayer.push(args);
+              }
               gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
-            `,
+              gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS);
             }}
           />
 
           {/* Facebook Pixel */}
-          <script
+          <Script
+            strategy="lazyOnload"
+            onLoad={() => {
+              window.fbq =
+                window.fbq ||
+                function () {
+                  (window.fbq.q = window.fbq.q || []).push(arguments);
+                };
+              window.fbq('init', '975859380015760');
+              window.fbq('track', 'PageView');
+            }}
             dangerouslySetInnerHTML={{
               __html: `
               !function(f,b,e,v,n,t,s)
@@ -33,8 +42,6 @@ class MyDocument extends Document {
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '975859380015760');
-              fbq('track', 'PageView');
             `,
             }}
           />
@@ -48,19 +55,9 @@ class MyDocument extends Document {
           </noscript>
 
           {/* Hotjar */}
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-              (function(h,o,t,j,a,r){
-                  h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                  h._hjSettings={hjid:3336749,hjsv:6};
-                  a=o.getElementsByTagName('head')[0];
-                  r=o.createElement('script');r.async=1;
-                  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                  a.appendChild(r);
-              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-            `,
-            }}
+          <Script
+            src="https://static.hotjar.com/c/hotjar-3336749.js?sv=6"
+            strategy="lazyOnload"
           />
         </Head>
         <body>
