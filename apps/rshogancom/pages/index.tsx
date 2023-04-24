@@ -10,7 +10,7 @@ import HeroSection from '../components/HeroSection';
 
 //projects
 import CoffeeShop from '../public/images/coffee_shop.png';
-import ProductShop from '../public/images/product_shop.png';
+import Chillout from '../public/images/chillout.png';
 import DeckShop from '../public/images/deck_shop.png';
 
 //collaborators
@@ -216,14 +216,14 @@ export function Index() {
                 <Image
                   width={450}
                   height={300}
-                  src={ProductShop}
-                  alt="Product Shop Template"
+                  src={Chillout}
+                  alt="Chillout Template"
                   className="object-contain"
                 />
               </div>
               <div className="p-6">
                 <h3 className="title-font text-lg font-medium text-gray-900 mb-3">
-                  Product Shop
+                  Chillout
                 </h3>
                 <p className="leading-relaxed mb-3">
                   Sample product shop for local businesses to promote their
@@ -231,7 +231,7 @@ export function Index() {
                 </p>
                 <div className="flex items-center flex-wrap">
                   <Link
-                    href="https://chillout-7unez0zyz-robertshogancom.vercel.app/"
+                    href="http://chillout.robertshogan.com/"
                     className="text text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
                     target="_blank"
                   >
