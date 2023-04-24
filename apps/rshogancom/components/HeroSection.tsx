@@ -6,7 +6,7 @@ import Image from 'next/image';
 // import Script from 'next/script';
 // import RSHModal from './RSHModal';
 
-import HeroImg from '../assets/images/rsh_hero_circle.jpg';
+import HeroImg from '../assets/images/rsh_hero_circle.webp';
 
 const HeroSection = () => {
   return (

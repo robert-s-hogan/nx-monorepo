@@ -20,6 +20,7 @@ const nextConfig = {
       'rshogan.imgix.net',
       'res.cloudinary.com',
     ],
+    formats: ['image/avif', 'image/webp'],
   },
 };
 
