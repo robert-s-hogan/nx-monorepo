@@ -1,3 +1,5 @@
+export * from './lib/collapse/collapse';
+export * from './lib/collapse/collapse';
 export * from './lib/tooltip/tooltip';
 export * from './lib/breadcrumbs/breadcrumbs';
 export * from './lib/card/card';
