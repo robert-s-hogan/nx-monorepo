@@ -62,7 +62,7 @@ class MyDocument extends Document {
 
           {/* Hotjar */}
           <Script
-            src="https://static.hotjar.com/c/hotjar-3336749.js?sv=6"
+            src={`https://static.hotjar.com/c/hotjar-${process.env.NEXT_PUBLIC_HOTJAR_ID}.js?sv=6`}
             strategy="lazyOnload"
           />
         </Head>
