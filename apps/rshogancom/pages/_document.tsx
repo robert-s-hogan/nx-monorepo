@@ -6,6 +6,12 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com/"
+            crossorigin
+          />
+
           {/* Google Analytics */}
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
