@@ -50,8 +50,6 @@ export function ConquestModal({
                   <div className="relative bg-white rounded-lg shadow">
                     <Button
                       className="icon border-0 close absolute top-5 left-7 my-0"
-                      // data-dismiss="modal"
-                      // aria-label="Close"
                       label=""
                       onClick={toggle}
                       icon={

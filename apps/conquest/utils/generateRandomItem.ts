@@ -1,12 +1,12 @@
 const getRandomElement = (array) => {
   return array[Math.floor(Math.random() * array.length)];
 };
-const itemRarities = ['common', 'uncommon', 'rare', 'very rare', 'legendary']; //magical items - use score to evaluate rarity
-const itemConditions = ['new', 'good', 'used', 'damaged', 'broken']; //mostly descriptive
-const quadrantOptions = [0, 1, 2, 3]; //0 back, 1 right, 2 front, 3 left
-const sizeOptions = ['small', 'medium', 'large']; // structures mostly, species based
-const interactableOptions = [true, false]; // speciality required (magical items, religion)
-const lootOptions = ['gold', 'silver', 'copper', 'gems', 'lint', 'leaves']; //mostly containers: need locked, trapped, full, contents, size restrictions, empty, challenge rating
+const itemRarities = ['common', 'uncommon', 'rare', 'very rare', 'legendary'];
+const itemConditions = ['new', 'good', 'used', 'damaged', 'broken'];
+const quadrantOptions = [0, 1, 2, 3];
+const sizeOptions = ['small', 'medium', 'large'];
+const interactableOptions = [true, false];
+const lootOptions = ['gold', 'silver', 'copper', 'gems', 'lint', 'leaves'];
 
 const generateRandomItem = (name, type, value) => {
   const rarity = getRandomElement(itemRarities);

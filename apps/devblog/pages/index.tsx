@@ -36,7 +36,6 @@ export function Index() {
         return <SiReactquery className="react-query" />;
       case 'TailwindCSS':
         return <SiTailwindcss className="tailwindcss" />;
-      // Add more cases for other categories here
       default:
         return null;
     }

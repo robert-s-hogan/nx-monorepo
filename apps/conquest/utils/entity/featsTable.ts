@@ -51,12 +51,12 @@ export function generateFeats(numFeats = 1, seed?: number) {
 
   for (let i = 0; i < numFeats; i++) {
     if (featsRemaining.length === 0) {
-      break; // No more feats to select from
+      break;
     }
 
-    const randomFeat = random(featsRemaining, seed); // Get a random feat from the remaining feats
-    selectedFeats.push(randomFeat); // Add the feat to the selected feats array
-    featsRemaining.splice(featsRemaining.indexOf(randomFeat), 1); // Remove the feat from the remaining feats array
+    const randomFeat = random(featsRemaining, seed);
+    selectedFeats.push(randomFeat);
+    featsRemaining.splice(featsRemaining.indexOf(randomFeat), 1);
   }
 
   return selectedFeats;

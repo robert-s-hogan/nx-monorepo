@@ -100,8 +100,6 @@ function DesertSvg({ children, mapDimensions = 1200 }: DesertSvgProps) {
       <div
         style={{
           position: 'absolute',
-          // left: `${selectedPoint.x - 50}%`,
-          // top: `${selectedPoint.y - 50}%`,
           zIndex: 2,
         }}
       >

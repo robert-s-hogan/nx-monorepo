@@ -21,7 +21,7 @@ const CheckoutPage: React.FC = () => {
           <form
             name="purchase"
             data-netlify="true"
-            // autocomplete="off"
+            autoComplete="off"
             netlify-honeypot="bot-field"
           >
             {/* <p className="hidden">

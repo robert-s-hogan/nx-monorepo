@@ -55,14 +55,14 @@ export class CampaignController {
   async findOne(@Param('id', ParseIntPipe) id: number) {
     console.log(`ID: ${id}`);
     const options: FindOneOptions = {
-      relations: ['encounters'], // Fetch the related encounters
+      relations: ['encounters'],
     };
     console.log(`Options: ${JSON.stringify(options)}`);
     const campaign = await this.campaignService.findOne(id, options);
     console.log(`Campaign: ${JSON.stringify(campaign)}`);
     const campaignWithEncounterIds = {
       ...campaign,
-      encounters: campaign.encounters.map((encounter) => encounter.id), // Map encounters to their IDs
+      encounters: campaign.encounters.map((encounter) => encounter.id),
     };
     console.log(
       `Campaign with encounter IDs: ${JSON.stringify(campaignWithEncounterIds)}`

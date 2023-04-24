@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Link } from '@with-nx/react-ui';
-// import RSHLogo from '../../public/images/rsh_logo.png';
+
 const ChilloutFooter = () => {
   return (
     <footer className="py-16">

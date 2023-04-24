@@ -27,10 +27,10 @@ export function Seo(props: SeoProps) {
     keywords,
   } = props;
 
-  const defaultImage = '/default-image.jpg'; // Replace with your default image path
-
+  const defaultImage = '/default-image.jpg';
   return (
     <Head>
+      <html lang="en" />
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta

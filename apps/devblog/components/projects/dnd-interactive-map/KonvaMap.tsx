@@ -5,7 +5,7 @@ import Player from './Player';
 const KonvaMap = () => {
   function generateShapes() {
     const classes = ['fighter', 'barbarian', 'wizard'];
-    const gap = 100; // Adjust the gap between the players as needed
+    const gap = 100;
     const startingX = window.innerWidth / 2 - (classes.length * gap) / 2;
     return classes.map((className, i) => ({
       id: i.toString(),
@@ -36,7 +36,7 @@ const KonvaMap = () => {
     };
   }, []);
 
-  const playerRadius = 20; // The radius of the player object, same as in the Player component
+  const playerRadius = 20;
 
   const dragBoundFunc = (pos) => {
     const x = Math.max(

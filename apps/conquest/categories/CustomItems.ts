@@ -20,7 +20,6 @@ const goodConditions = [
     advantage: null,
     disadvantage: null,
   },
-  // ... and so on for all the other conditions
 ];
 
 const sharedEffects = [
@@ -102,7 +101,7 @@ const sharedEffects = [
       max: 2,
     },
     diceAmount: null,
-    disadvantage: null, // true | false | null
+    disadvantage: null,
   },
   {
     type: 'Condition',
@@ -115,11 +114,9 @@ const sharedEffects = [
       max: 2,
     },
     diceAmount: null,
-    disadvantage: null, // true | false | null
+    disadvantage: null,
   },
   ...goodConditions,
-
-  // Add more effects here if needed
 ];
 
 export const CustomItems = [

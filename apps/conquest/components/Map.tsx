@@ -52,7 +52,7 @@ export default function Map({ randomDimension }) {
       (updatedMapData[mapIndex].name[itemIndex] === 'faDragon' ||
         updatedMapData[mapIndex].name[itemIndex] === 'faPeopleGroup')
     ) {
-      return; // Do not remove the icon if it's faDragon or faPeopleGroup
+      return;
     }
 
     const confirmation = window.confirm(
@@ -60,7 +60,7 @@ export default function Map({ randomDimension }) {
     );
     if (confirmation) {
       const newMapData = [...updatedMapData];
-      newMapData[mapIndex].name[itemIndex] = ''; // Set the removed item to an empty string
+      newMapData[mapIndex].name[itemIndex] = '';
       setUpdatedMapData(newMapData);
 
       const newItemPositions = [...itemPositionsState];
@@ -258,7 +258,6 @@ export default function Map({ randomDimension }) {
     const sourceIndex = parseInt(item.id.split('-')[2]);
     const itemIndex = parseInt(item.id.split('-')[1]);
 
-    // Move item to new position
     const newUpdatedMapData = [...updatedMapData];
     if (newUpdatedMapData[sourceIndex]) {
       newUpdatedMapData[sourceIndex].name[itemIndex] = '';
@@ -269,7 +268,6 @@ export default function Map({ randomDimension }) {
     }
     setUpdatedMapData(newUpdatedMapData);
 
-    // Update positions state
     const newItemPositions = [...itemPositionsState];
     newItemPositions[sourceIndex] = getUniqueRandomPositions(
       newUpdatedMapData[sourceIndex]?.name.length + 1 || 0
