@@ -15,7 +15,7 @@ const Plains: React.FC<Props> = (props) => {
   }, [homeworld]);
 
   return (
-    <div className="h-96 w-96 lg:w-80 xl:w-72 bg-plains">
+    <div className="h-full w-full bg-plains">
       <h3 className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-white">
         {homeworldName}
       </h3>

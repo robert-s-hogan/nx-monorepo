@@ -48,22 +48,21 @@ const Pagination: React.FC<Props> = ({
           previousPage && handleChangePage(extractPageNumber(previousPage))
         }
         disabled={previousPage === null}
-        loading={isLoading}
         label="Back"
       />
       <div className="flex items-center space-x-1">
-        {pages.map((pageNumber) => (
-          <Button
-            key={pageNumber}
-            className={`letter-box bg-orange px-1 lg:px-3 ${
-              pageNumber === page ? 'font-bold disabled' : ''
-            }`}
-            onClick={() => handleChangePage(pageNumber)}
-            disabled={previousPage === null}
-            loading={isLoading}
-            label={pageNumber.toString()}
-          />
-        ))}
+        {pages.map((pageNumber) => {
+          return (
+            <Button
+              key={pageNumber}
+              className={`letter-box bg-orange px-1 lg:px-3 ${
+                pageNumber === page ? 'bg-blue' : ''
+              }`}
+              onClick={() => handleChangePage(pageNumber)}
+              label={pageNumber.toString()}
+            />
+          );
+        })}
       </div>
       <Button
         className={`letter-box bg-orange uppercase ${

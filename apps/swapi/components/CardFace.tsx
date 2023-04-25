@@ -1,19 +1,26 @@
 import { useState, useEffect } from 'react';
 
-interface Props {
+interface CardFaceProps {
   hairColor: string;
   eyeColor: string;
   gender: string;
   name: string;
   skinColor: string;
-  styles: string;
   homeworld: string;
   updateColors?: (url: string) => void;
+  className?: string;
 }
 
-const CardFace: React.FC<Props> = (props) => {
-  const { hairColor, eyeColor, skinColor, gender, styles } = props;
-
+const CardFace: React.FC<CardFaceProps> = ({
+  hairColor,
+  eyeColor,
+  gender,
+  name,
+  skinColor,
+  homeworld,
+  updateColors,
+  className,
+}) => {
   const [cleanHair, setCleanHair] = useState('');
   const [cleanEye, setCleanEye] = useState('');
   const [cleanSkin, setCleanSkin] = useState('');
@@ -48,12 +55,12 @@ const CardFace: React.FC<Props> = (props) => {
   }, [hairColor, skinColor, eyeColor, gender]);
 
   return (
-    <div className={styles}>
+    <div className={className}>
       <div
         className={
           !female
-            ? `hair absolute top-2 right-34 w-40 h-40 mx-auto rounded-full rounded-tr-3xl bg-${cleanHair} text-white`
-            : `hair absolute top-2 right-34 w-40 h-48 mx-auto bg-black rounded-t-full rounded-3xl`
+            ? `hair absolute top-2 right-6 w-36 h-36 mx-auto rounded-full rounded-tr-3xl bg-${cleanHair} text-white`
+            : `hair absolute top-2 right-6 w-36 h-48 mx-auto bg-black rounded-t-full rounded-3xl`
         }
       >
         {female && (
@@ -61,10 +68,10 @@ const CardFace: React.FC<Props> = (props) => {
         )}
       </div>
       <div
-        className={`face shadow-2xl top-4 right-32 absolute w-40 h-40 rounded-full bg-${cleanSkin}`}
+        className={`face shadow-2xl top-4 right-6 absolute w-36 h-36 rounded-full bg-${cleanSkin}`}
       >
-        <div className="smile1 top-24 left-8 bg-white h-12 w-12 absolute rounded-bl-full"></div>
-        <div className="smile2 top-24 left-20 bg-white h-12 w-12 absolute rounded-br-full"></div>
+        <div className="smile1 top-24 left-9 bg-white h-9 w-9 absolute rounded-bl-full"></div>
+        <div className="smile2 top-24 left-17 bg-white h-9 w-9 absolute rounded-br-full"></div>
         <div
           className={`eye w-2 h-4 md:w-3 md:h-5 eye-left top-14 left-12 absolute rounded-md bg-${cleanEye}`}
         ></div>

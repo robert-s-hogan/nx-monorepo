@@ -16,15 +16,17 @@ import Scrublands from './scrublands/Scrublands';
 import ToxicCloudsea from './toxicCloudsea/ToxicCloudsea';
 import Unknown from './unknown/Unknown';
 
-interface Props {
+interface HomeWorldBackgroundProps {
   homeworld: string;
-  styles: string;
   planet: string;
+  className?: string;
 }
 
-const HomeworldBackground: React.FC<Props> = (props) => {
-  const { homeworld, styles, planet } = props;
-
+const HomeworldBackground: React.FC<HomeWorldBackgroundProps> = ({
+  homeworld,
+  planet,
+  className,
+}) => {
   const [homeworldName, setHomeworldName] = useState('');
   const [terrain, setTerrain] = useState('');
 
@@ -108,7 +110,7 @@ const HomeworldBackground: React.FC<Props> = (props) => {
   };
 
   return (
-    <div className={styles} id={terrain}>
+    <div className={className} id={terrain}>
       {findHomeworld(terrain)}
     </div>
   );

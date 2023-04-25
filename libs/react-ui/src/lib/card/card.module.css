@@ -1,7 +1,6 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
   border: 1px solid #e5e5e5;
   border-radius: 4px;
   overflow: hidden;
@@ -19,6 +18,7 @@
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
 .image img {
@@ -30,7 +30,7 @@
   object-fit: cover;
 }
 
-.content {
+.body {
   padding: 1rem;
 }
 

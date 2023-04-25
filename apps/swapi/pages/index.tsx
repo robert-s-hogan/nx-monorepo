@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Loading from '../components/Loading';
-import Card from '../components/Card';
+import SwapiCard from '../components/SwapiCard';
 import { useSWRApi } from '../api/useSWRApi';
 import { Person } from '../types/api/types';
 import Pagination from '../components/Pagination';
@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <Layout className="px-2">
       <Hero />
-      <div className="flex justify-center max-w-7xl xl:max-w-7xl container mx-auto mt-8">
+      <div className="flex justify-center max-w-7xl xl:max-w-7xl container mx-auto mt-8 px-2">
         <form
           className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full md:mx-2"
           onSubmit={handleFormSubmit}
@@ -74,17 +74,17 @@ export default function Home() {
         </form>
       </div>
       {searchResults && (
-        <p className="text-center text-white my-8">
+        <p className="text-center text-white my-8 px-2">
           <span className="letter-box font-light text-center bg-red search-results mr-2 text-lg">
             {searchResults}
           </span>
         </p>
       )}
-      <div className="max-w-7xl lg:max-w-6xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto my-4">
+      <div className="max-w-7xl lg:max-w-6xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto my-4 px-2">
         {data && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 w-full">
             {data.results.map((char) => (
-              <Card
+              <SwapiCard
                 key={char.name}
                 name={char.name}
                 mass={char.mass}
