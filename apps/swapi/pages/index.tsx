@@ -7,6 +7,7 @@ import SwapiCard from '../components/SwapiCard';
 import { useSWRApi } from '../api/useSWRApi';
 import { Person } from '../types/api/types';
 import Pagination from '../components/Pagination';
+import { Skeleton } from '@with-nx/react-ui';
 
 export default function Home() {
   const [character, setCharacter] = useState('');
@@ -81,24 +82,34 @@ export default function Home() {
         </p>
       )}
       <div className="max-w-7xl lg:max-w-6xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto my-4 px-2">
-        {data && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 w-full">
-            {data.results.map((char) => (
-              <SwapiCard
-                key={char.name}
-                name={char.name}
-                mass={char.mass}
-                height={char.height}
-                hair_color={char.hair_color}
-                skin_color={char.skin_color}
-                eye_color={char.eye_color}
-                birth_year={char.birth_year}
-                gender={char.gender}
-                homeworld={char.homeworld}
-              />
-            ))}
-          </div>
-        )}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 w-full">
+          {data && !isLoading ? (
+            <>
+              {data.results.map((char) => (
+                <SwapiCard
+                  key={char.name}
+                  name={char.name}
+                  mass={char.mass}
+                  height={char.height}
+                  hair_color={char.hair_color}
+                  skin_color={char.skin_color}
+                  eye_color={char.eye_color}
+                  birth_year={char.birth_year}
+                  gender={char.gender}
+                  homeworld={char.homeworld}
+                  loading={isLoading}
+                />
+              ))}
+            </>
+          ) : (
+            <>
+              {Array.from(Array(10).keys()).map((i) => (
+                <Skeleton key={i} />
+              ))}
+            </>
+          )}
+        </div>
+
         <Pagination
           page={page}
           nextPage={data?.next || null}

@@ -16,6 +16,7 @@ interface Props {
   birth_year: string;
   homeworld: string;
   gender: string;
+  loading?: boolean;
 }
 
 const SwapiCard: React.FC<Props> = (props) => {
@@ -29,6 +30,7 @@ const SwapiCard: React.FC<Props> = (props) => {
     birth_year,
     gender,
     homeworld,
+    loading,
   } = props;
 
   const [homeworldName, setHomeworldName] = useState('');
@@ -50,6 +52,7 @@ const SwapiCard: React.FC<Props> = (props) => {
       className={`card border-black text-black border-2 rounded-lg w-full bg-${homeworldName}  ${
         isShown ? `` : 'opacity-70'
       }`}
+      isLoading={loading}
       key={name}
       onMouseEnter={() => setIsShown(false)}
       onMouseLeave={() => setIsShown(true)}
