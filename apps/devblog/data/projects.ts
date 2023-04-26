@@ -3,7 +3,7 @@ export const projectsData = [
     title: 'Star Wars API Pagination',
     description:
       'This project was for a Front End Engineer position that consumes a free API and creates pagination to view all entries.',
-    link: 'https://react-fetch-star-wars.vercel.app/',
+    link: 'https://swapi-nx.vercel.app/',
     github: 'https://github.com/robert-s-hogan/react-fetch-star-wars',
     category: ['React', 'Next', 'API', 'ReactQuery', 'NX', 'TailwindCSS'],
     isUnderConstruction: false,
