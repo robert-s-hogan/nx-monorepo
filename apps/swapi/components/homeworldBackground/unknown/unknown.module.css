@@ -1,7 +1,8 @@
-.background-unknown,
-.bg-unknown {
+.backgroundUnknown,
+.bgUnknown {
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   z-index: -5;
+  width: 100%;
 }
 #stars {
   width: 1px;
@@ -559,11 +560,11 @@
     1027px 1402px #fff, 1542px 1100px #fff;
 }
 
-/* @keyframes animStar {
+@keyframes animStar {
   from {
     transform: translateY(0px);
   }
   to {
     transform: translateY(-2000px);
   }
-} */
+}

@@ -1,71 +1,71 @@
-.bg-plains {
+.bgPlains {
   background: linear-gradient(to bottom, #133c55 0%, #59a5d8 70%, #84d2f6 100%);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
-.disc-1 {
+.disc1 {
   background: #ffd6d6;
 }
-.disc-2 {
+.disc2 {
   background: #ffded6;
 }
-.disc-3 {
+.disc3 {
   background: #fee7db;
 }
 
-.landscape-1 {
+.landscape1 {
   background-color: #b7d9e2;
   transform: rotate(-8deg);
 }
-.landscape-2 {
+.landscape2 {
   background-color: #86b6c6;
   transform: rotate(8deg);
 }
-.landscape-3 {
+.landscape3 {
   background-color: #5c93aa;
   transform: rotate(-8deg);
 }
-.landscape-4 {
+.landscape4 {
   background-color: #3a728e;
   transform: rotate(2deg);
 }
 
-.landscape-5 {
+.landscape5 {
   background-color: #1f5372;
   transform: rotate(-8deg);
 }
-.tree-1 {
+.tree1 {
   background-color: #59a5d8;
   clip-path: polygon(50% 0%, 22% 100%, 75% 100%);
   box-shadow: 2px 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.tree-2 {
+.tree2 {
   background-color: #59a5d8;
   clip-path: polygon(50% 0%, 22% 100%, 75% 100%);
   box-shadow: 2px 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.tree-3 {
+.tree3 {
   background-color: #386fa4;
   clip-path: polygon(50% 0%, 22% 100%, 75% 100%);
   box-shadow: 2px 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.tree-4 {
+.tree4 {
   background-color: #386fa4;
   clip-path: polygon(50% 0%, 22% 100%, 75% 100%);
   box-shadow: 2px 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.tree-5 {
+.tree5 {
   background-color: #133c55;
   clip-path: polygon(50% 0%, 22% 100%, 75% 100%);
   box-shadow: 2px 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.tree-6 {
+.tree6 {
   background-color: #133c55;
   clip-path: polygon(50% 0%, 22% 100%, 75% 100%);
   box-shadow: 2px 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.tree-7 {
+.tree7 {
   background-color: #133c55;
   clip-path: polygon(50% 0%, 22% 100%, 75% 100%);
   box-shadow: 2px 0 2px 4px rgba(0, 0, 0, 0.1);

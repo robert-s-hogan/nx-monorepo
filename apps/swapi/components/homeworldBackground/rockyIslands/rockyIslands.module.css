@@ -1,5 +1,6 @@
-.bg-rockyIslands {
+.bgRockyIslands {
   background: #1a2432;
+  width: 100%;
 }
 
 .sky {
@@ -66,7 +67,7 @@
   right: 40%;
 }
 
-.shooting-star {
+.shootingStar {
   position: absolute;
   border-radius: 50%;
   background-color: #fff;

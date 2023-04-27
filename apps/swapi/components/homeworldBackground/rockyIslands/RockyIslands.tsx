@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-// import './rockyIslands.css';
+import rockyStyles from './rockyIslands.module.css';
 
 interface Props {
   homeworld: string;
@@ -15,17 +15,19 @@ const RockyIslands: React.FC<Props> = (props) => {
   }, [homeworld]);
 
   return (
-    <div className="w-96 h-96 lg:w-80 xl:w-72 bg-rockyIslands">
+    <div
+      className={`${rockyStyles.bgRockyIslands} w-96 h-96 lg:w-80 xl:w-72 bg-rockyIslands`}
+    >
       <h3 className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-white">
         {homeworldName}
       </h3>
-      <div className="sky">
-        <div className="moon">
-          <div className="stars stars1">*</div>
-          <div className="stars stars2">*</div>
-          <div className="shooting-star"></div>
-          <div className="mountains"></div>
-          <div className="lake"></div>
+      <div className={`${rockyStyles.sky}`}>
+        <div className={`${rockyStyles.moon}`}>
+          <div className={`${rockyStyles.stars} ${rockyStyles.stars1}`}></div>
+          <div className={`${rockyStyles.stars} ${rockyStyles.stars2}`}></div>
+          <div className={`${rockyStyles.shootingStar}`}></div>
+          <div className={`${rockyStyles.mountains}`}></div>
+          <div className={`${rockyStyles.lake}`}></div>
         </div>
       </div>
     </div>

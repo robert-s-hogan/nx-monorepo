@@ -1,4 +1,4 @@
-.bg-gasGiant {
+.bgGasGiant {
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   z-index: -5;
 }
@@ -18,7 +18,7 @@
   }
 }
 
-#stars {
+.stars {
   width: 1px;
   height: 1px;
   background: transparent;
@@ -202,7 +202,7 @@
   animation: animStar 100s linear infinite;
 }
 
-#stars:after {
+.stars:after {
   content: ' ';
   position: absolute;
   top: 2000px;
@@ -388,7 +388,7 @@
     1038px 378px #fff, 1666px 889px #fff, 1142px 895px #fff, 567px 911px #fff;
 }
 
-#stars2 {
+.stars2 {
   width: 2px;
   height: 2px;
   background: transparent;
@@ -446,7 +446,7 @@
   animation: animStar 300s linear infinite;
 }
 
-#stars2:after {
+.stars2:after {
   content: ' ';
   position: absolute;
   top: 2000px;
@@ -506,7 +506,7 @@
     1113px 681px #fff, 716px 87px #fff, 1083px 392px #fff;
 }
 
-#stars3 {
+.stars3 {
   width: 3px;
   height: 3px;
   background: transparent;
@@ -539,7 +539,7 @@
   animation: animStar 200s linear infinite;
 }
 
-#stars3:after {
+.stars3:after {
   content: ' ';
   position: absolute;
   top: 2000px;

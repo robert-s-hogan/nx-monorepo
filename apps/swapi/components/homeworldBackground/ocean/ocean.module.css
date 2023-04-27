@@ -1,8 +1,8 @@
-.bg-ocean {
+.bgOcean {
   background-image: linear-gradient(0deg, #022244, #58c8da);
 }
-.bg-ocean::after,
-.bg-ocean::before {
+.bgOcean::after,
+.bgOcean::before {
   background-color: white;
   width: 120%;
   height: 120px;
@@ -15,7 +15,7 @@
   opacity: 0.2;
 }
 
-.bg-ocean::before {
+.bgOcean::before {
   top: -60px;
   animation-delay: 5s;
   opacity: 0.1;

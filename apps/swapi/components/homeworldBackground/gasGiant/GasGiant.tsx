@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-// import './gasGiant.css';
+import gasGiantStyles from './gasGiant.module.css';
 
 interface Props {
   homeworld: string;
@@ -15,14 +15,18 @@ const GasGiant: React.FC<Props> = (props) => {
   }, [homeworld]);
 
   return (
-    <div className="w-96 h-96 relative lg:w-80 xl:w-72 bg-gasGiant z-0">
+    <div
+      className={`w-96 h-96 relative lg:w-80 xl:w-72 ${gasGiantStyles.bgGasGiant} z-0`}
+    >
       <h3 className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-white">
         {homeworldName}
       </h3>
-      <div className="planet absolute top-0 -left-24 w-96 h-96 -z-1 shadow-inner rounded-full"></div>
-      <div id="stars" className="z-1"></div>
-      <div id="stars2" className="z-1"></div>
-      <div id="stars3" className="z-1"></div>
+      <div
+        className={`${gasGiantStyles.planet} absolute top-0 -left-24 w-96 h-96 -z-1 shadow-inner rounded-full`}
+      ></div>
+      <div id="stars" className={`${gasGiantStyles.stars} z-1`}></div>
+      <div id="stars2" className={`${gasGiantStyles.stars2} z-1`}></div>
+      <div id="stars3" className={`${gasGiantStyles.stars3} z-1`}></div>
     </div>
   );
 };

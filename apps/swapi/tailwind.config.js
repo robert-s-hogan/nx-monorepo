@@ -32,6 +32,7 @@ module.exports = {
       limeGreen: '#b9da10',
       skin: '#ffcd94',
       transparent: 'rgba(0, 0, 0, 0)',
+      plains: '#84d2f6',
     },
     fontFamily: {
       sans: ['Poller One', 'cursive'],

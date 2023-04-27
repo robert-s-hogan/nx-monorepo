@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-// import './toxicCloudsea.css';
+import toxicCloudseaStyles from './toxicCloudsea.module.css';
 
 interface Props {
   homeworld: string;
@@ -15,24 +15,27 @@ const ToxicCloudsea: React.FC<Props> = (props) => {
   }, [homeworld]);
 
   return (
-    <div className="w-96 h-96 relative lg:w-80 xl:w-72 bg-toxicCloudsea z-0">
+    <div className={`w-96 h-96 relative lg:w-80 xl:w-full bg-toxicSea z-0`}>
       <h3 className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-black">
         {homeworldName}
       </h3>
-      <div className="cloud-container">
-        <div className="square">
-          <div className="square-inner"></div>
+      <div className={`${toxicCloudseaStyles.bgToxicCloudsea} relative`}>
+        <div className={`${toxicCloudseaStyles.cloudContainer}`}>
+          <div className={`${toxicCloudseaStyles.square} `}>
+            <div
+              className={`${toxicCloudseaStyles.bubbles} absolute bottom-10`}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="bubbles absolute bottom-10">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
       </div>
     </div>
   );
