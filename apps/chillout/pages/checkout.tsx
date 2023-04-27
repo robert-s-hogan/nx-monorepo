@@ -1,13 +1,66 @@
 // pages/checkout.tsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ChilloutLayout from '../components/layout/ChilloutLayout';
 import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
 
 import ReusableSection from '../components/ReusableSection';
 import CheckoutForm from '../components/CheckoutForm';
+import CartItem from '../components/CartItem';
 
 const CheckoutPage: React.FC = () => {
+  const [cartItems, setCartItems] = useState([
+    {
+      id: 1,
+      details: {
+        title: 'title one',
+        organization: 'org one',
+        first_performance_date: '2021-10-10',
+        last_performance_date: '2021-10-10',
+        access_code: 'access code one',
+      },
+    },
+    {
+      id: 2,
+      details: {
+        title: 'title two',
+        organization: 'org two',
+        first_performance_date: '2021-10-10',
+        last_performance_date: '2021-10-10',
+        access_code: 'access code two',
+      },
+    },
+    {
+      id: 3,
+      details: {
+        title: 'title three',
+        organization: 'org three',
+        first_performance_date: '2021-10-10',
+        last_performance_date: '2021-10-10',
+        access_code: 'access code three',
+      },
+    },
+  ]);
+
+  const handleApplyAllChange = (
+    id: number,
+    details: {
+      title: string;
+      organization: string;
+      first_performance_date: string;
+      last_performance_date: string;
+      access_code: string;
+    }
+  ) => {
+    const newItem = id;
+
+    const newCartItems = cartItems.map((item) => {
+      console.log(`item`, item);
+      return { ...newItem };
+    });
+    setCartItems(newCartItems);
+  };
+
   return (
     <ChilloutLayout>
       <section className="lg:flex flex-grow lg:justify-center py-32 px-4 lg:py-44 max-w-screen-7xl mx-2 lg:mx-auto h-fit">
@@ -41,7 +94,7 @@ const CheckoutPage: React.FC = () => {
                     Delivery Info
                   </h3>
                 </div>
-                <div className="input-animated">
+                <div className="">
                   <input
                     className="text-gray-600 bg-gray-50"
                     type="text"
@@ -55,7 +108,7 @@ const CheckoutPage: React.FC = () => {
                     <span className="content-name">Name</span>
                   </label>
                 </div>
-                <div className="input-animated">
+                <div className="">
                   <input
                     className="text-gray-600 bg-gray-50"
                     type="email"
@@ -151,6 +204,13 @@ const CheckoutPage: React.FC = () => {
             </div>
           </form>
         </div>
+        {cartItems.map((item) => (
+          <CartItem
+            key={item.id}
+            item={item}
+            onApplyAll={handleApplyAllChange}
+          />
+        ))}
       </section>
     </ChilloutLayout>
   );
