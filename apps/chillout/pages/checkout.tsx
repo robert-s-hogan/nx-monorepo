@@ -12,6 +12,7 @@ const CheckoutPage: React.FC = () => {
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
+      productId: 1,
       details: {
         title: 'title one',
         organization: 'org one',
@@ -22,6 +23,7 @@ const CheckoutPage: React.FC = () => {
     },
     {
       id: 2,
+      productId: 2,
       details: {
         title: 'title two',
         organization: 'org two',
@@ -32,6 +34,7 @@ const CheckoutPage: React.FC = () => {
     },
     {
       id: 3,
+      productId: 3,
       details: {
         title: 'title three',
         organization: 'org three',
@@ -44,6 +47,7 @@ const CheckoutPage: React.FC = () => {
 
   const handleApplyAllChange = (
     id: number,
+    productId: number,
     details: {
       title: string;
       organization: string;
@@ -71,18 +75,18 @@ const CheckoutPage: React.FC = () => {
               Place an order and we'll be in touch!
             </span>
           </div>
-          <form
+          {/* <form
             name="purchase"
             data-netlify="true"
             autoComplete="off"
             netlify-honeypot="bot-field"
           >
-            {/* <p className="hidden">
+            <p className="hidden">
               <label>
                 Don’t fill this out if you’re human:{' '}
                 <input className="bg-gray-50" name="bot-field" />
               </label>
-            </p> */}
+            </p>
             <div className="lg:flex gap-x-10 pb-20 lg:pb-4 justify-center">
               <div>
                 <div className="mb-8">
@@ -202,15 +206,18 @@ const CheckoutPage: React.FC = () => {
                 <CheckoutForm />
               </div>
             </div>
-          </form>
+          </form> */}
         </div>
-        {cartItems.map((item) => (
-          <CartItem
-            key={item.id}
-            item={item}
-            onApplyAll={handleApplyAllChange}
-          />
-        ))}
+        <div className="mt-48">
+          {cartItems.map((item) => (
+            <CartItem
+              key={item.id}
+              item={item}
+              onApplyAll={handleApplyAllChange}
+              onChange={handleApplyAllChange}
+            />
+          ))}
+        </div>
       </section>
     </ChilloutLayout>
   );
