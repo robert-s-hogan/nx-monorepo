@@ -35,7 +35,7 @@ const ChilloutLayout: React.FC<ChilloutLayoutProps> = ({
       header={hideNavBarProp ? '' : <ChilloutHeader />}
       footer={<ChilloutFooter />}
     >
-      {router.pathname === '/' && (
+      {router.asPath === '/' && (
         <video
           autoPlay
           muted

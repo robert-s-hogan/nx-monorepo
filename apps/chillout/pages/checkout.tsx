@@ -8,43 +8,45 @@ import ReusableSection from '../components/ReusableSection';
 import CheckoutForm from '../components/CheckoutForm';
 import CartItem from '../components/CartItem';
 
-const CheckoutPage: React.FC = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      productId: 1,
-      details: {
-        title: 'title one',
-        organization: 'org one',
-        first_performance_date: '2021-10-10',
-        last_performance_date: '2021-10-10',
-        access_code: 'access code one',
-      },
+export const initialItems = [
+  {
+    id: 1,
+    productId: 1,
+    details: {
+      title: 'title one',
+      organization: 'org one',
+      first_performance_date: '2021-10-10',
+      last_performance_date: '2021-10-10',
+      access_code: 'access code one',
     },
-    {
-      id: 2,
-      productId: 2,
-      details: {
-        title: 'title two',
-        organization: 'org two',
-        first_performance_date: '2021-10-10',
-        last_performance_date: '2021-10-10',
-        access_code: 'access code two',
-      },
+  },
+  {
+    id: 2,
+    productId: 2,
+    details: {
+      title: 'title two',
+      organization: 'org two',
+      first_performance_date: '2021-10-10',
+      last_performance_date: '2021-10-10',
+      access_code: 'access code two',
     },
-    {
-      id: 3,
-      productId: 3,
-      details: {
-        title: 'title three',
-        organization: 'org three',
-        first_performance_date: '2021-10-10',
-        last_performance_date: '2021-10-10',
-        access_code: 'access code three',
-      },
+  },
+  {
+    id: 3,
+    productId: 3,
+    details: {
+      title: 'title three',
+      organization: 'org three',
+      first_performance_date: '2021-10-10',
+      last_performance_date: '2021-10-10',
+      access_code: 'access code three',
     },
-  ]);
+  },
+];
 
+const CheckoutPage: React.FC = () => {
+  const [cartItems, setCartItems] = useState(initialItems);
+  console.log(`cartItems`, cartItems);
   const handleApplyAllChange = (
     id: number,
     productId: number,
@@ -56,12 +58,24 @@ const CheckoutPage: React.FC = () => {
       access_code: string;
     }
   ) => {
+    console.log(`id`, id);
     const newItem = id;
+    // console.log(`newItem`, newItem);
+    let newCartItems;
 
-    const newCartItems = cartItems.map((item) => {
-      console.log(`item`, item);
-      return { ...newItem };
-    });
+    if (newItem === id) {
+      newCartItems = cartItems.map((item) => {
+        if (item.id !== id) {
+          // console.log(`newCartItems (item.id !== id): return`, item.id, id);
+          return { ...newItem };
+        } else {
+          // console.log(`newCartItems return:`, initialItems);
+          return initialItems;
+        }
+      });
+    } else {
+      newCartItems = initialItems;
+    }
     setCartItems(newCartItems);
   };
 
@@ -209,9 +223,9 @@ const CheckoutPage: React.FC = () => {
           </form> */}
         </div>
         <div className="mt-48">
-          {cartItems.map((item) => (
+          {cartItems.map((item, index) => (
             <CartItem
-              key={item.id}
+              key={item.id + index}
               item={item}
               onApplyAll={handleApplyAllChange}
               onChange={handleApplyAllChange}
