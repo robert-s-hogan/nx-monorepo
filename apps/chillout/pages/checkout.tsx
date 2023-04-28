@@ -46,7 +46,6 @@ export const initialItems = [
 
 const CheckoutPage: React.FC = () => {
   const [cartItems, setCartItems] = useState(initialItems);
-  console.log(`cartItems`, cartItems);
   const handleApplyAllChange = (
     id: number,
     productId: number,
@@ -58,18 +57,14 @@ const CheckoutPage: React.FC = () => {
       access_code: string;
     }
   ) => {
-    console.log(`id`, id);
     const newItem = id;
-    // console.log(`newItem`, newItem);
     let newCartItems;
 
-    if (newItem === id) {
+    if (newItem.id === id.id) {
       newCartItems = cartItems.map((item) => {
-        if (item.id !== id) {
-          // console.log(`newCartItems (item.id !== id): return`, item.id, id);
+        if (item.id !== newItem.id) {
           return { ...newItem };
         } else {
-          // console.log(`newCartItems return:`, initialItems);
           return initialItems;
         }
       });

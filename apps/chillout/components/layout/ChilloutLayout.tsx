@@ -29,24 +29,10 @@ const ChilloutLayout: React.FC<ChilloutLayoutProps> = ({
   const hideMaxWidth7xl = asPath.includes('projects/dnd-interactive-map');
   return (
     <PageLayout
-      className={`w-full ${
-        router.pathname === '/' ? 'min-h-screen' : ''
-      } ${className}`}
+      className={`${className}`}
       header={hideNavBarProp ? '' : <ChilloutHeader />}
       footer={<ChilloutFooter />}
     >
-      {router.asPath === '/' && (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          id="myVideo"
-          className="h-screen w-full object-cover absolute -z-10"
-        >
-          <source src="/landing-video.mp4" type="video/mp4" />
-        </video>
-      )}
       <Seo
         title={title ? title : 'We Keep You Cool | Premium Cooling Solutions'}
         description={
