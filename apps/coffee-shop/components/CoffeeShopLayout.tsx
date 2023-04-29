@@ -26,7 +26,7 @@ const ChilloutLayout: React.FC<ChilloutLayoutProps> = ({
 }: ChilloutLayoutProps) => {
   const router = useRouter();
   const asPath = router.asPath;
-  const hideMaxWidth7xl = asPath.includes('projects/dnd-interactive-map');
+  const hideMaxWidth7xl = asPath.includes('/');
   return (
     <PageLayout
       className={`w-full  ${className}`}
