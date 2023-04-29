@@ -67,6 +67,9 @@ dependencies:
   '@tailwindcss/typography':
     specifier: ^0.5.9
     version: 0.5.9(tailwindcss@3.2.7)
+  '@types/redux':
+    specifier: ^3.6.0
+    version: 3.6.0
   axios:
     specifier: ^1.3.4
     version: 1.3.4
@@ -178,6 +181,9 @@ dependencies:
   reading-time:
     specifier: ^1.5.0
     version: 1.5.0
+  redux:
+    specifier: ^4.2.1
+    version: 4.2.1
   reflect-metadata:
     specifier: ^0.1.13
     version: 0.1.13
@@ -6803,6 +6809,13 @@ packages:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
       csstype: 3.1.2
+
+  /@types/redux@3.6.0:
+    resolution: {integrity: sha512-ic+60DXHW5seNyqFvfr7Sk5cnXs+HsF9tIeIaxjOuSP5kzgDXC+AzKTYmjAfuLx4Sccm/0vjwBQj3OOkUkwOqg==}
+    deprecated: This is a stub types definition for Redux (https://github.com/reactjs/redux). Redux provides its own type definitions, so you don't need @types/redux installed!
+    dependencies:
+      redux: 4.2.1
+    dev: false
 
   /@types/retry@0.12.0:
     resolution: {integrity: sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==}

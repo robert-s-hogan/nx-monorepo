@@ -1,7 +1,11 @@
-import ChilloutLayout from '../components/layout/ChilloutLayout';
+import ChilloutLayout from '../components/ChilloutLayout';
 import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
+import useShoppingCart from '../hooks/useShoppingCart';
+
+import { chilloutProducts } from '../data/chilloutProducts';
 import ReusableSection from '../components/ReusableSection';
 import ProductOneMain from '../public/images/product1_main.jpg';
 import ProductsLandingPlant from '../public/images/products_landing_plant.png';
@@ -14,9 +18,47 @@ import RoboSideTwo from '../public/images/robo_side2.jpg';
 import RoboSideThree from '../public/images/robo_side3.jpg';
 
 const Products = () => {
+  const products = chilloutProducts.results;
+
+  const { addToCart, updateCart, removeFromCart, isInCart, shoppingCart } =
+    useShoppingCart();
+
+  //add to cart
+  const [addedToCartStates, setAddedToCartStates] = useState(() =>
+    products.reduce((acc, product) => {
+      acc[product.id] = false;
+      return acc;
+    }, {})
+  );
+  useEffect(() => {
+    const newAddedToCartStates = { ...addedToCartStates };
+    shoppingCart.data.forEach((item) => {
+      newAddedToCartStates[item.id] = true;
+    });
+    setAddedToCartStates(newAddedToCartStates);
+  }, [shoppingCart]);
+  const handleAddToCart = (product) => {
+    if (!isInCart(product.id)) {
+      addToCart(product);
+      setAddedToCartStates((prevState) => ({
+        ...prevState,
+        [product.id]: true,
+      }));
+    }
+  };
+
+  // const handleRemoveFromCart = () => {
+  //   removeFromCart(product.id);
+  // };
+
+  // const handleUpdateCart = (newQuantity) => {
+  //   const updatedProduct = { ...product, quantity: newQuantity };
+  //   updateCart(updatedProduct);
+  // };
+
   return (
     <ChilloutLayout>
-      <section className="lg:flex lg:justify-center pt-32 px-4 lg:pt-44 max-w-screen-2xl mx-auto">
+      <section className="mx-auto lg:flex lg:justify-center pt-32 px-4 lg:pt-44 max-w-screen-2xl">
         <div className="lg:w-1/2">
           <h1 className="text-xs lg:text-base uppercase font-bold mb-3 lg:mb-6 text-gray-400">
             Products
@@ -102,256 +144,103 @@ const Products = () => {
           </div>
         </div>
         <div className="absolute lg:relative bottom-20 opacity-10 lg:opacity-100">
-          <Image src={ProductsLandingPlant} alt="" />
+          <Image src={ProductsLandingPlant} alt="" priority />
         </div>
       </section>
-      <section className="lg:flex justify-center max-w-screen-2xl mx-auto lg:mx-8 pt-16 lg:pt-40 pb-40">
+      <section className="container lg:flex justify-center max-w-screen-2xl mx-auto pt-16 lg:pt-40 pb-40">
         <div className="mt-24 mx-4 lg:mx-0 lg:mt-0">
           <h2 className="text-xs uppercase font-bold mb-6 lg:mb-14 text-gray-400">
             Products Available Now
           </h2>
 
-          <div className="lg:flex mb-24 lg:mb-48">
-            <div className="lg:w-130 lg:mr-12">
-              <div className="h-100 cursor-pointer">
-                <Image
-                  data-product="product1_main"
-                  className="h-full w-full object-cover rounded-xl lg:rounded-lg"
-                  src={ProductOneMain}
-                  alt="A cool handheld air conditioner"
-                />
+          <div className="flex-col">
+            <Grid className="grid-cols-3 gap-12">
+              {products.map((product, index) => {
+                const inCart = isInCart(product.id);
+                console.log(`inCart`, inCart);
 
-                <div
-                  id="product1_main"
-                  className="fixed invisible opacity-0 transition-opacity duration-300 top-0 left-0 right-0 bottom-0 p-4 lg:p-12 z-50 bg-gray-700"
-                >
-                  <Image
-                    className="h-full w-full object-cover rounded-xl lg:rounded-lg"
-                    src={ProductOneMain}
-                    alt="A scenic clear-watered lake."
-                  />
-                </div>
-              </div>
-              <div className="flex gap-x-4 lg:gap-x-6 mt-4 lg:mt-8">
-                <div className="w-full h-20 lg:h-24 rounded-lg lg:rounded-xl overflow-hidden cursor-pointer border-4 border-blue-50 hover:border-blue-500">
-                  <Image
-                    data-product="product1_a"
-                    className="w-full h-full object-cover transform"
-                    src={ProductOneA}
-                    alt="A scenic clear-watered lake"
-                  />
-
+                return (
                   <div
-                    id="product1_a"
-                    className="fixed invisible opacity-0 transition-opacity duration-300 top-0 left-0 right-0 bottom-0 p-4 lg:p-12 z-50 bg-gray-700"
+                    key={product.id}
+                    className={`flex justify-between mb-12 lg:mb-24 col-span-3 gap-16 ${
+                      index === 1 ? 'mt-12' : ''
+                    }`}
                   >
-                    <Image
-                      className="h-full w-full object-cover rounded-lg"
-                      src={ProductOneA}
-                      alt="A scenic clear-watered lake."
-                    />
+                    <div className="cursor-pointer">
+                      <Image
+                        data-product={product.id}
+                        className="h-full w-full object-cover rounded-xl lg:rounded-lg"
+                        src={product.main_image}
+                        alt={product.name}
+                        width={400}
+                        height={200}
+                      />
+                      <Grid className="grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
+                        {product.images.map((image) => (
+                          <div key={image} className="cursor-pointer h-24">
+                            <Image
+                              data-product={product.id}
+                              className="h-full w-full object-cover rounded-xl lg:rounded-lg"
+                              src={image}
+                              alt={product.name}
+                              width={400}
+                              height={200}
+                            />
+                          </div>
+                        ))}
+                      </Grid>
+                    </div>
+                    <div className="mb-8 lg:mb-10 mt-8 lg:mt-0">
+                      <h3 className="uppercase font-bold text-2xl lg:text-5xl text-gray-700">
+                        Premium Airconditioner
+                      </h3>
+                      <span className="uppercase inline-block mt-2 text-xs lg:text-sm font-bold tracking-widest text-gray-500">
+                        By
+                        <a
+                          className="text-blue-500 hover:underline ml-2"
+                          href="/checkout"
+                        >
+                          Chillout Company
+                        </a>
+                      </span>
+                      <div className="flex items-center gap-x-6 my-10">
+                        <div className="px-3 py-5 rounded-md font-bold bg-blue-50 text-blue-500">
+                          <span className="text-2xl">$</span>
+                          <span className="text-4xl">{product.price}</span>
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="font-semibold text-xl text-green-500">
+                            {product.discount}
+                          </span>
+                          <span className="text-sm font-medium text-gray-500">
+                            {product.taxes}
+                          </span>
+                        </div>
+                      </div>
+                      <Text className="text-xl max-w-prose font-medium text-gray-600">
+                        {product.description}
+                      </Text>
+                      <Button
+                        onClick={() => handleAddToCart(product)}
+                        className={`
+                        ${
+                          inCart || addedToCartStates[product.id]?.inCart
+                            ? 'bg-green-500'
+                            : 'bg-blue-500'
+                        }
+                         inline-block font-semibold rounded-md uppercase px-10 py-4 mt-12 bg-blue-500 text-blue-50 hover:bg-blue-700 `}
+                        // href="/checkout"
+                        label={
+                          addedToCartStates[product.id]
+                            ? 'Added to Cart'
+                            : 'Add to Cart'
+                        }
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="w-full h-20 lg:h-24 rounded-lg lg:rounded-xl overflow-hidden cursor-pointer border-4 border-blue-50 hover:border-blue-500">
-                  <Image
-                    data-product="product1_b"
-                    className="w-full h-full object-cover"
-                    src={ProductOneB}
-                    alt="A lake surrounded by icy mountains."
-                  />
-
-                  <div
-                    id="product1_b"
-                    className="fixed invisible opacity-0 transition-opacity duration-300 top-0 left-0 right-0 bottom-0 p-4 lg:p-12 z-50 bg-gray-700"
-                  >
-                    <Image
-                      className="h-full w-full object-cover rounded-lg"
-                      src={ProductOneB}
-                      alt="A lake surrounded by icy mountains."
-                    />
-                  </div>
-                </div>
-                <div className="w-full h-20 lg:h-24 rounded-lg lg:rounded-xl overflow-hidden cursor-pointer border-4 border-blue-50 hover:border-blue-500">
-                  <Image
-                    data-product="product1_c"
-                    className="w-full h-full object-cover"
-                    src={ProductOneC}
-                    alt="Green leaves on a dark leafy background."
-                  />
-
-                  <div
-                    id="product1_c"
-                    className="fixed invisible opacity-0 transition-opacity duration-300 top-0 left-0 right-0 bottom-0 p-4 lg:p-12 z-50 bg-gray-700"
-                  >
-                    <Image
-                      className="h-full w-full object-cover rounded-lg"
-                      src={ProductOneC}
-                      alt="Green leaves on a dark leafy background."
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div className="uppercase mb-8 lg:mb-10 mt-8 lg:mt-0">
-                <h3 className="font-bold text-2xl lg:text-5xl text-gray-700">
-                  Premium Airconditioner
-                </h3>
-                <span className="inline-block mt-2 text-xs lg:text-sm font-bold tracking-widest text-gray-500">
-                  By
-                  <a className="text-blue-500 hover:underline" href="/checkout">
-                    Chillout Company
-                  </a>
-                </span>
-              </div>
-              <div className="flex items-center gap-x-6 mb-10">
-                <div className="px-3 py-5 rounded-md font-bold bg-blue-50 text-blue-500">
-                  <span className="text-2xl">$</span>
-                  <span className="text-4xl">1000</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-semibold text-xl text-green-500">
-                    20% Off Today
-                  </span>
-                  <span className="text-sm font-medium text-gray-500">
-                    Includes all rates and taxes
-                  </span>
-                </div>
-              </div>
-              <p className="max-w-prose font-medium text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor,
-                et at amet et sit aliquam aliquam nunc. In vestibulum nunc,
-                dolor gravida hac lectus lobortis quam.
-              </p>
-              <a
-                className="inline-block font-semibold rounded-md uppercase px-10 py-4 mt-12 bg-blue-500 text-blue-50 hover:bg-blue-700"
-                href="/checkout"
-              >
-                Purchase
-              </a>
-            </div>
-          </div>
-
-          <div className="lg:flex">
-            <div className="lg:w-130 lg:mr-12">
-              <div className="h-100 cursor-pointer">
-                <Image
-                  data-product="product2_main"
-                  className="h-full w-full object-cover rounded-xl lg:rounded-lg"
-                  src={RoboMain}
-                  alt="A cool handheld air conditioner"
-                />
-
-                <div
-                  id="product2_main"
-                  className="fixed invisible opacity-0 transition-opacity duration-300 top-0 left-0 right-0 bottom-0 p-4 lg:p-12 z-50 bg-gray-700"
-                >
-                  <Image
-                    className="h-full w-full object-cover rounded-xl lg:rounded-lg"
-                    src={RoboMain}
-                    alt="A scenic clear-watered lake."
-                  />
-                </div>
-              </div>
-              <div className="flex gap-x-4 lg:gap-x-6 mt-4 lg:mt-8">
-                <div className="w-full h-20 lg:h-24 rounded-lg lg:rounded-xl overflow-hidden cursor-pointer border-4 border-blue-50 hover:border-blue-500">
-                  <Image
-                    data-product="product2_a"
-                    className="w-full h-full object-cover transform"
-                    src={RoboSideOne}
-                    alt="A scenic clear-watered lake"
-                  />
-
-                  <div
-                    id="product2_a"
-                    className="fixed invisible opacity-0 transition-opacity duration-300 top-0 left-0 right-0 bottom-0 p-4 lg:p-12 z-50 bg-gray-700"
-                  >
-                    <Image
-                      className="h-full w-full object-cover rounded-lg"
-                      src={RoboSideOne}
-                      alt="A scenic clear-watered lake."
-                    />
-                  </div>
-                </div>
-                <div className="w-full h-20 lg:h-24 rounded-lg lg:rounded-xl overflow-hidden cursor-pointer border-4 border-blue-50 hover:border-blue-500">
-                  <Image
-                    data-product="product2_b"
-                    className="w-full h-full object-cover"
-                    src={RoboSideTwo}
-                    alt="A lake surrounded by icy mountains."
-                  />
-
-                  <div
-                    id="product2_b"
-                    className="fixed invisible opacity-0 transition-opacity duration-300 top-0 left-0 right-0 bottom-0 p-4 lg:p-12 z-50 bg-gray-700"
-                  >
-                    <Image
-                      className="h-full w-full object-cover rounded-lg"
-                      src={RoboSideTwo}
-                      alt="A lake surrounded by icy mountains."
-                    />
-                  </div>
-                </div>
-                <div className="w-full h-20 lg:h-24 rounded-lg lg:rounded-xl overflow-hidden cursor-pointer border-4 border-blue-50 hover:border-blue-500">
-                  <Image
-                    data-product="product2_c"
-                    className="w-full h-full object-cover"
-                    src={RoboSideThree}
-                    alt="Green leaves on a dark leafy background."
-                  />
-
-                  <div
-                    id="product2_c"
-                    className="fixed invisible opacity-0 transition-opacity duration-300 top-0 left-0 right-0 bottom-0 p-4 lg:p-12 z-50 bg-gray-700"
-                  >
-                    <Image
-                      className="h-full w-full object-cover rounded-lg"
-                      src={RoboSideThree}
-                      alt="Green leaves on a dark leafy background."
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="uppercase mb-8 lg:mb-10 mt-8 lg:mt-0">
-                <h3 className="font-bold text-2xl lg:text-5xl text-gray-700">
-                  Ultra Robo-Con
-                </h3>
-                <span className="inline-block mt-2 text-xs lg:text-sm font-bold tracking-widest text-gray-500">
-                  By
-                  <a className="text-blue-500 hover:underline" href="/checkout">
-                    Chillout Company
-                  </a>
-                </span>
-              </div>
-              <div className="flex items-center gap-x-6 mb-10">
-                <div className="px-3 py-5 rounded-md font-bold bg-blue-50 text-blue-500">
-                  <span className="text-2xl">$</span>
-                  <span className="text-4xl">8000</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-semibold text-xl text-green-500">
-                    15% Off Today
-                  </span>
-                  <span className="text-sm font-medium text-gray-500">
-                    Includes all rates and taxes
-                  </span>
-                </div>
-              </div>
-              <p className="max-w-prose font-medium text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor,
-                et at amet et sit aliquam aliquam nunc. In vestibulum nunc,
-                dolor gravida hac lectus lobortis quam.
-              </p>
-              <a
-                className="inline-block font-semibold rounded-md uppercase px-10 py-4 mt-12 bg-blue-500 text-blue-50 hover:bg-blue-700"
-                href="/checkout"
-              >
-                Purchase
-              </a>
-            </div>
+                );
+              })}
+            </Grid>
           </div>
         </div>
       </section>

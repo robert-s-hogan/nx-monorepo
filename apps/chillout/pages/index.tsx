@@ -1,4 +1,4 @@
-import ChilloutLayout from '../components/layout/ChilloutLayout';
+import ChilloutLayout from '../components/ChilloutLayout';
 import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -37,7 +37,7 @@ export function Index() {
       <div className="h-screen w-full relative">
         <video
           key="landing-video"
-          autoPlay="false"
+          autoPlay={false}
           muted
           loop
           playsInline
@@ -62,7 +62,7 @@ export function Index() {
       </div>
       <Grid
         id="features"
-        className="relative grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center pt-18 pb-30 -mt-32 xl:-mt-52 z-10"
+        className="relative container xl:max-w-5xl mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center pt-18 pb-30 -mt-32 xl:-mt-52 z-10"
       >
         {indexCards.map((card, index) => (
           <div key={index} className="w-full">

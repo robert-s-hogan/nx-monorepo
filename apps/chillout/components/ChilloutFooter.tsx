@@ -23,13 +23,11 @@ const ChilloutFooter = () => {
                 stroke="#3B82F6"
                 strokeWidth="true"
                 strokeLinejoin="round"
-                strokeLinejoin="round"
               />
               <path
                 d="M19.6076 5C18.5188 5.65621 17.2713 6.00203 16.0001 6C14.7289 6.00203 13.4813 5.65621 12.3926 5"
                 stroke="#3B82F6"
                 strokeWidth="true"
-                strokeLinejoin="round"
                 strokeLinejoin="round"
               />
               <path
@@ -37,13 +35,11 @@ const ChilloutFooter = () => {
                 stroke="#3B82F6"
                 strokeWidth="true"
                 strokeLinejoin="round"
-                strokeLinejoin="round"
               />
               <path
                 d="M28.1247 9L3.87598 23"
                 stroke="#3B82F6"
                 strokeWidth="true"
-                strokeLinejoin="round"
                 strokeLinejoin="round"
               />
               <path
@@ -51,13 +47,11 @@ const ChilloutFooter = () => {
                 stroke="#3B82F6"
                 strokeWidth="true"
                 strokeLinejoin="round"
-                strokeLinejoin="round"
               />
               <path
                 d="M4.6709 18.375C5.78258 18.9915 6.70556 19.8989 7.34094 20.9999C7.97633 22.1009 8.30017 23.354 8.27777 24.625"
                 stroke="#3B82F6"
                 strokeWidth="true"
-                strokeLinejoin="round"
                 strokeLinejoin="round"
               />
               <path
@@ -65,20 +59,17 @@ const ChilloutFooter = () => {
                 stroke="#3B82F6"
                 strokeWidth="true"
                 strokeLinejoin="round"
-                strokeLinejoin="round"
               />
               <path
                 d="M4.6709 13.625C5.78258 13.0085 6.70556 12.1011 7.34094 11.0001C7.97633 9.89912 8.30017 8.64599 8.27777 7.375"
                 stroke="#3B82F6"
                 strokeWidth="true"
                 strokeLinejoin="round"
-                strokeLinejoin="round"
               />
               <path
                 d="M27.3296 18.375C26.218 18.9915 25.295 19.8989 24.6596 20.9999C24.0242 22.1009 23.7004 23.354 23.7228 24.625"
                 stroke="#3B82F6"
                 strokeWidth="true"
-                strokeLinejoin="round"
                 strokeLinejoin="round"
               />
             </svg>

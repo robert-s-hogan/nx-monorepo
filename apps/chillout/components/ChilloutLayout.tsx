@@ -26,7 +26,8 @@ const ChilloutLayout: React.FC<ChilloutLayoutProps> = ({
 }: ChilloutLayoutProps) => {
   const router = useRouter();
   const asPath = router.asPath;
-  const hideMaxWidth7xl = asPath.includes('projects/dnd-interactive-map');
+  const hideMaxWidth7xl =
+    asPath.includes('projects/dnd-interactive-map') || asPath.includes('/');
   return (
     <PageLayout
       className={`${className}`}
@@ -49,7 +50,7 @@ const ChilloutLayout: React.FC<ChilloutLayoutProps> = ({
         keywords="cooling solutions, air conditioners, home cooling, office cooling, cooling products, energy-efficient, innovative features, professional services, We Keep You Cool"
       />
       <div
-        className={`container mx-auto ${
+        className={`mx-auto ${
           hideMaxWidth7xl ? 'max-w-full' : 'max-w-7xl'
         } selection:bg-primary ${className}`}
       >

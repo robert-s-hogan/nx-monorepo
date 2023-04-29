@@ -1,4 +1,4 @@
-import ChilloutLayout from '../components/layout/ChilloutLayout';
+import ChilloutLayout from '../components/ChilloutLayout';
 import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
 
