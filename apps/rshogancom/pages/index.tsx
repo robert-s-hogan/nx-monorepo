@@ -172,7 +172,7 @@ export function Index() {
                 </p>
                 <div className="flex items-center flex-wrap ">
                   <Link
-                    href="https://coffe-shop-nx.vercel.app/"
+                    href="https://coffee-shop.robertshogan.com/"
                     className="text text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
                     target="_blank"
                   >
