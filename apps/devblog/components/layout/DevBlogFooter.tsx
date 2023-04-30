@@ -18,6 +18,7 @@ const DevBlogFooter = () => {
             href="mailto:robert@robertshogan.com"
             className=" hover:text-vivid-500"
             aria-label="Mail Icon"
+            target="_blank"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -38,6 +39,7 @@ const DevBlogFooter = () => {
             href="https://www.facebook.com/robertshogancom"
             className=" hover:text-vivid-500"
             aria-label="Facebook Icon"
+            target="_blank"
           >
             <svg
               fill="currentColor"
@@ -55,6 +57,7 @@ const DevBlogFooter = () => {
             href="https://twitter.com/robert_s_hogan"
             className="hover:text-vivid-500"
             aria-label="Twitter Icon"
+            target="_blank"
           >
             <svg
               fill="currentColor"
@@ -72,6 +75,7 @@ const DevBlogFooter = () => {
             href="https://www.linkedin.com/in/robert-s-hogan/"
             className="hover:text-vivid-500"
             aria-label="Linked Icon"
+            target="_blank"
           >
             <svg
               fill="currentColor"
@@ -93,6 +97,7 @@ const DevBlogFooter = () => {
             href="https://github.com/robert-s-hogan"
             className=" hover:text-vivid-500"
             aria-label="Github Icon"
+            target="_blank"
           >
             <svg
               fill="currentColor"
@@ -111,6 +116,7 @@ const DevBlogFooter = () => {
             href="https://www.upwork.com/freelancers/robertshogan"
             className=" hover:text-vivid-500"
             aria-label="Upwork Icon"
+            target="_blank"
           >
             <svg
               enableBackground="new 0 0 2500 2500"
