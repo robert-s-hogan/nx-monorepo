@@ -60,7 +60,6 @@ const Player = ({ id, name, x, y, draggable, dragBoundFunc, className }) => {
         fontSize={16}
         fontStyle="bold"
         fill="white"
-        
       />
     </Group>
   );
