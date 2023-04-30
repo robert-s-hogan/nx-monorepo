@@ -21,6 +21,7 @@ module.exports = {
         antd: '#0170fe',
         typescript: '#3178c6',
         emotion: '#C43BAD',
+        github: '#000000',
       },
     },
   },

@@ -10,6 +10,7 @@ import {
   SiNx,
   SiReactquery,
   SiTailwindcss,
+  SiGithubpages,
 } from 'react-icons/si';
 import { TbApi } from 'react-icons/tb';
 import { BiWrench } from 'react-icons/bi';
@@ -19,21 +20,28 @@ const Projects = () => {
   function getIconForCategory(category) {
     switch (category) {
       case 'React':
-        return <FaReact className="react" />;
+        return <FaReact className="text-react-js" />;
       case 'Next':
-        return <SiNextdotjs className="next" />;
+        return <SiNextdotjs className="text-next-js" />;
       case 'API':
-        return <TbApi className="api" />;
+        return <TbApi className="text-api" />;
       case 'JavaScript':
-        return <SiJavascript className="javascript " />;
+        return <SiJavascript className="text-javascript " />;
       case 'CSS':
-        return <SiCss3 className="css" />;
+        return <SiCss3 className="text-css" />;
       case 'NX':
-        return <SiNx className="nx" />;
+        return <SiNx className="text-nx" />;
       case 'ReactQuery':
-        return <SiReactquery className="react-query" />;
+        return <SiReactquery className="text-react-query" />;
       case 'TailwindCSS':
-        return <SiTailwindcss className="tailwindcss" />;
+        return <SiTailwindcss className="text-tailwindcss" />;
+      case 'GithubPages':
+        return (
+          <SiGithubpages
+            className="text-github"
+            style={{ width: '3.75em', height: '3.75em' }}
+          />
+        );
       default:
         return null;
     }
@@ -55,12 +63,16 @@ const Projects = () => {
                   <p className="card-text text-black h-28">
                     {project.description}
                   </p>
-                  <div className="w-full flex">
+                  <div className="w-full flex items-center h-12">
                     {project.category.map((cat) => {
                       return (
                         <span
                           key={cat}
-                          className="text-3xl text-black bg-gray-200 rounded-full p-1"
+                          className={`text-3xl text-black bg-gray-200 rounded-full overflow-hidden p-1 ${
+                            cat === 'GithubPages'
+                              ? 'flex items-center justify-center'
+                              : ''
+                          }`}
                         >
                           {getIconForCategory(cat)}
                         </span>

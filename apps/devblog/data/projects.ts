@@ -23,16 +23,16 @@ export const projectsData = [
       'A Game of Concentration was created with vanilla javascript and preset assets.',
     link: 'https://robert-s-hogan.github.io/Project-Memory-Game/',
     github: 'https://github.com/robert-s-hogan/Project-Memory-Game',
-    category: ['JavaScript', 'CSS'],
+    category: ['JavaScript', 'CSS', 'GithubPages'],
     isUnderConstruction: false,
   },
-  {
-    title: 'Local Coffee Shop',
-    description:
-      'Sample coffee shop template using TailwindCSS, Gatsby, and hosted on Netlify.',
-    link: 'https://coffe-shop-nx.vercel.app/',
-    github: 'https://github.com/robert-s-hogan/gatsby-coffee-shop',
-    category: ['React', 'Next', 'NX', 'TailwindCSS'],
-    isUnderConstruction: true,
-  },
+  // {
+  //   title: 'Local Coffee Shop',
+  //   description:
+  //     'Sample coffee shop template using TailwindCSS, Gatsby, and hosted on Netlify.',
+  //   link: 'https://coffe-shop-nx.vercel.app/',
+  //   github: 'https://github.com/robert-s-hogan/gatsby-coffee-shop',
+  //   category: ['React', 'Next', 'NX', 'TailwindCSS'],
+  //   isUnderConstruction: true,
+  // },
 ];
