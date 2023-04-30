@@ -1,4 +1,4 @@
-.grid {
+/* .grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 1rem;
@@ -9,16 +9,19 @@
   padding: 12px;
   display: flex;
   flex-direction: column;
+} */
+.gridItem {
+  margin: 1rem 0;
 }
 .title {
-  text-align: center;
-  margin: 2rem 0;
+  /* text-align: center; */
+  /* margin: 2rem 0; */
   font-size: 2rem;
-  color: #333;
+  color: white;
 }
 .date {
   font-size: 0.75rem;
-  color: #333;
+  color: grey;
 }
 .category {
   font-size: 1rem;

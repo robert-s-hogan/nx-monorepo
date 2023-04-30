@@ -68,38 +68,6 @@
   }
 }
 
-.react {
-  @apply text-[#087ea4];
-}
-
-.journal {
-  @apply text-blue-300;
-}
-
-.next {
-  @apply text-black;
-}
-
-.api {
-  @apply text-[#e10098];
-}
-
-.javascript {
-  @apply text-[#fcdc00] bg-black;
-}
-
-.css {
-  @apply text-[#264de4];
-}
-
-.react-query {
-  @apply text-[#f94354];
-}
-
-.tailwindcss {
-  @apply text-[#3490dc];
-}
-
 section {
   @apply my-8;
 }

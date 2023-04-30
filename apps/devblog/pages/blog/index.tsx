@@ -1,7 +1,9 @@
+import Link from 'next/link';
+import { Flex } from '@with-nx/react-ui';
+
 import DevBlogLayout from '../../components/layout/DevBlogLayout';
 import { getSortedPostsData } from '../../../../_articles';
 import blogStyles from './blog.module.css';
-import Link from 'next/link';
 
 export async function getStaticProps() {
   const allPostsData = await getSortedPostsData();
@@ -28,14 +30,16 @@ export default function Home({ allPostsData }) {
               .join(' ');
 
             return (
-              <div key={id} className={`${blogStyles.gridItem} card`}>
+              <div key={id} className={`${blogStyles.gridItem}`}>
                 <Link href={`/blog/${id}.mdx`} className="no-underline">
+                  <p className={`${blogStyles.title} card-title`}>{title}</p>
+                </Link>
+                <Flex className="items-center space-x-4">
                   <p className={`${categoryClassNames} ${blogStyles.category}`}>
                     {categories}
                   </p>
                   <p className={`${blogStyles.date}`}>{date}</p>
-                  <p className={`${blogStyles.title} card-title`}>{title}</p>
-                </Link>
+                </Flex>
               </div>
             );
           })}
@@ -47,10 +51,32 @@ export default function Home({ allPostsData }) {
 
 function getCategoryClassName(category) {
   switch (category) {
-    case 'React':
-      return 'react';
-    case 'Journal':
-      return 'journal';
+    case 'react.js':
+      return 'text-react-js';
+    case 'journal':
+      return 'text-journal';
+    case 'konva.js':
+      return 'text-konva-js';
+    case 'css':
+      return 'text-css';
+    case 'tailwindcss':
+      return 'text-tailwindcss';
+    case 'chakra-ui':
+      return 'text-chakra-ui';
+    case 'terminal':
+      return 'text-terminal';
+    case 'safari':
+      return 'text-safari';
+    case 'react-query':
+      return 'text-react-query';
+    case 'antd':
+      return 'text-antd';
+    case 'emotion':
+      return 'text-emotion';
+    case 'typescript':
+      return 'text-typescript';
+    case 'javascript':
+      return 'text-javascript';
     default:
       return 'text-black';
   }
