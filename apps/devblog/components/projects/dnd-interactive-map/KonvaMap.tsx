@@ -3,6 +3,7 @@ import { Stage, Layer } from 'react-konva';
 
 import Player from './Player';
 import Monster from './Monster';
+import Structure from './Structure';
 
 const KonvaMap = () => {
   function generateParty() {
@@ -60,8 +61,46 @@ const KonvaMap = () => {
     });
   }
 
+  function generateStructures() {
+    const structures = ['castle', 'tower', 'house'];
+    const mapWidth = window.innerWidth;
+    const mapHeight = window.innerHeight;
+    const centerX = mapWidth / 2;
+    const centerY = mapHeight / 2;
+    const exclusionRadius = 200;
+
+    function isOutsideExclusionZone(x, y) {
+      const distance = Math.sqrt(
+        Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2)
+      );
+      return distance > exclusionRadius;
+    }
+
+    return structures.map((structureName, i) => {
+      let structureX, structureY;
+
+      do {
+        structureX =
+          Math.floor(Math.random() * (mapWidth * 0.8 - mapWidth * 0.2)) +
+          mapWidth * 0.2;
+        structureY =
+          Math.floor(Math.random() * (mapHeight * 0.8 - mapHeight * 0.2)) +
+          mapHeight * 0.2;
+      } while (!isOutsideExclusionZone(structureX, structureY));
+
+      return {
+        id: i.toString(),
+        x: structureX,
+        y: structureY,
+        className: structureName,
+        isDragging: false,
+      };
+    });
+  }
+
   const [players, setPlayers] = useState(generateParty());
   const [monsters, setMonsters] = useState(generateMonsters());
+  const [structures, setStructures] = useState(generateStructures());
 
   const [stageSize, setStageSize] = useState({
     width: window.innerWidth,
@@ -120,6 +159,18 @@ const KonvaMap = () => {
             x={monster.x}
             y={monster.y}
             className={monster.className}
+            draggable
+            dragBoundFunc={dragBoundFunc}
+          />
+        ))}
+        {structures.map((structure) => (
+          <Structure
+            key={`structure-${structure.id}`}
+            id={structure.id}
+            name={structure.className}
+            x={structure.x}
+            y={structure.y}
+            className={structure.className}
             draggable
             dragBoundFunc={dragBoundFunc}
           />
