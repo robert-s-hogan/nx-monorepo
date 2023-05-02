@@ -65,6 +65,11 @@ const DevBlogHeader = () => {
       className: 'nav-icon',
     },
   ];
+
+  useEffect(() => {
+    console.log('shoppingCartQuantity', shoppingCartQuantity);
+  }, [shoppingCartQuantity]);
+
   return (
     <header>
       <div className="w-full bg-primary bg-opacity-60 absolute z-40">

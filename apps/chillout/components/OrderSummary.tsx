@@ -38,7 +38,7 @@ export const OrderSummary = ({
 
   return (
     <div className="w-full p-5 bg-foreground space-y-4">
-      <Heading level={2} className="block mb-12">
+      <Heading level={2} className="text-base block mb-12">
         Order Summary
       </Heading>
       {subtotal?.products ? (

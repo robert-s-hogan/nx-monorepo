@@ -66,18 +66,20 @@ export function Index() {
       >
         {indexCards.map((card, index) => (
           <div key={index} className="w-full">
-            <div className="card">
-              <Image
-                src={Snowflake}
-                alt=""
-                className="card-icon"
-                height={32}
-                width={32}
-              />
-              <Heading level={3} className="card-title">
-                {card.title}
-              </Heading>
-              <Text className="card-description">{card.description}</Text>
+            <div className="mx-8 mb-10 lg:mb-0">
+              <div className="card rounded-tr-20xl">
+                <Image
+                  src={Snowflake}
+                  alt=""
+                  className="card-icon"
+                  height={32}
+                  width={32}
+                />
+                <Heading level={3} className="card-title">
+                  {card.title}
+                </Heading>
+                <Text className="card-description">{card.description}</Text>
+              </div>
             </div>
           </div>
         ))}

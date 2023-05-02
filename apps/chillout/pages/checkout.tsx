@@ -161,8 +161,8 @@ export default function Page() {
     <ChilloutLayout>
       <div className="w-full py-48 c:?background">
         <div className="container mx-auto">
-          <Grid className="grid-cols-3">
-            <div className="col-span-2">
+          <Grid className="grid-cols-1 md:grid-cols-4">
+            <div className="col-span-1 md:col-span-3">
               {step === 1 && (
                 <MyCart
                   onValidationStatusChange={(isValid) =>

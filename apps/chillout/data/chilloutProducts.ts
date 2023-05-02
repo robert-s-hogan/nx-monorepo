@@ -5,7 +5,7 @@ export const chilloutProducts = {
   results: [
     {
       id: 1,
-      name: 'Premium Air Conditioner by Chillout Company',
+      name: 'Premium Air Conditioner',
       description:
         'An advanced and powerful air conditioning system for your home or office',
       main_image: '/images/product1_main.jpg',
@@ -23,7 +23,7 @@ export const chilloutProducts = {
     },
     {
       id: 2,
-      name: 'Ultra Robo-Con by Chillout Company',
+      name: 'Ultra Robo-Con',
       description: 'An intelligent and versatile robot for your home or office',
       main_image: '/images/robo_main.jpg',
       images: [

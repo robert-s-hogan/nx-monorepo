@@ -14,7 +14,7 @@
 */
 
 import { useState } from 'react';
-import styles from './checkbox.module.css';
+import checkboxStyles from './checkbox.module.css';
 
 /* eslint-disable-next-line */
 export interface CheckboxProps {
@@ -34,9 +34,10 @@ export const Checkbox: React.FC<CheckboxProps> = ({ label, onChange }) => {
     <div>
       <label>
         <input type="checkbox" checked={checked} onChange={handleChange} />
-        {label}
+        <span className={checkboxStyles.labelText}>{label}</span>
       </label>
     </div>
   );
 };
+
 export default Checkbox;

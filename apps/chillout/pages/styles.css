@@ -63,7 +63,7 @@
     @apply border-2 border-primary text-primary font-bold py-3 px-6 rounded uppercase;
   }
   .card {
-    @apply p-8 mx-8 mb-10 lg:mb-0 w-80 lg:w-72 xl:w-80 shadow-md rounded-tr-20xl bg-white;
+    @apply p-4 lg:p-8 w-full  shadow-md  bg-white;
   }
   .card-icon {
     @apply mb-8;

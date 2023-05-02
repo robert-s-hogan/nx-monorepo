@@ -10,11 +10,14 @@ import { useDispatch } from 'react-redux';
 import { removeItemFromServer } from '../store/shoppingCartSlice';
 import { AppDispatch } from '../store/store';
 import { Text } from '@with-nx/react-ui';
+import Image from 'next/image';
+import { Flex } from '@with-nx/react-ui';
 
 import useShoppingCart from '../hooks/useShoppingCart';
 import ReusableSection from './ReusableSection';
 // import { useAuth } from '@with-nx/auth';
 import { CheckoutPageFormData } from '../pages/checkout';
+import { chilloutProducts } from '../data/chilloutProducts';
 
 interface MyCartProps {
   onValidationStatusChange: (isValid: boolean) => void;
@@ -32,6 +35,7 @@ const MyCart = ({
   onCreateProduction,
 }: MyCartProps) => {
   const dispatch = useDispatch();
+  const products = chilloutProducts.results;
 
   const [cartItems, setCartItems] = useState<
     Record<number, { isValid: boolean }>
@@ -136,19 +140,11 @@ const MyCart = ({
   // const firstCartItemDetails = cartItemRefs.current[0]?.getDetails();
   return (
     <ReusableSection>
-      <Text>
-        My Cart {shoppingCartQuantity ? `(${shoppingCartQuantity})` : ''}
-      </Text>
-
-      <Box parse="d:flex a:center mt:12 mb:12">
-        <Box parse="d:inline-flex">
-          <Text className="uppercase">Product Info</Text>
-        </Box>
-        <Box parse="f:1 h:1 c:?foreground" />
-      </Box>
-
       <div className="mt-16 lg:mt-0">
-        <div className="mb-12">
+        <Text className="text-xl mb-4">
+          My Cart {shoppingCartQuantity ? `(${shoppingCartQuantity})` : ''}
+        </Text>
+        <div className="mb-8">
           <div className="flex w-8 h-8 rounded-full justify-center items-center border-2 text-blue-500 border-blue-500">
             <span className="text-2xl font-semibold">1</span>
           </div>
@@ -157,41 +153,37 @@ const MyCart = ({
             Product Info
           </h3>
         </div>
-        <div className="flex justify-between mx-12 lg:mx-8 mb-4">
-          <span className="text-sm font-semibold mr-4 text-gray-600">Type</span>
-          <select name="type" id="type">
-            <option>Airconditioner</option>
-            <option>Ultra Robo-Con</option>
-          </select>
+        <div className="space-y-4">
+          {shoppingCart.data?.results?.map((product) => (
+            <div key={product.id} className="card items-center justify-between">
+              <div className="flex space-x-4 mb-4">
+                <Image src={`${product.main_image}`} width={100} height={100} />
+                <Flex className="flex-col">
+                  <Text className="lg:text-xl">{product.name}</Text>
+                  <Text className="uppercase text-sm">
+                    by <span className="text-primary">Chillout Company</span>
+                  </Text>
+                </Flex>
+                <Flex className="flex-col">
+                  <Text className="text-sm lg:text-xl text-right">
+                    ${product.price}
+                  </Text>
+                  <div className="flex justify-end mb-4 text-sm lg:text-base">
+                    <select name="quantity" id="quantity">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>
+                  </div>
+                </Flex>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="flex justify-between mx-12 lg:mx-8 mb-4">
-          <span className="text-sm font-semibold mr-4 text-gray-600">
-            Quantity
-          </span>
-          <select name="quantity" id="quantity">
-            <option>1</option>
-            <option>2</option>
-          </select>
-        </div>
-        <div>
-          <textarea
-            className="not_required border-0 w-full bg-gray-100"
-            name="comment"
-            placeholder="Additional comments..."
-            id="comment"
-            cols={30}
-            rows={3}
-            minLength={10}
-            maxLength={100}
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          id="submit-button"
-          className="w-full uppercase text-center px-5 py-3 shadow-sm my-4 lg:mb-0 rounded-md font-semibold bg-blue-500 border text-blue-50  hover:bg-blue-700 focus:ring-4 focus:ring-blue-300"
-        >
-          Place Order
-        </button>
+
+        {/* <pre>{JSON.stringify(shoppingCart, null, 2)}</pre> */}
+
         <span
           id="success"
           className="hidden absolute mt-2 px-4 py-2 font-medium border rounded-sm border-green-500 bg-green-100 text-green-600"
