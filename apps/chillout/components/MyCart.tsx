@@ -154,7 +154,7 @@ const MyCart = ({
           </h3>
         </div>
         <div className="space-y-4">
-          {shoppingCart.data?.results?.map((product) => (
+          {/* {shoppingCart.data?.results?.map((product) => (
             <div key={product.id} className="card items-center justify-between">
               <div className="flex space-x-4 mb-4">
                 <Image src={`${product.main_image}`} width={100} height={100} />
@@ -179,7 +179,7 @@ const MyCart = ({
                 </Flex>
               </div>
             </div>
-          ))}
+          ))} */}
         </div>
 
         {/* <pre>{JSON.stringify(shoppingCart, null, 2)}</pre> */}
