@@ -5,7 +5,7 @@ import buttonStyles from './button.module.css';
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   icon?: React.ReactNode;
-  key?: string;
+  key?: string | number;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   className?: string;

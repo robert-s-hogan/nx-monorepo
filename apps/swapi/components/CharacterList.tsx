@@ -5,17 +5,12 @@ import { useSWRApi } from '../api/useSWRApi';
 import { Person } from '../types/api/types';
 import Pagination from './Pagination';
 
-interface CharacterListProps {
-  character: string;
-}
-
-export default function CharacterList({ character }: CharacterListProps) {
+export default function CharacterList() {
   const [nextPage, setNextPage] = useState(1);
   const [previousPage, setPreviousPage] = useState(null);
 
   const { data, isLoading, isError } = useSWRApi<Person>(
-    `people/?page=${nextPage}`,
-    character
+    `people/?page=${nextPage}`
   );
 
   const page = data
