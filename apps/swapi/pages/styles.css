@@ -42,7 +42,7 @@
     @apply bg-transparent;
   }
   .card-image {
-    @apply w-full  relative;
+    @apply w-full relative !overflow-auto h-auto;
   }
   .card-face {
     @apply relative z-20;

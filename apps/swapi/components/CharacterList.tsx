@@ -30,11 +30,11 @@ export default function CharacterList() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-8">
+      {/* <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-8">
         {data?.results.map((person) => (
           <SwapiCard key={person.name} person={person} isLoading={isLoading} />
         ))}
-      </div>
+      </div> */}
       <Pagination
         page={page}
         nextPage={data?.next || null}

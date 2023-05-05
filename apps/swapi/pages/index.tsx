@@ -9,6 +9,7 @@ import { Person } from '../types/api/types';
 import Pagination from '../components/Pagination';
 import SearchForm from '../components/SearchForm';
 import CharacterList from '../components/CharacterList';
+import SwapiSearch from '../components/SwapiSearch';
 
 export default function Home() {
   const [character, setCharacter] = useState('');
@@ -23,11 +24,12 @@ export default function Home() {
     <Layout className="px-2">
       <Hero />
       <div className="flex justify-center max-w-7xl xl:max-w-7xl container mx-auto mt-8 px-2">
-        <SearchForm
+        <SwapiSearch />
+        {/* <SearchForm
           character={character}
           setCharacter={setCharacter}
           handleFormSubmit={handleFormSubmit}
-        />
+        /> */}
       </div>
       {searchResults && (
         <p className="text-center text-white my-8 px-2">
