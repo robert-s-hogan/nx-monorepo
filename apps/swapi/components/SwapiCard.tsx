@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Card, Skeleton } from '@with-nx/react-ui';
+import useSWR from 'swr';
 
 import CardTitle from './CardTitle';
 import CardBack from './CardBack';
@@ -22,6 +23,12 @@ interface SwapiCardProps {
   isLoading?: boolean;
 }
 
+const fetcher = async (url) => {
+  const response = await fetch(url);
+  const json = await response.json();
+  return json;
+};
+
 const SwapiCard: React.FC<SwapiCardProps> = ({ key, person, isLoading }) => {
   const {
     name,
@@ -35,22 +42,10 @@ const SwapiCard: React.FC<SwapiCardProps> = ({ key, person, isLoading }) => {
     homeworld,
   } = person;
 
-  const [homeworldName, setHomeworldName] = useState('');
+  const { data: homeworldData } = useSWR(homeworld, fetcher);
+  const homeworldName = homeworldData?.name || '';
+
   const [isShown, setIsShown] = useState(true);
-
-  async function fetchData(url) {
-    console.log(`swapiCard fetchData url`, url);
-    const response = await fetch(url);
-    const json = await response.json();
-    setHomeworldName(json.name);
-    return json.name;
-  }
-
-  useEffect(() => {
-    if (homeworld) {
-      fetchData(homeworld);
-    }
-  }, [homeworld]);
 
   return (
     <Card

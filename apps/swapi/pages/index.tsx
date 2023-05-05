@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Skeleton } from '@with-nx/react-ui';
 
 import Layout from '../components/Layout';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Loading from '../components/Loading';
-import SwapiCard from '../components/SwapiCard';
-import { useSWRApi } from '../api/useSWRApi';
 import { Person } from '../types/api/types';
 import Pagination from '../components/Pagination';
-import { Skeleton } from '@with-nx/react-ui';
 import SearchForm from '../components/SearchForm';
 import CharacterList from '../components/CharacterList';
 
