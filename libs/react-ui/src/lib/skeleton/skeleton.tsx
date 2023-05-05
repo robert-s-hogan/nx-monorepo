@@ -3,6 +3,7 @@ import skeletonStyles from './skeleton.module.css';
 import SkeletonText from './skeleton-text';
 
 export interface SkeletonProps {
+  key?: string;
   width?: string | number;
   height?: string | number;
   borderRadius?: string | number;
@@ -13,6 +14,7 @@ export interface SkeletonProps {
 }
 
 export const Skeleton: React.FC<SkeletonProps> = ({
+  key,
   width = '100%',
   height = '100%',
   borderRadius = 0,
@@ -34,6 +36,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
     <span
       className={isLoading ? '' : classNames}
       style={isLoading ? {} : styles}
+      key={key}
     >
       {isLoading && (
         <>

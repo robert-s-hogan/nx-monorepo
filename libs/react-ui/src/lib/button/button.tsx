@@ -5,6 +5,7 @@ import buttonStyles from './button.module.css';
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   icon?: React.ReactNode;
+  key?: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   className?: string;
@@ -17,6 +18,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: React.FC<ButtonProps> = ({
   label,
   icon,
+  key,
   onClick,
   type,
   className,
@@ -28,6 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
 }) => (
   <button
     type={type}
+    key={key}
     onClick={onClick}
     className={`${buttonStyles.button} ${className} ${
       icon ? buttonStyles.buttonRow : ''

@@ -1,25 +1,28 @@
 import { useState, useEffect } from 'react';
-import { Card } from '@with-nx/react-ui';
+import { Card, Skeleton } from '@with-nx/react-ui';
 
 import CardTitle from './CardTitle';
 import CardBack from './CardBack';
 import CardFace from './CardFace';
 import HomeworldBackground from './homeworldBackground/HomeworldBackground';
 
-interface Props {
-  name: string;
-  mass: string;
-  height: string;
-  hair_color: string;
-  skin_color: string;
-  eye_color: string;
-  birth_year: string;
-  homeworld: string;
-  gender: string;
-  loading?: boolean;
+interface SwapiCardProps {
+  key?: string;
+  person: {
+    name: string;
+    mass: string;
+    height: string;
+    hair_color: string;
+    skin_color: string;
+    eye_color: string;
+    birth_year: string;
+    homeworld: string;
+    gender: string;
+  };
+  isLoading?: boolean;
 }
 
-const SwapiCard: React.FC<Props> = (props) => {
+const SwapiCard: React.FC<SwapiCardProps> = ({ key, person, isLoading }) => {
   const {
     name,
     mass,
@@ -30,13 +33,13 @@ const SwapiCard: React.FC<Props> = (props) => {
     birth_year,
     gender,
     homeworld,
-    loading,
-  } = props;
+  } = person;
 
   const [homeworldName, setHomeworldName] = useState('');
   const [isShown, setIsShown] = useState(true);
 
   async function fetchData(url) {
+    console.log(`swapiCard fetchData url`, url);
     const response = await fetch(url);
     const json = await response.json();
     setHomeworldName(json.name);
@@ -44,7 +47,9 @@ const SwapiCard: React.FC<Props> = (props) => {
   }
 
   useEffect(() => {
-    fetchData(homeworld);
+    if (homeworld) {
+      fetchData(homeworld);
+    }
   }, [homeworld]);
 
   return (
@@ -52,8 +57,8 @@ const SwapiCard: React.FC<Props> = (props) => {
       className={`card border-black text-black border-2 rounded-lg w-full bg-${homeworldName}  ${
         isShown ? `` : 'opacity-70'
       }`}
-      isLoading={loading}
-      key={name}
+      isLoading={isLoading}
+      key={key}
       onMouseEnter={() => setIsShown(false)}
       onMouseLeave={() => setIsShown(true)}
       image={
@@ -64,12 +69,13 @@ const SwapiCard: React.FC<Props> = (props) => {
             name={name}
             eyeColor={eye_color}
           /> */}
-          <HomeworldBackground
-            homeworld={homeworldName}
-            planet={homeworld}
-            className="card-background w-full h-full bg-cover bg-center"
-            // className="card-background absolute overflow-hidden top-0 left-0 w-full h-full z-0"
-          />
+          {homeworld && (
+            <HomeworldBackground
+              homeworld={homeworldName}
+              planet={homeworld}
+              className="card-background w-full h-full bg-cover bg-center"
+            />
+          )}
 
           <CardFace
             name={name}

@@ -14,6 +14,10 @@ export const useSWRApi = <T>(endpoint: string, search?: string) => {
 
   const { data, error } = useSWR<ApiResponse<T>>(url, fetcher);
 
+  if (data) {
+    console.log(`useSWRApi: ${endpoint}`, data);
+  }
+
   return {
     data,
     isLoading: !error && !data,

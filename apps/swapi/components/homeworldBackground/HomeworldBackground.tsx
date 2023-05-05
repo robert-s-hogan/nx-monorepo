@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import useSWR from 'swr';
+import { Skeleton } from '@with-nx/react-ui';
+
 import Barren from './barren/Barren';
 import Cityscape from './cityscape/Cityscape';
 import Desert from './desert/Desert';
@@ -22,27 +25,40 @@ interface HomeWorldBackgroundProps {
   className?: string;
 }
 
+const fetcher = async (url) => {
+  const response = await fetch(url);
+  const json = await response.json();
+  const tempTerrain = json.terrain.split(', ');
+  const firstTerrain = tempTerrain[0];
+  return { homeworldName: json.name, terrain: firstTerrain };
+};
+
 const HomeworldBackground: React.FC<HomeWorldBackgroundProps> = ({
   homeworld,
   planet,
   className,
 }) => {
-  const [homeworldName, setHomeworldName] = useState('');
-  const [terrain, setTerrain] = useState('');
+  const { data, error } = useSWR(planet, fetcher);
+  const homeworldName = data?.homeworldName || '';
+  const terrain = data?.terrain || '';
 
-  async function fetchPlanetInfo(url) {
-    const response = await fetch(url);
-    const json = await response.json();
-    const tempTerrain = json.terrain.split(', ');
-    const firstTerrain = tempTerrain[0];
-    setTerrain(firstTerrain);
-    return json.name;
+  if (error) {
+    console.error(error);
+    return <div>Error fetching data</div>;
   }
 
-  useEffect(() => {
-    fetchPlanetInfo(planet);
-    setHomeworldName(homeworld);
-  }, [homeworld]);
+  if (!data) {
+    return (
+      <div className={className}>
+        <Skeleton height="150px" />
+      </div>
+    );
+  }
+
+  // useEffect(() => {
+  //   fetchPlanetInfo(planet);
+  //   setHomeworldName(homeworld);
+  // }, [homeworld]);
 
   let findHomeworld = (terrain: string) => {
     try {

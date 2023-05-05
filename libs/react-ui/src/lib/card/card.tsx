@@ -30,6 +30,21 @@ export function Card({
   onMouseLeave,
   className,
 }: CardProps) {
+  const renderImage = () => {
+    if (isLoading) {
+      return (
+        <Skeleton
+          className={`card-image ${cardStyles.image}`}
+          height={200}
+          width={300}
+        />
+      );
+    } else if (image) {
+      return <div className={`card-image ${cardStyles.image}`}>{image}</div>;
+    }
+    return null;
+  };
+
   return (
     <div
       className={`card ${cardStyles.card} ${className}`}
@@ -38,17 +53,7 @@ export function Card({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {image ? (
-        isLoading ? (
-          <Skeleton
-            className={`card-image ${cardStyles.image}`}
-            height={200}
-            width={300}
-          />
-        ) : (
-          <div className={`card-image ${cardStyles.image}`}>{image}</div>
-        )
-      ) : null}
+      {renderImage()}
       {description && (
         <div className={`card-body ${cardStyles.body}`}>
           {title && (
@@ -79,5 +84,3 @@ export function Card({
     </div>
   );
 }
-
-export default Card;

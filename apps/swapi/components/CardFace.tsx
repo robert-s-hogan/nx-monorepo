@@ -27,24 +27,33 @@ const CardFace: React.FC<CardFaceProps> = ({
   const [female, setFemale] = useState('');
 
   async function selectGender(gender: string) {
-    const tempFemale = gender.search('female');
-    if (tempFemale === 0) {
-      setFemale('female');
+    if (gender) {
+      const tempFemale = gender.search('female');
+      if (tempFemale === 0) {
+        setFemale('female');
+      }
     }
   }
 
   async function updateHairColors(hairColor: string) {
-    const temp = hairColor.replace(/, /g, '-');
-    setCleanHair(temp);
+    if (hairColor) {
+      const temp = hairColor.replace(/, /g, '-');
+      setCleanHair(temp);
+    }
   }
 
   async function updateEyeColors(eyeColor: string) {
-    const temp = eyeColor.replace(/, /g, '-');
-    setCleanEye(temp);
+    if (eyeColor) {
+      const temp = eyeColor.replace(/, /g, '-');
+      setCleanEye(temp);
+    }
   }
+
   async function updateSkinColors(skinColor: string) {
-    const temp = skinColor.replace(/, /g, '-');
-    setCleanSkin(temp);
+    if (skinColor) {
+      const temp = skinColor.replace(/, /g, '-');
+      setCleanSkin(temp);
+    }
   }
 
   useEffect(() => {
