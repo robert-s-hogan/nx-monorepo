@@ -14,10 +14,9 @@ const SwapiSearch: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const { data, isLoading, isError } = useSWRApi<any>(
-    activeCategory || '',
+    activeCategory || null,
     searchText
   );
-
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (selectedCategories.length > 0) {
@@ -63,8 +62,6 @@ const SwapiSearch: React.FC = () => {
         onCategoryChange={setSelectedCategories}
       />
 
-      {isLoading && <p>Loading...</p>}
-      {isError && <p>Error loading data</p>}
       <ReusableSection className="space-y-8">
         <Grid className="grid-cols-1 lg:grid-cols-3">
           {data &&
