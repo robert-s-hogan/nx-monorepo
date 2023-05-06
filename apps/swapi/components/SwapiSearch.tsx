@@ -51,7 +51,10 @@ const SwapiSearch: React.FC = () => {
             onChange={(e) => setSearchText(e.target.value)}
             placeholder="Search..."
           />
-          <button className="rotate-1 uppercase text-sm" type="submit">
+          <button
+            className="rotate-1 uppercase text-sm text-black"
+            type="submit"
+          >
             Search
           </button>
         </div>
