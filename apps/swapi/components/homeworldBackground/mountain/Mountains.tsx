@@ -16,9 +16,6 @@ const Mountains: React.FC<Props> = (props) => {
 
   return (
     <div className={`w-96 h-96 lg:w-80 xl:w-72 ${mountainStyles.bgMountains}`}>
-      <h3 className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-white">
-        {homeworldName}
-      </h3>
       <div
         className={`${mountainStyles.mountain1} absolute bottom-0 z-4`}
       ></div>

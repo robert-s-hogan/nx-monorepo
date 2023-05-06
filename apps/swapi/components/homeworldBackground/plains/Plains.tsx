@@ -16,9 +16,6 @@ const Plains: React.FC<Props> = (props) => {
 
   return (
     <div className={`h-full w-full ${plainsStyles.bgPlains} bg-plains`}>
-      <h3 className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-white">
-        {homeworldName}
-      </h3>
       <div
         className={`${plainsStyles.disc1} h-48 w-48 absolute top-28 left-16 xl:left-12 opacity-20 rounded-full`}
       ></div>

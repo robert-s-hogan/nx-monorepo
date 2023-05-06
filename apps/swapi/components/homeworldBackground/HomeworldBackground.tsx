@@ -20,9 +20,10 @@ import ToxicCloudsea from './toxicCloudsea/ToxicCloudsea';
 import Unknown from './unknown/Unknown';
 
 interface HomeWorldBackgroundProps {
-  homeworld: string;
-  planet: string;
+  homeworld?: string;
+  planet?: string;
   className?: string;
+  planet_name?: string;
 }
 
 const fetcher = async (url) => {
@@ -37,10 +38,11 @@ const HomeworldBackground: React.FC<HomeWorldBackgroundProps> = ({
   homeworld,
   planet,
   className,
+  planet_name,
 }) => {
   const { data, error } = useSWR(planet, fetcher);
   const homeworldName = data?.homeworldName || '';
-  const terrain = data?.terrain || '';
+  const terrain = data?.terrain || planet_name;
 
   if (error) {
     console.error(error);
@@ -59,6 +61,8 @@ const HomeworldBackground: React.FC<HomeWorldBackgroundProps> = ({
   //   fetchPlanetInfo(planet);
   //   setHomeworldName(homeworld);
   // }, [homeworld]);
+
+  console.log(`planet: ${planet}`);
 
   let findHomeworld = (terrain: string) => {
     try {
@@ -99,6 +103,7 @@ const HomeworldBackground: React.FC<HomeWorldBackgroundProps> = ({
         case 'mountains':
           return <Mountains homeworld={homeworldName} terrain={terrain} />;
         case 'unknown':
+        case null:
           return <Unknown homeworld={homeworldName} terrain={terrain} />;
         case 'ocean':
         case 'oceans':

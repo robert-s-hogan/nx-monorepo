@@ -1,30 +1,26 @@
 import { useState, useEffect } from 'react';
 
 interface CardFaceProps {
-  hairColor: string;
-  eyeColor: string;
-  gender: string;
-  name: string;
-  skinColor: string;
-  homeworld: string;
-  updateColors?: (url: string) => void;
+  homeworld?: string;
   className?: string;
+  data?: any;
 }
 
-const CardFace: React.FC<CardFaceProps> = ({
-  hairColor,
-  eyeColor,
-  gender,
-  name,
-  skinColor,
-  homeworld,
-  updateColors,
-  className,
-}) => {
+const CardFace: React.FC<CardFaceProps> = ({ data, className, homeworld }) => {
   const [cleanHair, setCleanHair] = useState('');
   const [cleanEye, setCleanEye] = useState('');
   const [cleanSkin, setCleanSkin] = useState('');
   const [female, setFemale] = useState('');
+
+  const {
+    height,
+    mass,
+    hair_color,
+    skin_color,
+    eye_color,
+    birth_year,
+    gender,
+  } = data;
 
   async function selectGender(gender: string) {
     if (gender) {
@@ -35,33 +31,33 @@ const CardFace: React.FC<CardFaceProps> = ({
     }
   }
 
-  async function updateHairColors(hairColor: string) {
-    if (hairColor) {
-      const temp = hairColor.replace(/, /g, '-');
+  async function updateHairColors(hair_color: string) {
+    if (hair_color) {
+      const temp = hair_color.replace(/, /g, '-');
       setCleanHair(temp);
     }
   }
 
-  async function updateEyeColors(eyeColor: string) {
-    if (eyeColor) {
-      const temp = eyeColor.replace(/, /g, '-');
+  async function updateEyeColors(eye_color: string) {
+    if (eye_color) {
+      const temp = eye_color.replace(/, /g, '-');
       setCleanEye(temp);
     }
   }
 
-  async function updateSkinColors(skinColor: string) {
-    if (skinColor) {
-      const temp = skinColor.replace(/, /g, '-');
+  async function updateSkinColors(skin_color: string) {
+    if (skin_color) {
+      const temp = skin_color.replace(/, /g, '-');
       setCleanSkin(temp);
     }
   }
 
   useEffect(() => {
-    updateHairColors(hairColor);
-    updateEyeColors(eyeColor);
-    updateSkinColors(skinColor);
+    updateHairColors(hair_color);
+    updateEyeColors(eye_color);
+    updateSkinColors(skin_color);
     selectGender(gender);
-  }, [hairColor, skinColor, eyeColor, gender]);
+  }, [hair_color, skin_color, eye_color, gender]);
 
   return (
     <div className={className}>
@@ -94,10 +90,10 @@ const CardFace: React.FC<CardFaceProps> = ({
           className={`ear rounded-full h-9 w-7 md:h-11 md:w-9 ear-right top-14 -right-4 absolute bg-${cleanSkin}`}
         ></div>
         <div
-          className={`eyebrow-left h-2 w-5 md:h-2.5 md:w-7 top-10 left-8 absolute rounded-md bg-${hairColor}`}
+          className={`eyebrow-left h-2 w-5 md:h-2.5 md:w-7 top-10 left-8 absolute rounded-md bg-${hair_color}`}
         ></div>
         <div
-          className={`eyebrow-right h-2 w-5 md:h-2.5 md:w-7 top-10 right-12 absolute bg-${hairColor} rounded-md`}
+          className={`eyebrow-right h-2 w-5 md:h-2.5 md:w-7 top-10 right-12 absolute bg-${hair_color} rounded-md`}
         ></div>
       </div>
     </div>

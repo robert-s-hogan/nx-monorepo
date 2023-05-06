@@ -31,9 +31,6 @@ const Forests: React.FC<Props> = (props) => {
       {findTerrain && (
         <div className={`absolute w-96 h-96 z-5 bg-${terrain}`}></div>
       )}
-      <h3 className="z-20 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-black">
-        {homeworldName}
-      </h3>
       <div className="forest-row-one h-96 w-96 absolute -left-24 lg:top-8 z-2">
         <div
           className={`${forestsStyles.forestTree} absolute ${forestsStyles.treeOne}`}

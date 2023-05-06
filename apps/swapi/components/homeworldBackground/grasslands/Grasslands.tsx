@@ -16,9 +16,6 @@ const Grasslands: React.FC<Props> = (props) => {
 
   return (
     <div className={`${grasslandsStyles.bgSky} w-full bg-sky`}>
-      <h3 className="z-10 absolute right-2 m-0 uppercase p-4 text-2xl font-light pr-6 text-brown">
-        {homeworldName}
-      </h3>
       <div
         className={`${grasslandsStyles.hill2} absolute top-0 right-7 rounded-full w-96 h-72`}
       ></div>

@@ -19,9 +19,6 @@ const Rocky: React.FC<Props> = (props) => {
       {terrain && (
         <div className={`absolute z-20 w-96 h-96 bg-${terrain}`}></div>
       )}
-      <h3 className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-black">
-        {homeworldName}
-      </h3>
       <div className="main h-96 w-96 absolute">
         <div className="rocky-sun h-32 w-32"></div>
         <div className="dirt"></div>

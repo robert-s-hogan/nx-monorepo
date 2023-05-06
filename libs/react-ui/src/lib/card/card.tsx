@@ -7,12 +7,12 @@ import Button, { ButtonProps } from '../button/button';
 /* eslint-disable-next-line */
 export interface CardProps {
   title?: string;
+  key?: string | number;
   description?: string;
   image?: React.ReactNode;
   onClick?: () => void;
   isLoading?: boolean;
   button?: React.ReactElement<ButtonProps>;
-  key?: string;
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   className?: string;
@@ -20,12 +20,12 @@ export interface CardProps {
 
 export function Card({
   title,
+  key,
   description,
   image,
   onClick,
   isLoading = false,
   button,
-  key,
   onMouseEnter,
   onMouseLeave,
   className,

@@ -1,25 +1,33 @@
+// api/useSWRApi.ts
 import useSWR from 'swr';
-import axios from 'axios';
 import { ApiResponse } from '../types/api/types';
+import { fetcher } from './fetcher';
+import { API_BASE_URL, endpoints, Endpoint } from './endpoints';
 
-const fetcher = async (url: string) => {
-  const response = await axios.get(url);
-  return response.data;
-};
+export const useSWRApi = <T>(
+  endpoint: Endpoint,
+  search?: string,
+  transformData?: (data: ApiResponse<T>) => ApiResponse<T>,
+  page?: number
+) => {
+  if (typeof endpoint === 'string' && endpoint.trim() === '') {
+    return {
+      data: undefined,
+      isLoading: false,
+      isError: false,
+    };
+  }
 
-export const useSWRApi = <T>(endpoint: string, search?: string) => {
-  const url = `https://swapi.dev/api/${endpoint}${
-    search ? `/?search=${encodeURIComponent(search)}` : ''
-  }`;
+  const url = `${API_BASE_URL}${
+    typeof endpoint === 'function' ? endpoint(page) : endpoint
+  }${search ? `/?search=${encodeURIComponent(search)}` : ''}`;
 
   const { data, error } = useSWR<ApiResponse<T>>(url, fetcher);
 
-  if (data) {
-    console.log(`useSWRApi: ${endpoint}`, data);
-  }
+  const transformedData = transformData && data ? transformData(data) : data;
 
   return {
-    data,
+    data: transformedData,
     isLoading: !error && !data,
     isError: error,
   };

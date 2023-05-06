@@ -18,9 +18,6 @@ const Lakes: React.FC<Props> = (props) => {
     <div
       className={`w-96 h-96 lg:w-80 xl:w-72 relative ${lakesStyles.bgLakes}`}
     >
-      <h3 className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-white">
-        {homeworldName}
-      </h3>
       <div className={`${lakesStyles.landscape} w-96 z-10`}>
         <div
           className={`${lakesStyles.mountain} absolute -left-10 h-24 w-24 md:w-48 xl:w-40}`}

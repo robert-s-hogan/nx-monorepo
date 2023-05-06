@@ -1,10 +1,12 @@
 // components/SwapiSearch.tsx
 import React, { useEffect, useState } from 'react';
 import { useSWRApi } from '../api/useSWRApi';
+import { Grid } from '@with-nx/react-ui';
 
 import SwapiCard from './SwapiCard';
 import SearchFilter from './SearchFilter';
 import ReusableSection from './ReusableSection';
+import { findMatchingUrl } from '../utils/findMatchingUrl';
 
 const SwapiSearch: React.FC = () => {
   const [searchText, setSearchText] = useState('');
@@ -32,8 +34,15 @@ const SwapiSearch: React.FC = () => {
     'people',
   ];
 
+  // useEffect(() => {
+  //   if (data?.results) {
+  //     findMatchingUrl(data.results);
+  //     console.log(`matching urls: ${JSON.stringify(data.results)}`);
+  //   }
+  // }, [data]);
+
   return (
-    <ReusableSection className="space-y-8">
+    <div className="space-y-8 w-full">
       <form onSubmit={handleSearch}>
         <div className="w-full flex space-x-4">
           <input
@@ -56,12 +65,19 @@ const SwapiSearch: React.FC = () => {
 
       {isLoading && <p>Loading...</p>}
       {isError && <p>Error loading data</p>}
-
-      {data &&
-        data?.results?.map((result: any, index: number) => (
-          <SwapiCard key={index} data={result} />
-        ))}
-    </ReusableSection>
+      <ReusableSection className="space-y-8">
+        <Grid className="grid-cols-1 lg:grid-cols-3">
+          {data &&
+            data?.results?.map((result: any, index: number) => (
+              <SwapiCard
+                key={index}
+                data={result}
+                endpoint={activeCategory || ''}
+              />
+            ))}
+        </Grid>
+      </ReusableSection>
+    </div>
   );
 };
 

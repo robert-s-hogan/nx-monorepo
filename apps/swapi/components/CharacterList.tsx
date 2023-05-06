@@ -4,13 +4,17 @@ import SwapiCard from './SwapiCard';
 import { useSWRApi } from '../api/useSWRApi';
 import { Person } from '../types/api/types';
 import Pagination from './Pagination';
+import { endpoints } from '../api/endpoints';
 
 export default function CharacterList() {
   const [nextPage, setNextPage] = useState(1);
   const [previousPage, setPreviousPage] = useState(null);
 
   const { data, isLoading, isError } = useSWRApi<Person>(
-    `people/?page=${nextPage}`
+    endpoints.peopleWithPage,
+    undefined,
+    undefined,
+    nextPage
   );
 
   const page = data
@@ -35,14 +39,14 @@ export default function CharacterList() {
           <SwapiCard key={person.name} person={person} isLoading={isLoading} />
         ))}
       </div> */}
-      <Pagination
+      {/* <Pagination
         page={page}
         nextPage={data?.next || null}
         previousPage={data?.previous || null}
         count={data?.count || 0}
         changePage={changePage}
         isLoading={isLoading}
-      />
+      /> */}
     </div>
   );
 }

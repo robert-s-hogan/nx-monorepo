@@ -15,9 +15,6 @@ const Desert: React.FC<Props> = (props) => {
 
   return (
     <div className="w-full h-full">
-      <h3 className="z-10 absolute right-2 m-0 uppercase p-4 text-2xl font-light pr-6 text-brown">
-        {homeworldName}
-      </h3>
       <div className="row-one bg-tan absolute w-full h-14 top-0"></div>
       <div className="row-two bg-yellow absolute w-full h-14 top-14"></div>
       <div className="row-three bg-orange absolute w-full h-14 top-28"></div>
