@@ -76,13 +76,11 @@ export const Stepper: React.FC<StepperProps> = ({
         onClick={handleDecrement}
         disabled={value < 2}
         icon={minusIcon}
-        label=""
       />
       <span className={stepperStyles.value}>{value}</span>
       <Button
         className={stepperStyles.btn}
         onClick={handleIncrement}
-        label={''}
         icon={plusIcon}
       />
       {value < 1 && (

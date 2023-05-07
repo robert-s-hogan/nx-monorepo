@@ -7,7 +7,7 @@ export interface CardProps {
   description?: string;
   price?: number;
   discountedPrice?: number;
-  label: string;
+  label?: string;
   onClick?: () => void;
 }
 

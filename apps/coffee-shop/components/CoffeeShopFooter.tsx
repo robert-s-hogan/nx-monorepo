@@ -6,7 +6,7 @@ const CoffeeShopFooter = () => {
     <footer className="py-16  bg-yellow-100">
       <div className="flex flex-col lg:flex-row items-center justify-between mx-auto max-w-screen-xl">
         <div className="flex items-center">
-          <Link className="ml-4" href="/" aria-label="Home Page">
+          <Link className="ml-4" href="/">
             <svg
               width="82"
               height="27"

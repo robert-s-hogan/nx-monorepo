@@ -24,7 +24,7 @@ describe('Tooltip component', () => {
 
   test('renders Tooltip with icon', () => {
     const icon = (
-      <span role="img" aria-label="rocket" className="mr-2">
+      <span role="img" className="mr-2">
         🚀
       </span>
     );

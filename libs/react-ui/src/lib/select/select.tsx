@@ -38,7 +38,6 @@ export interface SelectProps {
   className?: string;
   id?: string;
   style?: React.CSSProperties;
-  ariaLabel?: string;
   required?: boolean;
 }
 
@@ -54,7 +53,6 @@ export const Select: React.FC<SelectProps> = ({
   className,
   id,
   style,
-  ariaLabel,
   required,
 }) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -67,7 +65,6 @@ export const Select: React.FC<SelectProps> = ({
       className={className}
       id={id}
       style={style}
-      aria-label={ariaLabel}
       required={required}
       value={value}
       onChange={handleOnChange}

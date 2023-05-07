@@ -55,7 +55,6 @@ export const Input: React.FC<InputProps> = ({
         value={value}
         onChange={onChange}
         onClick={onClick}
-        aria-label={ariaLabel}
         required={required}
       />
     </div>

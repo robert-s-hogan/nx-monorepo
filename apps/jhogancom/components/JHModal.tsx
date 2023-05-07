@@ -50,7 +50,6 @@ export function JHModal({
                   <Button
                     className="icon border-0 close absolute top-1 right-2 my-0"
                     onClick={toggle}
-                    label=""
                     icon={
                       <button
                         type="button"

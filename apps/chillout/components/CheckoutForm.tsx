@@ -111,12 +111,9 @@ const CheckoutForm: React.FC = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <CardElement options={CARD_ELEMENT_OPTIONS} />
             <div className="mt-4" />
-            <Button
-              label="Pay"
-              className="btn-primary"
-              loading={isLoading}
-              type="submit"
-            />
+            <Button className="btn-primary" loading={isLoading} type="submit">
+              Pay
+            </Button>
           </form>
         </>
       )}

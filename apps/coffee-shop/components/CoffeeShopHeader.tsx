@@ -13,7 +13,7 @@ const CoffeeShopHeader = () => {
           role="navigation"
         >
           <div className="flex items-center ml-3">
-            <Link href="/" aria-label="Home">
+            <Link href="/">
               <svg
                 width="82"
                 height="27"
@@ -37,7 +37,6 @@ const CoffeeShopHeader = () => {
             <button
               id="nav_toggle"
               className="h-full w-full"
-              aria-label="Mobile Navigation"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
               <svg

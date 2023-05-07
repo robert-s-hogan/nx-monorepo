@@ -61,7 +61,6 @@ export function Index() {
                   <Link
                     href="mailto:robert@robertshogan.com"
                     className=" hover:text-vivid-500"
-                    aria-label="Mail Icon"
                     target="_blank"
                   >
                     <svg
@@ -82,7 +81,6 @@ export function Index() {
                   <Link
                     href="https://www.linkedin.com/in/robert-s-hogan/"
                     className="hover:text-vivid-500"
-                    aria-label="Linked Icon"
                     target="_blank"
                   >
                     <svg
@@ -164,12 +162,11 @@ export function Index() {
                                 ''
                               )
                             }
-                            label={
-                              project.isUnderConstruction
-                                ? 'Under Construction'
-                                : 'Live Project'
-                            }
-                          />
+                          >
+                            {project.isUnderConstruction
+                              ? 'Under Construction'
+                              : 'Live Project'}
+                          </Button>
                         </Link>
                         <Link
                           href={project.github}

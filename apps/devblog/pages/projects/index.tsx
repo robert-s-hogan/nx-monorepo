@@ -97,12 +97,11 @@ const Projects = () => {
                             ''
                           )
                         }
-                        label={
-                          project.isUnderConstruction
-                            ? 'Under Construction'
-                            : 'Live Project'
-                        }
-                      />
+                      >
+                        {project.isUnderConstruction
+                          ? 'Under Construction'
+                          : 'Live Project'}
+                      </Button>
                     </Link>
                     <Link
                       href={project.github}

@@ -484,7 +484,6 @@ function Index() {
               title="Card Title"
               description="Card description"
               image="../public/images/1500.png"
-              label="Label"
               price={100}
               discountedPrice={80}
             />
@@ -492,7 +491,6 @@ function Index() {
               title="Card Title"
               description="Card description"
               image="../public/images/1500.png"
-              label="Label"
               price={100}
               discountedPrice={80}
             />
@@ -500,7 +498,6 @@ function Index() {
               title="Card Title"
               description="Card description"
               image="../public/images/1500.png"
-              label="Label"
               price={100}
               discountedPrice={80}
             />

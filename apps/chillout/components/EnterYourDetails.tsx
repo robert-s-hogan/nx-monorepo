@@ -234,7 +234,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
                   {/* <DesignedSelect
                     options={cities.map((city) => [city.value, city.label])}
                     // options={countryOptions}
-                    label="Country"
                     value={shipping.country}
                     change={(country) => _shipping({ ...shipping, country })}
                   /> 
@@ -247,7 +246,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
               >
                 <Box className="f:1" right={10} left={10}>
                   <DesignedInput
-                    label="First Name"
                     value={shipping.name}
                     change={(name) => {
                       _shipping({ ...shipping, name });
@@ -257,7 +255,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
                 </Box>
                 <Box className="f:1" right={10} left={10}>
                   <DesignedInput
-                    label="Last Name"
                     value={shipping.surname}
                     change={(surname) => {
                       _shipping({ ...shipping, surname });
@@ -267,7 +264,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
                 </Box>
                 <Box className="f:1" right={10} left={10}>
                   <DesignedInput
-                    label="Company Name (Optional)"
                     value={shipping.company}
                     change={(company) => {
                       _shipping({ ...shipping, company });
@@ -283,7 +279,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
               >
                 <Box className="f:7" right={10} left={10}>
                   <DesignedInput
-                    label="Street Address"
                     value={shipping.address}
                     change={(address) => {
                       _shipping({ ...shipping, address });
@@ -293,7 +288,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
                 </Box>
                 <Box className="f:1" right={10} left={10}>
                   <DesignedInput
-                    label="Post Code"
                     value={shipping.zip}
                     change={(zip) => {
                       _shipping({ ...shipping, zip });
@@ -311,7 +305,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
                   {shipping.country === 'United States' ? (
                     <DesignedSelect
                       options={states}
-                      label="State"
                       value={shipping.state}
                       change={(state) => {
                         _shipping({ ...shipping, state });
@@ -320,7 +313,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
                     />
                   ) : (
                     <DesignedInput
-                      label="State"
                       value={shipping.state}
                       change={(state) => {
                         _shipping({ ...shipping, state });
@@ -334,7 +326,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
                     cities.length ? (
                       <DesignedSelect
                         options={cities}
-                        label="City"
                         value={shipping.city}
                         change={(city) => {
                           _shipping({ ...shipping, city });
@@ -344,7 +335,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
                     ) : (
                       <DesignedSelect
                         options={[['Select State First', 'Select State First']]}
-                        label="City"
                         value="Select State First"
                         change={(city) => {
                           _shipping({ ...shipping, city });
@@ -354,7 +344,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
                     )
                   ) : (
                     <DesignedInput
-                      label="State"
                       value={shipping.state}
                       change={(state) => {
                         _shipping({ ...shipping, state });
@@ -369,7 +358,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
         /> */}
         {/* <DesignedCheck
           properties={{ top: 24 }}
-          label="Shipping details are correct"
           active={shippingDetailsAreCorrect}
           onClick={() =>
             setShippingDetailsAreCorrect(!shippingDetailsAreCorrect)

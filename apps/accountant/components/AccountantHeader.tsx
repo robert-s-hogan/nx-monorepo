@@ -10,11 +10,9 @@ const AccountantHeader = () => {
     <header className="container mx-auto max-w-7xl ">
       <Flex className="justify-end w-full h-full pt-8">
         <Link href="/contact">
-          <Button
-            className="btn-primary uppercase"
-            label="Request a Free Consultation"
-            onClick={() => {}}
-          />
+          <Button className="btn-primary uppercase" onClick={() => {}}>
+            Request a Free Consultation
+          </Button>
         </Link>
       </Flex>
       <div className="container-fluid" id="banner">

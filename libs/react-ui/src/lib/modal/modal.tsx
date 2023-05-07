@@ -40,7 +40,9 @@ export const Modal = ({
             <div className={`modal-icon ${modalStyles.modalIcon}`}>{icon}</div>
           )}
           <h2 className={`modal-title ${modalStyles.modalTitle}`}>{title}</h2>
-          <Button onClick={toggle}>Close</Button>
+          <Button onClick={toggle} icon="close">
+            Close
+          </Button>
         </div>
         {description && (
           <p className={`modal-description ${modalStyles.modalDescription}`}>

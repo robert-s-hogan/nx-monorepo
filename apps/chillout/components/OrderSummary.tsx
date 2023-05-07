@@ -56,11 +56,12 @@ export const OrderSummary = ({
         <>
           <Button
             disabled={!agree || !canPay}
-            label="Pay by Card"
             onClick={onPayByCardPress}
             className="w-full flex items-center justify-center mb-4"
             icon="card/bold"
-          />
+          >
+            Pay by Card
+          </Button>
           <div className="flex items-center my-12">
             <div className="h-1" />
             <div className="inline-flex">
@@ -70,10 +71,11 @@ export const OrderSummary = ({
           </div>
           <Button
             disabled={!agree || !canPay}
-            label="Upload Purchase Order"
             onClick={onUploadPurchaseOrderPress}
             className="w-full flex items-center justify-center mb-4"
-          />
+          >
+            Pay by Card
+          </Button>
           <div className="flex items-start">
             {/* <DesignedCheck active={agree} onClick={() => _agree(!agree)} /> */}
             <div className="ml-10" onClick={() => _agree(!agree)}>
@@ -86,11 +88,12 @@ export const OrderSummary = ({
       ) : (
         <>
           <Button
-            label="Continue"
             onClick={onContinuePress}
             disabled={!canProgress}
             className="btn-primary w-full flex items-center justify-center mb-4"
-          />
+          >
+            Continue
+          </Button>
           <div
             onMouseEnter={() => _drop(true)}
             onMouseLeave={() => _drop(false)}
@@ -98,9 +101,10 @@ export const OrderSummary = ({
             <div className="p:relative">
               <Button
                 onClick={onExportPDFInvoiceDetailsPress}
-                label="Export Invoice Details…"
                 className="btn-outline w-full flex items-center justify-center mb-4"
-              />
+              >
+                Export Invoice Details…
+              </Button>
               {drop ? (
                 <div className="w-full h-auto absolute unset-0 pt-12 bg-foreground border-accent">
                   <div className="pa-12 bg-foreground border-accent">

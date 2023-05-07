@@ -18,7 +18,6 @@ export interface ListProps {
   style?: React.CSSProperties;
   onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   testId?: string;
-  ariaLabel?: string;
 }
 
 export const List: React.FC<ListProps> = ({
@@ -28,7 +27,6 @@ export const List: React.FC<ListProps> = ({
   style,
   onClick,
   testId,
-  ariaLabel,
 }) => {
   return (
     <ul
@@ -37,7 +35,6 @@ export const List: React.FC<ListProps> = ({
       style={style}
       onClick={onClick}
       data-testid={testId}
-      aria-label={ariaLabel}
     >
       {items.map((item) => (
         <li key={item.id}>{item.value}</li>

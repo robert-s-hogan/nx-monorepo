@@ -13,11 +13,15 @@ The `useModal` hook is used to control the visibility of modal dialogs.
 
 ## Usage
 
-To use the `useModal` hook, you need to import it along with the `Modal` component from `@with-nx/react-ui`.
+To use the `useModal` hook, you need to import it along with the
+
+`useModal` component from `@with-nx/react-hooks`
+
+`Modal` component from `@with-nx/react-ui`
 
 ```tsx
 import { Modal } from '@with-nx/react-ui';
-import { useModal } from './use-modal'; // Adjust the import path as needed
+import { useModal } from '@with-nx/react-hooks';
 
 const MyComponent = () => {
   const { isShowing, toggle } = useModal();

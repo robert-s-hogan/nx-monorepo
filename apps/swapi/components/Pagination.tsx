@@ -48,8 +48,9 @@ const Pagination: React.FC<Props> = ({
           previousPage && handleChangePage(extractPageNumber(previousPage))
         }
         disabled={previousPage === null}
-        label="Back"
-      />
+      >
+        Back
+      </Button>
       <div className="flex items-center space-x-1">
         {pages.map((pageNumber) => {
           return (
@@ -59,8 +60,9 @@ const Pagination: React.FC<Props> = ({
                 pageNumber === page ? 'bg-blue' : ''
               }`}
               onClick={() => handleChangePage(pageNumber)}
-              label={pageNumber.toString()}
-            />
+            >
+              {pageNumber.toString()}
+            </Button>
           );
         })}
       </div>
@@ -71,8 +73,9 @@ const Pagination: React.FC<Props> = ({
         onClick={() => nextPage && changePage(extractPageNumber(nextPage))}
         disabled={nextPage === null}
         loading={isLoading}
-        label="Next"
-      />
+      >
+        Next
+      </Button>
     </div>
   );
 };

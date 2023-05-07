@@ -91,7 +91,7 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
   label: 'Button with Icon',
   icon: (
-    <span role="img" aria-label="rocket" className="mr-2">
+    <span role="img" className="mr-2">
       🚀
     </span>
   ),

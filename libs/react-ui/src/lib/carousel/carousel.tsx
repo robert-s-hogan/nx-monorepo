@@ -34,13 +34,11 @@ export const Carousel: React.FC<CarouselProps> = ({
         <Button
           icon={<span>&larr;</span>}
           onClick={goToPreviousImage}
-          aria-label="Previous Image"
           className={`carousel-button-left ${carouselStyles.carouselButtonLeft}`}
         />
         <Button
           icon={<span>&rarr;</span>}
           onClick={goToNextImage}
-          aria-label="Next Image"
           className={`carousel-button-right ${carouselStyles.carouselButtonRight}`}
         />
       </div>

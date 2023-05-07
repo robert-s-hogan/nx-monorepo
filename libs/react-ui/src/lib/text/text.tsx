@@ -21,7 +21,6 @@ export interface TextProps {
   id?: string;
   style?: React.CSSProperties;
   onClick?: (event: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => void;
-  'aria-label'?: string;
   isLoading?: boolean;
   rows?: number;
   rowWidth?: number;
@@ -36,7 +35,6 @@ export const Text: React.FC<TextProps> = ({
   id,
   style,
   onClick,
-  'aria-label': ariaLabel,
   isLoading,
   rows = 1,
   rowWidth = 100,
@@ -49,7 +47,6 @@ export const Text: React.FC<TextProps> = ({
       id={id}
       style={style}
       onClick={onClick}
-      aria-label={ariaLabel}
     >
       {isLoading ? (
         <Skeleton

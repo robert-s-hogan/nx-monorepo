@@ -230,12 +230,11 @@ const Products = () => {
                         }
                          inline-block font-semibold rounded-md uppercase px-10 py-4 mt-12 bg-blue-500 text-blue-50 hover:bg-blue-700 `}
                         // href="/checkout"
-                        label={
-                          addedToCartStates[product.id]
-                            ? 'Added to Cart'
-                            : 'Add to Cart'
-                        }
-                      />
+                      >
+                        {addedToCartStates[product.id]
+                          ? 'Added to Cart'
+                          : 'Add to Cart'}
+                      </Button>
                     </div>
                   </div>
                 );

@@ -59,7 +59,6 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                 index === currentSlide ? 'bg-blue-500' : 'bg-gray-300'
               }`}
               onClick={() => handleSlideChange(index)}
-              aria-label={`Slide ${index + 1}`}
             ></button>
           ))}
         </div>
