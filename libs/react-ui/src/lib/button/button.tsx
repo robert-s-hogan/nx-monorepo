@@ -6,7 +6,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   style?: React.CSSProperties;
   loading?: boolean;
-  children?: React.ReactNode;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -14,21 +14,22 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   style,
   loading,
-  children,
   className = '',
+  type = 'button',
   ...props
 }) => (
   <button
     className={`button ${buttonStyles.button} ${className} ${
       icon ? `button-group ${buttonStyles.buttonRow}` : ''
-    } `}
+    }`}
     disabled={disabled || loading}
     style={style}
+    type={type}
     {...props}
   >
-    {icon ? icon : null} {children}
+    {icon ? icon : null} {props.children}
     {loading ? (
-      <span className={`button-loader ${buttonStyles.loader}`}></span>
+      <div className={`button-loader ${buttonStyles.loader}`}></div>
     ) : null}
   </button>
 );

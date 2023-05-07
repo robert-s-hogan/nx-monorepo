@@ -5,22 +5,11 @@ import { Flex, FlexProps } from '../flex/flex';
 
 const meta: Meta = {
   component: Button,
-  label: 'Button',
   title: 'Atoms/Button',
   argTypes: {
-    label: {
+    children: {
       control: 'text',
       description: 'string (required)',
-      defaultValue: '',
-    },
-    icon: {
-      control: 'text',
-      description: 'React.ReactNode',
-      defaultValue: '',
-    },
-    onClick: {
-      action: 'clicked',
-      description: 'function',
       defaultValue: '',
     },
     type: {
@@ -44,11 +33,6 @@ const meta: Meta = {
       description: 'React.CSSProperties',
       defaultValue: '',
     },
-    label: {
-      control: 'text',
-      description: 'string',
-      defaultValue: '',
-    },
     'aria-label': {
       control: 'text',
       description: 'string',
@@ -66,30 +50,28 @@ export default meta;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 const FlexTemplate: Story<FlexProps & ButtonProps> = (args) => (
-  <Flex className={args.className}>
-    <Button
-      label={args.label}
-      className={args.buttonClassName}
-      onClick={args.onClick}
-    />
+  <Flex className={args.flexClassName}>
+    <Button className={args.className} onClick={args.onClick}>
+      {args.children}
+    </Button>
   </Flex>
 );
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: 'Primary Button',
+  children: 'Primary Button',
   className: 'bg-blue-500 text-white px-4 py-2 rounded',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Secondary Button',
+  children: 'Secondary Button',
   className: 'bg-gray-300 text-black px-4 py-2 rounded',
 };
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  label: 'Button with Icon',
+  children: 'Button with Icon',
   icon: (
     <span role="img" className="mr-2">
       🚀
@@ -100,14 +82,14 @@ WithIcon.args = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  label: 'Disabled Button',
+  children: 'Disabled Button',
   className: 'bg-gray-300 text-white px-4 py-2 rounded',
   disabled: true,
 };
 
 export const Loading = Template.bind({});
 Loading.args = {
-  label: 'Loading Button',
+  children: 'Loading Button',
   className:
     'bg-purple-500 text-white px-4 py-2 rounded items-center space-x-4',
   loading: true,
@@ -115,36 +97,36 @@ Loading.args = {
 
 export const Warning = Template.bind({});
 Warning.args = {
-  label: 'Warning Button',
+  children: 'Warning Button',
   className: 'bg-yellow-500 text-black px-4 py-2 rounded',
 };
 
 export const Error = Template.bind({});
 Error.args = {
-  label: 'Error Button',
+  children: 'Error Button',
   className: 'bg-red-500 text-white px-4 py-2 rounded',
 };
 
 export const FullWidth = Template.bind({});
 FullWidth.args = {
-  label: 'Full Width Button',
+  children: 'Full Width Button',
   className: 'bg-blue-500 text-white px-4 py-2 rounded w-full',
 };
 
 export const RightAlignedButtonInsideFlex: Story<FlexProps & ButtonProps> =
   FlexTemplate.bind({});
 RightAlignedButtonInsideFlex.args = {
-  label: 'Right Aligned Button',
-  buttonClassName: 'bg-pink-500 text-white px-4 py-2 rounded',
-  className: 'justify-end w-full h-full',
+  children: 'Right Aligned Button',
+  flexClassName: 'justify-end w-full h-full',
+  className: 'bg-pink-500 text-white px-4 py-2 rounded w-auto',
   onClick: () => {},
 };
 
 export const CenterAlignedButtonInsideFlex: Story<FlexProps & ButtonProps> =
   FlexTemplate.bind({});
 CenterAlignedButtonInsideFlex.args = {
-  label: 'Center Aligned Button',
-  buttonClassName: 'bg-gray-500 text-white px-4 py-2 rounded',
-  className: 'justify-center w-full h-full',
+  children: 'Center Aligned Button',
+  flexClassName: 'justify-center w-full h-full',
+  className: 'bg-gray-500 text-white px-4 py-2 rounded w-auto',
   onClick: () => {},
 };
