@@ -19,7 +19,6 @@ module.exports = {
       config = await rootMain.webpackFinal(config, { configType });
     }
 
-
     return config;
   },
 };

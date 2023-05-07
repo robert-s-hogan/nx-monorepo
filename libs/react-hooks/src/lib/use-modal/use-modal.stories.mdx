@@ -1,0 +1,34 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Default } from './use-modal.stories';
+
+<Meta title="Hooks/useModal" />
+
+# useModal
+
+The `useModal` hook is used to control the visibility of modal dialogs.
+
+## Description
+
+`useModal` is a custom React hook that provides an easy way to manage the state of a modal dialog. It returns an object containing two properties: `isShowing` and `toggle`. The `isShowing` property is a boolean that indicates whether the modal is currently visible, and the `toggle` function can be used to show or hide the modal.
+
+## Usage
+
+To use the `useModal` hook, you need to import it along with the `Modal` component from `@with-nx/react-ui`.
+
+```tsx
+import { Modal } from '@with-nx/react-ui';
+import { useModal } from './use-modal'; // Adjust the import path as needed
+
+const MyComponent = () => {
+  const { isShowing, toggle } = useModal();
+
+  return (
+    <>
+      <button onClick={toggle}>Toggle Modal</button>
+      <Modal isShowing={isShowing} toggle={toggle} title="Checkout">
+        Text here
+      </Modal>
+    </>
+  );
+};
+```

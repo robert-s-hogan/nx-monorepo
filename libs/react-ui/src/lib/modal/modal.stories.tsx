@@ -1,12 +1,55 @@
+// Modal.stories.tsx
+
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Modal, ModalProps } from './modal';
+import { Modal, ModalProps } from './Modal';
 
 const meta: Meta = {
   component: Modal,
-  title: 'Modal',
   title: 'Atoms/Modal',
+  argTypes: {
+    isShowing: {
+      control: 'boolean',
+      description: 'boolean',
+      defaultValue: false,
+    },
+    toggle: {
+      action: 'toggled',
+      description: 'function',
+    },
+    title: {
+      control: 'text',
+      description: 'string',
+      defaultValue: '',
+    },
+    description: {
+      control: 'text',
+      description: 'string',
+      defaultValue: '',
+    },
+    icon: {
+      control: 'text',
+      description: 'React.ReactNode',
+      defaultValue: '',
+    },
+    children: {
+      control: 'text',
+      description: 'React.ReactNode',
+      defaultValue: '',
+    },
+    onClick: {
+      action: 'clicked',
+      description: 'function',
+    },
+    buttonLocation: {
+      control: { type: 'select' },
+      options: ['left', 'right'],
+      description: 'string: "left" | "right"',
+      defaultValue: 'right',
+    },
+  },
 };
+
 export default meta;
 
 const Template: Story<ModalProps> = (args) => <Modal {...args} />;
