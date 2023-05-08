@@ -6,6 +6,7 @@ import {
   GiSwitchWeapon,
   GiRomanShield,
 } from 'react-icons/gi';
+import { Flex } from '@with-nx/react-ui';
 
 interface DynamicObjectComponentProps {
   data: any;
@@ -81,30 +82,30 @@ const DynamicObjectComponent: React.FC<DynamicObjectComponentProps> = ({
             {locked ? <GiLockedChest /> : <ImUnlocked />}
           </div>
           <h4 className="flex items-center">
-            <div className="flex items-center">
+            <Flex className="items-center">
               {customItem.name === 'Weapon' ? (
-                <div className="flex items-center">
+                <Flex className="items-center">
                   <GiSwitchWeapon size={24} />
                   <p className="ml-2">Weapon</p>
-                </div>
+                </Flex>
               ) : customItem.name === 'Armor' ? (
-                <div className="flex items-center">
+                <Flex className="items-center">
                   <GiChestArmor size={24} />
 
                   <p className="ml-2">Armor</p>
-                </div>
+                </Flex>
               ) : customItem.name === 'Accessory' ? (
-                <div className="flex items-center">
+                <Flex className="items-center">
                   <GiGemChain size={24} />
                   <p className="ml-2">Accessory</p>
-                </div>
+                </Flex>
               ) : (
-                <div className="flex items-center">
+                <Flex className="items-center">
                   <GiRomanShield size={24} />
                   <p className="ml-2">Shield</p>
-                </div>
+                </Flex>
               )}
-            </div>
+            </Flex>
           </h4>
 
           <ul>

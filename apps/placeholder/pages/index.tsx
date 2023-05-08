@@ -7,7 +7,7 @@ import {
   MultiStepForm,
   Form,
 } from '@with-nx/react-ui';
-import { Card, ImageCarousel } from '@with-nx/react-tailwind-ui';
+import { Card } from '@with-nx/react-ui';
 import { FiMinus, FiPlus, FiCheck } from 'react-icons/fi';
 
 import { motion } from 'framer-motion';
@@ -484,35 +484,35 @@ function Index() {
               title="Card Title"
               description="Card description"
               image="../public/images/1500.png"
-              price={100}
-              discountedPrice={80}
+              // price={100}
+              // discountedPrice={80}
             />
             <Card
               title="Card Title"
               description="Card description"
               image="../public/images/1500.png"
-              price={100}
-              discountedPrice={80}
+              // price={100}
+              // discountedPrice={80}
             />
             <Card
               title="Card Title"
               description="Card description"
               image="../public/images/1500.png"
-              price={100}
-              discountedPrice={80}
+              // price={100}
+              // discountedPrice={80}
             />
           </div>
         </div>
 
         <div className="p-8 border border-red-500 space-y-4">
           <p>import ImageCarousel @with-nx/react-tailwind-ui</p>
-          <ImageCarousel
+          {/* <ImageCarousel
             images={[
               '../public/images/1500.png',
               '../public/images/1500.png',
               '../public/images/1500.png',
             ]}
-          />
+          /> */}
         </div>
 
         <div className="p-8 border border-red-500 space-y-4">

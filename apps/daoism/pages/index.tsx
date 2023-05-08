@@ -2,6 +2,7 @@
 import useSWR from 'swr';
 import Hero from '/public/images/hero_pooh.png';
 import DaoismLayout from '../components/layout/DaoismLayout';
+import { Flex } from '@with-nx/react-ui';
 
 // import {
 //   useKeenSlider,
@@ -98,14 +99,14 @@ export function Index() {
       <div className="w-full bg-brand-black h-full py-32">
         <div className="max-w-5xl mx-auto px-5">
           {/* <nav className="flex justify-between items-center py-4">
-          <div className="flex items-center space-x-4">
+          <Flex className="items-center space-x-4">
             <div className="text-white font-bold text-2xl">道教 (Daoism)</div>
-          </div>
-          <div className="flex items-center space-x-4">
+          </Flex>
+          <Flex className="items-center space-x-4">
             <div className="text-white font-bold text-xl">Home</div>
             <div className="text-white font-bold text-xl">About</div>
             <div className="text-white font-bold text-xl">Contact</div>
-          </div>
+          </Flex>
         </nav> */}
           {/* 
         <div ref={sliderRef} className="keen-slider text-white">

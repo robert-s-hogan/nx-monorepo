@@ -67,7 +67,7 @@ const Products = () => {
             Something really catchy and not too long. Short and sweet does it.
           </p>
           <div className="pl-4 mt-12 lg:pl-20 lg:mt-24">
-            <div className="flex items-center mb-10">
+            <Flex className="items-center mb-10">
               <div className="flex justify-center items-center w-12 h-12 mr-6 rounded-md bg-blue-600">
                 <svg
                   width="30"
@@ -90,9 +90,9 @@ const Products = () => {
                   A phrase about speed and efficiency.
                 </p>
               </div>
-            </div>
+            </Flex>
 
-            <div className="flex items-center mb-10">
+            <Flex className="items-center mb-10">
               <div className="flex justify-center items-center w-12 h-12 mr-6 rounded-md bg-blue-600">
                 <svg
                   width="14"
@@ -115,9 +115,9 @@ const Products = () => {
                   Something involving money.
                 </p>
               </div>
-            </div>
+            </Flex>
 
-            <div className="flex items-center mb-10">
+            <Flex className="items-center mb-10">
               <div className="flex justify-center items-center w-12 h-12 mr-6 rounded-md bg-blue-600">
                 <svg
                   width="24"
@@ -140,7 +140,7 @@ const Products = () => {
                   A commitment to time and it’s weirdness.
                 </p>
               </div>
-            </div>
+            </Flex>
           </div>
         </div>
         <div className="absolute lg:relative bottom-20 opacity-10 lg:opacity-100">
@@ -203,7 +203,7 @@ const Products = () => {
                           Chillout Company
                         </a>
                       </span>
-                      <div className="flex items-center gap-x-6 my-10">
+                      <Flex className="items-center gap-x-6 my-10">
                         <div className="px-3 py-5 rounded-md font-bold bg-blue-50 text-blue-500">
                           <span className="text-2xl">$</span>
                           <span className="text-4xl">{product.price}</span>
@@ -216,7 +216,7 @@ const Products = () => {
                             {product.taxes}
                           </span>
                         </div>
-                      </div>
+                      </Flex>
                       <Text className="text-xl max-w-prose font-medium text-gray-600">
                         {product.description}
                       </Text>

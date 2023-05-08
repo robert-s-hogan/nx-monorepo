@@ -8,6 +8,7 @@ import { useCharacter } from '../hooks/useCharacter';
 import { useFetchItems5e } from '../hooks/useFetchItems5e';
 import ConquestLayout from '../components/layout/ConquestLayout';
 import { randomNumber } from '../lib/randomNumber';
+import { Flex } from '@with-nx/react-ui';
 // import GenerateMadLib from '../components/GenerateMadLib';
 // import RandomCustomItems from '../components/RandomCustomItems';
 
@@ -181,9 +182,9 @@ export default function Home() {
   return (
     <ConquestLayout>
       <section className="h-screen w-full">
-        <div className="flex items-center justify-center h-1/2">
+        <Flex className="items-center justify-center h-1/2">
           <h1 className="text-center">Welcome to Conquest of Heroes</h1>
-        </div>
+        </Flex>
       </section>
       {/*      <Stack spacing={8}>
         <Accordion allowMultiple>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Text } from '@with-nx/react-ui';
+import { Text, Flex } from '@with-nx/react-ui';
 import { Skeleton } from '@with-nx/react-ui';
 
 import { projectStaticData } from '../../data/projects';
@@ -63,7 +63,7 @@ const ProjectSection = () => {
                   )}
                 </div>
 
-                <div className={`flex items-center px-4 py-3 bg-peach`}>
+                <Flex className={`items-center px-4 py-3 bg-peach`}>
                   <Text
                     className="text-lg font-semibold text-black"
                     isLoading={loading}
@@ -71,7 +71,7 @@ const ProjectSection = () => {
                   >
                     {project.name}
                   </Text>
-                </div>
+                </Flex>
 
                 <div className="px-4 py-4 flex flex-col justify-between h-64">
                   <Text className="py-2 flex-grow" isLoading={loading} rows={4}>
@@ -122,14 +122,14 @@ const ProjectSection = () => {
                     />
                   )}
                 </div>
-                <div className={`flex items-center px-4 py-3 bg-peach`}>
+                <Flex className={`items-center px-4 py-3 bg-peach`}>
                   <Text
                     className="text-lg font-semibold text-black"
                     isLoading={loading}
                   >
                     {project.name}
                   </Text>
-                </div>
+                </Flex>
 
                 <div className="px-4 py-4 flex flex-col justify-between h-64">
                   <Text className="py-2 flex-grow" rows={4} isLoading={loading}>

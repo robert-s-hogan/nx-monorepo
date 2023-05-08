@@ -1,5 +1,4 @@
-import { Link } from '@with-nx/react-ui';
-import { Modal } from '@with-nx/react-ui';
+import { Flex, Link, Modal } from '@with-nx/react-ui';
 
 interface RSHModalProps {
   isShowing: boolean;
@@ -23,7 +22,7 @@ const RSHModal = ({
       <div className="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg space-y-4">
         <h2>{title}</h2>
 
-        <div className="flex items-center mt-4 text-gray-600 dark:text-gray-400">
+        <Flex className="items-center mt-4 text-gray-600 dark:text-gray-400">
           {icon ? (
             icon
           ) : (
@@ -53,9 +52,9 @@ const RSHModal = ({
           <div className="ml-4 text-md tracking-wide font-semibold w-40">
             Sonoma County, CA
           </div>
-        </div>
+        </Flex>
 
-        <div className="flex items-center mt-2 text-gray-600 dark:text-gray-400">
+        <Flex className="items-center mt-2 text-gray-600 dark:text-gray-400">
           <svg
             fill="none"
             stroke="currentColor"
@@ -77,7 +76,7 @@ const RSHModal = ({
               Email me
             </Link>
           </div>
-        </div>
+        </Flex>
       </div>
 
       <form

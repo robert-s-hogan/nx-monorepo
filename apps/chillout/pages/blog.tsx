@@ -33,7 +33,7 @@ const Blog = () => {
                   consequatur cumque magnam ipsam quae sequi laudantium pariatur
                   veritatis?
                 </p>
-                <div className="flex items-center">
+                <Flex className="items-center">
                   <div className="h-12 w-12 rounded-md overflow-hidden flex-shrink-0">
                     <img
                       className="w-full h-full object-cover object-bottom"
@@ -49,7 +49,7 @@ const Blog = () => {
                       Chillmaster
                     </span>
                   </div>
-                </div>
+                </Flex>
               </div>
               <div className="rounded-md overflow-hidden h-48 lg:h-full lg:min-h-0 lg:col-start-3 lg:col-end-6">
                 <img
@@ -93,7 +93,7 @@ const Blog = () => {
                     consequatur cumque magnam ipsam quae sequi laudantium
                     pariatur veritatis?{' '}
                   </p>
-                  <div className="flex items-center">
+                  <Flex className="items-center">
                     <div className="h-12 w-12 rounded-md overflow-hidden flex-shrink-0">
                       <img
                         className="w-full h-full object-cover object-bottom"
@@ -109,7 +109,7 @@ const Blog = () => {
                         Chief Technical Writer
                       </span>
                     </div>
-                  </div>
+                  </Flex>
                 </div>
               </a>
             </div>
@@ -145,7 +145,7 @@ const Blog = () => {
                     consequatur cumque magnam ipsam quae sequi laudantium
                     pariatur veritatis?
                   </p>
-                  <div className="flex items-center">
+                  <Flex className="items-center">
                     <div className="h-12 w-12 rounded-md overflow-hidden flex-shrink-0">
                       <img
                         className="w-full h-full object-cover object-bottom"
@@ -161,7 +161,7 @@ const Blog = () => {
                         Batman Fan
                       </span>
                     </div>
-                  </div>
+                  </Flex>
                 </div>
               </a>
             </div>

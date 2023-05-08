@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Button } from '@with-nx/react-ui';
+import { Button, Flex } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
 import RSHModal from '../components/RSHModal';
 
@@ -170,7 +170,7 @@ export function Index() {
                   Sample coffee shop for local businesses to connect with their
                   customers.
                 </p>
-                <div className="flex items-center flex-wrap ">
+                <Flex className="items-center flex-wrap ">
                   <Link
                     href="https://coffee-shop.robertshogan.com/"
                     className="text text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
@@ -207,7 +207,7 @@ export function Index() {
                     </svg>
                     6
                   </span>
-                </div>
+                </Flex>
               </div>
             </div>
 
@@ -229,7 +229,7 @@ export function Index() {
                   Sample product shop for local businesses to promote their
                   product and sell online.
                 </p>
-                <div className="flex items-center flex-wrap">
+                <Flex className="items-center flex-wrap">
                   <Link
                     href="http://chillout.robertshogan.com/"
                     className="text text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
@@ -266,7 +266,7 @@ export function Index() {
                     </svg>
                     6
                   </span>
-                </div>
+                </Flex>
               </div>
             </div>
             {/*
@@ -287,7 +287,7 @@ export function Index() {
                   Sample construction site for local businesses to show off
                   their work!
                 </p>
-                <div className="flex items-center flex-wrap ">
+                <Flex className="items-center flex-wrap ">
                   <p className="text-indigo-500 inline-flex items-center md:mb-2 disabled lg:mb-0">
                     <span className="italic text-xs">Coming Soon</span>
                     {/* <svg

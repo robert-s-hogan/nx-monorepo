@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FiChevronLeft } from 'react-icons/fi';
 import { GiDeathSkull } from 'react-icons/gi';
+import { Flex } from '@with-nx/react-ui';
 
 import { Campaign } from '../../types/types';
 import withAuth from '../../hooks/withAuth';
@@ -145,17 +146,17 @@ const CampaignPage = ({ campaign }: CampaignProps) => {
       </pre> */}
 
       <div className="container max-w-7xl mx-auto mt-8 px-2">
-        <div className="flex items-center space-x-2">
+        <Flex className="items-center space-x-2">
           <Link href="/admin" className="underline flex items-center">
             <FiChevronLeft size={16} /> back
           </Link>
           <span className="text-gray-400">/</span>
           <p>{campaign.name}</p>
-        </div>
+        </Flex>
 
         <div className="div flex justify-between my-12">
           <div>
-            <div className="flex items-center">
+            <Flex className="items-center">
               <div className="mr-4">
                 <h1 className="text-black mt-3">{campaign.name}</h1>
                 <p>Campaign info (#{campaign.id})</p>
@@ -166,7 +167,7 @@ const CampaignPage = ({ campaign }: CampaignProps) => {
               >
                 {isEditing ? 'Cancel' : 'Edit'}
               </button>
-            </div>
+            </Flex>
           </div>
 
           <button onClick={toggle} className="bg-custom-gradient w-auto">
@@ -254,7 +255,7 @@ const CampaignPage = ({ campaign }: CampaignProps) => {
                       </div>
                     </div>
                     <div className="mt-4 w-full">
-                      <div className="flex items-center">
+                      <Flex className="items-center">
                         <select
                           name="group_alive"
                           id="group_alive"
@@ -270,7 +271,7 @@ const CampaignPage = ({ campaign }: CampaignProps) => {
                           <option value="true">Alive</option>
                           <option value="false">Dead</option>
                         </select>
-                      </div>
+                      </Flex>
                     </div>
                   </div>
 
@@ -308,7 +309,7 @@ const CampaignPage = ({ campaign }: CampaignProps) => {
                         </div>
                       </div>
                       <div className="mt-1 w-full">
-                        <div className="flex items-center">
+                        <Flex className="items-center">
                           {campaign?.encounters.length > 0 ? (
                             <select
                               name="previous-encounters"
@@ -326,7 +327,7 @@ const CampaignPage = ({ campaign }: CampaignProps) => {
                           ) : (
                             <p>No encounters yet.</p>
                           )}
-                        </div>
+                        </Flex>
                       </div>
                     </div>
                   </div>

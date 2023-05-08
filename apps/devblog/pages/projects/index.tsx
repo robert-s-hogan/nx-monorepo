@@ -1,6 +1,6 @@
 import React from 'react';
 import DevBlogLayout from '../../components/layout/DevBlogLayout';
-import { Link, Button, Text, Heading } from '@with-nx/react-ui';
+import { Link, Button, Text, Heading, Flex } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
 import { FaReact } from 'react-icons/fa';
 import {
@@ -63,7 +63,7 @@ const Projects = () => {
                   <p className="card-text text-black h-28">
                     {project.description}
                   </p>
-                  <div className="w-full flex items-center h-12">
+                  <Flex className="w-full items-center h-12">
                     {project.category.map((cat) => {
                       return (
                         <span
@@ -78,7 +78,7 @@ const Projects = () => {
                         </span>
                       );
                     })}
-                  </div>
+                  </Flex>
                   <div className="w-full flex justify-between text-black mt-8">
                     <Link
                       href={project.link}

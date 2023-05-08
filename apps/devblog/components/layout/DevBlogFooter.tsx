@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import { Link } from '@with-nx/react-ui';
+import { Link, Flex } from '@with-nx/react-ui';
 import RSHLogo from '../../public/images/rsh_logo.png';
 const DevBlogFooter = () => {
   return (
     <footer className="container mx-auto max-w-7xl pb-8 px-4">
-      <div className="flex items-center justify-between mt-16">
+      <Flex className="items-center justify-between mt-16">
         <Image
           src={RSHLogo}
           loading="lazy"
@@ -129,7 +129,7 @@ const DevBlogFooter = () => {
             </svg>
           </Link>
         </span>
-      </div>
+      </Flex>
     </footer>
   );
 };

@@ -1,4 +1,4 @@
-import { Button, Text, Heading } from '@with-nx/react-ui';
+import { Button, Text, Heading, Flex } from '@with-nx/react-ui';
 import { FiMail, FiDownloadCloud, FiInfo } from 'react-icons/fi';
 import { useState } from 'react';
 
@@ -42,16 +42,16 @@ export const OrderSummary = ({
         Order Summary
       </Heading>
       {subtotal?.products ? (
-        <div className="flex items-center mb-16 justify-between">
+        <Flex className="items-center mb-16 justify-between">
           <Text className="">Subtotal: </Text>
           <Text className="text-font-two">{subtotal.products}</Text>
-        </div>
+        </Flex>
       ) : undefined}
       <div className="mb-16 h-1 w-full text-accent" />
-      <div className="flex items-center mb-16 justify-between">
+      <Flex className="items-center mb-16 justify-between">
         <Text className="">Total: </Text>
         <Text className="text-font-one">{total}</Text>
-      </div>
+      </Flex>
       {step === 'pay' ? (
         <>
           <Button
@@ -62,13 +62,13 @@ export const OrderSummary = ({
           >
             Pay by Card
           </Button>
-          <div className="flex items-center my-12">
+          <Flex className="items-center my-12">
             <div className="h-1" />
             <div className="inline-flex">
               <Text className="mx-10">OR</Text>
             </div>
             <div className="h-1" />
-          </div>
+          </Flex>
           <Button
             disabled={!agree || !canPay}
             onClick={onUploadPurchaseOrderPress}
@@ -108,8 +108,8 @@ export const OrderSummary = ({
               {drop ? (
                 <div className="w-full h-auto absolute unset-0 pt-12 bg-foreground border-accent">
                   <div className="pa-12 bg-foreground border-accent">
-                    <div
-                      className="mb-16 flex items-center"
+                    <Flex
+                      className="mb-16 items-center"
                       onClick={() => {
                         _drop(false);
 
@@ -120,9 +120,9 @@ export const OrderSummary = ({
                     >
                       <FiMail size={20} className="text-font-three" />
                       <Text className="text-font-one">Send by Email</Text>
-                    </div>
-                    <div
-                      className="mb-0 flex items-center"
+                    </Flex>
+                    <Flex
+                      className="mb-0 items-center"
                       onClick={() => {
                         _drop(false);
 
@@ -133,7 +133,7 @@ export const OrderSummary = ({
                     >
                       <FiDownloadCloud size={20} className="text-font-three" />
                       <Text className="text-font-one">Download PDF</Text>
-                    </div>
+                    </Flex>
                   </div>
                 </div>
               ) : undefined}

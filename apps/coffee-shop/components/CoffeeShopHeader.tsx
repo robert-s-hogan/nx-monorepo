@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { Flex } from '@with-nx/react-ui';
 
 const CoffeeShopHeader = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -12,7 +13,7 @@ const CoffeeShopHeader = () => {
           className="lg:max-w-screen-xl flex flex-row flex-wrap justify-between my-4 lg:my-6 ml-auto mr-auto "
           role="navigation"
         >
-          <div className="flex items-center ml-3">
+          <Flex className="items-center ml-3">
             <Link href="/">
               <svg
                 width="82"
@@ -31,7 +32,7 @@ const CoffeeShopHeader = () => {
                 />
               </svg>
             </Link>
-          </div>
+          </Flex>
 
           <div className="inline-block h-8 mr-3 lg:hidden">
             <button

@@ -153,7 +153,7 @@ export function Index() {
 
         <div className="container lg:flex gap-x-10">
           <div className="mb-24 lg:mb-0">
-            <div className="flex items-center shadow-md w-89 h-89 p-10 rounded-tl-3xl rounded-br-3xl bg-yellow-50">
+            <Flex className="items-center shadow-md w-89 h-89 p-10 rounded-tl-3xl rounded-br-3xl bg-yellow-50">
               <p className="font-medium leading-relaxed">
                 “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare
                 rhoncus mauris nunc integer lectus risus. Molestie in a lacinia
@@ -161,7 +161,7 @@ export function Index() {
                 a lacinia sapien, sodales purus. Ultrices semper ornare ante a
                 lacinia nunc.”
               </p>
-            </div>
+            </Flex>
             <div className="flex mt-10">
               <div className="h-12 w-12 flex-shrink-0">
                 <Image
@@ -184,7 +184,7 @@ export function Index() {
           </div>
 
           <div className="mb-24 lg:mb-0">
-            <div className="flex items-center shadow-md w-89 h-89 p-10 rounded-tl-3xl rounded-br-3xl bg-yellow-50">
+            <Flex className="items-center shadow-md w-89 h-89 p-10 rounded-tl-3xl rounded-br-3xl bg-yellow-50">
               <p className="font-medium leading-relaxed">
                 “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare
                 rhoncus mauris nunc integer lectus risus. Molestie in a lacinia
@@ -192,7 +192,7 @@ export function Index() {
                 a lacinia sapien, sodales purus. Ultrices semper ornare ante a
                 lacinia nunc.”
               </p>
-            </div>
+            </Flex>
             <div className="flex mt-10">
               <div className="h-12 w-12 flex-shrink-0">
                 <Image
@@ -215,7 +215,7 @@ export function Index() {
           </div>
 
           <div>
-            <div className="flex items-center shadow-md w-89 h-89 p-10 rounded-tl-3xl rounded-br-3xl bg-yellow-50">
+            <Flex className="items-center shadow-md w-89 h-89 p-10 rounded-tl-3xl rounded-br-3xl bg-yellow-50">
               <p className="font-medium leading-relaxed">
                 “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare
                 rhoncus mauris nunc integer lectus risus. Molestie in a lacinia
@@ -223,7 +223,7 @@ export function Index() {
                 a lacinia sapien, sodales purus. Ultrices semper ornare ante a
                 lacinia nunc.”
               </p>
-            </div>
+            </Flex>
             <div className="flex mt-10">
               <div className="h-12 w-12 flex-shrink-0">
                 <Image

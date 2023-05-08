@@ -42,12 +42,11 @@ const GrowthTips = () => {
                   consequatur cumque magnam ipsam quae sequi laudantium pariatur
                   veritatis?
                 </p>
-                <div className="flex items-center">
+                <Flex className="items-center">
                   <div className="h-12 w-12 rounded-md overflow-hidden flex-shrink-0">
                     <Image
                       className="w-full h-full object-cover object-bottom"
                       src={Writer}
-                      
                       alt="A smiling female George Orwell."
                     />
                   </div>
@@ -59,13 +58,12 @@ const GrowthTips = () => {
                       Editor
                     </span>
                   </div>
-                </div>
+                </Flex>
               </div>
               <div className="rounded-md overflow-hidden h-48 lg:h-full lg:min-h-0 lg:col-start-3 lg:col-end-6">
                 <Image
                   className="w-full h-full object-cover object-bottom"
                   src={GrowthTipsHero}
-                  
                   alt="Waves breaking on a perfect shore."
                 />
               </div>
@@ -82,7 +80,6 @@ const GrowthTips = () => {
                   <Image
                     className="h-full w-full object-cover rounded-md"
                     src={PostTwo}
-                    
                     alt="A cool rubber duck in a blue swimming pool."
                   />
                 </div>
@@ -105,12 +102,11 @@ const GrowthTips = () => {
                     consequatur cumque magnam ipsam quae sequi laudantium
                     pariatur veritatis?{' '}
                   </p>
-                  <div className="flex items-center">
+                  <Flex className="items-center">
                     <div className="h-12 w-12 rounded-md overflow-hidden flex-shrink-0">
                       <Image
                         className="w-full h-full object-cover object-bottom"
                         src={WriterThree}
-                        
                         alt="A smiling Satoshi Nakamoto."
                       />
                     </div>
@@ -122,7 +118,7 @@ const GrowthTips = () => {
                         Chief Technical Writer
                       </span>
                     </div>
-                  </div>
+                  </Flex>
                 </div>
               </Link>
             </div>
@@ -137,7 +133,6 @@ const GrowthTips = () => {
                     className="h-full w-full object-cover rounded-md"
                     src={PostThree}
                     alt="A blue hotel swimming pool flanked by two palm trees."
-                    
                   />
                 </div>
                 <div className="flex flex-col">
@@ -159,12 +154,11 @@ const GrowthTips = () => {
                     consequatur cumque magnam ipsam quae sequi laudantium
                     pariatur veritatis?
                   </p>
-                  <div className="flex items-center">
+                  <Flex className="items-center">
                     <div className="h-12 w-12 rounded-md overflow-hidden flex-shrink-0">
                       <Image
                         className="w-full h-full object-cover object-bottom"
                         src={WriterTwo}
-                        
                         alt="A smiling female Jack Johnson."
                       />
                     </div>
@@ -176,7 +170,7 @@ const GrowthTips = () => {
                         OG Psychologist
                       </span>
                     </div>
-                  </div>
+                  </Flex>
                 </div>
               </Link>
             </div>

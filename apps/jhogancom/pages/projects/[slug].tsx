@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { projectStaticData } from '../../data/projects';
 import JHoganComLayout from '../../components/layout/JHoganComLayout';
 import JHLogo from '../../public/images/jh_logo_white.webp';
+import { Flex } from '@with-nx/react-ui';
 
 export async function getStaticPaths() {
   const paths = projectStaticData.map((project) => ({
@@ -37,7 +38,7 @@ export default function Projects({ project }) {
     <JHoganComLayout>
       <div className="relative text-gray-800 bg-gray-50">
         <section className="relative min-h-screen px-4">
-          <div className="absolute inset-0 flex items-center justify-center">
+          <Flex className="absolute inset-0 items-center justify-center">
             <Image
               className="absolute top-0 left-0 w-full h-full object-cover"
               src={project.image}
@@ -46,7 +47,7 @@ export default function Projects({ project }) {
               objectFit="cover"
             />
             <div className="absolute inset-0 bg-black opacity-50"></div>
-          </div>
+          </Flex>
           <div className="relative z-10 flex flex-col items-center justify-center text-center h-screen">
             <h1 className="text-5xl sm:text-6xl lg:text-9xl mb-4 text-white">
               {project.name}

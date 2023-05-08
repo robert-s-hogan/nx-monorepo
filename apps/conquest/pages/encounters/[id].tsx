@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 import { useState, useEffect } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
-import { Popover, Progress } from '@with-nx/react-ui';
+import { Popover, Progress, Flex } from '@with-nx/react-ui';
 
 import { Encounter } from '../../types/types';
 import withAuth from '../../hooks/withAuth';
@@ -110,10 +110,10 @@ type EncounterPageProps = {
 //   // encounterData.potential_opposition_starting_positions[randomEnemyPosition];
 
 //   const popoverTrigger = (
-//     <div className="flex items-center">
+//     <Flex className="items-center">
 //       <p className="uppercase text-xs">details</p>
 //       <FiChevronRight />
-//     </div>
+//     </Flex>
 //   );
 
 //   const xpPopoverContent = (
@@ -136,7 +136,7 @@ type EncounterPageProps = {
 
 //   const passivePerceptionPopoverContent = (
 //     <div className="w-96 p-3 card">
-//       <div className="flex items-center space-x-4">
+//       <Flex className="items-center space-x-4">
 //         {/* {encounterData.characters.map((character) => {
 //           if (character.icon === 'GiIronCross') {
 //             return (
@@ -172,7 +172,7 @@ type EncounterPageProps = {
 //             );
 //           }
 //         })} */}
-//       </div>
+//       </Flex>
 //     </div>
 //   );
 
@@ -224,7 +224,7 @@ type EncounterPageProps = {
 
 //   const darkVisionPopoverContent = (
 //     <div className="w-96 p-3 card">
-//       <div className="flex items-center space-x-4">
+//       <Flex className="items-center space-x-4">
 //         {/* {encounterData.characters.map((character) => {
 //           if (character.icon === 'GiIronCross') {
 //             return (
@@ -256,7 +256,7 @@ type EncounterPageProps = {
 //             );
 //           }
 //         })} */}
-//       </div>
+//       </Flex>
 //     </div>
 //   );
 
@@ -273,7 +273,7 @@ type EncounterPageProps = {
 
 //   const createCharacterPopover = (character) => {
 //     const trigger = (
-//       <div className="flex items-center">
+//       <Flex className="items-center">
 //         <p className="flex items-center space">
 //           <span className="mr-2 flex items-center">
 //             {character.icon === 'FaUserNinja' && (
@@ -289,7 +289,7 @@ type EncounterPageProps = {
 //             {character.name}
 //           </span>
 //         </p>
-//       </div>
+//       </Flex>
 //     );
 
 //     const content = <CharacterStatsCard character={character} />;
@@ -311,10 +311,10 @@ type EncounterPageProps = {
 
 //   const npcPopoverContent = (entityData) => {
 //     const trigger = (
-//       <div className="flex items-center">
+//       <Flex className="items-center">
 //         <p className="uppercase text-xs">details</p>
 //         <FiChevronRight />
-//       </div>
+//       </Flex>
 //     );
 
 //     <button onClick={handleGenerateEntityClick} className="w-auto">
@@ -375,15 +375,15 @@ type EncounterPageProps = {
 //             <div className="w-full px-8">
 //               <div className="grid grid-cols-12 gap-24 w-full">
 //                 <div className="flex flex-col col-span-2">
-//                   <div className="flex items-center space-x-2">
+//                   <Flex className="items-center space-x-2">
 //                     <h3>{encounterData.campaign_name}</h3>
 //                     <p>#{encounter.id}</p>
 //                     <button onClick={handleEdit} className="btn-primary w-auto">
 //                       save
 //                     </button>
-//                   </div>
+//                   </Flex>
 //                   <div>
-//                     <div className="flex items-center space-x-4">
+//                     <Flex className="items-center space-x-4">
 //                       <p>XP</p>
 //                       <button className="w-auto flex items-center border-none pl-0 font-light text-xs">
 //                         <Popover
@@ -391,10 +391,10 @@ type EncounterPageProps = {
 //                           content={xpPopoverContent}
 //                         />
 //                       </button>
-//                     </div>
+//                     </Flex>
 //                   </div>
 //                   <div>
-//                     <div className="flex items-center space-x-4">
+//                     <Flex className="items-center space-x-4">
 //                       <p>INTRO</p>
 //                       <button className="w-auto flex items-center border-none pl-0 font-light text-xs">
 //                         <Popover
@@ -402,7 +402,7 @@ type EncounterPageProps = {
 //                           content={introPopoverContent}
 //                         />
 //                       </button>
-//                     </div>
+//                     </Flex>
 //                   </div>
 //                   <div className="mt-2">
 //                     <div className="flex flex-col space-y-2">
@@ -413,7 +413,7 @@ type EncounterPageProps = {
 //                     </div>
 //                   </div>
 //                   <div className="my-24 space-y-4">
-//                     <div className="flex items-center">
+//                     <Flex className="items-center">
 //                       <AiOutlineEye size={24} className="mr-4" />
 //                       <div className="flex flex-col">
 //                         <p>Passive Perception</p>
@@ -422,8 +422,8 @@ type EncounterPageProps = {
 //                           content={passivePerceptionPopoverContent}
 //                         />
 //                       </div>
-//                     </div>
-//                     <div className="flex items-center">
+//                     </Flex>
+//                     <Flex className="items-center">
 //                       <GrChatOption size={24} className="mr-4" />
 //                       <div className="flex flex-col">
 //                         <p>Languages</p>
@@ -432,8 +432,8 @@ type EncounterPageProps = {
 //                           content={languagesPopoverContent}
 //                         />
 //                       </div>
-//                     </div>
-//                     <div className="flex items-center">
+//                     </Flex>
+//                     <Flex className="items-center">
 //                       <MdOutlineDarkMode size={24} className="mr-4" />
 //                       <div className="flex flex-col">
 //                         <p>Dark Vision</p>
@@ -442,36 +442,36 @@ type EncounterPageProps = {
 //                           content={darkVisionPopoverContent}
 //                         />
 //                       </div>
-//                     </div>
+//                     </Flex>
 //                   </div>
-//                   <div className="flex items-center space-x-12 my-12">
-//                     <div className="flex items-center space-x-2">
+//                   <Flex className="items-center space-x-12 my-12">
+//                     <Flex className="items-center space-x-2">
 //                       <Progress value={27} maxValue={100} type="circular" />
 //                       <div className="flex flex-col text-center">
 //                         <p>3600</p>
 //                         <p className="text-xs">til next level</p>
 //                       </div>
-//                     </div>
+//                     </Flex>
 //                   </div>
 //                   <div className="card">
-//                     <div className="flex items-center space-x-8 w-full">
+//                     <Flex className="items-center space-x-8 w-full">
 //                       <div className="flex flex-col">
 //                         <p>Sales Figures</p>
 //                         <p className="font-bold">$10,430</p>
 //                       </div>
-//                     </div>
+//                     </Flex>
 //                   </div>
 //                 </div>
 //                 <div className="col-span-9">
-//                   <div className="flex items-center space-x-2">
+//                   <Flex className="items-center space-x-2">
 //                     <p className="">NPC</p>
 //                     {npcPopoverContent(entityData)}
-//                   </div>
-//                   <div className="flex items-center justify-center">
+//                   </Flex>
+//                   <Flex className="items-center justify-center">
 //                     <div className="border h-px w-full" />
 //                     <span className="mx-4">{randomDimension}&nbsp;ft</span>
 //                     <div className="border h-px w-full" />
-//                   </div>
+//                   </Flex>
 //                   <DesertSvg mapDimensions={randomDimension}>
 //                     <div className="flex justify-center items-center h-full w-full">
 //                       <Map
@@ -501,7 +501,7 @@ type EncounterPageProps = {
 //           </div>
 //         ) : (
 //           <ReusableSection>
-//             <div className="flex items-center justify-between py-4">
+//             <Flex className="items-center justify-between py-4">
 //               <p>Encounter started</p>
 //               <button
 //                 onClick={handleEdit}
@@ -509,7 +509,7 @@ type EncounterPageProps = {
 //               >
 //                 Edit
 //               </button>
-//             </div>
+//             </Flex>
 //           </ReusableSection>
 //         )}
 //       </div>

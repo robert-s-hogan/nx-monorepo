@@ -13,7 +13,7 @@ const Contact = () => {
             <div>
               <h2 className="font-medium mb-5 text-blue-50">Get in Touch</h2>
               <div>
-                <div className="flex items-center mb-10">
+                <Flex className="items-center mb-10">
                   <div className="p-2 rounded-full mr-6 bg-blue-100">
                     <svg
                       className="text-blue-500 fill-current"
@@ -43,9 +43,9 @@ const Contact = () => {
                       <a href="tel:+27813434552">(+27) 81 343 4552</a>
                     </span>
                   </div>
-                </div>
+                </Flex>
               </div>
-              <div className="flex items-center mb-10">
+              <Flex className="items-center mb-10">
                 <div className="p-2 rounded-full mr-6 bg-blue-100">
                   <svg
                     className="text-blue-500 fill-current"
@@ -68,8 +68,8 @@ const Contact = () => {
                     </a>
                   </span>
                 </div>
-              </div>
-              <div className="flex items-center mb-10">
+              </Flex>
+              <Flex className="items-center mb-10">
                 <div className="p-2 rounded-full bg-blue-100 mr-6">
                   <svg
                     className="text-blue-500 fill-current"
@@ -102,7 +102,7 @@ const Contact = () => {
                     3 Abbey Rd, London, United Kingdom
                   </span>
                 </div>
-              </div>
+              </Flex>
             </div>
 
             <svg

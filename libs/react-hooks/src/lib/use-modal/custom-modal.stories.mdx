@@ -1,0 +1,24 @@
+// Modal.stories.mdx
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Default } from './CustomModal.stories';
+
+<Meta title="Components/Modal" />
+
+# Modal
+
+The `Modal` component is used to display a modal dialog. It can be controlled using the `useModal` hook.
+
+## Usage
+
+To use the `Modal` component, you need to import it and use the `useModal` hook to control its visibility.
+
+```tsx
+import { Modal } from './Modal';
+import { useModal } from '@with-nx/react-hooks';
+
+const { isShowing, toggle } = useModal();
+
+<Modal isShowing={isShowing} toggle={toggle} title="Checkout">
+  Text here
+</Modal>;
+```

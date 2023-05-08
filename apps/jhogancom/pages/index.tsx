@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { useModal } from '@with-nx/react-hooks';
-import { Link } from '@with-nx/react-ui';
-import { Hero, Section } from '@with-nx/react-tailwind-ui';
+import { Link, Flex } from '@with-nx/react-ui';
 import {
   FiArrowRight,
   FiMail,
@@ -24,7 +23,7 @@ export function Index() {
 
   return (
     <JHoganComLayout>
-      <Hero id="hero" height="620px">
+      {/* <Hero id="hero" height="620px">
         <div className="bg-gradient-to-br from-peach to-mint scroll-smooth w-full h-full">
           <div className="flex justify-center flex-col items-center h-full text-center">
             <h1 className="font-semibold text-4xl text-black">
@@ -57,7 +56,7 @@ export function Index() {
             </div>
           </div>
         </div>
-      </Hero>
+      </Hero> */}
       <ReusableSection id="projects">
         <ProjectSection />
       </ReusableSection>
@@ -128,7 +127,7 @@ export function Index() {
           </div>
 
           <div className="mt-8 lg:col-span-1">
-            <div className="flex items-center justify-center lg:justify-end">
+            <Flex className="items-center justify-center lg:justify-end">
               <div className="max-w-lg">
                 <Image
                   width={355}
@@ -138,7 +137,7 @@ export function Index() {
                   className="object-contain h-96 w-auto rounded-xl"
                 />
               </div>
-            </div>
+            </Flex>
           </div>
         </div>
       </ReusableSection>
@@ -173,22 +172,22 @@ export function Index() {
             conversation
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="flex items-center mt-4 text-black">
+            <Flex className="items-center mt-4 text-black">
               <FiMapPin className="w-8 h-8 text-gray-500" />
 
               <div className="ml-4 text-md tracking-wide font-semibold w-full ">
                 Sonoma County, CA
               </div>
-            </div>
+            </Flex>
 
-            <div className="flex items-center mt-2 text-black">
+            <Flex className="items-center mt-2 text-black">
               <FiMail className="w-8 h-8 text-gray-500" />
               <div className="ml-4 text-md tracking-wide font-semibold w-full text-black">
                 <Link className="text" href="mailto:robert@robertshogan.com">
                   <p className="text-black underline">Email me</p>
                 </Link>
               </div>
-            </div>
+            </Flex>
           </div>
         </div>
         <form

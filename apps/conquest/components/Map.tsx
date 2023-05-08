@@ -4,7 +4,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import DraggableIcon from './map/DraggableIcon';
 import { FiChevronRight } from 'react-icons/fi';
-import { Popover } from '@with-nx/react-ui';
+import { Popover, Flex } from '@with-nx/react-ui';
 
 import DroppableGridBox from './map/DroppableGridBox';
 import { randomNumber } from '../lib/randomNumber';
@@ -279,10 +279,10 @@ export default function Map({ randomDimension }) {
   };
 
   const popoverTrigger = (
-    <div className="flex items-center">
+    <Flex className="items-center">
       <p className="uppercase text-xs">details</p>
       <FiChevronRight />
-    </div>
+    </Flex>
   );
 
   const mapPopoverContent = (
@@ -300,7 +300,7 @@ export default function Map({ randomDimension }) {
   return (
     <div className="relative">
       <div>
-        <div className="flex items-center space-x-4">
+        <Flex className="items-center space-x-4">
           <button
             className="w-auto border-none text-green-500 hover:text-indigo-500 px-0"
             onClick={refreshItems}
@@ -311,7 +311,7 @@ export default function Map({ randomDimension }) {
           <button className="w-auto flex items-center border-none pl-0 font-light text-xs">
             <Popover trigger={popoverTrigger} content={mapPopoverContent} />
           </button>
-        </div>
+        </Flex>
         <p>OBJECTIVE: {randomObjective}</p>
       </div>
 

@@ -1,4 +1,4 @@
-import { Button } from '@with-nx/react-ui';
+import { Button, Flex } from '@with-nx/react-ui';
 import { useState, useEffect } from 'react';
 
 interface Props {
@@ -51,7 +51,7 @@ const Pagination: React.FC<Props> = ({
       >
         Back
       </Button>
-      <div className="flex items-center space-x-1">
+      <Flex className="items-center space-x-1">
         {pages.map((pageNumber) => {
           return (
             <Button
@@ -65,7 +65,7 @@ const Pagination: React.FC<Props> = ({
             </Button>
           );
         })}
-      </div>
+      </Flex>
       <Button
         className={`letter-box bg-orange uppercase ${
           nextPage === null ? 'disabled' : ''

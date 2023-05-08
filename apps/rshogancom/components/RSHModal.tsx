@@ -1,4 +1,4 @@
-import { Modal } from '@with-nx/react-tailwind-ui';
+import { Flex, Modal } from '@with-nx/react-ui';
 import Link from 'next/link';
 
 interface RSHModalProps {
@@ -32,7 +32,7 @@ export function RSHModal({
             Fill in the form to start a conversation
           </p>
 
-          <div className="flex items-center mt-4 text-gray-600 dark:text-gray-400">
+          <Flex className="items-center mt-4 text-gray-600 dark:text-gray-400">
             <svg
               fill="none"
               stroke="currentColor"
@@ -58,9 +58,9 @@ export function RSHModal({
             <div className="ml-4 text-md tracking-wide font-semibold w-40">
               Sonoma County, CA
             </div>
-          </div>
+          </Flex>
 
-          <div className="flex items-center mt-2 text-gray-600 dark:text-gray-400">
+          <Flex className="items-center mt-2 text-gray-600 dark:text-gray-400">
             <svg
               fill="none"
               stroke="currentColor"
@@ -82,7 +82,7 @@ export function RSHModal({
                 Email me
               </Link>
             </div>
-          </div>
+          </Flex>
 
           <form
             className="py-6 flex flex-col justify-center"

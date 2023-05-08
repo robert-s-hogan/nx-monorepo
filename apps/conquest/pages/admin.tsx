@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 
 // components & assets
 import ConquestModal from '../components/ConquestModal';
+import { Flex } from '@with-nx/react-ui';
 
 //auth
 import withAuth from '../hooks/withAuth';
@@ -151,22 +152,22 @@ const Admin: React.FC = () => {
       <section className="h-screen w-full">
         <div className="container max-w-7xl mx-auto">
           <div className="space-y-2">
-            <div className="flex items-center space-x-2">
+            <Flex className="items-center space-x-2">
               <h1>Admin</h1>
               <button onClick={toggle} className="btn-primary w-auto">
                 Create Campaign
               </button>
-            </div>
+            </Flex>
             <p>
               <span className="font-semibold">User Name,</span> {user?.email} -{' '}
               <span className="underline">Go to Profile</span>
             </p>
           </div>
           <div>
-            <div className="flex items-center mt-16 mb-8">
+            <Flex className="items-center mt-16 mb-8">
               <h2>Campaigns</h2>
               {/* {campaignsData?campaigns?.length && <p>({campaignsData?.length})</p>} */}
-            </div>
+            </Flex>
             {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
               {campaignsData?.campaigns.map((campaign) => (
                 <div
@@ -194,15 +195,15 @@ const Admin: React.FC = () => {
                       <div className="admin-card-body">
                         <p className="admin-card-text pb-4">{campaign.notes}</p>
 
-                        <div className="flex items-center space-x-4">
-                          <div className="flex items-center space-x-2">
-                            <div className="flex items-center">
+                        <Flex className="items-center space-x-4">
+                          <Flex className="items-center space-x-2">
+                            <Flex className="items-center">
                               <MdGroups3 size={24} className="mr-2" />
                               {campaign.player_count}
-                            </div>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <div className="flex items-center">
+                            </Flex>
+                          </Flex>
+                          <Flex className="items-center space-x-2">
+                            <Flex className="items-center">
                               <div className="w-12 bg-gray-400 rounded-full h-2.5 mr-2">
                                 <div className="bg-blue-600 h-2.5 rounded-full w-4"></div>
                               </div>
@@ -211,19 +212,19 @@ const Admin: React.FC = () => {
                             </div>
                           </div>
 
-                          <div className="flex items-center space-x-2">
-                            <div className="flex items-center">
+                          <Flex className="items-center space-x-2">
+                            <Flex className="items-center">
                               <GiCampfire size={24} className="mr-2" />
                               1/3
-                            </div>
-                          </div>
+                            </Flex>
+                          </Flex>
                         </div>
                       </div>
                     </div>
                   </Link>
                 </div>
               ))}
-            </div> */}
+            </Flex> */}
           </div>
         </div>
       </section>

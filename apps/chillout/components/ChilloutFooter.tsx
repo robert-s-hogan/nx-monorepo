@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { Link } from '@with-nx/react-ui';
+import { Link, Flex } from '@with-nx/react-ui';
 
 const ChilloutFooter = () => {
   return (
     <footer className="py-16">
       <div className="flex flex-col lg:flex-row items-center justify-between mx-auto max-w-screen-2xl">
-        <div className="flex items-center">
+        <Flex className="items-center">
           <a className="ml-4" href="/">
             <svg
               width="132"
@@ -74,7 +74,7 @@ const ChilloutFooter = () => {
               />
             </svg>
           </a>
-        </div>
+        </Flex>
         <ul className="flex flex-col lg:flex-row items-center text-sm font-semibold text-gray-500 py-12 lg:py-0">
           <li className="mx-7 hover:text-gray-700 mb-2 lg:mb-0">
             <a href="/products">AIR CONDITIONERS</a>

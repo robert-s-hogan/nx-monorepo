@@ -6,6 +6,7 @@ import { BiRectangle } from 'react-icons/bi';
 import { TbWeight } from 'react-icons/tb';
 import characterStatsCardStyles from './characterStatsCard.module.css';
 import { Character } from '../../types/types';
+import { Flex } from '@with-nx/react-ui';
 
 const CharacterStatsCard = ({ character }: { character: Character }) => {
   const {
@@ -75,10 +76,7 @@ const CharacterStatsCard = ({ character }: { character: Character }) => {
             const disadvantage = skill.disadvantage ? ' (Disadvantage)' : '';
 
             return (
-              <div
-                key={skill.name}
-                className="flex items-center justify-between"
-              >
+              <Flex key={skill.name} className="items-center justify-between">
                 <div
                   className={`text-sm text-gray-400 ${
                     skill.prof ? 'font-bold text-black' : ''
@@ -92,7 +90,7 @@ const CharacterStatsCard = ({ character }: { character: Character }) => {
                   {Math.abs(modifier)}&nbsp;
                   {advantage ? 'ADV' : ''} {disadvantage ? 'DIS' : ''}
                 </div>
-              </div>
+              </Flex>
             );
           })}
         </div>
@@ -105,7 +103,7 @@ const CharacterStatsCard = ({ character }: { character: Character }) => {
       {/* <pre>{JSON.stringify(character, null, 2)}</pre> */}
       <div className="grid grid-cols-2 gap-12">
         <div id="left-character-grid">
-          <div className="flex items-center justify-between space-x-2 py-2">
+          <Flex className="items-center justify-between space-x-2 py-2">
             {icon === 'FaUserNinja' && (
               <FaUserNinja size={24} className="mr-2" />
             )}
@@ -125,7 +123,7 @@ const CharacterStatsCard = ({ character }: { character: Character }) => {
             <p>
               {currentHitpoints}/{totalHitpoints}
             </p>
-          </div>
+          </Flex>
 
           <div className="grid grid-cols-6 gap-4 items-center justify-between space-x-2 py-2 text-center">
             <StatIcon

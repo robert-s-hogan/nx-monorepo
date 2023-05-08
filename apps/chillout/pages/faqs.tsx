@@ -58,7 +58,7 @@ const Faqs = () => {
             <li className="inline-block w-full my-8">
               <details className=" shadow-md bg-blue-50">
                 <summary className="cursor-pointer px-6 py-4 lg:px-12 lg:py-8 font-semibold text-base lg:text-lg text-blue-500">
-                  <div className="flex items-center">
+                  <Flex className="items-center">
                     <span className="pr-4 lg:pr-8">
                       <svg
                         className="h-3 fill-current text-blue-500 "
@@ -74,7 +74,7 @@ const Faqs = () => {
                     <span>
                       Some insightful question that will be promptly answered?
                     </span>
-                  </div>
+                  </Flex>
                 </summary>
                 <p className="font-medium px-6 pb-6 pt-2 lg:px-12 lg:pb-12 lg:-mt-2 leading-relaxed text-blue-400">
                   Here is the answer to said insightful question which does
@@ -88,7 +88,7 @@ const Faqs = () => {
             <li className="inline-block w-full my-8">
               <details className=" shadow-md bg-blue-50">
                 <summary className="cursor-pointer px-6 py-4 lg:px-12 lg:py-8 font-semibold text-base lg:text-lg text-blue-500">
-                  <div className="flex items-center">
+                  <Flex className="items-center">
                     <span className="pr-4 lg:pr-8">
                       <svg
                         className="h-3 fill-current text-blue-500 "
@@ -104,7 +104,7 @@ const Faqs = () => {
                     <span>
                       Some insightful question that will be promptly answered?
                     </span>
-                  </div>
+                  </Flex>
                 </summary>
                 <p className="font-medium px-6 pb-6 pt-2 lg:px-12 lg:pb-12 lg:-mt-2 leading-relaxed text-blue-400">
                   Here is the answer to said insightful question which does
@@ -118,7 +118,7 @@ const Faqs = () => {
             <li className="inline-block w-full my-8">
               <details className=" shadow-md bg-blue-50">
                 <summary className="cursor-pointer px-6 py-4 lg:px-12 lg:py-8 font-semibold text-base lg:text-lg text-blue-500">
-                  <div className="flex items-center">
+                  <Flex className="items-center">
                     <span className="pr-4 lg:pr-8">
                       <svg
                         className="h-3 fill-current text-blue-500 "
@@ -134,7 +134,7 @@ const Faqs = () => {
                     <span>
                       Some insightful question that will be promptly answered?
                     </span>
-                  </div>
+                  </Flex>
                 </summary>
                 <p className="font-medium px-6 pb-6 pt-2 lg:px-12 lg:pb-12 lg:-mt-2 leading-relaxed text-blue-400">
                   Here is the answer to said insightful question which does
@@ -148,7 +148,7 @@ const Faqs = () => {
             <li className="inline-block w-full my-8">
               <details className=" shadow-md bg-blue-50">
                 <summary className="cursor-pointer px-6 py-4 lg:px-12 lg:py-8 font-semibold text-base lg:text-lg text-blue-500">
-                  <div className="flex items-center">
+                  <Flex className="items-center">
                     <span className="pr-4 lg:pr-8">
                       <svg
                         className="h-3 fill-current text-blue-500 "
@@ -164,7 +164,7 @@ const Faqs = () => {
                     <span>
                       Some insightful question that will be promptly answered?
                     </span>
-                  </div>
+                  </Flex>
                 </summary>
                 <p className="font-medium px-6 pb-6 pt-2 lg:px-12 lg:pb-12 lg:-mt-2 leading-relaxed text-blue-400">
                   Here is the answer to said insightful question which does
@@ -178,7 +178,7 @@ const Faqs = () => {
             <li className="inline-block w-full my-8">
               <details className=" shadow-md bg-blue-50">
                 <summary className="cursor-pointer px-6 py-4 lg:px-12 lg:py-8 font-semibold text-base lg:text-lg text-blue-500">
-                  <div className="flex items-center">
+                  <Flex className="items-center">
                     <span className="pr-4 lg:pr-8">
                       <svg
                         className="h-3 fill-current text-blue-500 "
@@ -194,7 +194,7 @@ const Faqs = () => {
                     <span>
                       Some insightful question that will be promptly answered?
                     </span>
-                  </div>
+                  </Flex>
                 </summary>
                 <p className="font-medium px-6 pb-6 pt-2 lg:px-12 lg:pb-12 lg:-mt-2 leading-relaxed text-blue-400">
                   Here is the answer to said insightful question which does
