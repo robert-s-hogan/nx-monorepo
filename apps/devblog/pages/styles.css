@@ -46,7 +46,7 @@
     max-width: 100%;
   }
   .btn-primary {
-    @apply bg-[#f25626] text-white px-3 py-2 rounded-lg;
+    @apply !bg-primary text-white px-3 py-2 rounded-lg;
   }
   .card {
     @apply bg-gray-200 shadow-lg rounded-lg p-6;
