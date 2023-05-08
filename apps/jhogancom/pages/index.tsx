@@ -23,40 +23,41 @@ export function Index() {
 
   return (
     <JHoganComLayout>
-      {/* <Hero id="hero" height="620px">
-        <div className="bg-gradient-to-br from-peach to-mint scroll-smooth w-full h-full">
-          <div className="flex justify-center flex-col items-center h-full text-center">
-            <h1 className="font-semibold text-4xl text-black">
-              Hi, I am Jessica.
-              <br />
-              <span className="text-black bg-clip-text bg-gradient-to-br from-orange to-peach">
-                Data Scientist and Data Analyst
-              </span>
-            </h1>
-            <p className="text-black text-lg py-2 w-4/5">
-              I want to help you make the best data-driven decisions and
-              translate data into actionable insights.
-            </p>
-            <div className="my-4 flex flex-col justify-center md:flex-row md:space-between">
-              <button
-                className="bg-orange hover:opacity-80 px-8 py-2 rounded-lg text-lg text-white"
-                onClick={() => toggle()}
-              >
-                Contact me
-              </button>
-              <Link
-                href="#projects"
-                className="px-8 py-2 rounded-lg hover:no-underline pt-4 md:pt-4"
-              >
-                <p className="align-middle text-green hover:text-slate text-lg">
-                  See My Work
-                  <FiArrowRight className="inline-block ml-2" />
-                </p>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </Hero> */}
+      <ReusableSection
+        minHeight="620px"
+        className="bg-gradient-to-br from-peach to-mint scroll-smooth w-full h-full flex justify-center items-center"
+      >
+        <Flex className="justify-center flex-col items-center h-full text-center">
+          <h1 className="font-semibold text-4xl text-black">
+            Hi, I am Jessica.
+            <br />
+            <span className="text-black bg-clip-text bg-gradient-to-br from-orange to-peach">
+              Data Scientist and Data Analyst
+            </span>
+          </h1>
+          <p className="text-black text-lg py-2 w-4/5">
+            I want to help you make the best data-driven decisions and translate
+            data into actionable insights.
+          </p>
+          <Flex className="my-4 flex-col justify-center md:flex-row md:space-between">
+            <button
+              className="bg-orange hover:opacity-80 px-8 py-2 rounded-lg text-lg text-white"
+              onClick={() => toggle()}
+            >
+              Contact me
+            </button>
+            <Link
+              href="#projects"
+              className="px-8 py-2 rounded-lg hover:no-underline pt-4 md:pt-4"
+            >
+              <p className="align-middle text-green hover:text-slate text-lg">
+                See My Work
+                <FiArrowRight className="inline-block ml-2" />
+              </p>
+            </Link>
+          </Flex>
+        </Flex>
+      </ReusableSection>
       <ReusableSection id="projects">
         <ProjectSection />
       </ReusableSection>
