@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 import { Encounter } from '../types/types';
-import { fetchEncounterData } from '../utils/mockEncounterApi';
+import { fetchEncounterData } from '../services/mapData';
 
 export const useEncounterData = (): {
   data: Encounter | undefined;

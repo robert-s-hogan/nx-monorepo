@@ -6,7 +6,7 @@ import { Popover, Progress, Flex } from '@with-nx/react-ui';
 import { Encounter } from '../../types/types';
 import withAuth from '../../hooks/withAuth';
 import ConquestLayout from '../../components/ConquestLayout';
-import { fetchDataById } from '../../utils/fetchDataById';
+import { fetchDataById } from '../../services/apiService';
 import { useModal } from '@with-nx/react-hooks';
 import ReusableSection from '../../components/ReusableSection';
 import Map from '../../components/Map';
