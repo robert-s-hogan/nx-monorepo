@@ -6,13 +6,33 @@ export const dndRarities = [
   'rare',
   'very rare',
   'legendary',
+  'epic',
+  'artifact',
 ];
 
-export const dndConditions = ['new', 'good', 'used', 'damaged', 'broken'];
+export const dndConditions = [
+  'new',
+  'mint',
+  'excellent',
+  'good',
+  'lightly used',
+  'used',
+  'worn',
+  'damaged',
+  'heavily damaged',
+  'broken',
+  'unusable',
+  'antique',
+  'restored',
+  'enchanted',
+  'cursed',
+];
 
 export const dndSizes = [
+  'minuscule',
   'tiny',
   'small',
+  'moderate',
   'medium',
   'large',
   'huge',
@@ -23,6 +43,9 @@ export const dndSizes = [
   'massive',
   'immense',
   'giant',
+  'titanic',
+  'monumental',
+  'cosmic',
 ];
 
 export const dndMaterials = [
@@ -40,5 +63,27 @@ export const dndMaterials = [
   'wood',
   'stone',
   'metal',
+  'bone',
+  'ivory',
+  'obsidian',
+  'crystal',
+  'bronze',
+  'iron',
+  'steel',
+  'silver',
+  'gold',
+  'platinum',
+  'mithril',
+  'adamantine',
+  'dragonhide',
+  'silk',
+  'linen',
+  'wool',
+  'cotton',
+  'jade',
+  'quartz',
+  'diamond',
+  'emerald',
+  'ruby',
+  'sapphire',
 ];
-
