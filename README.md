@@ -142,5 +142,4 @@ Visit the [Nx Documentation](https://nx.dev) to learn more.
     };
 7. Review CI/CD
 8. Confirm tailwindCSS is purging unused CSS
-9. Set up types in /types folder
-10. 
+9. Set up types in /types folder by service (ex: user.d.ts)
