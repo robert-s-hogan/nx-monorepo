@@ -2,7 +2,7 @@ import './styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { SWRConfig } from 'swr';
-import { store } from '../features/store';
+import { store } from '../store/store';
 import { Provider } from 'react-redux';
 import { RandomValuesProvider } from '../store/RandomValuesProvider';
 import { AuthProvider } from '../hooks/useAuth';
