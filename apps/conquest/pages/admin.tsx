@@ -22,8 +22,7 @@ import { GiCampfire } from 'react-icons/gi';
 import { FiX } from 'react-icons/fi';
 import { FaLock } from 'react-icons/fa';
 
-//utils
-import { postNewCampaign } from '../utils/campaignsApi';
+import { postNewCampaign } from '../services/campaignsService';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
