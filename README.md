@@ -27,29 +27,23 @@ To achieve optimal performance with this tech stack, consider the following setu
 ## Getting Started
 
 1. Clone the repository
-2. Install dependencies: `npm install` or `yarn install`
-3. Run the development server: `npm run dev` or `yarn dev`
-4. Open your browser and navigate to `http://localhost:3000`
+2. Install dependencies: `pnpm install`
+3. Run the development server: `pnpm nx run <app_name>`
+4. Open your browser and navigate to `http://localhost:4200`
 
 For more information on how to build and deploy your project, refer to the individual documentation for each technology used in the stack.
 
-## indiviual app structure
+## Indiviual App Structure
 
-/components - app specific components
-/data - lookup tables of static data
-/hooks - custom react-hooks
-/pages - nextjs generated pages
-/pages/api - nextjs serverless functions
-/public - nextjs assets
-/services - api calls
+/components - app specific components - //mostly use libs/react-ui
+/data - lookup tables of static data - //also in the libs/constants library
+/hooks - custom react-hooks - //also in the libs/react-hooks
+/pages - nextjs generated pages (app specific)
+/pages/api - nextjs serverless functions or dynamic routing
+/public - nextjs assets 
+/services - api calls 
 /types - set types for all data
-/utils - functions that format, validation and calculations
-
-## Getting Started
-
-```bash
-pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/nx-monorepo nx-monorepo
-```
+/utils - functions that format, validation and calculations //also in libs/utils
 
 ### Development server
 
@@ -113,7 +107,7 @@ ex:
 
 ### Add tailwindCSS to a project
 
-`nx g @nrwl/react:setup-tailwind --project=<your app here>`
+`pnpm nx g @nrwl/react:setup-tailwind --project=<your app here>`
 
 ### Storybook commands
 
