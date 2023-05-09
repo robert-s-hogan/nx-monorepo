@@ -26,7 +26,8 @@
       "@with-nx/shared": ["libs/shared/src/index.ts"],
       "@with-nx/shared/mdx-elements": ["libs/shared/mdx-elements/src/index.ts"],
       "@with-nx/store": ["libs/store/src/index.ts"],
-      "@with-nx/ui": ["libs/ui/src/index.ts"]
+      "@with-nx/ui": ["libs/ui/src/index.ts"],
+      "@with-nx/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

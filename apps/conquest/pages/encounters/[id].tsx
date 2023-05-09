@@ -2,18 +2,17 @@ import { GetServerSideProps } from 'next';
 import { useState, useEffect } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
 import { Popover, Progress, Flex } from '@with-nx/react-ui';
+import { randomNumber } from '@with-nx/utils';
+import { useModal } from '@with-nx/react-hooks';
 
 import { Encounter } from '../../types/types';
 import withAuth from '../../hooks/withAuth';
 import ConquestLayout from '../../components/ConquestLayout';
 import { fetchDataById } from '../../services/apiService';
-import { useModal } from '@with-nx/react-hooks';
 import ReusableSection from '../../components/ReusableSection';
 import Map from '../../components/Map';
 import { useEncounterData } from '../../hooks/useEncounterData';
-import { randomNumber } from '../../utils/randomNumber';
 import CharacterStatsCard from '../../components/CharacterStatsCard';
-
 import { generateEntity } from '../../utils/entity/generateEntity';
 
 // icons

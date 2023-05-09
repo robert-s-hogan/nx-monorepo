@@ -1,4 +1,4 @@
-import { getRandomIncrementOfTen } from './getRandomIncrementOfTen';
+import { getRandomIncrementOfTen } from '@with-nx/utils';
 
 const conditionTypes = [
   'Blinded',

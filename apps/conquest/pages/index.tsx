@@ -7,7 +7,7 @@ import LoginForm from '../components/LoginForm';
 import { useCharacter } from '../hooks/useCharacter';
 import { useFetchItems5e } from '../hooks/useFetchItems5e';
 import ConquestLayout from '../components/ConquestLayout';
-import { randomNumber } from '../utils/randomNumber';
+import { randomNumber } from '@with-nx/utils';
 import { Flex } from '@with-nx/react-ui';
 // import GenerateMadLib from '../components/GenerateMadLib';
 // import RandomCustomItems from '../components/RandomCustomItems';
