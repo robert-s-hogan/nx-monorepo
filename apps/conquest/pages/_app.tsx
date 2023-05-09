@@ -1,4 +1,4 @@
-import './styles.css';
+import '../styles/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { SWRConfig } from 'swr';
