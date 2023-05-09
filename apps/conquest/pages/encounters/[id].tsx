@@ -5,7 +5,7 @@ import { Popover, Progress, Flex } from '@with-nx/react-ui';
 import { randomNumber } from '@with-nx/utils';
 import { useModal } from '@with-nx/react-hooks';
 
-import { Encounter } from '../../types/types';
+import { Encounter } from '../../types/encounter';
 import withAuth from '../../hooks/withAuth';
 import ConquestLayout from '../../components/ConquestLayout';
 import { fetchDataById } from '../../services/apiService';
@@ -13,7 +13,7 @@ import ReusableSection from '../../components/ReusableSection';
 import Map from '../../components/Map';
 import { useEncounterData } from '../../hooks/useEncounterData';
 import CharacterStatsCard from '../../components/CharacterStatsCard';
-import { generateEntity } from '../../utils/entity/generateEntity';
+import { generateEntity } from '../../data/entity/generateEntity';
 
 // icons
 import { GiIronCross } from 'react-icons/gi';

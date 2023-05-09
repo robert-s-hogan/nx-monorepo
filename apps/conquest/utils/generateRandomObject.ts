@@ -1,11 +1,9 @@
+import { getRandomElement } from '@with-nx/utils';
+
 import { CustomItems } from '../data/CustomItems';
 
 const categories = {
   customItems: CustomItems,
-};
-
-const getRandomElement = (array) => {
-  return array[Math.floor(Math.random() * array.length)];
 };
 
 const removeUndefinedProperties = (obj) => {

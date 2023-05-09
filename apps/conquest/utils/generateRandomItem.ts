@@ -1,6 +1,5 @@
-const getRandomElement = (array) => {
-  return array[Math.floor(Math.random() * array.length)];
-};
+import { getRandomElement } from '@with-nx/utils';
+
 const itemRarities = ['common', 'uncommon', 'rare', 'very rare', 'legendary'];
 const itemConditions = ['new', 'good', 'used', 'damaged', 'broken'];
 const quadrantOptions = [0, 1, 2, 3];

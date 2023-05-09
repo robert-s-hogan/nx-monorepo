@@ -44,7 +44,7 @@ import {
   GoRocket,
 } from 'react-icons/go';
 import { BsFillEyeFill } from 'react-icons/bs';
-import { MockEncounterData } from '../types/types';
+import { MockEncounterData } from '../types/encounter';
 
 export function generateMapData() {
   const mapData = [];

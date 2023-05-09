@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import { Encounter } from '../types/types';
+import { Encounter } from '../types/encounter';
 import { fetchEncounterData } from '../services/mapData';
 
 export const useEncounterData = (): {

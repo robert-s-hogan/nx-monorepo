@@ -1,7 +1,7 @@
 import ConquestLayout from '../components/ConquestLayout';
 import React, { useState, useEffect } from 'react';
 import useSWR from 'swr';
-import { Campaign } from '../types/types';
+import { Campaign } from '../types/campaign';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 

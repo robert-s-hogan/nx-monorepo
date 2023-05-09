@@ -1,6 +1,4 @@
-const getRandomElement = (array) => {
-  return array[Math.floor(Math.random() * array.length)];
-};
+import { getRandomElement } from '@with-nx/utils';
 
 const weaponRarities = ['common', 'uncommon', 'rare', 'very rare', 'legendary'];
 const weaponConditions = ['new', 'good', 'used', 'damaged', 'broken'];

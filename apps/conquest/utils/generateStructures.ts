@@ -1,3 +1,5 @@
+import { getRandomElement } from '@with-nx/utils';
+
 import { Structures } from '../data/Structures';
 import { ObjectCondition } from '../data/ObjectCondition';
 import { ObjectSize } from '../data/ObjectSize';
@@ -68,10 +70,9 @@ const connectingWords = [
   'imbued with the magic of',
 ];
 
-const getRandomDescriptor = (descriptors) => {
-  const randomIndex = Math.floor(Math.random() * descriptors.length);
-  return descriptors[randomIndex];
-};
+const descriptors = ['fast', 'slow', 'strong', 'weak'];
+
+const randomDescriptor = getRandomElement(descriptors);
 
 export const generateStructures = (quadrantCount) => {
   const structures = [];
@@ -83,11 +84,11 @@ export const generateStructures = (quadrantCount) => {
     for (let i = 0; i < randomCount; i++) {
       const randomStructure =
         Structures[Math.floor(Math.random() * Structures.length)];
-      const size = getRandomDescriptor(ObjectSize);
-      const condition = getRandomDescriptor(ObjectCondition);
-      const material = getRandomDescriptor(ObjectMaterial);
-      const randomAdjective = getRandomDescriptor(adjectives);
-      const randomConnectingWord = getRandomDescriptor(connectingWords);
+      const size = getRandomElement(ObjectSize);
+      const condition = getRandomElement(ObjectCondition);
+      const material = getRandomElement(ObjectMaterial);
+      const randomAdjective = getRandomElement(adjectives);
+      const randomConnectingWord = getRandomElement(connectingWords);
 
       const fullDescription = `A ${size}, ${condition}, ${material} ${randomStructure.name} ${randomConnectingWord} a ${randomAdjective} touch.`;
 

@@ -5,7 +5,7 @@ import { FiChevronLeft } from 'react-icons/fi';
 import { GiDeathSkull } from 'react-icons/gi';
 import { Flex } from '@with-nx/react-ui';
 
-import { Campaign } from '../../types/types';
+import { Campaign } from '../../types/campaign';
 import withAuth from '../../hooks/withAuth';
 import ConquestLayout from '../../components/ConquestLayout';
 import { useAuth } from '../../hooks/useAuth';

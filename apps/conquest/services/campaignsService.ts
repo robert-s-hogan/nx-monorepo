@@ -1,4 +1,4 @@
-import { Campaign } from '../types/types';
+import { Campaign } from '../types/campaign';
 
 export const fetchCampaignById = async (id: number): Promise<Campaign> => {
   const res = await fetch(`http://localhost:3333/api/campaign/${id}`);
