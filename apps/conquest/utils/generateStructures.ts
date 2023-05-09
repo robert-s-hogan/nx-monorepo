@@ -1,76 +1,13 @@
 import { getRandomElement } from '@with-nx/utils';
-
-import { Structures } from '../data/Structures';
-import { ObjectCondition } from '../data/ObjectCondition';
-import { ObjectSize } from '../data/ObjectSize';
-import { ObjectMaterial } from '../data/ObjectMaterial';
-
-const adjectives = [
-  'colorful',
-  'magnificent',
-  'impressive',
-  'elegant',
-  'charming',
-  'majestic',
-  'stunning',
-  'enchanting',
-  'glamorous',
-  'sophisticated',
-  'unique',
-  'exquisite',
-  'spectacular',
-  'fascinating',
-  'alluring',
-  'mesmerizing',
-  'captivating',
-  'breathtaking',
-  'dazzling',
-  'radiant',
-  'shimmering',
-  'sparkling',
-  'brilliant',
-  'gorgeous',
-  'luxurious',
-  'opulent',
-  'sumptuous',
-  'ornate',
-  'regal',
-  'resplendent',
-];
-
-const connectingWords = [
-  'with',
-  'that has',
-  'featuring',
-  'boasting',
-  'displaying',
-  'showcasing',
-  'highlighting',
-  'exhibiting',
-  'presenting',
-  'revealing',
-  'flaunting',
-  'embodying',
-  'incorporating',
-  'combining',
-  'integrating',
-  'infused with',
-  'adorned with',
-  'accentuated by',
-  'enhanced by',
-  'enriched by',
-  'graced with',
-  'radiating',
-  'oozing',
-  'emanating',
-  'overflowing with',
-  'imbued with',
-  'imbued with the spirit of',
-  'imbued with the essence of',
-  'imbued with the magic of',
-];
-
-const descriptors = ['fast', 'slow', 'strong', 'weak'];
+import {
+  dndConditions,
+  dndSizes,
+  dndMaterials,
+  adjectives,
+  connectingWords,
+  descriptors,
+  Structures,
+} from '@with-nx/constants';
 
 const randomDescriptor = getRandomElement(descriptors);
 
@@ -84,9 +21,9 @@ export const generateStructures = (quadrantCount) => {
     for (let i = 0; i < randomCount; i++) {
       const randomStructure =
         Structures[Math.floor(Math.random() * Structures.length)];
-      const size = getRandomElement(ObjectSize);
-      const condition = getRandomElement(ObjectCondition);
-      const material = getRandomElement(ObjectMaterial);
+      const size = getRandomElement(dndSizes);
+      const condition = getRandomElement(dndConditions);
+      const material = getRandomElement(dndMaterials);
       const randomAdjective = getRandomElement(adjectives);
       const randomConnectingWord = getRandomElement(connectingWords);
 

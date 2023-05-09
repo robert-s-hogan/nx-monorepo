@@ -1,19 +1,20 @@
 import { getRandomElement } from '@with-nx/utils';
-
-const itemRarities = ['common', 'uncommon', 'rare', 'very rare', 'legendary'];
-const itemConditions = ['new', 'good', 'used', 'damaged', 'broken'];
-const quadrantOptions = [0, 1, 2, 3];
-const sizeOptions = ['small', 'medium', 'large'];
-const interactableOptions = [true, false];
-const lootOptions = ['gold', 'silver', 'copper', 'gems', 'lint', 'leaves'];
+import {
+  dndRarities,
+  dndConditions,
+  dndSizes,
+  dndLootOptions,
+  dndQuadrantOptions,
+  dndInteractableOptions,
+} from '@with-nx/constants';
 
 const generateRandomItem = (name, type, value) => {
-  const rarity = getRandomElement(itemRarities);
-  const condition = getRandomElement(itemConditions);
-  const quadrant = getRandomElement(quadrantOptions);
-  const size = getRandomElement(sizeOptions);
-  const interactable = getRandomElement(interactableOptions);
-  const loot = getRandomElement(lootOptions);
+  const rarity = getRandomElement(dndRarities);
+  const condition = getRandomElement(dndConditions);
+  const quadrant = getRandomElement(dndQuadrantOptions);
+  const size = getRandomElement(dndSizes);
+  const interactable = getRandomElement(dndInteractableOptions);
+  const loot = getRandomElement(dndLootOptions);
 
   let rarityMultiplier;
   switch (rarity) {

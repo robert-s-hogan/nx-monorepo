@@ -1,21 +1,18 @@
 import { getRandomElement } from '@with-nx/utils';
-
-const weaponRarities = ['common', 'uncommon', 'rare', 'very rare', 'legendary'];
-const weaponConditions = ['new', 'good', 'used', 'damaged', 'broken'];
-const weaponSizes = ['small', 'medium', 'large'];
-const quadrantOptions = [0, 1, 2, 3];
-const lootOptions = [
-  'elvish engraving',
-  'dwarven engraving',
-  'orcish engraving',
-];
+import {
+  dndRarities,
+  dndConditions,
+  dndSizes,
+  dndQuadrantOptions,
+  dndWeaponLootOptions,
+} from '@with-nx/constants';
 
 const generateRandomWeapon = (name, value) => {
-  const rarity = getRandomElement(weaponRarities);
-  const condition = getRandomElement(weaponConditions);
-  const size = getRandomElement(weaponSizes);
-  const quadrant = getRandomElement(quadrantOptions);
-  const loot = getRandomElement(lootOptions);
+  const rarity = getRandomElement(dndRarities);
+  const condition = getRandomElement(dndConditions);
+  const size = getRandomElement(dndSizes);
+  const quadrant = getRandomElement(dndQuadrantOptions);
+  const loot = getRandomElement(dndWeaponLootOptions);
 
   let rarityMultiplier;
   switch (rarity) {

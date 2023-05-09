@@ -1,23 +1,5 @@
 import { getRandomIncrementOfTen } from '@with-nx/utils';
-
-const conditionTypes = [
-  'Blinded',
-  'Charmed',
-  'Deafened',
-  'Frightened',
-  'Grappled',
-  'Incapacitated',
-  'Paralyzed',
-  'Petrified',
-  'Poisoned',
-  'Prone',
-  'Restrained',
-  'Stunned',
-  'Unconscious',
-  'Exhaustion',
-];
-
-const abilityScores = ['STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA'];
+import { dndAbilityScores, dndConditionTypes } from '@with-nx/constants';
 
 const generateCustomItem = (name, type, effects) => {
   const numEffects = Math.floor(Math.random() * 7);
@@ -50,15 +32,15 @@ const generateCustomItem = (name, type, effects) => {
     const displayValue = isGood ? `+${value}` : `${value}`;
 
     const randomAbilityScoreIndex = Math.floor(
-      Math.random() * abilityScores.length
+      Math.random() * dndAbilityScores.length
     );
-    const abilityScore = abilityScores[randomAbilityScoreIndex];
+    const abilityScore = dndAbilityScores[randomAbilityScoreIndex];
 
     if (effect.type === 'Condition') {
       const randomConditionIndex = Math.floor(
-        Math.random() * conditionTypes.length
+        Math.random() * dndConditionTypes.length
       );
-      const conditionType = conditionTypes[randomConditionIndex];
+      const conditionType = dndConditionTypes[randomConditionIndex];
 
       const prefix = isGood
         ? Math.random() < 0.5

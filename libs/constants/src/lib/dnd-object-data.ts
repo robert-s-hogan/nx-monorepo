@@ -1,3 +1,4 @@
+// libs/constants/src/lib/dnd-objects-data.ts
 export const objects = [
   {
     name: 'Altar',

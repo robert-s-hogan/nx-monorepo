@@ -43,11 +43,11 @@ Does Caravan Appear?                                           doesCaravanAppear
 
 import { useState } from 'react';
 import {
-  characterAdvancementTable,
-  adventuringDayXP,
-  encounterMultipliers,
-  xpThresholdsByCharacterLevel,
-} from '../data/xpTables';
+  dndCharacterAdvancementTable,
+  dndAdventuringDayXP,
+  dndEncounterMultipliers,
+  dndXpThresholdsByCharacterLevel,
+} from '@with-nx/constants';
 
 export function useCharacter() {
   const [playerCount, _playerCount] = useState(4);
@@ -57,26 +57,28 @@ export function useCharacter() {
   const [encounterExperience, _encounterExperience] = useState(1500);
 
   function getLevelFromXP(xp) {
-    const levelObj = characterAdvancementTable.find(
+    const levelObj = dndCharacterAdvancementTable.find(
       (level) => level.end === null || xp <= level.end
     );
     return levelObj ? levelObj.level : null;
   }
 
   function getAdventuringDayXPLimit(playerLevel) {
-    const levelObj = adventuringDayXP.find((obj) => obj.level === playerLevel);
+    const levelObj = dndAdventuringDayXP.find(
+      (obj) => obj.level === playerLevel
+    );
     return levelObj ? levelObj.xp : 0;
   }
 
   function calculateLevelOfPlayersCharactersStart(xp) {
-    const xpThreshold = characterAdvancementTable.find(
+    const xpThreshold = dndCharacterAdvancementTable.find(
       (level) => level.start >= xp
     );
     return xpThreshold ? xpThreshold.level : 0;
   }
 
   function getXPThresholdsByCharacterLevel(difficulty, playerStartLevel) {
-    const xpThresholds = xpThresholdsByCharacterLevel.find(
+    const xpThresholds = dndXpThresholdsByCharacterLevel.find(
       (obj) => obj.characterLevel === playerStartLevel
     );
 

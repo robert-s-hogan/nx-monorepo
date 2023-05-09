@@ -1,3 +1,4 @@
+// libs/constants/src/lib/dnd-caravan-data.ts
 export const caravan = {
   doesAppear: ['success', 'fail'],
   caravanItems: [
