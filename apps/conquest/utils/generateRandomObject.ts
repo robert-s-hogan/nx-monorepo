@@ -1,4 +1,4 @@
-import { CustomItems } from '../categories/CustomItems';
+import { CustomItems } from '../data/CustomItems';
 
 const categories = {
   customItems: CustomItems,

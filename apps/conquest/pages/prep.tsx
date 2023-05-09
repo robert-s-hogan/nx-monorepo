@@ -1,4 +1,4 @@
-import ConquestLayout from '../components/layout/ConquestLayout';
+import ConquestLayout from '../components/ConquestLayout';
 
 const Prep = () => {
   return (

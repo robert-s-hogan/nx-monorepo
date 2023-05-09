@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 
-import ConquestLayout from '../components/layout/ConquestLayout';
+import ConquestLayout from '../components/ConquestLayout';
 import Loading from '../components/Loading';
 
 export default function Results({ fetcher }) {

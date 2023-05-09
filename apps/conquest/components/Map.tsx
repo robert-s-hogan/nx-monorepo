@@ -1,22 +1,18 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import DraggableIcon from './map/DraggableIcon';
 import { FiChevronRight } from 'react-icons/fi';
 import { Popover, Flex } from '@with-nx/react-ui';
 
-import DroppableGridBox from './map/DroppableGridBox';
 import { randomNumber } from '../lib/randomNumber';
 
 import { useEncounterData } from '../hooks/useEncounterData';
 import { GiDoubleDragon } from 'react-icons/gi';
 import { MdGroups3, MdRefresh } from 'react-icons/md';
 
-export default function Map({ randomDimension }) {
+export default function Map() {
   // const { combinedObjects, error: FetchItemsError } = useFetchItems5e();
   const { data: encounterData, isLoading, error } = useEncounterData();
-
+  const randomDimension = randomNumber(1, 3);
   const [updatedMapData, setUpdatedMapData] = useState(encounterData?.map_data);
 
   const terrainKeys = Object.keys(encounterData.terrain_type);
@@ -315,7 +311,7 @@ export default function Map({ randomDimension }) {
         <p>OBJECTIVE: {randomObjective}</p>
       </div>
 
-      <DndProvider backend={HTML5Backend}>
+      <>
         <div className="map h-[1600px] w-[1600px] relative">
           <div className={`h-full w-full p-8`}>
             <div className={`grid grid-cols-12 mt-6 px-64 w-full`}>
@@ -323,11 +319,7 @@ export default function Map({ randomDimension }) {
                 const itemPositions = itemPositionsState[index];
 
                 return (
-                  <DroppableGridBox
-                    key={`${index}`}
-                    onDrop={(item) => handleDrop(item, index)}
-                    onAddItem={(item) => handleAddItem(item, index)}
-                  >
+                  <div key={`${index}`}>
                     {item.name.map((itemName, itemIndex) => {
                       if (!itemName) return null;
                       const positionClasses = getPositionClasses(
@@ -340,14 +332,7 @@ export default function Map({ randomDimension }) {
                         <div
                           key={`${itemName}-${itemIndex}`}
                           // style={positionClasses}
-                        >
-                          {/* <DraggableIcon
-                            id={`${itemName}-${itemIndex}`}
-                            icon={Icon}
-                            name={itemName}
-                            onRemove={() => removeItem(index, itemIndex)}
-                          /> */}
-                        </div>
+                        ></div>
                       );
                     })}
 
@@ -357,14 +342,7 @@ export default function Map({ randomDimension }) {
                       //   itemPositions[item.name.length],
                       //   0
                       // )}
-                      >
-                        {/* <DraggableIcon
-                          id={`player-group-${index}`}
-                          icon={GiDoubleDragon}
-                          name="faDragon"
-                          customIconProps={{ icon: GiDoubleDragon }}
-                        /> */}
-                      </div>
+                      ></div>
                     )}
 
                     {item.isEnemy && (
@@ -373,22 +351,15 @@ export default function Map({ randomDimension }) {
                       //   itemPositions[item.name.length],
                       //   0
                       // )}
-                      >
-                        {/* <DraggableIcon
-                          id={`player-group-${index}`}
-                          icon={MdGroups3}
-                          name="faPeopleGroup"
-                          customIconProps={{ icon: MdGroups3 }}
-                        /> */}
-                      </div>
+                      ></div>
                     )}
-                  </DroppableGridBox>
+                  </div>
                 );
               })}
             </div>
           </div>
         </div>
-      </DndProvider>
+      </>
     </div>
   );
 }

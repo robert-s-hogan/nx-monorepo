@@ -1,7 +1,7 @@
-import { Structures } from '../categories/Structures';
-import { ObjectCondition } from '../categories/ObjectCondition';
-import { ObjectSize } from '../categories/ObjectSize';
-import { ObjectMaterial } from '../categories/ObjectMaterial';
+import { Structures } from '../data/Structures';
+import { ObjectCondition } from '../data/ObjectCondition';
+import { ObjectSize } from '../data/ObjectSize';
+import { ObjectMaterial } from '../data/ObjectMaterial';
 
 const adjectives = [
   'colorful',

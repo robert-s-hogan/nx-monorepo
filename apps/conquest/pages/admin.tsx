@@ -1,4 +1,4 @@
-import ConquestLayout from '../components/layout/ConquestLayout';
+import ConquestLayout from '../components/ConquestLayout';
 import React, { useState, useEffect } from 'react';
 import useSWR from 'swr';
 import { Campaign } from '../types/types';
@@ -142,12 +142,16 @@ const Admin: React.FC = () => {
   return (
     <ConquestLayout>
       <div className="text-xs p-12">
-        {/* <pre>{JSON.stringify(campaigns.campaigns[0], null, 2)}</pre> */}
-        {/* <pre>{JSON.stringify(error ? error : 'No error', null, 2)}</pre>
+        {/* <pre>{JSON.stringify(campaignsData?.campaigns[0], null, 2)}</pre>
+        <pre>{JSON.stringify(error ? error : 'No error', null, 2)}</pre>
         <pre>
-          {JSON.stringify(loading ? 'Loading...' : 'Not loading', null, 2)}
+          {JSON.stringify(
+            !campaignsData ? 'Loading...' : 'Not loading',
+            null,
+            2
+          )}
         </pre> */}
-        {/* <pre>{JSON.stringify(campaigns, null, 2)}</pre> */}
+        <pre>{JSON.stringify(campaignsData, null, 2)}</pre>
       </div>
       <section className="h-screen w-full">
         <div className="container max-w-7xl mx-auto">
@@ -168,8 +172,8 @@ const Admin: React.FC = () => {
               <h2>Campaigns</h2>
               {/* {campaignsData?campaigns?.length && <p>({campaignsData?.length})</p>} */}
             </Flex>
-            {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-              {campaignsData?.campaigns.map((campaign) => (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              {/* {campaignsData?.campaigns.map((campaign) => (
                 <div
                   key={campaign.id}
                   className={campaign.group_alive === false ? 'opacity-40' : ''}
@@ -188,7 +192,6 @@ const Admin: React.FC = () => {
                       </button>
                     )}
                   </div>
-                  {/* <pre>{JSON.stringify(campaign, null, 2)}</pre>
                   <Link href={`/campaigns/${campaign.id}`}>
                     <div className="admin-card" key={campaign.id}>
                       <h5 className="admin-card-title">{campaign.name}</h5>
@@ -207,10 +210,9 @@ const Admin: React.FC = () => {
                               <div className="w-12 bg-gray-400 rounded-full h-2.5 mr-2">
                                 <div className="bg-blue-600 h-2.5 rounded-full w-4"></div>
                               </div>
-                              3
-                              {/* {campaign.percentageOfAdventuringDayXpRemaining}
-                            </div>
-                          </div>
+                              {campaign.percentageOfAdventuringDayXpRemaining}
+                            </Flex>
+                          </Flex>
 
                           <Flex className="items-center space-x-2">
                             <Flex className="items-center">
@@ -218,17 +220,17 @@ const Admin: React.FC = () => {
                               1/3
                             </Flex>
                           </Flex>
-                        </div>
+                        </Flex>
                       </div>
                     </div>
                   </Link>
                 </div>
-              ))}
-            </Flex> */}
+              ))} */}
+            </div>
           </div>
         </div>
       </section>
-      <ConquestModal isShowing={isShowing} toggle={toggle}>
+      {/* <ConquestModal isShowing={isShowing} toggle={toggle}>
         <div className="space-y-8">
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 gap-6 p-4 md:p-6">
@@ -278,7 +280,7 @@ const Admin: React.FC = () => {
             </div>
           </form>
         </div>
-      </ConquestModal>
+      </ConquestModal> */}
     </ConquestLayout>
   );
 };

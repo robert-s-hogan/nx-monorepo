@@ -7,7 +7,7 @@ import { Flex } from '@with-nx/react-ui';
 
 import { Campaign } from '../../types/types';
 import withAuth from '../../hooks/withAuth';
-import ConquestLayout from '../../components/layout/ConquestLayout';
+import ConquestLayout from '../../components/ConquestLayout';
 import { useAuth } from '../../hooks/useAuth';
 import { useRouter } from 'next/router';
 

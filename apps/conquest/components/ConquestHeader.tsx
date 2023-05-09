@@ -2,16 +2,16 @@ import NextLink from 'next/link';
 import Image from 'next/image';
 
 // hooks
-import { useIsAuthenticated } from '../../hooks/useAuth';
+import { useIsAuthenticated } from '../hooks/useAuth';
 import { useModal } from '@with-nx/react-hooks';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../hooks/useAuth';
 import { useRouter } from 'next/router';
 
 // components & assets
-import LogoutButton from '../LogoutButton';
-import ConquestLogo from '../../assets/conquest_logo.png';
-import ConquestModal from '../ConquestModal';
-import LoginForm from '../LoginForm';
+import LogoutButton from './LogoutButton';
+import ConquestLogo from '../assets/conquest_logo.png';
+import ConquestModal from './ConquestModal';
+import LoginForm from './LoginForm';
 
 // icons
 import { FiAlignJustify, FiUser } from 'react-icons/fi';

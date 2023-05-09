@@ -1,5 +1,5 @@
-import { structures } from '../../data/structures';
+import { Structures } from '../../data/Structures';
 
 export default function handler(req, res) {
-  res.status(200).json(structures);
+  res.status(200).json(Structures);
 }

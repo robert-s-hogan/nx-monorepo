@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import DynamicObjectComponent from '../components/DynamicObjectComponent';
-import { CustomItems } from '../categories/CustomItems';
+import { CustomItems } from '../data/CustomItems';
 import generateCustomItem from '../utils/generateCustomItem';
 import { WiRefresh } from 'react-icons/wi';
 import { Flex } from '@with-nx/react-ui';

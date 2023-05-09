@@ -6,7 +6,7 @@ import Map from '../components/Map';
 import LoginForm from '../components/LoginForm';
 import { useCharacter } from '../hooks/useCharacter';
 import { useFetchItems5e } from '../hooks/useFetchItems5e';
-import ConquestLayout from '../components/layout/ConquestLayout';
+import ConquestLayout from '../components/ConquestLayout';
 import { randomNumber } from '../lib/randomNumber';
 import { Flex } from '@with-nx/react-ui';
 // import GenerateMadLib from '../components/GenerateMadLib';

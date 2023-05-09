@@ -5,7 +5,7 @@ import { BsShield } from 'react-icons/bs';
 import { BiRectangle } from 'react-icons/bi';
 import { TbWeight } from 'react-icons/tb';
 import characterStatsCardStyles from './characterStatsCard.module.css';
-import { Character } from '../../types/types';
+import { Character } from '../types/types';
 import { Flex } from '@with-nx/react-ui';
 
 const CharacterStatsCard = ({ character }: { character: Character }) => {
