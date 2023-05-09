@@ -47,7 +47,7 @@ import {
   adventuringDayXP,
   encounterMultipliers,
   xpThresholdsByCharacterLevel,
-} from '../lib/xpTables';
+} from '../data/xpTables';
 
 export function useCharacter() {
   const [playerCount, _playerCount] = useState(4);

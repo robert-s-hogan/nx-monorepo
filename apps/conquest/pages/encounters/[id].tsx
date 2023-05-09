@@ -11,7 +11,7 @@ import { useModal } from '@with-nx/react-hooks';
 import ReusableSection from '../../components/ReusableSection';
 import Map from '../../components/Map';
 import { useEncounterData } from '../../hooks/useEncounterData';
-import { randomNumber } from '../../lib/randomNumber';
+import { randomNumber } from '../../utils/randomNumber';
 import CharacterStatsCard from '../../components/CharacterStatsCard';
 
 import { generateEntity } from '../../utils/entity/generateEntity';

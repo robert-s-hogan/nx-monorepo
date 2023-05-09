@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FiChevronRight } from 'react-icons/fi';
 import { Popover, Flex } from '@with-nx/react-ui';
 
-import { randomNumber } from '../lib/randomNumber';
+import { randomNumber } from '../utils/randomNumber';
 
 import { useEncounterData } from '../hooks/useEncounterData';
 import { GiDoubleDragon } from 'react-icons/gi';
