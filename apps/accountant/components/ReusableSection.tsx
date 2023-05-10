@@ -16,7 +16,7 @@ const ResuableSection = ({
 }: ResuableSectionProps) => {
   return (
     <Section
-      className="container max-w-7xl mx-auto py-16 px-4"
+      className="container max-w-7xl mx-auto py-16 px-4" 
       id={id}
       style={{ minHeight, ...style }}
       {...rest}

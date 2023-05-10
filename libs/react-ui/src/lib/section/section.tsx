@@ -1,4 +1,4 @@
-import reactUISectionStyles from './section.module.css';
+import sectionStyles from './section.module.css';
 
 /* eslint-disable-next-line */
 export interface SectionProps {
@@ -20,7 +20,7 @@ export function Section({
 }: SectionProps) {
   return (
     <section
-      className={`${reactUISectionStyles.section} ${className}`}
+      className={`section ${sectionStyles.section} ${className}`}
       id={id}
       role={role}
       onClick={onClick}
