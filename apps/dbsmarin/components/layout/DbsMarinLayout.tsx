@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { PageLayout } from '@with-nx/react-ui';
-import { PageLayoutProps, DbsMarinLayoutProps } from '@with-nx/types';
+import { PageLayoutProps } from '@with-nx/types';
 
 import DbsMarinHeader from './DbsMarinHeader';
 
@@ -9,13 +9,13 @@ const DbsMarinFooter = dynamic(() => import('./DbsMarinFooter'), {
   ssr: false,
 });
 
-const DbsMarinLayout: React.FC<DbsMarinLayoutProps> = ({
+const DbsMarinLayout: React.FC<PageLayoutProps> = ({
   children,
   className,
   title,
   description,
   hideNavBar: hideNavBarProp,
-}: DbsMarinLayoutProps) => {
+}: PageLayoutProps) => {
   return (
     <PageLayout
       className={className ? className : 'w-full'}

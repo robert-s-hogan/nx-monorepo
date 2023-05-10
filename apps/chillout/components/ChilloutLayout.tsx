@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import { PageLayout } from '@with-nx/react-ui';
 import { useRouter } from 'next/router';
 import { Seo } from '@with-nx/nextjs-react-ui';
-import { PageLayoutProps, ChilloutLayoutProps } from '@with-nx/types';
+import { PageLayoutProps } from '@with-nx/types';
 
 import ChilloutHeader from './ChilloutHeader';
 
@@ -10,13 +10,13 @@ const ChilloutFooter = dynamic(() => import('./ChilloutFooter'), {
   ssr: false,
 });
 
-const ChilloutLayout: React.FC<ChilloutLayoutProps> = ({
+const ChilloutLayout: React.FC<PageLayoutProps> = ({
   children,
   className = '',
   title,
   description,
   hideNavBar: hideNavBarProp,
-}: ChilloutLayoutProps) => {
+}: PageLayoutProps) => {
   const router = useRouter();
   const asPath = router.asPath;
   const hideMaxWidth7xl =

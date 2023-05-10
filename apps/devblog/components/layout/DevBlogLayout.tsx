@@ -2,19 +2,19 @@ import dynamic from 'next/dynamic';
 import { PageLayout } from '@with-nx/react-ui';
 import { useRouter } from 'next/router';
 import { Seo } from '@with-nx/nextjs-react-ui';
-import { PageLayoutProps, DevBlogLayoutProps } from '@with-nx/types';
+import { PageLayoutProps } from '@with-nx/types';
 
 import DevBlogHeader from './DevBlogHeader';
 
 const DevBlogFooter = dynamic(() => import('./DevBlogFooter'), { ssr: false });
 
-const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
+const DevBlogLayout: React.FC<PageLayoutProps> = ({
   children,
   className,
   title,
   description,
   hideNavBar: hideNavBarProp,
-}: DevBlogLayoutProps) => {
+}: PageLayoutProps) => {
   const router = useRouter();
   const asPath = router.asPath;
   const hideMaxWidth7xl = asPath.includes('projects/dnd-interactive-map');

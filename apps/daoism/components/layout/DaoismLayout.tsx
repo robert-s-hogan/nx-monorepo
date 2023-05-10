@@ -1,19 +1,19 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { PageLayout } from '@with-nx/react-ui';
-import { PageLayoutProps, DaosimLayoutProps } from '@with-nx/types';
+import { PageLayoutProps } from '@with-nx/types';
 
 import DaoismHeader from './DaoismHeader';
 
 const DaoismFooter = dynamic(() => import('./DaoismFooter'), { ssr: false });
 
-const DaosimLayout: React.FC<DaosimLayoutProps> = ({
+const DaosimLayout: React.FC<PageLayoutProps> = ({
   children,
   className,
   title,
   description,
   hideNavBar: hideNavBarProp,
-}: DaosimLayoutProps) => {
+}: PageLayoutProps) => {
   return (
     <PageLayout
       className={className ? className : 'w-full'}

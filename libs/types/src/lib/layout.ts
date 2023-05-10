@@ -1,5 +1,4 @@
-// libs/types/src/lib/layout.ts
-export interface PageLayoutProps {
+export interface LayoutProps {
   header?: React.ReactNode;
   children: React.ReactNode;
   footer?: React.ReactNode;
@@ -8,57 +7,7 @@ export interface PageLayoutProps {
   hideFooter?: boolean;
 }
 
-export interface AccountantLayoutProps extends PageLayoutProps {
-  title?: string;
-  description?: string;
-}
-
-export interface ChilloutLayoutProps extends PageLayoutProps {
-  title?: string;
-  description?: string;
-}
-
-export interface CoffeeShopLayoutProps extends PageLayoutProps {
-  title?: string;
-  description?: string;
-}
-
-export interface ConquestLayoutProps extends PageLayoutProps {
-  title?: string;
-  description?: string;
-}
-
-export interface DaosimLayoutProps extends PageLayoutProps {
-  title?: string;
-  description?: string;
-}
-
-export interface DbsMarinLayoutProps extends PageLayoutProps {
-  title?: string;
-  description?: string;
-}
-
-export interface DevBlogLayoutProps extends PageLayoutProps {
-  title?: string;
-  description?: string;
-}
-
-export interface DndGroupLayoutProps extends PageLayoutProps {
-  title?: string;
-  description?: string;
-}
-
-export interface JHoganComLayoutProps extends PageLayoutProps {
-  title?: string;
-  description?: string;
-}
-
-export interface PlaceholderLayoutProps extends PageLayoutProps {
-  title?: string;
-  description?: string;
-}
-
-export interface RSHoganComLayoutProps extends PageLayoutProps {
+export interface PageLayoutProps extends LayoutProps {
   title?: string;
   description?: string;
 }

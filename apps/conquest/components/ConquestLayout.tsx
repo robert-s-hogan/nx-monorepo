@@ -1,6 +1,6 @@
 import { PageLayout } from '@with-nx/react-ui';
 import Head from 'next/head';
-import { PageLayoutProps, ConquestLayoutProps } from '@with-nx/types';
+import { PageLayoutProps } from '@with-nx/types';
 
 import ConquestHeader from './ConquestHeader';
 
@@ -10,7 +10,7 @@ export default function ConquestLayout({
   title,
   description,
   hideNavBar: hideNavBarProp,
-}: ConquestLayoutProps) {
+}: PageLayoutProps) {
   return (
     <PageLayout header={<ConquestHeader />} footer={null}>
       <Head>

@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import { Seo } from '@with-nx/nextjs-react-ui';
 import { PageLayout } from '@with-nx/react-ui';
-import { PageLayoutProps, RSHoganComLayoutProps } from '@with-nx/types';
+import { PageLayoutProps } from '@with-nx/types';
 
 import RSHoganComHeader from './RSHoganComHeader';
 
@@ -9,13 +9,13 @@ const RSHoganComFooter = dynamic(() => import('./RSHoganComFooter'), {
   ssr: false,
 });
 
-const RSHoganComLayout: React.FC<RSHoganComLayoutProps> = ({
+const RSHoganComLayout: React.FC<PageLayoutProps> = ({
   children,
   className,
   title,
   description,
   hideNavBar: hideNavBarProp,
-}: RSHoganComLayoutProps) => {
+}: PageLayoutProps) => {
   return (
     <PageLayout
       header={hideNavBarProp ? '' : <RSHoganComHeader />}

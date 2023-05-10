@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { PageLayout } from '@with-nx/react-ui';
 import { Seo } from '@with-nx/nextjs-react-ui';
-import { PageLayoutProps, PlaceholderLayoutProps } from '@with-nx/types';
+import { PageLayoutProps } from '@with-nx/types';
 
 import PlaceholderHeader from './PlaceholderHeader';
 
@@ -10,13 +10,13 @@ const PlaceholderFooter = dynamic(() => import('./PlaceholderFooter'), {
   ssr: false,
 });
 
-const PlaceholderLayout: React.FC<PlaceholderLayoutProps> = ({
+const PlaceholderLayout: React.FC<PageLayoutProps> = ({
   children,
   className,
   title,
   description,
   hideNavBar: hideNavBarProp,
-}: PlaceholderLayoutProps) => {
+}: PageLayoutProps) => {
   return (
     <PageLayout
       className="max-w-7xl container mx-auto "

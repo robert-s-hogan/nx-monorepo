@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import { PageLayout } from '@with-nx/react-ui';
 import { useRouter } from 'next/router';
 import { Seo } from '@with-nx/nextjs-react-ui';
-import { PageLayoutProps, CoffeeShopLayoutProps } from '@with-nx/types';
+import { PageLayoutProps } from '@with-nx/types';
 
 import CoffeeShopHeader from './CoffeeShopHeader';
 
@@ -10,13 +10,13 @@ const CoffeeShopFooter = dynamic(() => import('./CoffeeShopFooter'), {
   ssr: false,
 });
 
-const ChilloutLayout: React.FC<CoffeeShopLayoutProps> = ({
+const ChilloutLayout: React.FC<PageLayoutProps> = ({
   children,
   className = '',
   title,
   description,
   hideNavBar: hideNavBarProp,
-}: CoffeeShopLayoutProps) => {
+}: PageLayoutProps) => {
   const router = useRouter();
   const asPath = router.asPath;
   const hideMaxWidth7xl = asPath.includes('/');
