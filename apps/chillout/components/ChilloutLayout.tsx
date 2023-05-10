@@ -2,20 +2,13 @@ import dynamic from 'next/dynamic';
 import { PageLayout } from '@with-nx/react-ui';
 import { useRouter } from 'next/router';
 import { Seo } from '@with-nx/nextjs-react-ui';
+import { PageLayoutProps, ChilloutLayoutProps } from '@with-nx/types';
 
 import ChilloutHeader from './ChilloutHeader';
 
 const ChilloutFooter = dynamic(() => import('./ChilloutFooter'), {
   ssr: false,
 });
-
-interface ChilloutLayoutProps {
-  children: React.ReactNode;
-  className?: string;
-  title?: string;
-  description?: string;
-  hideNavBar?: boolean;
-}
 
 const ChilloutLayout: React.FC<ChilloutLayoutProps> = ({
   children,

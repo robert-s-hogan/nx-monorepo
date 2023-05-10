@@ -2,18 +2,11 @@ import dynamic from 'next/dynamic';
 import { PageLayout } from '@with-nx/react-ui';
 import { useRouter } from 'next/router';
 import { Seo } from '@with-nx/nextjs-react-ui';
+import { PageLayoutProps, DevBlogLayoutProps } from '@with-nx/types';
 
 import DevBlogHeader from './DevBlogHeader';
 
 const DevBlogFooter = dynamic(() => import('./DevBlogFooter'), { ssr: false });
-
-interface DevBlogLayoutProps {
-  children: React.ReactNode;
-  className?: string;
-  title?: string;
-  description?: string;
-  hideNavBar?: boolean;
-}
 
 const DevBlogLayout: React.FC<DevBlogLayoutProps> = ({
   children,

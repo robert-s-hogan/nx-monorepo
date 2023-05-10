@@ -1,20 +1,13 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { PageLayout } from '@with-nx/react-ui';
+import { PageLayoutProps, DndGroupLayoutProps } from '@with-nx/types';
 
 import DndGroupHeader from './DndGroupHeader';
 
 const DndGroupFooter = dynamic(() => import('./DndGroupFooter'), {
   ssr: false,
 });
-
-interface DndGroupLayoutProps {
-  children: React.ReactNode;
-  className?: string;
-  title?: string;
-  description?: string;
-  hideNavBar?: boolean;
-}
 
 const DndGroupLayout: React.FC<DndGroupLayoutProps> = ({
   children,

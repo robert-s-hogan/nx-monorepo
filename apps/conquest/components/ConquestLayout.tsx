@@ -1,15 +1,8 @@
 import { PageLayout } from '@with-nx/react-ui';
 import Head from 'next/head';
+import { PageLayoutProps, ConquestLayoutProps } from '@with-nx/types';
 
 import ConquestHeader from './ConquestHeader';
-
-interface ConquestLayoutProps {
-  children: React.ReactNode;
-  className?: string;
-  title?: string;
-  description?: string;
-  hideNavBar?: boolean;
-}
 
 export default function ConquestLayout({
   children,

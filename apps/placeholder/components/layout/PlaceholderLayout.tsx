@@ -2,20 +2,13 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { PageLayout } from '@with-nx/react-ui';
 import { Seo } from '@with-nx/nextjs-react-ui';
+import { PageLayoutProps, PlaceholderLayoutProps } from '@with-nx/types';
 
 import PlaceholderHeader from './PlaceholderHeader';
 
 const PlaceholderFooter = dynamic(() => import('./PlaceholderFooter'), {
   ssr: false,
 });
-
-interface PlaceholderLayoutProps {
-  children: React.ReactNode;
-  className?: string;
-  title?: string;
-  description?: string;
-  hideNavBar?: boolean;
-}
 
 const PlaceholderLayout: React.FC<PlaceholderLayoutProps> = ({
   children,

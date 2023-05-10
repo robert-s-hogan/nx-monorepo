@@ -1,18 +1,11 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { PageLayout } from '@with-nx/react-ui';
+import { PageLayoutProps, DaosimLayoutProps } from '@with-nx/types';
 
 import DaoismHeader from './DaoismHeader';
 
 const DaoismFooter = dynamic(() => import('./DaoismFooter'), { ssr: false });
-
-interface DaosimLayoutProps {
-  children: React.ReactNode;
-  className?: string;
-  title?: string;
-  description?: string;
-  hideNavBar?: boolean;
-}
 
 const DaosimLayout: React.FC<DaosimLayoutProps> = ({
   children,

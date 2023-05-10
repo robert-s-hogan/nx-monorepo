@@ -1,20 +1,13 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { PageLayout } from '@with-nx/react-ui';
+import { PageLayoutProps, DbsMarinLayoutProps } from '@with-nx/types';
 
 import DbsMarinHeader from './DbsMarinHeader';
 
 const DbsMarinFooter = dynamic(() => import('./DbsMarinFooter'), {
   ssr: false,
 });
-
-interface DbsMarinLayoutProps {
-  children: React.ReactNode;
-  className?: string;
-  title?: string;
-  description?: string;
-  hideNavBar?: boolean;
-}
 
 const DbsMarinLayout: React.FC<DbsMarinLayoutProps> = ({
   children,
