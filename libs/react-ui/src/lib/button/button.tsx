@@ -1,13 +1,5 @@
-import React, { ButtonHTMLAttributes } from 'react';
 import buttonStyles from './button.module.css';
-
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon?: React.ReactNode;
-  disabled?: boolean;
-  style?: React.CSSProperties;
-  loading?: boolean;
-  type?: 'button' | 'submit' | 'reset';
-}
+import { ButtonProps } from '@with-nx/types';
 
 export const Button: React.FC<ButtonProps> = ({
   icon,

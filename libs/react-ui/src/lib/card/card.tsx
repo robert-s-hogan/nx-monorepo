@@ -2,7 +2,8 @@ import React from 'react';
 import cardStyles from './card.module.css';
 import Skeleton from '../skeleton/skeleton';
 import Text from '../text/text';
-import Button, { ButtonProps } from '../button/button';
+import Button from '../button/button';
+import { ButtonProps } from '@with-nx/types';
 
 /* eslint-disable-next-line */
 export interface CardProps {

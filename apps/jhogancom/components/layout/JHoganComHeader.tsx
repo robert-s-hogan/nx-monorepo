@@ -1,4 +1,6 @@
-import { Navbar, ButtonProps, LinkProps } from '@with-nx/react-ui';
+import { Navbar } from '@with-nx/react-ui';
+import { ButtonProps, LinkProps } from '@with-nx/types';
+
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiMoon, FiSun } from 'react-icons/fi';

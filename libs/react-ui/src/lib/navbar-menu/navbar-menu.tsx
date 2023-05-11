@@ -9,8 +9,10 @@
  */
 
 import React from 'react';
-import Button, { ButtonProps } from '../button/button';
-import Link, { LinkProps } from '../link/link';
+import { ButtonProps, LinkProps } from '@with-nx/types';
+
+import Button from '../button/button';
+import Link from '../link/link';
 
 interface NavbarMenuProps {
   links: (

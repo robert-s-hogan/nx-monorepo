@@ -1,8 +1,10 @@
-import { Navbar, ButtonProps, LinkProps } from '@with-nx/react-ui';
+import { useState, useEffect } from 'react';
+import { Navbar } from '@with-nx/react-ui';
+import { ButtonProps, LinkProps } from '@with-nx/types';
 import Image from 'next/image';
+
 import { useTheme } from 'next-themes';
 import { FiMoon, FiSun, FiShoppingCart } from 'react-icons/fi';
-import { useState, useEffect } from 'react';
 
 import ChilloutSVG from '../public/images/chill-out-logo.svg';
 import useShoppingCart from '../hooks/useShoppingCart';
