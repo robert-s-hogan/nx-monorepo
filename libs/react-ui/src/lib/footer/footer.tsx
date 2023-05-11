@@ -2,7 +2,7 @@ import React from 'react';
 import { List } from '@with-nx/react-ui';
 
 interface FooterProps {
-  className: string;
+  className?: string;
 }
 
 export const Footer: React.FC<FooterProps> = ({ className }) => {
@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
   ];
 
   return (
-    <footer className={className}>
+    <footer className={`footer ${className}`}>
       <List items={links1} />
       <List items={links2} />
     </footer>

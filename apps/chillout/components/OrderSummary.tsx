@@ -110,26 +110,26 @@ export const OrderSummary = ({
                   <div className="pa-12 bg-foreground border-accent">
                     <Flex
                       className="mb-16 items-center"
-                      onClick={() => {
-                        _drop(false);
+                      // onClick={() => {
+                      //   _drop(false);
 
-                        if (onSendEmailInvoiceDetailsPress) {
-                          onSendEmailInvoiceDetailsPress();
-                        }
-                      }}
+                      //   if (onSendEmailInvoiceDetailsPress) {
+                      //     onSendEmailInvoiceDetailsPress();
+                      //   }
+                      // }}
                     >
                       <FiMail size={20} className="text-font-three" />
                       <Text className="text-font-one">Send by Email</Text>
                     </Flex>
                     <Flex
                       className="mb-0 items-center"
-                      onClick={() => {
-                        _drop(false);
+                      // onClick={() => {
+                      //   _drop(false);
 
-                        if (onExportPDFInvoiceDetailsPress) {
-                          onExportPDFInvoiceDetailsPress();
-                        }
-                      }}
+                      //   if (onExportPDFInvoiceDetailsPress) {
+                      //     onExportPDFInvoiceDetailsPress();
+                      //   }
+                      // }}
                     >
                       <FiDownloadCloud size={20} className="text-font-three" />
                       <Text className="text-font-one">Download PDF</Text>

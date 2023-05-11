@@ -1,11 +1,4 @@
-/* eslint-disable-next-line */
-export interface HeaderProps {
-  title: string;
-  logo: React.ReactNode;
-  nav: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-}
+import { HeaderProps } from '@with-nx/types';
 
 export const Header: React.FC<HeaderProps> = ({
   title,
@@ -14,7 +7,7 @@ export const Header: React.FC<HeaderProps> = ({
   className,
   style,
 }) => (
-  <header className={className} style={style}>
+  <header className={`header ${className}`} style={style}>
     <div className="header-left">
       {logo}
       {title}

@@ -1,3 +1,4 @@
+//libs/types/src/lib/layout-types.ts
 export interface LayoutProps {
   header?: React.ReactNode;
   children: React.ReactNode;
@@ -18,4 +19,26 @@ export interface SectionProps {
   className?: string;
   style?: React.CSSProperties;
   ariaLabel?: string;
+}
+
+export interface GridProps {
+  id?: string;
+  children: React.ReactNode;
+  className?: string;
+  ariaLabel?: string;
+}
+
+export interface FlexProps {
+  id?: string;
+  children: React.ReactNode;
+  className?: string;
+  ariaLabel?: string;
+}
+
+export interface HeaderProps {
+  title: string;
+  logo: React.ReactNode;
+  nav: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
 }
