@@ -1,28 +1,41 @@
+//libs/react-ui/src/lib/section/section.stories.tsx
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Section, SectionProps } from './section';
+import { SectionProps } from '@with-nx/types';
+import { Section } from './section';
 
-const meta: Meta = {
-  component: Section,
-  title: 'Section',
+export default {
   title: 'Atoms/Section',
-};
-export default meta;
+  component: Section,
+  argTypes: {
+    id: { control: 'text' },
+    className: { control: 'text' },
+    style: { control: 'object' },
+    ariaLabel: { control: 'text' },
+  },
+} as Meta;
 
 const Template: Story<SectionProps> = (args) => <Section {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  id: 'section-example',
-  className: 'bg-gray-100 p-4',
-  role: 'contentinfo',
+export const Default = Template.bind({});
+Default.args = {
+  id: 'default-section',
+  className:
+    'max-w-7xl container mx-auto px-4 py-16 bg-blue-500 text-white text-3xl',
+  ariaLabel: 'Default Section',
+  children: <p>Section with .container, .mx-auto, and .max-w-7xl</p>,
+};
+
+export const FullWidthSection = Template.bind({});
+FullWidthSection.args = {
+  id: 'full-width-section',
+  className:
+    'max-w-full container mx-auto lg:mx-auto px-4 py-16 bg-blue-500 text-white text-3xl',
+  ariaLabel: 'Full Width Section',
   children: (
-    <>
-      <h2 className="text-lg font-bold mb-2">Section Title</h2>
-      <p>
-        This is an example of a section component. You can customize it using
-        the provided props.
-      </p>
-    </>
+    <h1>
+      This is a full width section. These classes overwrite the global.css
+      .section classes
+    </h1>
   ),
 };

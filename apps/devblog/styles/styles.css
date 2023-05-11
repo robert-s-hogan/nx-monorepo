@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap');
+
+@tailwind components;
+@tailwind base;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Montserrat', sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+  body {
+    @apply bg-gray-100;
+  }
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+  h5 {
+    @apply text-lg;
+  }
+  h6 {
+    @apply text-base;
+  }
+}
+
+@layer components {
+  .section {
+    @apply container max-w-7xl mx-auto py-8 px-4;
+  }
+  .full-width-container {
+    @apply mx-auto;
+    max-width: 100%;
+  }
+  .btn-primary {
+    @apply !bg-primary text-white px-3 py-2 rounded-lg;
+  }
+  .card {
+    @apply bg-gray-200 shadow-lg rounded-lg p-6;
+  }
+  .card-body {
+    @apply flex flex-col space-y-6;
+  }
+  .card-title {
+    @apply text-2xl font-semibold;
+  }
+  .card-text {
+    @apply text-lg font-light;
+  }
+  .sub-title {
+    @apply text-xl;
+  }
+  .navbar-logo-text {
+    @apply no-underline;
+  }
+}
+
+section {
+  @apply my-8;
+}
+button[disabled] {
+  @apply bg-gray-300 text-gray-500 cursor-not-allowed;
+}
+
+a button span {
+  @apply no-underline;
+}
+
+#__next {
+  height: 100%;
+}
+
+a {
+  @apply underline decoration-primary;
+}
+
+a:hover {
+  @apply text-gray-300 opacity-90;
+}
+
+pre {
+  @apply bg-gray-100 rounded-lg p-4 overflow-x-auto;
+}
+
+code {
+  @apply text-gray-800 font-mono;
+}

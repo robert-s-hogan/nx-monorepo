@@ -24,7 +24,6 @@ export * from './lib/page-layout/page-layout';
 export * from './lib/hero/hero';
 export * from './lib/navbar-menu/navbar-menu';
 export * from './lib/modal/modal';
-export * from './lib/icon/icon';
 export * from './lib/search-bar/search-bar';
 export * from './lib/checkbox/checkbox';
 export * from './lib/list/list';

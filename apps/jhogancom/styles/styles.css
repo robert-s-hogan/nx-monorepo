@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap');
+
+@tailwind components;
+@tailwind base;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Montserrat', sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  h5 {
+    @apply text-lg;
+  }
+  h6 {
+    @apply text-base;
+  }
+  p {
+    @apply text-base;
+  }
+}
+
+@layer components {
+  .section {
+    @apply container max-w-7xl mx-auto py-8 px-4;
+  }
+  .btn-primary {
+    @apply bg-orange hover:opacity-80 px-8 py-2 rounded-lg text-lg text-white;
+  }
+  .text-primary {
+    @apply text-white dark:text-orange;
+  }
+  .card {
+    @apply transition duration-500 ease-in-out transform;
+  }
+  .card:hover {
+    @apply -translate-y-1 scale-110 z-50;
+  }
+  .skeleton-text-container {
+    @apply space-y-2;
+  }
+  .skeleton {
+    @apply w-[100px];
+  }
+  .skeleton-text {
+    @apply h-6 rounded w-full;
+  }
+}
+
+a {
+  @apply text-black dark:text-white;
+}
+a:hover {
+  @apply text-orange;
+}
+
+.text {
+  @apply text-base;
+}

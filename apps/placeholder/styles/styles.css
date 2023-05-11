@@ -1,0 +1,127 @@
+@tailwind components;
+@tailwind base;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  h5 {
+    @apply text-lg;
+  }
+  h6 {
+    @apply text-base;
+  }
+  p,
+  body,
+  button,
+  form,
+  input,
+  select,
+  textarea {
+    @apply text-base;
+  }
+}
+
+@layer components {
+  .section {
+    @apply container max-w-7xl mx-auto py-8 px-4;
+  }
+  .btn-primary {
+    @apply bg-indigo-500 text-white text-xl px-3 py-2 rounded-lg;
+  }
+  .btn-primary:hover {
+    @apply bg-red-900 transition-colors duration-300;
+  }
+  .text-primary {
+    @apply text-black dark:text-white;
+  }
+  .btn-next {
+    @apply !bg-indigo-500 text-white text-xl px-3 py-2 rounded-lg;
+  }
+  .btn-prev {
+    @apply !bg-indigo-400 text-white text-xl px-3 py-2 rounded-lg;
+  }
+  .btn-success {
+    @apply bg-green-500 text-white text-xl px-3 py-2 rounded-lg;
+  }
+  .btn-disabled {
+    @apply bg-gray-300 px-3 py-2 text-gray-700 cursor-not-allowed;
+  }
+  .bg-footer,
+  .bg-header,
+  .bg-hero {
+    @apply bg-white dark:bg-slate-800;
+  }
+  .search-bar {
+    @apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 py-1 px-3 space-x-4 rounded-md h-full w-full;
+  }
+  .search-bar input {
+    @apply bg-transparent border-none outline-none w-full;
+  }
+  input,
+  .input {
+    @apply bg-slate-100 text-slate-900 py-2 px-3 rounded-md w-full h-10;
+  }
+  label {
+    @apply text-slate-900 dark:text-slate-100 block;
+  }
+  select {
+    @apply bg-slate-100 text-slate-900 py-1 px-3 rounded-md h-full w-full;
+  }
+  .popver-container {
+    @apply bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-md shadow-lg p-4;
+  }
+  .popover-trigger {
+    @apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 py-1 px-3 rounded-md;
+  }
+  .popover-trigger:hover {
+    @apply bg-slate-200 dark:bg-slate-800;
+  }
+  .popover-trigger:focus {
+    @apply bg-slate-200 dark:bg-slate-800;
+  }
+  .popover-trigger:active {
+    @apply bg-slate-200 dark:bg-slate-800;
+  }
+  .popover-trigger:disabled {
+    @apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 py-1 px-3 rounded-md cursor-not-allowed;
+  }
+  .popover-content {
+    @apply bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-md shadow-lg p-4;
+  }
+  .progress-horizontal-container {
+    @apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-md h-2 w-full;
+  }
+  .progress-horizontal-value {
+    @apply bg-indigo-500 text-white text-xl px-3 py-2 rounded-lg;
+  }
+  .progress-circular-container {
+    @apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-md h-2 w-full;
+  }
+  .progress-circular-value {
+    @apply bg-indigo-500 text-white text-xl px-3 py-2 rounded-lg;
+  }
+}
+
+button[disabled] {
+  @apply bg-gray-300 px-3 py-2 text-gray-700 cursor-not-allowed;
+}
+
+form label,
+form input {
+  @apply my-1;
+}
+
+.nav-button {
+  @apply text-white font-bold py-2 px-3 rounded uppercase border;
+}
