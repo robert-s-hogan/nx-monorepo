@@ -44,6 +44,9 @@
 }
 
 @layer components {
+  .section {
+    @apply container max-w-7xl mx-auto p-6;
+  }
   header {
     @apply bg-transparent text-white;
   }

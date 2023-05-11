@@ -2,6 +2,12 @@
 @tailwind base;
 @tailwind utilities;
 
+@layer components {
+  .section {
+    @apply container max-w-7xl mx-auto py-8 px-4;
+  }
+}
+
 .background-radial-gradient {
   background-color: hsl(218, 41%, 15%);
   background-image: radial-gradient(

@@ -3,7 +3,6 @@ import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
 
 import AccountantLayout from '../components/AccountantLayout';
-import ReusableSection from '../components/ReusableSection';
 
 const AccountingServices = () => {
   return (
@@ -235,7 +234,9 @@ const AccountingServices = () => {
                 </a>
               </p>
               <br />
-              <p className="reviewer text-center">- ANDREW HARVEY (COMPANY NAME)</p>
+              <p className="reviewer text-center">
+                - ANDREW HARVEY (COMPANY NAME)
+              </p>
             </div>
 
             <div className="w-full md:w-1/3 px-4 py-2">
@@ -277,7 +278,9 @@ const AccountingServices = () => {
               </p>
               <br />
 
-              <p className="reviewer text-center">- KEVIN HAYES (COMPANY NAME)</p>
+              <p className="reviewer text-center">
+                - KEVIN HAYES (COMPANY NAME)
+              </p>
             </div>
           </div>
         </div>

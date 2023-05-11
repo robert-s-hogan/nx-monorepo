@@ -5,9 +5,9 @@ import { Flex } from '@with-nx/react-ui';
 
 const CoffeeShopFooter = () => {
   return (
-    <footer className="py-16  bg-yellow-100">
-      <div className="flex flex-col lg:flex-row items-center justify-between mx-auto max-w-screen-xl">
-        <Flex className="items-center">
+    <footer className="py-16 bg-yellow-100">
+      <div className="flex flex-col lg:flex-row items-center justify-between mx-auto max-w-screen-2xl">
+        <Flex className="items-center !w-1/2">
           <Link className="ml-4" href="/">
             <svg
               width="82"
@@ -28,11 +28,11 @@ const CoffeeShopFooter = () => {
           </Link>
         </Flex>
         <ul className="flex flex-col lg:flex-row items-center text-sm font-semibold text-gray-500 py-12 lg:py-0">
-          <li className="mx-7 hover:text-gray-700 mb-2 lg:mb-0">
+          <li className="mx-7 lg:mx-1  hover:text-gray-700 mb-2 lg:mb-0">
             <Link href="/growth-tips">GROWTH TIPS</Link>
           </li>
 
-          <li className="mx-7 hover:text-gray-700 mb-2 lg:mb-0">
+          <li className="mx-7 lg:mx-1 hover:text-gray-700 mb-2 lg:mb-0">
             <Link href="/contact">CONTACT</Link>
           </li>
         </ul>

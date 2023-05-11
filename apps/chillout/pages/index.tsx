@@ -3,7 +3,6 @@ import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import ReusableSection from '../components/ReusableSection';
 import Snowflake from '../public/images/snowflake.svg';
 import Happy from '../public/images/happy.png';
 import SmilingManOne from '../public/images/smiling_man.png';
@@ -85,7 +84,7 @@ export function Index() {
         ))}
       </Grid>
 
-      <ReusableSection
+      <Section
         id="who-we-are"
         className="pt-16 lg:py-36 -mt-8 mx-6 md:mx-32 lg:mx-auto max-w-screen-xl"
       >
@@ -140,9 +139,9 @@ export function Index() {
             </div>
           </div>
         </div>
-      </ReusableSection>
+      </Section>
 
-      <ReusableSection
+      <Section
         id="what-others-are-saying"
         className="flex flex-col items-center pt-20 lg:pt-32 lg:pb-40"
       >
@@ -221,196 +220,198 @@ export function Index() {
             </p>
           </div>
         </div>
-      </ReusableSection>
+      </Section>
 
-      <ReusableSection
+      <Section
         id="get-your-cool-on"
-        className="w-full flex flex-col items-center pt-14 pb-16 lg:pt-18 lg:pb-20 bg-blue-900"
+        className="lg:mx-0 lg:max-w-full bg-blue-900"
       >
-        <h2 className="text-center font-bold lg:px-0 text-3xl lg:text-4xl text-blue-50 px-4">
-          Get Your Cool On
-        </h2>
-        <p className="mt-8 mb-24 px-4 leading-loose text-center max-w-prose lg:w-1/2 text-blue-50">
-          Here you’ll want to write something super slick and succinct. Bonus
-          points for subtle poetic prose also it may be worth adding a
-          convincing point.
-        </p>
-        <div className="lg:flex gap-12 px-8">
-          <div className="mb-16 lg:mb-0 flex flex-col items-center p-8 w-full md:w-80 rounded-lg shadow-md bg-blue-50">
-            <svg
-              className="mb-6"
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M16 2V30"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M19.6075 5C18.5188 5.65621 17.2712 6.00203 16 6C14.7288 6.00203 13.4812 5.65621 12.3925 5"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M12.3925 27C13.4821 26.3457 14.7291 26 16 26C17.2709 26 18.518 26.3457 19.6075 27"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M28.1244 9L3.87563 23"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M27.3294 13.625C26.2177 13.0085 25.2947 12.1011 24.6593 11.0001C24.0239 9.89912 23.7001 8.64599 23.7225 7.375"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M4.67062 18.375C5.7823 18.9915 6.70528 19.8989 7.34067 20.9999C7.97605 22.1009 8.2999 23.354 8.2775 24.625"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M3.87563 9L28.1244 23"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M4.67062 13.625C5.7823 13.0085 6.70528 12.1011 7.34067 11.0001C7.97605 9.89912 8.2999 8.64599 8.2775 7.375"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M27.3294 18.375C26.2177 18.9915 25.2947 19.8989 24.6593 20.9999C24.0239 22.1009 23.7001 23.354 23.7225 24.625"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <h3 className="mb-4 text-xl font-semibold text-gray-700">
-              Air Conditioners
-            </h3>
-            <p className="leading-relaxed text-sm text-center text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus
-              libero lorem tortor neque ante.
-            </p>
-            <a
-              href="/products"
-              className="text-sm mt-6 p-2 font-bold border-2 rounded-md border-blue-500 text-blue-500 hover:border-blue-700 hover:text-blue-700 "
-            >
-              EXPLORE
-            </a>
-          </div>
+        <Flex className="flex-col items-center py-8">
+          <h2 className="text-center font-bold lg:px-0 text-3xl lg:text-4xl text-blue-50 px-4">
+            Get Your Cool On
+          </h2>
+          <p className="mt-8 mb-24 px-4 leading-loose text-center max-w-prose lg:w-1/2 text-blue-50">
+            Here you’ll want to write something super slick and succinct. Bonus
+            points for subtle poetic prose also it may be worth adding a
+            convincing point.
+          </p>
+          <div className="lg:flex gap-12 px-8">
+            <div className="mb-16 lg:mb-0 flex flex-col items-center p-8 w-full md:w-80 rounded-lg shadow-md bg-blue-50">
+              <svg
+                className="mb-6"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16 2V30"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M19.6075 5C18.5188 5.65621 17.2712 6.00203 16 6C14.7288 6.00203 13.4812 5.65621 12.3925 5"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M12.3925 27C13.4821 26.3457 14.7291 26 16 26C17.2709 26 18.518 26.3457 19.6075 27"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M28.1244 9L3.87563 23"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M27.3294 13.625C26.2177 13.0085 25.2947 12.1011 24.6593 11.0001C24.0239 9.89912 23.7001 8.64599 23.7225 7.375"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4.67062 18.375C5.7823 18.9915 6.70528 19.8989 7.34067 20.9999C7.97605 22.1009 8.2999 23.354 8.2775 24.625"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M3.87563 9L28.1244 23"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4.67062 13.625C5.7823 13.0085 6.70528 12.1011 7.34067 11.0001C7.97605 9.89912 8.2999 8.64599 8.2775 7.375"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M27.3294 18.375C26.2177 18.9915 25.2947 19.8989 24.6593 20.9999C24.0239 22.1009 23.7001 23.354 23.7225 24.625"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <h3 className="mb-4 text-xl font-semibold text-gray-700">
+                Air Conditioners
+              </h3>
+              <p className="leading-relaxed text-sm text-center text-gray-600">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus
+                libero lorem tortor neque ante.
+              </p>
+              <a
+                href="/products"
+                className="text-sm mt-6 p-2 font-bold border-2 rounded-md border-blue-500 text-blue-500 hover:border-blue-700 hover:text-blue-700 "
+              >
+                EXPLORE
+              </a>
+            </div>
 
-          <div className="flex flex-col items-center p-8 w-full md:w-80 rounded-lg shadow-md bg-blue-50">
-            <svg
-              className="mb-6"
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M16 2V30"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M19.6075 5C18.5188 5.65621 17.2712 6.00203 16 6C14.7288 6.00203 13.4812 5.65621 12.3925 5"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M12.3925 27C13.4821 26.3457 14.7291 26 16 26C17.2709 26 18.518 26.3457 19.6075 27"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M28.1244 9L3.87563 23"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M27.3294 13.625C26.2177 13.0085 25.2947 12.1011 24.6593 11.0001C24.0239 9.89912 23.7001 8.64599 23.7225 7.375"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M4.67062 18.375C5.7823 18.9915 6.70528 19.8989 7.34067 20.9999C7.97605 22.1009 8.2999 23.354 8.2775 24.625"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M3.87563 9L28.1244 23"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M4.67062 13.625C5.7823 13.0085 6.70528 12.1011 7.34067 11.0001C7.97605 9.89912 8.2999 8.64599 8.2775 7.375"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M27.3294 18.375C26.2177 18.9915 25.2947 19.8989 24.6593 20.9999C24.0239 22.1009 23.7001 23.354 23.7225 24.625"
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <h3 className="mb-4 text-xl font-semibold text-gray-700">Blog</h3>
-            <p className="leading-relaxed text-sm text-center text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus
-              libero lorem tortor neque ante.
-            </p>
-            <a
-              href="/blog"
-              className="text-sm mt-6 p-2 font-bold border-2 rounded-md border-blue-500 text-blue-500 hover:border-blue-700 hover:text-blue-700 "
-            >
-              READ MORE
-            </a>
+            <div className="flex flex-col items-center p-8 w-full md:w-80 rounded-lg shadow-md bg-blue-50">
+              <svg
+                className="mb-6"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16 2V30"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M19.6075 5C18.5188 5.65621 17.2712 6.00203 16 6C14.7288 6.00203 13.4812 5.65621 12.3925 5"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M12.3925 27C13.4821 26.3457 14.7291 26 16 26C17.2709 26 18.518 26.3457 19.6075 27"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M28.1244 9L3.87563 23"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M27.3294 13.625C26.2177 13.0085 25.2947 12.1011 24.6593 11.0001C24.0239 9.89912 23.7001 8.64599 23.7225 7.375"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4.67062 18.375C5.7823 18.9915 6.70528 19.8989 7.34067 20.9999C7.97605 22.1009 8.2999 23.354 8.2775 24.625"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M3.87563 9L28.1244 23"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4.67062 13.625C5.7823 13.0085 6.70528 12.1011 7.34067 11.0001C7.97605 9.89912 8.2999 8.64599 8.2775 7.375"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M27.3294 18.375C26.2177 18.9915 25.2947 19.8989 24.6593 20.9999C24.0239 22.1009 23.7001 23.354 23.7225 24.625"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <h3 className="mb-4 text-xl font-semibold text-gray-700">Blog</h3>
+              <p className="leading-relaxed text-sm text-center text-gray-600">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus
+                libero lorem tortor neque ante.
+              </p>
+              <a
+                href="/blog"
+                className="text-sm mt-6 p-2 font-bold border-2 rounded-md border-blue-500 text-blue-500 hover:border-blue-700 hover:text-blue-700 "
+              >
+                READ MORE
+              </a>
+            </div>
           </div>
-        </div>
-      </ReusableSection>
+        </Flex>
+      </Section>
     </ChilloutLayout>
   );
 }

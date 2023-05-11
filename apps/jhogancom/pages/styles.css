@@ -41,6 +41,9 @@
 }
 
 @layer components {
+  .section {
+    @apply container max-w-7xl mx-auto py-8 px-4;
+  }
   .btn-primary {
     @apply bg-orange hover:opacity-80 px-8 py-2 rounded-lg text-lg text-white;
   }

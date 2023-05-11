@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 import useShoppingCart from '../hooks/useShoppingCart';
 
 import { chilloutProducts } from '../data/chilloutProducts';
-import ReusableSection from '../components/ReusableSection';
 import ProductOneMain from '../public/images/product1_main.jpg';
 import ProductsLandingPlant from '../public/images/products_landing_plant.png';
 import ProductOneA from '../public/images/product1_a.jpg';

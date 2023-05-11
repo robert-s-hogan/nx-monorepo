@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .section {
+    @apply container max-w-7xl mx-auto py-16 px-4;
+  }
+}
+
 html {
   --tw-bg-opacity: 1;
   background-color: rgba(255, 251, 235, var(--tw-bg-opacity));

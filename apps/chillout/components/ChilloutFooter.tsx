@@ -5,7 +5,7 @@ const ChilloutFooter = () => {
   return (
     <footer className="py-16">
       <div className="flex flex-col lg:flex-row items-center justify-between mx-auto max-w-screen-2xl">
-        <Flex className="items-center">
+        <Flex className="items-center lg:!w-1/2">
           <a className="ml-4" href="/">
             <svg
               width="132"
@@ -75,24 +75,24 @@ const ChilloutFooter = () => {
             </svg>
           </a>
         </Flex>
-        <ul className="flex flex-col lg:flex-row items-center text-sm font-semibold text-gray-500 py-12 lg:py-0">
-          <li className="mx-7 hover:text-gray-700 mb-2 lg:mb-0">
+        <ul className="flex flex-col lg:flex-row items-center text-sm font-semibold text-gray-500 py-12 lg:py-0 ">
+          <li className="mx-4 w-26 hover:text-gray-700 mb-2 lg:mb-0">
             <a href="/products">AIR CONDITIONERS</a>
           </li>
 
-          <li className="mx-7 hover:text-gray-700 mb-2 lg:mb-0">
+          <li className="mx-4 w-26 hover:text-gray-700 mb-2 lg:mb-0">
             <a href="/checkout">PLACE AN ORDER</a>
           </li>
 
-          <li className="mx-7 hover:text-gray-700 mb-2 lg:mb-0">
+          <li className="mx-4 w-26 hover:text-gray-700 mb-2 lg:mb-0">
             <a href="/blog">BLOG</a>
           </li>
 
-          <li className="mx-7 hover:text-gray-700 mb-2 lg:mb-0">
+          <li className="mx-4 w-26 hover:text-gray-700 mb-2 lg:mb-0">
             <a href="/about">ABOUT</a>
           </li>
 
-          <li className="mx-7 hover:text-gray-700 mb-2 lg:mb-0">
+          <li className="mx-4 w-26 hover:text-gray-700 mb-2 lg:mb-0">
             <a href="/contact">CONTACT</a>
           </li>
         </ul>

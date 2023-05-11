@@ -4,7 +4,6 @@ import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import ReusableSection from '../components/ReusableSection';
 import CoffeeHero from '../public/images/coffee_hero.png';
 import CoffeeGrowth from '../public/images/coffee_growth.png';
 import Happy from '../public/images/happy.png';
@@ -15,7 +14,7 @@ import SmilingWomanOne from '../public/images/smiling_woman.jpg';
 export function Index() {
   return (
     <CoffeeShopLayout>
-      <ReusableSection className="lg:flex justify-center items-center h-full py-16">
+      <Section className="lg:flex justify-center items-center h-full py-16">
         <div className="pt-24 w-full lg:pt-0 lg:w-auto">
           <Image
             src={CoffeeHero}
@@ -39,9 +38,9 @@ export function Index() {
             Find out more
           </Link>
         </div>
-      </ReusableSection>
+      </Section>
 
-      <ReusableSection className="py-16 lg:py-24 shadow-inner  bg-yellow-100">
+      <Section className="py-16 lg:py-24 shadow-inner  bg-yellow-100 max-w-full">
         <div className="lg:flex justify-center gap-x-18">
           <div className="mx-4 md:w-2/3 md:mx-auto mb-16 lg:mx-0 lg:mb-0 lg:w-80 flex flex-col items-center">
             <svg
@@ -114,7 +113,7 @@ export function Index() {
             </p>
           </div>
         </div>
-      </ReusableSection>
+      </Section>
 
       <section className="flex justify-center mx-4 md:w-2/3 md:mx-auto pt-24 lg:pt-30 pb-32 lg:pb-40">
         <div className="lg:flex items-center justify-center gap-x-14">

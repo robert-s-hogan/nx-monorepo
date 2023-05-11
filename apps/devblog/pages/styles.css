@@ -41,6 +41,9 @@
 }
 
 @layer components {
+  .section {
+    @apply container max-w-7xl mx-auto py-8 px-4;
+  }
   .full-width-container {
     @apply mx-auto;
     max-width: 100%;

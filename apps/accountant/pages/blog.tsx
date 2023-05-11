@@ -3,7 +3,6 @@ import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
 
 import AccountantLayout from '../components/AccountantLayout';
-import ReusableSection from '../components/ReusableSection';
 
 const Blog = () => {
   return (

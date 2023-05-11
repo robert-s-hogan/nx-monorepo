@@ -9,12 +9,10 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { removeItemFromServer } from '../store/shoppingCartSlice';
 import { AppDispatch } from '../store/store';
-import { Text } from '@with-nx/react-ui';
+import { Text, Flex, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
-import { Flex } from '@with-nx/react-ui';
 
 import useShoppingCart from '../hooks/useShoppingCart';
-import ReusableSection from './ReusableSection';
 // import { useAuth } from '@with-nx/auth';
 import { CheckoutPageFormData } from '../pages/checkout';
 import { chilloutProducts } from '../data/chilloutProducts';
@@ -139,7 +137,7 @@ const MyCart = ({
   // const cartItemRefs = useRef([]);
   // const firstCartItemDetails = cartItemRefs.current[0]?.getDetails();
   return (
-    <ReusableSection>
+    <Section>
       <div className="mt-16 lg:mt-0">
         <Text className="text-xl mb-4">
           My Cart {shoppingCartQuantity ? `(${shoppingCartQuantity})` : ''}
@@ -197,7 +195,7 @@ const MyCart = ({
           Whoops... Something went wrong.
         </span>
       </div>
-    </ReusableSection>
+    </Section>
   );
 };
 

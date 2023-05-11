@@ -4,12 +4,12 @@ import { FiChevronRight } from 'react-icons/fi';
 import { Popover, Progress, Flex } from '@with-nx/react-ui';
 import { randomNumber } from '@with-nx/utils';
 import { useModal } from '@with-nx/react-hooks';
+import { Section } from '@with-nx/react-ui';
 
 import { Encounter } from '../../types/encounter';
 import withAuth from '../../hooks/withAuth';
 import ConquestLayout from '../../components/ConquestLayout';
 import { fetchDataById } from '../../services/apiService';
-import ReusableSection from '../../components/ReusableSection';
 import Map from '../../components/Map';
 import { useEncounterData } from '../../hooks/useEncounterData';
 import CharacterStatsCard from '../../components/CharacterStatsCard';
@@ -326,7 +326,7 @@ export const EncounterPage = ({ encounter }: EncounterPageProps) => {
     <ConquestLayout>
       <div className="px-">
         <div className={`${isEditing ? 'bg-editing' : ''}`}>
-          <ReusableSection>
+          <Section>
             {/* <nav className="">
             <ul className="flex justify-between py-4 ">
               <li className="flex flex-col justify-center items-center">
@@ -364,7 +364,7 @@ export const EncounterPage = ({ encounter }: EncounterPageProps) => {
               </li>
             </ul>
           </nav> */}
-          </ReusableSection>
+          </Section>
         </div>
         {isEditing ? (
           <div className="bg-editing pt-4 h-screen rounded">
@@ -496,7 +496,7 @@ export const EncounterPage = ({ encounter }: EncounterPageProps) => {
             </div>
           </div>
         ) : (
-          <ReusableSection>
+          <Section>
             <Flex className="items-center justify-between py-4">
               <p>Encounter started</p>
               <button
@@ -506,7 +506,7 @@ export const EncounterPage = ({ encounter }: EncounterPageProps) => {
                 Edit
               </button>
             </Flex>
-          </ReusableSection>
+          </Section>
         )}
       </div>
     </ConquestLayout>

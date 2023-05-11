@@ -32,73 +32,73 @@ const CoffeeShopHeader = () => {
                 />
               </svg>
             </Link>
-          </Flex>
 
-          <div className="inline-block h-8 mr-3 lg:hidden">
-            <button
-              id="nav_toggle"
-              className="h-full w-full"
-              onClick={() => setNavbarOpen(!navbarOpen)}
-            >
-              <svg
-                className="h-full w-auto"
-                xmlns="http://www.w3.org/2000/svg"
-                width="192"
-                height="192"
-                fill="#4B5563"
-                viewBox="0 0 256 256"
+            <div className="inline-block h-8 mr-3 lg:hidden">
+              <button
+                id="nav_toggle"
+                className="h-full w-full"
+                onClick={() => setNavbarOpen(!navbarOpen)}
               >
-                <rect width="256" height="256" fill="none"></rect>
-                <line
-                  x1="40"
-                  y1="128"
-                  x2="216"
-                  y2="128"
-                  stroke="#4B5563"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="16"
-                ></line>
-                <line
-                  x1="40"
-                  y1="64"
-                  x2="216"
-                  y2="64"
-                  stroke="#4B5563"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="16"
-                ></line>
-                <line
-                  x1="40"
-                  y1="192"
-                  x2="216"
-                  y2="192"
-                  stroke="#4B5563"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="16"
-                ></line>
-              </svg>
-            </button>
-          </div>
-          {
-            <div
-              id="nav_content"
-              className={`w-full py-8 lg:flex lg:w-auto lg:py-0 lg:items-center rounded-br-full shadow-md lg:shadow-none bg-yellow-50 ${
-                navbarOpen ? 'open' : ''
-              }`}
-            >
-              <ul className="flex flex-col ml-auto text-md text-gray-700 font-semibold lg:flex-row">
-                <li className="mx-6 w-mc hover:text-gray-900 mb-4 lg:mb-0">
-                  <Link href="/growth-tips">GROWTH TIPS</Link>
-                </li>
-                <li className="mx-6 w-mc hover:text-gray-900 mb-4 lg:mb-0">
-                  <Link href="/contact">CONTACT</Link>
-                </li>
-              </ul>
+                <svg
+                  className="h-full w-auto"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="192"
+                  height="192"
+                  fill="#4B5563"
+                  viewBox="0 0 256 256"
+                >
+                  <rect width="256" height="256" fill="none"></rect>
+                  <line
+                    x1="40"
+                    y1="128"
+                    x2="216"
+                    y2="128"
+                    stroke="#4B5563"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="16"
+                  ></line>
+                  <line
+                    x1="40"
+                    y1="64"
+                    x2="216"
+                    y2="64"
+                    stroke="#4B5563"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="16"
+                  ></line>
+                  <line
+                    x1="40"
+                    y1="192"
+                    x2="216"
+                    y2="192"
+                    stroke="#4B5563"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="16"
+                  ></line>
+                </svg>
+              </button>
             </div>
-          }
+            {
+              <Flex
+                id="nav_content"
+                className={`w-full lg:flex lg:w-auto lg:py-0 lg:items-center rounded-br-full shadow-md lg:shadow-none bg-yellow-50 ${
+                  navbarOpen ? 'open' : ''
+                }`}
+              >
+                <ul className="flex flex-col ml-auto text-md text-gray-700 font-semibold lg:flex-row">
+                  <li className="mx-6 w-mc hover:text-gray-900 mb-4 lg:mb-0">
+                    <Link href="/growth-tips">GROWTH TIPS</Link>
+                  </li>
+                  <li className="mx-6 w-mc hover:text-gray-900 mb-4 lg:mb-0">
+                    <Link href="/contact">CONTACT</Link>
+                  </li>
+                </ul>
+              </Flex>
+            }
+          </Flex>
         </nav>
       </header>
     </section>

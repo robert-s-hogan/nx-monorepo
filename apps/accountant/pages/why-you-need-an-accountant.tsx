@@ -3,7 +3,6 @@ import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
 
 import AccountantLayout from '../components/AccountantLayout';
-import ReusableSection from '../components/ReusableSection';
 
 const WhyYouNeedAnAccountant = () => {
   return (
@@ -30,8 +29,8 @@ const WhyYouNeedAnAccountant = () => {
             <p className="authordate">
               <span className="glyphicon glyphicon-user"></span> By Sarah
               Jane&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{' '}
-              <span className="glyphicon glyphicon-time"></span> Last updated Nov.
-              15, 2017
+              <span className="glyphicon glyphicon-time"></span> Last updated
+              Nov. 15, 2017
             </p>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec

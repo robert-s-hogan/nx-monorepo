@@ -12,7 +12,7 @@ export interface FlexProps {
 export function Flex({ id, children, className, role, onClick }: FlexProps) {
   return (
     <div
-      className={`${reactUIFlexstyles.flex} ${className}`}
+      className={`flex ${reactUIFlexstyles.flex} ${className}`}
       id={id}
       role={role}
       onClick={onClick}

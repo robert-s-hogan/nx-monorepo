@@ -32,6 +32,9 @@
 }
 
 @layer components {
+  .section {
+    @apply container max-w-7xl mx-auto py-8 px-4;
+  }
   .card {
     @apply bg-transparent h-[370px];
   }

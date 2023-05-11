@@ -3,7 +3,6 @@ import CoffeeShopLayout from '../components/CoffeeShopLayout';
 import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
 
-import ReusableSection from '../components/ReusableSection';
 import WorkThree from '../public/images/work_3.jpg';
 
 const Contact = () => {

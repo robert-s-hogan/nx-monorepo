@@ -1,11 +1,10 @@
 // components/SwapiSearch.tsx
 import React, { useEffect, useState } from 'react';
 import { useSWRApi } from '../api/useSWRApi';
-import { Grid } from '@with-nx/react-ui';
+import { Grid, Section } from '@with-nx/react-ui';
 
 import SwapiCard from './SwapiCard';
 import SearchFilter from './SearchFilter';
-import ReusableSection from './ReusableSection';
 import { findMatchingUrl } from '../utils/findMatchingUrl';
 
 const SwapiSearch: React.FC = () => {
@@ -65,7 +64,7 @@ const SwapiSearch: React.FC = () => {
         onCategoryChange={setSelectedCategories}
       />
 
-      <ReusableSection className="space-y-8">
+      <Section className="space-y-8">
         <Grid className="grid-cols-1 lg:grid-cols-3">
           {data &&
             data?.results?.map((result: any, index: number) => (
@@ -76,7 +75,7 @@ const SwapiSearch: React.FC = () => {
               />
             ))}
         </Grid>
-      </ReusableSection>
+      </Section>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useModal } from '@with-nx/react-hooks';
-import { Link, Flex } from '@with-nx/react-ui';
+import { Link, Flex, Section } from '@with-nx/react-ui';
 import {
   FiArrowRight,
   FiMail,
@@ -15,7 +15,6 @@ import {
 import JHoganComLayout from '../components/layout/JHoganComLayout';
 import ProjectSection from '../components/projects/ProjectSection';
 import JHModal from '../components/JHModal';
-import ReusableSection from '../components/ResuableSection';
 import JHPortrait from '../public/images/jessica_portrait.webp';
 
 export function Index() {
@@ -23,8 +22,8 @@ export function Index() {
 
   return (
     <JHoganComLayout>
-      <ReusableSection
-        minHeight="620px"
+      <Section
+        style={{ minHeight: '620px' }}
         className="bg-gradient-to-br from-peach to-mint scroll-smooth w-full h-full flex justify-center items-center"
       >
         <Flex className="justify-center flex-col items-center h-full text-center">
@@ -57,16 +56,16 @@ export function Index() {
             </Link>
           </Flex>
         </Flex>
-      </ReusableSection>
-      <ReusableSection id="projects">
+      </Section>
+      <Section id="projects">
         <ProjectSection />
-      </ReusableSection>
+      </Section>
       {/* <p className="text-center">
         <Link href="/projects" className="text-gray-500">
           View all Projects
         </Link>
       </p> */}
-      <ReusableSection id="who-i-am">
+      <Section id="who-i-am">
         <div className="items-center lg:grid lg:grid-cols-3">
           <div className="lg:col-span-2 lg:mr-24">
             <h2 className="text-3xl font-semibold text-gray-800">Who I am</h2>
@@ -141,8 +140,8 @@ export function Index() {
             </Flex>
           </div>
         </div>
-      </ReusableSection>
-      <ReusableSection id="contact" minHeight="150px">
+      </Section>
+      <Section id="contact" style={{ minHeight: '150px' }}>
         <div className="lg:w-3/4 xl:w-full mx-auto bg-orange text-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex flex-col md:flex-row md:items-center md:space-x-6 w-11/12 lg:w-3/4 mx-auto justify-center py-8">
             <h2 className="text-white text-2xl font-semibold text-center">
@@ -160,7 +159,7 @@ export function Index() {
             </button>
           </div>
         </div>
-      </ReusableSection>
+      </Section>
 
       <JHModal
         isShowing={isShowing}

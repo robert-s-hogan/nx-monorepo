@@ -1,14 +1,4 @@
-import React from 'react';
-
-/* eslint-disable-next-line */
-export interface PageLayoutProps {
-  header: React.ReactNode;
-  children: React.ReactNode;
-  footer: React.ReactNode;
-  className?: string;
-  hideNavBar?: boolean;
-  hideFooter?: boolean;
-}
+import { PageLayoutProps } from '@with-nx/types';
 
 export const PageLayout: React.FC<PageLayoutProps> = ({
   header,

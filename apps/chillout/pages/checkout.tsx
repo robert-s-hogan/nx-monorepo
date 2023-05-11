@@ -10,7 +10,6 @@ import Image from 'next/image';
 
 //components
 import MyCart from '../components/MyCart';
-import ReusableSection from '../components/ReusableSection';
 import EnterYourDetails from '../components/EnterYourDetails';
 import CheckoutForm from '../components/CheckoutForm';
 import ChilloutModal from '../components/ChilloutModal';
