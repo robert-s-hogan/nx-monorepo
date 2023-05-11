@@ -3,7 +3,6 @@ import { MultiStepForm, MultiStepFormProps, FormStep } from './multi-step-form';
 
 const meta: Meta = {
   component: MultiStepForm,
-  title: 'MultiStepForm',
   title: 'Organisms/MultiStepForm',
 };
 export default meta;
@@ -12,7 +11,7 @@ const Template: Story<MultiStepFormProps> = (args) => (
   <MultiStepForm {...args} />
 );
 
-const ExampleStep1 = () => {
+const ExampleStep1: React.FC<{
   data: Record<string, any>;
   onChange: (name: string, value: any) => void;
 }> = ({ data, onChange }) => {
@@ -29,7 +28,7 @@ const ExampleStep1 = () => {
   );
 };
 
-const ExampleStep2 = () => {
+const ExampleStep2: React.FC<{
   data: Record<string, any>;
   onChange: (name: string, value: any) => void;
 }> = ({ data, onChange }) => {

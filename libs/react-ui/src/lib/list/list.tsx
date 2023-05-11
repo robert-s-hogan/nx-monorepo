@@ -1,8 +1,9 @@
+import listStyles from './list.module.css';
 import { ListProps } from '@with-nx/types';
+import ListItem from '../list-item/list-item';
 
 export const List = ({
   items,
-  className,
   id,
   style,
   onClick,
@@ -10,14 +11,14 @@ export const List = ({
 }: ListProps): JSX.Element => {
   return (
     <ul
-      className={className}
+      className={`list ${listStyles.list}`}
       id={id}
       style={style}
       onClick={onClick}
       data-testid={testId}
     >
       {items.map((item) => (
-        <li key={item.id}>{item.value}</li>
+        <ListItem key={id}>{item.value}</ListItem>
       ))}
     </ul>
   );
