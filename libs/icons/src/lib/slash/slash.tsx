@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const SlashIcon: React.FC = (props) => {
+const SlashIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

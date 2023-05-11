@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const BellOffIcon: React.FC = (props) => {
+const BellOffIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

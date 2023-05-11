@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const BarChart2Icon: React.FC = (props) => {
+const BarChart2Icon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

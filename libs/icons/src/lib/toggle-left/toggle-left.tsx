@@ -1,4 +1,4 @@
-const ToggleLeftIcon: React.FC = (props) => {
+const ToggleLeftIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

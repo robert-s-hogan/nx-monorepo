@@ -6,7 +6,7 @@ type ArrowUpIconProps = {
   className?: string;
 };
 
-const ArrowUpIcon: React.FC<ArrowUpIconProps> = (props) => {
+const ArrowUpIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const LogOutIcon: React.FC = (props) => {
+const LogOutIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

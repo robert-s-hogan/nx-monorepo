@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const ClipboardIcon: React.FC = (props) => {
+const ClipboardIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

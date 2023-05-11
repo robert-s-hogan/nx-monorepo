@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const BookIcon: React.FC = (props) => {
+const BookIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

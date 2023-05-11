@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const SendIcon: React.FC = (props) => {
+const SendIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

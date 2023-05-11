@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const WatchIcon: React.FC = (props) => {
+const WatchIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

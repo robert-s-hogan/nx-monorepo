@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const MehIcon: React.FC = (props) => {
+const MehIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

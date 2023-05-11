@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const LinkIcon: React.FC = (props) => {
+const LinkIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

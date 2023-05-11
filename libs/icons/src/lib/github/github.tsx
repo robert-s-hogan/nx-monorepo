@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const GitHubIcon: React.FC = (props) => {
+const GitHubIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

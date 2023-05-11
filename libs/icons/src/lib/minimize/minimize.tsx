@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const MinimizeIcon: React.FC = (props) => {
+const MinimizeIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

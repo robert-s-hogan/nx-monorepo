@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const FolderPlusIcon: React.FC = (props) => {
+const FolderPlusIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

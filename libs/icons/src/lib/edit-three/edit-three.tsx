@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const Edit3Icon: React.FC = (props) => {
+const Edit3Icon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

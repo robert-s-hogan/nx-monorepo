@@ -1,4 +1,4 @@
-const ShuffleIcon: React.FC = (props) => {
+const ShuffleIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

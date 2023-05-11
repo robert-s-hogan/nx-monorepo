@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const CloudRainIcon: React.FC = (props) => {
+const CloudRainIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

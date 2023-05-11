@@ -6,7 +6,7 @@ type MapPinProps = {
   className?: string;
 };
 
-const MapPinIcon: React.FC<MapPinProps> = (props) => {
+const MapPinIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

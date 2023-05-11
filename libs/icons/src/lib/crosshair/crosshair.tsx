@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const CrosshairIcon: React.FC = (props) => {
+const CrosshairIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

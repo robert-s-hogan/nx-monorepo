@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const TrelloIcon: React.FC = (props) => {
+const TrelloIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

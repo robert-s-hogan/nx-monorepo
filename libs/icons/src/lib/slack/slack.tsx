@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const SlackIcon: React.FC = (props) => {
+const SlackIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

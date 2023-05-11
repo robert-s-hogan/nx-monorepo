@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const PercentIcon: React.FC = (props) => {
+const PercentIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

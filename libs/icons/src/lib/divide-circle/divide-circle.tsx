@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const DivideCircleIcon: React.FC = (props) => {
+const DivideCircleIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

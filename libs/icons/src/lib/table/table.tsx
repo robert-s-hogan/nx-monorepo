@@ -1,4 +1,4 @@
-const TableIcon: React.FC = (props) => {
+const TableIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

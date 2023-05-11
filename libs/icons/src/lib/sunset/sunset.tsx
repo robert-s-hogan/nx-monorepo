@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const SunsetIcon: React.FC = (props) => {
+const SunsetIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

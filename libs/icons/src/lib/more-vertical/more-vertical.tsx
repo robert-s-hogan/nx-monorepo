@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const MoreVerticalIcon: React.FC = (props) => {
+const MoreVerticalIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

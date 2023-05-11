@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const DribbbleIcon: React.FC = (props) => {
+const DribbbleIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const FramerIcon: React.FC = (props) => {
+const FramerIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const PhoneForwardedIcon: React.FC = (props) => {
+const PhoneForwardedIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

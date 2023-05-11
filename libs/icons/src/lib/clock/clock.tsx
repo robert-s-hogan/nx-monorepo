@@ -1,6 +1,6 @@
 import IconWrapper from './IconWrapper';
 
-const ClockIcon: React.FC = (props) => {
+const ClockIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
