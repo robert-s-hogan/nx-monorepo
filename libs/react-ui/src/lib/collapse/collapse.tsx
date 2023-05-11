@@ -1,13 +1,6 @@
+import { CollapseProps } from '@with-nx/types';
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './collapse.module.css';
-
-export interface CollapseProps {
-  isOpen: boolean;
-  startingHeight: number;
-  children: React.ReactNode;
-  style?: React.CSSProperties;
-  className?: string;
-}
 
 export function Collapse({
   isOpen,

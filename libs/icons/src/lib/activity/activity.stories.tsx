@@ -1,5 +1,4 @@
 // activity.stories.tsx
-import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import Activity, { ActivityIconProps } from './activity';
 

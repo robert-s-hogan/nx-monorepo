@@ -1,5 +1,3 @@
-import React from 'react';
-
 const DbsMarinFooter = () => {
   return (
     <footer className="bg-gray-200 text-center lg:text-left">

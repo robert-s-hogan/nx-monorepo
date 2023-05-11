@@ -10,7 +10,7 @@ const AccountantFooter = dynamic(() => import('./AccountantFooter'), {
   ssr: false,
 });
 
-const AccountantLayout: React.FC<PageLayoutProps> = ({
+const AccountantLayout = ({
   children,
   className = '',
   title,

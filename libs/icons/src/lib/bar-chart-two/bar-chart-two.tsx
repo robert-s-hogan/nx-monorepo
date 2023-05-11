@@ -1,4 +1,3 @@
-import React from 'react';
 import IconWrapper from './IconWrapper';
 
 const BarChart2Icon: React.FC = (props) => {

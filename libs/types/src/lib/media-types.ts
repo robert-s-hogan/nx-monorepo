@@ -1,3 +1,3 @@
-export interface MediaTypes {
-  media: string;
+export interface CarouselProps {
+  images: string[];
 }

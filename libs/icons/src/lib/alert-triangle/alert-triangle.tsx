@@ -1,12 +1,12 @@
 //libs/icons/src/lib/AlertTriangle.tsx
-import React from 'react';
+
 import IconWrapper from './IconWrapper';
 
 type AlertTriangleIconProps = {
   className?: string;
 };
 
-const AlertTriangleIcon: React.FC<AlertTriangleIconProps> = (props) => {
+const AlertTriangleIcon = (props: Props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,8 +1,8 @@
-interface Props {
+interface CardFilmsProps {
   films: string[];
 }
 
-const CardFilms: React.FC<Props> = (props) => {
+const CardFilms = (props: CardFilmsProps) => {
   const { films } = props;
 
   return (

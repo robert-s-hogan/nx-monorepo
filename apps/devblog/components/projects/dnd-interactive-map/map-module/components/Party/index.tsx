@@ -1,4 +1,3 @@
-import React from 'react';
 import { generateParty } from '../../utils';
 
 import Player from './Player';

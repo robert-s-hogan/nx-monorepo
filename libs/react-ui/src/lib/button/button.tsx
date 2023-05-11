@@ -1,7 +1,7 @@
 import buttonStyles from './button.module.css';
 import { ButtonProps } from '@with-nx/types';
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button = ({
   icon,
   disabled,
   style,
@@ -9,7 +9,7 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   type = 'button',
   ...props
-}) => (
+}: ButtonProps): JSX.Element => (
   <button
     className={`button ${buttonStyles.button} ${className} ${
       icon ? `button-group ${buttonStyles.buttonRow}` : ''

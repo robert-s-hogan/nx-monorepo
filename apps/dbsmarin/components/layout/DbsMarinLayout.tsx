@@ -9,7 +9,7 @@ const DbsMarinFooter = dynamic(() => import('./DbsMarinFooter'), {
   ssr: false,
 });
 
-const DbsMarinLayout: React.FC<PageLayoutProps> = ({
+const DbsMarinLayout = ({
   children,
   className,
   title,

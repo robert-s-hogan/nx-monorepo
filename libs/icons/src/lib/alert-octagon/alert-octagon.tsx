@@ -1,12 +1,12 @@
 //libs/icons/src/lib/AlertOctagon.tsx
-import React from 'react';
+
 import IconWrapper from './IconWrapper';
 
 type AlertOctagonIconProps = {
   className?: string;
 };
 
-const AlertOctagonIcon: React.FC<AlertOctagonIconProps> = (props) => {
+const AlertOctagonIcon = (props: AlertOctagonIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

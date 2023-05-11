@@ -1,7 +1,6 @@
-import React from 'react';
 import IconWrapper from './IconWrapper';
 
-const BatteryChargingIcon: React.FC = (props) => {
+const BatteryChargingIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

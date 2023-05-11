@@ -4,7 +4,7 @@ import { Button } from '@with-nx/react-ui';
 import { useRouter } from 'next/router';
 import { FiCheck } from 'react-icons/fi';
 
-const CheckoutForm: React.FC = () => {
+const CheckoutForm = () => {
   const router = useRouter();
   const stripe = useStripe();
   const elements = useElements();

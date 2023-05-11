@@ -34,12 +34,12 @@ const fetcher = async (url) => {
   return { homeworldName: json.name, terrain: firstTerrain };
 };
 
-const HomeworldBackground: React.FC<HomeWorldBackgroundProps> = ({
+const HomeworldBackground = ({
   homeworld,
   planet,
   className,
   planet_name,
-}) => {
+}: HomeWorldBackgroundProps) => {
   const { data, error } = useSWR(planet, fetcher);
   const homeworldName = data?.homeworldName || '';
   const terrain = data?.terrain || planet_name;

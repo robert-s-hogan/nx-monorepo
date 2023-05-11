@@ -1,4 +1,3 @@
-import React from 'react';
 import IconWrapper from './IconWrapper';
 
 const FastForwardIcon: React.FC = (props) => {

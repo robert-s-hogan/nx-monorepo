@@ -1,4 +1,3 @@
-import React from 'react';
 import IconWrapper from './IconWrapper';
 
 const CloudOffIcon: React.FC = (props) => {

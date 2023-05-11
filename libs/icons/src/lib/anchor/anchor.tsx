@@ -1,12 +1,12 @@
 // libs/icons/src/lib/Anchor.tsx
-import React from 'react';
+
 import IconWrapper from './IconWrapper';
 
 type AnchorIconProps = {
   className?: string;
 };
 
-const AnchorIcon: React.FC<AnchorIconProps> = (props) => {
+const AnchorIcon = (props: AnchorIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

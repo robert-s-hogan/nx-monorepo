@@ -1,4 +1,3 @@
-import React from 'react';
 import { Group, Path, Text } from 'react-konva';
 import { HouseIcon, TowerIcon, ObeliskIcon } from '../../icons';
 
@@ -12,7 +11,7 @@ interface StructureProps {
   dragBoundFunc: any;
 }
 
-const Structure: React.FC<StructureProps> = ({
+const Structure = ({
   id,
   name,
   x,
@@ -20,7 +19,7 @@ const Structure: React.FC<StructureProps> = ({
   className,
   draggable,
   dragBoundFunc,
-}) => {
+}: StructureProps) => {
   const classShape = () => {
     switch (className) {
       case 'obelisk':

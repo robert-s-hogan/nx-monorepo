@@ -7,7 +7,7 @@ import DaoismHeader from './DaoismHeader';
 
 const DaoismFooter = dynamic(() => import('./DaoismFooter'), { ssr: false });
 
-const DaosimLayout: React.FC<PageLayoutProps> = ({
+const DaosimLayout = ({
   children,
   className,
   title,

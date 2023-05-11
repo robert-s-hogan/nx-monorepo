@@ -10,7 +10,7 @@ const CoffeeShopFooter = dynamic(() => import('./CoffeeShopFooter'), {
   ssr: false,
 });
 
-const ChilloutLayout: React.FC<PageLayoutProps> = ({
+const ChilloutLayout = ({
   children,
   className = '',
   title,

@@ -1,17 +1,7 @@
+import { FormProps } from '@with-nx/types';
 import React, { useState } from 'react';
 
-export interface FormProps {
-  fields: Array<{
-    name: string;
-    label: string;
-    type: string;
-    required: boolean;
-    pattern?: RegExp;
-  }>;
-  onSubmit: (values: { [name: string]: string }) => void;
-}
-
-export const Form: React.FC<FormProps> = ({ fields, onSubmit }) => {
+export const Form = ({ fields, onSubmit }: FormProps): JSX.Element => {
   const [values, setValues] = useState<{ [name: string]: string }>(
     fields.reduce((obj, field) => {
       obj[field.name] = '';

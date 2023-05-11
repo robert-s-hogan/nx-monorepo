@@ -1,4 +1,3 @@
-import React from 'react';
 import { generateStructures } from '../../utils';
 
 import Structure from './Structure';
@@ -7,7 +6,7 @@ interface StructuresProps {
   dragBoundFunc: any;
 }
 
-const Structures: React.FC<StructuresProps> = ({ dragBoundFunc }) => {
+const Structures = ({ dragBoundFunc }: StructuresProps) => {
   const structures = generateStructures();
 
   return (

@@ -1,5 +1,5 @@
 // CustomModal.stories.tsx
-import React from 'react';
+
 import { Meta, Story } from '@storybook/react';
 import { Modal } from '@with-nx/react-ui';
 import { useModal } from './use-modal';

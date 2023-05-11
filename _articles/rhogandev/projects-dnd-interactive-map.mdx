@@ -37,7 +37,6 @@ The inital set up allowed icons to leave the Konva canvas and I didn't want that
 I wanted to add some starter classes: Fighter, Barbarian, and Wizard but I had some issues with sizing on the FighterPath. After a bunch of attempted fixes I adjusted the scale outside of the Player component and that seemed to work. Still not completely sure why the Fighter SVG was larger but that is a struggle for another day.
 
 ```js
-import React from 'react';
 import { Group, Path, Text } from 'react-konva';
 
 const FighterIcon = (
@@ -118,7 +117,6 @@ Pretty happy with the inital set up but there is still a long way to go!
 ### Here is the full Monster component
 
 ```js
-import React from 'react';
 import { Group, Path, Text } from 'react-konva';
 
 const GoblinIcon = (
@@ -267,7 +265,6 @@ Next steps would be adding the structures
 I added the Castle, Tower and House Icon and moved to all icons to the following file:
 
 ```js
-import React from 'react';
 import { Group, Path } from 'react-konva';
 
 export const FighterIcon = (

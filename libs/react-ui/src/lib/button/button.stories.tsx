@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Button, ButtonProps } from './button';
 import { Flex, FlexProps } from '../flex/flex';

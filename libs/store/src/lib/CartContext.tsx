@@ -83,7 +83,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
 }
 
 // Create the CartProvider component
-export const CartProvider: React.FC = ({ children }) => {
+export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
   return (
     <CartContext.Provider value={{ state, dispatch }}>

@@ -1,5 +1,5 @@
 // libs/icons/src/lib/MapPin.tsx
-import React from 'react';
+
 import IconWrapper from './IconWrapper';
 
 type MapPinProps = {

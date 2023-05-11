@@ -3,7 +3,7 @@ import SearchBar from '../search-bar/search-bar';
 import Select from '../select/select';
 import { NavbarProps } from '@with-nx/types';
 
-export const Navbar: React.FC<NavbarProps> = ({
+export const Navbar = ({
   links,
   logo,
   logoText,
@@ -14,7 +14,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   showSearchBar = false,
   searchBarProps,
   selects,
-}) => (
+}: NavbarProps): JSX.Element => (
   <nav className={className}>
     <div className="navbar-left items-center flex space-x-4">
       {logo ? (

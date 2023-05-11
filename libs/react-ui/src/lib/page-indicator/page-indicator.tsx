@@ -1,11 +1,5 @@
-import React from 'react';
 import pageIndicatorStyles from './page-indicator.module.css';
-
-export interface PageIndicatorProps {
-  page: number;
-  total: number;
-  className?: string;
-}
+import { PageIndicatorProps } from '@with-nx/types';
 
 export function PageIndicator(props: PageIndicatorProps) {
   const { page, total, className } = props;

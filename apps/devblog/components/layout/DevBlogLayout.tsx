@@ -8,7 +8,7 @@ import DevBlogHeader from './DevBlogHeader';
 
 const DevBlogFooter = dynamic(() => import('./DevBlogFooter'), { ssr: false });
 
-const DevBlogLayout: React.FC<PageLayoutProps> = ({
+const DevBlogLayout = ({
   children,
   className,
   title,

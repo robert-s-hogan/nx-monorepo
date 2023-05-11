@@ -1,12 +1,8 @@
 // libs/icons/src/lib/Activity.tsx
-import React from 'react';
+import { CommonProps } from '@with-nx/types';
 import IconWrapper from '../IconWrapper';
 
-type ActivityIconProps = {
-  className?: string;
-};
-
-const ActivityIcon: React.FC<ActivityIconProps> = (props) => {
+const ActivityIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

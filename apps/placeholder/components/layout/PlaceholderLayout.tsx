@@ -10,7 +10,7 @@ const PlaceholderFooter = dynamic(() => import('./PlaceholderFooter'), {
   ssr: false,
 });
 
-const PlaceholderLayout: React.FC<PageLayoutProps> = ({
+const PlaceholderLayout = ({
   children,
   className,
   title,

@@ -1,12 +1,11 @@
 //libs/icons/src/lib/AlertCircle.tsx
-import React from 'react';
 import IconWrapper from './IconWrapper';
 
 type AlertCircleIconProps = {
   className?: string;
 };
 
-const AlertCircleIcon: React.FC<AlertCircleIconProps> = (props) => {
+const AlertCircleIcon = (props: AlertCircleIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

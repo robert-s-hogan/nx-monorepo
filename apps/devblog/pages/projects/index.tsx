@@ -1,4 +1,3 @@
-import React from 'react';
 import DevBlogLayout from '../../components/layout/DevBlogLayout';
 import { Link, Button, Text, Heading, Flex } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';

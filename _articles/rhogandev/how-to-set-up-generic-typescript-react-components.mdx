@@ -16,7 +16,7 @@ type Props = {
   deletePost: (id: number) => void
 }
 
-const Post: React.FC<Props> = ({ post, deletePost }) => {
+const Post = ({ post, deletePost }: Props) => {
   return (
     <div className='Card'>
       <div className='Card--body'>

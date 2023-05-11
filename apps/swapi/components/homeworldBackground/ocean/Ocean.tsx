@@ -6,7 +6,7 @@ interface Props {
   terrain: string | null;
 }
 
-const Ocean: React.FC<Props> = (props) => {
+const Ocean = (props: Props) => {
   const { homeworld } = props;
 
   const [homeworldName, setHomeworldName] = useState('');

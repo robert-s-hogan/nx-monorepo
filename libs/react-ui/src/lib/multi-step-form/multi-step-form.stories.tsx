@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { MultiStepForm, MultiStepFormProps, FormStep } from './multi-step-form';
 
@@ -13,7 +12,7 @@ const Template: Story<MultiStepFormProps> = (args) => (
   <MultiStepForm {...args} />
 );
 
-const ExampleStep1: React.FC<{
+const ExampleStep1 = () => {
   data: Record<string, any>;
   onChange: (name: string, value: any) => void;
 }> = ({ data, onChange }) => {
@@ -30,7 +29,7 @@ const ExampleStep1: React.FC<{
   );
 };
 
-const ExampleStep2: React.FC<{
+const ExampleStep2 = () => {
   data: Record<string, any>;
   onChange: (name: string, value: any) => void;
 }> = ({ data, onChange }) => {

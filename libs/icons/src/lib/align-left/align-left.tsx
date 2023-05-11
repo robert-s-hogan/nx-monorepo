@@ -1,12 +1,12 @@
 // libs/icons/src/lib/AlignLeft.tsx
-import React from 'react';
+
 import IconWrapper from './IconWrapper';
 
 type AlignLeftIconProps = {
   className?: string;
 };
 
-const AlignLeftIcon: React.FC<AlignLeftIconProps> = (props) => {
+const AlignLeftIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,15 +1,11 @@
+import { CarouselProps } from '@with-nx/types';
 import carouselStyles from './carousel.module.css';
 import React, { useState } from 'react';
 import Button from '../button/button';
 
 /* eslint-disable-next-line */
-export interface CarouselProps {
-  images: string[];
-}
 
-export const Carousel: React.FC<CarouselProps> = ({
-  images,
-}: CarouselProps) => {
+export const Carousel = ({ images }: CarouselProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const goToPreviousImage = () => {

@@ -1,11 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import popoverStyles from './popover.module.css';
-/* eslint-disable-next-line */
-export interface PopoverProps {
-  trigger: React.ReactNode;
-  content: React.ReactNode;
-  className?: string;
-}
+import { PopoverProps } from '@with-nx/types';
 
 export function Popover({ trigger, content, className = '' }: PopoverProps) {
   const [isOpen, setIsOpen] = useState(false);

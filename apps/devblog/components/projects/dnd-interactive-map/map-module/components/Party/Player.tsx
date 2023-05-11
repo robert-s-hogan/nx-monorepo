@@ -1,4 +1,3 @@
-import React from 'react';
 import { Group, Path, Text } from 'react-konva';
 import { FighterIcon, WizardIcon, BarbarianIcon } from '../../icons';
 

@@ -5,7 +5,7 @@ interface Props {
   fetchData: (url: string) => void;
 }
 
-const CardHomeworld: React.FC<Props> = (props) => {
+const CardHomeworld = (props: Props) => {
   const { homeworld } = props;
 
   const [homeworldName, setHomeworldName] = useState('');

@@ -1,11 +1,5 @@
+import { BadgeProps } from '@with-nx/types';
 import badgeStyles from './badge.module.css';
-
-/* eslint-disable-next-line */
-export interface BadgeProps {
-  value: number | string;
-  max?: number;
-  className?: string;
-}
 
 export function Badge({ value, className, max }: BadgeProps) {
   let displayValue = value;

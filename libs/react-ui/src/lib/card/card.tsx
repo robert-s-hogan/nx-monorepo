@@ -1,23 +1,8 @@
-import React from 'react';
 import cardStyles from './card.module.css';
 import Skeleton from '../skeleton/skeleton';
 import Text from '../text/text';
 import Button from '../button/button';
-import { ButtonProps } from '@with-nx/types';
-
-/* eslint-disable-next-line */
-export interface CardProps {
-  title?: string;
-  key?: string | number;
-  description?: string;
-  image?: React.ReactNode;
-  onClick?: () => void;
-  isLoading?: boolean;
-  button?: React.ReactElement<ButtonProps>;
-  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  className?: string;
-}
+import { CardProps } from '@with-nx/types';
 
 export function Card({
   title,

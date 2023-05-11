@@ -1,4 +1,3 @@
-import React from 'react';
 import { Group, Path } from 'react-konva';
 
 export const FighterIcon = (

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSWRApi } from '../api/useSWRApi';
 import { Person } from '../types/api/types';
 
-const Loading: React.FC = () => {
+const Loading = () => {
   const [search, setSearch] = useState('');
   const [searchResults, setSearchResults] = useState('');
 

@@ -1,7 +1,6 @@
-import React from 'react';
 import IconWrapper from './IconWrapper';
 
-const GitBranchIcon: React.FC = (props) => {
+const GitBranchIcon = (props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

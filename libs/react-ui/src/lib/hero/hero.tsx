@@ -1,21 +1,8 @@
+import { HeroProps } from '@with-nx/types';
 import Heading from '../heading/heading';
 import Button from '../button/button';
 
-/* eslint-disable-next-line */
-export interface HeroProps {
-  title?: string;
-  subtitle?: string;
-  backgroundImage?: string;
-  buttonClassName?: string;
-  buttonText?: string;
-  buttonIcon?: React.ReactNode;
-  onButtonClick?: () => void;
-  className?: string;
-  children?: React.ReactNode;
-  layout?: 'default' | 'custom';
-}
-
-export const Hero: React.FC<HeroProps> = ({
+export const Hero = ({
   title,
   subtitle,
   backgroundImage,
@@ -26,7 +13,7 @@ export const Hero: React.FC<HeroProps> = ({
   onButtonClick,
   className,
   layout = 'default',
-}) => {
+}: HeroProps): JSX.Element => {
   let content;
 
   if (layout === 'default') {

@@ -1,3 +1,30 @@
-export interface ControlTypes {
-  control: string;
+import React, { ButtonHTMLAttributes } from 'react';
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  icon?: React.ReactNode;
+  disabled?: boolean;
+  style?: React.CSSProperties;
+  className?: string;
+  loading?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  children?: React.ReactNode;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}
+
+export interface CollapseProps {
+  isOpen: boolean;
+  startingHeight: number;
+  children: React.ReactNode;
+  style?: React.CSSProperties;
+  className?: string;
+}
+
+export interface PageIndicatorProps {
+  page: number;
+  total: number;
+  className?: string;
+}
+
+export interface TabsProps {
+  data: { label: string; content: string }[];
 }

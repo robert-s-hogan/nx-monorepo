@@ -1,4 +1,3 @@
-import React from 'react';
 import skeletonTextStyles from './skeleton.module.css';
 
 interface SkeletonTextProps {
@@ -9,12 +8,7 @@ interface SkeletonTextProps {
   height?: string | number;
 }
 
-const SkeletonText: React.FC<SkeletonTextProps> = ({
-  rows,
-  rowWidth,
-  width,
-  height,
-}) => {
+const SkeletonText = ({ rows, rowWidth, width, height }: SkeletonTextProps) => {
   return (
     <span
       className={`skeleton-text-container ${skeletonTextStyles.skeletonTextContainer}`}

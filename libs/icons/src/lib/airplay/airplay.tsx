@@ -1,12 +1,11 @@
 //libs/icons/src/lib/Airplay.tsx
-import React from 'react';
 import IconWrapper from './IconWrapper';
 
 type AirplayIconProps = {
   className?: string;
 };
 
-const AirplayIcon: React.FC<AirplayIconProps> = (props) => {
+const AirplayIcon = (props: AirplayIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

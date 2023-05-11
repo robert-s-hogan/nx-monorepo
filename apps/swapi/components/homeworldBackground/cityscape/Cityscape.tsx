@@ -5,7 +5,7 @@ interface Props {
   terrain: string | null;
 }
 
-const Cityscape: React.FC<Props> = (props) => {
+const Cityscape = (props: Props) => {
   const { homeworld } = props;
 
   const [homeworldName, setHomeworldName] = useState('');

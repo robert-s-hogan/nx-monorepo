@@ -1,12 +1,12 @@
 // libs/icons/src/lib/ArrowDown.tsx
-import React from 'react';
+
 import IconWrapper from './IconWrapper';
 
 type ArrowDownIconProps = {
   className?: string;
 };
 
-const ArrowDownRightIcon: React.FC<ArrowDownIconProps> = (props) => {
+const ArrowDownRightIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

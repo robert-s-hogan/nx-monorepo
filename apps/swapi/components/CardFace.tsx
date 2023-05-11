@@ -6,7 +6,7 @@ interface CardFaceProps {
   data?: any;
 }
 
-const CardFace: React.FC<CardFaceProps> = ({ data, className, homeworld }) => {
+const CardFace = ({ homeworld, className, data }: CardFaceProps) => {
   const [cleanHair, setCleanHair] = useState('');
   const [cleanEye, setCleanEye] = useState('');
   const [cleanSkin, setCleanSkin] = useState('');

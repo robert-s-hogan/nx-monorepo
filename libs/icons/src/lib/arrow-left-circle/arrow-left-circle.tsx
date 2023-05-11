@@ -1,12 +1,12 @@
 // libs/icons/src/lib/ArrowLeftCircle.tsx
-import React from 'react';
+
 import IconWrapper from './IconWrapper';
 
 type ArrowLeftCircleIconProps = {
   className?: string;
 };
 
-const ArrowLeftCircleIcon: React.FC<ArrowLeftCircleIconProps> = (props) => {
+const ArrowLeftCircleIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

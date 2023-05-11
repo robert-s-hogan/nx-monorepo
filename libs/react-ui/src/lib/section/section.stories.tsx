@@ -1,5 +1,5 @@
 //libs/react-ui/src/lib/section/section.stories.tsx
-import React from 'react';
+
 import { Meta, Story } from '@storybook/react';
 import { SectionProps } from '@with-nx/types';
 import { Section } from './section';

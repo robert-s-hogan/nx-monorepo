@@ -1,11 +1,5 @@
 import paginationStyles from './pagination.module.css';
-
-/* eslint-disable-next-line */
-export interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-}
+import { PaginationProps } from '@with-nx/types';
 
 export function Pagination({
   currentPage,

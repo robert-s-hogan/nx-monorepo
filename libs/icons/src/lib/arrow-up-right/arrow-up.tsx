@@ -1,5 +1,5 @@
 // libs/icons/src/lib/ArrowUp.tsx
-import React from 'react';
+
 import IconWrapper from './IconWrapper';
 
 type ArrowUpIconProps = {

@@ -1,4 +1,22 @@
 import { ButtonHTMLAttributes } from 'react';
+import { ButtonProps, SelectProps } from '@with-nx/types';
+
+export interface BreadcrumbItem {
+  title: string;
+  path?: string;
+}
+
+export interface BreadcrumbsProps {
+  items: BreadcrumbItem[];
+}
+
+export interface LinkProps {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+  target?: string;
+  rel?: string;
+}
 
 export interface NavbarProps {
   links: (
@@ -16,20 +34,18 @@ export interface NavbarProps {
   selects?: (SelectProps & { className?: string })[];
 }
 
-export interface LinkProps {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-  target?: string;
-  rel?: string;
+export interface NavbarMenuProps {
+  links: (
+    | (LinkProps & { type?: 'link'; className?: string })
+    | (ButtonProps & { type: 'button'; className?: string })
+  )[];
+  toggleButton?: React.ReactNode;
 }
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon?: React.ReactNode;
-  disabled?: boolean;
-  style?: React.CSSProperties;
-  loading?: boolean;
-  type?: 'button' | 'submit' | 'reset';
+export interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
 }
 
 export interface SearchBarProps {
@@ -37,17 +53,12 @@ export interface SearchBarProps {
   icon?: React.ReactNode;
 }
 
-export interface SelectProps {
-  options: SelectOption[];
-  value: string;
-  onChange: (value: string) => void;
+export interface StepperProps {
+  value: number;
+  onValueChange: (newValue: number) => void;
+  minusIcon: React.ReactNode;
+  plusIcon: React.ReactNode;
   className?: string;
-  id?: string;
   style?: React.CSSProperties;
-  required?: boolean;
-}
-
-interface SelectOption {
-  value: string;
-  label: string;
+  errorMessage?: string;
 }

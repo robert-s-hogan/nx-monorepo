@@ -6,7 +6,7 @@ interface Props {
   terrain: string | null;
 }
 
-const GasGiant: React.FC<Props> = (props) => {
+const GasGiant = (props: Props) => {
   const { homeworld } = props;
 
   const [homeworldName, setHomeworldName] = useState('');

@@ -1,25 +1,7 @@
 import { ReactNode } from 'react';
 import multiStepFormStyles from './multi-step-form.module.css';
 import { useMultiStepForm } from '@with-nx/react-hooks';
-
-/* eslint-disable-next-line */
-export type FormStep = {
-  name: string;
-  component: React.ComponentType<{
-    data: Record<string, any>;
-    onChange: (name: string, value: any) => void;
-  }>;
-  validation: (data: Record<string, any>) => boolean;
-};
-
-/* eslint-disable-next-line */
-export interface MultiStepFormProps {
-  steps: FormStep[];
-  onSubmit: (data: Record<string, any>) => void;
-  className?: string;
-  okayButtonIcon?: ReactNode;
-  showButtonStatus?: boolean[];
-}
+import { MultiStepFormProps } from '@with-nx/types';
 
 export function MultiStepForm({
   steps,

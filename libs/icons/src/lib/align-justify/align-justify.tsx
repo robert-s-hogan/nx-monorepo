@@ -1,12 +1,12 @@
 //libs/icons/src/lib/AlignJustify.tsx
-import React from 'react';
+
 import IconWrapper from './IconWrapper';
 
 type AlignJustifyIconProps = {
   className?: string;
 };
 
-const AlignJustifyIcon: React.FC<AlignJustifyIconProps> = (props) => {
+const AlignJustifyIcon = (props: AlignJustifyIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

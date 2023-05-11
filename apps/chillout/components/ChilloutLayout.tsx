@@ -10,7 +10,7 @@ const ChilloutFooter = dynamic(() => import('./ChilloutFooter'), {
   ssr: false,
 });
 
-const ChilloutLayout: React.FC<PageLayoutProps> = ({
+const ChilloutLayout = ({
   children,
   className = '',
   title,

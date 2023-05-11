@@ -1,12 +1,12 @@
 // libs/icons/src/lib/AlignCenter.tsx
-import React from 'react';
+
 import IconWrapper from './IconWrapper';
 
 type AlignCenterIconProps = {
   className?: string;
 };
 
-const AlignCenterIcon: React.FC<AlignCenterIconProps> = (props) => {
+const AlignCenterIcon = (props: Props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

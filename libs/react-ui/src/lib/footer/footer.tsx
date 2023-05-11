@@ -1,11 +1,8 @@
-import React from 'react';
+import { FooterProps } from '@with-nx/types';
+
 import { List } from '@with-nx/react-ui';
 
-interface FooterProps {
-  className?: string;
-}
-
-export const Footer: React.FC<FooterProps> = ({ className }) => {
+export const Footer = ({ className }: FooterProps): JSX.Element => {
   const links1 = [
     { text: 'Home', href: '/' },
     { text: 'About', href: '/about' },

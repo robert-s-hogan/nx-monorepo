@@ -1,11 +1,5 @@
-import React from 'react';
 import progressStyles from './progress.module.css';
-
-export interface ProgressProps {
-  value: number;
-  maxValue: number;
-  type?: 'horizontal' | 'circular';
-}
+import { ProgressProps } from '@with-nx/types';
 
 export function Progress({
   value,

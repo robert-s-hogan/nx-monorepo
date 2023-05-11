@@ -10,14 +10,14 @@ interface Props {
   isLoading: boolean;
 }
 
-const Pagination: React.FC<Props> = ({
+const Pagination = ({
   page,
   nextPage,
   previousPage,
   count,
   changePage,
   isLoading,
-}) => {
+}: Props) => {
   const [loadingPage, setLoadingPage] = useState<number | null>(null);
   const totalPages = Math.ceil(count / 10);
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);

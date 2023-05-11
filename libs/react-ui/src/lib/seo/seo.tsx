@@ -1,11 +1,5 @@
 import Head from 'next/head';
-
-/* eslint-disable-next-line */
-export interface SeoProps {
-  title: string;
-  description: string;
-  faviconPath?: string;
-}
+import { SeoProps } from '@with-nx/types';
 
 export function Seo(props: SeoProps) {
   const { title, description, faviconPath } = props;

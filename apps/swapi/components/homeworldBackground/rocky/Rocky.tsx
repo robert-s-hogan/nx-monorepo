@@ -6,7 +6,7 @@ interface Props {
   terrain: string | null;
 }
 
-const Rocky: React.FC<Props> = (props) => {
+const Rocky = (props: Props) => {
   const { homeworld, terrain } = props;
 
   const [homeworldName, setHomeworldName] = useState('');

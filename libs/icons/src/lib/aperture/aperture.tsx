@@ -1,11 +1,11 @@
 //libs/icons/src/lib/Aperture.tsx
-import React from 'react';
+
 import IconWrapper from './IconWrapper';
 
 type ApertureIconProps = {
   className?: string;
 };
-const ApertureIcon: React.FC<ApertureIconProps> = (props) => {
+const ApertureIcon = (props: ApertureIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

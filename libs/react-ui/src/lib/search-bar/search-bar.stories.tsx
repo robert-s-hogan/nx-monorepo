@@ -1,5 +1,5 @@
 // search-bar.stories.tsx
-import React from 'react';
+
 import { Meta, Story } from '@storybook/react';
 import SearchBar, { SearchBarProps } from './search-bar';
 import { FaSearch } from 'react-icons/fa';

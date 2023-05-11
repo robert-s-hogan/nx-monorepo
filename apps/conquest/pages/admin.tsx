@@ -26,7 +26,7 @@ import { postNewCampaign } from '../services/campaignsService';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-const Admin: React.FC = () => {
+const Admin = () => {
   const { user } = useAuth();
   const router = useRouter();
   const { isShowing, toggle } = useModal();

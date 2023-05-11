@@ -6,11 +6,7 @@ interface Props {
   handleFormSubmit: (e: FormEvent) => void;
 }
 
-const SearchForm: React.FC<Props> = ({
-  character,
-  setCharacter,
-  handleFormSubmit,
-}) => {
+const SearchForm = ({ character, setCharacter, handleFormSubmit }: Props) => {
   return (
     <form
       className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full md:mx-2"

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SelectProps } from '@with-nx/types';
 
-export const Select: React.FC<SelectProps> = ({
+export const Select = ({
   options,
   onChange,
   value,
@@ -9,7 +9,7 @@ export const Select: React.FC<SelectProps> = ({
   id,
   style,
   required,
-}) => {
+}: SelectProps) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = event.target.value;
     onChange(selectedValue);

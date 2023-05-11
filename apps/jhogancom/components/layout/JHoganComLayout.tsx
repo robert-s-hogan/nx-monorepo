@@ -9,7 +9,7 @@ const JHoganComFooter = dynamic(() => import('./JHoganComFooter'), {
   ssr: false,
 });
 
-const JHoganComLayout: React.FC<PageLayoutProps> = ({
+const JHoganComLayout = ({
   children,
   className,
   title,

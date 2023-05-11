@@ -1,4 +1,4 @@
-const Hero: React.FC = () => {
+const Hero = () => {
   return (
     <div className="max-w-7xl container mx-auto my-4 md:flex md:justify-center">
       <div className="flex justify-center my-4 space-x-8">

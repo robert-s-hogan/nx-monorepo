@@ -1,14 +1,12 @@
-import React from 'react';
-
 interface InfoIconProps {
   color?: string;
   className?: string;
 }
 
-const InfoIcon: React.FC<InfoIconProps> = ({
+const InfoIcon = ({
   color = 'currentColor',
   className,
-}) => {
+}: InfoIconProps): JSX.Element => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

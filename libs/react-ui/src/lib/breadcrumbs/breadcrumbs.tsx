@@ -1,15 +1,6 @@
+import { BreadcrumbsProps } from '@with-nx/types';
 import breadcrumbsStyles from './breadcrumbs.module.css';
 import Link from '../link/link';
-
-/* eslint-disable-next-line */
-interface BreadcrumbItem {
-  title: string;
-  path?: string;
-}
-
-export interface BreadcrumbsProps {
-  items: BreadcrumbItem[];
-}
 
 export function Breadcrumbs({ items }: BreadcrumbsProps) {
   return (

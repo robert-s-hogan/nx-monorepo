@@ -1,18 +1,8 @@
 import React, { useState } from 'react';
 import tooltipStyles from './tooltip.module.css';
+import { TooltipProps } from '@with-nx/types';
 
-// Rest of the imports and interface definition
-export interface TooltipProps {
-  icon: React.ReactNode;
-  tooltipText: string;
-  iconClassName?: string;
-  iconStyle?: React.CSSProperties;
-  className?: string;
-  style?: React.CSSProperties;
-  bgClassName?: string;
-  location?: 'top' | 'right' | 'bottom' | 'left';
-}
-export const Tooltip: React.FC<TooltipProps> = ({
+export const Tooltip = ({
   icon,
   tooltipText,
   iconClassName,
@@ -20,7 +10,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
   className,
   style,
   bgClassName,
-}) => {
+  location,
+}: TooltipProps) => {
   const [showTooltip, setShowTooltip] = useState(false);
   const getLocationClass = (location: string | undefined) => {
     switch (location) {

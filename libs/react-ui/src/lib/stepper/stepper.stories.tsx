@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { Stepper, StepperProps } from './stepper';

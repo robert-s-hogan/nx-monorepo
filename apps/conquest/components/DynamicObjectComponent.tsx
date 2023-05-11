@@ -14,11 +14,11 @@ interface DynamicObjectComponentProps {
   onClick?: () => void;
 }
 
-const DynamicObjectComponent: React.FC<DynamicObjectComponentProps> = ({
+const DynamicObjectComponent = ({
   data,
   locked = false,
   onClick,
-}) => {
+}: DynamicObjectComponentProps) => {
   function objectToString(obj) {
     let str = '';
     for (let i = 0; i < Object.keys(obj).length; i++) {

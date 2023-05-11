@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useAuth } from '../hooks/useAuth';
 
 const withAuth = (WrappedComponent: React.ComponentType) => {
-  const AuthWrapper: React.FC = (props) => {
+  const AuthWrapper = (props) => {
     const router = useRouter();
     const { user, isLoading } = useAuth();
 

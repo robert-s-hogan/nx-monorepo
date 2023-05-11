@@ -7,7 +7,7 @@ import SwapiCard from './SwapiCard';
 import SearchFilter from './SearchFilter';
 import { findMatchingUrl } from '../utils/findMatchingUrl';
 
-const SwapiSearch: React.FC = () => {
+const SwapiSearch = () => {
   const [searchText, setSearchText] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);

@@ -1,4 +1,3 @@
-import React from 'react';
 import { generateMonsters } from '../../utils';
 
 import Monster from './Monster';
@@ -7,7 +6,7 @@ interface MonstersProps {
   dragBoundFunc: any;
 }
 
-const Monsters: React.FC<MonstersProps> = ({ dragBoundFunc }) => {
+const Monsters = ({ dragBoundFunc }: MonstersProps) => {
   const monsters = generateMonsters();
 
   return monsters.map((monster) => (

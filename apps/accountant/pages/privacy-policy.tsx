@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
 

@@ -1,11 +1,7 @@
 import spinnerStyles from './spinner.module.css';
+import { SpinnerProps } from '@with-nx/types';
 
-/* eslint-disable-next-line */
-export interface SpinnerProps {
-  size?: 'small' | 'medium' | 'large';
-}
-
-export const Spinner: React.FC<SpinnerProps> = ({ size = 'medium' }) => {
+export const Spinner = ({ size = 'medium' }: SpinnerProps) => {
   return (
     <div
       data-testid="spinner"

@@ -1,19 +1,6 @@
-// Modal.tsx
-
-import React from 'react';
 import Button from '../button/button';
 import modalStyles from './modal.module.css';
-
-interface ModalProps {
-  isShowing: boolean;
-  toggle: () => void;
-  title?: string;
-  description?: string;
-  icon?: React.ReactNode;
-  children: React.ReactNode;
-  onClick?: () => void;
-  buttonLocation?: 'left' | 'right';
-}
+import { ModalProps } from '@with-nx/types';
 
 export const Modal = ({
   isShowing,

@@ -9,7 +9,7 @@ const DndGroupFooter = dynamic(() => import('./DndGroupFooter'), {
   ssr: false,
 });
 
-const DndGroupLayout: React.FC<PageLayoutProps> = ({
+const DndGroupLayout = ({
   children,
   className,
   title,

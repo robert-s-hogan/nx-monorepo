@@ -1,4 +1,3 @@
-import React from 'react';
 import IconWrapper from './IconWrapper';
 
 const CloudDrizzleIcon: React.FC = (props) => {

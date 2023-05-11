@@ -7,10 +7,7 @@ interface SearchFilterProps {
   onCategoryChange: (selectedCategories: string[]) => void;
 }
 
-const SearchFilter: React.FC<SearchFilterProps> = ({
-  categories,
-  onCategoryChange,
-}) => {
+const SearchFilter = ({ categories, onCategoryChange }: SearchFilterProps) => {
   const [selectedCategories, setSelectedCategories] = useState<Set<string>>(
     new Set()
   );

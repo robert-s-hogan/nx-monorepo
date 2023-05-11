@@ -26,8 +26,6 @@ Each time React.memo renders a new color then we can cache the result. If the co
 ### Example
 
 ```jsx
-import React from 'react';
-
 const Color = ({ color }) => {
   console.log('rendering');
   return <div style={{ color }}>{color}</div>;
