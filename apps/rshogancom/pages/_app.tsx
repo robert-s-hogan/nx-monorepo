@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 
-import './styles.css';
+import '../styles/styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

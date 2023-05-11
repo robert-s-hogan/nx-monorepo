@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
-import './styles.css';
 import { GoogleTagManager } from '@with-nx/analytics';
+import '../styles/styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (

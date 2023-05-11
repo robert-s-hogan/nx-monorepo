@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
-import './styles.css';
 import { ThemeProvider } from 'next-themes';
+import '../styles/styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
