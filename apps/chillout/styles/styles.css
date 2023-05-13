@@ -80,6 +80,9 @@
   .card-description {
     @apply text-base text-gray-500;
   }
+  .icon-wrapper {
+    @apply text-white;
+  }
   /* #region DEFAULTS */
   html {
     @apply bg-gray-50 h-full;

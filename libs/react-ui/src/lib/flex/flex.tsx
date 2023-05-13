@@ -4,7 +4,9 @@ import reactUIFlexstyles from './flex.module.css';
 export function Flex({ id, children, className, ariaLabel }: FlexProps) {
   return (
     <div
-      className={`flex ${reactUIFlexstyles.flex} ${className}`}
+      className={
+        className ? `flex ${className}` : `flex ${reactUIFlexstyles.flex}`
+      }
       id={id}
       aria-label={ariaLabel}
     >
