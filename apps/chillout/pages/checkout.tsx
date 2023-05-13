@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { useModal } from '@with-nx/react-hooks';
 // import { useAuth } from '@with-nx/auth';
 // import { useDisclosure } from '@chakra-ui/react';
-import useShoppingCart from '../hooks/useShoppingCart';
 import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
 
@@ -64,10 +63,10 @@ export const initialItems = [
 export default function Page() {
   const { isShowing, toggle } = useModal();
   const [modalType, setModalType] = useState(null);
-  const { step, setStepValue } = useShoppingCart();
+
   const [formValid, setFormValid] = useState(false);
 
-  const canProgress = (step === 1 && formValid) || (step === 2 && formValid);
+  // const canProgress = (step === 1 && formValid) || (step === 2 && formValid);
 
   const [cartItems, setCartItems] = useState(initialItems);
   // const handleApplyAllChange = (
@@ -98,7 +97,7 @@ export default function Page() {
   //   setCartItems(newCartItems);
   // };
   //Can pay logic
-  const canPay = step === 2 && formValid;
+  // const canPay = step === 2 && formValid;
   const [formData, setFormData] = useState({
     showTitle: '',
     organizationName: '',
@@ -109,52 +108,52 @@ export default function Page() {
     salesOrderNumber: '',
   });
 
-  useEffect(() => {
-    console.log('formData', formData);
-  }, [formData]);
+  // useEffect(() => {
+  //   console.log('formData', formData);
+  // }, [formData]);
 
-  const createProduction = async (productionData: any) => {
-    const options = {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        showTitle: formData.showTitle,
-        organizationName: formData.organizationName,
-        firstPerformance: formData.firstPerformance,
-        lastPerformance: formData.lastPerformance,
-        // salesOrderNumber: formData.salesOrderNumber,
-        additionalWeeks: formData.additionalWeeks,
-      }),
-    };
-    const response = await fetch(
-      'http://localhost:3000/ecommerce/shopping-carts/productions',
-      options
-    );
-    const result = await response.json();
-    console.log(result);
-  };
-  const handleFormValidationStatus = (isValid, source) => {
-    setFormValid(isValid);
-  };
+  // const createProduction = async (productionData: any) => {
+  //   const options = {
+  //     method: 'PUT',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       showTitle: formData.showTitle,
+  //       organizationName: formData.organizationName,
+  //       firstPerformance: formData.firstPerformance,
+  //       lastPerformance: formData.lastPerformance,
+  //       // salesOrderNumber: formData.salesOrderNumber,
+  //       additionalWeeks: formData.additionalWeeks,
+  //     }),
+  //   };
+  //   const response = await fetch(
+  //     'http://localhost:3000/ecommerce/shopping-carts/productions',
+  //     options
+  //   );
+  //   const result = await response.json();
+  //   console.log(result);
+  // };
+  // const handleFormValidationStatus = (isValid, source) => {
+  //   setFormValid(isValid);
+  // };
 
-  /* set onprogress to true and set step to 2 */
-  const handleProgress = () => {
-    setStepValue(step + 1);
-  };
+  // /* set onprogress to true and set step to 2 */
+  // const handleProgress = () => {
+  //   setStepValue(step + 1);
+  // };
 
-  const handlePayByCardPress = async () => {
-    await createProduction(formData);
-    setModalType('card');
-    toggle();
-  };
+  // const handlePayByCardPress = async () => {
+  //   await createProduction(formData);
+  //   setModalType('card');
+  //   toggle();
+  // };
 
-  const handlePayByPurchaseOrderPress = async () => {
-    await createProduction(formData);
-    setModalType('purchaseOrder');
-    toggle();
-  };
+  // const handlePayByPurchaseOrderPress = async () => {
+  //   await createProduction(formData);
+  //   setModalType('purchaseOrder');
+  //   toggle();
+  // };
 
   return (
     <ChilloutLayout>
@@ -162,7 +161,7 @@ export default function Page() {
         <div className="container mx-auto">
           <Grid className="grid-cols-1 md:grid-cols-4">
             <div className="col-span-1 md:col-span-3">
-              {step === 1 && (
+              {/* {step === 1 && (
                 <MyCart
                   onValidationStatusChange={(isValid) =>
                     handleFormValidationStatus(isValid, 'MyCart')
@@ -178,12 +177,12 @@ export default function Page() {
                     handleFormValidationStatus(isValid, 'EnterYourDetails')
                   }
                 />
-              )}
+              )} */}
             </div>
             <OrderSummary
-              canProgress={canProgress}
-              onContinuePress={handleProgress}
-              canPay={canPay}
+              canProgress={true}
+              // onContinuePress={true}
+              canPay={true}
               // onClick={handleProgress}
               // subtotal={{ products: '$850.00', license: '$900.00' }}
               // total="$850.00"

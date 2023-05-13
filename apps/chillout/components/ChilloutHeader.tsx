@@ -7,7 +7,6 @@ import { useTheme } from 'next-themes';
 import { FiMoon, FiSun, FiShoppingCart } from 'react-icons/fi';
 
 import ChilloutSVG from '../public/images/chill-out-logo.svg';
-import useShoppingCart from '../hooks/useShoppingCart';
 
 const logo = (
   <Image
@@ -40,8 +39,6 @@ const DevBlogHeader = () => {
     </button>
   ) : null;
 
-  const { shoppingCartQuantity } = useShoppingCart();
-
   const links: (
     | (LinkProps & { type?: 'link'; className?: string })
     | (ButtonProps & { type: 'button'; className?: string })
@@ -61,16 +58,11 @@ const DevBlogHeader = () => {
       children: (
         <>
           <FiShoppingCart size={20} />
-          {shoppingCartQuantity > 0 ? shoppingCartQuantity : null}
         </>
       ),
       className: 'nav-icon',
     },
   ];
-
-  useEffect(() => {
-    console.log('shoppingCartQuantity', shoppingCartQuantity);
-  }, [shoppingCartQuantity]);
 
   return (
     <header>

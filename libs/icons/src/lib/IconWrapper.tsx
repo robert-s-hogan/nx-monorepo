@@ -1,19 +1,23 @@
 import React, { CSSProperties } from 'react';
+import { CommonProps } from '@with-nx/types';
 
 export interface IconWrapperProps {
   color?: string;
   className?: string;
 }
 
-type IconComponentProps = {
+/*
+ * Need an improved solution. undefined currently shows up in the HTML *
+ */
+
+type IconComponentProps = CommonProps & {
   style?: CSSProperties;
-  className?: string;
 };
 
 const IconWrapper = (IconComponent: React.FC<IconComponentProps>) => {
   const WrappedIcon: React.FC<IconWrapperProps> = ({
     color = 'currentColor',
-    className,
+    className = '',
     ...props
   }) => {
     return (

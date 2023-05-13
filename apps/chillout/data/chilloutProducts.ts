@@ -1,6 +1,6 @@
-import { ChilloutProducts } from '../types/types';
+import { ChilloutProducts } from '../types';
 
-export const chilloutProducts = {
+export const chilloutProducts: ChilloutProducts = {
   total: 2,
   results: [
     {

@@ -7,12 +7,9 @@ import { Box } from 'simple-effing-primitive-layout';
 // import { Rule } from '@with-nx/simple-ui/atoms';
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { removeItemFromServer } from '../store/shoppingCartSlice';
-import { AppDispatch } from '../store/store';
 import { Text, Flex, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
 
-import useShoppingCart from '../hooks/useShoppingCart';
 // import { useAuth } from '@with-nx/auth';
 import { CheckoutPageFormData } from '../pages/checkout';
 import { chilloutProducts } from '../data/chilloutProducts';
@@ -39,9 +36,6 @@ const MyCart = ({
     Record<number, { isValid: boolean }>
   >({});
   const [customizableCartItems, setCustomizableCartItems] = useState([]);
-
-  const { shoppingCart, fetchCartData, shoppingCartQuantity } =
-    useShoppingCart();
 
   // const licensedItemsData = shoppingCart?.data?.licensedItemsData;
   // const nonLicensedItemsData = shoppingCart?.data?.nonLicensedItemsData;
@@ -139,9 +133,7 @@ const MyCart = ({
   return (
     <Section>
       <div className="mt-16 lg:mt-0">
-        <Text className="text-xl mb-4">
-          My Cart {shoppingCartQuantity ? `(${shoppingCartQuantity})` : ''}
-        </Text>
+        <Text className="text-xl mb-4">My Cart</Text>
         <div className="mb-8">
           <div className="flex w-8 h-8 rounded-full justify-center items-center border-2 text-blue-500 border-blue-500">
             <span className="text-2xl font-semibold">1</span>

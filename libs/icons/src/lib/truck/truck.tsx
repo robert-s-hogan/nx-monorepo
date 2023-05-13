@@ -1,4 +1,7 @@
-const TruckIcon = (props: CommonProps) => {
+import { CommonProps } from '@with-nx/types';
+import IconWrapper from '../IconWrapper';
+
+const TruckIcon = ({ className = '', ...props }: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +13,7 @@ const TruckIcon = (props: CommonProps) => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={`feather feather-truck ${props.className}`}
+      className={className}
       {...props}
     >
       <rect x="1" y="3" width="15" height="13"></rect>

@@ -1,5 +1,6 @@
 export type CommonProps = {
   className?: string;
+  [x: string]: any;
 };
 
 export interface SeoProps {
