@@ -1,4 +1,4 @@
-import { ChilloutProducts } from '../types';
+import { ChilloutProducts } from '@with-nx/types';
 
 export const chilloutProducts: ChilloutProducts = {
   total: 2,

@@ -1,4 +1,6 @@
-import IconWrapper from './IconWrapper';
+// libs/icons/src/lib/x.tsx
+import { CommonProps } from '@with-nx/types';
+import IconWrapper from '../IconWrapper';
 
 const XIcon = (props: CommonProps) => {
   return (

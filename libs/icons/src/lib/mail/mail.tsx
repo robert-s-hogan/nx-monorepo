@@ -1,4 +1,6 @@
-import IconWrapper from './IconWrapper';
+// libs/icons/src/mail/x.tsx
+import { CommonProps } from '@with-nx/types';
+import IconWrapper from '../IconWrapper';
 
 const MailIcon = (props: CommonProps) => {
   return (
@@ -8,7 +10,8 @@ const MailIcon = (props: CommonProps) => {
       {...props}
       className={`feather feather-mail ${props.className}`}
     >
-      <path d="M22 6.21v11.57a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6.21l10 5.79 10-5.79zM20 4H4a2 2 0 0 0-2 2v10.04l9.06-5.23a1 1 0 0 1 1.1 0L20 16.04V6a2 2 0 0 0-2-2z"></path>
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+      <polyline points="22,6 12,13 2,6"></polyline>
     </svg>
   );
 };

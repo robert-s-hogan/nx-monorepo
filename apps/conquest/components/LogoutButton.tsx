@@ -1,10 +1,7 @@
 import { useAuth } from '../hooks/useAuth';
+import { CommonProps } from '@with-nx/types';
 
-interface LogoutButtonProps {
-  className?: string;
-}
-
-const LogoutButton = ({ className }: LogoutButtonProps) => {
+const LogoutButton = ({ className }: CommonProps) => {
   const { logout } = useAuth();
 
   return (

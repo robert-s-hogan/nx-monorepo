@@ -23,13 +23,16 @@ export const Modal = ({
         className={`modal ${modalStyles.modal}`}
       >
         <div className={`modal-header ${modalStyles.modalHeader}`}>
-          {icon && (
-            <div className={`modal-icon ${modalStyles.modalIcon}`}>{icon}</div>
-          )}
           <h2 className={`modal-title ${modalStyles.modalTitle}`}>{title}</h2>
-          <Button onClick={toggle} icon="close">
-            Close
-          </Button>
+          {icon ? (
+            <div onClick={toggle} className={`modal-icon`}>
+              {icon}
+            </div>
+          ) : (
+            <Button onClick={toggle} icon="close">
+              Close
+            </Button>
+          )}
         </div>
         {description && (
           <p className={`modal-description ${modalStyles.modalDescription}`}>

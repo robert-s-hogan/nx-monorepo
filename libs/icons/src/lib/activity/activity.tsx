@@ -1,4 +1,4 @@
-// libs/icons/src/lib/Activity.tsx
+// libs/icons/src/lib/activity.tsx
 import { CommonProps } from '@with-nx/types';
 import IconWrapper from '../IconWrapper';
 

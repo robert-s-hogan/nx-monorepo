@@ -1,15 +1,6 @@
 import { Button, Modal } from '@with-nx/react-ui';
 import { FiX } from 'react-icons/fi';
-
-interface ChilloutModalProps {
-  isShowing: boolean;
-  toggle?: () => void;
-  title?: string;
-  description?: string;
-  icon?: React.ReactNode;
-  children: React.ReactNode;
-  hide?: () => void;
-}
+import { ModalProps } from '@with-nx/types';
 
 export function ChilloutModal({
   isShowing,
@@ -18,8 +9,9 @@ export function ChilloutModal({
   description,
   icon,
   children,
-  hide,
-}: ChilloutModalProps) {
+  onClick,
+  buttonLocation = 'right',
+}: ModalProps) {
   return (
     <>
       {isShowing && (

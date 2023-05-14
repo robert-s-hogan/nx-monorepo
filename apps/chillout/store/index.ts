@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import productsReducer from '../../../libs/store/products/src/lib/productsSlice';
 // import productsReducer from '@with-nx/store';
-import { ChilloutProducts } from '../types';
+import { ChilloutProducts } from '@with-nx/types';
 
 export interface RootState {
   products: ReturnType<typeof productsReducer>;

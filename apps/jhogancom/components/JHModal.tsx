@@ -1,16 +1,6 @@
-import { Button } from '@with-nx/react-ui';
-import { Modal } from '@with-nx/react-ui';
+import { Button, Modal } from '@with-nx/react-ui';
+import { ModalProps } from '@with-nx/types';
 import { FiX } from 'react-icons/fi';
-
-interface JHModalProps {
-  isShowing: boolean;
-  toggle?: () => void;
-  title?: string;
-  description?: string;
-  icon?: React.ReactNode;
-  children: React.ReactNode;
-  hide?: () => void;
-}
 
 export function JHModal({
   isShowing,
@@ -19,8 +9,9 @@ export function JHModal({
   description,
   icon,
   children,
-  hide,
-}: JHModalProps) {
+  onClick,
+  buttonLocation = 'right',
+}: ModalProps) {
   return (
     <>
       {isShowing && (

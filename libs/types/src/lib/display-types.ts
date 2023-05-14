@@ -25,7 +25,7 @@ export interface ModalProps {
   title?: string;
   description?: string;
   icon?: React.ReactNode;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   onClick?: () => void;
   buttonLocation?: 'left' | 'right';
 }

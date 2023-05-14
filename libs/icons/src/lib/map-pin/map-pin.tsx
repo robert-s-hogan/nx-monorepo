@@ -1,10 +1,6 @@
-// libs/icons/src/lib/MapPin.tsx
-
-import IconWrapper from './IconWrapper';
-
-type MapPinProps = {
-  className?: string;
-};
+// libs/icons/src/lib/map-pin.tsx
+import { CommonProps } from '@with-nx/types';
+import IconWrapper from '../IconWrapper';
 
 const MapPinIcon = (props: CommonProps) => {
   return (

@@ -1,16 +1,6 @@
-import { Button } from '@with-nx/react-ui';
-import { Modal } from '@with-nx/react-ui';
+import { Button, Modal } from '@with-nx/react-ui';
+import { ModalProps } from '@with-nx/types';
 import { motion, AnimatePresence } from 'framer-motion';
-
-interface ConquestModalProps {
-  isShowing: boolean;
-  toggle?: () => void;
-  title?: string;
-  description?: string;
-  icon?: React.ReactNode;
-  children: React.ReactNode;
-  hide?: () => void;
-}
 
 export function ConquestModal({
   isShowing,
@@ -19,8 +9,9 @@ export function ConquestModal({
   description,
   icon,
   children,
-  hide,
-}: ConquestModalProps) {
+  onClick,
+  buttonLocation = 'right',
+}: ModalProps) {
   return (
     <>
       <AnimatePresence mode="wait">
