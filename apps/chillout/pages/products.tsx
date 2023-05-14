@@ -14,6 +14,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '@with-nx/store/products';
+import { NextjsImage } from '@with-nx/nextjs-react-ui';
 
 import { RootState, AppDispatch } from '../store';
 import { chilloutProducts } from '../data/chilloutProducts';
@@ -42,7 +43,7 @@ const Products = () => {
       const timeoutId = setTimeout(() => {
         dispatch(fetchProducts('/api/products'));
         setIsLoading(false);
-      }, 6000);
+      }, 1000);
 
       return () => clearTimeout(timeoutId);
     } else if (status === 'succeeded') {
@@ -56,7 +57,7 @@ const Products = () => {
     id: '',
     main_image: '',
     name: '',
-    images: [''],
+    images: ['', '', ''],
     price: '',
     discount: '',
     taxes: '',
@@ -71,11 +72,11 @@ const Products = () => {
 
   return (
     <ChilloutLayout>
-      <Section className="mx-auto lg:flex lg:justify-center pt-32 px-4 lg:pt-44 max-w-screen-2xl">
+      <Section className="mx-auto lg:flex lg:justify-center pt-32 px-4">
         <div className="lg:w-1/2">
           <Heading
             level={1}
-            className="text-xs lg:text-base uppercase font-bold mb-3 lg:mb-6 text-gray-400"
+            className="text-xs lg:text-base uppercase font-bold mb-3 text-gray-400"
           >
             Products
           </Heading>
@@ -130,107 +131,118 @@ const Products = () => {
           <Image src={ProductsLandingPlant} alt="" priority />
         </div>
       </Section>
-      <Section className="container lg:flex justify-center max-w-screen-2xl mx-auto pt-16 pb-24">
-        <div className="mt-6 mx-0 lg:mt-0">
-          <Heading
-            level={2}
-            className="text-xs uppercase mb-2 font-bold text-gray-400"
-          >
-            Products Available Now
-          </Heading>
+      <Section className="container justify-center mx-auto pb-32 max-w-full xl:px-32">
+        <Heading
+          level={2}
+          className="text-xs uppercase mb-2 font-bold text-gray-400"
+        >
+          Products Available Now
+        </Heading>
+        <Grid className="grid-cols-1 gap-12 xl:grid-cols-2">
           {productsToRender.map((product, index) => {
             return (
-              <div key={product.id}>
-                <Grid className="grid-cols-3 gap-12">
-                  <Flex
-                    key={product.id}
-                    className={`justify-between mb-12 lg:mb-24 col-span-3 gap-16 ${
-                      index === 1 ? 'mt-12' : ''
-                    }`}
-                  >
-                    <div className="cursor-pointer">
-                      <Image
-                        data-product={product.id}
-                        className="h-full w-full object-cover rounded-xl lg:rounded-lg"
-                        src={product.main_image}
-                        alt={product.name}
-                        width={400}
-                        height={200}
-                      />
-                      <Grid className="grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
-                        {product.images.map((image, index) => (
-                          <div
-                            key={`${image}-${index}}`}
-                            className="cursor-pointer h-24"
-                          >
-                            <Image
-                              data-product={product.id}
-                              className="h-full w-full object-cover rounded-xl lg:rounded-lg"
-                              src={image}
-                              alt={product.name}
-                              width={400}
-                              height={200}
-                            />
-                          </div>
-                        ))}
-                      </Grid>
-                    </div>
-                    <div className="mb-8 lg:mb-10 mt-8 lg:mt-0">
-                      <Heading
-                        level={2}
-                        className="uppercase font-bold text-2xl lg:text-5xl text-gray-700"
-                        isLoading={isLoading}
-                      >
-                        Premium Airconditioner
-                      </Heading>
-                      <Text
-                        isLoading={isLoading}
-                        className="uppercase inline-block mt-2 text-xs lg:text-sm font-bold tracking-widest text-gray-500"
-                      >
-                        By
-                        <a
-                          className="text-blue-500 hover:underline ml-2"
-                          href="/checkout"
+              <Grid
+                className="grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-1 lg:gap-8"
+                key={product.id}
+              >
+                <Flex className={`${index === 1 ? '' : ''}`}>
+                  <div className="w-full h-auto">
+                    <NextjsImage
+                      data-product={product.id}
+                      className="rounded-xl lg:rounded-lg"
+                      src={product.main_image}
+                      alt={product.name}
+                      isLoading={isLoading}
+                    />
+                    <Grid className="grid-cols-3 gap-4 mt-4">
+                      {product.images.map((image, index) => (
+                        <div
+                          key={`${image}-${index}}`}
+                          className="w-full h-auto"
                         >
-                          Chillout Company
-                        </a>
-                      </Text>
-                      <Flex className="items-center gap-x-6 my-10">
-                        <div className="px-3 py-5 rounded-md font-bold bg-blue-50 text-blue-500">
-                          <span className="text-2xl">$</span>
-                          <span className="text-4xl">{product.price}</span>
+                          <NextjsImage
+                            data-product={product.id}
+                            className="object-cover rounded-xl lg:rounded-lg"
+                            src={image}
+                            alt={product.name}
+                            isLoading={isLoading}
+                          />
                         </div>
-                        <Flex className="flex-col">
-                          <span className="font-semibold text-xl text-green-500">
-                            {product.discount}
-                          </span>
-                          <span className="text-sm font-medium text-gray-500">
-                            {product.taxes}
-                          </span>
-                        </Flex>
+                      ))}
+                    </Grid>
+                  </div>
+                </Flex>
+                <Flex className="col-span-1 h-full w-full">
+                  <div className="mb-8 lg:mb-10 xl:mb-0 md:mt-6 lg:mt-0 w-full">
+                    <Heading
+                      level={2}
+                      className="uppercase font-bold text-2xl lg:text-3xl text-gray-700"
+                      isLoading={isLoading}
+                      height={48}
+                    >
+                      Premium Air Conditioner
+                    </Heading>
+                    <Text
+                      isLoading={isLoading}
+                      width={175}
+                      className="uppercase inline-block mt-2 xl:mt-0 text-xs lg:text-sm xl:text-xs font-bold tracking-widest text-gray-500"
+                    >
+                      By
+                      <a
+                        className="text-blue-500 hover:underline ml-2"
+                        href="/checkout"
+                      >
+                        Chillout Company
+                      </a>
+                    </Text>
+                    <Text
+                      isLoading={isLoading}
+                      className="text-xl md:text-base lx:text-lg xl:text-sm max-w-prose font-medium text-gray-600"
+                    >
+                      {product.description}
+                    </Text>
+                    <Flex className="items-center gap-x-6 mt-4 xl:mt-2 lg:gap-x-1 lg:flex-col">
+                      <div className="py-5 md:py-0 rounded-md font-bold bg-blue-50 text-blue-500 lg:w-full">
+                        <Text
+                          className="text-5xl md:text-3xl xl:text-2xl"
+                          isLoading={isLoading}
+                          width={100}
+                        >
+                          <span className="text-2xl xl:text-xl">$</span>
+                          {product.price}
+                        </Text>
+                      </div>
+                      <Flex className="flex-col lg:w-full">
+                        <Text
+                          className="font-semibold text-2xl xl:text-lg text-green-500"
+                          isLoading={isLoading}
+                          width={150}
+                        >
+                          {product.discount}
+                        </Text>
+                        <Text className="text-xs font-medium text-gray-500">
+                          {product.taxes}
+                        </Text>
                       </Flex>
-                      <Text
-                        isLoading={isLoading}
-                        className="text-xl max-w-prose font-medium text-gray-600"
-                      >
-                        {product.description}
-                      </Text>
-                      <Button
-                        isLoading={isLoading}
-                        className={`
-                            inline-block font-semibold rounded-md uppercase px-10 py-4 mt-12 bg-blue-500 text-blue-50 hover:bg-blue-700 `}
-                        // href="/checkout"
-                      >
-                        add to cart
-                      </Button>
-                    </div>
-                  </Flex>
-                </Grid>
-              </div>
+                    </Flex>
+                    <div className="mt-6 md:mt-4" />
+                    <Button
+                      className="inline-block font-semibold rounded-md uppercase px-8 py-3 bg-blue-500 text-blue-50 hover:bg-blue-700 md:py-4"
+                      // href="/checkout"
+                      isLoading={isLoading}
+                      width={150}
+                      height={56}
+                    >
+                      add to cart
+                    </Button>
+                  </div>
+                </Flex>
+              </Grid>
             );
           })}
+        </Grid>
 
-          {/* <Flex className="flex-col w-full space-y-4 border-2 border-primary p-6 rounded shadow-xl">
+        {/* <Flex className="flex-col w-full space-y-4 border-2 border-primary p-6 rounded shadow-xl">
               <Heading level={2} className="mb-8">
                 Oh no!
               </Heading>
@@ -242,7 +254,6 @@ const Products = () => {
                 for any inconvenience caused.
               </Text>
             </Flex> */}
-        </div>
       </Section>
     </ChilloutLayout>
   );

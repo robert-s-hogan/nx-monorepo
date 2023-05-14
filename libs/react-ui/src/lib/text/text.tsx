@@ -12,13 +12,24 @@ export const Text = ({
   rows = 1,
   rowWidth = 100,
   height = 16,
-  width = 100,
-}: TextProps) => {
+  width = '100%',
+}: TextProps & {
+  isLoading?: boolean;
+  rows?: number;
+  rowWidth?: number;
+  height?: number;
+  width?: string | number;
+}) => {
+  const combinedStyles = {
+    width: width,
+    ...style,
+  };
+
   return (
     <div
       className={`text ${className}`}
       id={id}
-      style={style}
+      style={combinedStyles}
       onClick={onClick}
     >
       {isLoading ? (

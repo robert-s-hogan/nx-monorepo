@@ -6,6 +6,9 @@ export interface HeadingProps {
   style?: React.CSSProperties;
   'aria-labelledby'?: string;
   tabIndex?: number;
+  isLoading?: boolean;
+  width?: number | string;
+  height?: number | string;
 }
 
 export interface ListProps {
@@ -27,6 +30,6 @@ export interface TextProps {
   isLoading?: boolean;
   rows?: number;
   rowWidth?: number;
-  height?: number;
-  width?: number;
+  height?: number | string;
+  width?: number | string;
 }

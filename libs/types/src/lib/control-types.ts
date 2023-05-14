@@ -9,6 +9,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'button' | 'submit' | 'reset';
   children?: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  isLoading?: boolean;
+  width?: number;
+  height?: number;
 }
 
 export interface CollapseProps {
