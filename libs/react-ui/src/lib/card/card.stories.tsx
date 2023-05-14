@@ -1,18 +1,32 @@
-import { Meta, Story } from '@storybook/react';
-import { Card, CardProps } from './card';
+import React from 'react';
+import { Card } from './card';
+import { action } from '@storybook/addon-actions';
 
-const meta: Meta = {
-  component: Card,
+export default {
   title: 'Molecules/Card',
+  component: Card,
 };
-export default meta;
 
-const Template: Story<CardProps> = (args) => <Card {...args} />;
+const Template = (args) => <Card {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  title: 'Example Card',
-  description: 'This is an example of a Card component.',
-  imageUrl: 'https://via.placeholder.com/150',
-  imageAlt: 'Example Image',
+export const Default = Template.bind({});
+Default.args = {
+  title: 'Card Title',
+  description: 'This is a description of the card.',
+  image: 'https://via.placeholder.com/150',
+  onClick: action('onClick'),
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  isLoading: true,
+};
+
+export const WithButton = Template.bind({});
+WithButton.args = {
+  title: 'Card Title',
+  description: 'This is a description of the card.',
+  image: 'https://via.placeholder.com/150',
+  onClick: action('onClick'),
+  button: <button>Click me</button>,
 };
