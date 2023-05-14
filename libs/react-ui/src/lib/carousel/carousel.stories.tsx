@@ -1,20 +1,18 @@
-import { Meta, Story } from '@storybook/react';
-import Carousel, { CarouselProps } from './carousel';
+import React from 'react';
+import { Carousel } from './carousel';
 
-const meta: Meta = {
-  component: Carousel,
-  title: 'Carousel',
+export default {
   title: 'Organisms/Carousel',
+  component: Carousel,
 };
-export default meta;
 
-const Template: Story<CarouselProps> = (args) => <Carousel {...args} />;
+const Template = (args) => <Carousel {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
   images: [
-    'https://via.placeholder.com/800x600?text=Image+1',
-    'https://via.placeholder.com/800x600?text=Image+2',
-    'https://via.placeholder.com/800x600?text=Image+3',
+    'https://via.placeholder.com/150',
+    'https://via.placeholder.com/150/0000FF',
+    'https://via.placeholder.com/150/008000',
   ],
 };
