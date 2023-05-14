@@ -1,17 +1,17 @@
-import { BreadcrumbsProps } from '@with-nx/types';
-import breadcrumbsStyles from './breadcrumbs.module.css';
+import { BreadcrumbProps } from '@with-nx/types';
+import breadcrumbStyles from './breadcrumb.module.css';
 import Link from '../link/link';
 
-export function Breadcrumbs({ items }: BreadcrumbsProps) {
+export function Breadcrumb({ items }: BreadcrumbProps) {
   return (
-    <nav className={breadcrumbsStyles.breadcrumb}>
+    <nav className={breadcrumbStyles.breadcrumb}>
       <ol>
         {items.map((item, index) => {
           const isLastItem = index === items.length - 1;
           return (
             <li
               key={index}
-              className={isLastItem ? breadcrumbsStyles.active : ''}
+              className={isLastItem ? breadcrumbStyles.active : ''}
             >
               {item.path && !isLastItem ? (
                 <Link href={item.path}>{item.title}</Link>
@@ -26,4 +26,4 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
   );
 }
 
-export default Breadcrumbs;
+export default Breadcrumb;

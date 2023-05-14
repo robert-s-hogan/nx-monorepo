@@ -3,7 +3,7 @@ export * from './lib/page-not-found/page-not-found';
 export * from './lib/collapse/collapse';
 export * from './lib/collapse/collapse';
 export * from './lib/tooltip/tooltip';
-export * from './lib/breadcrumbs/breadcrumbs';
+export * from './lib/breadcrumb/breadcrumb';
 export * from './lib/card/card';
 export * from './lib/spinner/spinner';
 export * from './lib/badge/badge';
