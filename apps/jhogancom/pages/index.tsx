@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useModal } from '@with-nx/react-hooks';
-import { Link, Flex, Section } from '@with-nx/react-ui';
+import { Heading, Link, Flex, Section } from '@with-nx/react-ui';
 import {
   FiArrowRight,
   FiMail,
@@ -27,13 +27,13 @@ export function Index() {
         className="bg-gradient-to-br from-peach to-mint scroll-smooth w-full h-full flex justify-center items-center"
       >
         <Flex className="justify-center flex-col items-center h-full text-center">
-          <h1 className="font-semibold text-4xl text-black">
+          <Heading level={1} className="font-semibold text-4xl text-black">
             Hi, I am Jessica.
             <br />
             <span className="text-black bg-clip-text bg-gradient-to-br from-orange to-peach">
               Data Scientist and Data Analyst
             </span>
-          </h1>
+          </Heading>
           <p className="text-black text-lg py-2 w-4/5">
             I want to help you make the best data-driven decisions and translate
             data into actionable insights.

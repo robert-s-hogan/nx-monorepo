@@ -348,6 +348,9 @@ devDependencies:
   '@typescript-eslint/parser':
     specifier: 5.48.0
     version: 5.48.0(eslint@8.15.0)(typescript@4.9.5)
+  '@vercel/remote-nx':
+    specifier: ^1.0.1
+    version: 1.0.1(@nrwl/workspace@15.9.2)
   autoprefixer:
     specifier: 10.4.13
     version: 10.4.13(postcss@8.4.21)
@@ -6755,6 +6758,28 @@ packages:
       eslint-visitor-keys: 3.4.0
     dev: true
 
+  /@vercel/remote-nx@1.0.1(@nrwl/workspace@15.9.2):
+    resolution: {integrity: sha512-K6aVZox16D/mK6awdP/DnsdgI34B/+Pg6IdOoZudl/jcDNOmXJQYdsL3SWOgQndeBmt19SSR2LTuytOjE6tTCw==}
+    dependencies:
+      '@vercel/remote': 1.0.1
+      chalk: 4.1.2
+      nx-remotecache-custom: 2.0.0(@nrwl/workspace@15.9.2)
+    transitivePeerDependencies:
+      - '@nrwl/workspace'
+      - encoding
+    dev: true
+
+  /@vercel/remote@1.0.1:
+    resolution: {integrity: sha512-5iUXUO/DBsNPFPq1tuIndhq+x14Nec1lyj0F2IelWm/cVFl7q8dnXsAPtMnr1129RD8hbOTqI2XgXKo8orAlpA==}
+    dependencies:
+      ci-info: 3.8.0
+      concat-stream: 2.0.0
+      node-fetch: 2.6.9
+      raw-body: 2.5.2
+    transitivePeerDependencies:
+      - encoding
+    dev: true
+
   /@webassemblyjs/ast@1.11.5:
     resolution: {integrity: sha512-LHY/GSAZZRpsNQH+/oHqhRQ5FT7eoULcBqgfyTB5nQHogFnK3/7QoN7dLnwSE/JkUAF0SrRuclT7ODqMFtWxxQ==}
     dependencies:
@@ -8186,6 +8211,16 @@ packages:
       readable-stream: 2.3.8
       typedarray: 0.0.6
 
+  /concat-stream@2.0.0:
+    resolution: {integrity: sha512-MWufYdFw53ccGjCA+Ol7XJYpAlW6/prSMzuPOTRnJGcGzuhLn4Scrz7qf6o8bROZ514ltazcIFJZevcfbo0x7A==}
+    engines: {'0': node >= 6.0}
+    dependencies:
+      buffer-from: 1.1.2
+      inherits: 2.0.4
+      readable-stream: 3.6.2
+      typedarray: 0.0.6
+    dev: true
+
   /confusing-browser-globals@1.0.11:
     resolution: {integrity: sha512-JsPKdmh8ZkmnHxDk55FZ1TqVLvEQTvoByJZRN9jzI0UjxK/QgAmsphz7PGtqgPieQZ/CQcHWXCR7ATDNhGe+YA==}
     dev: true
@@ -8866,6 +8901,11 @@ packages:
   /dotenv@16.0.3:
     resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
     engines: {node: '>=12'}
+
+  /dotenv@8.6.0:
+    resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==}
+    engines: {node: '>=10'}
+    dev: true
 
   /duplexer@0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
@@ -13350,6 +13390,17 @@ packages:
 
   /nwsapi@2.2.4:
     resolution: {integrity: sha512-NHj4rzRo0tQdijE9ZqAx6kYDcoRwYwSYzCA8MY3JzfxlrvEU0jhnhJT9BhqhJs7I/dKcrDm6TyulaRqZPIhN5g==}
+    dev: true
+
+  /nx-remotecache-custom@2.0.0(@nrwl/workspace@15.9.2):
+    resolution: {integrity: sha512-wisqd+eFYhECaQ6Fblia+DKFevUPY/yn5cXh1CGVj9IZ25/J2ONPWo0CQgcgk+QnL/dDS4BN36caHmlYls5lWg==}
+    peerDependencies:
+      '@nrwl/workspace': '>=9.2.2'
+    dependencies:
+      '@nrwl/workspace': 15.9.2(@swc/core@1.2.173)
+      chalk: 4.1.2
+      dotenv: 8.6.0
+      tar: 6.1.13
     dev: true
 
   /nx@15.9.2(@swc/core@1.2.173):
