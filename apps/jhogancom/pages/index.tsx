@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useModal } from '@with-nx/react-hooks';
-import { Heading, Link, Flex, Section } from '@with-nx/react-ui';
+import { Heading, Link, Flex, Section, Text } from '@with-nx/react-ui';
 import {
   FiArrowRight,
   FiMail,
@@ -30,14 +30,14 @@ export function Index() {
           <Heading level={1} className="font-semibold text-4xl text-black">
             Hi, I am Jessica.
             <br />
-            <span className="text-black bg-clip-text bg-gradient-to-br from-orange to-peach">
+            <Text className="text-black bg-clip-text bg-gradient-to-br from-orange to-peach">
               Data Scientist and Data Analyst
-            </span>
+            </Text>
           </Heading>
-          <p className="text-black text-lg py-2 w-4/5">
+          <Text className="text-black text-lg py-2 w-4/5">
             I want to help you make the best data-driven decisions and translate
             data into actionable insights.
-          </p>
+          </Text>
           <Flex className="my-4 flex-col justify-center md:flex-row md:space-between">
             <button
               className="bg-orange hover:opacity-80 px-8 py-2 rounded-lg text-lg text-white"
@@ -49,10 +49,10 @@ export function Index() {
               href="#projects"
               className="px-8 py-2 rounded-lg hover:no-underline pt-4 md:pt-4"
             >
-              <p className="align-middle text-green hover:text-slate text-lg">
+              <Text className="align-middle text-green hover:text-slate text-lg">
                 See My Work
                 <FiArrowRight className="inline-block ml-2" />
-              </p>
+              </Text>
             </Link>
           </Flex>
         </Flex>
