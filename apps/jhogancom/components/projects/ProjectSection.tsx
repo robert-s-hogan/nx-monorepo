@@ -28,7 +28,7 @@ const ProjectSection = () => {
     if (hydrated) {
       setTimeout(() => {
         setLoading(false);
-      }, 1600);
+      }, 1000);
     }
   }, [hydrated]);
 
@@ -51,7 +51,11 @@ const ProjectSection = () => {
               >
                 <div className="relative h-56 w-full">
                   {loading ? (
-                    <Skeleton height={224} isLoading={loading} />
+                    <Skeleton
+                      height={224}
+                      isLoading={loading}
+                      className="mt-0"
+                    />
                   ) : (
                     <Image
                       width={355}
@@ -81,7 +85,7 @@ const ProjectSection = () => {
                   </Text>
 
                   <div className="flex justify-between items-end flex-shrink-0">
-                    <Text isLoading={loading} height={24}>
+                    <Text isLoading={loading} height={24} width={200}>
                       #{project.tags}
                     </Text>
 
@@ -139,7 +143,9 @@ const ProjectSection = () => {
                   </Text>
 
                   <div className="flex justify-between items-end flex-shrink-0">
-                    <Text isLoading={loading}>#{project.tags}</Text>
+                    <Text isLoading={loading} height={24} width={200}>
+                      #{project.tags}
+                    </Text>
 
                     <Link
                       target="_blank"

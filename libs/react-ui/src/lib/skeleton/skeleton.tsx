@@ -1,7 +1,6 @@
 import skeletonStyles from './skeleton.module.css';
 import SkeletonText from './skeleton-text';
 import { SkeletonProps } from '@with-nx/types';
-
 export const Skeleton = ({
   key,
   width = '100%',
@@ -23,14 +22,14 @@ export const Skeleton = ({
 
   return (
     <span
-      className={isLoading ? '' : classNames}
-      style={isLoading ? {} : styles}
+      className={isLoading ? classNames : ''}
+      style={isLoading ? styles : {}}
       key={key}
     >
       {isLoading && (
         <>
           {rows > 1 ? (
-            <SkeletonText rows={rows} width={rowWidth} />
+            <SkeletonText rows={rows} width={rowWidth} height={height} />
           ) : (
             <div className={classNames} style={styles}></div>
           )}
