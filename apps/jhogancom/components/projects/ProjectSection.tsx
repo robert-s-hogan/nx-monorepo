@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Text, Flex } from '@with-nx/react-ui';
-import { Skeleton } from '@with-nx/react-ui';
+import { Flex, Grid, Text, Skeleton } from '@with-nx/react-ui';
 
 import { projectStaticData } from '../../data/projects';
 import { useRouter } from 'next/router';
@@ -41,7 +40,7 @@ const ProjectSection = () => {
         statistics.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+      <Grid className="grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {featuredProjects.length > 0 && (
           <>
             {featuredProjects.map((project) => (
@@ -161,7 +160,7 @@ const ProjectSection = () => {
             );
           }
         })}
-      </div>
+      </Grid>
     </div>
   );
 };
