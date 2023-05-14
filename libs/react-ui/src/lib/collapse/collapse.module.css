@@ -1,7 +1,21 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+/* Collapse.module.css */
+.collapse {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  background: #f4f4f4;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.content {
+  padding: 10px;
+}

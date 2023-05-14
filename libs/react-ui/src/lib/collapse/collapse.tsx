@@ -1,34 +1,31 @@
-import { CollapseProps } from '@with-nx/types';
-import React, { useEffect, useRef, useState } from 'react';
-import styles from './collapse.module.css';
+//libs/react-ui/src/lib/collapse.tsx
+import React, { useState } from 'react';
+import collapseStyles from './collapse.module.css';
 
-export function Collapse({
-  isOpen,
-  startingHeight,
+interface CollapseProps {
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
+const Collapse: React.FC<CollapseProps> = ({
   children,
-  style,
-  className,
-}: CollapseProps) {
-  const [height, setHeight] = useState(startingHeight);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (isOpen) {
-      setHeight(ref.current?.scrollHeight || 0);
-    } else {
-      setHeight(startingHeight);
-    }
-  }, [isOpen, startingHeight]);
+  title,
+  className = '',
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div
-      style={{ ...style, height: `${height}px`, overflow: 'hidden' }}
-      className={className}
-      ref={ref}
-    >
-      {children}
+    <div className={`${collapseStyles.collapse} ${className}`}>
+      <button
+        className={collapseStyles.button}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {title}
+      </button>
+      {isOpen && <div className={collapseStyles.content}>{children}</div>}
     </div>
   );
-}
+};
 
 export default Collapse;
