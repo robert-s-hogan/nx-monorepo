@@ -79,10 +79,10 @@ export function Index() {
               approach your data-driven questions.
             </p>
 
-            <p className="text-gray-500 mt-3">
+            <Text className="text-gray-500 mt-3">
               I look forward to hearing about how I can help you solve your data
               questions!
-            </p>
+            </Text>
 
             <span className="inline-flex sm:ml-auto sm:mt-0 pt-4 justify-center sm:justify-start space-x-2">
               <Link
