@@ -2,7 +2,6 @@ import ChilloutLayout from '../components/ChilloutLayout';
 import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
 
-
 const Faqs = () => {
   return (
     <ChilloutLayout>
@@ -26,8 +25,8 @@ const Faqs = () => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M0 346L24 310C48 274 96 202 144 195C192 188 240 245 288 260C336 274 384 245 432 195C480 144 528 72 576 80C624 87 672 173 720 202C768 231 816 202 864 159C912 116 960 58 1008 29C1056 0 1104 0 1152 15C1200 29 1248 58 1296 58C1344 58 1392 29 1416 15L1440 0V346H1416C1392 346 1344 346 1296 346C1248 346 1200 346 1152 346C1104 346 1056 346 1008 346C960 346 912 346 864 346C816 346 768 346 720 346C672 346 624 346 576 346C528 346 480 346 432 346C384 346 336 346 288 346C240 346 192 346 144 346C96 346 48 346 24 346H0Z"
             fill="#3B82F6"
           />

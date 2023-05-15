@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Navbar } from '@with-nx/react-ui';
+import { Navbar, Flex } from '@with-nx/react-ui';
 import { ButtonProps, LinkProps } from '@with-nx/types';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
@@ -65,10 +65,10 @@ const DevBlogHeader = () => {
     {
       href: '/checkout',
       children: (
-        <>
+        <Flex className="space-x-4">
           <FiShoppingCart size={20} />
           {totalQuantity !== null && totalQuantity}
-        </>
+        </Flex>
       ),
       className: 'nav-icon',
     },

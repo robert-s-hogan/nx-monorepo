@@ -34,10 +34,10 @@ const ChilloutLayout = ({
             ? description
             : 'Discover top-quality cooling products and solutions at We Keep You Cool. Explore our extensive range of air conditioners, innovative features, and professional services to keep your home and office cool and comfortable.'
         }
-        url="https://www.wekeepyoucool.com/"
+        url="https://chillout.robertshogan.com/"
         faviconPath="/favicon.ico"
         image="/images/cooling-logo.jpg"
-        twitterHandle="@WeKeepYouCool"
+        twitterHandle="@chillout"
         siteName="We Keep You Cool"
         appleTouchIconPath="/apple-touch-icon.png"
         keywords="cooling solutions, air conditioners, home cooling, office cooling, cooling products, energy-efficient, innovative features, professional services, We Keep You Cool"

@@ -20,15 +20,15 @@ import { Product } from '@with-nx/types';
 
 import { RootState, AppDispatch } from '../store';
 import { chilloutProducts } from '../data/chilloutProducts';
-import ProductOneMain from '../public/images/product1_main.jpg';
-import ProductsLandingPlant from '../public/images/products_landing_plant.png';
-import ProductOneA from '../public/images/product1_a.jpg';
-import ProductOneB from '../public/images/product1_b.jpg';
-import ProductOneC from '../public/images/product1_c.jpg';
-import RoboMain from '../public/images/robo_main.jpg';
-import RoboSideOne from '../public/images/robo_side1.jpg';
-import RoboSideTwo from '../public/images/robo_side2.jpg';
-import RoboSideThree from '../public/images/robo_side3.jpg';
+
+import ProductsLandingPlant from 'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/products_landing_plant.png';
+import ProductOneA from 'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/product1_a.jpg';
+import ProductOneB from 'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/product1_b.jpg';
+import ProductOneC from 'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/product1_c.jpg';
+import RoboMain from 'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/robo_main.jpg';
+import RoboSideOne from 'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/robo_side1.jpg';
+import RoboSideTwo from 'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/robo_side2.jpg';
+import RoboSideThree from 'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/robo_side3.jpg';
 
 const Products = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -134,7 +134,13 @@ const Products = () => {
           </div>
         </div>
         <div className="absolute lg:relative bottom-20 opacity-10 lg:opacity-100">
-          <Image src={ProductsLandingPlant} alt="" priority />
+          <Image
+            src="https://cloudflare-assets-nx-monorepo.vercel.app/chillout/products_landing_plant.png"
+            width={400}
+            height={400}
+            alt=""
+            priority
+          />
         </div>
       </Section>
       <Section className="container justify-center mx-auto pb-32 max-w-full xl:px-32">

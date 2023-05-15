@@ -113,7 +113,7 @@
 
   /* #region Background images */
   .about_us-image {
-    background: url(../images/about_us.png);
+    background: url('https://cloudflare-assets-nx-monorepo.vercel.app/chillout/about_us.png');
     @apply bg-cover bg-center;
   }
 
@@ -183,7 +183,7 @@
   }
 
   form .input-animated label:after {
-    content: '';
+    /* content: ''; */
     bottom: -2px;
     border-color: var(--underline);
     @apply absolute w-full h-full border-b-2 left-0 transition duration-300 ease-linear transform -translate-x-full;

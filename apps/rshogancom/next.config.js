@@ -19,6 +19,7 @@ const nextConfig = {
       'img.icons8.com',
       'rshogan.imgix.net',
       'res.cloudinary.com',
+      'cloudflare-assets-nx-monorepo.vercel.app',
     ],
     formats: ['image/avif', 'image/webp'],
   },

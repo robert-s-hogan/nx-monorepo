@@ -8,11 +8,12 @@ export const chilloutProducts: ChilloutProducts = {
       name: 'Premium Air Conditioner',
       description:
         'An advanced and powerful air conditioning system for your home or office',
-      main_image: '/images/product1_main.jpg',
+      main_image:
+        'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/product1_main.jpg',
       images: [
-        '/images/product1_a.jpg',
-        '/images/product1_b.jpg',
-        '/images/product1_c.jpg',
+        'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/product1_a.jpg',
+        'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/product1_b.jpg',
+        'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/product1_c.jpg',
       ],
       price: 1000,
       discount: '20% Off Today',
@@ -25,11 +26,12 @@ export const chilloutProducts: ChilloutProducts = {
       id: 2,
       name: 'Ultra Robo-Con',
       description: 'An intelligent and versatile robot for your home or office',
-      main_image: '/images/robo_main.jpg',
+      main_image:
+        'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/robo_main.jpg',
       images: [
-        '/images/robo_side1.jpg',
-        '/images/robo_side2.jpg',
-        '/images/robo_side3.jpg',
+        'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/robo_side1.jpg',
+        'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/robo_side2.jpg',
+        'https://cloudflare-assets-nx-monorepo.vercel.app/chillout/robo_side3.jpg',
       ],
       price: 8000,
       discount: '15% Off Today',

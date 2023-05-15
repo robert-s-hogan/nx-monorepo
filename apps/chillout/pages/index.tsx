@@ -3,12 +3,6 @@ import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import Snowflake from '../public/images/snowflake.svg';
-import Happy from '../public/images/happy.png';
-import SmilingManOne from '../public/images/smiling_man.png';
-import SmilingManTwo from '../public/images/smiling_man_2.jpg';
-import SmillingWomanOne from '../public/images/smiling_woman.jpg';
-
 export const indexCards = [
   {
     icon: 'icon-1',
@@ -68,7 +62,7 @@ export function Index() {
             <div className="mx-8 mb-10 lg:mb-0">
               <div className="card rounded-tr-20xl">
                 <Image
-                  src={Snowflake}
+                  src="https://cloudflare-assets-nx-monorepo.vercel.app/chillout/snowflake.svg"
                   alt=""
                   className="card-icon"
                   height={32}
@@ -133,8 +127,9 @@ export function Index() {
             <div className="relative w-full pb-96 lg:pb-0 lg:ml-44 mb-20">
               <Image
                 className="absolute w-full h-full object-cover"
-                src={Happy}
+                src="https://cloudflare-assets-nx-monorepo.vercel.app/chillout/happy.png"
                 alt="A small golden trophy"
+                layout="fill"
               />
             </div>
           </div>
@@ -165,7 +160,9 @@ export function Index() {
             <div className="flex flex-col items-center pb-6">
               <Image
                 className="rounded-full w-24 shadow-inner"
-                src={SmilingManOne}
+                src="https://cloudflare-assets-nx-monorepo.vercel.app/chillout/smiling_man.png"
+                width="96"
+                height="96"
                 alt=""
               />
               <span className="text-sm font-bold mt-2 tracking-wider text-gray-600">
@@ -184,7 +181,9 @@ export function Index() {
             <div className="flex flex-col items-center pb-6">
               <Image
                 className="rounded-full w-24 shadow-inner"
-                src={SmillingWomanOne}
+                src="https://cloudflare-assets-nx-monorepo.vercel.app/chillout/smiling_woman.jpg"
+                width="96"
+                height="96"
                 alt=""
               />
               <span className="text-sm font-bold mt-2 tracking-wider text-gray-600">
@@ -205,7 +204,9 @@ export function Index() {
             <div className="flex flex-col items-center pb-6">
               <Image
                 className="rounded-full w-24 shadow-inner"
-                src={SmilingManTwo}
+                src="https://cloudflare-assets-nx-monorepo.vercel.app/chillout/smiling_man_2.jpg"
+                width="96"
+                height="96"
                 alt=""
               />
               <span className="text-sm font-bold mt-2 tracking-wider text-gray-600">
