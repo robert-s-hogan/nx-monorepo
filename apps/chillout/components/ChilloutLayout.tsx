@@ -36,7 +36,7 @@ const ChilloutLayout = ({
         }
         url="https://chillout.robertshogan.com/"
         faviconPath="/favicon.ico"
-        image="/images/cooling-logo.jpg"
+        image="https://cloudflare-assets-nx-monorepo.vercel.app/chillout/chill-out-logo.svg"
         twitterHandle="@chillout"
         siteName="We Keep You Cool"
         appleTouchIconPath="/apple-touch-icon.png"

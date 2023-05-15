@@ -8,11 +8,9 @@ import { useSelector } from 'react-redux';
 import { selectTotalQuantity } from '@with-nx/store/cart';
 import { RootState } from '../store';
 
-import ChilloutSVG from '../public/images/chill-out-logo.svg';
-
 const logo = (
   <Image
-    src={ChilloutSVG}
+    src="https://cloudflare-assets-nx-monorepo.vercel.app/chillout/chill-out-logo.svg"
     alt="Chillout Product Shop Logo"
     height={50}
     width={150}
