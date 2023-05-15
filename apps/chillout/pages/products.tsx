@@ -161,10 +161,13 @@ const Products = () => {
               >
                 <Flex className={`${index === 1 ? '' : ''}`}>
                   <div className="w-full h-auto">
-                    <NextjsImage
+                    <Image
                       data-product={product.id}
                       className="rounded-xl lg:rounded-lg"
                       src={product.main_image}
+                      width={500}
+                      height={500}
+                      objectFit="cover"
                       alt={product.name}
                       isLoading={isLoading}
                     />
@@ -174,10 +177,13 @@ const Products = () => {
                           key={`${image}-${index}}`}
                           className="w-full h-auto"
                         >
-                          <NextjsImage
+                          <Image
                             data-product={product.id}
                             className="object-cover rounded-xl lg:rounded-lg"
                             src={image}
+                            width={250}
+                            height={250}
+                            objectFit="cover"
                             alt={product.name}
                             isLoading={isLoading}
                           />
