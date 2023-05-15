@@ -169,7 +169,7 @@ const Products = () => {
                       height={500}
                       objectFit="cover"
                       alt={product.name}
-                      isLoading={isLoading}
+                      // isLoading={isLoading}
                     />
                     <Grid className="grid-cols-3 gap-4 mt-4">
                       {product.images.map((image, index) => (
@@ -185,7 +185,7 @@ const Products = () => {
                             height={250}
                             objectFit="cover"
                             alt={product.name}
-                            isLoading={isLoading}
+                            // isLoading={isLoading}
                           />
                         </div>
                       ))}
