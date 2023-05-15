@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { Navbar } from '@with-nx/react-ui';
 import { ButtonProps, LinkProps } from '@with-nx/types';
 import Image from 'next/image';
-
 import { useTheme } from 'next-themes';
 import { FiMoon, FiSun, FiShoppingCart } from 'react-icons/fi';
+import { useSelector } from 'react-redux';
+import { selectTotalQuantity } from '@with-nx/store/cart';
+import { RootState } from '../store';
 
 import ChilloutSVG from '../public/images/chill-out-logo.svg';
 
@@ -19,12 +21,19 @@ const logo = (
 
 const DevBlogHeader = () => {
   const { theme, setTheme } = useTheme();
-
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  const [totalQuantity, setTotalQuantity] = useState<number | null>(null);
+  const totalQuantityFromStore = useSelector((state: RootState) =>
+    selectTotalQuantity(state)
+  );
+  useEffect(() => {
+    setTotalQuantity(totalQuantityFromStore);
+  }, [totalQuantityFromStore]);
 
   const toggleButton = isMounted ? (
     <button
@@ -58,6 +67,7 @@ const DevBlogHeader = () => {
       children: (
         <>
           <FiShoppingCart size={20} />
+          {totalQuantity !== null && totalQuantity}
         </>
       ),
       className: 'nav-icon',

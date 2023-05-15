@@ -9,12 +9,14 @@ import {
   Skeleton,
   Spinner,
 } from '@with-nx/react-ui';
-import { DollarSign, Shield, Truck } from '@with-nx/icons';
+import { Check, DollarSign, Shield, Truck } from '@with-nx/icons';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '@with-nx/store/products';
+import { addProductToCart } from '@with-nx/store/cart';
 import { NextjsImage } from '@with-nx/nextjs-react-ui';
+import { Product } from '@with-nx/types';
 
 import { RootState, AppDispatch } from '../store';
 import { chilloutProducts } from '../data/chilloutProducts';
@@ -51,7 +53,11 @@ const Products = () => {
     }
   }, [status, dispatch]);
 
-  console.log(`status: ${status}`);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+
+  const isInCart = (product: Product) => {
+    return cartItems.some((item) => item.id === product.id);
+  };
 
   const initialProduct = {
     id: '',
@@ -140,6 +146,8 @@ const Products = () => {
         </Heading>
         <Grid className="grid-cols-1 gap-12 xl:grid-cols-2">
           {productsToRender.map((product, index) => {
+            const productInCart = isInCart(product);
+
             return (
               <Grid
                 className="grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-1 lg:gap-8"
@@ -227,13 +235,25 @@ const Products = () => {
                     </Flex>
                     <div className="mt-6 md:mt-4" />
                     <Button
-                      className="inline-block font-semibold rounded-md uppercase px-8 py-3 bg-blue-500 text-blue-50 hover:bg-blue-700 md:py-4"
+                      className={`inline-block font-semibold rounded-md uppercase px-8 py-3 ${
+                        productInCart ? 'bg-green-500' : 'bg-blue-500'
+                      } text-blue-50 hover:bg-blue-700 md:py-4`}
                       // href="/checkout"
+                      onClick={() => {
+                        const productWithQuantity = { ...product, quantity: 1 };
+                        dispatch(addProductToCart(productWithQuantity));
+                      }}
                       isLoading={isLoading}
                       width={150}
                       height={56}
                     >
-                      add to cart
+                      {productInCart ? (
+                        <Flex className="items-center space-x-4">
+                          Added to Cart <Check className="h-6 w-6 text-white" />
+                        </Flex>
+                      ) : (
+                        'Add to Cart'
+                      )}
                     </Button>
                   </div>
                 </Flex>

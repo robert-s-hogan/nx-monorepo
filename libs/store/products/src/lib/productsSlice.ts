@@ -1,19 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-export interface Product {
-  id: number;
-  name: string;
-  description: string;
-  main_image: string;
-  images: string[];
-  price: number;
-  discount: string;
-  taxes: string;
-  purchase_link: string;
-  quantity: number;
-  time: string;
-}
+import { Product } from '@with-nx/types';
 
 export interface ProductsState {
   data: {
