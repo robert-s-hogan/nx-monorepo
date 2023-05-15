@@ -13,7 +13,10 @@ const nextConfig = {
     svgr: false,
   },
   images: {
-    domains: ['cloudflare-assets-nx-monorepo.vercel.app'],
+    domains: [
+      'cloudflare-assets-nx-monorepo.vercel.app',
+      'chillout.robertshogan.com',
+    ],
   },
 };
 
