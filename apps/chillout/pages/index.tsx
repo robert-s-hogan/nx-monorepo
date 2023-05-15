@@ -37,7 +37,10 @@ export function Index() {
           id="myVideo"
           className="h-screen w-full object-cover -z-10"
         >
-          <source src="/landing-video.mp4" type="video/mp4" />
+          <source
+            src="https://cloudflare-assets-nx-monorepo.vercel.app/chillout/landing-video.mp4"
+            type="video/mp4"
+          />
         </video>
 
         <Flex className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-2 lg:px-6 space-y-10 z-10">
