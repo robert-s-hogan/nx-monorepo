@@ -33,18 +33,18 @@ const DevBlogHeader = () => {
     setTotalQuantity(totalQuantityFromStore);
   }, [totalQuantityFromStore]);
 
-  const toggleButton = isMounted ? (
-    <button
-      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      className="my-auto h-6 text-black flex items-center justify-center"
-    >
-      {theme === 'light' ? (
-        <FiMoon size={20} color="black" className="icon" />
-      ) : (
-        <FiSun size={20} color="white" className="icon" />
-      )}
-    </button>
-  ) : null;
+  // const toggleButton = isMounted ? (
+  //   <button
+  //     onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+  //     className="my-auto h-6 text-black flex items-center justify-center"
+  //   >
+  //     {theme === 'light' ? (
+  //       <FiMoon size={20} color="black" className="icon" />
+  //     ) : (
+  //       <FiSun size={20} color="white" className="icon" />
+  //     )}
+  //   </button>
+  // ) : null;
 
   const links: (
     | (LinkProps & { type?: 'link'; className?: string })
@@ -81,7 +81,7 @@ const DevBlogHeader = () => {
             links={links}
             logo={logo}
             isOpen={true}
-            toggleButton={toggleButton}
+            // toggleButton={toggleButton}
           />
         </div>
       </div>

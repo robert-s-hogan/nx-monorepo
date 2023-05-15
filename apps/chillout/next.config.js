@@ -14,7 +14,6 @@ const nextConfig = {
   },
   images: {
     domains: ['cloudflare-assets-nx-monorepo.vercel.app'],
-    formats: ['image/avif', 'image/webp'],
   },
 };
 
