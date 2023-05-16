@@ -13,9 +13,13 @@ import {
 
 interface MyCartProps {
   onValidationStatusChange?: (isValid: boolean) => void;
+  isFormComplete?: boolean;
 }
 
-const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
+const EnterYourDetails = ({
+  onValidationStatusChange,
+  isFormComplete,
+}: MyCartProps) => {
   const [formValid, setFormValid] = useState(false);
 
   const [shippingDetailsAreCorrect, setShippingDetailsAreCorrect] =
@@ -179,7 +183,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
           label="Name"
           name="name"
           required
-          pattern="\S+.*"
           placeholder="Name"
         />
         <Input

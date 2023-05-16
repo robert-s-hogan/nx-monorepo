@@ -27,14 +27,15 @@ export interface InputProps {
   label: string;
   type: string;
   name: string;
-  value: any;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: any;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
   id?: string;
   style?: React.CSSProperties;
   onClick?: (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
   ariaLabel?: string;
   required?: boolean;
+  placeholder?: string;
 }
 
 export interface LabelProps {

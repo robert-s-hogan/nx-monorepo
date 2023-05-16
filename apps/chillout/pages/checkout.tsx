@@ -20,7 +20,7 @@ export default function Page() {
   const [modalType, setModalType] = useState(null);
 
   const [formValid, setFormValid] = useState(false);
-  const isFormComplete = useSelector((state: RootState) => setFormValid(state));
+  const isFormComplete = useSelector((state: RootState) => state.form.isValid);
 
   // const canProgress = (step === 1 && formValid) || (step === 2 && formValid);
 

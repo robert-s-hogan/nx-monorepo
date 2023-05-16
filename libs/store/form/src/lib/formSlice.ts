@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface FormState {
-  isValid: boolean;
+  isValid?: boolean;
 }
 
 const initialState: FormState = {
