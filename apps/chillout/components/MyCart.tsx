@@ -7,8 +7,14 @@ import { Box } from 'simple-effing-primitive-layout';
 // import { Rule } from '@with-nx/simple-ui/atoms';
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { Text, Flex, Section } from '@with-nx/react-ui';
+import { Button, Flex, Section, Stepper, Text } from '@with-nx/react-ui';
+import { Minus, Plus, X } from '@with-nx/icons';
 import Image from 'next/image';
+import {
+  decreaseProductQuantity,
+  increaseProductQuantity,
+  removeProductFromCart,
+} from '@with-nx/store/cart';
 
 // import { useAuth } from '@with-nx/auth';
 import { CheckoutPageFormData } from '../pages/checkout';
@@ -20,6 +26,7 @@ interface MyCartProps {
   formData: CheckoutPageFormData;
   setFormData: (data: CheckoutPageFormData) => void;
   onCreateProduction: (productionData: any) => void;
+  cartItems: any;
 }
 
 const MyCart = ({
@@ -28,23 +35,21 @@ const MyCart = ({
   formData,
   setFormData,
   onCreateProduction,
+  cartItems,
 }: MyCartProps) => {
   const dispatch = useDispatch();
   const products = chilloutProducts.results;
 
-  const [cartItems, setCartItems] = useState<
-    Record<number, { isValid: boolean }>
-  >({});
   const [customizableCartItems, setCustomizableCartItems] = useState([]);
 
   // const licensedItemsData = shoppingCart?.data?.licensedItemsData;
   // const nonLicensedItemsData = shoppingCart?.data?.nonLicensedItemsData;
 
-  useEffect(() => {
-    onValidationStatusChange(false);
-  }, []);
+  // useEffect(() => {
+  //   onValidationStatusChange(false);
+  // }, []);
 
-  console.log(`formData from MyCart: `, formData);
+  // console.log(`formData from MyCart: `, formData);
 
   // const handleRemoveItem = async (itemId) => {
   //   try {
@@ -130,6 +135,25 @@ const MyCart = ({
   // };
   // const cartItemRefs = useRef([]);
   // const firstCartItemDetails = cartItemRefs.current[0]?.getDetails();
+
+  const [cartItemsState, setCartItemsState] = useState(cartItems);
+
+  useEffect(() => {
+    setCartItemsState(cartItems);
+  }, [cartItems]);
+
+  const handleRemoveProduct = (id) => {
+    dispatch(removeProductFromCart(id));
+  };
+
+  const handleQuantityChange = (id, newQuantity, oldQuantity) => {
+    if (newQuantity > oldQuantity) {
+      dispatch(increaseProductQuantity(id));
+    } else if (newQuantity < oldQuantity) {
+      dispatch(decreaseProductQuantity(id));
+    }
+  };
+
   return (
     <Section>
       <div className="mt-16 lg:mt-0">
@@ -144,35 +168,52 @@ const MyCart = ({
           </h3>
         </div>
         <div className="space-y-4">
-          {/* {shoppingCart.data?.results?.map((product) => (
+          {cartItems.map((product) => (
             <div key={product.id} className="card items-center justify-between">
-              <div className="flex space-x-4 mb-4">
-                <Image src={`${product.main_image}`} width={100} height={100} />
-                <Flex className="flex-col">
-                  <Text className="lg:text-xl">{product.name}</Text>
-                  <Text className="uppercase text-sm">
-                    by <span className="text-primary">Chillout Company</span>
-                  </Text>
+              <Flex className="justify-end w-full h-full">
+                <Button
+                  className=""
+                  onClick={() => handleRemoveProduct(product.id)}
+                >
+                  <X className="text-gray-400 h-4 w-4 cursor-pointer" />
+                </Button>
+              </Flex>
+              <Flex className="flex-col space-x-4 mb-4">
+                <Flex className="space-x-4">
+                  <div className="mt-=2" />
+                  <Image
+                    src={`${product.main_image}`}
+                    width={100}
+                    height={100}
+                  />
+                  <Flex className="flex-col">
+                    <Text className="text-sm lg:text-xl">{product.name}</Text>
+                    <Text className="uppercase text-xs">
+                      by <span className="text-primary">Chillout Company</span>
+                    </Text>
+                    <Flex className="flex-col space-y-4 text-right">
+                      <Text className="text-xl pt-2 text-left">
+                        ${product.price}
+                      </Text>
+                      <Stepper
+                        value={product.quantity}
+                        onValueChange={(newQuantity) =>
+                          handleQuantityChange(
+                            product.id,
+                            newQuantity,
+                            product.quantity
+                          )
+                        }
+                        minusIcon={<Minus className="text-white h-4 w-4" />}
+                        plusIcon={<Plus className="text-white h-4 w-4" />}
+                      />
+                    </Flex>
+                  </Flex>
                 </Flex>
-                <Flex className="flex-col">
-                  <Text className="text-sm lg:text-xl text-right">
-                    ${product.price}
-                  </Text>
-                  <div className="flex justify-end mb-4 text-sm lg:text-base">
-                    <select name="quantity" id="quantity">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                    </select>
-                  </div>
-                </Flex>
-              </div>
+              </Flex>
             </div>
-          ))} */}
+          ))}
         </div>
-
-        {/* <pre>{JSON.stringify(shoppingCart, null, 2)}</pre> */}
 
         <span
           id="success"

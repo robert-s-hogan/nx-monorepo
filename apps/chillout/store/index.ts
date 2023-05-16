@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import productsReducer from '../../../libs/store/products/src/lib/productsSlice';
 import cartReducer from '../../../libs/store/cart/src/lib/cartSlice';
+import checkoutReducer from '../../../libs/store/checkout/src/lib/checkoutSlice';
 import { ChilloutProducts } from '@with-nx/types';
 
 export interface RootState {
   products: ReturnType<typeof productsReducer>;
   cart: ReturnType<typeof cartReducer>;
+  checkout: ReturnType<typeof checkoutReducer>;
 }
 
 const loadState = () => {
@@ -35,6 +37,7 @@ export const store = configureStore({
   reducer: {
     products: productsReducer,
     cart: cartReducer,
+    checkout: checkoutReducer,
   },
   preloadedState: persistedState,
 });

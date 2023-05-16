@@ -5,6 +5,7 @@ export interface ChilloutProduct {
   main_image: string;
   images: string[];
   price: number;
+  quantity: number;
   discount: string;
   taxes: string;
   purchase_link: string;

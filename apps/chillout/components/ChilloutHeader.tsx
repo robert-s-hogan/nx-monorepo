@@ -52,7 +52,7 @@ const DevBlogHeader = () => {
   )[] = [
     {
       href: '/products',
-      children: 'View Products',
+      children: 'Products',
       className: 'link',
     },
     {
@@ -77,7 +77,7 @@ const DevBlogHeader = () => {
       <div className="w-full bg-primary bg-opacity-60 absolute z-40">
         <div className="mx-auto max-w-7xl w-full flex flex-col justify-center items-center">
           <Navbar
-            className="flex justify-between container mx-auto space-x-4 py-4 items-center z-30"
+            className="flex justify-between container mx-auto space-x-4 p-4 items-center z-30"
             links={links}
             logo={logo}
             isOpen={true}

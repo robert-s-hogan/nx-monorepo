@@ -1,11 +1,11 @@
 import ChilloutLayout from '../components/ChilloutLayout';
-// import { OrderSummary } from '@with-nx/simple-ui/organisms';
 import React, { useState, useEffect } from 'react';
 import { useModal } from '@with-nx/react-hooks';
 // import { useAuth } from '@with-nx/auth';
-// import { useDisclosure } from '@chakra-ui/react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
+import { nextStep, previousStep } from '@with-nx/store/checkout';
 
 //components
 import MyCart from '../components/MyCart';
@@ -13,52 +13,6 @@ import EnterYourDetails from '../components/EnterYourDetails';
 import CheckoutForm from '../components/CheckoutForm';
 import ChilloutModal from '../components/ChilloutModal';
 import OrderSummary from '../components/OrderSummary';
-
-export interface CheckoutPageFormData {
-  showTitle: string;
-  organizationName: string;
-  firstPerformance: string;
-  lastPerformance: string;
-  licensorCode: number;
-  additionalWeeks: number;
-  salesOrderNumber: string;
-}
-
-export const initialItems = [
-  {
-    id: 1,
-    productId: 1,
-    details: {
-      title: 'title one',
-      organization: 'org one',
-      first_performance_date: '2021-10-10',
-      last_performance_date: '2021-10-10',
-      access_code: 'access code one',
-    },
-  },
-  {
-    id: 2,
-    productId: 2,
-    details: {
-      title: 'title two',
-      organization: 'org two',
-      first_performance_date: '2021-10-10',
-      last_performance_date: '2021-10-10',
-      access_code: 'access code two',
-    },
-  },
-  {
-    id: 3,
-    productId: 3,
-    details: {
-      title: 'title three',
-      organization: 'org three',
-      first_performance_date: '2021-10-10',
-      last_performance_date: '2021-10-10',
-      access_code: 'access code three',
-    },
-  },
-];
 
 export default function Page() {
   const { isShowing, toggle } = useModal();
@@ -68,7 +22,6 @@ export default function Page() {
 
   // const canProgress = (step === 1 && formValid) || (step === 2 && formValid);
 
-  const [cartItems, setCartItems] = useState(initialItems);
   // const handleApplyAllChange = (
   //   id: number,
   //   productId: number,
@@ -155,30 +108,39 @@ export default function Page() {
   //   toggle();
   // };
 
+  const dispatch = useDispatch();
+  const step = useSelector((state: RootState) => state.checkout.step);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+
+  const handleNext = () => {
+    dispatch(nextStep());
+  };
+
+  const handleBack = () => {
+    dispatch(previousStep());
+  };
+
+  let stepComponent;
+  switch (step) {
+    case 1:
+      stepComponent = <MyCart cartItems={cartItems} />;
+      break;
+    case 2:
+      stepComponent = <ShippingDetails />;
+      break;
+    case 3:
+      stepComponent = <PaymentDetails />;
+      break;
+    default:
+      stepComponent = <Confirmation />;
+  }
+
   return (
     <ChilloutLayout>
-      <div className="w-full py-48 c:?background">
+      <div className="w-full py-12 c:?background">
         <div className="container mx-auto">
           <Grid className="grid-cols-1 md:grid-cols-4">
-            <div className="col-span-1 md:col-span-3">
-              {/* {step === 1 && (
-                <MyCart
-                  onValidationStatusChange={(isValid) =>
-                    handleFormValidationStatus(isValid, 'MyCart')
-                  }
-                  formData={formData}
-                  setFormData={setFormData}
-                  onCreateProduction={createProduction}
-                />
-              )}
-              {step === 2 && (
-                <EnterYourDetails
-                  onValidationStatusChange={(isValid) =>
-                    handleFormValidationStatus(isValid, 'EnterYourDetails')
-                  }
-                />
-              )} */}
-            </div>
+            <div className="col-span-1 md:col-span-3">{stepComponent}</div>
             <OrderSummary
               canProgress={true}
               // onContinuePress={true}

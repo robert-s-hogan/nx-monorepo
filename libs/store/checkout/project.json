@@ -1,0 +1,16 @@
+{
+  "name": "store-checkout",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/store/checkout/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/store/checkout/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}
