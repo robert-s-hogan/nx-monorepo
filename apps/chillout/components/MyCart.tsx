@@ -153,12 +153,12 @@ const MyCart = ({
 
   return (
     <Section>
-      <div className="mt-16 lg:mt-0">
+      <>
         <Text className="text-xl mb-4">My Cart</Text>
         <div className="mb-8">
-          <div className="flex w-8 h-8 rounded-full justify-center items-center border-2 text-blue-500 border-blue-500">
+          {/* <div className="flex w-8 h-8 rounded-full justify-center items-center border-2 text-blue-500 border-blue-500">
             <span className="text-2xl font-semibold">1</span>
-          </div>
+          </div> */}
 
           <h3 className="uppercase tracking-wider text-xs font-semibold mt-2 text-gray-400">
             Product Info
@@ -225,7 +225,7 @@ const MyCart = ({
         >
           Whoops... Something went wrong.
         </span>
-      </div>
+      </>
     </Section>
   );
 };

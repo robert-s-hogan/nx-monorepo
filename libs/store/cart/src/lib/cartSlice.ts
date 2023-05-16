@@ -27,7 +27,6 @@ const cartSlice = createSlice({
       }
       console.log(`Added ${action.payload.name} to cart`);
     },
-
     decreaseProductQuantity: (state, action: PayloadAction<string>) => {
       const item = state.items.find((item) => item.id === action.payload);
       if (item && item.quantity > 1) {
@@ -67,6 +66,15 @@ const cartSlice = createSlice({
 });
 
 export const selectCartItems = (state: RootState) => state.cart.items;
+
+export const selectCartSubtotal = createSelector(selectCartItems, (items) =>
+  items.reduce((total, item) => total + item.price * item.quantity, 0)
+);
+
+export const selectCartTotal = createSelector(
+  selectCartSubtotal,
+  (subtotal) => subtotal
+);
 
 export const selectTotalQuantity = createSelector(selectCartItems, (items) =>
   items.reduce((total, item) => total + item.quantity, 0)

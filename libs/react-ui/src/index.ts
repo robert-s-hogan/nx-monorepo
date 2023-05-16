@@ -1,3 +1,5 @@
+export * from './lib/textarea/textarea';
+export * from './lib/label/label';
 export * from './lib/collapse/collapse';
 export * from './lib/list-item/list-item';
 export * from './lib/page-not-found/page-not-found';

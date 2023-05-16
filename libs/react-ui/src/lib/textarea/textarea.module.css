@@ -1,8 +1,8 @@
-.inputContainer {
+.textareaContainer {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.inputContainer > * {
+.textareaContainer > * {
   margin-bottom: 0.5rem;
 }

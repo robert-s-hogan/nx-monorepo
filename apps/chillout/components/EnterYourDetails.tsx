@@ -1,18 +1,18 @@
-import { Box } from 'simple-effing-primitive-layout';
-
-// import { MobileViewSwitcher } from '@with-nx/simple-ui/organisms';
-// import {
-//   DesignedCheck,
-//   DesignedInput,
-//   DesignedSelect,
-//   Text,
-// } from '@with-nx/simple-ui/atoms';
-// import { AllCountries, AllStatesAndCities } from '@with-nx/region';
 import React, { useEffect, useState } from 'react';
-import { Text } from '@with-nx/react-ui';
+import { Box } from 'simple-effing-primitive-layout';
+import {
+  Button,
+  Flex,
+  Grid,
+  Heading,
+  Input,
+  Text,
+  Textarea,
+  Section,
+} from '@with-nx/react-ui';
 
 interface MyCartProps {
-  onValidationStatusChange: (isValid: boolean) => void;
+  onValidationStatusChange?: (isValid: boolean) => void;
 }
 
 const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
@@ -63,10 +63,6 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
     setFormValid(formIsValid);
     onValidationStatusChange(formIsValid);
   };
-
-  useEffect(() => {
-    onValidationStatusChange(formValid);
-  }, [formValid, onValidationStatusChange]);
 
   const [billing, _billing] = useState<{
     country: string;
@@ -166,205 +162,48 @@ const EnterYourDetails = ({ onValidationStatusChange }: MyCartProps) => {
   // }, [selectedState, billing.country]);
 
   return (
-    <>
-      <Text className="text-?font1 mb-24 block">Enter Your Details</Text>
-      <Text className="text-?font1 mb-24 block">Billing Details</Text>
-      <div className="lg:flex gap-x-10 pb-20 lg:pb-4 justify-center">
-        <div>
-          <div className="mb-8">
-            <div className="flex w-8 h-8 rounded-full justify-center items-center border-2 text-blue-500 border-blue-500">
-              <span className="text-2xl font-semibold">1</span>
-            </div>
+    <Section>
+      <Flex className="w-8 h-8 rounded-full justify-center items-center border-2 text-blue-500 border-blue-500 font-bold">
+        2
+      </Flex>
+      <Heading
+        level={3}
+        className="uppercase tracking-wider text-xs font-semibold mt-2 text-gray-400"
+      >
+        Delivery Info
+      </Heading>
+      <Flex className="flex-col gap-x-10 py-8 justify-center space-y-2">
+        <Input
+          type="text"
+          id="name"
+          label="Name"
+          name="name"
+          required
+          pattern="\S+.*"
+          placeholder="Name"
+        />
+        <Input
+          type="email"
+          id="email"
+          label="Email"
+          name="email"
+          required
+          placeholder="Email"
+        />
 
-            <h3 className="uppercase tracking-wider text-xs font-semibold mt-2 text-gray-400">
-              Delivery Info
-            </h3>
-          </div>
-          <div className="">
-            <input
-              className="text-gray-600 bg-gray-50"
-              type="text"
-              id="name"
-              name="name"
-              required
-              pattern="\S+.*"
-              placeholder="the placeholder"
-            />
-            <label htmlFor="name" className="label-name">
-              <span className="content-name">Name</span>
-            </label>
-          </div>
-          <div className="">
-            <input
-              className="text-gray-600 bg-gray-50"
-              type="email"
-              id="email"
-              name="email"
-              required
-              placeholder="the placeholder"
-            />
-            <label htmlFor="email" className="label-email">
-              <span className="content-email">Email</span>
-            </label>
-          </div>
-          <div>
-            <textarea
-              className="border-0 w-full bg-gray-100"
-              name="address"
-              placeholder="Enter your detailed address here..."
-              id="address"
-              cols={30}
-              rows={5}
-              minLength={10}
-              maxLength={100}
-              required
-            ></textarea>
-          </div>
-        </div>
-      </div>
-      <>
-        <Text className="!ht c:?font1 mb:24 d:block mt:24">
-          Projector Shipping Details
-        </Text>
-        {/* <MobileViewSwitcher
-          render={(mobile) => (
-            <>
-              <Box className="d:flex">
-                <Box className="f:1">
-                  {/* <DesignedSelect
-                    options={cities.map((city) => [city.value, city.label])}
-                    // options={countryOptions}
-                    value={shipping.country}
-                    change={(country) => _shipping({ ...shipping, country })}
-                  /> 
-                </Box>
-              </Box>
-              <Box
-                className={`d:flex fd:${mobile ? 'column' : 'row'}`}
-                left={-10}
-                right={-10}
-              >
-                <Box className="f:1" right={10} left={10}>
-                  <DesignedInput
-                    value={shipping.name}
-                    change={(name) => {
-                      _shipping({ ...shipping, name });
-                      validateForm();
-                    }}
-                  />
-                </Box>
-                <Box className="f:1" right={10} left={10}>
-                  <DesignedInput
-                    value={shipping.surname}
-                    change={(surname) => {
-                      _shipping({ ...shipping, surname });
-                      validateForm();
-                    }}
-                  />
-                </Box>
-                <Box className="f:1" right={10} left={10}>
-                  <DesignedInput
-                    value={shipping.company}
-                    change={(company) => {
-                      _shipping({ ...shipping, company });
-                      validateForm();
-                    }}
-                  />
-                </Box>
-              </Box>
-              <Box
-                className={`d:flex fd:${mobile ? 'column' : 'row'}`}
-                left={-10}
-                right={-10}
-              >
-                <Box className="f:7" right={10} left={10}>
-                  <DesignedInput
-                    value={shipping.address}
-                    change={(address) => {
-                      _shipping({ ...shipping, address });
-                      validateForm();
-                    }}
-                  />
-                </Box>
-                <Box className="f:1" right={10} left={10}>
-                  <DesignedInput
-                    value={shipping.zip}
-                    change={(zip) => {
-                      _shipping({ ...shipping, zip });
-                      validateForm();
-                    }}
-                  />
-                </Box>
-              </Box>
-              <Box
-                className={`d:flex fd:${mobile ? 'column' : 'row'}`}
-                right={-10}
-                left={-10}
-              >
-                <Box className="f:1" right={10} left={10}>
-                  {shipping.country === 'United States' ? (
-                    <DesignedSelect
-                      options={states}
-                      value={shipping.state}
-                      change={(state) => {
-                        _shipping({ ...shipping, state });
-                        validateForm();
-                      }}
-                    />
-                  ) : (
-                    <DesignedInput
-                      value={shipping.state}
-                      change={(state) => {
-                        _shipping({ ...shipping, state });
-                        validateForm();
-                      }}
-                    />
-                  )}
-                </Box>
-                <Box className="f:1" right={10} left={10}>
-                  {shipping.country === 'United States' ? (
-                    cities.length ? (
-                      <DesignedSelect
-                        options={cities}
-                        value={shipping.city}
-                        change={(city) => {
-                          _shipping({ ...shipping, city });
-                          validateForm();
-                        }}
-                      />
-                    ) : (
-                      <DesignedSelect
-                        options={[['Select State First', 'Select State First']]}
-                        value="Select State First"
-                        change={(city) => {
-                          _shipping({ ...shipping, city });
-                          validateForm();
-                        }}
-                      />
-                    )
-                  ) : (
-                    <DesignedInput
-                      value={shipping.state}
-                      change={(state) => {
-                        _shipping({ ...shipping, state });
-                        validateForm();
-                      }}
-                    />
-                  )}
-                </Box>
-              </Box>
-            </>
-          )}
-        /> */}
-        {/* <DesignedCheck
-          properties={{ top: 24 }}
-          active={shippingDetailsAreCorrect}
-          onClick={() =>
-            setShippingDetailsAreCorrect(!shippingDetailsAreCorrect)
-          }
-        /> */}
-      </>
-    </>
+        <Textarea
+          name="address"
+          label="Address"
+          placeholder="Enter your detailed address here..."
+          id="address"
+          cols={30}
+          rows={5}
+          minLength={10}
+          maxLength={100}
+          required
+        ></Textarea>
+      </Flex>
+    </Section>
   );
 };
 

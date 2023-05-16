@@ -37,6 +37,13 @@ export interface InputProps {
   required?: boolean;
 }
 
+export interface LabelProps {
+  htmlFor: string;
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
 export interface MultiStepFormProps {
   steps: FormStep[];
   onSubmit: (data: Record<string, any>) => void;
@@ -66,4 +73,22 @@ export interface SelectProps {
 export interface SelectOption {
   value: string;
   label: string;
+}
+
+export interface TextareaProps {
+  name: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  className?: string;
+  id?: string;
+  style?: React.CSSProperties;
+  onClick?: (e: React.MouseEvent<HTMLTextAreaElement>) => void;
+  ariaLabel?: string;
+  required?: boolean;
+  placeholder?: string;
+  label: string;
+  cols?: number;
+  rows?: number;
+  minLength?: number;
+  maxLength?: number;
 }

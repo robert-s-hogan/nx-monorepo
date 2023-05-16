@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
 import { nextStep, previousStep } from '@with-nx/store/checkout';
+import { setFormValid } from '@with-nx/store/form';
 
 //components
 import MyCart from '../components/MyCart';
@@ -19,6 +20,7 @@ export default function Page() {
   const [modalType, setModalType] = useState(null);
 
   const [formValid, setFormValid] = useState(false);
+  const isFormComplete = useSelector((state: RootState) => setFormValid(state));
 
   // const canProgress = (step === 1 && formValid) || (step === 2 && formValid);
 
@@ -125,9 +127,9 @@ export default function Page() {
     case 1:
       stepComponent = <MyCart cartItems={cartItems} />;
       break;
-    // case 2:
-    //   stepComponent = <ShippingDetails />;
-    //   break;
+    case 2:
+      stepComponent = <EnterYourDetails isFormComplete={isFormComplete} />;
+      break;
     // case 3:
     //   stepComponent = <PaymentDetails />;
     //   break;
@@ -140,10 +142,12 @@ export default function Page() {
       <div className="w-full py-12">
         <div className="container mx-auto">
           <Grid className="grid-cols-1 md:grid-cols-4">
-            <div className="col-span-1 md:col-span-3">{stepComponent}</div>
+            <div className="col-span-1 md:col-span-3 mt-12">
+              {stepComponent}
+            </div>
             <OrderSummary
-              canProgress={true}
-              // onContinuePress={true}
+              // canProgress={handleNext}
+              onContinuePress={handleNext}
               canPay={true}
               // onClick={handleProgress}
               // subtotal={{ products: '$850.00', license: '$900.00' }}

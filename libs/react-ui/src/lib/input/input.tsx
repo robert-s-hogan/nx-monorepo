@@ -1,4 +1,6 @@
 import { InputProps } from '@with-nx/types';
+import Label from '../label/label';
+import inputStyles from './input.module.css';
 
 export const Input = ({
   label,
@@ -12,11 +14,18 @@ export const Input = ({
   onClick,
   ariaLabel,
   required,
+  placeholder,
 }: InputProps): JSX.Element => {
   return (
-    <div className={className} style={style}>
-      <label htmlFor={name}>{label}</label>
+    <div
+      className={`input-container ${inputStyles.inputContainer} ${className}`}
+      style={style}
+    >
+      <Label htmlFor={name} className="input-label">
+        {label}
+      </Label>
       <input
+        className="input"
         type={type}
         name={name}
         id={id}
@@ -24,6 +33,7 @@ export const Input = ({
         onChange={onChange}
         onClick={onClick}
         required={required}
+        placeholder={placeholder}
       />
     </div>
   );

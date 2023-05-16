@@ -1,13 +1,10 @@
 import { Button, Text, Heading, Flex } from '@with-nx/react-ui';
 import { FiMail, FiDownloadCloud, FiInfo } from 'react-icons/fi';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectCartSubtotal, selectCartTotal } from '@with-nx/store/cart';
 
 interface OrderSummaryProps {
-  subtotal?: {
-    license?: string;
-    products?: string;
-  };
-  total?: string;
   onContinuePress?: () => void;
   onSendEmailInvoiceDetailsPress?: () => void;
   onExportPDFInvoiceDetailsPress?: () => void;
@@ -21,8 +18,6 @@ interface OrderSummaryProps {
 }
 
 export const OrderSummary = ({
-  subtotal,
-  total,
   onContinuePress,
   onSendEmailInvoiceDetailsPress,
   onExportPDFInvoiceDetailsPress,
@@ -35,23 +30,23 @@ export const OrderSummary = ({
 }: OrderSummaryProps) => {
   const [drop, _drop] = useState(false);
   const [agree, _agree] = useState(false);
+  const subtotal = useSelector(selectCartSubtotal);
+  const total = useSelector(selectCartTotal);
 
   return (
-    <div className="w-full p-5 bg-foreground space-y-4">
-      <Heading level={2} className="text-base block mb-12">
+    <div className="w-full h-full p-3 lg:p-5 bg-foreground space-y-4 mt-44">
+      <Heading
+        level={3}
+        className="uppercase tracking-wider text-xs font-semibold mt-2 text-gray-400"
+      >
         Order Summary
       </Heading>
-      {subtotal?.products ? (
-        <Flex className="items-center mb-16 justify-between">
-          <Text className="">Subtotal: </Text>
-          <Text className="text-font-two">{subtotal.products}</Text>
-        </Flex>
-      ) : undefined}
-      <div className="mb-16 h-1 w-full text-accent" />
+
       <Flex className="items-center mb-16 justify-between">
-        <Text className="">Total: </Text>
-        <Text className="text-font-one">{total}</Text>
+        <Text className="text-sm">Subtotal: </Text>
+        <Text className="text-lg font-semibold">${subtotal.toFixed(2)}</Text>
       </Flex>
+
       {step === 'pay' ? (
         <>
           <Button
@@ -94,7 +89,7 @@ export const OrderSummary = ({
           >
             Continue
           </Button>
-          <div
+          {/* <div
             onMouseEnter={() => _drop(true)}
             onMouseLeave={() => _drop(false)}
           >
@@ -106,39 +101,10 @@ export const OrderSummary = ({
                 Export Invoice Details…
               </Button>
               {drop ? (
-                <div className="w-full h-auto absolute unset-0 pt-12 bg-foreground border-accent">
-                  <div className="pa-12 bg-foreground border-accent">
-                    <Flex
-                      className="mb-16 items-center"
-                      // onClick={() => {
-                      //   _drop(false);
-
-                      //   if (onSendEmailInvoiceDetailsPress) {
-                      //     onSendEmailInvoiceDetailsPress();
-                      //   }
-                      // }}
-                    >
-                      <FiMail size={20} className="text-font-three" />
-                      <Text className="text-font-one">Send by Email</Text>
-                    </Flex>
-                    <Flex
-                      className="mb-0 items-center"
-                      // onClick={() => {
-                      //   _drop(false);
-
-                      //   if (onExportPDFInvoiceDetailsPress) {
-                      //     onExportPDFInvoiceDetailsPress();
-                      //   }
-                      // }}
-                    >
-                      <FiDownloadCloud size={20} className="text-font-three" />
-                      <Text className="text-font-one">Download PDF</Text>
-                    </Flex>
-                  </div>
-                </div>
+                <div className="w-full h-auto absolute unset-0 pt-12 bg-foreground border-accent"></div>
               ) : undefined}
             </div>
-          </div>
+          </div> */}
         </>
       )}
     </div>
