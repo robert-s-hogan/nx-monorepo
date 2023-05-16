@@ -17,15 +17,13 @@ import {
 } from '@with-nx/store/cart';
 
 // import { useAuth } from '@with-nx/auth';
-import { CheckoutPageFormData } from '../pages/checkout';
 import { chilloutProducts } from '../data/chilloutProducts';
 
 interface MyCartProps {
-  onValidationStatusChange: (isValid: boolean) => void;
+  onValidationStatusChange?: (isValid: boolean) => void;
   isValid?: boolean;
-  formData: CheckoutPageFormData;
-  setFormData: (data: CheckoutPageFormData) => void;
-  onCreateProduction: (productionData: any) => void;
+  formData?: any;
+  setFormData?: any;
   cartItems: any;
 }
 
@@ -34,7 +32,6 @@ const MyCart = ({
   isValid,
   formData,
   setFormData,
-  onCreateProduction,
   cartItems,
 }: MyCartProps) => {
   const dispatch = useDispatch();
@@ -183,6 +180,7 @@ const MyCart = ({
                   <div className="mt-=2" />
                   <Image
                     src={`${product.main_image}`}
+                    alt={`${product.name} image`}
                     width={100}
                     height={100}
                   />

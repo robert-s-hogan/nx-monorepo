@@ -9,7 +9,6 @@ export interface ChilloutProduct {
   discount: string;
   taxes: string;
   purchase_link: string;
-  quantity: number;
   time: string;
 }
 

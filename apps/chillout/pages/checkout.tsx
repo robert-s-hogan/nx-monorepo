@@ -1,7 +1,7 @@
 import ChilloutLayout from '../components/ChilloutLayout';
 import React, { useState, useEffect } from 'react';
 import { useModal } from '@with-nx/react-hooks';
-// import { useAuth } from '@with-nx/auth';
+import { RootState } from '@with-nx/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button, Flex, Grid, Heading, Text, Section } from '@with-nx/react-ui';
 import Image from 'next/image';
@@ -125,19 +125,19 @@ export default function Page() {
     case 1:
       stepComponent = <MyCart cartItems={cartItems} />;
       break;
-    case 2:
-      stepComponent = <ShippingDetails />;
-      break;
-    case 3:
-      stepComponent = <PaymentDetails />;
-      break;
+    // case 2:
+    //   stepComponent = <ShippingDetails />;
+    //   break;
+    // case 3:
+    //   stepComponent = <PaymentDetails />;
+    //   break;
     default:
-      stepComponent = <Confirmation />;
+      return null;
   }
 
   return (
     <ChilloutLayout>
-      <div className="w-full py-12 c:?background">
+      <div className="w-full py-12">
         <div className="container mx-auto">
           <Grid className="grid-cols-1 md:grid-cols-4">
             <div className="col-span-1 md:col-span-3">{stepComponent}</div>
