@@ -26,6 +26,16 @@ export const projectsData = [
     category: ['JavaScript', 'CSS', 'GithubPages'],
     isUnderConstruction: false,
   },
+  {
+    title: 'Custom Google Search Tool',
+    description:
+      'This tool helps Frelance Web Developers find potential clients.',
+    link: 'https://www.roberthogan.dev/projects/freelance-find-sites',
+    github: '',
+    category: ['React', 'TailwindCSS', 'Google'],
+    isUnderConstruction: false,
+  },
+
   // {
   //   title: 'Local Coffee Shop',
   //   description:

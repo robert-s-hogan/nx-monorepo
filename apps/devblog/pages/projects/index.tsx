@@ -2,6 +2,7 @@ import DevBlogLayout from '../../components/layout/DevBlogLayout';
 import { Link, Button, Text, Heading, Flex } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
 import { FaReact } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 import {
   SiJavascript,
   SiCss3,
@@ -34,6 +35,8 @@ const Projects = () => {
         return <SiReactquery className="text-react-query" />;
       case 'TailwindCSS':
         return <SiTailwindcss className="text-tailwindcss" />;
+      case 'Google':
+        return <FcGoogle className="text-google" />;
       case 'GithubPages':
         return (
           <SiGithubpages
@@ -48,7 +51,7 @@ const Projects = () => {
   return (
     <DevBlogLayout>
       <section className="space-y-6 px-4">
-        <Heading level={1}>Projects</Heading>
+        <Heading level={1}>Projects & Tools</Heading>
         <Text className="sub-title">
           Here are all my projects I have worked on (still moving projects over
           to the monorepo) &#129318;
