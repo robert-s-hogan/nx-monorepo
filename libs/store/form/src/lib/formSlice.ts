@@ -14,6 +14,7 @@ const formSlice = createSlice({
   reducers: {
     setFormValid: (state, action: PayloadAction<boolean>) => {
       state.isValid = action.payload;
+      console.log(`formSlice: setFormValid: ${state.isValid}`);
     },
   },
 });

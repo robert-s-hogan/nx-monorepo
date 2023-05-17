@@ -1,6 +1,7 @@
 import PlaceholderLayout from '../components/layout/PlaceholderLayout';
 import { useState } from 'react';
 import {
+  Box,
   Hero,
   Stepper,
   PageIndicator,
@@ -12,7 +13,6 @@ import { FiMinus, FiPlus, FiCheck } from 'react-icons/fi';
 import { Activity } from '@with-nx/icons';
 
 import { motion } from 'framer-motion';
-import { Box } from 'simple-effing-primitive-layout';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
@@ -528,17 +528,13 @@ function Index() {
           <div className="relative h-96 overflow-hidden">
             <div className="absolute inset-0 z-10 w-full h-full">
               <Box
-                parse="p:absolute t:0 l:0 w:100% h:100% z:2 i:2"
                 style={{
                   backgroundImage:
                     'linear-gradient(67.62deg, #02070E 21.87%, rgba(2, 7, 14, 0) 46.87%, #02070E 97.4%)',
                 }}
                 className="overflow-hidden"
               ></Box>
-              <Box
-                parse="p:absolute b:unset r:unset t:50% l:50%"
-                style={{ transform: 'translateX(-50%) rotate(-15deg)' }}
-              >
+              <Box style={{ transform: 'translateX(-50%) rotate(-15deg)' }}>
                 <Animated />
               </Box>
             </div>

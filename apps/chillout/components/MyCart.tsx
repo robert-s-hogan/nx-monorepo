@@ -1,13 +1,6 @@
-import { Box } from 'simple-effing-primitive-layout';
-
-// import {
-//   CustomizableCartItem,
-//   CustomizableCartItemDetails,
-// } from '@with-nx/simple-ui/organisms';
-// import { Rule } from '@with-nx/simple-ui/atoms';
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { Button, Flex, Section, Stepper, Text } from '@with-nx/react-ui';
+import { Box, Button, Flex, Section, Stepper, Text } from '@with-nx/react-ui';
 import { Minus, Plus, X } from '@with-nx/icons';
 import Image from 'next/image';
 import {

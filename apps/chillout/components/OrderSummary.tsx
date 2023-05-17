@@ -1,4 +1,4 @@
-import { Button, Text, Heading, Flex } from '@with-nx/react-ui';
+import { Button, Checkbox, Text, Heading, Flex } from '@with-nx/react-ui';
 import { FiMail, FiDownloadCloud, FiInfo } from 'react-icons/fi';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -10,10 +10,12 @@ interface OrderSummaryProps {
   onExportPDFInvoiceDetailsPress?: () => void;
   onPayByCardPress?: () => void;
   onUploadPurchaseOrderPress?: () => void;
-  step?: 'continue' | 'pay';
+  onBackPress?: () => void;
+  step: 'pay' | 'continue';
   licensors?: string[];
   canPay?: boolean;
   canProgress?: boolean;
+  isFormComplete?: boolean;
   press?: ((event?: any) => void | Promise<void>) | undefined | null;
 }
 
@@ -22,11 +24,13 @@ export const OrderSummary = ({
   onSendEmailInvoiceDetailsPress,
   onExportPDFInvoiceDetailsPress,
   onPayByCardPress,
+  onBackPress,
   onUploadPurchaseOrderPress,
   step,
   licensors,
   canPay = false,
   canProgress,
+  isFormComplete,
 }: OrderSummaryProps) => {
   const [drop, _drop] = useState(false);
   const [agree, _agree] = useState(false);
@@ -50,45 +54,37 @@ export const OrderSummary = ({
       {step === 'pay' ? (
         <>
           <Button
-            disabled={!agree || !canPay}
+            disabled={!isFormComplete}
             onClick={onPayByCardPress}
-            className="w-full flex items-center justify-center mb-4"
-            icon="card/bold"
+            className="btn-primary w-full flex items-center justify-center mb-4"
           >
             Pay by Card
           </Button>
-          <Flex className="items-center my-12">
-            <div className="h-1" />
-            <div className="inline-flex">
-              <Text className="mx-10">OR</Text>
-            </div>
-            <div className="h-1" />
-          </Flex>
           <Button
-            disabled={!agree || !canPay}
-            onClick={onUploadPurchaseOrderPress}
-            className="w-full flex items-center justify-center mb-4"
+            className="w-full underline text-primary text-sm"
+            onClick={onBackPress}
           >
-            Pay by Card
+            Back
           </Button>
-          <div className="flex items-start">
-            {/* <DesignedCheck active={agree} onClick={() => _agree(!agree)} /> */}
+
+          <Flex className="items-start space-x-1">
+            {/* <Checkbox checked={agree} /> */}
             <div className="ml-10" onClick={() => _agree(!agree)}>
-              <Text className="">
+              <Text className="text-xs">
                 Have read and agree to the privacy policy and terms of service
               </Text>
             </div>
-          </div>
+          </Flex>
         </>
       ) : (
         <>
           <Button
             onClick={onContinuePress}
-            disabled={!canProgress}
             className="btn-primary w-full flex items-center justify-center mb-4"
           >
             Continue
           </Button>
+
           {/* <div
             onMouseEnter={() => _drop(true)}
             onMouseLeave={() => _drop(false)}
