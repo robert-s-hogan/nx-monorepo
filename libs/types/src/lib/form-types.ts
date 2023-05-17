@@ -1,6 +1,10 @@
 export interface CheckboxProps {
   label: string;
   onChange: (checked: boolean) => void;
+  checked?: boolean;
+  className?: string;
+  id?: string;
+  name: string;
 }
 
 export interface FormProps {
@@ -24,9 +28,9 @@ export type FormStep = {
 };
 
 export interface InputProps {
-  label: string;
+  label?: string;
   type: string;
-  name: string;
+  name?: string;
   value?: any;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;

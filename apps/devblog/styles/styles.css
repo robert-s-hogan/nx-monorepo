@@ -51,6 +51,9 @@
   .btn-primary {
     @apply !bg-primary text-white px-3 py-2 rounded-lg;
   }
+  .btn-secondary {
+    @apply !bg-secondary text-white px-3 py-2 rounded-lg;
+  }
   .card {
     @apply bg-gray-200 shadow-lg rounded-lg p-6;
   }
@@ -68,6 +71,9 @@
   }
   .navbar-logo-text {
     @apply no-underline;
+  }
+  .input {
+    @apply border border-gray-300 rounded-lg px-3 py-2;
   }
 }
 

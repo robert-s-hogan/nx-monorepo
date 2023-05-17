@@ -2,18 +2,28 @@ import { CheckboxProps } from '@with-nx/types';
 import { useState } from 'react';
 import checkboxStyles from './checkbox.module.css';
 
-export const Checkbox = ({ label, onChange }: CheckboxProps): JSX.Element => {
+export const Checkbox = ({
+  label,
+  name,
+  onChange,
+}: CheckboxProps): JSX.Element => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-    onChange(event.target.checked);
+    const newCheckedState = event.target.checked;
+    setChecked(newCheckedState);
+    onChange(newCheckedState);
   };
 
   return (
     <div>
       <label>
-        <input type="checkbox" checked={checked} onChange={handleChange} />
+        <input
+          type="checkbox"
+          name={name}
+          checked={checked}
+          onChange={handleChange}
+        />
         <span className={checkboxStyles.labelText}>{label}</span>
       </label>
     </div>
