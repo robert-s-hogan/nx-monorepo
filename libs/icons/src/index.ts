@@ -2,6 +2,7 @@
 export * from './lib/activity/activity';
 export * from './lib/check/check';
 export * from './lib/dollar-sign/dollar-sign';
+export * from './lib/linkedin/linkedin';
 export * from './lib/mail/mail';
 export * from './lib/map-pin/map-pin';
 export * from './lib/minus/minus';

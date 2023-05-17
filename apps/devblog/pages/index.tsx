@@ -1,8 +1,11 @@
 import DevBlogLayout from '../components/layout/DevBlogLayout';
-import { Link, Button } from '@with-nx/react-ui';
+import { Button, Flex, Link } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
+import { Mail, LinkedIn } from '@with-nx/icons';
 import Image from 'next/image';
 import { FaReact } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
+
 import {
   SiJavascript,
   SiCss3,
@@ -10,6 +13,7 @@ import {
   SiNx,
   SiReactquery,
   SiTailwindcss,
+  SiGithubpages,
 } from 'react-icons/si';
 import { TbApi } from 'react-icons/tb';
 import { BiWrench } from 'react-icons/bi';
@@ -21,21 +25,30 @@ export function Index() {
   function getIconForCategory(category) {
     switch (category) {
       case 'React':
-        return <FaReact className="react" />;
+        return <FaReact className="text-react-js" />;
       case 'Next':
-        return <SiNextdotjs className="next" />;
+        return <SiNextdotjs className="text-next-js" />;
       case 'API':
-        return <TbApi className="api" />;
+        return <TbApi className="text-api" />;
       case 'JavaScript':
-        return <SiJavascript className="javascript " />;
+        return <SiJavascript className="text-javascript " />;
       case 'CSS':
-        return <SiCss3 className="css" />;
+        return <SiCss3 className="text-css" />;
       case 'NX':
-        return <SiNx className="nx" />;
+        return <SiNx className="text-nx" />;
       case 'ReactQuery':
-        return <SiReactquery className="react-query" />;
+        return <SiReactquery className="text-react-query" />;
       case 'TailwindCSS':
-        return <SiTailwindcss className="tailwindcss" />;
+        return <SiTailwindcss className="text-tailwindcss" />;
+      case 'Google':
+        return <FcGoogle className="text-google" />;
+      case 'GithubPages':
+        return (
+          <SiGithubpages
+            className="text-github"
+            style={{ width: '3.75em', height: '3.75em' }}
+          />
+        );
       default:
         return null;
     }
@@ -63,41 +76,14 @@ export function Index() {
                     className=" hover:text-vivid-500"
                     target="_blank"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      ></path>
-                    </svg>
+                    <Mail className="h-6 w-6" />
                   </Link>
                   <Link
                     href="https://www.linkedin.com/in/robert-s-hogan/"
                     className="hover:text-vivid-500"
                     target="_blank"
                   >
-                    <svg
-                      fill="currentColor"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="0"
-                      className="w-6 h-6"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="none"
-                        d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                      ></path>
-                      <circle cx="4" cy="4" r="2" stroke="none"></circle>
-                    </svg>
+                    <LinkedIn className="h-6 w-6" />
                   </Link>
                 </div>
               </div>
@@ -132,18 +118,22 @@ export function Index() {
                       <p className="card-text text-black h-28">
                         {project.description}
                       </p>
-                      <div className="w-full flex">
+                      <Flex className="w-full items-center h-12">
                         {project.category.map((cat) => {
                           return (
                             <span
                               key={cat}
-                              className="text-3xl text-black bg-gray-200 rounded-full p-1"
+                              className={`text-3xl text-black bg-gray-200 rounded-full overflow-hidden p-1 ${
+                                cat === 'GithubPages'
+                                  ? 'flex items-center justify-center'
+                                  : ''
+                              }`}
                             >
                               {getIconForCategory(cat)}
                             </span>
                           );
                         })}
-                      </div>
+                      </Flex>
                       <div className="w-full flex justify-between text-black mt-8">
                         <Link
                           href={project.link}
@@ -185,7 +175,7 @@ export function Index() {
             })}
           </div>
           <div className="my-4 flex justify-center">
-            <Link href="/projects">View All Projects</Link>
+            <Link href="/projects">View All Projects & Tools</Link>
           </div>
         </section>
       </section>
