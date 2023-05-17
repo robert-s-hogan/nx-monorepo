@@ -76,8 +76,16 @@ export default function FreelanceFindSites() {
   return (
     <DevBlogLayout>
       <Section>
-        <Heading level={1}>Find Freelance Sites</Heading>
-        <form onSubmit={handleSearch}>
+        <Flex className="flex-col space-y-4">
+          <Heading level={1}>Find Freelance Sites</Heading>
+          <Text>
+            This tool is to find older websites that need an a refresg. The
+            search utilizes Googles Custom Search API with the parameters that
+            can help find older websites: age of website, file type of site, and
+            exclude terms that show up on the site.
+          </Text>
+        </Flex>
+        <form onSubmit={handleSearch} className="mt-8">
           <Flex className="items-center space-x-6">
             <Input
               type="text"
@@ -102,7 +110,7 @@ export default function FreelanceFindSites() {
               placeholder="Years"
             />
             <Flex className="flex-col space-y-2">
-              <Text className="block">Page File Type</Text>
+              <Text className="block">Page File Type (old formats)</Text>
               <Flex className="space-x-2">
                 {['html', 'php', 'asp'].map((fileType) => (
                   <Checkbox
@@ -118,7 +126,9 @@ export default function FreelanceFindSites() {
           </Flex>
           <Flex className="flex-col space-y-2 mt-8">
             <Flex className="items-center justify-between w-full space-x-2">
-              <Text className="!w-auto">Exclude Terms</Text>
+              <Text className="!w-auto">
+                Exclude Terms that show up on the site
+              </Text>
               <Flex className="flex-grow space-x-1">
                 {excludeTerms.map(
                   (term, index) =>
