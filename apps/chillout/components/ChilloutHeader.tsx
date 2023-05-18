@@ -46,10 +46,11 @@ const DevBlogHeader = () => {
   //   </button>
   // ) : null;
 
-  const links: (
-    | (LinkProps & { type?: 'link'; className?: string })
-    | (ButtonProps & { type: 'button'; className?: string })
-  )[] = [
+  const links: {
+    href: string;
+    children: React.ReactNode;
+    className?: string;
+  }[] = [
     {
       href: '/products',
       children: 'Products',

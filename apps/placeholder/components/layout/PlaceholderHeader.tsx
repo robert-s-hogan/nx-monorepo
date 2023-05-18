@@ -11,10 +11,11 @@ const logo = <Image src={PlaceholderImage} height={50} width={50} alt="Logo" />;
 
 const searchIcon = <FiSearch />;
 
-const links: (
-  | (LinkProps & { type?: 'link'; className?: string })
-  | (ButtonProps & { type: 'button'; className?: string })
-)[] = [
+const links: {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+}[] = [
   {
     href: '/',
     children: 'Home',

@@ -4,14 +4,14 @@ import { List } from '@with-nx/react-ui';
 
 export const Footer = ({ className }: FooterProps): JSX.Element => {
   const links1 = [
-    { text: 'Home', href: '/' },
-    { text: 'About', href: '/about' },
-    { text: 'Contact', href: '/contact' },
+    { children: 'Home', href: '/' },
+    { children: 'About', href: '/about' },
+    { children: 'Contact', href: '/contact' },
   ];
 
   const links2 = [
-    { text: 'Privacy Policy', href: '/privacy' },
-    { text: 'Terms of Use', href: '/terms' },
+    { children: 'Privacy Policy', href: '/privacy' },
+    { children: 'Terms of Use', href: '/terms' },
   ];
 
   return (

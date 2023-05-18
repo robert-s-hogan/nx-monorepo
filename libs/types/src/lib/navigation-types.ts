@@ -19,10 +19,11 @@ export interface LinkProps {
 }
 
 export interface NavbarProps {
-  links: (
-    | (LinkProps & { type?: 'link'; className?: string })
-    | (ButtonProps & { type: 'button'; className?: string })
-  )[];
+  links?: {
+    href: string;
+    children: React.ReactNode;
+    className?: string;
+  }[];
   logo?: React.ReactNode;
   logoText?: string;
   isOpen: boolean;
@@ -32,14 +33,6 @@ export interface NavbarProps {
   showSearchBar?: boolean;
   searchBarProps?: SearchBarProps & { icon?: React.ReactNode };
   selects?: (SelectProps & { className?: string })[];
-}
-
-export interface NavbarMenuProps {
-  links: (
-    | (LinkProps & { type?: 'link'; className?: string })
-    | (ButtonProps & { type: 'button'; className?: string })
-  )[];
-  toggleButton?: React.ReactNode;
 }
 
 export interface PaginationProps {

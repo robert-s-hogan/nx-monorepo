@@ -6,17 +6,17 @@ export interface PageNotFoundProps {}
 
 const pageNotFoundItems = [
   {
-    id: 1,
-    value: 'The link to this page may be incorrect or out-of-date',
+    href: '#',
+    children: 'The link to this page may be incorrect or out-of-date',
   },
   {
-    id: 2,
-    value: 'You may have bookmarked a page that has been moved.',
+    href: '#',
+    children: 'You may have bookmarked a page that has been moved.',
   },
 
   {
-    id: 3,
-    value: 'The link you clicked on is old or broken.',
+    href: '#',
+    children: 'The link you clicked on is old or broken.',
   },
 ];
 

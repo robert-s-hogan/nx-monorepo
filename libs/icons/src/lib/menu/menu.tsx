@@ -1,4 +1,6 @@
-import IconWrapper from './IconWrapper';
+// libs/icons/src/lib/menu.tsx
+import { CommonProps } from '@with-nx/types';
+import IconWrapper from '../IconWrapper';
 
 const MenuIcon = (props: CommonProps) => {
   return (

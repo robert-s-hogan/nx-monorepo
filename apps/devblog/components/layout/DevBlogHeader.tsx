@@ -11,10 +11,11 @@ const logo = (
   <Image src={RSHLogo} alt="Robert's Dev Logo" height={41} width={48} />
 );
 
-const links: (
-  | (LinkProps & { type?: 'link'; className?: string })
-  | (ButtonProps & { type: 'button'; className?: string })
-)[] = [
+const links: {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+}[] = [
   {
     href: '/blog',
     children: 'Blog',

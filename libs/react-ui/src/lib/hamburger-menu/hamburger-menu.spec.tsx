@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import NavbarMenu from './navbar-menu';
+import HamburgerMenu from './hamburger-menu';
 
-describe('NavbarMenu', () => {
+describe('HamburgerMenu', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<NavbarMenu />);
+    const { baseElement } = render(<HamburgerMenu />);
     expect(baseElement).toBeTruthy();
   });
 });
