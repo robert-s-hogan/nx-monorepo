@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import useSWR from 'swr';
 import {
   Box,
@@ -9,6 +10,8 @@ import {
   Input,
   Text,
 } from '@with-nx/react-ui';
+import { X } from '@with-nx/icons';
+
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
 const VersionOne = () => {
