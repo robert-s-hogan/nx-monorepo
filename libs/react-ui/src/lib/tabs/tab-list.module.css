@@ -1,4 +1,7 @@
-.tab-list {
+.tabList {
   display: flex;
-  border-bottom: 1px solid #ccc;
+}
+
+.tabList > * + * {
+  margin-left: 1rem;
 }

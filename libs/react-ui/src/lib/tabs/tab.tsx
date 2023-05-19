@@ -1,4 +1,5 @@
 import styles from './tab.module.css';
+import { Button } from '@with-nx/react-ui';
 
 /* eslint-disable-next-line */
 export interface TabProps {
@@ -9,9 +10,9 @@ export interface TabProps {
 
 export function Tab({ label, isActive, onClick }: TabProps) {
   return (
-    <button className={`tab ${isActive ? 'active' : ''}`} onClick={onClick}>
+    <Button className={`tab ${isActive ? 'active' : ''}`} onClick={onClick}>
       {label}
-    </button>
+    </Button>
   );
 }
 

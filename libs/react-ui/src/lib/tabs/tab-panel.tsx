@@ -1,4 +1,4 @@
-import styles from './tab-panel.module.css';
+import tabPanelStyles from './tab-panel.module.css';
 
 /* eslint-disable-next-line */
 export interface TabPanelProps {
@@ -8,7 +8,13 @@ export interface TabPanelProps {
 
 export function TabPanel({ children, isActive }: TabPanelProps) {
   return (
-    <div className={`tab-panel ${isActive ? 'active' : ''}`}>{children}</div>
+    <div
+      className={`${tabPanelStyles.tabPanel} ${
+        isActive ? tabPanelStyles.active : ''
+      }`}
+    >
+      {children}
+    </div>
   );
 }
 

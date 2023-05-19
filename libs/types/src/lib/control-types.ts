@@ -28,6 +28,11 @@ export interface PageIndicatorProps {
   className?: string;
 }
 
+export interface TabData {
+  label: string;
+  content: React.ReactNode;
+}
+
 export interface TabsProps {
-  data: { label: string; content: string }[];
+  data: TabData[];
 }
