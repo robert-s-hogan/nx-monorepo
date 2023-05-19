@@ -1,5 +1,7 @@
 .tabPanel {
   display: none;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
 }
 .active {
   display: block;

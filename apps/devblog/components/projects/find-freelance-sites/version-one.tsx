@@ -41,15 +41,15 @@ const VersionOne = () => {
           process.env.NEXT_PUBLIC_CUSTOM_SEARCH_ENGINE_ID
         }&q=${searchTerm}${excludeTerms
           .map((term) => ` -${term}`)
-          .join('')}&dateRestrict=y${years}&fileType=${selectedFileTypes.join(
-          ','
-        )}`
+          .join('')}&dateRestrict=y${years}&fileType=${selectedFileType}`
       );
     }
   };
 
+  const [selectedFileType, setSelectedFileType] = useState('');
+
   const handleFileTypeChange = (e) => {
-    setFileTypes({ ...fileTypes, [e.target.name]: e.target.checked });
+    setSelectedFileType(e.target.name);
   };
 
   const handleExcludeTermChange = (e) => {
@@ -71,16 +71,7 @@ const VersionOne = () => {
   if (error) return <div>Failed to load</div>;
   return (
     <>
-      <Flex className="flex-col space-y-4">
-        <Heading level={1}>Find Freelance Sites</Heading>
-        <Text>
-          This tool is to find older websites that need an a refresg. The search
-          utilizes Googles Custom Search API with the parameters that can help
-          find older websites: age of website, file type of site, and exclude
-          terms that show up on the site.
-        </Text>
-      </Flex>
-      <form onSubmit={handleSearch} className="mt-8">
+      <form onSubmit={handleSearch} className="p-4 space-y-4">
         <Flex className="items-center space-x-6">
           <Input
             type="text"
@@ -90,7 +81,7 @@ const VersionOne = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search"
           />
-          <Button className="btn-primary" type="submit">
+          <Button className="btn-primary mt-6" type="submit">
             Submit
           </Button>
         </Flex>
@@ -112,7 +103,7 @@ const VersionOne = () => {
                   key={fileType}
                   name={fileType}
                   label={fileType.toUpperCase()}
-                  checked={fileTypes[fileType]}
+                  checked={selectedFileType === fileType}
                   onChange={handleFileTypeChange}
                 />
               ))}

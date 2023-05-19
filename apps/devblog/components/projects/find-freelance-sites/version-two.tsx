@@ -58,7 +58,7 @@ const VersionTwo = () => {
   }
 
   return (
-    <form onSubmit={handleGoogleSearch} className="mt-8">
+    <form onSubmit={handleGoogleSearch} className="p-4">
       <Flex className="items-center space-x-6">
         <Input
           type="text"
@@ -93,6 +93,9 @@ const VersionTwo = () => {
           <div>Loading...</div>
         ) : (
           <Flex className="flex-col space-y-0 mt-4">
+            <Text className="text-xl font-bold">
+              Results: {VersionTwoData && VersionTwoData.length}
+            </Text>
             {VersionTwoData &&
               VersionTwoData.length > 0 &&
               VersionTwoData.map((item, index) => (

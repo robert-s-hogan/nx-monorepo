@@ -1,6 +1,6 @@
 import styles from './tab-list.module.css';
 import Tab from './tab';
-import tabsStyles from './tab-list.module.css';
+import tabsLisStyles from './tab-list.module.css';
 
 /* eslint-disable-next-line */
 export interface TabListProps {
@@ -11,7 +11,7 @@ export interface TabListProps {
 
 export function TabList({ tabs, activeIndex, onTabClick }: TabListProps) {
   return (
-    <div className={`tab-list ${tabsStyles.tabList}`}>
+    <div className={`tab-list ${tabsLisStyles.tabList}`}>
       {tabs.map((tab, index) => (
         <Tab
           key={index}
