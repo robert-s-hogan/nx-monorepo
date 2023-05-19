@@ -5,26 +5,30 @@ import hamburgerIconStyles from './hamburger-icon.module.css';
 interface HamburgerMenuProps {
   open?: boolean;
   onClick?: () => void;
-  links?: {
-    href: string;
-    children: string;
-    className?: string;
-  }[];
+  className?: string;
 }
 
 const HamburgerIcon = ({
   open,
   onClick,
+  className,
 }: {
   open: boolean;
   onClick: () => void;
+  className?: string;
 }): JSX.Element => {
   return open ? (
-    <div className={hamburgerIconStyles.iconContainer} onClick={onClick}>
+    <div
+      className={className ? className : hamburgerIconStyles.iconContainer}
+      onClick={onClick}
+    >
       <X className={hamburgerIconStyles.icon} />
     </div>
   ) : (
-    <div className={hamburgerIconStyles.iconContainer} onClick={onClick}>
+    <div
+      className={className ? className : hamburgerIconStyles.iconContainer}
+      onClick={onClick}
+    >
       <Menu className={hamburgerIconStyles.icon} />
     </div>
   );

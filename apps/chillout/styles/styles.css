@@ -56,6 +56,9 @@
   .navbar-menu li a {
     @apply hover:text-blue-100 uppercase text-white font-semibold;
   }
+  .hamburger-menu {
+    @apply !lg:hidden;
+  }
   .input,
   .textarea {
     @apply border-2 border-gray-200 rounded-lg py-3 px-4 w-full outline-none;

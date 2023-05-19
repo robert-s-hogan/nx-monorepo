@@ -83,7 +83,7 @@ export function Index() {
 
       <Section
         id="who-we-are"
-        className="pt-16 lg:py-36 -mt-8 mx-6 md:mx-32 lg:mx-auto max-w-screen-xl"
+        className="pt-16 lg:py-36 -mt-8 md:mx-32 lg:mx-auto max-w-screen-xl"
       >
         <div>
           <div className="flex flex-col lg:mx-8 lg:flex-row">
