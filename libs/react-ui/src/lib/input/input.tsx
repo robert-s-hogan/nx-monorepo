@@ -8,6 +8,8 @@ export const Input = ({
   name,
   value,
   onChange,
+  onBlur,
+  onFocus,
   className,
   id,
   style,
@@ -15,7 +17,7 @@ export const Input = ({
   ariaLabel,
   required,
   placeholder,
-}: InputProps): JSX.Element => {
+}: InputProps & { onBlur?: () => void; onFocus?: () => void }): JSX.Element => {
   return (
     <div
       className={`input-container ${inputStyles.inputContainer} ${className}`}
@@ -32,6 +34,8 @@ export const Input = ({
         value={value}
         onChange={onChange}
         onClick={onClick}
+        onBlur={onBlur}
+        onFocus={onFocus}
         required={required}
         placeholder={placeholder}
       />
