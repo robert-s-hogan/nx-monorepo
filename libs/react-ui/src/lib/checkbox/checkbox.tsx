@@ -5,14 +5,11 @@ import checkboxStyles from './checkbox.module.css';
 export const Checkbox = ({
   label,
   name,
+  checked,
   onChange,
 }: CheckboxProps): JSX.Element => {
-  const [checked, setChecked] = useState(false);
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newCheckedState = event.target.checked;
-    setChecked(newCheckedState);
-    onChange(newCheckedState);
+    onChange(event);
   };
 
   return (
