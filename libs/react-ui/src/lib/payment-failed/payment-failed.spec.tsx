@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Carousel from './carousel';
+import PaymentFailed from './payment-failed';
 
-describe('Carousel', () => {
+describe('PaymentFailed', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Carousel />);
+    const { baseElement } = render(<PaymentFailed />);
     expect(baseElement).toBeTruthy();
   });
 });

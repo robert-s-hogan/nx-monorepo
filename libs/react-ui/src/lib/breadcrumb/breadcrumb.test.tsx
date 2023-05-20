@@ -17,7 +17,7 @@ describe('Breadcrumb component', () => {
       const itemElement = screen.getByText(title);
       expect(itemElement).toBeInTheDocument();
     });
-  });
+  });a
 
   test('renders Breadcrumb with correct active item', () => {
     render(<Breadcrumb {...defaultProps} />);

@@ -1,3 +1,5 @@
+export * from './lib/payment-successful/payment-successful';
+export * from './lib/payment-failed/payment-failed';
 //libs/react-ui/src/index.ts
 export * from './lib/badge/badge';
 export * from './lib/breadcrumb/breadcrumb';
