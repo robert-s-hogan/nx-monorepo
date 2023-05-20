@@ -26,7 +26,7 @@
         "cacheableOperations": ["build", "lint", "test", "e2e"],
         "cacheDirectory": "/tmp/nx-cache"
       }
-    }
+    } 
   },
   "targetDefaults": {
     "build": {
