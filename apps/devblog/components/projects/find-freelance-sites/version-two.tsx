@@ -92,7 +92,7 @@ const VersionTwo = () => {
         {!VersionTwoData ? (
           <div>Loading...</div>
         ) : (
-          <Flex className="flex-col space-y-0 mt-4">
+          <Flex className="flex-col space-y-0 p-2">
             <Text className="text-xl font-bold">
               Results: {VersionTwoData && VersionTwoData.length}
             </Text>

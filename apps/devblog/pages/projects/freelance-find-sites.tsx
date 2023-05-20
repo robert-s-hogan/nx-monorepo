@@ -20,10 +20,10 @@ export default function FreelanceFindSites() {
   return (
     <DevBlogLayout>
       <Section>
-        <Flex className="flex-col space-y-4">
+        <Flex className="flex-col space-y-4 mb-8">
           <Heading level={1}>Find Freelance Sites</Heading>
           <Text>
-            This tool is to find older websites that need an a refresg. The
+            This tool is to find older websites that need an a refresh. The
             search utilizes Googles Custom Search API with the parameters that
             can help find older websites: age of website, file type of site, and
             exclude terms that show up on the site.

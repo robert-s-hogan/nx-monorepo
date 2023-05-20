@@ -85,17 +85,19 @@ const VersionOne = () => {
             Submit
           </Button>
         </Flex>
-        <Flex className="flex-col w-full items-center space-x-6 space-y-4">
-          <Input
-            type="number"
-            label="Age of Website (Years)"
-            name="years"
-            className="!w-48 h-14"
-            value={years}
-            onChange={(e) => setYears(parseInt(e.target.value))}
-            placeholder="Years"
-          />
-          <Flex className="flex-col space-y-2">
+        <Flex className="w-full flex-col md:flex-row space-y-2">
+          <Flex className="w-full md:w-auto md:mr-8 items-center space-x-6 space-y-2">
+            <Input
+              type="number"
+              label="Age of Website (Years)"
+              name="years"
+              className="!w-48 h-14 mb-8"
+              value={years}
+              onChange={(e) => setYears(parseInt(e.target.value))}
+              placeholder="Years"
+            />
+          </Flex>
+          <Flex className="flex-col w-full md:w-auto space-y-2 ">
             <Text className="block">Page File Type (old formats)</Text>
             <Flex className="space-x-2">
               {['html', 'php', 'asp'].map((fileType) => (
@@ -112,9 +114,7 @@ const VersionOne = () => {
         </Flex>
         <Flex className="flex-col space-y-2 mt-8">
           <Flex className="items-center justify-between w-full space-x-2">
-            <Text className="!w-auto">
-              Exclude Terms that show up on the site
-            </Text>
+            <Text className="!w-auto">Excluded Terms</Text>
             <Flex className="flex-grow space-x-1">
               {excludeTerms.map(
                 (term, index) =>
@@ -149,7 +149,7 @@ const VersionOne = () => {
         {url && !data ? (
           <div>Loading...</div>
         ) : (
-          <Flex className="flex-col space-y-4 mt-4">
+          <Flex className="flex-col space-y-4 p-6">
             {data &&
               data.items.map((item, index) => (
                 <div key={index}>
