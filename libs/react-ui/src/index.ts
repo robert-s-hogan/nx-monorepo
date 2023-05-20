@@ -1,3 +1,8 @@
+export * from './lib/about/about';
+export * from './lib/faq/faq';
+export * from './lib/contact/contact';
+export * from './lib/privacy-policy/privacy-policy';
+export * from './lib/terms-and-conditions/terms-and-conditions';
 export * from './lib/payment-successful/payment-successful';
 export * from './lib/payment-failed/payment-failed';
 //libs/react-ui/src/index.ts

@@ -9,6 +9,7 @@ export interface HeadingProps {
   isLoading?: boolean;
   width?: number | string;
   height?: number | string;
+  onClick?: (event: React.MouseEvent<HTMLHeadingElement, MouseEvent>) => void;
 }
 
 export interface ListProps {
