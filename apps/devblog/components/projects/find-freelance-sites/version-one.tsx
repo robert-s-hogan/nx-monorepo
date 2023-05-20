@@ -36,7 +36,7 @@ const VersionOne = () => {
       );
       setUrl(
         `https://www.googleapis.com/customsearch/v1?key=${
-          process.env.NEXT_PUBLIC_GOOGLE_SEARCH_API_KEY
+          process.env.NEXT_PUBLIC_FREE_GOOGLE_SEARCH_API_KEY
         }&cx=${
           process.env.NEXT_PUBLIC_CUSTOM_SEARCH_ENGINE_ID
         }&q=${searchTerm}${excludeTerms

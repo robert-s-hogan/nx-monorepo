@@ -35,7 +35,7 @@ const VersionTwo = () => {
           { length: 10 },
           (_, i) =>
             `https://www.googleapis.com/customsearch/v1?key=${
-              process.env.NEXT_PUBLIC_GOOGLE_SEARCH_API_KEY
+              process.env.NEXT_PUBLIC_PAID_GOOGLE_SEARCH_API_KEY
             }&cx=${
               process.env.NEXT_PUBLIC_CUSTOM_SEARCH_ENGINE_ID
             }&q=${googleSearchTerm} ${excluded}&start=${i * 10 + 1}`
