@@ -29,8 +29,8 @@ const RSHoganComLayout = ({
             : 'Meet Robert, a talented Web Developer and UI/UX Engineer with a passion for designing and coding beautifully simple digital products. Explore his impressive portfolio of projects and discover how he can help enhance your digital presence.'
         }
         url="https://www.robertshogan.com"
-        faviconPath="/favicon.ico"
-        image="/images/portrait.jpg"
+        faviconPath="https://cloudflare-assets-nx-monorepo.vercel.app/rhogancom/favicon.ico"
+        image="https://cloudflare-assets-nx-monorepo.vercel.app/rhogancom/favicon.ico/portrait.jpg"
         twitterHandle="@robert_s_hogan"
         siteName="Robert Hogans Blog"
         appleTouchIconPath="/apple-touch-icon.png"
