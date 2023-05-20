@@ -8,11 +8,11 @@ import VersionTwo from '../../components/projects/find-freelance-sites/version-t
 export default function FreelanceFindSites() {
   const tabsData = [
     {
-      label: 'Search - Free (10 MAX)',
+      label: 'Search - Free (10)',
       content: <VersionOne />,
     },
     {
-      label: 'Search - Paid (100 MAX)',
+      label: 'Search - Paid (100)',
       content: <VersionTwo />,
     },
   ];
