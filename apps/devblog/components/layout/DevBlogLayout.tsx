@@ -32,8 +32,8 @@ const DevBlogLayout = ({
             : 'Explore Robert Hogans portfolio as a Front End UI/UX Engineer, showcasing his expertise in creating innovative web solutions with cutting-edge technologies like Vercel, NX, and Next.js. Discover his featured projects, including an interactive map, memory game, and more.'
         }
         url="https://www.roberthogan.dev/"
-        faviconPath="/favicon.ico"
-        image="/images/portrait.jpg"
+        faviconPath="https://cloudflare-assets-nx-monorepo.vercel.app/devblog/favicon.ico"
+        image="https://cloudflare-assets-nx-monorepo.vercel.app/devblog/portrait.jpg"
         twitterHandle="@robert_s_hogan"
         siteName="Robert Hogans Portfolio"
         appleTouchIconPath="/apple-touch-icon.png"

@@ -85,7 +85,7 @@ const VersionOne = () => {
             Submit
           </Button>
         </Flex>
-        <Flex className="items-center space-x-6">
+        <Flex className="flex-col w-full items-center space-x-6 space-y-4">
           <Input
             type="number"
             label="Age of Website (Years)"

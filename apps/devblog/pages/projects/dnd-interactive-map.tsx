@@ -26,9 +26,7 @@ function Map() {
         </Link>
       </div>
 
-      <div className="border-4 border-primary">
-        <DynamicMap />
-      </div>
+      <DynamicMap />
     </DevBlogLayout>
   );
 }

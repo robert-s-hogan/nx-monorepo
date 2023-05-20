@@ -1,5 +1,5 @@
 import DevBlogLayout from '../components/layout/DevBlogLayout';
-import { Button, Flex, Link } from '@with-nx/react-ui';
+import { Button, Flex, Heading, Link, Text } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
 import { Mail, LinkedIn } from '@with-nx/icons';
 import Image from 'next/image';
@@ -60,12 +60,12 @@ export function Index() {
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="flex justify-center items-center w-full md:w-3/4 mx-auto">
               <div className="space-y-4">
-                <h1>
-                  Hello, I am Robert Hogan <br /> Front End{' '}
+                <Heading level={1}>
+                  Hello, I am Robert Hogan Front End{' '}
                   <span className="underline decoration-primary">
                     UI/UX Engineer
                   </span>
-                </h1>
+                </Heading>
                 <p className="sub-title">
                   Moving my site from Netlify/Gatsby to Vercel/NX/Next.js
                   &#128059; with me

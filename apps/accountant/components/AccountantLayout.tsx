@@ -38,7 +38,7 @@ const AccountantLayout = ({
             : 'Cleveland Accounting Services & Consulting offers comprehensive accounting, bookkeeping, and tax solutions for businesses. Our team of dedicated experts is ready to help with accurate bookkeeping, business registration, and tax preparation services.'
         }
         url="https://accountant-nx.vercel.app/"
-        faviconPath="/favicon.ico"
+        faviconPath="https://cloudflare-assets-nx-monorepo.vercel.app/accountant/favicon.ico"
         image="/images/accounting-logo.jpg"
         twitterHandle="@ClevelandAccounting"
         siteName="Cleveland Accounting Services & Consulting"
