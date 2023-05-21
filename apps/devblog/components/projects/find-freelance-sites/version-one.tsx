@@ -11,46 +11,15 @@ import {
   Text,
 } from '@with-nx/react-ui';
 import { X } from '@with-nx/icons';
+import { useSearchQuery, useFileTypeSelection } from '@with-nx/react-hooks';
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
 const VersionOne = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [years, setYears] = useState(10);
-  const [fileTypes, setFileTypes] = useState({
-    html: false,
-    php: false,
-    asp: false,
-  });
-  const [excludeTerm, setExcludeTerm] = useState('');
   const [excludeTerms, setExcludeTerms] = useState(['']);
-  const [url, setUrl] = useState(null);
-
-  const { data, error } = useSWR(url, fetcher);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchTerm !== '') {
-      const selectedFileTypes = Object.keys(fileTypes).filter(
-        (fileType) => fileTypes[fileType]
-      );
-      setUrl(
-        `https://www.googleapis.com/customsearch/v1?key=${
-          process.env.NEXT_PUBLIC_FREE_GOOGLE_SEARCH_API_KEY
-        }&cx=${
-          process.env.NEXT_PUBLIC_CUSTOM_SEARCH_ENGINE_ID
-        }&q=${searchTerm}${excludeTerms
-          .map((term) => ` -${term}`)
-          .join('')}&dateRestrict=y${years}&fileType=${selectedFileType}`
-      );
-    }
-  };
-
-  const [selectedFileType, setSelectedFileType] = useState('');
-
-  const handleFileTypeChange = (e) => {
-    setSelectedFileType(e.target.name);
-  };
+  const [excludeTerm, setExcludeTerm] = useState('');
 
   const handleExcludeTermChange = (e) => {
     setExcludeTerm(e.target.value);
@@ -68,10 +37,39 @@ const VersionOne = () => {
     setExcludeTerms(excludeTerms.filter((_, i) => i !== index));
   };
 
-  if (error) return <div>Failed to load</div>;
+  //file types
+  const { selectedFileType, handleFileTypeChange } = useFileTypeSelection();
+  const {
+    state,
+    handleSearch: triggerSearch,
+    url,
+  } = useSearchQuery('https://www.googleapis.com/customsearch/v1', {
+    key: process.env.NEXT_PUBLIC_FREE_GOOGLE_SEARCH_API_KEY,
+    cx: process.env.NEXT_PUBLIC_CUSTOM_SEARCH_ENGINE_ID,
+    excludeTerms: excludeTerms,
+  });
+
+  const handleFormSubmit = (e, searchTerm, years) => {
+    if (e.preventDefault) {
+      e.preventDefault();
+    }
+    // Convert excludeTerms array into a string with - operator before each term
+    const excluded = excludeTerms.reduce((acc, term) => `${acc} -${term}`, '');
+    const fileTypeQuery = selectedFileType
+      ? ` filetype:${selectedFileType}`
+      : '';
+
+    // Include the excluded terms and file types in the search term
+    triggerSearch(`${searchTerm}${excluded}${fileTypeQuery}`, years);
+  };
+
+  const { data, error } = useSWR(url, fetcher);
   return (
     <>
-      <form onSubmit={handleSearch} className="p-4 space-y-4">
+      <form
+        onSubmit={(e) => handleFormSubmit(e, searchTerm, years)}
+        className="p-4 space-y-4"
+      >
         <Flex className="items-center space-x-6">
           <Input
             type="text"

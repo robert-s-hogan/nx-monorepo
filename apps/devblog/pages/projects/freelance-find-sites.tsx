@@ -12,10 +12,10 @@ export default function FreelanceFindSites() {
       label: 'Search - Free (10)',
       content: <VersionOne />,
     },
-    {
-      label: 'Search - Paid (100)',
-      content: <VersionTwo />,
-    },
+    // {
+    //   label: 'Search - Paid (100)',
+    //   content: <VersionTwo />,
+    // },
     {
       label: 'Pagespeed Insights',
       content: <PagespeedInsights />,
