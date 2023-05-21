@@ -4,6 +4,7 @@ import { Flex, Heading, Section, Tabs, Text } from '@with-nx/react-ui';
 import DevBlogLayout from '../../components/layout/DevBlogLayout';
 import VersionOne from '../../components/projects/find-freelance-sites/version-one';
 import VersionTwo from '../../components/projects/find-freelance-sites/version-two';
+import PagespeedInsights from '../../components/projects/find-freelance-sites/pagespeed-insights';
 
 export default function FreelanceFindSites() {
   const tabsData = [
@@ -14,6 +15,10 @@ export default function FreelanceFindSites() {
     {
       label: 'Search - Paid (100)',
       content: <VersionTwo />,
+    },
+    {
+      label: 'Pagespeed Insights',
+      content: <PagespeedInsights />,
     },
   ];
 
