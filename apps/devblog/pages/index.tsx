@@ -3,56 +3,13 @@ import { Button, Flex, Heading, Link, Text } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
 import { Mail, LinkedIn } from '@with-nx/icons';
 import Image from 'next/image';
-import { FaReact } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
-
-import {
-  SiJavascript,
-  SiCss3,
-  SiNextdotjs,
-  SiNx,
-  SiReactquery,
-  SiTailwindcss,
-  SiGithubpages,
-} from 'react-icons/si';
-import { TbApi } from 'react-icons/tb';
 import { BiWrench } from 'react-icons/bi';
 
 import { projectsData } from '../data/projects';
+import { getIconForCategory } from '../utils/getIconForCategory';
 import RSHPortrait from '../public/images/portrait.jpg';
 
 export function Index() {
-  function getIconForCategory(category) {
-    switch (category) {
-      case 'React':
-        return <FaReact className="text-react-js" />;
-      case 'Next':
-        return <SiNextdotjs className="text-next-js" />;
-      case 'API':
-        return <TbApi className="text-api" />;
-      case 'JavaScript':
-        return <SiJavascript className="text-javascript " />;
-      case 'CSS':
-        return <SiCss3 className="text-css" />;
-      case 'NX':
-        return <SiNx className="text-nx" />;
-      case 'ReactQuery':
-        return <SiReactquery className="text-react-query" />;
-      case 'TailwindCSS':
-        return <SiTailwindcss className="text-tailwindcss" />;
-      case 'Google':
-        return <FcGoogle className="text-google" />;
-      case 'GithubPages':
-        return (
-          <SiGithubpages
-            className="text-github"
-            style={{ width: '3.75em', height: '3.75em' }}
-          />
-        );
-      default:
-        return null;
-    }
-  }
   return (
     <DevBlogLayout>
       <section className="container max-w-7xl mx-auto px-4">
@@ -158,16 +115,18 @@ export function Index() {
                               : 'Live Project'}
                           </Button>
                         </Link>
-                        <Link
-                          href={project.github}
-                          target="_blank"
-                          className="hover:text-vivid-500"
-                        >
-                          <FiGithub
-                            size={24}
-                            className="text-black hover:text-vivid-500"
-                          />
-                        </Link>
+                        {project.github && (
+                          <Link
+                            href={project.github}
+                            target="_blank"
+                            className="hover:text-vivid-500"
+                          >
+                            <FiGithub
+                              size={24}
+                              className="text-black hover:text-vivid-500"
+                            />
+                          </Link>
+                        )}
                       </div>
                     </div>
                   </div>

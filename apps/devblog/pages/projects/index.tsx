@@ -1,53 +1,13 @@
 import DevBlogLayout from '../../components/layout/DevBlogLayout';
 import { Link, Button, Text, Heading, Flex } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
-import { FaReact } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
-import {
-  SiJavascript,
-  SiCss3,
-  SiNextdotjs,
-  SiNx,
-  SiReactquery,
-  SiTailwindcss,
-  SiGithubpages,
-} from 'react-icons/si';
-import { TbApi } from 'react-icons/tb';
 import { BiWrench } from 'react-icons/bi';
+import { Mail, LinkedIn } from '@with-nx/icons';
+
 import { projectsData } from '../../data/projects';
+import { getIconForCategory } from '../../utils/getIconForCategory';
 
 const Projects = () => {
-  function getIconForCategory(category) {
-    switch (category) {
-      case 'React':
-        return <FaReact className="text-react-js" />;
-      case 'Next':
-        return <SiNextdotjs className="text-next-js" />;
-      case 'API':
-        return <TbApi className="text-api" />;
-      case 'JavaScript':
-        return <SiJavascript className="text-javascript " />;
-      case 'CSS':
-        return <SiCss3 className="text-css" />;
-      case 'NX':
-        return <SiNx className="text-nx" />;
-      case 'ReactQuery':
-        return <SiReactquery className="text-react-query" />;
-      case 'TailwindCSS':
-        return <SiTailwindcss className="text-tailwindcss" />;
-      case 'Google':
-        return <FcGoogle className="text-google" />;
-      case 'GithubPages':
-        return (
-          <SiGithubpages
-            className="text-github"
-            style={{ width: '3.75em', height: '3.75em' }}
-          />
-        );
-      default:
-        return null;
-    }
-  }
   return (
     <DevBlogLayout>
       <section className="space-y-6 px-4">

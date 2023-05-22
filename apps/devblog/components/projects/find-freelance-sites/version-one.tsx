@@ -147,14 +147,14 @@ const VersionOne = () => {
         {url && !data ? (
           <div>Loading...</div>
         ) : (
-          <Flex className="flex-col space-y-4 p-6">
+          <Flex className="flex-col space-y-0 p-6">
             {data &&
               data.items.map((item, index) => (
                 <div key={index}>
                   <a target="_blank" href={item.link}>
-                    {item.title}
+                    {item.link}
                   </a>
-                  <p>{item.snippet}</p>
+                  {/* <p>{item.snippet}</p> */}
                 </div>
               ))}
           </Flex>

@@ -1,11 +1,20 @@
 export const projectsData = [
   {
+    title: 'React UI Library',
+    description:
+      'This project is a dependency free UI library built with React, Typescript and CSS modules.',
+    link: 'https://roberthogan-dev-react-ui.vercel.app/',
+    github: '',
+    category: ['React', 'Typescript', 'CSS', 'Storybook', 'Jest', 'NX'],
+    isUnderConstruction: false,
+  },
+  {
     title: 'Star Wars API Pagination',
     description:
       'This project was for a Front End Engineer position that consumes a free API and creates pagination to view all entries.',
     link: 'https://swapi-nx.vercel.app/',
-    github: 'https://github.com/robert-s-hogan/react-fetch-star-wars',
-    category: ['React', 'Next', 'API', 'ReactQuery', 'NX', 'TailwindCSS'],
+    github: '',
+    category: ['React', 'Next', 'Typescript', 'API', 'NX', 'TailwindCSS'],
     isUnderConstruction: false,
   },
   {
@@ -16,7 +25,6 @@ export const projectsData = [
     category: ['React', 'Next', 'NX', 'TailwindCSS'],
     isUnderConstruction: false,
   },
-
   {
     title: 'Memory Game',
     description:
