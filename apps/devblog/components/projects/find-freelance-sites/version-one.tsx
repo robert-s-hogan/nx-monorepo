@@ -20,6 +20,7 @@ const VersionOne = () => {
   const [years, setYears] = useState(10);
   const [excludeTerms, setExcludeTerms] = useState(['']);
   const [excludeTerm, setExcludeTerm] = useState('');
+  const [zipCode, setZipCode] = useState('');
 
   const handleExcludeTermChange = (e) => {
     setExcludeTerm(e.target.value);

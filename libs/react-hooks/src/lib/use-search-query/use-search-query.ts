@@ -35,7 +35,7 @@ export const useSearchQuery = (
   params: any,
   initialState: DefaultInitialState = defaultInitialState
 ): UseSearchQuery => {
-  const { excludeTerms, ...restParams } = params;
+  const { excludeTerms, setFetchData, ...restParams } = params;
 
   const [state, setState] = useState(initialState);
   const [url, setUrl] = useState(null);
@@ -64,6 +64,7 @@ export const useSearchQuery = (
       }
       let url = `${baseUrl}?${formattedParams}&q=${encodeURIComponent(q)}`;
       setUrl(url);
+      setFetchData(true); // trigger network request
     }
   }, [state]);
 
