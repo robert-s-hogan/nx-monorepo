@@ -30,7 +30,7 @@ export function Index() {
       <div className="h-screen w-full relative">
         <video
           key="landing-video"
-          autoPlay={false}
+          autoPlay={true}
           muted
           loop
           playsInline
