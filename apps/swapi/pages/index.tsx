@@ -7,7 +7,6 @@ import Hero from '../components/Hero';
 import Loading from '../components/Loading';
 import { Person } from '../types/api/types';
 import Pagination from '../components/Pagination';
-import SearchForm from '../components/SearchForm';
 import CharacterList from '../components/CharacterList';
 import SwapiSearch from '../components/SwapiSearch';
 
@@ -25,11 +24,6 @@ export default function Home() {
       <Hero />
       <div className="flex justify-center max-w-7xl xl:max-w-7xl container mx-auto mt-8 px-2">
         <SwapiSearch />
-        {/* <SearchForm
-          character={character}
-          setCharacter={setCharacter}
-          handleFormSubmit={handleFormSubmit}
-        /> */}
       </div>
       {searchResults && (
         <p className="text-center text-white my-8 px-2">

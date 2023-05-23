@@ -34,6 +34,7 @@ export function Index() {
           muted
           loop
           playsInline
+          poster="https://cloudflare-assets-nx-monorepo.vercel.app/chillout/landing-poster.png"
           id="myVideo"
           className="h-screen w-full object-cover -z-10"
         >

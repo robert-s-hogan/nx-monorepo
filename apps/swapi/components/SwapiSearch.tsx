@@ -5,7 +5,6 @@ import { Grid, Section } from '@with-nx/react-ui';
 
 import SwapiCard from './SwapiCard';
 import SearchFilter from './SearchFilter';
-import { findMatchingUrl } from '../utils/findMatchingUrl';
 
 const SwapiSearch = () => {
   const [searchText, setSearchText] = useState('');
@@ -31,13 +30,6 @@ const SwapiSearch = () => {
     'films',
     'people',
   ];
-
-  // useEffect(() => {
-  //   if (data?.results) {
-  //     findMatchingUrl(data.results);
-  //     console.log(`matching urls: ${JSON.stringify(data.results)}`);
-  //   }
-  // }, [data]);
 
   return (
     <div className="space-y-8 w-full">
