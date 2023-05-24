@@ -1,6 +1,5 @@
 import { InputProps } from '@with-nx/types';
 import Label from '../label/label';
-import inputStyles from './input.module.css';
 
 export const Input = ({
   label,
@@ -19,15 +18,12 @@ export const Input = ({
   placeholder,
 }: InputProps & { onBlur?: () => void; onFocus?: () => void }): JSX.Element => {
   return (
-    <div
-      className={`input-container ${inputStyles.inputContainer} ${className}`}
-      style={style}
-    >
-      <Label htmlFor={name} className="input-label">
+    <>
+      <Label htmlFor={name} className={`w-full mb-2 ${className}`}>
         {label}
       </Label>
       <input
-        className="input"
+        className={`border rounded py-2 px-3 text-grey-darker w-full ${className}`}
         type={type}
         name={name}
         id={id}
@@ -36,10 +32,11 @@ export const Input = ({
         onClick={onClick}
         onBlur={onBlur}
         onFocus={onFocus}
+        style={style}
         required={required}
         placeholder={placeholder}
       />
-    </div>
+    </>
   );
 };
 

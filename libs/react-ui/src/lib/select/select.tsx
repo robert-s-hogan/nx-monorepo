@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SelectProps } from '@with-nx/types';
 
 export const Select = ({
@@ -15,9 +15,13 @@ export const Select = ({
     onChange(selectedValue);
   };
 
+  const baseClass =
+    'border border-gray-300 rounded-md text-gray-700 h-10 pl-5 pr-10 bg-white hover:border-gray-400';
+  const combinedClass = className ? className : baseClass;
+
   return (
     <select
-      className={className}
+      className={combinedClass}
       id={id}
       style={style}
       required={required}

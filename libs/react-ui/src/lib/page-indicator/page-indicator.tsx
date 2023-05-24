@@ -1,4 +1,3 @@
-import pageIndicatorStyles from './page-indicator.module.css';
 import { PageIndicatorProps } from '@with-nx/types';
 
 export function PageIndicator(props: PageIndicatorProps) {

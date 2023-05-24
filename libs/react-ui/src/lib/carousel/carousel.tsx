@@ -1,10 +1,7 @@
 import { CarouselProps } from '@with-nx/types';
-import carouselStyles from './carousel.module.css';
 import React, { useState } from 'react';
-import Button from '../button/button';
 
 /* eslint-disable-next-line */
-
 export const Carousel = ({ images }: CarouselProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -20,23 +17,25 @@ export const Carousel = ({ images }: CarouselProps) => {
   };
 
   return (
-    <div className="carousel">
+    <div className="flex items-center justify-center relative">
       <img
         src={images[currentImageIndex]}
         alt={`Carousel Image ${currentImageIndex}`}
-        className={`carousel-image ${carouselStyles.carouselImage}`}
+        className="w-full"
       />
-      <div className="carousel-buttons">
-        <Button
-          icon={<span>&larr;</span>}
+      <div className="absolute top-1/2 transform -translate-y-1/2">
+        <button
           onClick={goToPreviousImage}
-          className={`carousel-button-left ${carouselStyles.carouselButtonLeft}`}
-        />
-        <Button
-          icon={<span>&rarr;</span>}
+          className="absolute left-4 text-4xl bg-transparent border-none text-white cursor-pointer"
+        >
+          &larr;
+        </button>
+        <button
           onClick={goToNextImage}
-          className={`carousel-button-right ${carouselStyles.carouselButtonRight}`}
-        />
+          className="absolute right-4 text-4xl bg-transparent border-none text-white cursor-pointer"
+        >
+          &rarr;
+        </button>
       </div>
     </div>
   );

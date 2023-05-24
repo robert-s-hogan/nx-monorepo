@@ -1,6 +1,6 @@
-import skeletonStyles from './skeleton.module.css';
 import SkeletonText from './skeleton-text';
 import { SkeletonProps } from '@with-nx/types';
+
 export const Skeleton = ({
   key,
   width = '100%',
@@ -18,7 +18,7 @@ export const Skeleton = ({
       typeof borderRadius === 'number' ? `${borderRadius}px` : borderRadius,
   };
 
-  const classNames = `skeleton ${skeletonStyles.skeleton} ${className}`;
+  const classNames = `skeleton bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-200% ${className}`;
 
   return (
     <span

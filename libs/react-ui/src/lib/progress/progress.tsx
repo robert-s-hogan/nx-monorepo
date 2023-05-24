@@ -1,4 +1,4 @@
-import progressStyles from './progress.module.css';
+import React from 'react';
 import { ProgressProps } from '@with-nx/types';
 
 export function Progress({
@@ -11,10 +11,10 @@ export function Progress({
   if (type === 'horizontal') {
     return (
       <div
-        className={`progress-horizontal-container w-${progressValue} ${progressStyles.horizontalContainer}`}
+        className={`bg-gray-200 rounded-lg relative w-full h-4 overflow-hidden`}
       >
         <div
-          className={`progress-horizontal-value ${progressStyles.horizontalValue}`}
+          className={`bg-blue-600 absolute left-0 top-0 h-full`}
           style={{ width: `${progressValue}%` }}
         />
       </div>
@@ -23,10 +23,10 @@ export function Progress({
 
   return (
     <div
-      className={`progress-circular-container ${progressStyles.circularContainer}`}
+      className={`border-t-4 border-blue-600 rounded-full border-gray-200 w-20 h-20 animate-spin relative`}
     >
       <span
-        className={`progress-circular-value ${progressStyles.circularValue}`}
+        className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-bold`}
       >
         {progressValue}%
       </span>

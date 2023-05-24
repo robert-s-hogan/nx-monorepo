@@ -18,8 +18,8 @@ export const Navbar = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className={`relative ${className}`}>
-      <div className="navbar-left items-center justify-between flex space-x-4">
+    <nav className={`relative bg-gray-800 p-4 ${className}`}>
+      <div className="navbar-left flex items-center justify-between space-x-4">
         {logo ? (
           <a href="/" className="navbar-logo">
             {logo}
@@ -28,7 +28,7 @@ export const Navbar = ({
         {logoText ? (
           <a
             href="/"
-            className="navbar-logo-text text-sm md:text-base font-semibold flex-1"
+            className="navbar-logo-text text-sm md:text-base font-semibold flex-1 text-white"
           >
             {logoText}
           </a>
@@ -45,8 +45,8 @@ export const Navbar = ({
         <HamburgerMenu isOpen={isOpen} setIsOpen={setIsOpen} links={links} />
       </div>
 
-      <div className="hidden lg:block">
-        <List items={links} className="flex" />
+      <div className="hidden lg:flex">
+        <List items={links} className="flex space-x-4" />
       </div>
     </nav>
   );

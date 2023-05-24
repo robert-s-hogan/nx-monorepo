@@ -1,21 +1,5 @@
-import listStyles from './list.module.css';
-// import { ListProps } from '@with-nx/types';
+import { ListProps } from '@with-nx/types';
 import ListItem from '../list-item/list-item';
-
-interface ListProps {
-  className?: string;
-  items: {
-    href: string;
-    children: React.ReactNode;
-    className?: string;
-  }[];
-  id?: string;
-  style?: React.CSSProperties;
-  onClick?: (event: React.MouseEvent<HTMLUListElement, MouseEvent>) => void;
-  testId?: string;
-  value?: string;
-  onChange?: (value: string) => void;
-}
 
 export const List = ({
   className,
@@ -29,7 +13,7 @@ export const List = ({
 }: ListProps): JSX.Element => {
   return (
     <ul
-      className={`list ${className ? className : listStyles.list}`}
+      className={`p-0 m-0 ${className}`}
       id={id}
       style={style}
       onClick={onClick}
@@ -39,7 +23,7 @@ export const List = ({
         <ListItem
           key={index.toString()} // convert index to a string
           selected={value === item.children}
-          onChange={() => {
+          onClick={() => {
             if (typeof item.children === 'string') {
               onChange(item.children);
             }
@@ -53,5 +37,4 @@ export const List = ({
     </ul>
   );
 };
-
 export default List;

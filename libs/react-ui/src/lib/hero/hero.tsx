@@ -16,20 +16,25 @@ export const Hero = ({
 }: HeroProps): JSX.Element => {
   let content;
 
+  const baseClasses = `relative flex items-center justify-center h-screen text-white bg-center bg-no-repeat bg-cover ${className}`;
+  const style = backgroundImage
+    ? { backgroundImage: `url(${backgroundImage})` }
+    : {};
+
   if (layout === 'default') {
     content = (
       <>
-        <Heading level={1} tabIndex={1}>
+        <Heading level={1} tabIndex={1} className="text-4xl">
           {title}
         </Heading>
         {subtitle && (
-          <Heading level={2} tabIndex={1}>
+          <Heading level={2} tabIndex={1} className="text-3xl">
             {subtitle}
           </Heading>
         )}
         {buttonText && (
           <Button
-            className={buttonClassName}
+            className={`mt-4 ${buttonClassName}`}
             onClick={onButtonClick}
             icon={buttonIcon}
           >
@@ -44,12 +49,7 @@ export const Hero = ({
   }
 
   return (
-    <section
-      className={className}
-      style={
-        backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : {}
-      }
-    >
+    <section className={baseClasses} style={style}>
       {content}
     </section>
   );

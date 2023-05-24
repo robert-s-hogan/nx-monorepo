@@ -1,10 +1,11 @@
 import { GridProps } from '@with-nx/types';
-import reactUIGridStyles from './grid.module.css';
 
 export function Grid({ id, children, className, ariaLabel }: GridProps) {
+  const defaultClasses = 'grid gap-4 items-center';
+
   return (
     <div
-      className={`grid ${reactUIGridStyles.grid} ${className}`}
+      className={className ? className : defaultClasses}
       id={id}
       aria-label={ariaLabel}
     >

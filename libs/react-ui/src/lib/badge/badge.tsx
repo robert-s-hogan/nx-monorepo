@@ -1,5 +1,4 @@
 import { BadgeProps } from '@with-nx/types';
-import badgeStyles from './badge.module.css';
 
 export function Badge({ value, className, max }: BadgeProps) {
   let displayValue = value;
@@ -11,14 +10,16 @@ export function Badge({ value, className, max }: BadgeProps) {
   const numDigits = displayValue.toString().length;
   const shapeClass =
     numDigits > 2
-      ? badgeStyles.tripleDigits
+      ? 'px-2.5 py-2.5'
       : numDigits > 1
-      ? badgeStyles.doubleDigits
-      : badgeStyles.singleDigit;
+      ? 'px-2 py-2'
+      : 'px-2 py-1.5';
 
   return (
-    <span className={`${badgeStyles.badge} ${className} ${shapeClass}`}>
-      <span className={`${badgeStyles.digits}`}>{displayValue}</span>
+    <span
+      className={`inline-block text-white text-xs font-semibold align-middle whitespace-nowrap align-baseline rounded-full ${shapeClass} ${className}`}
+    >
+      {displayValue}
     </span>
   );
 }

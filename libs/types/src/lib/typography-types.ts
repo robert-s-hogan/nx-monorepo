@@ -13,12 +13,28 @@ export interface HeadingProps {
 }
 
 export interface ListProps {
-  items: any[];
+  className?: string;
+  items: {
+    href: string;
+    children: React.ReactNode;
+    className?: string;
+  }[];
+  id?: string;
+  style?: React.CSSProperties;
+  onClick?: (event: React.MouseEvent<HTMLUListElement, MouseEvent>) => void;
+  testId?: string;
+  value?: string;
+  onChange?: (value: string) => void;
+}
+
+export interface ListItemProps {
+  children: React.ReactNode;
   className?: string;
   id?: string;
   style?: React.CSSProperties;
-  onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  onClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
   testId?: string;
+  selected?: number | boolean;
 }
 
 export interface TextProps {

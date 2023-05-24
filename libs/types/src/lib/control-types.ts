@@ -33,6 +33,17 @@ export interface TabData {
   content: React.ReactNode;
 }
 
+export interface TabListProps {
+  tabs: { label: string }[];
+  activeIndex: number;
+  onTabClick: (index: number) => void;
+}
+
+export interface TabPanelProps {
+  children: React.ReactNode;
+  isActive?: boolean;
+}
+
 export interface TabsProps {
   data: TabData[];
 }

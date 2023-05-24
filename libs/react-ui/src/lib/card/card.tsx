@@ -1,8 +1,7 @@
-import cardStyles from './card.module.css';
+import { CardProps } from '@with-nx/types';
 import Skeleton from '../skeleton/skeleton';
 import Text from '../text/text';
 import Button from '../button/button';
-import { CardProps } from '@with-nx/types';
 
 export function Card({
   title,
@@ -20,20 +19,22 @@ export function Card({
     if (isLoading) {
       return (
         <Skeleton
-          className={`card-image ${cardStyles.image}`}
+          className="w-full h-full relative overflow-hidden"
           height={200}
           width={300}
         />
       );
     } else if (image) {
-      return <div className={`card-image ${cardStyles.image}`}>{image}</div>;
+      return (
+        <div className="w-full h-full relative overflow-hidden">{image}</div>
+      );
     }
     return null;
   };
 
   return (
     <div
-      className={`card ${cardStyles.card} ${className}`}
+      className={`flex flex-col border border-gray-300 rounded overflow-hidden transition-shadow duration-200 ease-in-out cursor-pointer hover:shadow-md ${className}`}
       onClick={onClick}
       key={key}
       onMouseEnter={onMouseEnter}
@@ -41,10 +42,10 @@ export function Card({
     >
       {renderImage()}
       {description && (
-        <div className={`card-body ${cardStyles.body}`}>
+        <div className="p-4">
           {title && (
             <Text
-              className={`card-title ${cardStyles.title}`}
+              className="text-lg font-medium mb-2"
               isLoading={isLoading}
               rowWidth={100}
               height={24}
@@ -54,7 +55,7 @@ export function Card({
           )}
           {description && (
             <Text
-              className={`card-description ${cardStyles.description}`}
+              className="text-base text-gray-700"
               isLoading={isLoading}
               rowWidth={100}
               height={16}
@@ -62,11 +63,11 @@ export function Card({
               {description}
             </Text>
           )}
-          {button && (
-            <div className={`card-button ${cardStyles.button}`}>{button}</div>
-          )}
+          {button && <div className="mt-4">{button}</div>}
         </div>
       )}
     </div>
   );
 }
+
+export default Card;

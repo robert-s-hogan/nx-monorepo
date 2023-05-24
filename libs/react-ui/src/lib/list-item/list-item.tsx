@@ -1,29 +1,13 @@
-import listItemStyles from './list-item.module.css';
+import { ListItemProps } from '@with-nx/types';
 
-export interface ListItemProps {
-  id?: string | number;
-  value?: string; // This is unused at the moment
-  key?: string; // React keys are not usually passed as props, they are special in React
-  onClick?: () => void;
-  children?: React.ReactNode;
-  selected?: boolean; // This prop will be used to indicate if the item is selected
-  onChange?: () => void; // This prop will be used to change the active item
-}
-
-export function ListItem({
-  id,
-  onClick,
-  children,
-  selected,
-  onChange,
-}: ListItemProps) {
+export function ListItem({ id, onClick, children, selected }: ListItemProps) {
   return (
     <li
       id={id?.toString()}
-      className={`list-item ${selected ? 'selected' : ''} ${
-        listItemStyles.listItem
+      className={`p-2 ${
+        selected ? 'bg-blue-500 text-white' : 'bg-white text-black'
       }`}
-      onClick={onChange}
+      onClick={onClick}
     >
       {children}
     </li>

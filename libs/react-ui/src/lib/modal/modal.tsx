@@ -1,5 +1,4 @@
 import Button from '../button/button';
-import modalStyles from './modal.module.css';
 import { ModalProps } from '@with-nx/types';
 
 export const Modal = ({
@@ -15,15 +14,15 @@ export const Modal = ({
   return isShowing ? (
     <div
       onClick={toggle}
-      className={`modal-overlay ${modalStyles.overlay}`}
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10"
       id="overlay"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`modal ${modalStyles.modal}`}
+        className="bg-white p-5 rounded-lg max-w-md w-full shadow-lg"
       >
-        <div className={`modal-header ${modalStyles.modalHeader}`}>
-          <h2 className={`modal-title ${modalStyles.modalTitle}`}>{title}</h2>
+        <div className="flex items-center mb-4">
+          <h2 className="text-xl font-bold flex-grow">{title}</h2>
           {icon ? (
             <div onClick={toggle} className={`modal-icon`}>
               {icon}
@@ -34,17 +33,13 @@ export const Modal = ({
             </Button>
           )}
         </div>
-        {description && (
-          <p className={`modal-description ${modalStyles.modalDescription}`}>
-            {description}
-          </p>
-        )}
-        <div className={`modal-content ${modalStyles.modalContent}`}>
-          {children}
-        </div>
+        {description && <p className="mb-4">{description}</p>}
+        <div className="mb-4">{children}</div>
         {onClick && (
           <div
-            className={`modal-actions ${modalStyles.modalActions} ${modalStyles[buttonLocation]}`}
+            className={`flex ${
+              buttonLocation === 'left' ? 'justify-start' : 'justify-end'
+            }`}
           >
             <Button onClick={onClick}>Confirm</Button>
           </div>

@@ -1,6 +1,5 @@
 import { CheckboxProps } from '@with-nx/types';
 import { useState } from 'react';
-import checkboxStyles from './checkbox.module.css';
 
 export const Checkbox = ({
   label,
@@ -14,14 +13,15 @@ export const Checkbox = ({
 
   return (
     <div>
-      <label>
+      <label className="flex items-center">
         <input
           type="checkbox"
           name={name}
           checked={checked}
           onChange={handleChange}
+          className="form-checkbox text-blue-500"
         />
-        <span className={checkboxStyles.labelText}>{label}</span>
+        <span className="ml-2">{label}</span>
       </label>
     </div>
   );

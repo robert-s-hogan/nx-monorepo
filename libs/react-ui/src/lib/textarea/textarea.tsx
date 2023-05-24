@@ -1,15 +1,14 @@
 import { TextareaProps } from '@with-nx/types';
-import textareaStyles from './textarea.module.css';
 import Label from '../label/label';
 
 export const Textarea = ({
   name,
   value,
   onChange,
-  className,
+  className = '',
   label,
   id,
-  style,
+  style = {},
   onClick,
   ariaLabel,
   required,
@@ -20,10 +19,10 @@ export const Textarea = ({
   maxLength,
 }: TextareaProps): JSX.Element => {
   return (
-    <div className={`${textareaStyles.textareaContainer} textarea-container`}>
+    <>
       <Label htmlFor={name}>{label}</Label>
       <textarea
-        className={`textarea ${textareaStyles.textarea} ${className}`}
+        className={`w-full ${className}`}
         name={name}
         id={id}
         value={value}
@@ -38,7 +37,7 @@ export const Textarea = ({
         minLength={minLength}
         maxLength={maxLength}
       />
-    </div>
+    </>
   );
 };
 

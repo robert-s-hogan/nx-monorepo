@@ -1,5 +1,4 @@
 import { LabelProps } from '@with-nx/types';
-import labelStyles from './label.module.css';
 
 export const Label = ({
   htmlFor,
@@ -10,7 +9,7 @@ export const Label = ({
   return (
     <label
       htmlFor={htmlFor}
-      className={`label ${labelStyles.label} ${className}`}
+      className={`text-sm text-gray-700 ${className}`}
       style={style}
     >
       {children}

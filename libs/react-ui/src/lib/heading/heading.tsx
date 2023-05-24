@@ -4,16 +4,15 @@ import Skeleton from '../skeleton/skeleton';
 export const Heading = ({
   level,
   children,
-  className,
+  className = '',
   id,
-  style,
   'aria-labelledby': ariaLabelledBy,
   tabIndex,
   isLoading,
   rows = 1,
   rowWidth = 100,
   height = 16,
-  width = '100%',
+  width = 'full',
 }: HeadingProps & {
   isLoading?: boolean;
   rows?: number;
@@ -23,16 +22,22 @@ export const Heading = ({
 }): JSX.Element => {
   const HeadingTag = `h${level}` as keyof JSX.IntrinsicElements;
 
-  const combinedStyles = {
-    width: width,
-    ...style,
+  // Adding dynamic tailwind classes based on `level` prop
+  const headingClasses = {
+    1: 'text-4xl',
+    2: 'text-3xl',
+    3: 'text-2xl',
+    4: 'text-xl',
+    5: 'text-lg',
+    6: 'text-base',
   };
+
+  const baseClasses = `font-bold text-gray-800 w-${width} ${headingClasses[level]} ${className}`;
 
   return (
     <HeadingTag
-      className={className}
+      className={baseClasses}
       id={id}
-      style={combinedStyles}
       aria-level={level}
       aria-labelledby={ariaLabelledBy}
       tabIndex={tabIndex}

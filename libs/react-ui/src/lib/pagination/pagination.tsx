@@ -1,4 +1,3 @@
-import paginationStyles from './pagination.module.css';
 import { PaginationProps } from '@with-nx/types';
 
 export function Pagination({
@@ -12,12 +11,12 @@ export function Pagination({
   }
 
   return (
-    <div className={`pagination ${paginationStyles.pagination}`}>
+    <div className="flex justify-center mt-4">
       {pageNumbers.map((page) => (
         <button
           key={page}
-          className={`page-number  ${paginationStyles.pageNumber} ${
-            page === currentPage ? 'current-page' : ''
+          className={`px-4 py-2 m-1 border border-gray-300 bg-white text-gray-700 cursor-pointer transition-colors duration-200 ease-in-out ${
+            page === currentPage ? 'bg-gray-700 text-white border-gray-700' : ''
           }`}
           onClick={() => onPageChange(page)}
         >

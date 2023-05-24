@@ -1,4 +1,3 @@
-import reactUIBoxStyles from './box.module.css';
 import { BoxProps } from '@with-nx/types';
 
 export function Box({
@@ -11,7 +10,7 @@ export function Box({
 }: BoxProps) {
   return (
     <div
-      className={`box ${reactUIBoxStyles.box} ${className}`}
+      className={`box ${className}`}
       id={id}
       role={role}
       onClick={onClick}

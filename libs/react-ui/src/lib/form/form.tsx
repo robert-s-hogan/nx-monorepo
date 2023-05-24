@@ -38,23 +38,31 @@ export const Form = ({ fields, onSubmit }: FormProps): JSX.Element => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="space-y-4">
       {fields.map((field) => (
-        <div key={field.name}>
-          <label htmlFor={field.name}>{field.label}</label>
+        <div key={field.name} className="flex flex-col">
+          <label htmlFor={field.name} className="mb-2">
+            {field.label}
+          </label>
           <input
             type={field.type}
             name={field.name}
             id={field.name}
             value={values[field.name]}
             onChange={handleChange}
+            className="border p-2 rounded shadow-sm focus:outline-none focus:border-blue-300"
           />
           {errors[field.name] ? (
             <div className="text-red-500">{errors[field.name]}</div>
           ) : null}
         </div>
       ))}
-      <button type="submit">Submit</button>
+      <button
+        type="submit"
+        className="py-2 px-4 bg-blue-500 text-white rounded"
+      >
+        Submit
+      </button>
     </form>
   );
 };

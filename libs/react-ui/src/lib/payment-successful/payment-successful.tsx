@@ -1,21 +1,27 @@
 import { Button, Heading, Text, Link } from '@with-nx/react-ui';
-import paymentSuccessfulStyles from './payment-successful.module.css';
 
 /* eslint-disable-next-line */
 export interface PaymentSuccessfulProps {}
 
 export function PaymentSuccessful(props: PaymentSuccessfulProps) {
   return (
-    <div className={`${paymentSuccessfulStyles.container}`}>
-      <div className={`${paymentSuccessfulStyles.stack}`}>
-        <Heading level={1}>Thank you, your payment was successful!</Heading>
-        <Text>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+      <div className="text-center">
+        <Heading
+          level={1}
+          className="text-3xl font-semibold text-gray-900 mb-4"
+        >
+          Thank you, your payment was successful!
+        </Heading>
+        <Text className="text-lg text-gray-700 mb-4">
           Your transaction has been completed, and a receipt for your purchase
           has been emailed to you.
         </Text>
-        <Text>
+        <Text className="text-blue-500 hover:underline">
           <Link href="/dashboard">
-            <Button>Go to Dashboard</Button>
+            <Button className="px-6 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+              Go to Dashboard
+            </Button>
           </Link>
         </Text>
       </div>

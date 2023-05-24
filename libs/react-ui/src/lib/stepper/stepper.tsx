@@ -1,5 +1,4 @@
 import Button from '../button/button';
-import stepperStyles from './stepper.module.css';
 import { StepperProps } from '@with-nx/types';
 
 export const Stepper = ({
@@ -23,25 +22,25 @@ export const Stepper = ({
 
   return (
     <div
-      className={`stepper ${className ? className : ''} ${
-        stepperStyles.stepper
-      }`}
+      className={`flex items-center bg-transparent ${className || ''}`}
       style={style}
     >
       <Button
-        className={stepperStyles.btn}
+        className={`px-4 py-2 rounded-md bg-gray-400 ${
+          value < 2 ? 'bg-gray-200 cursor-not-allowed' : ''
+        }`}
         onClick={handleDecrement}
         disabled={value < 2}
         icon={minusIcon}
       />
-      <span className={stepperStyles.value}>{value}</span>
+      <span className="ml-4 min-w-[20px] text-center">{value}</span>
       <Button
-        className={stepperStyles.btn}
+        className="px-4 py-2 ml-4 rounded-md bg-gray-400"
         onClick={handleIncrement}
         icon={plusIcon}
       />
       {value < 1 && (
-        <div className={stepperStyles.error}>
+        <div className="ml-4 text-red-500">
           {errorMessage || 'Minimum value is 1'}
         </div>
       )}

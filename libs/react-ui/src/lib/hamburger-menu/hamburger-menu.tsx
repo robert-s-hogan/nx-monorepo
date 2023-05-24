@@ -24,7 +24,7 @@ const HamburgerMenu = ({ links }: HamburgerMenuProps): JSX.Element => {
   };
 
   return (
-    <div className="hamburger-menu relative w-full">
+    <div className="relative w-full">
       <div className="absolute top-5 right-0">
         <HamburgerIcon open={open} onClick={toggleOpen} />
       </div>

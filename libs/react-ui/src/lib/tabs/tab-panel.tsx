@@ -1,17 +1,12 @@
-import tabPanelStyles from './tab-panel.module.css';
-
-/* eslint-disable-next-line */
-export interface TabPanelProps {
-  children: React.ReactNode;
-  isActive?: boolean;
-}
+import Tab from './tab';
+import { TabPanelProps } from '@with-nx/types';
 
 export function TabPanel({ children, isActive }: TabPanelProps) {
   return (
     <div
-      className={`${tabPanelStyles.tabPanel} ${
-        isActive ? tabPanelStyles.active : ''
-      }`}
+      className={`${
+        isActive ? 'block' : 'hidden'
+      } border border-lightgrey rounded-md`}
     >
       {children}
     </div>

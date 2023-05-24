@@ -1,52 +1,37 @@
 import React, { useState } from 'react';
-import tooltipStyles from './tooltip.module.css';
 import { TooltipProps } from '@with-nx/types';
 
 export const Tooltip = ({
   icon,
   tooltipText,
-  iconClassName,
-  iconStyle,
-  className,
-  style,
-  bgClassName,
-  location,
+  iconClassName = '',
+  iconStyle = {},
+  className = '',
+  style = {},
+  bgClassName = '',
+  location = 'bottom',
 }: TooltipProps) => {
   const [showTooltip, setShowTooltip] = useState(false);
-  const getLocationClass = (location: string | undefined) => {
-    switch (location) {
-      case 'top':
-        return tooltipStyles.tooltipTop;
-      case 'right':
-        return tooltipStyles.tooltipRight;
-      case 'left':
-        return tooltipStyles.tooltipLeft;
-      case 'bottom':
-      default:
-        return tooltipStyles.tooltipBottom;
-    }
+
+  const locationClasses = {
+    top: 'mt-4',
+    right: 'ml-4',
+    left: 'mr-4',
+    bottom: 'mb-4',
   };
+
   return (
     <span
-      className={`tooltip ${tooltipStyles.tooltip}`}
+      className={`cursor-pointer px-2 ${locationClasses[location]} ${className}`}
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
+      style={style}
     >
-      <span
-        className={`tooltip-icon ${tooltipStyles.icon} ${
-          iconClassName ? iconClassName : ''
-        }`}
-        style={iconStyle}
-      >
+      <span className={`tooltip-icon ${iconClassName}`} style={iconStyle}>
         {icon}
       </span>
       {showTooltip && (
-        <span
-          className={`tooltip-text ${tooltipStyles.tooltipText} ${
-            className ? className : ''
-          } ${bgClassName ? bgClassName : ''}`}
-          style={style}
-        >
+        <span className={`tooltip-text px-2 mt-4 ${bgClassName}`}>
           {tooltipText}
         </span>
       )}

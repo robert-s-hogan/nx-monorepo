@@ -1,22 +1,12 @@
-import skeletonTextStyles from './skeleton.module.css';
+import { SkeletonProps } from '@with-nx/types';
 
-interface SkeletonTextProps {
-  rows?: number;
-  key?: string | number;
-  rowWidth?: string | number;
-  width?: string | number;
-  height?: string | number;
-}
-
-const SkeletonText = ({ rows, rowWidth, width, height }: SkeletonTextProps) => {
+const SkeletonText = ({ rows, rowWidth, width, height }: SkeletonProps) => {
   return (
-    <span
-      className={`skeleton-text-container ${skeletonTextStyles.skeletonTextContainer}`}
-    >
+    <span className={`skeleton-text-container flex flex-col space-y-1`}>
       {new Array(rows || 1).fill(null).map((_, index) => (
         <span
           key={`skeleton-text-${index}`}
-          className={`skeleton-text ${skeletonTextStyles.skeletonText}`}
+          className={`skeleton-text bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-200% animate-loading`}
           style={{
             width: typeof rowWidth === 'number' ? `${rowWidth}px` : rowWidth,
             height: typeof height === 'number' ? `${height}px` : height,

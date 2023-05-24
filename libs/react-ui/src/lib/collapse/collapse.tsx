@@ -1,6 +1,4 @@
-//libs/react-ui/src/lib/collapse.tsx
 import React, { useState } from 'react';
-import collapseStyles from './collapse.module.css';
 
 interface CollapseProps {
   title: string;
@@ -16,14 +14,14 @@ const Collapse: React.FC<CollapseProps> = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={`${collapseStyles.collapse} ${className}`}>
+    <div className={`w-full border border-gray-300 rounded ${className}`}>
       <button
-        className={collapseStyles.button}
+        className="w-full py-2 bg-gray-200 border-none text-left cursor-pointer outline-none"
         onClick={() => setIsOpen(!isOpen)}
       >
         {title}
       </button>
-      {isOpen && <div className={collapseStyles.content}>{children}</div>}
+      {isOpen && <div className="p-2">{children}</div>}
     </div>
   );
 };

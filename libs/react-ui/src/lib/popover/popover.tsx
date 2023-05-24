@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import popoverStyles from './popover.module.css';
 import { PopoverProps } from '@with-nx/types';
 
 export function Popover({ trigger, content, className = '' }: PopoverProps) {
@@ -42,22 +41,15 @@ export function Popover({ trigger, content, className = '' }: PopoverProps) {
 
   return (
     <div
-      className={`popover-container ${popoverStyles.popoverContainer}  ${className}`}
+      className={`relative ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div
-        ref={triggerRef}
-        onClick={handleClick}
-        className={`popover-trigger ${popoverStyles.popoverTrigger}`}
-      >
+      <div ref={triggerRef} onClick={handleClick} className="cursor-pointer">
         {trigger}
       </div>
       {showPopover && (
-        <div
-          ref={popoverRef}
-          className={`popover-content ${popoverStyles.popoverContent}`}
-        >
+        <div ref={popoverRef} className="absolute top-6 left-0 bg-white z-10">
           {content}
         </div>
       )}

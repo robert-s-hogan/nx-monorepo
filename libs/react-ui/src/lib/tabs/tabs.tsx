@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import TabList from './tab-list';
 import TabPanel from './tab-panel';
-import tabsStyles from './tabs.module.css';
 import { TabsProps } from '@with-nx/types';
 
 export function Tabs({ data }: TabsProps) {
@@ -12,7 +11,7 @@ export function Tabs({ data }: TabsProps) {
   };
 
   return (
-    <div className={`tabs ${tabsStyles.tabContainer}`}>
+    <div className="tabs">
       <TabList
         tabs={data}
         activeIndex={activeIndex}

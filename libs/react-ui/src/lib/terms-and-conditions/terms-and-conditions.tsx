@@ -1,13 +1,12 @@
 import { Heading, Text } from '@with-nx/react-ui';
-import termsStyles from './terms-and-conditions.module.css';
 
 /* eslint-disable-next-line */
 export interface TermsAndConditionsProps {}
 
 export function TermsAndConditions(props: TermsAndConditionsProps) {
   return (
-    <div className={`${termsStyles.container}`}>
-      <div className={`${termsStyles.stack}`}>
+    <div className="container mx-auto p-4">
+      <div className="space-y-4">
         <Heading level={1}>Terms and Conditions</Heading>
         <Text>
           <strong>1. Introduction</strong>
