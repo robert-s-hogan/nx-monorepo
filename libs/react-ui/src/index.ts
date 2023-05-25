@@ -1,3 +1,5 @@
+export * from './lib/switch/switch';
+export * from './lib/slider/slider';
 //libs/react-ui/src/index.ts
 export * from './lib/about/about';
 export * from './lib/badge/badge';

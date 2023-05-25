@@ -28,6 +28,20 @@ export interface PageIndicatorProps {
   className?: string;
 }
 
+export interface SliderProps {
+  value: number;
+  min?: number;
+  max?: number;
+  onChange: (value: number) => void;
+  className?: string;
+}
+
+export interface SwitchProps {
+  checked: boolean;
+  onToggle: (value: boolean) => void;
+  className?: string;
+}
+
 export interface TabData {
   label: string;
   content: React.ReactNode;
