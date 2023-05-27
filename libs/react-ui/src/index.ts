@@ -1,3 +1,4 @@
+export * from './lib/calendar/calendar';
 export * from './lib/switch/switch';
 export * from './lib/slider/slider';
 //libs/react-ui/src/index.ts
