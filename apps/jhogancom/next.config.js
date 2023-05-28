@@ -12,6 +12,9 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  images: {
+    domains: ['cloudflare-assets-nx-monorepo.vercel.app'],
+  },
 };
 
 module.exports = withNx(nextConfig);
