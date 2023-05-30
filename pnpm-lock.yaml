@@ -101,6 +101,7 @@ specifiers:
   next-sitemap: ^4.0.7
   next-themes: ^0.2.1
   nx: 15.9.2
+  openai: ^3.2.1
   passport: ^0.6.0
   passport-jwt: ^4.0.1
   passport-local: ^1.0.0
@@ -192,6 +193,7 @@ dependencies:
   next-mdx-remote: 4.4.1_biqbaboplfbrettd7655fr4n2y
   next-sitemap: 4.0.9_ku2rqk3wh2wqkvcsda4ywshmwi
   next-themes: 0.2.1_ld2jel3hspngo3u5lti2kgl2sq
+  openai: 3.2.1
   passport: 0.6.0
   passport-jwt: 4.0.1
   passport-local: 1.0.0
@@ -12927,6 +12929,15 @@ packages:
       is-inside-container: 1.0.0
       is-wsl: 2.2.0
     dev: true
+
+  /openai/3.2.1:
+    resolution: {integrity: sha512-762C9BNlJPbjjlWZi4WYK9iM2tAVAv0uUp1UmI34vb0CN5T2mjB/qM6RYBmNKMh/dN9fC+bxqPwWJZUTWW052A==}
+    dependencies:
+      axios: 0.26.1
+      form-data: 4.0.0
+    transitivePeerDependencies:
+      - debug
+    dev: false
 
   /opener/1.5.2:
     resolution: {integrity: sha512-ur5UIdyw5Y7yEj9wLzhqXiy6GZ3Mwx0yGI+5sMn2r0N0v3cKJvUmFH5yPP+WXh9e0xfyzyJX95D8l088DNFj7A==}
