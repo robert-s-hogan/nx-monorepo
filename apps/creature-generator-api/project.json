@@ -1,0 +1,64 @@
+{
+  "name": "creature-generator-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/creature-generator-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/creature-generator-api",
+        "main": "apps/creature-generator-api/src/main.ts",
+        "tsConfig": "apps/creature-generator-api/tsconfig.app.json",
+        "assets": ["apps/creature-generator-api/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/creature-generator-api/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "creature-generator-api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "creature-generator-api:build:development"
+        },
+        "production": {
+          "buildTarget": "creature-generator-api:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/creature-generator-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/creature-generator-api/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
