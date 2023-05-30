@@ -1,6 +1,16 @@
 import Head from 'next/head';
-import { useState } from 'react';
-import { Section } from '@with-nx/react-ui';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import {
+  Button,
+  Flex,
+  Grid,
+  Heading,
+  Input,
+  Text,
+  Section,
+} from '@with-nx/react-ui';
+import { loadingMessages } from '@with-nx/constants';
 import DevblogLayout from '../../components/layout/DevBlogLayout';
 
 import { GiDoubleDragon } from 'react-icons/gi';
@@ -15,6 +25,7 @@ export default function Home() {
   const [playerLevel, setPlayerLevel] = useState('');
   const [result, setResult] = useState();
   const [loading, setLoading] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState('');
   const [image, setImage] = useState();
   const [creature, setCreature] = useState({});
   const [isCopied, setIsCopied] = useState(false);
@@ -99,63 +110,63 @@ export default function Home() {
   function CreatureCard({ creature }) {
     return (
       <div className="creature-card">
-        <div className="flex-col">
+        <Flex className="flex-col">
           <p>Armor Class: {creature.armorClass}</p>
           <p>Hit Points: {creature.hitPoints}</p>
           <p>Speed: {creature.speed}</p>
-        </div>
+        </Flex>
         <hr className="my-2 h-0.5 border-t-0 bg-neutral-100" />
-        <div className="flex space-x-2">
-          <div className="flex-col text-center">
-            <p>STR</p>
-            <p>{creature.strength}</p>
-          </div>
-          <div className="flex-col text-center">
-            <p>DEX</p>
-            <p>{creature.dexterity}</p>
-          </div>
-          <div className="flex-col text-center">
-            <p>CON</p>
-            <p>{creature.constitution}</p>
-          </div>
-          <div className="flex-col text-center">
-            <p>INT</p>
-            <p>{creature.intelligence}</p>
-          </div>
-          <div className="flex-col text-center">
-            <p>WIS</p>
-            <p>{creature.wisdom}</p>
-          </div>
-          <div className="flex-col text-center">
-            <p>CHA</p>
-            <p>{creature.charisma}</p>
-          </div>
-        </div>
+        <Flex className="flex space-x-2">
+          <Flex className="flex-col text-center">
+            <Text>STR</Text>
+            <Text>{creature.strength}</Text>
+          </Flex>
+          <Flex className="flex-col text-center">
+            <Text>DEX</Text>
+            <Text>{creature.dexterity}</Text>
+          </Flex>
+          <Flex className="flex-col text-center">
+            <Text>CON</Text>
+            <Text>{creature.constitution}</Text>
+          </Flex>
+          <Flex className="flex-col text-center">
+            <Text>INT</Text>
+            <Text>{creature.intelligence}</Text>
+          </Flex>
+          <Flex className="flex-col text-center">
+            <Text>WIS</Text>
+            <Text>{creature.wisdom}</Text>
+          </Flex>
+          <Flex className="flex-col text-center">
+            <Text>CHA</Text>
+            <Text>{creature.charisma}</Text>
+          </Flex>
+        </Flex>
         <hr className="my-2 h-0.5 border-t-0 bg-neutral-100" />
-        <p className="mb-3">Actions:</p>
+        <Text className="mb-3">Actions:</Text>
         <div className="space-y-2">
           {creature.actions &&
             creature.actions.map((action, index) => (
-              <p key={index} className="mt-1">
+              <Text key={index} className="mt-1">
                 <b>
                   <i>{action.name}</i>
                 </b>
                 : {action.damage}
-              </p>
+              </Text>
             ))}
         </div>
         <hr className="my-2 h-0.5 border-t-0 bg-neutral-100" />
-        <p className="mb-3">Special Abilities:</p>
+        <Text className="mb-3">Special Abilities:</Text>
 
         <div className="space-y-2">
           {creature.specialAbilities &&
             creature.specialAbilities.map((ability, index) => (
-              <p key={index} className="mt-1">
+              <Text key={index} className="mt-1">
                 <b>
                   <i>{ability.name}</i>
                 </b>
                 : {ability.description}
-              </p>
+              </Text>
             ))}
         </div>
       </div>
@@ -168,21 +179,50 @@ export default function Home() {
     setTimeout(() => setIsCopied(false), 2000);
   }
 
+  function updateLoadingMessage() {
+    const randomIndex = Math.floor(Math.random() * loadingMessages.length);
+    setLoadingMessage(loadingMessages[randomIndex]);
+  }
+
+  useEffect(() => {
+    let intervalId;
+
+    if (loading) {
+      intervalId = setInterval(() => {
+        updateLoadingMessage();
+      }, 2000);
+    }
+
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [loading]);
+
   return (
     <DevblogLayout>
-      <Section>
-        <GiDoubleDragon className="text-6xl" />
-        <h3>Create DND Monster</h3>
-        <form onSubmit={onSubmit} className="md:hidden">
-          <div className="flex flex-col space-y-4">
-            <input
+      <Section className="space-y-4">
+        <Flex className="items-center justify-center">
+          <Image
+            src="https://cloudflare-assets-nx-monorepo.vercel.app/conquest/conquest_logo.svg"
+            height={100}
+            width={100}
+          />
+        </Flex>
+        <Heading level={3} className="text-center">
+          Create DND Monster
+        </Heading>
+        <form onSubmit={onSubmit} className="max-w-lg mx-auto">
+          <Flex className="flex-col space-y-4">
+            <Input
               type="number"
               name="numberOfPlayers"
               placeholder="Enter Number of Players"
               value={numberOfPlayers}
               onChange={(e) => setNumberOfPlayers(e.target.value)}
             />
-            <input
+            <Input
               type="number"
               name="playerLevel"
               placeholder="Enter Player Level"
@@ -190,31 +230,37 @@ export default function Home() {
               onChange={(e) => setPlayerLevel(e.target.value)}
             />
 
-            <input type="submit" value="Generate Creature" />
-          </div>
+            <Button type="submit" className="btn-primary">
+              Generate Creature
+            </Button>
+          </Flex>
         </form>
         {loading ? (
-          <div className="mt-12">Loading...</div>
+          <Flex className="items-center justify-center py-24">
+            {loadingMessage}
+          </Flex>
         ) : (
           <div
             className={`my-24 ${
               requestCompleted && 'bg-gray-900 shadow-lg'
             } rounded-md p-6`}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl gap-6 px-4 md:px-2 leading-none">
-              <div className="text-gray-300 flex-col space-y-4">
-                <h2 className="text-2xl">{creature.name}</h2>
-                <p className="leading-5">{creature.description}</p>
+            <Grid className="grid-cols-1 md:grid-cols-2 max-w-4xl gap-6 px-2 leading-none">
+              <div className="text-gray-300 space-y-4">
+                <Heading level={2} className="text-2xl">
+                  {creature.name}
+                </Heading>
+                <Text className="leading-5">{creature.description}</Text>
 
                 {image ? (
                   <div>
-                    <div
-                      className={`flex items-center justify-between ${
+                    <Flex
+                      className={`items-center justify-between ${
                         image ? 'bg-gray-600 rounded-t-md' : ''
                       }`}
                     >
-                      <p className="w-full p-1 px-2">DALLE-2</p>
-                      <button
+                      <Text className="w-full p-1 px-2">DALLE-2</Text>
+                      <Button
                         onClick={copyToClipboard}
                         className="flex justify-end text-gray-300 w-full p-1 px-2"
                       >
@@ -223,26 +269,28 @@ export default function Home() {
                         ) : (
                           <BiCopy className="text-xl" />
                         )}
-                      </button>
-                    </div>
-                    <img
+                      </Button>
+                    </Flex>
+                    <Image
                       src={image}
                       alt="pic"
                       className="h-72 w-full rounded-md rounded-t-none transform shadow-lg mb-3"
+                      width={512}
+                      height={512}
                     />
                   </div>
                 ) : (
                   requestCompleted &&
                   !image && (
-                    <div className="flex items-center justify-center h-72">
-                      <button
-                        className="bg-gray-600 px-3 py-2"
+                    <Flex className="items-center justify-center h-72 border rounded-md">
+                      <Button
+                        className="bg-primary px-3 py-2 rounded-md"
                         onClick={loadImage}
                         disabled={imageLoading}
                       >
                         {imageLoading ? 'Loading Image...' : 'Fetch Image'}
-                      </button>
-                    </div>
+                      </Button>
+                    </Flex>
                   )
                 )}
 
@@ -256,7 +304,7 @@ export default function Home() {
               <div className="text-gray-300 md:pl-4 pt-4">
                 <div>{result}</div>
               </div>
-            </div>
+            </Grid>
             {/* <div className='flex justify-between items-center px-4 mb-4 w-full'>
                 <div className='flex'>
                   <i className='material-icons mr-2 text-red-600'>

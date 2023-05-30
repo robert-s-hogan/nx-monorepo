@@ -20,7 +20,7 @@ export default async function (req, res) {
       openai.createImage({
         prompt: imagePrompt,
         n: 1,
-        size: '1024x1024',
+        size: '512x512',
       })
     );
 
