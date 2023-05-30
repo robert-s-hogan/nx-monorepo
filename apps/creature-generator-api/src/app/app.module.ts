@@ -14,11 +14,11 @@ import { CreatureService } from '../creature/creature.service'; // new
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DB_HOST || 'localhost',
-      port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 5432,
-      username: process.env.AWS_USER_NAME || 'postgres',
-      password: process.env.AWS_PASSWORD || 'postgres',
-      database: process.env.AWS_DATABASE || 'creature-generator',
+      host: 'localhost',
+      port: 5432,
+      username: 'cg_admin',
+      // password: 'postgres',
+      database: 'creature_db',
       entities: [Creature, Action, SpecialAbility],
       synchronize: true,
     }),
