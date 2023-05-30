@@ -43,14 +43,4 @@ export const projectsData = [
     category: ['React', 'TailwindCSS', 'Google'],
     isUnderConstruction: false,
   },
-
-  // {
-  //   title: 'Local Coffee Shop',
-  //   description:
-  //     'Sample coffee shop template using TailwindCSS, Gatsby, and hosted on Netlify.',
-  //   link: 'https://coffe-shop-nx.vercel.app/',
-  //   github: 'https://github.com/robert-s-hogan/gatsby-coffee-shop',
-  //   category: ['React', 'Next', 'NX', 'TailwindCSS'],
-  //   isUnderConstruction: true,
-  // },
 ];
