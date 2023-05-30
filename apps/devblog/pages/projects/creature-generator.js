@@ -293,7 +293,6 @@ export default function Home() {
                     </Flex>
                   )
                 )}
-
                 {/* {creature.imagePrompt && (
                   <p className='text-gray-300 mt-4 italic'>
                     {creature.imagePrompt}
