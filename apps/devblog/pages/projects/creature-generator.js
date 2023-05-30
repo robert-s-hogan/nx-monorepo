@@ -301,7 +301,7 @@ export default function Home() {
                 )} */}
               </div>
 
-              <div className="text-gray-300 md:pl-4 pt-4">
+              <div className="text-gray-300 md:pl-4">
                 <div>{result}</div>
               </div>
             </Grid>
