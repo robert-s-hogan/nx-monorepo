@@ -19,6 +19,7 @@ const nextConfig = {
       'images.pexels.com',
       'images.unsplash.com',
       'img.icons8.com',
+      'oaidalleapiprodscus.blob.core.windows.net',
     ],
   },
 };
