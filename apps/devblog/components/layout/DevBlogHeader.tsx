@@ -51,17 +51,15 @@ const DevBlogHeader = () => {
   ) : null;
 
   return (
-    <header>
-      <div className="mx-auto max-w-7xl w-full flex flex-col justify-center items-center px-4">
-        <Navbar
-          className="flex justify-between container mx-auto space-x-4 py-4 items-center"
-          links={links}
-          logo={logo}
-          isOpen={true}
-          logoText="Robert Hogan's Portfolio"
-          toggleButton={toggleButton}
-        />
-      </div>
+    <header className="container mx-auto max-w-7xl pb-8 px-4">
+      <Navbar
+        className="flex justify-between w-full mx-auto space-x-4 py-4 items-center"
+        links={links}
+        logo={logo}
+        isOpen={true}
+        logoText="Robert Hogan's Portfolio"
+        toggleButton={toggleButton}
+      />
     </header>
   );
 };

@@ -33,7 +33,7 @@ const DevBlogLayout = ({
         }
         url="https://www.roberthogan.dev/"
         faviconPath="http://robertshogan.dreamhosters.com/projects/devblog/favicon.ico"
-        image="http://robertshogan.dreamhosters.com/projects/devblog/portrait.jpg"
+        image="http://robertshogan.dreamhosters.com/projects/rshogancom/final-logo.jpg"
         twitterHandle="@robert_s_hogan"
         siteName="Robert Hogans Portfolio"
         appleTouchIconPath="/apple-touch-icon.png"
