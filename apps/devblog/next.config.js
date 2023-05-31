@@ -20,6 +20,8 @@ const nextConfig = {
       'images.unsplash.com',
       'img.icons8.com',
       'oaidalleapiprodscus.blob.core.windows.net',
+      'rshogan.imgix.net',
+      'robertshogan.dreamhosters.com',
     ],
   },
 };

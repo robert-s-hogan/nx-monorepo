@@ -167,31 +167,12 @@ export const dndCharacterAdvancementTable = [
 ];
 
 export const dndEncounterMultipliers = [
-  { numberOfMonsters: 1, multiplier: 1 },
-  { numberOfMonsters: 2, multiplier: 1.5 },
-  { numberOfMonsters: 3, multiplier: 2 },
-  { numberOfMonsters: 4, multiplier: 2 },
-  { numberOfMonsters: 5, multiplier: 2 },
-  { numberOfMonsters: 6, multiplier: 2 },
-  { numberOfMonsters: 7, multiplier: 2.5 },
-  { numberOfMonsters: 8, multiplier: 2.5 },
-  { numberOfMonsters: 9, multiplier: 2.5 },
-  { numberOfMonsters: 10, multiplier: 2.5 },
-  { numberOfMonsters: 11, multiplier: 3 },
-  { numberOfMonsters: 12, multiplier: 3 },
-  { numberOfMonsters: 13, multiplier: 3 },
-  { numberOfMonsters: 14, multiplier: 3 },
-  { numberOfMonsters: 15, multiplier: 4 },
-  { numberOfMonsters: 16, multiplier: 4 },
-  { numberOfMonsters: 17, multiplier: 4 },
-  { numberOfMonsters: 18, multiplier: 4 },
-  { numberOfMonsters: 19, multiplier: 4 },
-  { numberOfMonsters: 20, multiplier: 4 },
-  { numberOfMonsters: 21, multiplier: 4 },
-  { numberOfMonsters: 22, multiplier: 4 },
-  { numberOfMonsters: 23, multiplier: 4 },
-  { numberOfMonsters: 24, multiplier: 4 },
-  { numberOfMonsters: 25, multiplier: 4 },
+  { monsterCountStart: 1, monsterCountEnd: 1, multiplier: 1 },
+  { monsterCountStart: 2, monsterCountEnd: 2, multiplier: 1.5 },
+  { monsterCountStart: 3, monsterCountEnd: 6, multiplier: 2 },
+  { monsterCountStart: 7, monsterCountEnd: 10, multiplier: 2.5 },
+  { monsterCountStart: 11, monsterCountEnd: 14, multiplier: 3 },
+  { monsterCountStart: 15, monsterCountEnd: 25, multiplier: 4 },
 ];
 
 export const dndAdventuringDayXP = [

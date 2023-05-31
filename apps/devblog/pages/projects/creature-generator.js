@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { GiDoubleDragon } from 'react-icons/gi';
+import { BiCopy, BiCheck } from 'react-icons/bi';
+
 import {
   Button,
   Flex,
@@ -11,14 +14,11 @@ import {
   Section,
 } from '@with-nx/react-ui';
 import { loadingMessages } from '@with-nx/constants';
+
 import DevblogLayout from '../../components/layout/DevBlogLayout';
-
-import { GiDoubleDragon } from 'react-icons/gi';
-import { BiCopy, BiCheck } from 'react-icons/bi';
-
 import { generateRandomValues } from '../api/creature-generator/generate';
 
-export default function Home() {
+export default function CreatureGenerator() {
   const [challengeRating, setChallengeRating] = useState('');
   const [numberOfMonsters, setNumberOfMonsters] = useState('');
   const [numberOfPlayers, setNumberOfPlayers] = useState('');

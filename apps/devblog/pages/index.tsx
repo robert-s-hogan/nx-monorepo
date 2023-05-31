@@ -7,7 +7,6 @@ import { BiWrench } from 'react-icons/bi';
 
 import { projectsData } from '../data/projects';
 import { getIconForCategory } from '../utils/getIconForCategory';
-import RSHPortrait from '../public/images/portrait.jpg';
 
 export function Index() {
   return (
@@ -47,7 +46,7 @@ export function Index() {
             </div>
             <div className="mx-auto mt-8 md:mt-0">
               <Image
-                src={RSHPortrait}
+                src="http://robertshogan.dreamhosters.com/projects/devblog/portrait.jpg"
                 height={770}
                 width={500}
                 priority
