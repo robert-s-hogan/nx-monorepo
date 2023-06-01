@@ -6,14 +6,24 @@ describe('TimePicker', () => {
   const mockTimeChangeHandler = jest.fn();
 
   test('renders TimePicker component', () => {
-    const { getByValue } = render(<TimePicker onTimeChange={mockTimeChangeHandler} />);
+    const { getByValue } = render(
+      <TimePicker onTimeChange={mockTimeChangeHandler} />
+    );
 
     // Check if hours and minutes dropdown are present
     expect(getByValue('00')).toBeInTheDocument();
   });
 
   test('changes hour and minute when a new time is selected', () => {
-    const { getByDisplayValue } = render(<TimePicker onTimeChange={mockTimeChangeHandler} />);
+    const { getByDisplayValue } = render(
+      <TimePicker onTimeChange={mockTimeChangeHandler} />
+    );
 
     fireEvent.change(getByDisplayValue('00'), { target: { value: '12' } });
-    fireEvent.change(getByDisplayValue('00'), {
+    fireEvent.change(getByDisplayValue('00'), { target: { value: '30' } });
+
+    expect(mockTimeChangeHandler).toHaveBeenCalledTimes(2);
+    expect(mockTimeChangeHandler).toHaveBeenCalledWith(12, 0);
+    expect(mockTimeChangeHandler).toHaveBeenCalledWith(0, 30);
+  });
+});
