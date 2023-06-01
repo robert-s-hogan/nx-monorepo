@@ -22,6 +22,10 @@ export interface CollapseProps {
   className?: string;
 }
 
+export type DatePickerProps = {
+  onDateChange: (date: Date) => void;
+};
+
 export interface PageIndicatorProps {
   page: number;
   total: number;

@@ -4,6 +4,7 @@
 export * from './lib/control/button/button';
 // export * from './lib/control/calendar/calendar';
 export * from './lib/control/checkbox/checkbox';
+export * from './lib/control/date-picker/date-picker';
 export * from './lib/control/link/link';
 export * from './lib/control/multi-step-form/multi-step-form';
 export * from './lib/control/pagination/pagination';
