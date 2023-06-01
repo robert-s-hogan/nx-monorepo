@@ -1,3 +1,4 @@
+export * from './lib/time-picker/time-picker';
 //libs/react-ui/src/index.ts
 
 //control components

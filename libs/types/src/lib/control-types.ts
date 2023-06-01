@@ -65,3 +65,7 @@ export interface TabPanelProps {
 export interface TabsProps {
   data: TabData[];
 }
+
+export type TimePickerProps = {
+  onTimeChange: (hour: number, minute: number) => void;
+};
