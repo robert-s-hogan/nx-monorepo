@@ -1,5 +1,5 @@
 import { TextareaProps } from '@with-nx/types';
-import Label from '../label/label';
+import { Label } from '@with-nx/react-ui';
 
 export const Textarea = ({
   name,

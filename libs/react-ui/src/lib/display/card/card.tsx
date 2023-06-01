@@ -1,7 +1,5 @@
 import { CardProps } from '@with-nx/types';
-import Skeleton from '../skeleton/skeleton';
-import Text from '../text/text';
-import Button from '../button/button';
+import { Skeleton, Text, Button } from '@with-nx/react-ui';
 
 export function Card({
   title,

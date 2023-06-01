@@ -1,7 +1,7 @@
 import React from 'react';
 import { SearchBarProps } from '@with-nx/types';
 
-const SearchBar = ({ placeholder = 'Search', icon }: SearchBarProps) => {
+export const SearchBar = ({ placeholder = 'Search', icon }: SearchBarProps) => {
   return (
     <div className="flex items-center bg-gray-200 p-2 rounded-md">
       {icon && <span className="mr-2">{icon}</span>}
@@ -13,5 +13,3 @@ const SearchBar = ({ placeholder = 'Search', icon }: SearchBarProps) => {
     </div>
   );
 };
-
-export default SearchBar;

@@ -1,5 +1,5 @@
 import { HeadingProps } from '@with-nx/types';
-import Skeleton from '../skeleton/skeleton';
+import { Skeleton } from '@with-nx/react-ui';
 
 export const Heading = ({
   level,

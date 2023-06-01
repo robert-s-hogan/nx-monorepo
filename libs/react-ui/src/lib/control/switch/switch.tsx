@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react';
+import { SwitchProps } from '@with-nx/types';
 
 export const Switch = ({
   checked,

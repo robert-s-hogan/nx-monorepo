@@ -1,6 +1,5 @@
 import { HeroProps } from '@with-nx/types';
-import Heading from '../heading/heading';
-import Button from '../button/button';
+import { Heading, Button } from '@with-nx/react-ui';
 
 export const Hero = ({
   title,

@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import HamburgerMenu from '../hamburger-menu/hamburger-menu';
-import SearchBar from '../search-bar/search-bar';
-import Select from '../select/select';
-import List from '../list/list';
+import { HamburgerMenu, SearchBar, Select, List } from '@with-nx/react-ui';
 import { NavbarProps } from '@with-nx/types';
 
 export const Navbar = ({

@@ -1,5 +1,5 @@
 import { BreadcrumbProps } from '@with-nx/types';
-import Link from '../link/link';
+import { Link } from '@with-nx/react-ui';
 
 export function Breadcrumb({ items }: BreadcrumbProps) {
   return (

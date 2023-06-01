@@ -1,5 +1,5 @@
 import { Menu, X } from '@with-nx/icons';
-import Button from '../button/button';
+import { Button } from '@with-nx/react-ui';
 
 interface HamburgerMenuProps {
   open?: boolean;

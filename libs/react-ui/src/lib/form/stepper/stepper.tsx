@@ -1,4 +1,4 @@
-import Button from '../button/button';
+import { Button } from '@with-nx/react-ui';
 import { StepperProps } from '@with-nx/types';
 
 export const Stepper = ({

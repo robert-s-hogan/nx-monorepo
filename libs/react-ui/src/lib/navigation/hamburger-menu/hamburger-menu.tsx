@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import HamburgerIcon from './hamburger-icon';
-import List from '../list/list';
+import { List } from '@with-nx/react-ui';
 
-interface HamburgerMenuProps {
+export interface HamburgerMenuProps {
   links?: {
     href: string;
     children: React.ReactNode;
@@ -12,7 +12,7 @@ interface HamburgerMenuProps {
   setIsOpen?: (isOpen: boolean) => void;
 }
 
-const HamburgerMenu = ({ links }: HamburgerMenuProps): JSX.Element => {
+export const HamburgerMenu = ({ links }: HamburgerMenuProps): JSX.Element => {
   const [open, setOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
 
@@ -39,5 +39,3 @@ const HamburgerMenu = ({ links }: HamburgerMenuProps): JSX.Element => {
     </div>
   );
 };
-
-export default HamburgerMenu;

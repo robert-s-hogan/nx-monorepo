@@ -1,5 +1,5 @@
 import { InputProps } from '@with-nx/types';
-import Label from '../label/label';
+import { Label } from '@with-nx/react-ui';
 
 export const Input = ({
   label,

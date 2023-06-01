@@ -1,4 +1,4 @@
-import Skeleton from '../skeleton/skeleton';
+import { Skeleton } from '@with-nx/react-ui';
 import { TextProps } from '@with-nx/types';
 
 export const Text = ({
