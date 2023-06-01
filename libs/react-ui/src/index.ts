@@ -1,4 +1,3 @@
-export * from './lib/time-picker/time-picker';
 //libs/react-ui/src/index.ts
 
 //control components
@@ -13,6 +12,7 @@ export * from './lib/control/radio/radio';
 export * from './lib/control/select/select';
 export * from './lib/control/slider/slider';
 export * from './lib/control/switch/switch';
+export * from './lib/control/time-picker/time-picker';
 
 //display components
 export * from './lib/display/badge/badge';
