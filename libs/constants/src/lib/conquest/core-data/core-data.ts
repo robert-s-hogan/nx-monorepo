@@ -2,6 +2,7 @@
 
 import { alignments } from './alignments';
 import { languages } from './languages';
+import { names } from './names';
 import { races } from './races';
 
-export { alignments, languages, races };
+export { alignments, languages, names, races };
