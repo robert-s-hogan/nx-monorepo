@@ -33,7 +33,7 @@ const HamburgerMenu = ({ links }: HamburgerMenuProps): JSX.Element => {
           items={links}
           value={selectedItem}
           onChange={handleSelectChange}
-          className="bg-white w-full absolute z-10 top-16"
+          className="bg-white w-full absolute z-10 top-16 border border-primary"
         />
       )}
     </div>
