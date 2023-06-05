@@ -7,3 +7,6 @@ export * from './lib/number-utils';
 export * from './lib/object-utils';
 export * from './lib/string-utils';
 export * from './lib/validation-utils';
+
+//conquest
+export * from './lib/conquest/util-types';

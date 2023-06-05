@@ -9,3 +9,7 @@ export * from './lib/redux-toolkit-types'; //slice, store, thunk, action, reduce
 export * from './lib/serverless-function-types'; //chillout
 export * from './lib/typography-types'; //heading, text, paragraph, list, blockquote, code
 export * from './lib/utility-types'; //seo
+
+//conquest
+export * from './lib/conquest/core-data-types';
+export * from './lib/conquest/util-types';
