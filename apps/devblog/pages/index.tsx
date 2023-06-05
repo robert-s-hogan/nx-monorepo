@@ -3,12 +3,17 @@ import { Button, Flex, Heading, Link, Text } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
 import { Mail, LinkedIn } from '@with-nx/icons';
 import Image from 'next/image';
+import Script from 'next/script';
 import { BiWrench } from 'react-icons/bi';
+import { useModal } from '@with-nx/react-hooks';
+import { X } from '@with-nx/icons';
 
 import { projectsData } from '../data/projects';
 import { getIconForCategory } from '../utils/getIconForCategory';
 
 export function Index() {
+  const { isShowing, toggle } = useModal();
+
   return (
     <DevBlogLayout>
       <section className="container max-w-7xl mx-auto px-4">
@@ -26,7 +31,11 @@ export function Index() {
                   Moving my site from Netlify/Gatsby to Vercel/NX/Next.js
                   &#128059; with me
                 </p>
-                <div className="space-x-4 flex">
+                <Flex className="space-x-4 flex items-center">
+                  <Button className="btn-primary" onClick={toggle}>
+                    Schedule a Meeting
+                  </Button>
+
                   <Link
                     href="mailto:robert@robertshogan.com"
                     className=" hover:text-vivid-500"
@@ -41,9 +50,26 @@ export function Index() {
                   >
                     <LinkedIn className="h-6 w-6" />
                   </Link>
-                </div>
+                </Flex>
               </div>
             </div>
+            <dialog open={isShowing} className="border border-primary">
+              {/* <Button onClick={toggle} autoFocus> */}
+              <div className="w-full z-10" onClick={toggle}>
+                <X className="h-5 w-5 ml-auto opacity-80" />
+              </div>
+              {/* </Button> */}
+              <div
+                className="calendly-inline-widget"
+                data-url="https://calendly.com/robertshogan"
+                style={{ minWidth: '320px', height: '700px' }}
+              ></div>
+              <Script
+                type="text/javascript"
+                src="https://assets.calendly.com/assets/external/widget.js"
+                async
+              ></Script>
+            </dialog>
             <div className="mx-auto mt-8 md:mt-0">
               <Image
                 src="http://robertshogan.dreamhosters.com/projects/devblog/portrait.jpg"

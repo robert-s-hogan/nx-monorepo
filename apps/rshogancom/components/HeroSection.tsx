@@ -1,14 +1,16 @@
 import { Hero, Button, Modal } from '@with-nx/react-ui';
 import Image from 'next/image';
 // import NextLink from 'next/link';
-// import { useModal } from '@with-nx/react-hooks';
-// import { Calendly } from '@with-nx/analytics';
-// import Script from 'next/script';
-// import RSHModal from './RSHModal';
+import Script from 'next/script';
+import RSHModal from './RSHModal';
+import { useModal } from '@with-nx/react-hooks';
+import { X } from '@with-nx/icons';
 
 import HeroImg from '../assets/images/rsh_hero_circle.webp';
 
 const HeroSection = () => {
+  const { isShowing, toggle } = useModal();
+
   return (
     <Hero
       layout="custom"
@@ -29,17 +31,31 @@ const HeroSection = () => {
       <p className="text-center text-white">
         I design and code beautifully simple things, and I love what I do.
       </p>
-      {/* <div className="flex justify-center space-x-8 items-center">
-        <Button className="btn-primary" onClick={toggle}>
-          Schedule a Visit
+      <div className="flex justify-center space-x-8 items-center">
+        <Button className="bg-primary" onClick={toggle}>
+          Schedule a Meeting
         </Button>
-        <NextLink href="/404" className="underline text-primary">
+        {/* <NextLink href="/404" className="underline text-primary">
           View Projects
-        </NextLink>
-      </div> */}
-      {/* <RSHModal isShowing={isShowing} hide={toggle}>
-        <Calendly url="https://calendly.com/robert-s-hogan/30min" />
-      </RSHModal> */}
+        </NextLink> */}
+      </div>
+      <dialog open={isShowing} className="border border-primary">
+        {/* <Button onClick={toggle} autoFocus> */}
+        <div className="w-full z-10" onClick={toggle}>
+          <X className="h-5 w-5 ml-auto opacity-80" />
+        </div>
+        {/* </Button> */}
+        <div
+          className="calendly-inline-widget"
+          data-url="https://calendly.com/robertshogan"
+          style={{ minWidth: '320px', height: '700px' }}
+        ></div>
+        <Script
+          type="text/javascript"
+          src="https://assets.calendly.com/assets/external/widget.js"
+          async
+        ></Script>
+      </dialog>
     </Hero>
   );
 };
