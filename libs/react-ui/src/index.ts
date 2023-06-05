@@ -9,12 +9,15 @@ export * from './lib/control/link/link';
 export * from './lib/control/multi-step-form/multi-step-form';
 export * from './lib/control/pagination/pagination';
 export * from './lib/control/radio/radio';
+export * from './lib/control/rating/rating';
 export * from './lib/control/select/select';
 export * from './lib/control/slider/slider';
 export * from './lib/control/switch/switch';
 export * from './lib/control/time-picker/time-picker';
 
 //display components
+export * from './lib/display/alert/alert';
+export * from './lib/display/avatar/avatar';
 export * from './lib/display/badge/badge';
 export * from './lib/display/card/card';
 export * from './lib/display/hero/hero';
@@ -22,6 +25,8 @@ export * from './lib/display/label/label';
 export * from './lib/display/list/list';
 export * from './lib/display/list-item/list-item';
 export * from './lib/display/popover/popover';
+export * from './lib/display/status-indicator/status-indicator';
+export * from './lib/display/table/table';
 export * from './lib/display/tooltip/tooltip';
 
 //feedback components

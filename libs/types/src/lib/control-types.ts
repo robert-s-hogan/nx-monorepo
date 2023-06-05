@@ -32,6 +32,11 @@ export interface PageIndicatorProps {
   className?: string;
 }
 
+export interface RatingProps {
+  maxRating: number;
+  onRatingChange: (rating: number) => void;
+}
+
 export interface SliderProps {
   value: number;
   min?: number;

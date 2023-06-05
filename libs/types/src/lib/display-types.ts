@@ -1,5 +1,16 @@
 import { ButtonProps } from '@with-nx/types';
 
+export interface AlertProps {
+  message: string;
+  type: 'success' | 'error' | 'warning';
+}
+
+export interface AvatarProps {
+  src?: string;
+  alt: string;
+  size: 'small' | 'medium' | 'large';
+}
+
 export interface BadgeProps {
   value: number | string;
   max?: number;
@@ -40,6 +51,14 @@ export interface ProgressProps {
   value: number;
   maxValue: number;
   type?: 'horizontal' | 'circular';
+}
+
+export interface StatusIndicatorProps {
+  status: 'online' | 'offline' | 'away';
+}
+
+export interface TableProps {
+  data: Array<{ [key: string]: string | number }>;
 }
 
 export interface TooltipProps {
