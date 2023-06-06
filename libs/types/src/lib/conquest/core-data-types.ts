@@ -1,4 +1,5 @@
 //libs/types/src/lib/conquest/core-data-types.ts
+import { Rarity } from '@with-nx/types';
 
 export type Alignment = {
   name: string;

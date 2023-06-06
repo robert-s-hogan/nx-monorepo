@@ -1,5 +1,5 @@
 import { Language } from '@with-nx/types';
-import { Rarity } from '@with-nx/utils';
+import { rarities } from '@with-nx/utils';
 
 export const languages: Language[] = [
   {

@@ -1,4 +1,5 @@
 //libs/utils/src/lib/rarity.ts
+import { Rarity } from '@with-nx/types';
 
 export const rarities: Rarity[] = [
   { level: 1, name: 'Common', frequency: 50 },

@@ -66,17 +66,56 @@ export const nameStructures = {
       third: ['el', 'ael', 'iel', 'uel', 'al'],
     },
   ],
-  'Bugbear': [
-    { first: ["Bra", "Dra", "Gra", "Kra", "Nra", "Pra", "Rra", "Tra", "Vra", "Zra"], 
-      second: ["ag", "eg", "ig", "og", "ug"],
-      third: ["ak", "ik", "ok", "uk", "yk"]
-    }
+  Bugbear: [
+    {
+      first: [
+        'Bra',
+        'Dra',
+        'Gra',
+        'Kra',
+        'Nra',
+        'Pra',
+        'Rra',
+        'Tra',
+        'Vra',
+        'Zra',
+      ],
+      second: ['ag', 'eg', 'ig', 'og', 'ug'],
+      third: ['ak', 'ik', 'ok', 'uk', 'yk'],
+    },
   ],
-  'Changeling': [
-    { first: ["Al", "Be", "Ci", "Da", "Ef", "Go", "Hu", "Ir", "Jo", "Ki", "La", "Mo", "Ni", "Or", "Pa", "Qu", "Ro", "St", "Ta", "Ur", "Vi", "Wi", "Xa", "Ye", "Zu"], 
-      second: ["an", "en", "in", "on", "un"],
-      third: ["is", "us", "es", "os", "ys"]
-    }
+  Changeling: [
+    {
+      first: [
+        'Al',
+        'Be',
+        'Ci',
+        'Da',
+        'Ef',
+        'Go',
+        'Hu',
+        'Ir',
+        'Jo',
+        'Ki',
+        'La',
+        'Mo',
+        'Ni',
+        'Or',
+        'Pa',
+        'Qu',
+        'Ro',
+        'St',
+        'Ta',
+        'Ur',
+        'Vi',
+        'Wi',
+        'Xa',
+        'Ye',
+        'Zu',
+      ],
+      second: ['an', 'en', 'in', 'on', 'un'],
+      third: ['is', 'us', 'es', 'os', 'ys'],
+    },
   ],
   Dragonborn: [
     {
@@ -454,11 +493,23 @@ export const nameStructures = {
       third: ['', '', '', '', '', '', '', '', '', ''],
     },
   ],
-  'Hobgoblin': [
-    { first: ["Hob", "Job", "Kob", "Lob", "Mob", "Nob", "Pob", "Rob", "Sob", "Tob"], 
-      second: ["ar", "er", "ir", "or", "ur"],
-      third: ["din", "fin", "gin", "hin", "kin"]
-    }
+  Hobgoblin: [
+    {
+      first: [
+        'Hob',
+        'Job',
+        'Kob',
+        'Lob',
+        'Mob',
+        'Nob',
+        'Pob',
+        'Rob',
+        'Sob',
+        'Tob',
+      ],
+      second: ['ar', 'er', 'ir', 'or', 'ur'],
+      third: ['din', 'fin', 'gin', 'hin', 'kin'],
+    },
   ],
   Human: [
     {
@@ -515,12 +566,38 @@ export const nameStructures = {
       third: ['', '', '', '', '', '', '', '', ''],
     },
   ],
-  'Kobold': [
-    { first: ["Ak", "Ek", "Ik", "Ok", "Uk", "Yk", "Bk", "Dk", "Fk", "Gk", "Hk", "Jk", "Kk", "Lk", "Mk", "Nk", "Pk", "Rk", "Sk", "Tk", "Vk", "Wk", "Xk", "Zk"], 
-      second: ["ra", "re", "ri", "ro", "ru"],
-      third: ["", "", "", "", ""]
-    }
-  ]
+  Kobold: [
+    {
+      first: [
+        'Ak',
+        'Ek',
+        'Ik',
+        'Ok',
+        'Uk',
+        'Yk',
+        'Bk',
+        'Dk',
+        'Fk',
+        'Gk',
+        'Hk',
+        'Jk',
+        'Kk',
+        'Lk',
+        'Mk',
+        'Nk',
+        'Pk',
+        'Rk',
+        'Sk',
+        'Tk',
+        'Vk',
+        'Wk',
+        'Xk',
+        'Zk',
+      ],
+      second: ['ra', 're', 'ri', 'ro', 'ru'],
+      third: ['', '', '', '', ''],
+    },
+  ],
   Lizardfolk: [
     {
       first: [
@@ -694,11 +771,48 @@ export const nameStructures = {
       third: ['', '', '', '', '', '', '', '', ''],
     },
   ],
-  'Warforged': [
-    { first: ["Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Sigma", "Tau", "Upsilon", "Phi", "Chi", "Psi", "Omega"], 
-      second: ["-01", "-02", "-03", "-04", "-05", "-06", "-07", "-08", "-09", "-10"],
-      third: ["", "", "", "", ""]
-    }
+  Warforged: [
+    {
+      first: [
+        'Alpha',
+        'Beta',
+        'Gamma',
+        'Delta',
+        'Epsilon',
+        'Zeta',
+        'Eta',
+        'Theta',
+        'Iota',
+        'Kappa',
+        'Lambda',
+        'Mu',
+        'Nu',
+        'Xi',
+        'Omicron',
+        'Pi',
+        'Rho',
+        'Sigma',
+        'Tau',
+        'Upsilon',
+        'Phi',
+        'Chi',
+        'Psi',
+        'Omega',
+      ],
+      second: [
+        '-01',
+        '-02',
+        '-03',
+        '-04',
+        '-05',
+        '-06',
+        '-07',
+        '-08',
+        '-09',
+        '-10',
+      ],
+      third: ['', '', '', '', ''],
+    },
   ],
   'Yuan-ti Pureblood': [
     {

@@ -9,4 +9,4 @@ export * from './lib/string-utils';
 export * from './lib/validation-utils';
 
 //conquest
-export * from './lib/conquest/util-types';
+export * from './lib/conquest/rarity';

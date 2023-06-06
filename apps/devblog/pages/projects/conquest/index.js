@@ -14,33 +14,47 @@ import {
 } from '@with-nx/react-ui';
 
 import DevblogLayout from '../../../components/layout/DevBlogLayout';
-import { alignments, languages, races } from '@with-nx/constants';
+import {
+  alignments,
+  languages,
+  races,
+  nameStructures,
+} from '@with-nx/constants';
 
 const generateCharacter = () => {
-  console.log(`races: ${races}`);
   const alignment = alignments[Math.floor(Math.random() * alignments.length)];
   const language = languages[Math.floor(Math.random() * languages.length)];
 
   let raceIndex = Math.floor(Math.random() * races.length);
+  console.log(`race index: ${raceIndex}`); // Debug: log the race index
+
   let race = races[raceIndex];
-  let subrace = ''; // Set default subrace to ''
+
+  let subrace = ''; // Set default subrace to '
+
   // If the chosen race has subraces, select a random one.
   if (race.subraces && race.subraces.length > 0) {
     let subraceIndex = Math.floor(Math.random() * race.subraces.length);
-    subrace = race.subraces[subraceIndex].name;
+    let selectedSubrace = race.subraces[subraceIndex];
+    if (selectedSubrace) {
+      subrace = selectedSubrace.name;
+    }
   }
 
   return { alignment, language, race, subrace };
 };
 
-const CardBody = ({ character }) => (
-  <div className="p-4">
-    <Text>Alignment: {character.alignment}</Text>
-    <Text>Language: {character.language}</Text>
-    <Text>Race: {character.race}</Text>
-    {character.subrace && <Text>Subrace: {character.subrace}</Text>}
-  </div>
-);
+const CardBody = ({ character }) => {
+  const { alignment, language, race, subrace } = character;
+  return (
+    <div className="p-4">
+      <Text>Alignment: {alignment.name}</Text>
+      <Text>Language: {language.name}</Text>
+
+      {subrace ? <Text>Race: {subrace}</Text> : <Text>Race: {race.name}</Text>}
+    </div>
+  );
+};
 
 const ProjectConquest = () => {
   const [characters, setCharacters] = useState([]);
@@ -53,6 +67,7 @@ const ProjectConquest = () => {
   return (
     <DevblogLayout>
       <Section>
+        {/* <pre className="border">{JSON.stringify(races[0], null, 2)}</pre> */}
         <Button className="btn-primary" onClick={addCharacter}>
           Generate entity
         </Button>
@@ -67,9 +82,9 @@ const ProjectConquest = () => {
                   //   onClick={() => console.log(`Card ${index + 1} clicked`)}
                   //   button={<Button>Interact</Button>}
                 />
-                <pre className="border">
+                {/* <pre className="border">
                   {JSON.stringify(characters[index], null, 2)}
-                </pre>
+                </pre> */}
               </Box>
             ))}
           </Grid>
