@@ -41,14 +41,14 @@ const HeroSection = () => {
       </div>
       <dialog open={isShowing} className="border border-primary">
         {/* <Button onClick={toggle} autoFocus> */}
-        <div className="w-full z-10" onClick={toggle}>
+        <div className="w-full z-10 pb-2" onClick={toggle}>
           <X className="h-5 w-5 ml-auto opacity-80" />
         </div>
         {/* </Button> */}
         <div
           className="calendly-inline-widget"
           data-url="https://calendly.com/robertshogan"
-          style={{ minWidth: '320px', height: '700px' }}
+          style={{ minWidth: '320px', height: '600px' }}
         ></div>
         <Script
           type="text/javascript"

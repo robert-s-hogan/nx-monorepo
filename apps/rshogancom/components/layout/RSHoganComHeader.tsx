@@ -1,4 +1,4 @@
-import { Button } from '@with-nx/react-ui';
+import { Button, Flex, Text } from '@with-nx/react-ui';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import Script from 'next/script';
@@ -20,7 +20,7 @@ const RSHoganComHeader = () => {
         <div className="w-full mx-auto py-0 md:py-4 lg:px-0 text-lg md:text-2xl lg:max-w-7xl ">
           <div className="flex justify-between text-white p-4 lg:px-0 text-2xl max-w-7xl">
             <NextLink href="/" className="flex items-center justify-center">
-              <div>
+              <Flex className="items-center space-x-2">
                 <Image
                   src={RSH_logo}
                   width={48}
@@ -29,7 +29,8 @@ const RSHoganComHeader = () => {
                   className=""
                   alt="Robert Hogan's Logo"
                 />
-              </div>
+                <Text className="text-black text-base">Robert Hogan</Text>
+              </Flex>
             </NextLink>
             <nav className="flex justify-center">
               <Button onClick={toggle} type="submit">
