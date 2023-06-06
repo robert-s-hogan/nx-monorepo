@@ -1,3 +1,10 @@
+export interface DialogProps {
+  title: string;
+  children: React.ReactNode;
+  isVisible: boolean;
+  onClose: () => void;
+}
+
 export interface SkeletonProps {
   key?: string;
   width?: string | number;
@@ -9,6 +16,19 @@ export interface SkeletonProps {
   className?: string;
 }
 
+export interface SnackbarProps {
+  message: string;
+  type: 'success' | 'error' | 'warning';
+  isVisible: boolean;
+}
+
 export interface SpinnerProps {
   size?: 'small' | 'medium' | 'large';
+}
+
+export interface ToastProps {
+  message: string;
+  type: 'success' | 'error' | 'warning';
+  isVisible: boolean;
+  duration?: number;
 }

@@ -30,11 +30,14 @@ export * from './lib/display/table/table';
 export * from './lib/display/tooltip/tooltip';
 
 //feedback components
+export * from './lib/feedback/dialog/dialog';
 export * from './lib/feedback/modal/modal';
 export * from './lib/feedback/page-indicator/page-indicator';
 export * from './lib/feedback/progress/progress';
 export * from './lib/feedback/skeleton/skeleton';
+export * from './lib/feedback/snackbar/snackbar';
 export * from './lib/feedback/spinner/spinner';
+export * from './lib/feedback/toast/toast';
 
 //form components
 export * from './lib/form/form/form';
