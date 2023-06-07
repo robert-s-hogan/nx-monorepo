@@ -9,6 +9,20 @@ export interface BoxProps {
   style?: React.CSSProperties;
 }
 
+export interface DrawerProps {
+  isOpen: boolean;
+  children: React.ReactNode;
+}
+
+export interface ContainerProps {
+  maxWidth: string;
+  children: React.ReactNode;
+}
+
+export interface DividerProps {
+  color: string;
+}
+
 export interface FlexProps {
   id?: string;
   children: React.ReactNode;
@@ -68,4 +82,18 @@ export interface SectionProps {
   className?: string;
   style?: React.CSSProperties;
   ariaLabel?: string;
+}
+
+export interface SidebarProps {
+  width: string;
+  children: React.ReactNode;
+}
+
+export interface SpaceProps {
+  size: string;
+}
+
+export interface StackProps {
+  spacing: number;
+  children: React.ReactNode;
 }

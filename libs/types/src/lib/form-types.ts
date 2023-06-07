@@ -1,3 +1,8 @@
+export interface AutoCompleteProps {
+  suggestions: string[];
+  onChange: (value: string) => void;
+}
+
 export interface CheckboxProps {
   label: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -96,4 +101,11 @@ export interface TextareaProps {
   rows?: number;
   minLength?: number;
   maxLength?: number;
+}
+
+export interface ValidatedInputProps {
+  value: string;
+  onChange: (value: string) => void;
+  feedback?: string;
+  isValid: boolean;
 }

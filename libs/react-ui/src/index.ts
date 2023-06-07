@@ -40,19 +40,27 @@ export * from './lib/feedback/spinner/spinner';
 export * from './lib/feedback/toast/toast';
 
 //form components
+export * from './lib/form/autocomplete/autocomplete';
 export * from './lib/form/form/form';
 export * from './lib/form/input/input';
 export * from './lib/form/stepper/stepper';
 export * from './lib/form/textarea/textarea';
+export * from './lib/form/validated-input/validated-input';
 
 //layout components
 export * from './lib/layout/box/box';
+export * from './lib/layout/container/container';
+export * from './lib/layout/divider/divider';
+export * from './lib/layout/drawer/drawer';
 export * from './lib/layout/flex/flex';
 export * from './lib/layout/footer/footer';
 export * from './lib/layout/grid/grid';
 export * from './lib/layout/header/header';
 export * from './lib/layout/page-layout/page-layout';
 export * from './lib/layout/section/section';
+export * from './lib/layout/sidebar/sidebar';
+export * from './lib/layout/space/space';
+export * from './lib/layout/stack/stack';
 export * from './lib/layout/tabs/tabs';
 
 //media components
