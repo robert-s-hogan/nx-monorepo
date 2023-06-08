@@ -64,7 +64,12 @@ export * from './lib/layout/stack/stack';
 export * from './lib/layout/tabs/tabs';
 
 //media components
+export * from './lib/media/audio/audio';
 export * from './lib/media/carousel/carousel';
+export * from './lib/media/gallery/gallery';
+export * from './lib/media/image/image';
+export * from './lib/media/lightbox/lightbox';
+export * from './lib/media/video/video';
 
 //navigation components
 export * from './lib/navigation/breadcrumb/breadcrumb';
