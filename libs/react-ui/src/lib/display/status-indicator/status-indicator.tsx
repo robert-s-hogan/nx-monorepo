@@ -1,4 +1,3 @@
-import React from 'react';
 import { StatusIndicatorProps } from '@with-nx/types';
 
 export const StatusIndicator: React.FC<StatusIndicatorProps> = ({ status }) => {

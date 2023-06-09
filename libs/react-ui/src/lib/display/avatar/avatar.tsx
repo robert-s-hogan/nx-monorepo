@@ -1,4 +1,3 @@
-import React from 'react';
 import { AvatarProps } from '@with-nx/types';
 
 export const Avatar: React.FC<AvatarProps> = ({ src, alt, size }) => {

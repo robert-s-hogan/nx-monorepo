@@ -1,4 +1,3 @@
-import React from 'react';
 import { DividerProps } from '@with-nx/types';
 
 export const Divider: React.FC<DividerProps> = ({ color }) => {

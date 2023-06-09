@@ -1,4 +1,3 @@
-import React from 'react';
 import { TableProps } from '@with-nx/types';
 
 export const Table: React.FC<TableProps> = ({ data }) => {

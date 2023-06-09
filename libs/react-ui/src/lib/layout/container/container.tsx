@@ -1,4 +1,3 @@
-import React from 'react';
 import { ContainerProps } from '@with-nx/types';
 
 export const Container: React.FC<ContainerProps> = ({ maxWidth, children }) => {

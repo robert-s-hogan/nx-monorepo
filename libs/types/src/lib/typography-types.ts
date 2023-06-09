@@ -1,3 +1,7 @@
+export interface CaptionProps {
+  text: string;
+}
+
 export interface HeadingProps {
   level: number;
   children: React.ReactNode;
@@ -35,6 +39,15 @@ export interface ListItemProps {
   onClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
   testId?: string;
   selected?: number | boolean;
+}
+
+export interface QuoteProps {
+  text: string;
+  author?: string;
+}
+
+export interface SubheadingProps {
+  text: string;
 }
 
 export interface TextProps {

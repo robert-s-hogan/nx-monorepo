@@ -1,4 +1,3 @@
-import React from 'react';
 import { ImageProps } from '@with-nx/types';
 
 export const Image: React.FC<ImageProps> = ({ src, alt, size }) => {

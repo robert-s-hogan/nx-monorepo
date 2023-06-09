@@ -1,4 +1,3 @@
-import React from 'react';
 import { VideoProps } from '@with-nx/types';
 
 export const Video: React.FC<VideoProps> = ({ src, size }) => {

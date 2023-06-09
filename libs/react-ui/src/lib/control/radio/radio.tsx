@@ -1,4 +1,3 @@
-import React from 'react';
 import { RadioProps } from '@with-nx/types';
 
 export const Radio = ({

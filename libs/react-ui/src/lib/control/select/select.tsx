@@ -1,4 +1,3 @@
-import React from 'react';
 import { SelectProps } from '@with-nx/types';
 
 export const Select = ({

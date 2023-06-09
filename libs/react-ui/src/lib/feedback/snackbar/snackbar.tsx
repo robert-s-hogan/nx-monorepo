@@ -1,4 +1,3 @@
-import React from 'react';
 import { SnackbarProps } from '@with-nx/types';
 
 export const Snackbar: React.FC<SnackbarProps> = ({

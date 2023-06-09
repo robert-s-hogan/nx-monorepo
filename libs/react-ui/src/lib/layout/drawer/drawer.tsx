@@ -1,4 +1,3 @@
-import React from 'react';
 import { DrawerProps } from '@with-nx/types';
 
 export const Drawer: React.FC<DrawerProps> = ({ isOpen, children }) => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { SidebarProps } from '@with-nx/types';
 
 export const Sidebar: React.FC<SidebarProps> = ({ width, children }) => {

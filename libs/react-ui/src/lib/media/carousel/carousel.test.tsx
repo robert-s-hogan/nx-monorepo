@@ -1,6 +1,5 @@
 //libs/react-ui/src/lib/carousel/carousel.test.tsx
-// carousel.test.tsx
-import React from 'react';
+
 import { render, fireEvent, screen } from '@testing-library/react';
 import Carousel from './carousel';
 

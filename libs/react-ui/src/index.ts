@@ -75,6 +75,7 @@ export * from './lib/media/video/video';
 export * from './lib/navigation/breadcrumb/breadcrumb';
 export * from './lib/navigation/hamburger-menu/hamburger-menu';
 export * from './lib/navigation/navbar/navbar';
+export * from './lib/navigation/steps/steps';
 
 //page components
 export * from './lib/pages/about/about';
@@ -87,10 +88,15 @@ export * from './lib/pages/privacy-policy/privacy-policy';
 export * from './lib/pages/terms-and-conditions/terms-and-conditions';
 
 //typography components
+export * from './lib/typography/caption/caption';
 export * from './lib/typography/heading/heading';
+export * from './lib/typography/quote/quote';
+export * from './lib/typography/sub-heading/sub-heading';
 export * from './lib/typography/text/text';
 
 //utility components
+export * from './lib/utility/accordion/accordion';
 export * from './lib/utility/collapse/collapse';
+export * from './lib/utility/icon/icon';
 export * from './lib/utility/search-bar/search-bar';
 export * from './lib/utility/seo/seo';

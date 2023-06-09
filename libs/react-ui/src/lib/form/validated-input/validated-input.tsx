@@ -1,4 +1,3 @@
-import React from 'react';
 import { ValidatedInputProps } from '@with-nx/types';
 
 export const ValidatedInput: React.FC<ValidatedInputProps> = ({

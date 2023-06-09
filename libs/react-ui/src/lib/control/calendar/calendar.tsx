@@ -1,5 +1,3 @@
-// import React from 'react';
-
 // interface CalendarProps {
 //   onDateChange: (date: Date) => void;
 //   defaultDate: Date;

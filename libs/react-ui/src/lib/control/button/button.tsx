@@ -1,4 +1,3 @@
-import React from 'react';
 import { ButtonProps } from '@with-nx/types';
 
 export const Button = ({

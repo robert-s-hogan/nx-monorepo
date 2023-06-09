@@ -1,5 +1,4 @@
 //libs/react-ui/src/lib/box/box.test.tsx
-import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import Box from './box';
 

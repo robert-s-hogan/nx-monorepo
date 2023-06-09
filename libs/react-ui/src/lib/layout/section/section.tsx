@@ -1,4 +1,3 @@
-import React from 'react';
 import { SectionProps } from '@with-nx/types';
 
 export function Section({

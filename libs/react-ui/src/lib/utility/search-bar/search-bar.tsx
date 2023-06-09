@@ -1,4 +1,3 @@
-import React from 'react';
 import { SearchBarProps } from '@with-nx/types';
 
 export const SearchBar = ({ placeholder = 'Search', icon }: SearchBarProps) => {

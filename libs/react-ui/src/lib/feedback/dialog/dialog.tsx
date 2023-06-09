@@ -1,4 +1,3 @@
-import React from 'react';
 import { DialogProps } from '@with-nx/types';
 
 export const Dialog: React.FC<DialogProps> = ({

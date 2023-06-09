@@ -1,4 +1,3 @@
-import React from 'react';
 import { AlertProps } from '@with-nx/types';
 
 export const Alert: React.FC<AlertProps> = ({ message, type }) => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { ProgressProps } from '@with-nx/types';
 
 export function Progress({

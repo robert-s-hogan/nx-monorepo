@@ -46,6 +46,11 @@ export interface SearchBarProps {
   icon?: React.ReactNode;
 }
 
+export interface StepsProps {
+  currentStep: number;
+  steps: string[];
+}
+
 export interface StepperProps {
   value: number;
   onValueChange: (newValue: number) => void;
