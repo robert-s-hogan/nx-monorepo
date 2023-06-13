@@ -6,7 +6,8 @@ export const projectStaticData = [
     description:
       'For this project, I used Udemy class data from Kaggle.com to try and predict which classes are successful using Pandas, matplotlib and scikit-learn.',
     link: 'https://github.com/jessicahoganma/machine_learning_udemy_class_data',
-    image: '/images/machine-learning-project.jpg',
+    image:
+      'https://cloudflare-assets-nx-monorepo.vercel.app/jhogancom/machine-learning-project.jpg',
     featured: true,
     order: 1,
   },
