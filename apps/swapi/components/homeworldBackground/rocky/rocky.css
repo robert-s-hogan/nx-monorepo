@@ -1,0 +1,68 @@
+.main {
+  background: rgb(25, 118, 135);
+  background: linear-gradient(0deg, rgb(25, 118, 135) 14%, rgb(30, 136, 150) 65%);
+  overflow: hidden;
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.main:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  opacity: 0.4;
+  box-shadow: generateStars(400);
+}
+
+.dirt,
+.sun,
+.cliff,
+.cliff-top,
+.tree,
+.tree-shadow,
+.tree-base,
+.boat {
+  position: absolute;
+}
+
+.dirt {
+  position: absolute;
+  bottom: 100px;
+  height: 500px;
+  width: 100%;
+  background-color: #cec0a8;
+  z-index: -1;
+  transform: translate3d(-50%, 58%, -135vh) rotateX(79deg);
+  background-size: 800px;
+  background-image: url(http://www.sketchuptut.com/sites/default/files/resource-image/Sand_texture_sketchup_warehouse_type09.jpg);
+  background-repeat: repeat;
+}
+
+.rocky-sun {
+  background-color: #f8fcfb;
+  left: 30%;
+  top: 50%;
+  border-radius: 100%;
+  box-shadow: 0px 0px 50px 10px rgb(255, 166, 132), 0px 0px 0 90px rgba(199, 168, 126, 0.1);
+}
+
+.cliff {
+  right: 0;
+  bottom: 0;
+}
+
+.cliff-top {
+  border-top: 120px solid #7a5134;
+  border-right: 3000px solid transparent;
+  border-bottom: 0 solid transparent;
+  border-left: 320px solid transparent;
+}
+
+.cliff-shadow {
+  border-top: 324px solid #4f2c13;
+  border-right: 0 solid transparent;
+  border-bottom: 16px solid transparent;
+  border-left: 77px solid transparent;
+}

@@ -89,6 +89,11 @@ const KonvaMap = () => {
         scaleY={stageScale}
         x={stageX}
         y={stageY}
+        draggable
+        onDragEnd={(e) => {
+          setStageX(e.target.x());
+          setStageY(e.target.y());
+        }}
         onTouchMove={handleTouchMove}
         onWheel={handleWheel}
       >
