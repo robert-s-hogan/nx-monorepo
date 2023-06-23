@@ -6,10 +6,8 @@ interface MonstersProps {
   dragBoundFunc: any;
 }
 
-const Party = ({ dragBoundFunc }: MonstersProps) => {
-  const players = generateParty();
-
-  return players.map((player) => (
+const Party = ({ dragBoundFunc, onClick, party }: MonstersProps) => {
+  return party.map((player) => (
     <Player
       key={player.id}
       id={player.id}
@@ -19,6 +17,7 @@ const Party = ({ dragBoundFunc }: MonstersProps) => {
       className={player.className}
       draggable
       dragBoundFunc={dragBoundFunc}
+      onClick={onClick}
     />
   ));
 };

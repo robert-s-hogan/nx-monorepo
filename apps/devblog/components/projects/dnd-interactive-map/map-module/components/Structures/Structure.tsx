@@ -19,6 +19,7 @@ const Structure = ({
   className,
   draggable,
   dragBoundFunc,
+  onClick,
 }: StructureProps) => {
   const classShape = () => {
     switch (className) {
@@ -40,6 +41,7 @@ const Structure = ({
       y={y}
       draggable={draggable}
       dragBoundFunc={dragBoundFunc}
+      onClick={onClick}
     >
       {classShape()}
     </Group>

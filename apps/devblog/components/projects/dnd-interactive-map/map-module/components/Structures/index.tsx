@@ -6,9 +6,11 @@ interface StructuresProps {
   dragBoundFunc: any;
 }
 
-const Structures = ({ dragBoundFunc }: StructuresProps) => {
-  const structures = generateStructures();
-
+const Structures = ({
+  dragBoundFunc,
+  onClick,
+  structures,
+}: StructuresProps) => {
   return (
     <>
       {structures.map((structure) => (
@@ -21,6 +23,7 @@ const Structures = ({ dragBoundFunc }: StructuresProps) => {
           className={structure.className}
           draggable
           dragBoundFunc={dragBoundFunc}
+          onClick={onClick}
         />
       ))}
     </>

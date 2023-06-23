@@ -1,7 +1,16 @@
 import { Group, Path, Text } from 'react-konva';
 import { FighterIcon, WizardIcon, BarbarianIcon } from '../../icons';
 
-const Player = ({ id, name, x, y, draggable, dragBoundFunc, className }) => {
+const Player = ({
+  id,
+  name,
+  x,
+  y,
+  draggable,
+  dragBoundFunc,
+  className,
+  onClick,
+}) => {
   const radius = 20;
   const classShape = () => {
     switch (className) {
@@ -23,6 +32,7 @@ const Player = ({ id, name, x, y, draggable, dragBoundFunc, className }) => {
       y={y}
       draggable={draggable}
       dragBoundFunc={dragBoundFunc}
+      onClick={onClick}
     >
       {classShape()}
     </Group>

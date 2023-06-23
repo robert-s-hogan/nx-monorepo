@@ -6,9 +6,7 @@ interface MonstersProps {
   dragBoundFunc: any;
 }
 
-const Monsters = ({ dragBoundFunc }: MonstersProps) => {
-  const monsters = generateMonsters();
-
+const Monsters = ({ dragBoundFunc, monsters, onClick }: MonstersProps) => {
   return monsters.map((monster) => (
     <Monster
       key={`monster-${monster.id}`}
@@ -19,6 +17,7 @@ const Monsters = ({ dragBoundFunc }: MonstersProps) => {
       className={monster.className}
       draggable
       dragBoundFunc={dragBoundFunc}
+      onClick={onClick}
     />
   ));
 };
