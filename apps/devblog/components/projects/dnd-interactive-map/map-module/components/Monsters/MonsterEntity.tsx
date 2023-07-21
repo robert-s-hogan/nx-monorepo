@@ -1,7 +1,7 @@
 import { Group, Path, Text } from 'react-konva';
-import { FighterIcon, WizardIcon, BarbarianIcon } from '../../icons';
+import { GoblinIcon, DragonIcon, SkeletonIcon } from '../../icons';
 
-const Player = ({
+const MonsterEntity = ({
   id,
   name,
   x,
@@ -14,12 +14,12 @@ const Player = ({
   const radius = 20;
   const classShape = () => {
     switch (className) {
-      case 'barbarian':
-        return BarbarianIcon;
-      case 'wizard':
-        return WizardIcon;
-      case 'fighter':
-        return FighterIcon;
+      case 'goblin':
+        return GoblinIcon;
+      case 'skeleton':
+        return SkeletonIcon;
+      case 'dragon':
+        return DragonIcon;
       default:
         return null;
     }
@@ -39,4 +39,4 @@ const Player = ({
   );
 };
 
-export default Player;
+export default MonsterEntity;

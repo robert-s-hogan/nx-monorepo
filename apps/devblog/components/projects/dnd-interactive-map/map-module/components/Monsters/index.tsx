@@ -1,14 +1,20 @@
 import { generateMonsters } from '../../utils';
 
-import Monster from './Monster';
+import MonsterEntity from './MonsterEntity';
 
-interface MonstersProps {
+interface MonsterGroupProps {
+  monsters: any;
   dragBoundFunc: any;
+  onClick: () => void;
 }
 
-const Monsters = ({ dragBoundFunc, monsters, onClick }: MonstersProps) => {
+const MonsterGroup = ({
+  monsters,
+  dragBoundFunc,
+  onClick,
+}: MonsterGroupProps) => {
   return monsters.map((monster) => (
-    <Monster
+    <MonsterEntity
       key={`monster-${monster.id}`}
       id={monster.id}
       name={monster.className}
@@ -22,4 +28,4 @@ const Monsters = ({ dragBoundFunc, monsters, onClick }: MonstersProps) => {
   ));
 };
 
-export default Monsters;
+export default MonsterGroup;

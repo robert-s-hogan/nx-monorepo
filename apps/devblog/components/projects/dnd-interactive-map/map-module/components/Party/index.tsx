@@ -1,17 +1,19 @@
 import { generateParty } from '../../utils';
 
-import Player from './Player';
+import PartyMember from './PartyMember';
 
-interface MonstersProps {
+interface PartyGroupProps {
+  party: any;
   dragBoundFunc: any;
+  onClick: () => void;
 }
 
-const Party = ({ dragBoundFunc, onClick, party }: MonstersProps) => {
+const PartyGroup = ({ party, dragBoundFunc, onClick }: PartyGroupProps) => {
   return party.map((player) => (
-    <Player
+    <PartyMember
       key={player.id}
       id={player.id}
-      name={`${player.className}`}
+      name={player.className}
       x={player.x}
       y={player.y}
       className={player.className}
@@ -22,4 +24,4 @@ const Party = ({ dragBoundFunc, onClick, party }: MonstersProps) => {
   ));
 };
 
-export default Party;
+export default PartyGroup;

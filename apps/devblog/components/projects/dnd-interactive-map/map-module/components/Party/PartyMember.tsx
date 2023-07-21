@@ -1,7 +1,7 @@
 import { Group, Path, Text } from 'react-konva';
-import { GoblinIcon, DragonIcon, SkeletonIcon } from '../../icons';
+import { FighterIcon, WizardIcon, BarbarianIcon } from '../../icons';
 
-const Monster = ({
+const PartyMember = ({
   id,
   name,
   x,
@@ -14,12 +14,12 @@ const Monster = ({
   const radius = 20;
   const classShape = () => {
     switch (className) {
-      case 'goblin':
-        return GoblinIcon;
-      case 'skeleton':
-        return SkeletonIcon;
-      case 'dragon':
-        return DragonIcon;
+      case 'barbarian':
+        return BarbarianIcon;
+      case 'wizard':
+        return WizardIcon;
+      case 'fighter':
+        return FighterIcon;
       default:
         return null;
     }
@@ -35,16 +35,8 @@ const Monster = ({
       onClick={onClick}
     >
       {classShape()}
-      {/* <Text
-        x={radius / 9}
-        y={radius + 25}
-        text={name}
-        fontSize={16}
-        fontStyle="bold"
-        fill="white"
-      /> */}
     </Group>
   );
 };
 
-export default Monster;
+export default PartyMember;

@@ -1,20 +1,22 @@
 import { generateStructures } from '../../utils';
 
-import Structure from './Structure';
+import StructureEntity from './StructureEntity';
 
-interface StructuresProps {
+interface StructureGroupProps {
+  structures: any;
   dragBoundFunc: any;
+  onClick: () => void;
 }
 
-const Structures = ({
+const StructureGroup = ({
+  structures,
   dragBoundFunc,
   onClick,
-  structures,
-}: StructuresProps) => {
+}: StructureGroupProps) => {
   return (
     <>
       {structures.map((structure) => (
-        <Structure
+        <StructureEntity
           key={`structure-${structure.id}`}
           id={structure.id}
           name={structure.className}
@@ -30,4 +32,4 @@ const Structures = ({
   );
 };
 
-export default Structures;
+export default StructureGroup;
