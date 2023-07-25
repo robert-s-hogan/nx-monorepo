@@ -15,9 +15,7 @@ const Jungles = (props: Props) => {
   }, [homeworld]);
 
   return (
-    <div
-      className={`w-96 h-96 lg:w-80 xl:w-72 ${junglesStyles.bgJungles}`}
-    ></div>
+    <div className={`w-96 h-96 md:w-full ${junglesStyles.bgJungles}`}></div>
   );
 };
 

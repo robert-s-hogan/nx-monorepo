@@ -16,7 +16,7 @@ const Mountains = (props: Props) => {
 
   return (
     <div
-      className={`${unknownStyles.backgroundUnknown} w-96 h-96 lg:w-80 xl:w-72 background-unknown z-0`}
+      className={`${unknownStyles.backgroundUnknown} w-96 h-96 md:w-full background-unknown z-0`}
     >
       {/* className={css.stars} */}
       <div id="stars" className={`${unknownStyles.stars}`}></div>

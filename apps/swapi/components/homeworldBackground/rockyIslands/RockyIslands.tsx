@@ -16,7 +16,7 @@ const RockyIslands = (props: Props) => {
 
   return (
     <div
-      className={`${rockyStyles.bgRockyIslands} w-96 h-96 lg:w-80 xl:w-72 bg-rockyIslands`}
+      className={`${rockyStyles.bgRockyIslands} w-96 h-96 md:w-full bg-rockyIslands`}
     >
       <div className={`${rockyStyles.sky}`}>
         <div className={`${rockyStyles.moon}`}>

@@ -20,7 +20,7 @@ export default function Home() {
   };
 
   return (
-    <Layout className="px-2">
+    <Layout>
       <Hero />
       <div className="flex justify-center max-w-7xl xl:max-w-7xl container mx-auto mt-8 px-2">
         <SwapiSearch />

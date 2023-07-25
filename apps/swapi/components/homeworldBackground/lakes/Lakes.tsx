@@ -15,9 +15,7 @@ const Lakes = (props: Props) => {
   }, [homeworld]);
 
   return (
-    <div
-      className={`w-96 h-96 lg:w-80 xl:w-72 relative ${lakesStyles.bgLakes}`}
-    >
+    <div className={`w-96 h-96 md:w-full relative ${lakesStyles.bgLakes}`}>
       <div className={`${lakesStyles.landscape} w-96 z-10`}>
         <div
           className={`${lakesStyles.mountain} absolute -left-10 h-24 w-24 md:w-48 xl:w-40}`}

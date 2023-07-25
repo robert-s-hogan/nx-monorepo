@@ -55,7 +55,7 @@ const SwapiSearch = () => {
         onCategoryChange={setSelectedCategory}
       />
 
-      <Section className="space-y-8">
+      <Section className="space-y-8 px-0 md:px-2">
         <Grid className="grid-cols-1 lg:grid-cols-3">
           {isLoading ? (
             <Loading className="lg:col-span-3" />

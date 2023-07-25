@@ -15,7 +15,7 @@ const Rocky = (props: Props) => {
   }, [homeworld]);
 
   return (
-    <div className="w-96 h-96 relative lg:w-80 xl:w-72 bg-rocky z-0">
+    <div className="w-96 h-96 relative md:w-full bg-rocky z-0">
       {terrain && (
         <div className={`absolute z-20 w-96 h-96 bg-${terrain}`}></div>
       )}

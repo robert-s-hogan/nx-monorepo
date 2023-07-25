@@ -20,7 +20,6 @@ import ToxicCloudsea from './toxicCloudsea/ToxicCloudsea';
 import Unknown from './unknown/Unknown';
 
 interface HomeWorldBackgroundProps {
-  homeworld?: string;
   planet?: string;
   className?: string;
   planet_name?: string;
@@ -31,11 +30,12 @@ const fetcher = async (url) => {
   const json = await response.json();
   const tempTerrain = json.terrain.split(', ');
   const firstTerrain = tempTerrain[0];
+  console.log(`First Terrain: ${firstTerrain}`); // log the firstTerrain
+  console.log(`Homeworld Name: ${json.name}`); // log the homeworld name
   return { homeworldName: json.name, terrain: firstTerrain };
 };
 
 const HomeworldBackground = ({
-  homeworld,
   planet,
   className,
   planet_name,
@@ -57,14 +57,11 @@ const HomeworldBackground = ({
     );
   }
 
-  // useEffect(() => {
-  //   fetchPlanetInfo(planet);
-  //   setHomeworldName(homeworld);
-  // }, [homeworld]);
-
   console.log(`planet: ${planet}`);
 
   let findHomeworld = (terrain: string) => {
+    console.log(`Terrain received: ${terrain}`);
+    console.log(`homeworld: ${homeworldName}`);
     try {
       switch (terrain) {
         case 'barren':
@@ -113,6 +110,7 @@ const HomeworldBackground = ({
         case 'rocky':
         case 'rocky canyons':
         case 'rock':
+        case 'tundra':
           return <Rocky homeworld={homeworldName} terrain={terrain} />;
         case 'scrublands':
           return <Scrublands homeworld={homeworldName} terrain={terrain} />;
@@ -132,6 +130,9 @@ const HomeworldBackground = ({
 
   return (
     <div className={className} id={terrain}>
+      <pre className="absolute top-0 text-xs">
+        {JSON.stringify(data, null, 2)}
+      </pre>
       {findHomeworld(terrain)}
     </div>
   );

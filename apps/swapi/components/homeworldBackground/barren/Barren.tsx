@@ -15,9 +15,9 @@ const Barren = (props: Props) => {
   }, [homeworld]);
 
   return (
-    <div className="w-96 h-96 relative lg:w-80 xl:w-72 bg-barren z-0">
+    <div className="w-96 h-96 relative md:w-full bg-barren z-0">
       <div
-        className={`${barrenStyles.contentWrapper} w-96 h-96 relative lg:w-80 xl:w-72`}
+        className={`${barrenStyles.contentWrapper} w-96 h-96 relative md:w-full`}
       >
         <div className={`${barrenStyles.starsWrapper}`}>
           <div className={`${barrenStyles.star} ${barrenStyles.s1}`}></div>

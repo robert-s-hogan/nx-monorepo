@@ -26,7 +26,7 @@ const Forests = (props: Props) => {
 
   return (
     <div
-      className={`w-96 h-96 relative lg:w-80 xl:w-72 ${forestsStyles.bgForests} -z-1`}
+      className={`w-96 h-96 relative md:w-full ${forestsStyles.bgForests} -z-1`}
     >
       {findTerrain && (
         <div className={`absolute w-96 h-96 z-5 bg-${terrain}`}></div>

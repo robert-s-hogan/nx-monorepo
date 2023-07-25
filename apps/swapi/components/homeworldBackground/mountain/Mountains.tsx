@@ -15,7 +15,7 @@ const Mountains = (props: Props) => {
   }, [homeworld]);
 
   return (
-    <div className={`w-96 h-96 lg:w-80 xl:w-72 ${mountainStyles.bgMountains}`}>
+    <div className={`w-96 h-96 md:w-full ${mountainStyles.bgMountains}`}>
       <div
         className={`${mountainStyles.mountain1} absolute bottom-0 z-4`}
       ></div>

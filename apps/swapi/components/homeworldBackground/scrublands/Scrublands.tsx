@@ -15,7 +15,7 @@ const Scrublands = (props: Props) => {
   }, [homeworld]);
 
   return (
-    <div className="w-96 h-96 lg:w-80 xl:w-72 bg-scrublands">
+    <div className="w-96 h-96 md:w-full bg-scrublands">
       <svg
         className="scene"
         xmlns="http://www.w3.org/2000/svg"

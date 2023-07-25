@@ -16,10 +16,10 @@ const GasGiant = (props: Props) => {
 
   return (
     <div
-      className={`w-96 h-96 relative lg:w-80 xl:w-72 ${gasGiantStyles.bgGasGiant} z-0`}
+      className={`w-96 h-96 relative md:w-full ${gasGiantStyles.bgGasGiant} z-0`}
     >
       <div
-        className={`${gasGiantStyles.planet} absolute top-0 -left-24 w-96 h-96 -z-1 shadow-inner rounded-full`}
+        className={`${gasGiantStyles.planet} absolute top-0 -left-24 lg:left-0 w-96 h-96 -z-1 shadow-inner rounded-full`}
       ></div>
       <div id="stars" className={`${gasGiantStyles.stars} z-1`}></div>
       <div id="stars2" className={`${gasGiantStyles.stars2} z-1`}></div>
