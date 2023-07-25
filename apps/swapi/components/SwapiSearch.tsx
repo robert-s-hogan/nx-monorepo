@@ -3,23 +3,22 @@ import React, { useEffect, useState } from 'react';
 import { useSWRApi } from '../api/useSWRApi';
 import { Grid, Section } from '@with-nx/react-ui';
 
+import Loading from './Loading';
 import SwapiCard from './SwapiCard';
 import SearchFilter from './SearchFilter';
 
 const SwapiSearch = () => {
   const [searchText, setSearchText] = useState('');
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>('people');
 
   const { data, isLoading, isError } = useSWRApi<any>(
-    activeCategory || null,
+    selectedCategory || null,
     searchText
   );
+
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (selectedCategories.length > 0) {
-      setActiveCategory(selectedCategories[0]);
-    }
+    setSelectedCategory(selectedCategory);
   };
 
   const categories = [
@@ -53,19 +52,24 @@ const SwapiSearch = () => {
 
       <SearchFilter
         categories={categories}
-        onCategoryChange={setSelectedCategories}
+        onCategoryChange={setSelectedCategory}
       />
 
       <Section className="space-y-8">
         <Grid className="grid-cols-1 lg:grid-cols-3">
-          {data &&
+          {isLoading ? (
+            <Loading className="lg:col-span-3" />
+          ) : data ? (
             data?.results?.map((result: any, index: number) => (
               <SwapiCard
                 key={index}
                 data={result}
-                endpoint={activeCategory || ''}
+                endpoint={selectedCategory || ''}
               />
-            ))}
+            ))
+          ) : (
+            <p>No results found</p>
+          )}
         </Grid>
       </Section>
     </div>

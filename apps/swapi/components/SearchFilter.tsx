@@ -1,28 +1,19 @@
 // components/SearchFilter.tsx
-import React, { useState } from 'react';
+import React from 'react';
 import { Grid } from '@with-nx/react-ui';
 
 interface SearchFilterProps {
   categories: string[];
-  onCategoryChange: (selectedCategories: string[]) => void;
+  onCategoryChange: (selectedCategory: string) => void;
 }
 
 const SearchFilter = ({ categories, onCategoryChange }: SearchFilterProps) => {
-  const [selectedCategories, setSelectedCategories] = useState<Set<string>>(
-    new Set()
-  );
+  const [selectedCategory, setSelectedCategory] =
+    React.useState<string>('people');
 
-  const handleCheckboxChange = (category: string, checked: boolean) => {
-    const updatedCategories = new Set(selectedCategories);
-
-    if (checked) {
-      updatedCategories.add(category);
-    } else {
-      updatedCategories.delete(category);
-    }
-
-    setSelectedCategories(updatedCategories);
-    onCategoryChange(Array.from(updatedCategories));
+  const handleCheckboxChange = (category: string) => {
+    setSelectedCategory(category);
+    onCategoryChange(category);
   };
 
   return (
@@ -32,9 +23,10 @@ const SearchFilter = ({ categories, onCategoryChange }: SearchFilterProps) => {
         {categories.map((category) => (
           <label key={category}>
             <input
-              type="checkbox"
-              checked={selectedCategories.has(category)}
-              onChange={(e) => handleCheckboxChange(category, e.target.checked)}
+              type="radio"
+              name="category"
+              checked={selectedCategory === category}
+              onChange={() => handleCheckboxChange(category)}
             />
             <span className="ml-3 text-2xl uppercase font-black">
               {category}
