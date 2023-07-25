@@ -14,13 +14,13 @@ const fetcher = async (url) => {
   return json;
 };
 
-// interface SwapiCardProps {
-//   key?: string | number;
-//   data: any;
-//   isLoading?: boolean;
-//   planetName?: string;
-//   endpoint: string;
-// }
+interface SwapiCardProps {
+  key?: string | number;
+  data: any;
+  isLoading?: boolean;
+  planetName?: string;
+  endpoint: string;
+}
 
 // const SwapiCard = ({
 //   key,
