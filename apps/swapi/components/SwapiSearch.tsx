@@ -57,19 +57,23 @@ const SwapiSearch = () => {
 
       <Section className="space-y-8 px-0 md:px-2">
         <Grid className="grid-cols-1 lg:grid-cols-3">
-          {isLoading ? (
-            <Loading className="lg:col-span-3" />
-          ) : data ? (
-            data?.results?.map((result: any, index: number) => (
-              <SwapiCard
-                key={index}
-                data={result}
-                endpoint={selectedCategory || ''}
-              />
-            ))
-          ) : (
-            <p>No results found</p>
-          )}
+          {data
+            ? data.results.map((result: any, index: number) => (
+                <SwapiCard
+                  key={index}
+                  data={result}
+                  endpoint={selectedCategory || ''}
+                />
+              ))
+            : Array(10) // choose an appropriate number
+                .fill(0)
+                .map((_, index) => (
+                  <SwapiCard
+                    key={index}
+                    data={result}
+                    endpoint={selectedCategory || ''}
+                  />
+                ))}
         </Grid>
       </Section>
     </div>

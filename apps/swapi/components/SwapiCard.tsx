@@ -316,6 +316,7 @@ import React, { useState } from 'react';
 import { Card } from '@with-nx/react-ui';
 import useSWR from 'swr';
 
+import StarsBackground from './homeworldBackground/stars';
 import HomeworldBackground from './homeworldBackground/HomeworldBackground';
 import PeopleCard from './PeopleCard';
 import PlanetsCard from './PlanetsCard';
@@ -329,6 +330,10 @@ const SwapiCard = ({
   planetName,
   endpoint,
 }: SwapiCardProps) => {
+  if (!data) {
+    return <StarsBackground />;
+  }
+
   const { homeworld } = data;
   const { data: homeworldData } = useSWR(homeworld, fetcher);
   const homeworldName = homeworldData?.name || '';

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import useSWR from 'swr';
 import { Skeleton } from '@with-nx/react-ui';
 
+import StarBackground from './stars';
+
 import Barren from './barren/Barren';
 import Cityscape from './cityscape/Cityscape';
 import Desert from './desert/Desert';
@@ -26,13 +28,22 @@ interface HomeWorldBackgroundProps {
 }
 
 const fetcher = async (url) => {
-  const response = await fetch(url);
-  const json = await response.json();
-  const tempTerrain = json.terrain.split(', ');
-  const firstTerrain = tempTerrain[0];
-  console.log(`First Terrain: ${firstTerrain}`); // log the firstTerrain
-  console.log(`Homeworld Name: ${json.name}`); // log the homeworld name
-  return { homeworldName: json.name, terrain: firstTerrain };
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const json = await response.json();
+
+    const tempTerrain = json.terrain.split(', ');
+    const firstTerrain = tempTerrain[0];
+    return { homeworldName: json.name, terrain: firstTerrain };
+  } catch (error) {
+    console.error('Failed to fetch:', error);
+    throw error;
+  }
 };
 
 const HomeworldBackground = ({
@@ -40,19 +51,28 @@ const HomeworldBackground = ({
   className,
   planet_name,
 }: HomeWorldBackgroundProps) => {
-  const { data, error } = useSWR(planet, fetcher);
+  const {
+    data = null,
+    error = null,
+    isValidating = null,
+  } = planet ? useSWR(planet, fetcher) : {};
   const homeworldName = data?.homeworldName || '';
   const terrain = data?.terrain || planet_name;
 
   if (error) {
-    console.error(error);
-    return <div>Error fetching data</div>;
+    return (
+      <div>
+        {error.message === 'Network response was not ok'
+          ? 'Error: Failed to connect to the server. Please try again later.'
+          : 'Error: Data could not be processed.'}
+      </div>
+    );
   }
 
-  if (!data) {
+  if (!data || isValidating) {
     return (
-      <div className={className}>
-        <Skeleton height="150px" />
+      <div>
+        <StarBackground />
       </div>
     );
   }
@@ -129,10 +149,11 @@ const HomeworldBackground = ({
   };
 
   return (
-    <div className={className} id={terrain}>
+    <div className={`${className}`} id={terrain}>
       <pre className="absolute top-0 text-xs">
         {JSON.stringify(data, null, 2)}
       </pre>
+
       {findHomeworld(terrain)}
     </div>
   );

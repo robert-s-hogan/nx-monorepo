@@ -1,0 +1,46 @@
+.bg {
+  background-color: #191919;
+  width: 100%; /* take full width of viewport */
+  height: 100%; /* take full height of viewport */
+  overflow: hidden; /* hide stars that go outside the container */
+  position: relative; /* establish a new positioning context for star children */
+}
+
+.star {
+  position: absolute;
+  top: calc(100vh * Math.random());
+  left: calc(100vw * Math.random());
+  width: 2px;
+  height: 2px;
+  opacity: 0;
+  border-radius: 50%;
+  background-color: white;
+  animation: move 2s cubic-bezier(0.97, 0.215, 0.98, 0.77) 1s infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(50vw, 50vh) scale(0.2);
+  }
+  20% {
+    opacity: 0.1;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0.3;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
