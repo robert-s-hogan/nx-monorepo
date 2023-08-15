@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Skeleton } from '@with-nx/react-ui';
+import useSWR from 'swr';
 
+import Characters from '../components/Characters';
 import Layout from '../components/Layout';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -19,12 +21,16 @@ export default function Home() {
     setSearchResults(true);
   };
 
+  const { data, error } = useSWR('/api/people/');
+
   return (
     <Layout>
       <Hero />
-      <div className="flex justify-center max-w-7xl xl:max-w-7xl container mx-auto mt-8 px-2">
+      <Characters />
+      {/* <div className="flex justify-center max-w-7xl xl:max-w-7xl container mx-auto mt-8 px-2">
         <SwapiSearch />
-      </div>
+      </div> */}
+
       {searchResults && (
         <p className="text-center text-white my-8 px-2">
           <span className="letter-box font-light text-center bg-red search-results mr-2 text-lg">

@@ -1,0 +1,12 @@
+.hair {
+  position: absolute;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bangs {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50% 50% 50% 25%;
+  z-index: 10;
+}

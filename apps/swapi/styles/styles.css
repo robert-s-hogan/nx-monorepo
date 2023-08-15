@@ -105,6 +105,9 @@ body {
 .bg-fair-green-yellow {
   @apply bg-gradient-to-r from-fair via-green to-yellow;
 }
+.bg-yellow-white-red {
+  @apply bg-gradient-to-r from-yellow via-white to-red;
+}
 .bg-grey-green-yellow {
   @apply bg-gradient-to-r from-grey via-green to-yellow;
 }

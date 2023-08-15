@@ -10,6 +10,21 @@ module.exports = {
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
+  safelist: [
+    'h-5',
+    'h-10',
+    'h-15',
+    'h-20',
+    'h-30',
+    'h-40',
+    'h-91',
+    'w-5',
+    'w-10',
+    'w-15',
+    'w-20',
+    'w-30',
+    'w-40',
+  ],
   theme: {
     colors: {
       black: '#0c0c0c',
@@ -42,7 +57,9 @@ module.exports = {
       spacing: {
         17: '4.25rem',
         18: '4.5rem',
+        20: '5rem',
         22: '5.5rem',
+        30: '7.5rem',
         34: '8rem',
         41: '10.25rem',
         46: '11.5rem',
@@ -51,6 +68,7 @@ module.exports = {
         62: '15.5rem',
         66: '16.5rem',
         68: '17rem',
+        91: '22.75rem',
         128: '32rem',
         144: '36rem',
       },
@@ -67,6 +85,9 @@ module.exports = {
       },
       borderB: {
         2: '2px solid',
+      },
+      boxShadow: {
+        outline: '0 0 0 1px rgba(0, 0, 0, .75)',
       },
       shadow: {
         xl: '6px 6px 0px 0px #000',
