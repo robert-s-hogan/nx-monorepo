@@ -19,10 +19,10 @@ const RisersAndFallers: React.FC<RisersAndFallersProps> = ({ players }) => {
   const ref = useRef<HTMLDivElement>(null);
   const numberOfTeams = 12;
 
-  useEffect(() => {
+  const drawChart = () => {
     if (!ref.current) return;
 
-    const margin = { top: 20, right: 20, bottom: 20, left: 100 };
+    const margin = { top: 20, right: 20, bottom: 30, left: 100 };
     const width = ref.current.clientWidth - margin.left - margin.right;
     const sortedPlayers = [...players]
       .sort((a, b) => b.stdev - a.stdev)
@@ -49,7 +49,8 @@ const RisersAndFallers: React.FC<RisersAndFallersProps> = ({ players }) => {
     });
 
     // Define x-scale for rounds, starting from 1 and going to 16
-    const x = d3.scaleLinear().domain([1, 16]).range([0, width]);
+    // Define x-scale for rounds, starting from minRound and going to maxRound
+    const x = d3.scaleLinear().domain([0, 16]).range([0, width]);
 
     // Define y-scale for player names
     const y = d3
@@ -71,15 +72,33 @@ const RisersAndFallers: React.FC<RisersAndFallersProps> = ({ players }) => {
     sortedPlayers.forEach((player) => {
       const lowRound = convertToRoundAndPick(player.low, numberOfTeams).round;
       const highRound = convertToRoundAndPick(player.high, numberOfTeams).round;
+      const startX = Math.min(lowRound, highRound);
+      const endX = Math.max(lowRound, highRound);
 
       svg
-        .append('line')
-        .attr('x1', x(lowRound))
-        .attr('y1', y(player.name) + y.bandwidth() / 2)
-        .attr('x2', x(highRound))
-        .attr('y2', y(player.name) + y.bandwidth() / 2)
-        .attr('stroke', player.low < player.high ? 'green' : 'red');
+        .append('rect')
+        .attr('x', x(startX))
+        .attr('y', y(player.name))
+        .attr('width', x(endX) - x(startX))
+        .attr('height', y.bandwidth())
+        .attr('fill', lowRound < highRound ? 'green' : 'red');
     });
+  };
+
+  useEffect(() => {
+    // Draw the initial chart
+    drawChart();
+
+    // Add an event listener to redraw the chart on window resize
+    const handleResize = () => {
+      drawChart();
+    };
+    window.addEventListener('resize', handleResize);
+
+    // Remove the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, [players, ref.current, numberOfTeams]);
 
   return (

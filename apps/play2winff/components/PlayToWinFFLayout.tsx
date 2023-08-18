@@ -31,9 +31,9 @@ const PlayToWinFFLayout = ({
             ? description
             : 'Play 2 Win Fantasy Football brings you the latest news, strategies, and tools for success. Explore the mock draft wizard and stay ahead of the competition.'
         }
-        url="https://www.play2winfantasyfootball.com/"
-        faviconPath="https://www.play2winfantasyfootball.com/favicon.ico"
-        image="https://www.play2winfantasyfootball.com/your_image_path_here.webp" // Replace with a relevant image path
+        url="https://play2winff-nx.vercel.app"
+        faviconPath="https://rshogan.imgix.net/projects/play2winff/favicon.ico"
+        image="https://rshogan.imgix.net/projects/play2winff/play2winff_logo.png"
         twitterHandle="@Play2WinFF" // Replace with a relevant Twitter handle
         siteName="Play 2 Win Fantasy Football"
         appleTouchIconPath="/apple-touch-icon.png"
