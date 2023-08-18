@@ -11,6 +11,8 @@ export function Tabs({ data }: TabsProps) {
     setActiveIndex(index);
   };
 
+  console.log(`index: ${activeIndex}`);
+
   return (
     <div className={`tabs ${tabsStyles.tabContainer}`}>
       <TabList

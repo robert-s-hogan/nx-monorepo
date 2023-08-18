@@ -5,6 +5,10 @@ type PlayerData = {
   adp: number;
   low: number;
   high: number;
+  bye: number;
+  position: string;
+  team: string;
+  adp_formatted: string;
 };
 
 type ApiResponse = {

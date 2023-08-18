@@ -4,13 +4,13 @@
 
 @layer base {
   body {
-    @apply bg-gradient-custom h-screen p-0 m-0;
+    @apply bg-gradient-custom h-full p-0 m-0;
   }
   section {
     @apply container mx-auto py-4;
   }
   h1 {
-    @apply text-4xl font-bold mb-3 text-white;
+    @apply text-3xl font-bold mb-3 text-white;
   }
   h2 {
     @apply text-xl font-bold mb-3 text-white;
@@ -19,6 +19,18 @@
   p,
   .text {
     @apply text-white mx-2;
+  }
+}
+
+@layer utilities {
+  .tab-panel {
+    @apply p-2 text-white;
+  }
+  .tab {
+    @apply !bg-night text-white;
+  }
+  .tab-active {
+    @apply !bg-viridian;
   }
 }
 

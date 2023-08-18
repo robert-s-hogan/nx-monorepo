@@ -11,7 +11,9 @@ export interface TabProps {
 export function Tab({ label, isActive, onClick }: TabProps) {
   return (
     <Button
-      className={`tab ${tabStyles.tab} ${isActive ? tabStyles.active : ''}`}
+      className={`tab ${tabStyles.tab} ${
+        isActive ? `${tabStyles.active} tab-active` : ''
+      }`}
       onClick={onClick}
     >
       {label}

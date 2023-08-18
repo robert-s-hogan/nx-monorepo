@@ -3,7 +3,7 @@ import { Seo } from '@with-nx/nextjs-react-ui';
 import { PageLayout } from '@with-nx/react-ui';
 import { PageLayoutProps } from '@with-nx/types';
 
-// import JHoganComHeader from './JHoganComHeader';
+import PlayToWinFFHeader from './PlayToWinFFHeader';
 
 // const JHoganComFooter = dynamic(() => import('./JHoganComFooter'), {
 //   ssr: false,
@@ -18,9 +18,9 @@ const PlayToWinFFLayout = ({
 }: PageLayoutProps) => {
   return (
     <PageLayout
-      //   header={hideNavBarProp ? '' : <JHoganComHeader />}
+      header={hideNavBarProp ? '' : <PlayToWinFFHeader />}
       //   footer={<JHoganComFooter />}
-      className="bg-gunmetal my-4 mx-2 shadow-lg"
+      className="bg-gunmetal my-4 mx-2 shadow-lg pb-16"
     >
       <Seo
         title={

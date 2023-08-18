@@ -1,3 +1,6 @@
 .tabList {
   display: flex;
 }
+.tabList > * {
+  flex: 1;
+}

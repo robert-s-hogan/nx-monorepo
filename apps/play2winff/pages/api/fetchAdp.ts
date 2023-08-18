@@ -13,7 +13,6 @@ const dataSets = {
     standard: {
       // ... data for Standard scoring in 2023
     },
-    // ... other scoring systems for 2023
   },
   // ... other years
 };
