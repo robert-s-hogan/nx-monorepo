@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
+import { Section, Heading } from '@with-nx/react-ui';
 
 import { convertToRoundAndPick } from '../utils/helper';
 
@@ -22,7 +23,7 @@ const RisersAndFallers: React.FC<RisersAndFallersProps> = ({ players }) => {
   useEffect(() => {
     if (!ref.current) return;
 
-    const margin = { top: 50, right: 20, bottom: 30, left: 100 };
+    const margin = { top: 20, right: 20, bottom: 20, left: 100 };
     const width = ref.current.clientWidth - margin.left - margin.right;
     const sortedPlayers = [...players]
       .sort((a, b) => b.stdev - a.stdev)
@@ -64,7 +65,8 @@ const RisersAndFallers: React.FC<RisersAndFallersProps> = ({ players }) => {
         .attr('x', -10)
         .attr('y', y.bandwidth() / 2)
         .text(player.name)
-        .attr('text-anchor', 'end');
+        .attr('text-anchor', 'end')
+        .attr('fill', 'white');
 
       row
         .append('path')
@@ -82,18 +84,27 @@ const RisersAndFallers: React.FC<RisersAndFallersProps> = ({ players }) => {
         .attr('x', 0)
         .attr('y', y.bandwidth() / 2 + 15)
         .text(start)
-        .attr('text-anchor', 'start');
+        .attr('text-anchor', 'start')
+        .attr('fill', 'white');
 
       row
         .append('text')
         .attr('x', width)
         .attr('y', y.bandwidth() / 2 + 15)
         .text(end)
-        .attr('text-anchor', 'end');
+        .attr('text-anchor', 'end')
+        .attr('fill', 'white');
     });
   }, [players, ref.current, numberOfTeams]);
 
-  return <div ref={ref} />;
+  return (
+    <div className="bg-viridian text-white pt-4">
+      <Heading level={2} className="uppercase">
+        Players with High Variability
+      </Heading>
+      <div ref={ref} />
+    </div>
+  );
 };
 
 export default RisersAndFallers;

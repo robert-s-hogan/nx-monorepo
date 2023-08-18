@@ -19,8 +19,8 @@ export const useADPData = (scoringSystem = 'ppr', teams = 8, year = 2023) => {
   const { data, error } = useSWR<ApiResponse>(url, fetcher);
 
   return {
-    players: data?.players, // Adjust this line if necessary
-    isLoading: !error && !data,
-    isError: error,
+    adpPlayers: data?.players, // Renamed to specify ADP players
+    isADPLoading: !error && !data, // Renamed to clarify what is loading
+    isADPError: error, // Renamed to clarify the type of error
   };
 };

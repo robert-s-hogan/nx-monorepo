@@ -10,7 +10,7 @@ export function Section({
 }: SectionProps) {
   return (
     <section
-      className={`section ${sectionStyles.section} ${className}`}
+      className={`section ${className ? className : ''}`}
       id={id}
       style={style}
       aria-label={ariaLabel}
