@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-gradient-custom h-screen;
+    @apply bg-gradient-custom h-screen p-0 m-0;
   }
   section {
     @apply container mx-auto py-4;

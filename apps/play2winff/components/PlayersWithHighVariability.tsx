@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
-import { Section, Heading } from '@with-nx/react-ui';
-
+import { Heading } from '@with-nx/react-ui';
 import { convertToRoundAndPick } from '../utils/helper';
 
 type Player = {
@@ -40,60 +39,46 @@ const RisersAndFallers: React.FC<RisersAndFallersProps> = ({ players }) => {
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
+    let minRound = Number.POSITIVE_INFINITY;
+    let maxRound = Number.NEGATIVE_INFINITY;
+    sortedPlayers.forEach((p) => {
+      const lowRound = convertToRoundAndPick(p.low, numberOfTeams).round;
+      const highRound = convertToRoundAndPick(p.high, numberOfTeams).round;
+      if (lowRound < minRound) minRound = lowRound;
+      if (highRound > maxRound) maxRound = highRound;
+    });
+
+    // Define x-scale for rounds, starting from 1 and going to 16
+    const x = d3.scaleLinear().domain([1, 16]).range([0, width]);
+
+    // Define y-scale for player names
     const y = d3
       .scaleBand()
       .domain(sortedPlayers.map((p) => p.name))
       .range([0, height])
       .padding(0.3);
 
-    sortedPlayers.forEach((player, i) => {
-      const row = svg
-        .append('g')
-        .attr('transform', `translate(0,${y(player.name)})`);
+    // Append x-axis to represent rounds
+    svg
+      .append('g')
+      .attr('transform', `translate(0,${height})`)
+      .call(d3.axisBottom(x).ticks(16));
 
-      const start = `${
-        convertToRoundAndPick(player.low, numberOfTeams).round
-      }.${convertToRoundAndPick(player.low, numberOfTeams).pick}`;
-      const end = `${convertToRoundAndPick(player.high, numberOfTeams).round}.${
-        convertToRoundAndPick(player.high, numberOfTeams).pick
-      }`;
+    // Append y-axis to represent player names
+    svg.append('g').call(d3.axisLeft(y));
 
-      const isRising = player.low < player.high; // Determine if the player value is rising or falling
+    // Draw lines connecting low and high values
+    sortedPlayers.forEach((player) => {
+      const lowRound = convertToRoundAndPick(player.low, numberOfTeams).round;
+      const highRound = convertToRoundAndPick(player.high, numberOfTeams).round;
 
-      row
-        .append('text')
-        .attr('x', -10)
-        .attr('y', y.bandwidth() / 2)
-        .text(player.name)
-        .attr('text-anchor', 'end')
-        .attr('fill', 'white');
-
-      row
-        .append('path')
-        .attr(
-          'd',
-          `M0,${y.bandwidth() / 2} Q${width / 2},${
-            player.adp - player.low
-          } ${width},${y.bandwidth() / 2}`
-        )
-        .attr('stroke', isRising ? 'green' : 'red') // Color based on whether value is rising or falling
-        .attr('fill', 'none');
-
-      row
-        .append('text')
-        .attr('x', 0)
-        .attr('y', y.bandwidth() / 2 + 15)
-        .text(start)
-        .attr('text-anchor', 'start')
-        .attr('fill', 'white');
-
-      row
-        .append('text')
-        .attr('x', width)
-        .attr('y', y.bandwidth() / 2 + 15)
-        .text(end)
-        .attr('text-anchor', 'end')
-        .attr('fill', 'white');
+      svg
+        .append('line')
+        .attr('x1', x(lowRound))
+        .attr('y1', y(player.name) + y.bandwidth() / 2)
+        .attr('x2', x(highRound))
+        .attr('y2', y(player.name) + y.bandwidth() / 2)
+        .attr('stroke', player.low < player.high ? 'green' : 'red');
     });
   }, [players, ref.current, numberOfTeams]);
 
