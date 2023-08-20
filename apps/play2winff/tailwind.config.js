@@ -16,6 +16,7 @@ module.exports = {
         night: '#0C0F0F',
         gunmetal: '#2B3432',
         viridian: '#338D75',
+        primary: '#338D75',
         'rich-black': '#0A191C',
         'black-custom': '#000507',
       },

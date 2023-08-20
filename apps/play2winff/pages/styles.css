@@ -15,6 +15,9 @@
   h2 {
     @apply text-xl font-bold mb-3 text-white;
   }
+  h3 {
+    @apply text-xl font-bold  text-white;
+  }
   h2,
   p,
   .text {
@@ -31,6 +34,9 @@
   }
   .tab-active {
     @apply !bg-viridian;
+  }
+  .btn-primary {
+    @apply bg-viridian text-white px-3 py-2 rounded-lg;
   }
 }
 
