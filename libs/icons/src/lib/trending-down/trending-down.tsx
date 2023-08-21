@@ -1,3 +1,6 @@
+import { CommonProps } from '@with-nx/types';
+import IconWrapper from '../IconWrapper';
+
 const TrendingDownIcon = (props: CommonProps) => {
   return (
     <svg

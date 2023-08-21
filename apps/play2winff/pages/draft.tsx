@@ -8,6 +8,8 @@ import { useState, useEffect } from 'react';
 
 const Draft = () => {
   const { data, isLoading, isError } = useHarrisRankings();
+  console.log('Data from the hook:', data);
+
   const { draftedPlayers, togglePlayerDraftStatus } = useDraftedPlayers(
     data?.players
   );
@@ -21,7 +23,7 @@ const Draft = () => {
         <Heading level={1}>Draft Page</Heading>
 
         <DraftTable
-          players={data.players}
+          players={data}
           hiddenPlayers={draftedPlayers}
           togglePlayerVisibility={togglePlayerDraftStatus} // Use the function from the hook
         />

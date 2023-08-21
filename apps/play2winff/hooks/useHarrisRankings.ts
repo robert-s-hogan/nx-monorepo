@@ -3,7 +3,8 @@ import useSWR from 'swr';
 export const useHarrisRankings = () => {
   const { data, error } = useSWR('/api/harrisRankings', async (url) => {
     const res = await fetch(url);
-    return res.json();
+    const json = await res.json();
+    return json;
   });
 
   if (error) {

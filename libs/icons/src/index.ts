@@ -9,5 +9,7 @@ export * from './lib/menu/menu';
 export * from './lib/minus/minus';
 export * from './lib/plus/plus';
 export * from './lib/shield/shield';
+export * from './lib/trending-up/trending-up';
+export * from './lib/trending-down/trending-down';
 export * from './lib/truck/truck';
 export * from './lib/x/x';
