@@ -69,9 +69,11 @@ const PlayToWinFFHeader = () => {
                 PPR ADP
               </Link>
             </li>
-            {/* <li>
-              <Link href="#who-i-am">Who I Am</Link>
-            </li> */}
+            <li>
+              <Link href="/draft" className="whitespace-nowrap">
+                Quick Draft
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

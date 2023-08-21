@@ -19,7 +19,7 @@ type ApiResponse = {
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export const useADPData = (scoringSystem = 'ppr', teams = 8, year = 2023) => {
-  const url = `/api/fetchAdp?scoringSystem=${scoringSystem}&teams=${teams}&year=${year}`;
+  const url = `/api/fetchFFCalcAdp?scoringSystem=${scoringSystem}&teams=${teams}&year=${year}`;
   const { data, error } = useSWR<ApiResponse>(url, fetcher);
 
   return {
