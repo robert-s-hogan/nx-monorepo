@@ -60,7 +60,7 @@ const DraftTableEntry = ({
     <div>
       {show && !hidden && (
         <div
-          className={`grid grid-cols-9 gap-2 h-16 items-center cursor-pointer md:hover:bg-viridian border-gunmetal border-b border-opacity-10"
+          className={`grid grid-cols-9 gap-2 h-16 items-center cursor-pointer md:hover:bg-viridian md:hover:border-gunmetal md:hover:border border-gunmetal border-b border-opacity-10"
           ${player.position === 'QB' && 'bg-qb'}
           ${player.position === 'RB' && 'bg-rb'}
           ${player.position === 'WR' && 'bg-wr'}

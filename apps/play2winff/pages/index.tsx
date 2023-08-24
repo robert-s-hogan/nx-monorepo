@@ -29,7 +29,7 @@ export function Index() {
     <PlayToWinFFLayout>
       <DraftConfigModal isOpen={isModalOpen} onClose={handleModalClose} />
 
-      <Section className="text-center space-y-6">
+      <Section className="text-center space-y-6 h-[500px] flex justify-center items-center flex-col">
         <Heading level={1}>Play 2 Win Fantasy Football</Heading>
         <Text className="text-lg max-w-xl mx-auto px-6">
           The ultimate platform for fantasy football insights, strategies, and

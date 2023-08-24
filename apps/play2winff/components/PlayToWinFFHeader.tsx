@@ -63,13 +63,16 @@ const PlayToWinFFHeader = () => {
         /> */}
         <nav className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black dark:text-white">
           <div className="flex justify-center">
-            <Image
-              src="https://rshogan.imgix.net/projects/play2winff/play2winff_logo_nobg.png"
-              height={100}
-              width={100}
-              alt="Play2Win Fantasy Football Logo"
-            />
+            <Link href="/">
+              <Image
+                src="https://rshogan.imgix.net/projects/play2winff/play2winff_logo_nobg.png"
+                height={100}
+                width={100}
+                alt="Play2Win Fantasy Football Logo"
+              />
+            </Link>
           </div>
+
           <Text className="text-2xl font-bold">
             <Link href="/" className="whitespace-nowrap">
               Play2WinFF
