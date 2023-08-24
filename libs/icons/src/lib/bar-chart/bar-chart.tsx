@@ -1,6 +1,7 @@
-import IconWrapper from './IconWrapper';
+import { CommonProps } from '@with-nx/types';
+import IconWrapper from '../IconWrapper';
 
-const BarChartIcon = (props: CommonProps) => {
+const BarChartIcon = ({ className = '', ...props }: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

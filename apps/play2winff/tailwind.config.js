@@ -19,6 +19,12 @@ module.exports = {
         primary: '#338D75',
         'rich-black': '#0A191C',
         'black-custom': '#000507',
+        qb: '#8B4143',
+        rb: '#4B6978',
+        wr: '#2B6D65',
+        te: '#D1A52B',
+        pk: '#C1748C',
+        def: '#6B4A70',
       },
       backgroundImage: {
         'gradient-custom': 'linear-gradient(45deg, #2B3432, #338D75)',

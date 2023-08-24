@@ -1,9 +1,21 @@
+import { useState } from 'react';
 import DraftTableEntry from './DraftTableEntry';
 
 const DraftTable = ({ players, hiddenPlayers, togglePlayerVisibility }) => {
   if (!players) {
     return <div>No players available</div>;
+
+    const handleToggleVisibility = (playerId) => {
+      if (hiddenIds.includes(playerId)) {
+        setHiddenIds((prevState) => prevState.filter((id) => id !== playerId));
+      } else {
+        setHiddenIds((prevState) => [...prevState, playerId]);
+      }
+      togglePlayerVisibility(playerId);
+    };
   }
+
+  const [hiddenIds, setHiddenIds] = useState([]);
 
   players.sort((a, b) => {
     const rankA =
@@ -20,13 +32,14 @@ const DraftTable = ({ players, hiddenPlayers, togglePlayerVisibility }) => {
       <div className={`bg-viridian grid grid-cols-9 gap-2 h-16 items-center `}>
         <p className="col-span-2 text-center">ADP</p>
         <p className="col-span-5">NAME</p>
-        <p className="col-span-2">CHANGE</p>
+        <p className="col-span-2">TAGS</p>
       </div>
       {players.map((player) => (
         <DraftTableEntry
           player={player}
-          hidden={hiddenPlayers[player.player_id]}
+          hidden={hiddenIds.includes(player.player_id)}
           togglePlayerVisibility={togglePlayerVisibility}
+          yahooADP={player.yahooADP}
           key={player.player_id}
         />
       ))}

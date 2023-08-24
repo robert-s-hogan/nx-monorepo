@@ -1,4 +1,7 @@
-const TagIcon = (props: CommonProps) => {
+import { CommonProps } from '@with-nx/types';
+import IconWrapper from '../IconWrapper';
+
+const TagIcon = ({ className = '', ...props }: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,13 +16,8 @@ const TagIcon = (props: CommonProps) => {
       className={`feather feather-tag ${props.className}`}
       {...props}
     >
-      <path d="M3.5 9L20.5 9"></path>
-      <path d="M8.5 4L15.5 21"></path>
-      <path d="M15.5 4L8.5 21"></path>
-      <path d="M4 4H4.01"></path>
-      <path d="M9 4H9.01"></path>
-      <path d="M15 4H15.01"></path>
-      <path d="M20 4H20.01"></path>
+      <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+      <line x1="7" y1="7" x2="7.01" y2="7"></line>
     </svg>
   );
 };

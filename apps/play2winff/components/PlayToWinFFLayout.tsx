@@ -20,7 +20,7 @@ const PlayToWinFFLayout = ({
     <PageLayout
       header={hideNavBarProp ? '' : <PlayToWinFFHeader />}
       //   footer={<JHoganComFooter />}
-      className="bg-gunmetal my-4 mx-2 shadow-lg pb-16"
+      className="bg-gunmetal md:my-4 md:mx-2 shadow-lg pb-16"
     >
       <Seo
         title={

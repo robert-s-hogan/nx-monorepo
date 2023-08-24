@@ -1,6 +1,7 @@
-import IconWrapper from './IconWrapper';
+import { CommonProps } from '@with-nx/types';
+import IconWrapper from '../IconWrapper';
 
-const ShoppingCartIcon = (props: CommonProps) => {
+const ShoppingCartIcon = ({ className = '', ...props }: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +18,7 @@ const ShoppingCartIcon = (props: CommonProps) => {
     >
       <circle cx="9" cy="21" r="1" />
       <circle cx="20" cy="21" r="1" />
-      <path d="M1 1h4l3.5 13h9M10 17H2" />
+      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
     </svg>
   );
 };

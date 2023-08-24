@@ -1,4 +1,4 @@
-import { Navbar, Text } from '@with-nx/react-ui';
+import { Button, Navbar, Text } from '@with-nx/react-ui';
 import { ButtonProps, LinkProps } from '@with-nx/types';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -62,16 +62,30 @@ const PlayToWinFFHeader = () => {
           toggleButton={toggleButton}
         /> */}
         <nav className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black dark:text-white">
-          <Text className="text-2xl font-bold">Play2WinFF</Text>
+          <div className="flex justify-center">
+            <Image
+              src="https://rshogan.imgix.net/projects/play2winff/play2winff_logo_nobg.png"
+              height={100}
+              width={100}
+              alt="Play2Win Fantasy Football Logo"
+            />
+          </div>
+          <Text className="text-2xl font-bold">
+            <Link href="/" className="whitespace-nowrap">
+              Play2WinFF
+            </Link>
+          </Text>
           <ul className="flex list-style-none space-x-2">
-            <li>
+            {/* <li>
               <Link href="/adp" className="whitespace-nowrap">
                 PPR ADP
               </Link>
-            </li>
+            </li> */}
             <li>
-              <Link href="/draft" className="whitespace-nowrap">
-                Quick Draft
+              <Link href="/draft">
+                <Button className="bg-viridian px-3 py-2 rounded-lg text-white whitespace-nowrap">
+                  Quick Draft
+                </Button>
               </Link>
             </li>
           </ul>
