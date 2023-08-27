@@ -13,6 +13,7 @@ const DraftTable = ({ players, hiddenPlayers, togglePlayerVisibility }) => {
       }
       togglePlayerVisibility(playerId);
     };
+    console.log(`players: ${players}`);
   }
 
   const [hiddenIds, setHiddenIds] = useState([]);

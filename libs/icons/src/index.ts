@@ -2,6 +2,7 @@
 export * from './lib/activity/activity';
 export * from './lib/bar-chart/bar-chart';
 export * from './lib/check/check';
+export * from './lib/clock/clock';
 export * from './lib/dollar-sign/dollar-sign';
 export * from './lib/linkedin/linkedin';
 export * from './lib/mail/mail';

@@ -6,7 +6,7 @@ import { useADPData } from '../hooks/useADPData';
 import { Button, Grid, Heading, Section, Text } from '@with-nx/react-ui';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BarChart } from '@with-nx/icons';
+import { BarChart, Clock, Tag } from '@with-nx/icons';
 
 import PlayToWinFFLayout from '../components/PlayToWinFFLayout';
 import EspnNewsFeed from '../components/EspnNewsFeed';
@@ -29,16 +29,33 @@ export function Index() {
     <PlayToWinFFLayout>
       <DraftConfigModal isOpen={isModalOpen} onClose={handleModalClose} />
 
-      <Section className="text-center space-y-6 h-[500px] flex justify-center items-center flex-col">
-        <Heading level={1}>Play 2 Win Fantasy Football</Heading>
-        <Text className="text-lg max-w-xl mx-auto px-6">
-          The ultimate platform for fantasy football insights, strategies, and
-          real-time drafting tools.
-        </Text>
-        <Link href="/draft">
-          <Button className="btn-primary mt-4">Quick Draft</Button>
-        </Link>
+      <Section
+        className="relative text-center space-y-6 h-[500px] flex justify-center items-center flex-col"
+        style={{
+          backgroundImage:
+            "url('https://rshogan.imgix.net/projects/play2winff/p2w_hero.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Optional: Add a dark overlay to increase text contrast */}
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+
+        {/* Ensure this container is relative so content stacks over the overlay */}
+        <div className="relative z-10">
+          <Heading level={1} className="text-white">
+            Play 2 Win Fantasy Football
+          </Heading>
+          <Text className="text-lg text-white max-w-xl mx-auto px-6">
+            The ultimate platform for fantasy football insights, strategies, and
+            real-time drafting tools.
+          </Text>
+          <Link href="/draft">
+            <Button className="btn-primary mt-4">Quick Draft</Button>
+          </Link>
+        </div>
       </Section>
+
       {/* <EspnNewsFeed /> */}
 
       {/* <Section className="pb-0">
@@ -49,36 +66,30 @@ export function Index() {
         <Heading level={2} className="text-center mb-8">
           Key Features
         </Heading>
-        <Grid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="feature-item">
+        <Grid className="grid grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="feature-item flex flex-col items-center text-center">
             <div className="text-white">
-              <BarChart className="h-4" />
+              <BarChart className="h-12" />
             </div>
             <Text className="text-xl mt-4">Custom Rankings</Text>
             <p>
               Discover hidden gems and value players tailored to your league.
             </p>
           </div>
-          <div className="feature-item">
-            <Image
-              src="https://rshogan.imgix.net/projects/play2winff/play2winff_logo_nobg.png"
-              height={100}
-              width={100}
-              alt="Play2Win Fantasy Football Logo"
-            />
+          <div className="feature-item flex flex-col items-center text-center">
+            <div className="text-white">
+              <Clock className="h-12" />
+            </div>
             <Text className="text-xl mt-4">Real-Time Draft Tool</Text>
             <p>
               Stay updated on which players are taken, and adapt your strategy
               on the fly.
             </p>
           </div>
-          <div className="feature-item">
-            <Image
-              src="https://rshogan.imgix.net/projects/play2winff/play2winff_logo_nobg.png"
-              height={100}
-              width={100}
-              alt="Play2Win Fantasy Football Logo"
-            />
+          <div className="feature-item flex flex-col items-center text-center">
+            <div className="text-white">
+              <Tag className="h-12" />
+            </div>
             <Text className="text-xl mt-4">Custom Player Tags</Text>
             <p>
               Track injuries, falling values, rising stars, and your personal
@@ -88,7 +99,7 @@ export function Index() {
         </Grid>
       </Section>
 
-      <Section className="py-12">
+      {/* <Section className="py-12">
         <Heading level={2} className="text-center mb-8">
           The Play2WinFF Advantage
         </Heading>
@@ -138,9 +149,9 @@ export function Index() {
             <p>Detailed description of the tool.</p>
           </div>
         </div>
-      </Section>
+      </Section> */}
 
-      <Section className="py-12 bg-gray-200">
+      <Section className="py-12 bg-gradient-to-b from-rich-black to-black-custom">
         <Text className="text-xl text-center mb-4">
           Ready to dominate your fantasy football draft?
         </Text>
