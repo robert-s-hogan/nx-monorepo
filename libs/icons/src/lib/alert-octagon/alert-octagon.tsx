@@ -1,12 +1,7 @@
-//libs/icons/src/lib/AlertOctagon.tsx
+import { CommonProps } from '@with-nx/types';
+import IconWrapper from '../IconWrapper';
 
-import IconWrapper from './IconWrapper';
-
-type AlertOctagonIconProps = {
-  className?: string;
-};
-
-const AlertOctagonIcon = (props: AlertOctagonIconProps) => {
+const AlertOctagonIcon = (props: CommonProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

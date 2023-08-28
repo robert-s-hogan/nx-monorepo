@@ -1,10 +1,5 @@
-// libs/icons/src/lib/ArrowDownCircle.tsx
-
-import IconWrapper from './IconWrapper';
-
-type ArrowDownCircleIconProps = {
-  className?: string;
-};
+import { CommonProps } from '@with-nx/types';
+import IconWrapper from '../IconWrapper';
 
 const ArrowDownCircleIcon = (props: CommonProps) => {
   return (

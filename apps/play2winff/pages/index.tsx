@@ -10,6 +10,7 @@ import { BarChart, Clock, Tag } from '@with-nx/icons';
 
 import PlayToWinFFLayout from '../components/PlayToWinFFLayout';
 import EspnNewsFeed from '../components/EspnNewsFeed';
+import useMergedData from '../hooks/useMergedData';
 
 export function Index() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,6 +20,7 @@ export function Index() {
   const handleModalClose = () => setIsModalOpen(false);
 
   const { adpPlayers, isADPLoading, isADPError } = useADPData();
+  const { data: mergedData, isLoading, isError } = useMergedData();
 
   if (isADPLoading) {
     return <div>Loading...</div>;
@@ -63,6 +65,9 @@ export function Index() {
         </Section> */}
 
       <Section className="py-12 bg-gray-600">
+        <pre className="text-white">
+          {JSON.stringify(mergedData?.length, null, 2)}
+        </pre>
         <Heading level={2} className="text-center mb-8">
           Key Features
         </Heading>

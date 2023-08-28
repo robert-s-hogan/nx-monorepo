@@ -1,32 +1,22 @@
 import { Heading, Section, Text } from '@with-nx/react-ui';
 import PlayToWinFFLayout from '../components/PlayToWinFFLayout';
-
-import useYahooAdp from '../hooks/useYahooAdp';
-import { useHarrisRankings } from '../hooks/useHarrisRankings';
 import useDraftedPlayers from '../hooks/useDraftedPlayers';
-
 import DraftTable from '../components/DraftTable';
 import { useState, useEffect } from 'react';
 
+// Import the new hook
+import useMergedData from '../hooks/useMergedData';
+
 const Draft = () => {
-  const { data, isLoading, isError } = useHarrisRankings();
-  const { data: yahooDataAdp, yahooIsLoading, yahooIsError } = useYahooAdp();
+  // Use the new hook to fetch the merged data
+  const { data: mergedData, isLoading, isError } = useMergedData();
+
   const { draftedPlayers, togglePlayerDraftStatus } = useDraftedPlayers(
-    data?.players
+    mergedData?.players
   );
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error loading data!</p>;
-
-  const mergedData = data?.map((player) => {
-    const yahooPlayer = yahooDataAdp?.find(
-      (yPlayer) => yPlayer.name === player.name
-    );
-    return {
-      ...player,
-      yahooADP: yahooPlayer || { rank: Number.MAX_SAFE_INTEGER },
-    };
-  });
 
   return (
     <PlayToWinFFLayout
@@ -36,7 +26,7 @@ const Draft = () => {
       <Section className="container mx-auto">
         <Heading level={1}>Play2WinFF Draft Dominator</Heading>
         <Heading level={2}>
-          Master Your 12-Man Yahoo PPR Draft with Play2WinFF
+          Master Your 12-Man Yahoo PPR Draft with Play2WinFF{' '}
         </Heading>
         <Text className="text-lg my-4">
           <span className="hidden md:contents">

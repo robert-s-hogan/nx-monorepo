@@ -23,7 +23,7 @@ const DraftTable = ({ players, hiddenPlayers, togglePlayerVisibility }) => {
       a.ranking_history.find((entry) => entry.date === '2023-08-21')?.rank ||
       Number.MAX_SAFE_INTEGER;
     const rankB =
-      b.ranking_history.find((entry) => entry.date === '2023-08-21')?.rank ||
+      b.ranking_history.find((entry) => entry.date === '2023-08-24')?.rank ||
       Number.MAX_SAFE_INTEGER;
     return rankA - rankB;
   });
@@ -35,8 +35,9 @@ const DraftTable = ({ players, hiddenPlayers, togglePlayerVisibility }) => {
         <p className="col-span-5">NAME</p>
         <p className="col-span-2">TAGS</p>
       </div>
-      {players.map((player) => (
+      {players.map((player, index) => (
         <DraftTableEntry
+          key={index}
           player={player}
           hidden={hiddenIds.includes(player.player_id)}
           togglePlayerVisibility={togglePlayerVisibility}
