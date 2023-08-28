@@ -80,7 +80,7 @@ const DraftTableEntry = ({
                 : ''
             }`}
           >
-            <Flex className="w-full justify-center lg:justify-start">
+            <Flex className="w-full justify-start">
               {isValuePick && <Tag className="h-8" />}
               {isOverPriced && <DollarSign className="h-8" />}
             </Flex>
