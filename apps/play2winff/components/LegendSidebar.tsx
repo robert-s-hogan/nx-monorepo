@@ -4,6 +4,7 @@ import {
   AlertOctagon,
   AlertTriangle,
   ArrowDown,
+  DollarSign,
   FileMinus,
   Flag,
   Frown,
@@ -14,6 +15,7 @@ import {
   Star,
   Users,
   Target,
+  TrendingUp,
   X,
   Zap,
   ZapOff,
@@ -40,6 +42,24 @@ const LegendSidebar = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   const legends = [
+    {
+      icon: (
+        <div className="icon-container relative flex justify-center items-center w-12 h-12 bg-purple-700 rounded-full text-2xl">
+          <span className="absolute left-3 h-8 w-8 text-white">Y</span>
+          <TrendingUp className="icon-inner absolute bottom-4 left-6 h-4 w-4 text-green-500" />
+        </div>
+      ),
+      description: 'Value Pick',
+    },
+    {
+      icon: (
+        <div className="icon-container relative flex justify-center items-center w-12 h-12 bg-purple-700 rounded-full text-2xl">
+          <span className="absolute left-3 h-8 w-8 text-white">Y</span>
+          <DollarSign className="icon-inner absolute bottom-4 left-6 h-4 w-4 text-red-500" />
+        </div>
+      ),
+      description: 'Overpriced',
+    },
     { icon: <Flag className="h-8 " />, description: 'Flag Player' },
     { icon: <Moon className="h-8  text-white" />, description: 'Sleeper' },
     {

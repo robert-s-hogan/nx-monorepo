@@ -8,9 +8,9 @@ const FileMinusIcon = (props: CommonProps) => {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       {...props}
       className={`feather feather-file-minus ${props.className}`}
     >

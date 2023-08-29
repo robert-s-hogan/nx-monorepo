@@ -3,6 +3,7 @@ import {
   AlertOctagon,
   AlertTriangle,
   ArrowDown,
+  DollarSign,
   Flag,
   FileMinus,
   Frown,
@@ -13,6 +14,7 @@ import {
   Star,
   Tag,
   Target,
+  TrendingDown,
   TrendingUp,
   Users,
   XCircle,
@@ -59,11 +61,15 @@ const DraftTableEntry = ({
     return `${round}.${pick}`;
   }
 
-  const harrisInt = latestRank; // already a number, no conversion required
-  const yahooInt = yahooADP?.rank || null;
+  const harrisInt = latestRank;
+  const yahooInt = yahooADP?.xrank || null;
 
   // Ensure both ADP values are valid before calculating the difference.
   const difference = yahooInt && harrisInt ? yahooInt - harrisInt : null;
+
+  console.log(`harrisInt: ${harrisInt}`);
+  console.log(`yahooInt: ${yahooInt}`);
+  console.log(`difference: ${difference}`);
 
   // Base the checks on the difference value.
   const isValuePick = difference !== null && difference >= 12;
@@ -71,6 +77,26 @@ const DraftTableEntry = ({
 
   function getPlayerTags(player) {
     const tags = [];
+
+    if (isValuePick)
+      tags.push(
+        <Flex className="yahoo-icon space-x-1">
+          <div className="icon-container relative flex justify-center items-center w-12 h-12 bg-purple-700 rounded-full text-2xl">
+            <span className="absolute left-3 h-8 w-8 text-white">Y</span>
+            <TrendingUp className="icon-inner absolute bottom-4 left-6 h-4 w-4 text-green-500" />
+          </div>
+        </Flex>
+      );
+
+    if (isOverPriced)
+      tags.push(
+        <Flex className="space-x-1">
+          <div className="icon-container relative flex justify-center items-center w-12 h-12 bg-purple-700 rounded-full text-2xl">
+            <span className="absolute left-3 h-8 w-8 text-white">Y</span>
+            <DollarSign className="icon-inner absolute bottom-4 left-6 h-4 w-4 text-red-500" />
+          </div>
+        </Flex>
+      );
 
     if (player.tags.includes('rookie'))
       tags.push(<span className="h-8 pb-1 text-3xl text-red-300">R</span>);
@@ -150,7 +176,10 @@ const DraftTableEntry = ({
           onClick={handleDelete}
         >
           <p className="col-span-2 text-center">{intToAdpString(harrisInt)}</p>
-          <p className="col-span-4">{player.name}</p>
+          <p className="col-span-4">
+            {player.name}{' '}
+            {/* <pre className="text-sm">{JSON.stringify(yahooADP)}</pre> */}
+          </p>
           <Box
             className={`col-span-3  
          `}

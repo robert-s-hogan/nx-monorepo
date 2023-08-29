@@ -65,9 +65,6 @@ export function Index() {
         </Section> */}
 
       <Section className="py-12 bg-gray-600">
-        <pre className="text-white">
-          {JSON.stringify(mergedData?.length, null, 2)}
-        </pre>
         <Heading level={2} className="text-center mb-8">
           Key Features
         </Heading>

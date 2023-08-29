@@ -1,12 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import yahooData from '../../data/adp/2023/yahoo';
+import xrank_yahoo from '../../data/adp/2023/yahoo/xrank_yahoo';
 import harrisRankings from '../../data/adp/2023/harrisFootball';
 import playerTags from '../../data/adp/2023/harrisFootball/tags';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const mergedData = harrisRankings?.map((player) => {
-    const yahooPlayer = yahooData?.find(
+    const yahooPlayer = xrank_yahoo?.find(
       (yPlayer) => yPlayer.name === player.name
     );
     const playerTag =
@@ -14,7 +14,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     return {
       ...player,
-      yahooADP: yahooPlayer || { rank: Number.MAX_SAFE_INTEGER },
+      yahooADP: yahooPlayer || { rank: 999 },
       tags: playerTag?.tags || [],
     };
   });

@@ -86,7 +86,7 @@ const PlayToWinFFHeader = () => {
             </li> */}
             <li>
               <Link href="/draft">
-                <Button className="bg-viridian px-3 py-2 rounded-lg text-white whitespace-nowrap">
+                <Button className="btn-primary whitespace-nowrap">
                   Quick Draft
                 </Button>
               </Link>

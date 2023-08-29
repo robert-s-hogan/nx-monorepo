@@ -35,7 +35,7 @@
     @apply !bg-viridian;
   }
   .btn-primary {
-    @apply bg-viridian text-white px-3 py-2 rounded-lg;
+    @apply bg-viridian text-white px-3 py-2 rounded-sm;
   }
 }
 
