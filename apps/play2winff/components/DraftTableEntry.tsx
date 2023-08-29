@@ -98,6 +98,15 @@ const DraftTableEntry = ({
         </Flex>
       );
 
+    if (player.tags.includes('target'))
+      tags.push(<Target className="h-8 pt-1 text-red-500" />);
+
+    if (player.tags.includes('breakout'))
+      tags.push(<Zap className="h-8 pt-1 text-green-500" />);
+
+    if (player.tags.includes('bust'))
+      tags.push(<ZapOff className="h-8 pt-1 text-red-500" />);
+
     if (player.tags.includes('rookie'))
       tags.push(<span className="h-8 pb-1 text-3xl text-red-300">R</span>);
 
@@ -129,7 +138,7 @@ const DraftTableEntry = ({
       tags.push(<AlertOctagon className="h-8 pt-1 text-yellow-500" />);
 
     if (player.tags.includes('safe'))
-      tags.push(<Shield className="h-8 pt-1" />);
+      tags.push(<Shield className="h-8 pt-1 text-orange-200" />);
 
     if (player.tags.includes('ol_down'))
       tags.push(<ArrowDown className="h-8 pt-1 text-red-500" />);
@@ -139,15 +148,6 @@ const DraftTableEntry = ({
 
     if (player.tags.includes('crowded'))
       tags.push(<Users className="h-8 pt-1 text-white" />);
-
-    if (player.tags.includes('target'))
-      tags.push(<Target className="h-8 pt-1 text-red-500" />);
-
-    if (player.tags.includes('breakout'))
-      tags.push(<Zap className="h-8 pt-1 text-green-500" />);
-
-    if (player.tags.includes('bust'))
-      tags.push(<ZapOff className="h-8 pt-1 text-red-500" />);
 
     return tags;
   }

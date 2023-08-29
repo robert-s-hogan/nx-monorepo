@@ -46,7 +46,7 @@ export function Index() {
         {/* Ensure this container is relative so content stacks over the overlay */}
         <div className="relative z-10">
           <Heading level={1} className="text-white">
-            Play 2 Win Fantasy Football
+            Play2Win Fantasy Football
           </Heading>
           <Text className="text-lg text-white max-w-xl mx-auto px-6">
             The ultimate platform for fantasy football insights, strategies, and
