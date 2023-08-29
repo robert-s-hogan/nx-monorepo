@@ -1,8 +1,9 @@
-import { Heading, Section, Text } from '@with-nx/react-ui';
+import { Button, Heading, Section, Text } from '@with-nx/react-ui';
 import PlayToWinFFLayout from '../components/PlayToWinFFLayout';
 import useDraftedPlayers from '../hooks/useDraftedPlayers';
 import DraftTable from '../components/DraftTable';
 import { useState, useEffect } from 'react';
+import LegendSidebar from '../components/LegendSidebar';
 
 // Import the new hook
 import useMergedData from '../hooks/useMergedData';
@@ -14,6 +15,11 @@ const Draft = () => {
   const { draftedPlayers, togglePlayerDraftStatus } = useDraftedPlayers(
     mergedData?.players
   );
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const handleSidebarClose = () => {
+    setIsSidebarOpen(false);
+  };
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error loading data!</p>;
@@ -41,12 +47,19 @@ const Draft = () => {
           </span>
           Get ready to not just play, but to play to win!
         </Text>
+        <Button
+          className="btn-primary mb-4"
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        >
+          Icon Legend
+        </Button>
         <DraftTable
           players={mergedData}
           hiddenPlayers={draftedPlayers}
           togglePlayerVisibility={togglePlayerDraftStatus}
         />
       </Section>
+      <LegendSidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
     </PlayToWinFFLayout>
   );
 };
