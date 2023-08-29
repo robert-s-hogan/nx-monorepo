@@ -1,10 +1,5 @@
-// libs/icons/src/lib/ArrowDown.tsx
-
-import IconWrapper from './IconWrapper';
-
-type ArrowDownIconProps = {
-  className?: string;
-};
+import IconWrapper from '../IconWrapper';
+import { CommonProps } from '@with-nx/types';
 
 const ArrowDownIcon = (props: CommonProps) => {
   return (

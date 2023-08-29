@@ -2,6 +2,7 @@
 export * from './lib/activity/activity';
 export * from './lib/alert-triangle/alert-triangle';
 export * from './lib/alert-octagon/alert-octagon';
+export * from './lib/arrow-down/arrow-down';
 export * from './lib/arrow-down-circle/arrow-down-circle';
 export * from './lib/bar-chart/bar-chart';
 export * from './lib/check/check';
@@ -29,3 +30,5 @@ export * from './lib/truck/truck';
 export * from './lib/users/users';
 export * from './lib/x/x';
 export * from './lib/x-circle/x-circle';
+export * from './lib/zap/zap';
+export * from './lib/zap-off/zap-off';

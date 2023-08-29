@@ -9,7 +9,7 @@ const MoonIcon = (props: CommonProps) => {
       {...props}
       className={`feather feather-moon ${props.className}`}
     >
-      <path d="M20.76 14.74A9 9 0 0 1 10.86 4.9a9 9 0 0 0 0 14.14 9 9 0 0 1 9.9-4.3z"></path>
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
     </svg>
   );
 };

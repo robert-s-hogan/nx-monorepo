@@ -2,9 +2,9 @@ import { useState } from 'react';
 import {
   AlertOctagon,
   AlertTriangle,
+  ArrowDown,
   Flag,
   FileMinus,
-  Injury,
   Moon,
   RotateCw,
   RefreshCw,
@@ -15,6 +15,8 @@ import {
   TrendingUp,
   Users,
   XCircle,
+  Zap,
+  ZapOff,
 } from '@with-nx/icons';
 import { Box, Flex } from '@with-nx/react-ui';
 
@@ -45,8 +47,14 @@ const DraftTableEntry = ({
   }
 
   function intToAdpString(value) {
-    const round = Math.floor(value / 12) + 1;
-    const pick = value % 12 || 0; // Handle the case where pick number can be 12
+    let round = Math.floor(value / 12) + 1;
+    let pick = value % 12;
+
+    if (pick === 0) {
+      pick = 12;
+      round -= 1;
+    }
+
     return `${round}.${pick}`;
   }
 
@@ -64,57 +72,52 @@ const DraftTableEntry = ({
     const tags = [];
 
     if (player.tags.includes('rookie'))
-      tags.push(<span className="h-8 text-3xl text-red-300">R</span>);
+      tags.push(<span className="h-8 pt-1 text-3xl text-red-300">R</span>);
 
     if (player.tags.includes('flag_player'))
-      tags.push(<Flag className="h-8" />);
+      tags.push(<Flag className="h-8 pt-1" />);
 
-    if (player.tags.includes('sleepers')) tags.push(<Moon className="h-8" />);
+    if (player.tags.includes('sleeper'))
+      tags.push(<Moon className="h-8 pt-1 text-white" />);
 
     if (player.tags.includes('injury_concerns'))
-      tags.push(<AlertTriangle className="h-8 text-red-500" />);
+      tags.push(<AlertTriangle className="h-8 pt-1 text-red-500" />);
 
     if (player.tags.includes('ol_plus'))
-      tags.push(<Star className="h-8 text-yellow-500" />);
-
-    if (player.tags.includes('offensive_lines_improved'))
-      tags.push(<Star className="h-8 text-yellow-500" />);
+      tags.push(<Star className="h-8 pt-1 text-yellow-400" />);
 
     if (player.tags.includes('coach_improved'))
-      tags.push(<Star className="h-8 text-yellow-500" />);
+      tags.push(<Star className="h-8 pt-1 text-yellow-400" />);
 
-    if (player.tags.includes('swing_players'))
-      tags.push(<RotateCw className="h-8" />);
+    if (player.tags.includes('swing'))
+      tags.push(<RotateCw className="h-8 pt-1 text-black-custom" />);
 
     if (player.tags.includes('post_hype_sleepers'))
-      tags.push(<RefreshCw className="h-8" />);
-
-    if (player.tags.includes('deep_sleepers'))
-      tags.push(<Moon className="h-8" style={{ color: 'darkgray' }} />);
-
-    if (player.tags.includes('risky_players'))
-      tags.push(<AlertOctagon className="h-8 text-orange-500" />);
+      tags.push(<RefreshCw className="h-8 pt-1" />);
 
     if (player.tags.includes('suspension'))
-      tags.push(<AlertOctagon className="h-8 text-orange-500" />);
+      tags.push(<AlertOctagon className="h-8 pt-1 text-yellow-500" />);
 
-    if (player.tags.includes('busts'))
-      tags.push(<XCircle className="h-8 text-white" />);
+    if (player.tags.includes('safe'))
+      tags.push(<Shield className="h-8 pt-1" />);
 
-    if (player.tags.includes('avoid'))
-      tags.push(<XCircle className="h-8 text-orange-600" />);
-
-    if (player.tags.includes('safe_players'))
-      tags.push(<Shield className="h-8" />);
+    if (player.tags.includes('ol_down'))
+      tags.push(<ArrowDown className="h-8 pt-1 text-red-500" />);
 
     if (player.tags.includes('contract_issues'))
-      tags.push(<FileMinus className="h-8 text-white" />);
+      tags.push(<FileMinus className="h-8 pt-1 text-white" />);
 
     if (player.tags.includes('crowded'))
-      tags.push(<Users className="h-8 text-white" />);
+      tags.push(<Users className="h-8 pt-1 text-white" />);
 
     if (player.tags.includes('target'))
-      tags.push(<Target className="h-8 text-red-500" />);
+      tags.push(<Target className="h-8 pt-1 text-red-500" />);
+
+    if (player.tags.includes('breakout'))
+      tags.push(<Zap className="h-8 pt-1 text-green-500" />);
+
+    if (player.tags.includes('bust'))
+      tags.push(<ZapOff className="h-8 pt-1 text-red-500" />);
 
     return tags;
   }
@@ -143,9 +146,9 @@ const DraftTableEntry = ({
           onClick={handleDelete}
         >
           <p className="col-span-2 text-center">{intToAdpString(harrisInt)}</p>
-          <p className="col-span-5">{player.name}</p>
+          <p className="col-span-4">{player.name}</p>
           <Box
-            className={`col-span-2  
+            className={`col-span-3  
          `}
           >
             <Flex className="w-full justify-start space-x-1">{tags}</Flex>
