@@ -10,6 +10,7 @@ export * from './lib/clock/clock';
 export * from './lib/dollar-sign/dollar-sign';
 export * from './lib/file-minus/file-minus';
 export * from './lib/flag/flag';
+export * from './lib/frown/frown';
 export * from './lib/linkedin/linkedin';
 export * from './lib/mail/mail';
 export * from './lib/map-pin/map-pin';

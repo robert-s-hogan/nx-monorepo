@@ -5,6 +5,7 @@ import {
   ArrowDown,
   Flag,
   FileMinus,
+  Frown,
   Moon,
   RotateCw,
   RefreshCw,
@@ -72,10 +73,13 @@ const DraftTableEntry = ({
     const tags = [];
 
     if (player.tags.includes('rookie'))
-      tags.push(<span className="h-8 pt-1 text-3xl text-red-300">R</span>);
+      tags.push(<span className="h-8 pb-1 text-3xl text-red-300">R</span>);
 
     if (player.tags.includes('flag_player'))
       tags.push(<Flag className="h-8 pt-1" />);
+
+    if (player.tags.includes('worried'))
+      tags.push(<Frown className="h-8 pt-1 text-blue-500" />);
 
     if (player.tags.includes('sleeper'))
       tags.push(<Moon className="h-8 pt-1 text-white" />);

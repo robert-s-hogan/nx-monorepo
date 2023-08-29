@@ -1,16 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@with-nx/react-ui';
 import {
-  Flag,
-  Moon,
-  AlertTriangle,
-  Star,
-  RotateCw,
-  RefreshCw,
   AlertOctagon,
-  Shield,
+  AlertTriangle,
   ArrowDown,
   FileMinus,
+  Flag,
+  Frown,
+  Moon,
+  RotateCw,
+  RefreshCw,
+  Shield,
+  Star,
   Users,
   Target,
   X,
@@ -44,6 +45,10 @@ const LegendSidebar = ({ isOpen, onClose }) => {
     {
       icon: <AlertTriangle className="h-8  text-red-500" />,
       description: 'Injury Concerns',
+    },
+    {
+      icon: <Frown className="h-8 text-blue-500" />,
+      description: 'Worried We Are Wrong About',
     },
     {
       icon: <Star className="h-8  text-yellow-400" />,

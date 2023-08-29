@@ -1,4 +1,5 @@
-import IconWrapper from './IconWrapper';
+import IconWrapper from '../IconWrapper';
+import { CommonProps } from '@with-nx/types';
 
 const FrownIcon = (props: CommonProps) => {
   return (
