@@ -53,7 +53,7 @@ export function Index() {
             real-time drafting tools.
           </Text>
           <Link href="/draft">
-            <Button className="btn-primary mt-4">Quick Draft</Button>
+            <Button className="btn-primary mt-4">Start Draft</Button>
           </Link>
         </div>
       </Section>

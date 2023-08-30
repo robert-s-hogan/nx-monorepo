@@ -6,6 +6,10 @@ const DraftTable = ({ players, hiddenPlayers, togglePlayerVisibility }) => {
     return <div>No players available</div>;
   }
 
+  const [showAdvancedSettings, setShowAdvancedSettings] = useState(false);
+  const [showRoundMarkers, setShowRoundMarkers] = useState(true);
+  const [pickedCount, setPickedCount] = useState(15);
+
   const handleToggleVisibility = (playerId) => {
     if (hiddenIds.includes(playerId)) {
       setHiddenIds((prevState) => prevState.filter((id) => id !== playerId));
@@ -29,7 +33,27 @@ const DraftTable = ({ players, hiddenPlayers, togglePlayerVisibility }) => {
 
   return (
     <>
-      <div className={`bg-viridian grid grid-cols-9 gap-2 h-16 items-center `}>
+      <div>
+        <button onClick={() => setShowAdvancedSettings(!showAdvancedSettings)}>
+          Toggle Advanced Settings
+        </button>
+        {showAdvancedSettings && (
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                checked={showRoundMarkers}
+                onChange={() => setShowRoundMarkers(!showRoundMarkers)}
+              />
+              Show Round Markers
+            </label>
+          </div>
+        )}
+      </div>
+      <div>Players Taken: {pickedCount}</div>
+      <div
+        className={`bg-viridian grid grid-cols-9 gap-2 h-16 items-center border-sm`}
+      >
         <p className="col-span-2 text-center">ADP</p>
         <p className="col-span-4">NAME</p>
         <p className="col-span-3">TAGS</p>

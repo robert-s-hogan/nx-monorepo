@@ -87,7 +87,7 @@ const PlayToWinFFHeader = () => {
             <li>
               <Link href="/draft">
                 <Button className="btn-primary whitespace-nowrap">
-                  Quick Draft
+                  Start Draft
                 </Button>
               </Link>
             </li>

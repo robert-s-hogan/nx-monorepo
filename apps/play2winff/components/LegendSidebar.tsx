@@ -1,26 +1,29 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@with-nx/react-ui';
-import {
-  AlertOctagon,
-  AlertTriangle,
-  ArrowDown,
-  DollarSign,
-  FileMinus,
-  Flag,
-  Frown,
-  Moon,
-  RotateCw,
-  RefreshCw,
-  Shield,
-  Star,
-  Users,
-  Target,
-  TrendingUp,
-  X,
-  Zap,
-  ZapOff,
-} from '@with-nx/icons';
+import { X } from '@with-nx/icons';
 import { Box, Flex } from '@with-nx/react-ui';
+
+import {
+  BreakoutIcon,
+  BustIcon,
+  CoachedImprovedIcon,
+  ContractIssuesIcon,
+  CrowdedPositionGroupIcon,
+  FlagPlayerIcon,
+  InjuryConcernsIcon,
+  OffensiveLineDownIcon,
+  OffensiveLinePlusIcon,
+  OverPricedIcon,
+  PostHypeSleeperIcon,
+  RookieIcon,
+  SafePlayerIcon,
+  SleeperIcon,
+  SuspensionIcon,
+  SwingPlayerIcon,
+  TargetIcon,
+  ValuePickIcon,
+  WorriedIcon,
+} from './CustomP2WTagIcons';
 
 const LegendSidebar = ({ isOpen, onClose }) => {
   const ref = useRef(null);
@@ -43,77 +46,108 @@ const LegendSidebar = ({ isOpen, onClose }) => {
 
   const legends = [
     {
-      icon: (
-        <div className="icon-container relative flex justify-center items-center w-12 h-12 bg-purple-700 rounded-full text-2xl">
-          <span className="absolute left-3 h-8 w-8 text-white">Y</span>
-          <TrendingUp className="icon-inner absolute bottom-4 left-6 h-4 w-4 text-green-500" />
-        </div>
-      ),
-      description: 'Value Pick',
+      icon: <ValuePickIcon />,
+      title: 'Value Pick',
+      description:
+        'Based on Harris Rankings compared to where Yahoo ADP has them',
     },
     {
-      icon: (
-        <div className="icon-container relative flex justify-center items-center w-12 h-12 bg-purple-700 rounded-full text-2xl">
-          <span className="absolute left-3 h-8 w-8 text-white">Y</span>
-          <DollarSign className="icon-inner absolute bottom-4 left-6 h-4 w-4 text-red-500" />
-        </div>
-      ),
-      description: 'Overpriced',
-    },
-    { icon: <Flag className="h-8 " />, description: 'Flag Player' },
-    { icon: <Moon className="h-8  text-white" />, description: 'Sleeper' },
-    {
-      icon: <AlertTriangle className="h-8  text-red-500" />,
-      description: 'Injury Concerns',
+      icon: <OverPricedIcon />,
+      title: 'Over Priced',
+      description:
+        'Based on Harris Rankings compared to where Yahoo ADP has them',
     },
     {
-      icon: <Frown className="h-8 text-blue-500" />,
-      description: 'Worried We Are Wrong About',
+      icon: <FlagPlayerIcon />,
+      title: 'Flag Player',
+      description:
+        'Players we are betting on this year. Based on: pure talent, opportunity, and outperforming their ADP.',
     },
     {
-      icon: <Star className="h-8  text-yellow-400" />,
-      description: 'Great Offensive Line, Coach Upgrade, ',
+      icon: <SleeperIcon />,
+      title: 'Sleeper',
+      description:
+        'Players we wouldnt be surprised if they outperform their ADP',
     },
     {
-      icon: <RotateCw className="h-8  text-black-custom" />,
-      description: 'Swing Player',
+      icon: <InjuryConcernsIcon />,
+      title: 'Injury Concerns',
+      description:
+        'Players that have checkered injury history, recent injury, or an injury from last year',
     },
     {
-      icon: <RefreshCw className="h-8 " />,
-      description: 'Post Hype Sleeper',
+      icon: <WorriedIcon />,
+      title: 'Worried We Are Wrong About',
+      description:
+        'Players were situation could be worse or we are worried we are wrong about their talent',
     },
     {
-      icon: <AlertOctagon className="h-8  text-yellow-500" />,
-      description: 'Suspension',
-    },
-    { icon: <Shield className="h-8 " />, description: 'Safe' },
-    {
-      icon: <ArrowDown className="h-8  text-red-500" />,
-      description: 'Downgraded Offensive Line',
+      icon: <CoachedImprovedIcon />,
+      title: 'Coached Improved',
+      description:
+        'Players that have had an upgrade at an coaching position that should give the entire offense a boost',
     },
     {
-      icon: <FileMinus className="h-8  text-white" />,
-      description: 'Contract Issue',
+      icon: <SwingPlayerIcon />,
+      title: 'Swing Player',
+      description:
+        'Players that have a wide range of outcomes.  Could be a league winner or a bust',
     },
     {
-      icon: <Users className="h-8  text-white" />,
-      description: 'Crowded offense or backfield',
+      icon: <PostHypeSleeperIcon />,
+      title: 'Post Hype Sleeper',
+      description:
+        'Players that have been hyped in the past but have not lived up to expectations.  Could be a league winner or a bust',
     },
     {
-      icon: <Target className="h-8  text-red-500" />,
-      description: 'Prioritize these players',
+      icon: <SuspensionIcon />,
+      title: 'Suspension',
+      description: 'Players that are suspended for a portion of the season',
     },
     {
-      icon: <Zap className="h-8  text-green-500" />,
-      description: 'Breakout Player',
+      icon: <SafePlayerIcon />,
+      title: 'Safe Player',
+      description:
+        'Players that are safe picks.  Players that healthy and consistent',
     },
     {
-      icon: <ZapOff className="h-8  text-red-500" />,
-      description: 'Bust Player',
+      icon: <OffensiveLineDownIcon />,
+      title: 'Offensive Line Downgraded',
+      description:
+        'Players that have a downgraded offensive line that should hurt their production',
     },
     {
-      icon: <span className="h-8  text-3xl text-red-300">R</span>,
-      description: 'Rookie',
+      icon: <ContractIssuesIcon />,
+      title: 'Contract Issues',
+      description:
+        'Players that have contract issues that could affect their production',
+    },
+    {
+      icon: <CrowdedPositionGroupIcon />,
+      title: 'Crowded Position Group',
+      description:
+        'Players that are in a crowded offense or backfield.  Feels like they will be in a timeshare or hard to breakout',
+    },
+    {
+      icon: <TargetIcon />,
+      title: 'Target',
+      description:
+        'Prioritize these players in the draft.  Determined by Value Based Drafting or Talent',
+    },
+    {
+      icon: <BreakoutIcon />,
+      title: 'Breakout Player',
+      description: 'Players that we think will breakout this year',
+    },
+    {
+      icon: <BustIcon />,
+      title: 'Bust Player',
+      description: 'Players that we think will bust this year',
+    },
+    {
+      icon: <RookieIcon />,
+      title: 'Rookie',
+      description: 'Players that are rookies',
     },
   ];
 
@@ -129,11 +163,14 @@ const LegendSidebar = ({ isOpen, onClose }) => {
         </Button>
         {/* close icon that can be clicked to close the sidebar */}
       </Flex>
-      <Flex className="p-4 flex-col space-y-2">
+      <Flex className="p-4 flex-col space-y-3 max-h-screen overflow-y-auto">
         {legends.map((legend, index) => (
-          <Box key={index} className="flex items-center space-x-2">
-            <span>{legend.icon}</span>
-            <span>{legend.description}</span>
+          <Box key={index} className="">
+            <Flex className="flex space-x-2 items-center">
+              <span>{legend.icon}</span>
+              <span className="font-bold text-xl">{legend.title}</span>
+            </Flex>
+            <span className="text-xs">{legend.description}</span>
           </Box>
         ))}
       </Flex>
