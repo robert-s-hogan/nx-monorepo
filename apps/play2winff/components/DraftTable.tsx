@@ -23,11 +23,17 @@ const DraftTable = ({
 
   useEffect(() => {
     const getMostRecentRank = (player) => {
-      const targetDate = '2023-08-23';
-      const rankEntry = player.ranking_history.find(
-        (entry) => entry.date === targetDate
-      );
-      return rankEntry ? rankEntry.rank : Number.MAX_SAFE_INTEGER;
+      const targetDate = '2023-08-29';
+      // Filter rankings up to targetDate and then retrieve the most recent
+      const sortedRankHistory = player.ranking_history
+        .filter((entry) => new Date(entry.date) <= new Date(targetDate))
+        .sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        ); // most recent first
+
+      return sortedRankHistory.length
+        ? sortedRankHistory[0].rank
+        : Number.MAX_SAFE_INTEGER;
     };
     const sorted = [...players].sort(
       (a, b) => getMostRecentRank(a) - getMostRecentRank(b)
@@ -79,7 +85,7 @@ const DraftTable = ({
         <p className="col-span-4">NAME</p>
         <p className="col-span-3">TAGS</p>
       </div>
-      {players.map((player, index) => {
+      {sortedPlayers.map((player, index) => {
         const isHidden = hiddenIds.includes(player.player_id);
 
         // Don't render if the player is drafted and showDraftedPlayers is false
@@ -93,7 +99,7 @@ const DraftTable = ({
           return rankEntry ? rankEntry.rank : null;
         };
 
-        const targetDate = '2023-08-23';
+        const targetDate = '2023-08-29';
         const playerAdpRaw =
           getRankForDate(player, targetDate)?.toString() || '0';
 
