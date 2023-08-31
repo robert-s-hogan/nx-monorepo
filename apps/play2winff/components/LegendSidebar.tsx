@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Button } from '@with-nx/react-ui';
 import { X } from '@with-nx/icons';
 import { Box, Flex } from '@with-nx/react-ui';
@@ -27,20 +27,6 @@ import {
 
 const LegendSidebar = ({ isOpen, onClose }) => {
   const ref = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        onClose(); // This will be your function to close the sidebar
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      // Cleanup the event listener on component unmount
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [onClose]);
 
   if (!isOpen) return null;
 
@@ -154,14 +140,13 @@ const LegendSidebar = ({ isOpen, onClose }) => {
   return (
     <div
       ref={ref}
-      className="fixed border-l border-viridian border top-0 right-0 h-full w-1/2 md:w-1/4 bg-gunmetal text-white shadow-lg"
+      className="fixed border-l border-viridian border-[.5px] top-4 right-4 h-full w-1/2 md:w-1/4 bg-gunmetal text-white shadow-lg"
     >
       <Flex className="justify-between items-center p-4 border-viridian border-b">
         <h2 className="text-lg font-bold">Icon Legend</h2>
-        <Button onClick={onClose}>
+        <Button className="p-4" onClick={onClose}>
           <X className="cursor-pointer" />
         </Button>
-        {/* close icon that can be clicked to close the sidebar */}
       </Flex>
       <Flex className="p-4 flex-col space-y-3 max-h-screen overflow-y-auto">
         {legends.map((legend, index) => (

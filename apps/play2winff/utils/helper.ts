@@ -6,3 +6,7 @@ export const convertToRoundAndPick = (
   const pick = value - (round - 1) * teams;
   return { round, pick };
 };
+
+export const generatePlayerID = (name: string) => {
+  return name.split(' ').join('_').toLowerCase();
+};

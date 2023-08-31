@@ -3,6 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import xrank_yahoo from '../../data/adp/2023/yahoo/xrank_yahoo';
 import harrisRankings from '../../data/adp/2023/harrisFootball';
 import playerTags from '../../data/adp/2023/harrisFootball/tags';
+import { generatePlayerID } from '../../utils/helper';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const mergedData = harrisRankings?.map((player) => {
@@ -14,6 +15,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     return {
       ...player,
+      player_id: generatePlayerID(player.name),
       yahooADP: yahooPlayer || { rank: 999 },
       tags: playerTag?.tags || [],
     };

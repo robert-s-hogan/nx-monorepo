@@ -29,12 +29,11 @@ const DraftTableEntry = ({
   hidden,
   togglePlayerVisibility,
   yahooADP,
+  playerRank, // Include this here
 }) => {
   const [show, toggleShow] = useState(true);
 
   const handleDelete = () => {
-    console.log('Deleting player:', player.player_id);
-    toggleShow(false);
     togglePlayerVisibility(player.player_id);
   };
 
@@ -86,21 +85,37 @@ const DraftTableEntry = ({
 
   const tags = getPlayerTags(player);
 
+  const playerStyles = hidden
+    ? 'opacity-40 text-black-custom hover:cursor-not-allowed'
+    : '';
+
   return (
     <div>
-      {show && !hidden && (
+      {show && (
         <div
-          className={`grid grid-cols-9 gap-2 h-16 items-center cursor-pointer md:hover:bg-viridian md:hover:border-gunmetal md:hover:border border-gunmetal border-b border-opacity-10"
+          className={`grid grid-cols-9 gap-2 h-16 items-center cursor-pointer md:hover:bg-viridian md:hover:border-gunmetal md:hover:border border-gunmetal border-b border-opacity-10
           ${player.position === 'QB' && 'bg-qb'}
           ${player.position === 'RB' && 'bg-rb'}
           ${player.position === 'WR' && 'bg-wr'}
           ${player.position === 'TE' && 'bg-te'}
           ${player.position === 'PK' && 'bg-pk'}
-          ${player.position === 'DEF' && 'bg-def'}`}
+          ${player.position === 'DEF' && 'bg-def'}
+          ${playerStyles}
+          `}
           onClick={handleDelete}
         >
-          <p className="col-span-2 text-center">{intToAdpString(harrisInt)}</p>
-          <p className="col-span-4">{player.name} </p>
+          <p
+            className={`${
+              playerStyles ? 'text-black-custom' : ''
+            }  col-span-2 text-center`}
+          >
+            {playerRank}
+          </p>
+          <p
+            className={`${playerStyles ? 'text-black-custom' : ''} col-span-4`}
+          >
+            {player.name}{' '}
+          </p>
           <Box
             className={`col-span-3  
          `}
