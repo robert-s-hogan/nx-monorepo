@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const logo = (
   <Image
@@ -35,6 +36,7 @@ const links: {
 
 const PlayToWinFFHeader = () => {
   const { theme, setTheme } = useTheme();
+  const router = useRouter();
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -53,7 +55,7 @@ const PlayToWinFFHeader = () => {
 
   return (
     <header>
-      <div className="container mx-auto max-w-7xl w-full flex flex-col justify-center items-center px-4">
+      <div className="container mx-auto  w-full flex flex-col justify-center items-center px-4">
         {/* <Navbar
           className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black dark:text-white "
           links={links}
@@ -84,13 +86,16 @@ const PlayToWinFFHeader = () => {
                 PPR ADP
               </Link>
             </li> */}
-            <li>
-              <Link href="/draft">
-                <Button className="btn-primary whitespace-nowrap">
-                  Start Draft
-                </Button>
-              </Link>
-            </li>
+            {/* I want to hide this button on /draft */}
+            {router.pathname !== '/draft' && (
+              <li>
+                <Link href="/draft">
+                  <Button className="btn-primary whitespace-nowrap">
+                    Start Draft
+                  </Button>
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

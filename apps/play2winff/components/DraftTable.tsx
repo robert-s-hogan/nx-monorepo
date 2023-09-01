@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Flex } from '@with-nx/react-ui';
+import { Button, Flex, Grid } from '@with-nx/react-ui';
 
 import useDraftedPlayers from '../hooks/useDraftedPlayers';
 import DraftTableEntry from './DraftTableEntry';
@@ -17,11 +17,8 @@ const DraftTable = ({
     return <div>No players available</div>;
   }
 
-  const {
-    draftedPlayers,
-    togglePlayerDraftStatus,
-    // ... other states
-  } = useDraftedPlayers(players);
+  const { draftedPlayers, togglePlayerDraftStatus } =
+    useDraftedPlayers(players);
 
   const [showAdvancedSettings, setShowAdvancedSettings] = useState(false);
   const [showRoundMarkers, setShowRoundMarkers] = useState(true);
@@ -68,30 +65,37 @@ const DraftTable = ({
 
   return (
     <Flex className="flex-col w-full text-white">
-      <Flex className="bg-night p-4 justify-between">
+      <Grid className="grid-cols-2 lg:grid-cols-3 bg-night py-2 gap-6 justify-between">
         <Button
-          className="btn-secondary w-48"
+          className="hidden lg:block btn-secondary ml-2 w-24 md:w-48 "
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
         >
-          Icon Legend
+          <span className="hidden md:inline-flex">Icon </span>&nbsp;Legend
         </Button>
-        <label className="py-2">
+        <label className="py-2 text-center flex">
           <input
             type="checkbox"
             checked={showDraftedPlayers}
-            className="mr-2"
+            className="ml-4"
             onChange={() => setShowDraftedPlayers(!showDraftedPlayers)}
           />
-          Show Drafted Players
+          <span className="ml-1">Show&nbsp;Drafted&nbsp;</span>
+          <span className="hidden md:flex"> Players</span>
         </label>
-        <div className="py-2">Players Drafted ({pickedCount})</div>
-      </Flex>
+        <div className="py-2 mr-2 md:mr-2 text-right md:text-center">
+          <span className="hidden md:inline-flex">Total Drafted&nbsp;</span>
+          <span className="inline-flex md:hidden">Taken&nbsp;</span>(
+          {pickedCount})
+        </div>
+      </Grid>
       <div
         className={`bg-viridian grid grid-cols-9 gap-2 h-16 items-center border-sm`}
       >
         <p className="col-span-2 text-center">ADP</p>
         <p className="col-span-4">NAME</p>
-        <p className="col-span-3">TAGS</p>
+        <p className="col-span-3">
+          <span className="hidden lg:inline-flex">TAGS</span>
+        </p>
       </div>
       {sortedPlayers.map((player, index) => {
         const isHidden = hiddenIds.includes(player.player_id);

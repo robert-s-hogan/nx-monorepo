@@ -36,7 +36,6 @@ const Draft = () => {
       title="Play2WinFF Draft Dominator"
     >
       <Section className="container mx-auto">
-        <pre className="text-white">{JSON.stringify(isError)}</pre>
         <Flex
           className={`flex-col flex-grow ${isSidebarOpen ? 'w-3/4' : 'w-full'}`}
         >
@@ -64,7 +63,7 @@ const Draft = () => {
         {/* Sidebar */}
         <Flex
           className={`transition-all duration-300 ease-in-out overflow-hidden h-full ${
-            isSidebarOpen ? 'max-w-full md:max-w-1/5' : 'max-w-0'
+            isSidebarOpen ? 'max-w-full md:max-w-sm' : 'max-w-0'
           }`}
           // style={{ willChange: 'max-width' }}
         >

@@ -131,14 +131,14 @@ const DraftTableEntry = ({
             {player.name}{' '}
           </p>
           <Box
-            className={`col-span-2  
+            className={`hidden lg:flex md:col-span-2  
          `}
           >
             <Flex className="w-full justify-start items-center space-x-1">
               {tags}
             </Flex>
           </Box>
-          <div className="col-span-1">
+          <div className="col-span-2 md:col-span-1">
             {!draftedPlayers[player.player_id] && !hidden && (
               <Button
                 className="btn-secondary hover:bg-viridian"
