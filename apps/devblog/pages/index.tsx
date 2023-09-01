@@ -96,7 +96,20 @@ export function Index() {
                 return (
                   <div key={project.title} className="card">
                     <div className="card-body">
-                      <h3 className="card-title text-black">{project.title}</h3>
+                      <Flex className="w-full space-x-3 items-center">
+                        {project.image && (
+                          <Image
+                            src={project.image}
+                            height={50}
+                            width={50}
+                            alt="Play2Win Fantasy Football Logo"
+                          />
+                        )}
+
+                        <h3 className="card-title text-black">
+                          {project.title}
+                        </h3>
+                      </Flex>
                       <p className="card-text text-black h-28">
                         {project.description}
                       </p>

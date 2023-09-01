@@ -3,6 +3,7 @@ import { Link, Button, Text, Heading, Flex } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
 import { BiWrench } from 'react-icons/bi';
 import { Mail, LinkedIn } from '@with-nx/icons';
+import Image from 'next/image';
 
 import { projectsData } from '../../data/projects';
 import { getIconForCategory } from '../../utils/getIconForCategory';
@@ -21,7 +22,18 @@ const Projects = () => {
             return (
               <div key={project.title} className="card">
                 <div className="card-body">
-                  <h3 className="card-title text-black">{project.title}</h3>
+                  <Flex className="w-full space-x-3 items-center">
+                    {project.image && (
+                      <Image
+                        src={project.image}
+                        height={50}
+                        width={50}
+                        alt="Play2Win Fantasy Football Logo"
+                      />
+                    )}
+
+                    <h3 className="card-title text-black">{project.title}</h3>
+                  </Flex>
                   <p className="card-text text-black h-28">
                     {project.description}
                   </p>
@@ -65,13 +77,18 @@ const Projects = () => {
                           : 'Live Project'}
                       </Button>
                     </Link>
-                    <Link
-                      href={project.github}
-                      target="_blank"
-                      className="hover:text-vivid-500"
-                    >
-                      <FiGithub size={24} color="black" />
-                    </Link>
+                    {project.github && (
+                      <Link
+                        href={project.github}
+                        target="_blank"
+                        className="hover:text-vivid-500"
+                      >
+                        <FiGithub
+                          size={24}
+                          className="text-black hover:text-vivid-500"
+                        />
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>

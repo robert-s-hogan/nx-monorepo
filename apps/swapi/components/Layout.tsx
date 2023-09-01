@@ -26,7 +26,7 @@ function SwapiLayout({
             : 'Explore an engaging site that consumes the https://swapi.dev/ API, showcasing data from the Star Wars universe in a visually appealing and interactive way. Learn how React and react-query are used to fetch data and implement pagination for a seamless user experience.'
         }
         url="https://swapi-nx.vercel.app/"
-        faviconPath="/favicon.ico"
+        faviconPath="https://rshogan.imgix.net/projects/swapi/favicon.ico"
         image="/images/portrait.jpg"
         twitterHandle="@robert_s_hogan"
         siteName="Robert Hogan's SWAPI Project"
