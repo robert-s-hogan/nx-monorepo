@@ -28,7 +28,7 @@ const DraftTable = ({
 
   useEffect(() => {
     const getMostRecentRank = (player) => {
-      const targetDate = '2023-08-31';
+      const targetDate = '2023-09-01';
       // Filter rankings up to targetDate and then retrieve the most recent
       const sortedRankHistory = player.ranking_history
         .filter((entry) => new Date(entry.date) <= new Date(targetDate))
@@ -111,7 +111,7 @@ const DraftTable = ({
           return rankEntry ? rankEntry.rank : null;
         };
 
-        const targetDate = '2023-08-31';
+        const targetDate = '2023-09-01';
         const playerAdpRaw =
           getRankForDate(player, targetDate)?.toString() || '0';
 
