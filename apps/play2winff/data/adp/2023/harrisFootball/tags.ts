@@ -67,7 +67,7 @@ const harrisTags = [
   { name: 'DJ Moore', tags: [''], team: 'CHI' },
   { name: 'Keenan Allen', tags: ['coach_improved'], team: 'LAC' },
   { name: 'Miles Sanders', tags: ['swing_player'], team: 'CAR' },
-  { name: 'JK Dobbins', tags: ['contract_issues'], team: 'BAL' },
+  { name: 'JK Dobbins', tags: [], team: 'BAL' },
   { name: 'Christian Kirk', tags: ['target'], team: 'JAC' },
   { name: 'Tyler Lockett', tags: ['target'], team: 'SEA' },
   { name: 'Calvin Ridley', tags: ['worried'], team: 'JAC' },
@@ -79,7 +79,7 @@ const harrisTags = [
   { name: 'Chris Godwin', tags: ['safe_player'], team: 'TB' },
   {
     name: "D'Andre Swift",
-    tags: ['offensive_line_plus', 'swing_player'],
+    tags: ['offensive_line_plus', 'swing_player', 'target'],
     team: 'PHI',
   },
   { name: 'Jahmyr Gibbs', tags: ['swing_player', 'bust'], team: 'DET' },
@@ -94,7 +94,7 @@ const harrisTags = [
   { name: 'George Kittle', tags: ['crowded_position_group'], team: 'SF' },
   {
     name: 'TJ Hockenson',
-    tags: ['contract_issues', 'swing_player'],
+    tags: ['target', 'swing_player'],
     team: 'MIN',
   },
   { name: 'Justin Fields', tags: ['swing_player'], team: 'CHI' },
