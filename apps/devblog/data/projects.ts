@@ -4,7 +4,7 @@ export const projectsData = [
     image:
       'https://rshogan.imgix.net/projects/play2winff/play2winff_logo_nobg.png',
     description:
-      'This tool was built for a Yahoo fantasy football league to help with keep track with all the NFL league changes.',
+      'Crafted for a Yahoo fantasy football leagues, this tool is indispensable for tracking NFL updates.',
     link: 'https://play2winff-nx.vercel.app/',
     github: '',
     category: ['React', 'Typescript', 'TailwindCSS', 'NX', 'Next', 'API'],
@@ -13,7 +13,7 @@ export const projectsData = [
   {
     title: 'React UI Library',
     description:
-      'This project is a dependency free UI library built with React, Typescript and CSS modules.',
+      'A robust, dependency-free UI library constructed with React, TypeScript, and CSS modules.',
     link: 'https://roberthogan-dev-react-ui.vercel.app/',
     github: '',
     category: ['React', 'Typescript', 'CSS', 'Storybook', 'Jest', 'NX'],
@@ -22,7 +22,7 @@ export const projectsData = [
   {
     title: 'Memory Game',
     description:
-      'A Game of Concentration was created with vanilla javascript and preset assets.',
+      'Experience nostalgia with "A Game of Concentration", developed using vanilla JavaScript and curated assets.',
     link: 'https://robert-s-hogan.github.io/Project-Memory-Game/',
     github: 'https://github.com/robert-s-hogan/Project-Memory-Game',
     category: ['JavaScript', 'CSS', 'GithubPages'],
@@ -32,7 +32,7 @@ export const projectsData = [
     title: 'SWAPI+',
     image: 'https://rshogan.imgix.net/projects/swapi/Starwars-logo.webp',
     description:
-      'This was is a fun project about Star Wars characters using server-less functions.',
+      'An interactive Star Wars character showcase using serverless functions.',
     link: 'https://swapi-nx.vercel.app/',
     github: '',
     category: ['React', 'Next', 'Typescript', 'API', 'NX', 'TailwindCSS'],
@@ -40,7 +40,8 @@ export const projectsData = [
   },
   {
     title: 'Interactive Map',
-    description: 'This project will be used for an DND app as a dungeon map.',
+    description:
+      'A detailed map tailored for a DnD app, perfect for Dungeon Masters to keep track of their campaign.',
     link: 'https://www.roberthogan.dev/projects/dnd-interactive-map',
     github: '',
     category: ['React', 'Next', 'NX', 'TailwindCSS'],
@@ -50,7 +51,7 @@ export const projectsData = [
   {
     title: 'Custom Google Search Tool',
     description:
-      'This tool helps Frelance Web Developers find potential clients.',
+      'A specialized tool aiding freelance web developers in finding potential clients.',
     link: 'https://www.roberthogan.dev/projects/freelance-find-sites',
     github: '',
     category: ['React', 'TailwindCSS', 'Google'],

@@ -19,17 +19,23 @@ export function Index() {
       <section className="container max-w-7xl mx-auto px-4">
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="flex justify-center items-center w-full md:w-3/4 mx-auto">
+            <div className="flex justify-center items-center w-full mx-auto">
               <div className="space-y-4">
                 <Heading level={1}>
-                  Hello, I am Robert Hogan Front End{' '}
-                  <span className="underline decoration-primary">
-                    UI/UX Engineer
+                  <span className="font-bold">Hello!</span> I'm{` `}
+                  <span className="font-bold">Robert Hogan </span>a seasoned
+                  Front-End{' '}
+                  <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block my-2 mr-3">
+                    <span className="relative text-white px-2">
+                      UI Engineer{' '}
+                    </span>
                   </span>
+                  with a knack for crafting efficient and user-centric digital
+                  experiences.
                 </Heading>
                 <p className="sub-title">
-                  Moving my site from Netlify/Gatsby to Vercel/NX/Next.js
-                  &#128059; with me
+                  🚀 Transitioning my site from Netlify/Gatsby to
+                  Vercel/NX/Next.js — Bear with me!
                 </p>
                 <Flex className="space-x-4 flex items-center">
                   <Button className="btn-primary" onClick={toggle}>
@@ -86,7 +92,8 @@ export function Index() {
           <div className="space-y-2">
             <h2>Featured Projects</h2>
             <p className="sub-title">
-              All my projects are hosted inside the same private NX monorepo
+              Every project is meticulously architected within a dedicated
+              private NX monorepo.
             </p>
           </div>
 
