@@ -1,9 +1,11 @@
 import { Button, Flex, Heading, Section, Text } from '@with-nx/react-ui';
+
 import PlayToWinFFLayout from '../components/PlayToWinFFLayout';
 import useDraftedPlayers from '../hooks/useDraftedPlayers';
 import DraftTable from '../components/DraftTable';
 import { useState, useEffect } from 'react';
 import LegendSidebar from '../components/LegendSidebar';
+import Roster from '../components/Roster';
 
 // Import the new hook
 import useMergedData from '../hooks/useMergedData';
@@ -19,9 +21,8 @@ const Draft = () => {
     setShowDraftedPlayers,
   } = useDraftedPlayers(mergedData?.players);
 
-  console.log(`mergedData`, mergedData);
-
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   const handleSidebarClose = () => {
     setIsSidebarOpen(false);
   };
@@ -35,6 +36,7 @@ const Draft = () => {
       title="Play2WinFF Draft Dominator"
     >
       <Section className="container mx-auto">
+        <pre className="text-white">{JSON.stringify(isError)}</pre>
         <Flex
           className={`flex-col flex-grow ${isSidebarOpen ? 'w-3/4' : 'w-full'}`}
         >
@@ -55,32 +57,37 @@ const Draft = () => {
             </span>
             Get ready to not just play, but to play to win!
           </Text>
-          <Button
-            className="btn-primary mb-4 w-48"
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          >
-            Icon Legend
-          </Button>
         </Flex>
       </Section>
 
-      <Section className="container mx-auto">
-        <Flex className={`flex-grow ${isSidebarOpen ? 'w-3/4' : 'w-full'}`}>
+      <Section className="container mx-auto flex">
+        {/* Sidebar */}
+        <Flex
+          className={`transition-all duration-300 ease-in-out overflow-hidden h-full ${
+            isSidebarOpen ? 'max-w-full md:max-w-1/5' : 'max-w-0'
+          }`}
+          // style={{ willChange: 'max-width' }}
+        >
+          <LegendSidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
+        </Flex>
+
+        {/* Main content */}
+        <Flex
+          className={`flex-grow transition-all duration-300 ease-in-out ${
+            isSidebarOpen ? 'w-3/4' : 'w-full'
+          }`}
+        >
           <DraftTable
             players={mergedData}
             hiddenPlayers={draftedPlayers}
             togglePlayerVisibility={togglePlayerDraftStatus}
             showDraftedPlayers={showDraftedPlayers}
             setShowDraftedPlayers={setShowDraftedPlayers}
+            setIsSidebarOpen={setIsSidebarOpen}
+            isSidebarOpen={isSidebarOpen}
           />
         </Flex>
-        <div
-          className={`w-0 flex-none transition-all duration-300 ${
-            isSidebarOpen ? 'w-1/4 md:w-1/5' : ''
-          }`}
-        >
-          <LegendSidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
-        </div>
+        {/* <Roster draftedPlayers={draftedPlayers} /> */}
       </Section>
     </PlayToWinFFLayout>
   );

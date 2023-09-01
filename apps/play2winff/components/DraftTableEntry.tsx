@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Flex } from '@with-nx/react-ui';
+import { Box, Button, Flex } from '@with-nx/react-ui';
 
 import {
   BreakoutIcon,
@@ -28,6 +28,8 @@ const DraftTableEntry = ({
   player,
   hidden,
   togglePlayerVisibility,
+  draftedPlayers, // add this prop
+  togglePlayerDraftStatus, // add this prop
   yahooADP,
   playerRank, // Include this here
 }) => {
@@ -36,7 +38,10 @@ const DraftTableEntry = ({
   const handleDelete = () => {
     togglePlayerVisibility(player.player_id);
   };
-
+  const handleDraft = () => {
+    console.log('Draft button clicked for player:', player.player_id);
+    togglePlayerDraftStatus(player.player_id);
+  };
   const rankingHistory = player.ranking_history;
   const latestRank = rankingHistory[rankingHistory.length - 1]?.rank;
 
@@ -93,7 +98,7 @@ const DraftTableEntry = ({
     <div>
       {show && (
         <div
-          className={`grid grid-cols-9 gap-2 h-16 items-center cursor-pointer md:hover:bg-viridian md:hover:border-gunmetal md:hover:border border-gunmetal border-b border-opacity-10
+          className={`grid grid-cols-9 gap-2 h-16 items-center cursor-pointer border-gunmetal border-b border-opacity-10
           ${player.position === 'QB' && 'bg-qb'}
           ${player.position === 'RB' && 'bg-rb'}
           ${player.position === 'WR' && 'bg-wr'}
@@ -102,28 +107,47 @@ const DraftTableEntry = ({
           ${player.position === 'DEF' && 'bg-def'}
           ${playerStyles}
           `}
-          onClick={handleDelete}
         >
           <p
             className={`${
               playerStyles ? 'text-black-custom' : ''
-            }  col-span-2 text-center`}
+            }  col-span-2 text-center space-x-3`}
           >
-            {playerRank}
+            {/* {!draftedPlayers[player.player_id] && !hidden && (
+              <Button
+                className="btn-primary hover:border-night hover:bg-night"
+                onClick={handleDraft}
+              >
+                DRAFT
+              </Button>
+            )}{' '} */}
+            <span>{playerRank}</span>
           </p>
           <p
-            className={`${playerStyles ? 'text-black-custom' : ''} col-span-4`}
+            className={`${
+              playerStyles ? 'text-black-custom line-through' : ''
+            } col-span-4`}
           >
             {player.name}{' '}
           </p>
           <Box
-            className={`col-span-3  
+            className={`col-span-2  
          `}
           >
             <Flex className="w-full justify-start items-center space-x-1">
               {tags}
             </Flex>
           </Box>
+          <div className="col-span-1">
+            {!draftedPlayers[player.player_id] && !hidden && (
+              <Button
+                className="btn-secondary hover:bg-viridian"
+                onClick={handleDelete}
+              >
+                Taken
+              </Button>
+            )}
+          </div>
         </div>
       )}
     </div>

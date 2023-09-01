@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Flex } from '@with-nx/react-ui';
+import { Button, Flex } from '@with-nx/react-ui';
 
 import useDraftedPlayers from '../hooks/useDraftedPlayers';
 import DraftTableEntry from './DraftTableEntry';
@@ -10,10 +10,18 @@ const DraftTable = ({
   togglePlayerVisibility,
   showDraftedPlayers,
   setShowDraftedPlayers,
+  isSidebarOpen,
+  setIsSidebarOpen,
 }) => {
   if (!players) {
     return <div>No players available</div>;
   }
+
+  const {
+    draftedPlayers,
+    togglePlayerDraftStatus,
+    // ... other states
+  } = useDraftedPlayers(players);
 
   const [showAdvancedSettings, setShowAdvancedSettings] = useState(false);
   const [showRoundMarkers, setShowRoundMarkers] = useState(true);
@@ -23,7 +31,7 @@ const DraftTable = ({
 
   useEffect(() => {
     const getMostRecentRank = (player) => {
-      const targetDate = '2023-08-29';
+      const targetDate = '2023-08-31';
       // Filter rankings up to targetDate and then retrieve the most recent
       const sortedRankHistory = player.ranking_history
         .filter((entry) => new Date(entry.date) <= new Date(targetDate))
@@ -59,25 +67,25 @@ const DraftTable = ({
   };
 
   return (
-    <Flex className="flex-col w-full">
-      <div>
-        <button onClick={() => setShowAdvancedSettings(!showAdvancedSettings)}>
-          Toggle Advanced Settings
-        </button>
-        {showAdvancedSettings && (
-          <div>
-            <label>
-              <input
-                type="checkbox"
-                checked={showDraftedPlayers}
-                onChange={() => setShowDraftedPlayers(!showDraftedPlayers)}
-              />
-              Show Drafted Players
-            </label>
-          </div>
-        )}
-      </div>
-      <div>Players Taken: {pickedCount}</div>
+    <Flex className="flex-col w-full text-white">
+      <Flex className="bg-night p-4 justify-between">
+        <Button
+          className="btn-secondary w-48"
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        >
+          Icon Legend
+        </Button>
+        <label className="py-2">
+          <input
+            type="checkbox"
+            checked={showDraftedPlayers}
+            className="mr-2"
+            onChange={() => setShowDraftedPlayers(!showDraftedPlayers)}
+          />
+          Show Drafted Players
+        </label>
+        <div className="py-2">Players Drafted ({pickedCount})</div>
+      </Flex>
       <div
         className={`bg-viridian grid grid-cols-9 gap-2 h-16 items-center border-sm`}
       >
@@ -99,7 +107,7 @@ const DraftTable = ({
           return rankEntry ? rankEntry.rank : null;
         };
 
-        const targetDate = '2023-08-29';
+        const targetDate = '2023-08-31';
         const playerAdpRaw =
           getRankForDate(player, targetDate)?.toString() || '0';
 
@@ -115,6 +123,8 @@ const DraftTable = ({
               player={player}
               hidden={isHidden}
               togglePlayerVisibility={handleToggleVisibility}
+              draftedPlayers={draftedPlayers}
+              togglePlayerDraftStatus={togglePlayerDraftStatus}
               yahooADP={player.yahooADP}
               playerRank={playerAdpRaw}
             />

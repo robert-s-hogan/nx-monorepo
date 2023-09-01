@@ -140,7 +140,7 @@ const LegendSidebar = ({ isOpen, onClose }) => {
   return (
     <div
       ref={ref}
-      className="fixed border-l border-viridian border-[.5px] top-4 right-4 h-full w-1/2 md:w-1/4 bg-gunmetal text-white shadow-lg"
+      className="bg-gunmetal text-white border-l border-viridian border-[.5px] h-auto mr-3"
     >
       <Flex className="justify-between items-center p-4 border-viridian border-b">
         <h2 className="text-lg font-bold">Icon Legend</h2>
@@ -148,7 +148,7 @@ const LegendSidebar = ({ isOpen, onClose }) => {
           <X className="cursor-pointer" />
         </Button>
       </Flex>
-      <Flex className="p-4 flex-col space-y-3 max-h-screen overflow-y-auto">
+      <div className="p-4 flex-col space-y-3">
         {legends.map((legend, index) => (
           <Box key={index} className="">
             <Flex className="flex space-x-2 items-center">
@@ -158,7 +158,7 @@ const LegendSidebar = ({ isOpen, onClose }) => {
             <span className="text-xs">{legend.description}</span>
           </Box>
         ))}
-      </Flex>
+      </div>
     </div>
   );
 };

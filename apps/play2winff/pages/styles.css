@@ -37,6 +37,9 @@
   .btn-primary {
     @apply bg-viridian text-white px-3 py-2 rounded-sm;
   }
+  .btn-secondary {
+    @apply bg-gunmetal text-white px-3 py-2 rounded-sm;
+  }
 }
 
 svg text {
