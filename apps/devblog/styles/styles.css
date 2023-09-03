@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700;900&family=Silkscreen&display=swap');
 
 @tailwind components;
 @tailwind base;
@@ -6,7 +6,7 @@
 
 @layer base {
   html {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Golos Text', sans-serif;
   }
   h1,
   h2,
@@ -14,7 +14,8 @@
   h4,
   h5,
   h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Silkscreen', cursive;
+    @apply text-primary;
   }
   body {
     @apply bg-gray-100;
@@ -106,4 +107,8 @@ pre {
 
 code {
   @apply text-gray-800 font-mono;
+}
+
+.silkscreen {
+  font-family: 'Silkscreen', cursive;
 }

@@ -14,6 +14,7 @@ const DevBlogLayout = ({
   title,
   description,
   hideNavBar: hideNavBarProp,
+
 }: PageLayoutProps) => {
   const router = useRouter();
   const asPath = router.asPath;
