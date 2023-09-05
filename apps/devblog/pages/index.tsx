@@ -138,8 +138,11 @@ export function Index() {
             Highlighted Projects
           </Heading>
           <Grid className="grid-cols-2 lg:grid-cols-3 relative gap-12">
-            {projectsData.map((project) => (
-              <DevBlogHighlightedProject project={project} />
+            {projectsData.map((project, index) => (
+              <DevBlogHighlightedProject
+                key={`project ${index}`}
+                project={project}
+              />
             ))}
           </Grid>
         </Flex>

@@ -27,11 +27,11 @@ const links: {
     children: 'Blog',
     className: 'link',
   },
-  {
-    href: '/projects',
-    children: 'Projects',
-    className: 'link',
-  },
+  // {
+  //   href: '/projects',
+  //   children: 'Projects',
+  //   className: 'link',
+  // },
 ];
 
 const DevBlogHeader = () => {

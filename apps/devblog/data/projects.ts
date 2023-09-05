@@ -50,14 +50,14 @@ export const projectsData = [
     link: 'https://www.roberthogan.dev/projects/dnd-interactive-map',
     github: '',
     category: ['React', 'Next', 'NX', 'TailwindCSS'],
-    isUnderConstruction: false,
+    isUnderConstruction: true,
   },
 
   // {
   //   title: 'Custom Google Search Tool',
   //   description:
   //     'A specialized tool aiding freelance web developers in finding potential clients.',
-  //   link: 'https://www.roberthogan.dev/projects/freelance-find-sites',
+  //   link: 'https://rshogan.imgix.net/projects/devblog/devblog_custom-google-search.png',
   //   github: '',
   //   category: ['React', 'TailwindCSS', 'Google'],
   //   isUnderConstruction: false,
