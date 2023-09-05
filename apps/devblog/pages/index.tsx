@@ -87,7 +87,7 @@ export function Index() {
           className="absolute border border-secondary rounded-100 h-155 w-295 bottom-[-140px] right-[15px] transform rotate-3 overflow-hidden z-0"
         ></div>
       </DevBlogSection>
-      <DevBlogSection className="">
+      {/* <DevBlogSection className="">
         <Flex className="flex-col items-center justify-start">
           <div>
             <Heading level={2} className="text-center">
@@ -99,8 +99,8 @@ export function Index() {
             </DevBlogSubTitle>
           </div>
         </Flex>
-      </DevBlogSection>
-      <DevBlogSection className="">
+      </DevBlogSection> */}
+      {/* <DevBlogSection className="">
         <div>
           <div className="space-y-6">
             <Flex className="flex-col justify-center">
@@ -131,7 +131,7 @@ export function Index() {
             </div>
           </div>
         </div>
-      </DevBlogSection>
+      </DevBlogSection> */}
       <DevBlogSection className="">
         <Flex className="flex-col justify-start flex-shrink-0 transform-none">
           <Heading level={2} className="text-left">
@@ -144,7 +144,7 @@ export function Index() {
           </Grid>
         </Flex>
       </DevBlogSection>
-      <DevBlogSection className="">
+      {/* <DevBlogSection className="">
         <div className="bg-gray-900 p-10">
           <Grid className="grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-gray-800 p-5 rounded-md">
@@ -196,7 +196,7 @@ export function Index() {
             </div>
           </Grid>
         </div>
-      </DevBlogSection>
+      </DevBlogSection> */}
     </DevBlogLayout>
   );
 }
