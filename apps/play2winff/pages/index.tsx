@@ -30,7 +30,7 @@ export function Index() {
   const { data: mergedData, isLoading, isError } = useMergedData();
 
   if (isADPLoading) {
-    return <Loading />;
+    return <Loading timeout={3000} />;
   }
   if (isADPError) return <div>An error occurred</div>;
 
