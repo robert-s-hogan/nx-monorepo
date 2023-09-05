@@ -2,7 +2,7 @@
 interface EyebrowProps {
   color: string;
   size: string;
-  position: string;
+  position?: string;
 }
 
 const Eyebrow: React.FC<EyebrowProps> = ({ color, size, position }) => {

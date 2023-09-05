@@ -2,7 +2,7 @@ interface FaceProps {
   color: string;
   height: number;
   width: number;
-  position: string;
+  position?: string;
   style: string;
   children?: React.ReactNode;
 }

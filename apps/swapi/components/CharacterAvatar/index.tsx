@@ -1,6 +1,6 @@
 // CharacterAvatar.js
 import React, { useState } from 'react';
-import { Person } from '../types/people';
+import { Person } from '../../types/people';
 import characterAvatarStyles from '../../styles/character-avatar.module.css';
 import { AvatarSizeProvider } from '../../context/AvatarSizeContext';
 

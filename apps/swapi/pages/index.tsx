@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Skeleton } from '@with-nx/react-ui';
+import { Flex, Skeleton } from '@with-nx/react-ui';
 import useSWR from 'swr';
 
 import Characters from '../components/Characters';
@@ -25,7 +25,17 @@ export default function Home() {
 
   return (
     <Layout>
-      <Hero />
+      <div className="items-center content-center bg-orange-500 flex flex-none flex-col gap-12 h-content min-h-[800px] justify-center overflow-hidden p-25 relative w-full">
+        <div>
+          <Hero />
+          <Flex className="space-x-8 justify-center">
+            <p className="font-inter font-semibold text-customColor">Bank</p>
+            <p className="font-inter font-semibold text-customColor">Creator</p>
+            <p className="font-inter font-semibold text-customColor">API</p>
+          </Flex>
+        </div>
+      </div>
+
       <Characters />
       {/* <div className="flex justify-center max-w-7xl xl:max-w-7xl container mx-auto mt-8 px-2">
         <SwapiSearch />

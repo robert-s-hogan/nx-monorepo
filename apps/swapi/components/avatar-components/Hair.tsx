@@ -6,7 +6,7 @@ interface HairProps {
   color: string;
   height: number;
   width: number;
-  position: string;
+  position?: string;
   style: string;
   isFemale?: boolean;
   hasHair: boolean;
@@ -57,7 +57,7 @@ const Hair: React.FC<HairProps> = ({
   );
 };
 
-function positionStyles(position: string): React.CSSProperties {
+function positionStyles(position?: string): React.CSSProperties {
   const [vertical, horizontal] = position.split(' ');
   return {
     [vertical]: 0,

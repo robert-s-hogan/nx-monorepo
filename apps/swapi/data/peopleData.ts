@@ -1,4 +1,4 @@
-import { Person } from './types/people';
+import { Person } from '../types/people';
 
 export const people: Person[] = [
   {

@@ -2,7 +2,7 @@
 interface EyesProps {
   color: string;
   size: string;
-  position: string;
+  position?: string;
 }
 
 const Eyes: React.FC<EyesProps> = ({ color, size, position }) => {

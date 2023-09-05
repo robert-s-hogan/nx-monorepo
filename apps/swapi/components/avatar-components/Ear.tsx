@@ -2,7 +2,7 @@
 interface EarProps {
   color: string;
   size: string;
-  position: string;
+  position?: string;
 }
 
 const Ear: React.FC<EarProps> = ({ color, size, position }) => {

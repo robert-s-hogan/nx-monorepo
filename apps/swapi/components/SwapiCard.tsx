@@ -318,7 +318,6 @@ import useSWR from 'swr';
 
 import StarsBackground from './homeworldBackground/stars';
 import HomeworldBackground from './homeworldBackground/HomeworldBackground';
-import PeopleCard from './PeopleCard';
 import PlanetsCard from './PlanetsCard';
 
 // rest of your code
@@ -345,9 +344,6 @@ const SwapiCard = ({
   let CardComponent;
 
   switch (endpoint) {
-    case 'people':
-      CardComponent = PeopleCard;
-      break;
     case 'planets':
       CardComponent = PlanetsCard;
       break;

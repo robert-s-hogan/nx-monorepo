@@ -1,13 +1,10 @@
 import React, { createContext, useContext } from 'react';
+import { Person } from '../types/people';
 
-interface AvatarSizeProviderProps {
-  size: keyof typeof sizes;
-}
-
-export const AvatarSizeProvider: React.FC<AvatarSizeProviderProps> = ({
-  children,
-  size,
-}) => (
+export const AvatarSizeProvider: React.FC<{
+  children: React.ReactNode;
+  size: string;
+}> = ({ children, size }) => (
   <AvatarSizeContext.Provider value={size}>
     {children}
   </AvatarSizeContext.Provider>

@@ -6,7 +6,7 @@ type PlayerData = {
   low: number;
   high: number;
   bye: number;
-  position: string;
+  position?: string;
   team: string;
   adp_formatted: string;
 };
