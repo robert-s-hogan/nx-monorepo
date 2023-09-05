@@ -3,7 +3,14 @@ import DraftConfigModal from '../components/DraftConfigModal';
 import styles from './index.module.css';
 import PlayersWithHighVariability from '../components/PlayersWithHighVariability';
 import { useADPData } from '../hooks/useADPData';
-import { Button, Grid, Heading, Section, Text } from '@with-nx/react-ui';
+import {
+  Button,
+  Grid,
+  Heading,
+  Loading,
+  Section,
+  Text,
+} from '@with-nx/react-ui';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BarChart, Clock, Tag } from '@with-nx/icons';
@@ -23,7 +30,7 @@ export function Index() {
   const { data: mergedData, isLoading, isError } = useMergedData();
 
   if (isADPLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   if (isADPError) return <div>An error occurred</div>;
 

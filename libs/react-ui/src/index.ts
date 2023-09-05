@@ -1,3 +1,4 @@
+export * from './lib/loading/loading';
 //libs/react-ui/src/index.ts
 export * from './lib/about/about';
 export * from './lib/badge/badge';
@@ -22,6 +23,7 @@ export * from './lib/label/label';
 export * from './lib/link/link';
 export * from './lib/list/list';
 export * from './lib/list-item/list-item';
+export * from './lib/loading/loading';
 export * from './lib/modal/modal';
 export * from './lib/multi-step-form/multi-step-form';
 export * from './lib/navbar/navbar';
