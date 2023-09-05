@@ -16,6 +16,30 @@ module.exports = {
         primary: '#f25626',
         secondary: 'grey',
       },
+      spacing: {
+        215: '215px',
+        '-169': '-169px',
+        '-96': '-96px',
+        317: '317px',
+        155: '155px',
+        '-105': '-105px',
+        '-212': '-212px',
+        295: '295px',
+      },
+      borderWidth: {
+        1: '1px',
+      },
+      borderRadius: {
+        100: '100%',
+      },
+      zIndex: {
+        0: '0',
+      },
+      transform: {
+        'rotate-62': 'rotate(62deg)',
+        'rotate--3': 'rotate(-3deg)',
+        'rotate-144': 'rotate(144deg)',
+      },
     },
   },
   plugins: [],

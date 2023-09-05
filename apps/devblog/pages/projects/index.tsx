@@ -1,4 +1,4 @@
-import DevBlogLayout from '../../components/layout/DevBlogLayout';
+import DevBlogLayout from '../../components/DevBlogLayout';
 import { Link, Button, Text, Heading, Flex, Section } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
 import { BiWrench } from 'react-icons/bi';

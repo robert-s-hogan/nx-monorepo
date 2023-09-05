@@ -1,4 +1,4 @@
-import DevBlogLayout from '../../components/layout/DevBlogLayout';
+import DevBlogLayout from '../../components/DevBlogLayout';
 import dynamic from 'next/dynamic';
 
 import { Heading, Text, Link } from '@with-nx/react-ui';

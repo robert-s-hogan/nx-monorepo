@@ -22,6 +22,7 @@ const nextConfig = {
       'oaidalleapiprodscus.blob.core.windows.net',
       'rshogan.imgix.net',
       'robertshogan.dreamhosters.com',
+      'framerusercontent.com',
     ],
   },
 };

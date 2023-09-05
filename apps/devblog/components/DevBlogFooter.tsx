@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Link, Flex } from '@with-nx/react-ui';
-import RSHLogo from '../../public/images/rsh_logo.png';
+import RSHLogo from '../public/images/rsh_logo.png';
+
 const DevBlogFooter = () => {
   return (
     <footer className="container mx-auto max-w-7xl pb-8 px-4">

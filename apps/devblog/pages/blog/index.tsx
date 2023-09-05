@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Flex } from '@with-nx/react-ui';
 
-import DevBlogLayout from '../../components/layout/DevBlogLayout';
+import DevBlogLayout from '../../components/DevBlogLayout';
 import { getSortedPostsData } from '../../../../_articles';
 import blogStyles from './blog.module.css';
 

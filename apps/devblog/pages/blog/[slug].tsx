@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { getPostData, getAllPostIds } from '../../../../_articles';
-import DevBlogLayout from '../../components/layout/DevBlogLayout';
+import DevBlogLayout from '../../components/DevBlogLayout';
 import Image from 'next/image';
 
 export async function getStaticPaths() {

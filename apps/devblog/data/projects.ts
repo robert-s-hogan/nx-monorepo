@@ -1,8 +1,7 @@
 export const projectsData = [
   {
     title: 'Play2winFF Draft Tool',
-    image:
-      'https://rshogan.imgix.net/projects/play2winff/play2winff_logo_nobg.png',
+    image: 'https://rshogan.imgix.net/projects/play2winff/p2w_hero.png',
     description:
       'Crafted for a Yahoo fantasy football leagues, this tool is indispensable for tracking NFL updates.',
     link: 'https://play2winff-nx.vercel.app/',
@@ -12,6 +11,8 @@ export const projectsData = [
   },
   {
     title: 'React UI Library',
+    image:
+      'https://rshogan.imgix.net/projects/devblog/dev_blog_react-ui-library.png',
     description:
       'A robust, dependency-free UI library constructed with React, TypeScript, and CSS modules.',
     link: 'https://roberthogan-dev-react-ui.vercel.app/',
@@ -21,6 +22,8 @@ export const projectsData = [
   },
   {
     title: 'Memory Game',
+    image:
+      'https://rshogan.imgix.net/projects/devblog/dev_blog-concentration.png',
     description:
       'Experience nostalgia with "A Game of Concentration", developed using vanilla JavaScript and curated assets.',
     link: 'https://robert-s-hogan.github.io/Project-Memory-Game/',
@@ -30,7 +33,7 @@ export const projectsData = [
   },
   {
     title: 'SWAPI+',
-    image: 'https://rshogan.imgix.net/projects/swapi/Starwars-logo.webp',
+    image: 'https://rshogan.imgix.net/projects/devblog/devblog-swapi-plus.webp',
     description:
       'An interactive Star Wars character showcase using serverless functions.',
     link: 'https://swapi-nx.vercel.app/',
@@ -40,6 +43,8 @@ export const projectsData = [
   },
   {
     title: 'Interactive Map',
+    image:
+      'https://rshogan.imgix.net/projects/devblog/dev_blog-interactive-map.png',
     description:
       'A detailed map tailored for a DnD app, perfect for Dungeon Masters to keep track of their campaign.',
     link: 'https://www.roberthogan.dev/projects/dnd-interactive-map',
@@ -48,13 +53,13 @@ export const projectsData = [
     isUnderConstruction: false,
   },
 
-  {
-    title: 'Custom Google Search Tool',
-    description:
-      'A specialized tool aiding freelance web developers in finding potential clients.',
-    link: 'https://www.roberthogan.dev/projects/freelance-find-sites',
-    github: '',
-    category: ['React', 'TailwindCSS', 'Google'],
-    isUnderConstruction: false,
-  },
+  // {
+  //   title: 'Custom Google Search Tool',
+  //   description:
+  //     'A specialized tool aiding freelance web developers in finding potential clients.',
+  //   link: 'https://www.roberthogan.dev/projects/freelance-find-sites',
+  //   github: '',
+  //   category: ['React', 'TailwindCSS', 'Google'],
+  //   isUnderConstruction: false,
+  // },
 ];

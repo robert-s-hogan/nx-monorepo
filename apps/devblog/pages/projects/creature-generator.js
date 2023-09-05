@@ -15,7 +15,7 @@ import {
 } from '@with-nx/react-ui';
 import { loadingMessages } from '@with-nx/constants';
 
-import DevblogLayout from '../../components/layout/DevBlogLayout';
+import DevblogLayout from '../../components/DevBlogLayout';
 import { generateRandomValues } from '../api/creature-generator/generate';
 
 export default function CreatureGenerator() {

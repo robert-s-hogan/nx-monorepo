@@ -1,4 +1,5 @@
-import IconWrapper from './IconWrapper';
+import { CommonProps } from '@with-nx/types';
+import IconWrapper from '../IconWrapper';
 
 const GitHubIcon = (props: CommonProps) => {
   return (

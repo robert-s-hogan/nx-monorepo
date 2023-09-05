@@ -14,7 +14,7 @@ import {
   Text,
   Section,
 } from '@with-nx/react-ui';
-import DevblogLayout from '../../components/layout/DevBlogLayout';
+import DevblogLayout from '../../components/DevBlogLayout';
 
 export default function EntityGenerator() {
   //player inputs

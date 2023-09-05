@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Flex, Heading, Section, Tabs, Text } from '@with-nx/react-ui';
 
-import DevBlogLayout from '../../components/layout/DevBlogLayout';
+import DevBlogLayout from '../../components/DevBlogLayout';
 import VersionOne from '../../components/projects/find-freelance-sites/version-one';
 import VersionTwo from '../../components/projects/find-freelance-sites/version-two';
 import VersionThree from '../../components/projects/find-freelance-sites/version-three';

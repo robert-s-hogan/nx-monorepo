@@ -15,21 +15,20 @@
   h5,
   h6 {
     font-family: 'Silkscreen', cursive;
-    @apply text-primary;
+    @apply text-primary uppercase pb-10;
   }
   body {
-    @apply bg-gray-100;
+    @apply bg-white;
   }
   h1 {
-    @apply text-2xl lg:text-4xl;
+    @apply text-6xl md:text-9xl pb-10;
   }
   h2 {
-    @apply text-3xl;
+    @apply text-4xl md:text-8xl pb-8;
   }
   h3 {
-    @apply text-2xl;
+    @apply text-3xl;
   }
-
   h4 {
     @apply text-xl;
   }
@@ -38,6 +37,9 @@
   }
   h6 {
     @apply text-base;
+  }
+  span {
+    @apply text-lg;
   }
 }
 
@@ -50,13 +52,13 @@
     max-width: 100%;
   }
   .btn-primary {
-    @apply !bg-primary text-white px-3 py-2 rounded-lg;
+    @apply !bg-primary text-white px-3 py-2 rounded-2xl;
   }
   .btn-secondary {
-    @apply !bg-secondary text-white px-3 py-2 rounded-lg;
+    @apply !bg-secondary text-white px-3 py-2 rounded-2xl;
   }
   .card {
-    @apply bg-gray-200 shadow-lg rounded-lg p-6;
+    @apply bg-gray-200 shadow-lg rounded-2xl p-6;
   }
   .card-body {
     @apply flex flex-col space-y-6;
@@ -74,7 +76,7 @@
     @apply no-underline;
   }
   .input {
-    @apply border border-gray-300 rounded-lg px-3 py-2;
+    @apply border border-gray-300 rounded-2xl px-3 py-2;
   }
 }
 
@@ -94,7 +96,7 @@ a button span {
 }
 
 a {
-  @apply underline decoration-primary;
+  @apply text-primary decoration-primary;
 }
 
 a:hover {
@@ -102,7 +104,7 @@ a:hover {
 }
 
 pre {
-  @apply bg-gray-100 rounded-lg p-4 overflow-x-auto;
+  @apply bg-gray-100 rounded-2xl p-4 overflow-x-auto;
 }
 
 code {
