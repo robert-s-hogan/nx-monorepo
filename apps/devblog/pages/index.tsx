@@ -36,7 +36,7 @@ export function Index() {
               >
                 Portfolio
               </Heading>
-              <DevBlogSubTitle className="pt-8">
+              <DevBlogSubTitle className="pt-8 mx-4">
                 <span className="font-bold">Hello!</span> I'm{` `}
                 <span className="font-bold">Robert Hogan </span>a seasoned
                 Front-End&nbsp;&nbsp;
@@ -47,11 +47,11 @@ export function Index() {
                 experiences.
               </DevBlogSubTitle>
 
-              <Flex className="space-x-4 items-center">
+              {/* <Flex className="space-x-4 items-center mx-4">
                 <Button className="btn-primary" onClick={toggle}>
                   Schedule a Meeting
                 </Button>
-              </Flex>
+              </Flex> */}
             </div>
           </Flex>
           <dialog open={isShowing} className="border border-primary">
