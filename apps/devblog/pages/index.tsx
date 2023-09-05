@@ -29,7 +29,7 @@ export function Index() {
       <DevBlogSection className="relative">
         <Grid className="grid-cols-1 px-2">
           <Flex className="justify-center items-center w-full mx-auto">
-            <div className="space-y-4">
+            <div className="space-y-4 max-w-4xl">
               <Heading
                 level={1}
                 className="text-center text-6xl md:text-9xl uppercase"
@@ -39,9 +39,9 @@ export function Index() {
               <DevBlogSubTitle className="pt-8">
                 <span className="font-bold">Hello!</span> I'm{` `}
                 <span className="font-bold">Robert Hogan </span>a seasoned
-                Front-End{' '}
+                Front-End&nbsp;&nbsp;
                 <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block my-2 mr-3">
-                  <span className="relative text-white px-2">UI Engineer </span>
+                  <span className="relative text-white px-2">UI Engineer</span>
                 </span>
                 with a knack for crafting efficient and user-centric digital
                 experiences.
@@ -80,11 +80,11 @@ export function Index() {
         ></div>
         <div
           id="right-top-circle"
-          className="absolute border border-secondary rounded-100 h-155 w-295 bottom-[-140px] right-[15px] transform rotate-[144deg] overflow-hidden z-0"
+          className="absolute border border-secondary rounded-100 h-155 w-295 bottom-[-140px] right-[45px] transform rotate-[144deg] overflow-hidden z-0"
         ></div>
         <div
           id="right-bottom-circle"
-          className="absolute border border-secondary rounded-100 h-155 w-295 bottom-[-140px] right-[15px] transform rotate-3 overflow-hidden z-0"
+          className="absolute border border-secondary rounded-100 h-155 w-295 bottom-[-140px] right-[45px] transform rotate-3 overflow-hidden z-0"
         ></div>
       </DevBlogSection>
       {/* <DevBlogSection className="">
@@ -137,7 +137,7 @@ export function Index() {
           <Heading level={2} className="text-left">
             Highlighted Projects
           </Heading>
-          <Grid className="grid-cols-2 lg:grid-cols-3 relative gap-12">
+          <Grid className="grid-cols-1 lg:grid-cols-3 relative gap-12">
             {projectsData.map((project, index) => (
               <DevBlogHighlightedProject
                 key={`project ${index}`}
@@ -199,6 +199,23 @@ export function Index() {
             </div>
           </Grid>
         </div>
+      </DevBlogSection> */}
+      {/* <DevBlogSection className="">
+        <Flex className="flex-col items-center space-y-6">
+          <Heading level={2} className="text-center">
+            Get Started
+          </Heading>
+
+          <p className="text-center">
+            Ready to transform your web development process and create
+            awe-inspiring projects? Don’t hesitate, join the revolution now!
+          </p>
+
+          <Button className="btn-primary">Launch Your Project</Button>
+
+          <div className="rotate-[-124deg]"></div>
+          <div className="rotate-[-26deg]"></div>
+        </Flex>
       </DevBlogSection> */}
     </DevBlogLayout>
   );

@@ -31,27 +31,27 @@ export const projectsData = [
     category: ['JavaScript', 'CSS', 'GithubPages'],
     isUnderConstruction: false,
   },
-  {
-    title: 'SWAPI+',
-    image: 'https://rshogan.imgix.net/projects/devblog/devblog-swapi-plus.webp',
-    description:
-      'An interactive Star Wars character showcase using serverless functions.',
-    link: 'https://swapi-nx.vercel.app/',
-    github: '',
-    category: ['React', 'Next', 'Typescript', 'API', 'NX', 'TailwindCSS'],
-    isUnderConstruction: true,
-  },
-  {
-    title: 'Interactive Map',
-    image:
-      'https://rshogan.imgix.net/projects/devblog/dev_blog-interactive-map.png',
-    description:
-      'A detailed map tailored for a DnD app, perfect for Dungeon Masters to keep track of their campaign.',
-    link: 'https://www.roberthogan.dev/projects/dnd-interactive-map',
-    github: '',
-    category: ['React', 'Next', 'NX', 'TailwindCSS'],
-    isUnderConstruction: true,
-  },
+  // {
+  //   title: 'SWAPI+',
+  //   image: 'https://rshogan.imgix.net/projects/devblog/devblog-swapi-plus.webp',
+  //   description:
+  //     'An interactive Star Wars character showcase using serverless functions.',
+  //   link: 'https://swapi-nx.vercel.app/',
+  //   github: '',
+  //   category: ['React', 'Next', 'Typescript', 'API', 'NX', 'TailwindCSS'],
+  //   isUnderConstruction: true,
+  // },
+  // {
+  //   title: 'Interactive Map',
+  //   image:
+  //     'https://rshogan.imgix.net/projects/devblog/dev_blog-interactive-map.png',
+  //   description:
+  //     'A detailed map tailored for a DnD app, perfect for Dungeon Masters to keep track of their campaign.',
+  //   link: 'https://www.roberthogan.dev/projects/dnd-interactive-map',
+  //   github: '',
+  //   category: ['React', 'Next', 'NX', 'TailwindCSS'],
+  //   isUnderConstruction: true,
+  // },
 
   // {
   //   title: 'Custom Google Search Tool',

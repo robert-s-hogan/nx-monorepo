@@ -7,7 +7,7 @@ interface DevBlogSectionProps {
 
 const DevBlogSection = ({ className, children }) => {
   return (
-    <Section className={`space-y-6 px-4 ${className ? className : ''}`}>
+    <Section className={`space-y-6 px-4 my-16 ${className ? className : ''}`}>
       {children}
     </Section>
   );
