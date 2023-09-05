@@ -29,13 +29,11 @@ export function Index() {
   const { adpPlayers, isADPLoading, isADPError } = useADPData();
   const { data: mergedData, isLoading, isError } = useMergedData();
 
-  if (isADPLoading) {
-    return <Loading timeout={3000} />;
-  }
   if (isADPError) return <div>An error occurred</div>;
 
   return (
     <PlayToWinFFLayout>
+      {!isADPLoading && <Loading timeout={10000} />}
       <DraftConfigModal isOpen={isModalOpen} onClose={handleModalClose} />
 
       <Section
