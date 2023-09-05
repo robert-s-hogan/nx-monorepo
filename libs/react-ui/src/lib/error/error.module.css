@@ -1,0 +1,11 @@
+/* /libs/react-ui/src/lib/error/error.module.css */
+
+.errorContainer {
+  border: 1px solid red;
+  padding: 16px;
+  background-color: #ffe5e5;
+  color: red;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}

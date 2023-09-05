@@ -5,6 +5,7 @@ import PlayersWithHighVariability from '../components/PlayersWithHighVariability
 import { useADPData } from '../hooks/useADPData';
 import {
   Button,
+  Error,
   Grid,
   Heading,
   Loading,
@@ -29,84 +30,90 @@ export function Index() {
   const { adpPlayers, isADPLoading, isADPError } = useADPData();
   const { data: mergedData, isLoading, isError } = useMergedData();
 
-  if (isADPError) return <div>An error occurred</div>;
-
   return (
     <PlayToWinFFLayout>
-      {!isADPLoading && <Loading timeout={10000} />}
-      <DraftConfigModal isOpen={isModalOpen} onClose={handleModalClose} />
+      {isADPLoading ? (
+        !isADPError ? (
+          <Loading timeout={3000} />
+        ) : (
+          <Error message="Failed to load ADP data." />
+        )
+      ) : (
+        <>
+          <DraftConfigModal isOpen={isModalOpen} onClose={handleModalClose} />
 
-      <Section
-        className="relative text-center space-y-6 h-[500px] flex justify-center items-center flex-col"
-        style={{
-          backgroundImage:
-            "url('https://rshogan.imgix.net/projects/play2winff/p2w_hero.png')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        {/* Optional: Add a dark overlay to increase text contrast */}
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+          <Section
+            className="relative text-center space-y-6 h-[500px] flex justify-center items-center flex-col"
+            style={{
+              backgroundImage:
+                "url('https://rshogan.imgix.net/projects/play2winff/p2w_hero.png')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            {/* Optional: Add a dark overlay to increase text contrast */}
+            <div className="absolute inset-0 bg-black opacity-50"></div>
 
-        {/* Ensure this container is relative so content stacks over the overlay */}
-        <div className="relative z-10">
-          <Heading level={1} className="text-white">
-            Play2Win Fantasy Football
-          </Heading>
-          <Text className="text-lg text-white max-w-xl mx-auto px-6">
-            The ultimate platform for fantasy football insights, strategies, and
-            real-time drafting tools.
-          </Text>
-          <Link href="/draft">
-            <Button className="btn-primary mt-4">Start Draft</Button>
-          </Link>
-        </div>
-      </Section>
+            {/* Ensure this container is relative so content stacks over the overlay */}
+            <div className="relative z-10">
+              <Heading level={1} className="text-white">
+                Play2Win Fantasy Football
+              </Heading>
+              <Text className="text-lg text-white max-w-xl mx-auto px-6">
+                The ultimate platform for fantasy football insights, strategies,
+                and real-time drafting tools.
+              </Text>
+              <Link href="/draft">
+                <Button className="btn-primary mt-4">Start Draft</Button>
+              </Link>
+            </div>
+          </Section>
 
-      {/* <EspnNewsFeed /> */}
+          {/* <EspnNewsFeed /> */}
 
-      {/* <Section className="pb-0">
+          {/* <Section className="pb-0">
           <PlayersWithHighVariability players={adpPlayers!} />
         </Section> */}
 
-      <Section className="py-12 bg-gray-600">
-        <Heading level={2} className="text-center mb-8">
-          Key Features
-        </Heading>
-        <Grid className="grid grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="feature-item flex flex-col items-center text-center">
-            <div className="text-white">
-              <BarChart className="h-12" />
-            </div>
-            <Text className="text-xl mt-4">Custom Rankings</Text>
-            <p>
-              Discover hidden gems and value players tailored to your league.
-            </p>
-          </div>
-          <div className="feature-item flex flex-col items-center text-center">
-            <div className="text-white">
-              <Clock className="h-12" />
-            </div>
-            <Text className="text-xl mt-4">Real-Time Draft Tool</Text>
-            <p>
-              Stay updated on which players are taken, and adapt your strategy
-              on the fly.
-            </p>
-          </div>
-          <div className="feature-item flex flex-col items-center text-center">
-            <div className="text-white">
-              <Tag className="h-12" />
-            </div>
-            <Text className="text-xl mt-4">Custom Player Tags</Text>
-            <p>
-              Track injuries, falling values, rising stars, and your personal
-              targets all in one place.
-            </p>
-          </div>
-        </Grid>
-      </Section>
+          <Section className="py-12 bg-gray-600">
+            <Heading level={2} className="text-center mb-8">
+              Key Features
+            </Heading>
+            <Grid className="grid grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="feature-item flex flex-col items-center text-center">
+                <div className="text-white">
+                  <BarChart className="h-12" />
+                </div>
+                <Text className="text-xl mt-4">Custom Rankings</Text>
+                <p>
+                  Discover hidden gems and value players tailored to your
+                  league.
+                </p>
+              </div>
+              <div className="feature-item flex flex-col items-center text-center">
+                <div className="text-white">
+                  <Clock className="h-12" />
+                </div>
+                <Text className="text-xl mt-4">Real-Time Draft Tool</Text>
+                <p>
+                  Stay updated on which players are taken, and adapt your
+                  strategy on the fly.
+                </p>
+              </div>
+              <div className="feature-item flex flex-col items-center text-center">
+                <div className="text-white">
+                  <Tag className="h-12" />
+                </div>
+                <Text className="text-xl mt-4">Custom Player Tags</Text>
+                <p>
+                  Track injuries, falling values, rising stars, and your
+                  personal targets all in one place.
+                </p>
+              </div>
+            </Grid>
+          </Section>
 
-      {/* <Section className="py-12">
+          {/* <Section className="py-12">
         <Heading level={2} className="text-center mb-8">
           The Play2WinFF Advantage
         </Heading>
@@ -158,16 +165,18 @@ export function Index() {
         </div>
       </Section> */}
 
-      <Section className="py-12 bg-gradient-to-b from-rich-black to-black-custom">
-        <Text className="text-xl text-center mb-4">
-          Ready to dominate your fantasy football draft?
-        </Text>
-        <div className="text-center">
-          <Link href="/draft">
-            <Button className="btn-primary">Start Now</Button>
-          </Link>
-        </div>
-      </Section>
+          <Section className="py-12 bg-gradient-to-b from-rich-black to-black-custom">
+            <Text className="text-xl text-center mb-4">
+              Ready to dominate your fantasy football draft?
+            </Text>
+            <div className="text-center">
+              <Link href="/draft">
+                <Button className="btn-primary">Start Now</Button>
+              </Link>
+            </div>
+          </Section>
+        </>
+      )}
     </PlayToWinFFLayout>
   );
 }

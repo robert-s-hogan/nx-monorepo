@@ -1,3 +1,4 @@
+export * from './lib/error/error';
 export * from './lib/loading/loading';
 //libs/react-ui/src/index.ts
 export * from './lib/about/about';
