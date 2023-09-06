@@ -3,7 +3,7 @@ import { Person } from '../types/people';
 export const people: Person[] = [
   {
     name: 'Yoda',
-    birth_year: '896BBY',
+    birth_year: '896 BBY',
     homeworld: 'Unknown',
     species: "Yoda's species",
     affiliation: ['Jedi Order', 'Galactic Republic'],
@@ -75,8 +75,8 @@ export const people: Person[] = [
       faction_colors: ['light_green', 'cream'],
       species_traits: ['yodas_species', 'green_skin'],
       gender: 'male',
-      eye_color: '#663300', // Hex color for brown eyes
-      skin_color: '#8B4513', // Hex color for green skin
+      eye_color: '#663300',
+      skin_color: '#8B4513',
       dark_mode: {
         background_color: '#000000',
         clothing: 'Dark Jedi robes',
@@ -95,7 +95,7 @@ export const people: Person[] = [
   },
   {
     name: 'Anakin Skywalker',
-    birth_year: '41.9BBY',
+    birth_year: '41.9 BBY',
     homeworld: 'Tatooine',
     species: 'Human',
     affiliation: ['Jedi Order', 'Galactic Republic', 'Sith'],
@@ -168,8 +168,8 @@ export const people: Person[] = [
       faction_colors: ['blue', 'black (as Darth Vader)'],
       species_traits: ['human'],
       gender: 'male',
-      eye_color: '#8B4513', // Hex color for blue eyes
-      skin_color: '#FAD6A5', // Hex color for light skin
+      eye_color: '#8B4513',
+      skin_color: '#FAD6A5',
       dark_mode: {
         background_color: '#000000',
         clothing: 'Sith robes',
@@ -187,8 +187,79 @@ export const people: Person[] = [
     },
   },
   {
+    name: 'Babu Frik',
+    birth_year: 'Unknown',
+    homeworld: 'Kijimi',
+    species: 'Anzellan',
+    affiliation: [],
+    occupation: 'Droidsmith',
+    appearances: ['The Rise of Skywalker'],
+    force_sensitive: false,
+    alias: [],
+    weapons: [],
+    vehicles: [],
+    droids: [],
+    force_ability: null,
+    quote: 'Hey, hey!',
+    skills: ['Droid programming', 'Droid repair'],
+    bounty: null,
+    known_associates: ['Zorii Bliss'],
+    faction: 'Neutral',
+    status: 'Alive',
+    films: ['The Rise of Skywalker'],
+    species_traits: ['Small stature', 'Technical expertise'],
+    owned_starships: [],
+    owned_vehicles: [],
+    visited_planets: ['Kijimi'],
+    relationships: {
+      friends: ['Zorii Bliss', 'C-3PO'],
+      enemies: [],
+      family: null,
+    },
+    achievements: [
+      "Successfully extracted Sith language from C-3PO's memory core",
+    ],
+    trivia: [
+      'Babu Frik can reprogram or modify virtually any droid, regardless of its security measures.',
+      'He speaks only Anzellan.',
+    ],
+    main_story_arc:
+      'Babu Frik is a tiny droidsmith who works in the Thieves’ Quarter of the snow-covered planet Kijimi. He is one of the few beings who can reprogram or modify any droid, bypassing any system.',
+    avatar_attributes: {
+      avatar_size: 'xs',
+      height: '22',
+      mass: '6',
+      hair_color: 'none',
+      hair_style: 'none',
+      body_shape: 'small',
+      clothing: 'Work attire',
+      accessories: ['Droid tools'],
+      age: 'old',
+      emotions: 'curious',
+      faction_colors: ['brown', 'gray'],
+      species_traits: ['anzellan'],
+      gender: 'male',
+      eye_color: '#8B4513', // Hex color for brown eyes
+      skin_color: '#F5DEB3', // Hex color for light brown skin
+      dark_mode: {
+        background_color: '#000000',
+        clothing: 'Dark work attire',
+        accessories: ['Droid tools in silver'],
+      },
+      animations: {
+        speak: 'path/to/speak_animation',
+        rotate: 'path/to/rotate_animation',
+        custom_animation: 'path/to/custom_animation',
+      },
+      voice_lines: {
+        greeting: 'Hey, hey!',
+        farewell: 'Goodbye!',
+      },
+    },
+  },
+  {
     name: 'Leia Organa',
-    birth_year: '19BBY',
+    birth_year: '19 BBY',
     homeworld: 'Alderaan',
     species: 'Human',
     affiliation: ['Rebel Alliance', 'New Republic', 'Resistance'],
@@ -260,8 +331,8 @@ export const people: Person[] = [
       faction_colors: ['white', 'blue'],
       species_traits: ['human'],
       gender: 'female',
-      eye_color: '#663300', // Hex color for brown eyes
-      skin_color: '#FAD6A5', // Hex color for light skin
+      eye_color: '#663300',
+      skin_color: '#FAD6A5',
       dark_mode: {
         background_color: '#000000',
         clothing: 'Resistance attire',
@@ -280,7 +351,7 @@ export const people: Person[] = [
   },
   {
     name: 'Han Solo',
-    birth_year: '29BBY',
+    birth_year: '29 BBY',
     homeworld: 'Corellia',
     species: 'Human',
     affiliation: ['Rebel Alliance', 'New Republic'],
@@ -343,8 +414,8 @@ export const people: Person[] = [
       faction_colors: ['brown', 'black'],
       species_traits: ['human'],
       gender: 'male',
-      eye_color: '#663300', // Hex color for brown eyes
-      skin_color: '#FAD6A5', // Hex color for light skin
+      eye_color: '#663300',
+      skin_color: '#FAD6A5',
       dark_mode: {
         background_color: '#000000',
         clothing: 'Rebel attire',
@@ -358,6 +429,82 @@ export const people: Person[] = [
       voice_lines: {
         greeting: 'Hey, kid.',
         farewell: 'See ya around.',
+      },
+    },
+  },
+  {
+    name: 'Ezra Bridger',
+    birth_year: '19 BBY',
+    homeworld: 'Lothal',
+    species: 'Human',
+    affiliation: ['Ghost Crew', 'Rebel Alliance'],
+    occupation: 'Jedi Padawan',
+    appearances: ['Star Wars Rebels'],
+    force_sensitive: true,
+    alias: [],
+    weapons: ['Blue lightsaber', 'Ezras slingshot'],
+    vehicles: [],
+    droids: ['Chopper'],
+    force_ability: 'Jedi Padawan',
+    quote: 'In the end, we win.',
+    skills: [
+      'Lightsaber combat',
+      'Force agility',
+      'Force connection with animals',
+    ],
+    bounty: null,
+    known_associates: ['Kanan Jarrus', 'Hera Syndulla', 'Sabine Wren'],
+    faction: 'Rebels',
+    status: 'Unknown',
+    films: [],
+    species_traits: ['Adaptable', 'Versatile'],
+    owned_starships: [],
+    owned_vehicles: ['Speeder bike'],
+    visited_planets: ['Lothal', 'Malachor', 'Atollon'],
+    relationships: {
+      friends: ['Kanan Jarrus', 'Hera Syndulla', 'Sabine Wren', 'Chopper'],
+      enemies: ['Grand Inquisitor', 'Darth Vader', 'Thrawn'],
+      family: null,
+    },
+    achievements: [
+      'Helped establish the Phoenix Cell of the Rebel Alliance',
+      'Defeated the Grand Inquisitor',
+    ],
+    trivia: [
+      'Ezra Bridger was born on Empire Day.',
+      'He once owned a unique lightsaber that had a built-in blaster.',
+    ],
+    main_story_arc:
+      'Ezra Bridger is a young force-sensitive who becomes a key member of the Ghost crew and is trained as a Jedi by Kanan Jarrus. He participates in numerous missions against the Empire and faces various dark side adversaries.',
+    avatar_attributes: {
+      avatar_size: 'md',
+      height: '170',
+      mass: '68',
+      hair_color: 'blue',
+      hair_style: 'short',
+      body_shape: 'medium',
+      clothing: 'Rebel attire',
+      accessories: ['lightsaber'],
+      age: 'young',
+      emotions: 'determined',
+      faction_colors: ['orange', 'blue'],
+      species_traits: ['human'],
+      gender: 'male',
+      eye_color: '#0000FF',
+      skin_color: '#F5DEB3',
+      dark_mode: {
+        background_color: '#000000',
+        clothing: 'Dark Rebel attire',
+        lightsaber_color: '#0000FF',
+      },
+      animations: {
+        speak: 'path/to/speak_animation',
+        rotate: 'path/to/rotate_animation',
+        custom_animation: 'path/to/custom_animation',
+      },
+      voice_lines: {
+        greeting: 'Hey, you alright?',
+        farewell: 'May the Force be with you.',
       },
     },
   },

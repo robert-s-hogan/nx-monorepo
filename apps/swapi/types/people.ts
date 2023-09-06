@@ -58,7 +58,8 @@ interface AvatarAttributes {
 interface DarkMode {
   background_color: string;
   clothing: string;
-  lightsaber_color: string;
+  lightsaber_color?: string;
+  accessories?: string[];
 }
 
 interface Animations {

@@ -3,7 +3,7 @@ const Hero = () => {
     <div className="max-w-7xl container mx-auto my-4 md:flex md:justify-center">
       <div className="flex justify-center my-4 space-x-8">
         <div className="letter-box bg-skyBlue">S</div>
-        <div className="letter-box bg-yellow">T</div>
+        <div className="letter-box bg-auburn">T</div>
         <div className="letter-box bg-orange">A</div>
         <div className="letter-box bg-red">R</div>
       </div>

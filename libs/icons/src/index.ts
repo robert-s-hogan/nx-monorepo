@@ -3,6 +3,7 @@ export * from './lib/activity/activity';
 export * from './lib/alert-triangle/alert-triangle';
 export * from './lib/alert-octagon/alert-octagon';
 export * from './lib/arrow-down/arrow-down';
+export * from './lib/arrow-curved-down-right/arrow-curved-down-right';
 export * from './lib/arrow-down-circle/arrow-down-circle';
 export * from './lib/bar-chart/bar-chart';
 export * from './lib/check/check';

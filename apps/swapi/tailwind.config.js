@@ -13,6 +13,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primary: '#034160',
         black: '#0c0c0c',
         white: '#fff',
         orange: '#db5f0c',
@@ -26,9 +27,9 @@ module.exports = {
         silver: '#c0c0c0',
         tan: '#d6b995',
         auburn: '#a52a2a',
-        yellow: '#daab0e',
+        yellow: '#ffb703',
         pink: '#d810ab',
-        skyBlue: '#0cdad0',
+        'light-blue': '#8ECAE6',
         darkBlue: '#1111de',
         limeGreen: '#b9da10',
         skin: '#ffcd94',
@@ -36,8 +37,8 @@ module.exports = {
         plains: '#84d2f6',
       },
       fontFamily: {
-        sans: ['Poller One', 'cursive'],
-        serif: ['Roboto Flex', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Jua', 'sans-serif'],
       },
       extend: {
         spacing: {

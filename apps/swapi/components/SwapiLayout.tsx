@@ -1,6 +1,8 @@
 import { PageLayout } from '@with-nx/react-ui';
 import { Seo } from '@with-nx/nextjs-react-ui';
 
+import SwapiFooter from './SwapiFooter';
+
 interface SwapiLayoutProps {
   children: React.ReactNode;
   className?: string;
@@ -35,6 +37,7 @@ function SwapiLayout({
       />
 
       {children}
+      <SwapiFooter />
     </PageLayout>
   );
 }
