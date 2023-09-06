@@ -2,6 +2,7 @@ import { Person } from '../types/people';
 
 export const people: Person[] = [
   {
+    slug: 'yoda',
     name: 'Yoda',
     birth_year: '896 BBY',
     homeworld: 'Unknown',
@@ -94,6 +95,7 @@ export const people: Person[] = [
     },
   },
   {
+    slug: 'anakin-skywalker',
     name: 'Anakin Skywalker',
     birth_year: '41.9 BBY',
     homeworld: 'Tatooine',
@@ -187,6 +189,7 @@ export const people: Person[] = [
     },
   },
   {
+    slug: 'babu-frik',
     name: 'Babu Frik',
     birth_year: 'Unknown',
     homeworld: 'Kijimi',
@@ -258,6 +261,7 @@ export const people: Person[] = [
     },
   },
   {
+    slug: 'leia-organa',
     name: 'Leia Organa',
     birth_year: '19 BBY',
     homeworld: 'Alderaan',
@@ -350,6 +354,7 @@ export const people: Person[] = [
     },
   },
   {
+    slug: 'han-solo',
     name: 'Han Solo',
     birth_year: '29 BBY',
     homeworld: 'Corellia',
@@ -433,6 +438,7 @@ export const people: Person[] = [
     },
   },
   {
+    slug: 'ezra-bridger',
     name: 'Ezra Bridger',
     birth_year: '19 BBY',
     homeworld: 'Lothal',

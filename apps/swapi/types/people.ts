@@ -1,4 +1,5 @@
 interface Person {
+  slug: string;
   name: string;
   birth_year: string;
   homeworld: string;

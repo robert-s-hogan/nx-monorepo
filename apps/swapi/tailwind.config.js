@@ -10,35 +10,40 @@ module.exports = {
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
+  safelist: [
+    'min-h-[200px]',
+    'min-h-[300px]',
+    'min-h-[400px]',
+    'min-h-[500px]',
+    'min-h-[600px]',
+  ],
   theme: {
     extend: {
       colors: {
-        primary: '#034160',
-        black: '#0c0c0c',
-        white: '#fff',
-        orange: '#db5f0c',
-        purple: '#9312db',
-        brown: '#622c22',
-        green: '#4eda12',
-        blue: '#0c0cdb',
-        fair: '#ffd6a4',
-        red: '#d51449',
-        grey: '#d8d8d8',
-        silver: '#c0c0c0',
-        tan: '#d6b995',
-        auburn: '#a52a2a',
-        yellow: '#ffb703',
-        pink: '#d810ab',
-        'light-blue': '#8ECAE6',
-        darkBlue: '#1111de',
-        limeGreen: '#b9da10',
-        skin: '#ffcd94',
-        transparent: 'rgba(0, 0, 0, 0)',
-        plains: '#84d2f6',
+        primary: '#034160', // Primary Color
+        secondary: '#1C5A80', // Lighter Shade of Primary
+        tertiary: '#002D4B', // Darker Shade of Primary
+        teal: '#03616B', // Analogous Color (Teal)
+        indigo: '#032B61', // Analogous Color (Indigo)
+        complementary: '#613504', // Contrasting Color (Complementary Orange)
+        gold: '#615A03', // Near Complementary (Golden-Yellow)
+        white: '#fff', // Neutral White
+        yellow: '#ffb703', // Yellow
+        'light-blue': '#8ECAE6', // Light Blue
+        'neutral-light': '#D3D3D3', // Neutral Light
+        'neutral-dark': '#2C2C2C', // Neutral Dark
+        transparent: 'rgba(0, 0, 0, 0)', // Transparent
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         serif: ['Jua', 'sans-serif'],
+      },
+      minHeight: {
+        200: '200px',
+        300: '300px',
+        400: '400px',
+        500: '500px',
+        600: '600px',
       },
       extend: {
         spacing: {
