@@ -1,3 +1,4 @@
+export * from './lib/slider/slider';
 export * from './lib/error/error';
 export * from './lib/loading/loading';
 //libs/react-ui/src/index.ts
@@ -43,6 +44,7 @@ export * from './lib/section/section';
 export * from './lib/seo/seo';
 export * from './lib/select/select';
 export * from './lib/skeleton/skeleton';
+export * from './lib/slider/slider';
 export * from './lib/spinner/spinner';
 export * from './lib/stepper/stepper';
 export * from './lib/tabs/tabs';

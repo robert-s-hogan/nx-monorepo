@@ -37,3 +37,27 @@ export const minHeightMap = {
   500: 'min-h-[500px]',
   600: 'min-h-[600px]',
 };
+
+export interface ColorMap {
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  accent?: string;
+  background?: string;
+}
+
+export const jediColorMap: ColorMap = {
+  primary: 'text-jedi-primary',
+  secondary: 'text-jedi-secondary',
+  tertiary: 'text-jedi-tertiary',
+  accent: 'text-jedi-accent',
+  background: 'text-jedi-background',
+};
+
+export const sithColorMap: ColorMap = {
+  primary: 'text-sith-primary',
+  secondary: 'text-sith-secondary',
+  tertiary: 'text-sith-tertiary',
+  accent: 'text-sith-accent',
+  background: 'text-sith-background',
+};

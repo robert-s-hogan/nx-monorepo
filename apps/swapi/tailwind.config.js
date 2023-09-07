@@ -33,6 +33,20 @@ module.exports = {
         'neutral-light': '#D3D3D3', // Neutral Light
         'neutral-dark': '#2C2C2C', // Neutral Dark
         transparent: 'rgba(0, 0, 0, 0)', // Transparent
+        jedi: {
+          primary: '#546A77', // A shade of neutral blue
+          secondary: '#8B9BA8', // Lighter shade
+          tertiary: '#2C3C4A', // Darker shade
+          accent: '#CDB387', // Light brown reminiscent of Jedi robes
+          background: '#ECECEC', // Neutral light background
+        },
+        sith: {
+          primary: '#8B0000', // Deep red, associated with the Sith's lightsabers
+          secondary: '#A62626', // Lighter shade of red
+          tertiary: '#4B0000', // Darker shade
+          accent: '#5E5E5E', // Dark neutral gray
+          background: '#1C1C1C', // Very dark background
+        },
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

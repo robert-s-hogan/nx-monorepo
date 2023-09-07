@@ -1,24 +1,112 @@
+import { useState, useEffect } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { Box, Flex, Heading, Text } from '@with-nx/react-ui';
+import { Box, Flex, Heading, Slider, Text } from '@with-nx/react-ui';
+import { ColorMap, jediColorMap, sithColorMap } from '../../utils/styleMaps';
 
 import SwapiLayout from '../../components/SwapiLayout';
 import SwapiSection from '../../components/SwapiSection';
 import { people } from '../../data/peopleData';
 
 const PersonPage = ({ person }) => {
+  const [currentCharacter, setCurrentCharacter] = useState(person);
+  const [isToggled, setIsToggled] = useState(false);
+
+  const toggleToSpecificPersona = (targetPersona) => {
+    const characterSet = people.filter(
+      (char) => char.id === currentCharacter.id
+    );
+    if (characterSet.length <= 1) return;
+
+    let targetCharacter = characterSet.find(
+      (char) =>
+        char.name !== currentCharacter.name &&
+        char.persona.includes(targetPersona)
+    );
+    // If we don't find a different character, we'll default to the first one.
+    if (!targetCharacter) targetCharacter = characterSet[0];
+
+    setCurrentCharacter(targetCharacter);
+  };
+
+  const characterSet = people.filter((char) => char.id === currentCharacter.id);
+
+  const personas = currentCharacter.persona;
+  const [activePersona, setActivePersona] = useState(personas[0]); // We assume Sith is the first, adjust as needed
+
+  function getColorMapForPersona(persona: string): ColorMap {
+    switch (persona) {
+      case 'Jedi':
+        return jediColorMap;
+      case 'Sith':
+        return sithColorMap;
+      default:
+        // Ensure a default object matches the ColorMap structure.
+        return {
+          primary: 'text-default-primary',
+          secondary: 'text-default-secondary',
+          tertiary: 'text-default-tertiary',
+        };
+    }
+  }
+
+  const colorMap = getColorMapForPersona(activePersona);
+  const primaryColorClass = colorMap.primary;
+
   return (
     <SwapiLayout>
       <SwapiSection backgroundColor="secondary" minHeight="600">
         <Box className="max-w-sm mx-auto">
+          <div className="relative w-24 h-[43px] bg-gray-300 border-2 border-light-blue rounded-full p-1">
+            <div
+              className={`absolute w-18 h-6 bg-white rounded-full transition-transform duration-300 ease-in-out ${
+                isToggled ? 'transform translate-x-full' : ''
+              }`}
+            ></div>
+
+            <button
+              className="absolute inset-0 w-full h-full flex justify-between items-center focus:outline-none"
+              onClick={() => {
+                const newPersona = isToggled ? personas[0] : personas[1];
+                setIsToggled(!isToggled);
+                setActivePersona(newPersona);
+                toggleToSpecificPersona(newPersona);
+              }}
+            >
+              <span
+                className={`p-2 transition-opacity duration-300 ${
+                  activePersona === personas[0]
+                    ? `${
+                        primaryColorClass ? primaryColorClass : 'text-white'
+                      } rounded-full border-2 border-white opacity-100`
+                    : 'opacity-50'
+                }`}
+              >
+                {personas[0]}
+              </span>
+              <span
+                className={`p-2 transition-opacity duration-300 ${
+                  activePersona === personas[1]
+                    ? `${
+                        primaryColorClass ? primaryColorClass : 'text-white'
+                      } rounded-full border-2 border-white opacity-100`
+                    : 'opacity-50'
+                }`}
+              >
+                {personas[1]}
+              </span>
+            </button>
+          </div>
+
           <Flex className="flex-col md:flex-row justify-between items-center">
             <Flex className="flex-col items-center">
               <Heading level={1} className="text-center pb-2">
-                {person.name}
+                {currentCharacter.name}
               </Heading>
               <Text className="text-center text-4xl text-white mb-8">
                 Profile
               </Text>
             </Flex>
+
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 176 176"
@@ -62,7 +150,7 @@ const PersonPage = ({ person }) => {
         headingLevel={2}
         heading="Character Chronicles"
       >
-        <Text className="text-white">{person.main_story_arc}</Text>
+        <Text className="text-white">{currentCharacter.main_story_arc}</Text>
       </SwapiSection>
       <SwapiSection
         backgroundColor="primary"
@@ -73,8 +161,45 @@ const PersonPage = ({ person }) => {
         heading="Achievements"
       >
         <ul>
-          {person.achievements.map((milestone) => (
-            <Text className="text-white text-xl">{milestone}</Text>
+          {currentCharacter.achievements.map((achievement, index) => (
+            <li key={index}>
+              <Text className="text-white text-xl">{achievement}</Text>
+            </li>
+          ))}
+        </ul>
+      </SwapiSection>
+      <SwapiSection
+        backgroundColor="primary"
+        minHeight="400"
+        headingAlignment="left"
+        headingColor="white"
+        headingLevel={2}
+        heading="The Ultimate Backstory"
+      >
+        <Text className="text-white">{currentCharacter.backstory}</Text>
+      </SwapiSection>
+
+      <SwapiSection
+        backgroundColor="primary"
+        minHeight="400"
+        className="bg-no-repeat bg-cover bg-center bg-gradient-to-br from-primary to-secondary"
+      >
+        <Text className="text-white text-center">{currentCharacter.quote}</Text>
+      </SwapiSection>
+
+      <SwapiSection
+        backgroundColor="primary"
+        minHeight="400"
+        headingAlignment="left"
+        headingColor="white"
+        headingLevel={2}
+        heading="Factions"
+      >
+        <ul>
+          {currentCharacter.factions.map((faction) => (
+            <li key="faction">
+              <Text className="text-white text-xl">{faction}</Text>
+            </li>
           ))}
         </ul>
       </SwapiSection>

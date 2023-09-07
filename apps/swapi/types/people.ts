@@ -1,9 +1,12 @@
 interface Person {
+  id: string;
+  persona: Array<string>;
   slug: string;
   name: string;
   birth_year: string;
   homeworld: string;
   species: string;
+  backstory: string;
   affiliation: string[];
   occupation: string;
   appearances: string[];
@@ -17,7 +20,7 @@ interface Person {
   skills: string[];
   bounty: null | string;
   known_associates: string[];
-  faction: string;
+  factions: Array<string>;
   status: string;
   films: string[];
   species_traits: string[];
