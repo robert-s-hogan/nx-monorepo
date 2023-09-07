@@ -37,7 +37,7 @@ function SwapiLayout({
       />
 
       {children}
-      <SwapiFooter />
+      {/* <SwapiFooter /> */}
     </PageLayout>
   );
 }

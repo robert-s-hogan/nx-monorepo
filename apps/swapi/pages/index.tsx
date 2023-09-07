@@ -32,12 +32,10 @@ export default function Home() {
     <SwapiLayout>
       {/* Hero */}
       <SwapiSection
-        backgroundColor="yellow"
         minHeight="600"
         className="p-25"
         headingLevel={1}
         heading="Swapi+"
-        headingColor="primary"
       >
         <Flex className="flex-col md:flex-row text-center space-y-4 md:space-y-0 md:space-x-8 justify-center mt-8">
           <Text className="font-semibold text-primary">Bank</Text>
@@ -47,10 +45,8 @@ export default function Home() {
       </SwapiSection>
       {/* Welcome to the Jedi Creation Club */}
       <SwapiSection
-        backgroundColor="white"
         minHeight="600"
         headingLevel={2}
-        headingColor="primary"
         heading="Welcome to the Jedi Creation Lab"
         headingAlignment="left"
         className="relative p-4 "
@@ -101,12 +97,10 @@ export default function Home() {
       </SwapiSection>
       {/* Character Bank Highlights */}
       <SwapiSection
-        backgroundColor="primary"
         minHeight="600"
         headingLevel={2}
         heading="Character Bank Highlights"
         headingAlignment="left"
-        headingColor="light-blue"
         className="px-4"
       >
         <Flex className="flex-col space-y-1 md:w-full">
@@ -138,12 +132,10 @@ export default function Home() {
       </SwapiSection>
 
       <SwapiSection
-        backgroundColor="primary"
         minHeight="200"
         headingLevel={2}
         heading="Character Inspirations"
         headingAlignment="left"
-        headingColor="yellow"
         className="px-4"
       >
         <div className="grid grid-rows-3 grid-cols-2 gap-4 mt-8 min-h-[500px]">
@@ -198,11 +190,9 @@ export default function Home() {
       </SwapiSection>
 
       <SwapiSection
-        backgroundColor="primary"
         minHeight="500"
         headingLevel={2}
         heading="Ready to Forge Your Galaxy?"
-        headingColor="light-blue"
         className="px-4"
       >
         <svg viewBox="0 0 200 200" className="w-[40%] h-[40%] mx-auto">
