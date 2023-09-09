@@ -16,7 +16,6 @@ interface HumanProps {
 
 const Human: React.FC<HumanProps> = ({ className, data }) => {
   const avatarSize = useAvatarSize();
-  console.log(avatarSize);
 
   const attributes = data.avatar_attributes;
 

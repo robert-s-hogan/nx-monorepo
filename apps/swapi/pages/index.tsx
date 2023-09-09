@@ -34,7 +34,6 @@ export default function Home() {
   };
 
   const { data, error } = useSWR('/api/people/');
-  console.log(`colors`, colors);
   return (
     <SwapiLayout>
       {/* Hero */}
@@ -47,11 +46,15 @@ export default function Home() {
         headingTextColor={colors?.text?.accent}
       >
         <Flex className="flex-col md:flex-row text-center space-y-4 md:space-y-0 md:space-x-2 md:w-96 md:mx-auto justify-center mt-8">
-          <Text className={`font-semibold ${colors?.text?.accent}`}>Bank</Text>
-          <Text className={`font-semibold ${colors?.text?.accent}`}>
+          <Text className={`font-semibold ${colors?.text?.background}`}>
+            Bank
+          </Text>
+          <Text className={`font-semibold ${colors?.text?.background}`}>
             Creator
           </Text>
-          <Text className={`font-semibold ${colors?.text?.accent}`}>API</Text>
+          <Text className={`font-semibold ${colors?.text?.background}`}>
+            API
+          </Text>
         </Flex>
       </SwapiSection>
       {/* Welcome to the Jedi Creation Club */}
