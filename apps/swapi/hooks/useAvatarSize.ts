@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import { AvatarSizeContext } from '../context/AvatarSizeContext';
 import { sizes } from '../utils/avatarSizes';
+import { AvatarSizeContext } from '../context/AvatarSizeProvider';
 
 export const useAvatarSize = () => {
   const size = useContext(AvatarSizeContext);

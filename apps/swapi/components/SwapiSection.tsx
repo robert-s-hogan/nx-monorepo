@@ -1,6 +1,7 @@
 import { Heading, Section } from '@with-nx/react-ui';
-import { getColorMap } from '../utils/themeMap';
+import { getColorMap, ThemeColors } from '../utils/themeMap';
 import { minHeightMap } from '../utils/stylesMap';
+import { useTheme } from '../context/ThemeProvider';
 
 interface SwapiSectionProps {
   className?: string;
@@ -9,14 +10,8 @@ interface SwapiSectionProps {
   headingLevel?: number;
   heading?: string;
   headingAlignment?: 'left' | 'center' | 'right';
-  themeColors?: {
-    text: {
-      [key: string]: string;
-    };
-    background: {
-      [key: string]: string;
-    };
-  };
+  backgroundColor?: string;
+  headingTextColor?: string;
 }
 
 const SwapiSection = ({
@@ -26,18 +21,27 @@ const SwapiSection = ({
   headingLevel = 1,
   heading = '',
   headingAlignment = 'center',
-  themeColors,
+  backgroundColor,
+  headingTextColor,
 }: SwapiSectionProps) => {
-  const backgroundClass = themeColors?.background.background || '';
-  const textColorClass = themeColors?.text.primary || ''; // Default to primary color
+  const { colors } = useTheme();
+
+  const defaultBackgroundColor = 'bg-primary';
+  const defaultTextColor = 'text-primary';
 
   return (
     <Section
-      className={`${backgroundClass} flex flex-col items-center justify-center gap-0 w-full ${minHeightMap[minHeight]} overflow-hidden space-y-6 ${className}`}
+      className={`${
+        backgroundColor ? backgroundColor : defaultBackgroundColor
+      } flex flex-col items-center justify-center gap-0 w-full ${
+        minHeightMap[minHeight]
+      } overflow-hidden space-y-6 ${className}`}
     >
       <div className="w-full max-w-2xl lg:max-w-6xl px-2">
         <Heading
-          className={`text-${headingAlignment} ${textColorClass}`}
+          className={`text-${headingAlignment} ${
+            headingTextColor ? headingTextColor : defaultTextColor
+          }`}
           level={headingLevel}
         >
           {heading}

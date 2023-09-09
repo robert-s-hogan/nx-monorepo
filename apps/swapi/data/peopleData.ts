@@ -105,7 +105,7 @@ export const people: Person[] = [
     birth_year: '41.9 BBY',
     homeworld: 'Tatooine',
     species: 'Human',
-    persona: ['Jedi', 'Sith'],
+    persona: ['Sith', 'Jedi'],
     backstory:
       "Formerly known as Anakin Skywalker, Darth Vader stands as one of the galaxy's most feared figures. Once a promising Jedi Knight, Vader was seduced by the dark side of the Force and became the Sith apprentice to Emperor Palpatine. As Darth Vader, he led the purge of the Jedi Order and acted as the Emperor's enforcer during the reign of the Galactic Empire. His persona was defined by his menacing black armor and deep, mechanical breathing. Behind the mask, however, remained remnants of good, a facet ultimately brought to the surface by his son, Luke Skywalker.",
     affiliation: ['Sith', 'Galactic Empire'],

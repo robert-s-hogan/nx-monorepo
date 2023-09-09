@@ -1,5 +1,6 @@
 const { createGlobPatternsForDependencies } = require('@nrwl/react/tailwind');
 const { join } = require('path');
+const safelist = require('./tailwind-safelist');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,63 +11,7 @@ module.exports = {
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
-  safelist: [
-    'min-h-[200px]',
-    'min-h-[300px]',
-    'min-h-[400px]',
-    'min-h-[500px]',
-    'min-h-[600px]',
-    'bg-jedi-primary',
-    'bg-jedi-secondary',
-    'bg-jedi-tertiary',
-    'bg-jedi-accent',
-    'bg-jedi-background',
-    'bg-sith-primary',
-    'bg-sith-secondary',
-    'bg-sith-tertiary',
-    'bg-sith-accent',
-    'bg-sith-background',
-    'text-jedi-primary',
-    'text-jedi-secondary',
-    'text-jedi-tertiary',
-    'text-jedi-accent',
-    'text-jedi-background',
-    'text-sith-primary',
-    'text-sith-secondary',
-    'text-sith-tertiary',
-    'text-sith-accent',
-    'text-sith-background',
-    'from-jedi-primary',
-    'to-jedi-primary',
-    'via-jedi-primary',
-    'from-jedi-secondary',
-    'to-jedi-secondary',
-    'via-jedi-secondary',
-    'from-jedi-tertiary',
-    'to-jedi-tertiary',
-    'via-jedi-tertiary',
-    'from-jedi-accent',
-    'to-jedi-accent',
-    'via-jedi-accent',
-    'from-jedi-background',
-    'to-jedi-background',
-    'via-jedi-background',
-    'from-sith-primary',
-    'to-sith-primary',
-    'via-sith-primary',
-    'from-sith-secondary',
-    'to-sith-secondary',
-    'via-sith-secondary',
-    'from-sith-tertiary',
-    'to-sith-tertiary',
-    'via-sith-tertiary',
-    'from-sith-accent',
-    'to-sith-accent',
-    'via-sith-accent',
-    'from-sith-background',
-    'to-sith-background',
-    'via-sith-background',
-  ],
+  safelist,
   theme: {
     extend: {
       colors: {
@@ -96,6 +41,13 @@ module.exports = {
           tertiary: '#4B0000', // Darker shade
           accent: '#ffffff', // White
           background: '#1C1C1C', // Very dark background
+        },
+        default: {
+          primary: '#034160', // Primary Color
+          secondary: '#1C5A80', // Lighter Shade of Primary
+          tertiary: '#002D4B', // Darker Shade of Primary
+          accent: '#ffb703', // Yellow
+          background: '#fff', // Neutral White
         },
       },
       fontFamily: {

@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Person } from '../../types/people';
 import characterAvatarStyles from '../../styles/character-avatar.module.css';
-import { AvatarSizeProvider } from '../../context/AvatarSizeContext';
 
 import Human from '../species/Human';
 import Droid from '../species/Droid';
@@ -36,10 +35,10 @@ const CharacterAvatar: React.FC<CharacterAvatarProps> = ({ data }) => {
   }
 
   return (
-    <AvatarSizeProvider size={avatar_attributes.avatar_size}>
+    <div>
       {/* <pre className="text-black">{JSON.stringify(data, null, 2)}</pre> */}
       {component}
-    </AvatarSizeProvider>
+    </div>
   );
 };
 

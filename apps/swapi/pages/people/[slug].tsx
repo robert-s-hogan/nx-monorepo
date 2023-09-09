@@ -1,15 +1,31 @@
 import { useState, useEffect } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { Box, Flex, Heading, Slider, Text } from '@with-nx/react-ui';
-import { getColorMap } from '../../utils/themeMap';
-import { minHeightMap } from '../../utils/stylesMap';
+import { Box, Flex, Grid, Heading, Slider } from '@with-nx/react-ui';
+import { useRouter } from 'next/router';
 
+import {
+  getColorMap,
+  getColorSchemeForPersona,
+  Persona,
+} from '../../utils/themeMap';
+import { minHeightMap } from '../../utils/stylesMap';
 import SwapiLayout from '../../components/SwapiLayout';
 import SwapiSection from '../../components/SwapiSection';
 import SwapiSunSVG from '../../icons/SwapiSunSVG';
 import { people } from '../../data/peopleData';
+import { useTheme } from '../../context/ThemeProvider';
 
 const PersonPage = ({ person }) => {
+  const router = useRouter();
+  const { slug } = router.query;
+  const { colors, activePersona, setActivePersona } = useTheme();
+
+  useEffect(() => {
+    if (person) {
+      setActivePersona(person.persona[0]); // assuming the first persona is the main one
+    }
+  }, [slug, person]);
+
   const [currentCharacter, setCurrentCharacter] = useState(person);
   const [isToggled, setIsToggled] = useState(false);
 
@@ -31,45 +47,103 @@ const PersonPage = ({ person }) => {
   };
 
   const characterSet = people.filter((char) => char.id === currentCharacter.id);
-
   const personas = currentCharacter.persona;
-  const [activePersona, setActivePersona] = useState(personas[0]); // We assume Sith is the first, adjust as needed
 
-  const colors = getColorMap(activePersona);
+  const cyclePersona = () => {
+    if (personas && personas.length) {
+      let currentIndex = personas.indexOf(activePersona);
+      let nextIndex = (currentIndex + 1) % personas.length;
+      return personas[nextIndex];
+    }
+    return null;
+  };
 
-  const primaryTextColor = colors.text.primary;
-  const secondaryTextColor = colors.text.secondary;
-  const tertiaryTextColor = colors.text.tertiary;
-  const accentTextColor = colors.text.accent;
-  const backgroundTextColor = colors.text.primary;
+  useEffect(() => {
+    if (person && person.persona && person.persona.length) {
+      setActivePersona(person.persona[0]);
+    }
+  }, [slug, person]);
 
-  const primaryBackgroundColor = colors.background.primary;
-  const secondaryBackgroundColor = colors.background.secondary;
-  const tertiaryBackgroundColor = colors.background.tertiary;
-  const accentBackgroundColor = colors.background.accent;
-  const backgroundBackgroundColor = colors.background.primary;
-
-  const primaryBorderColor = colors.border.primary;
-  const secondaryBorderColor = colors.border.secondary;
-  const tertiaryBorderColor = colors.border.tertiary;
-  const accentBorderColor = colors.border.accent;
-  const backgroundBorderColor = colors.border.primary;
-
-  const primaryFromGradient = colors.gradient.primary.from;
-  const accentViaGradient = colors.gradient.accent.via;
-  const secondaryViaGradient = colors.gradient.secondary.via;
-  const tertiaryToGradient = colors.gradient.tertiary.to;
+  const currentColorScheme = getColorSchemeForPersona(activePersona as Persona);
 
   return (
     <SwapiLayout>
-      <SwapiSection themeColors={colors} minHeight="600">
-        <Box className="max-w-sm">
-          <Flex className="flex-col md:flex-row justify-between items-center space-y-12">
+      {/* <div className="p-5 text-sm bg-gradient-to-r from-tertiary via-light-blue to-secondary">
+        <Grid className="grid-cols-1 md:grid-cols-3 lg:grid-cols-6">
+          <div className="text-white">HEX:</div>
+          {Object.values(currentColorScheme.hex).map((color, index) => (
             <div
-              className={`relative w-28 h-12 ${primaryBackgroundColor} border-2 ${primaryBorderColor} rounded-full p-1`}
+              style={{
+                backgroundColor: color,
+                textAlign: 'center',
+                color: 'white',
+              }}
+              className={index === 3 ? '!text-black' : ''}
+              key={index}
+            >
+              {color}
+            </div>
+          ))}
+        </Grid>
+        <Grid className="grid-cols-1 md:grid-cols-3 lg:grid-cols-6">
+          <div className="text-white">TEXT:</div>
+          {Object.values(currentColorScheme.text).map((color, index) => (
+            <div
+              style={{
+                backgroundColor: 'lightgrey',
+                textAlign: 'center',
+              }}
+              className={`${color} ${index === 3 ? '!text-black' : ''}`}
+              key={index}
+            >
+              {color}
+            </div>
+          ))}
+        </Grid>
+        <Grid className="grid-cols-1 md:grid-cols-3 lg:grid-cols-6">
+          <div className="text-white">BACKGROUND:</div>
+          {Object.values(currentColorScheme.background).map((color, index) => (
+            <div
+              style={{
+                textAlign: 'center',
+              }}
+              className={`${color} ${
+                index === 3 ? '!text-black' : 'text-white'
+              }`}
+              key={index}
+            >
+              {color}
+            </div>
+          ))}
+        </Grid>
+        <Grid className="grid-cols-1 md:grid-cols-3 lg:grid-cols-6">
+          <div className="text-white">BORDER:</div>
+          {Object.values(currentColorScheme.border).map((color, index) => (
+            <div
+              style={{
+                textAlign: 'center',
+                backgroundColor: 'white',
+              }}
+              className={`border-4 ${color}`}
+              key={index}
+            >
+              {color}
+            </div>
+          ))}
+        </Grid>
+      </div> */}
+      <SwapiSection
+        minHeight="600"
+        backgroundColor={currentColorScheme?.background?.background}
+        headingTextColor={currentColorScheme?.text?.primary}
+      >
+        <Flex className="flex-col items-center space-y-12">
+          {personas && personas.length > 1 && (
+            <div
+              className={`relative w-24 h-10 ${currentColorScheme?.background?.primary} border-3 ${currentColorScheme?.border?.accent} rounded-full p-1`}
             >
               <div
-                className={`absolute w-18 h-6 bg-white rounded-full transition-transform duration-300 ease-in-out ${
+                className={`absolute w-18 h-6 rounded-full transition-transform duration-300 ease-in-out ${
                   isToggled ? 'transform translate-x-full' : ''
                 }`}
               ></div>
@@ -77,99 +151,114 @@ const PersonPage = ({ person }) => {
               <button
                 className="absolute inset-0 w-full h-full flex justify-between items-center focus:outline-none"
                 onClick={() => {
-                  const newPersona = isToggled ? personas[0] : personas[1];
-                  setIsToggled(!isToggled);
-                  setActivePersona(newPersona);
-                  toggleToSpecificPersona(newPersona);
+                  const newPersona = cyclePersona();
+                  if (newPersona) {
+                    setActivePersona(newPersona);
+                    toggleToSpecificPersona(newPersona);
+                  }
                 }}
               >
                 <span
-                  className={`p-2 transition-opacity pl-3 duration-300 ${
+                  className={`p-2 transition-opacity duration-300 ${
                     activePersona === personas[0]
                       ? `${
-                          accentTextColor ? accentTextColor : 'text-white'
-                        } rounded-full border-[4px] ${accentBorderColor} opacity-100`
-                      : 'opacity-50'
+                          currentColorScheme?.text?.accent
+                            ? currentColorScheme?.text?.accent
+                            : 'text-white'
+                        } rounded-full border-[2px] ${
+                          currentColorScheme?.border?.accent
+                        } opacity-100`
+                      : 'opacity-30 text-white'
                   }`}
                 >
                   {personas[0]}
                 </span>
                 <span
-                  className={`p-2 transition-opacity pr-3 duration-300 ${
+                  className={`p-2 transition-opacity duration-300 ${
                     activePersona === personas[1]
                       ? `${
-                          accentTextColor ? accentTextColor : 'text-white'
-                        } rounded-full border-[4px] ${accentBorderColor} opacity-100`
-                      : 'opacity-50'
+                          currentColorScheme?.text?.accent
+                            ? currentColorScheme?.text?.accent
+                            : 'text-white'
+                        } rounded-full border-[4px] ${
+                          currentColorScheme?.border?.accent
+                        } opacity-100`
+                      : 'opacity-30 text-white'
                   }`}
                 >
                   {personas[1]}
                 </span>
               </button>
             </div>
-            <Flex className="flex-col items-center">
-              <Heading
-                level={1}
-                className={`${accentTextColor} text-center pb-2`}
-              >
-                {currentCharacter.name}
-              </Heading>
-              <Text
-                className={`text-center text-4xl ${
-                  primaryTextColor || 'text-white'
-                } mb-8`}
-              >
-                Profile
-              </Text>
-            </Flex>
-            <SwapiSunSVG
-              className="w-32 h-32"
-              primaryColor={backgroundBackgroundColor}
-              secondaryColor={tertiaryBackgroundColor}
-            />
+          )}
+          <Flex className="flex-col items-center">
+            <Heading
+              level={1}
+              className={`${currentColorScheme?.text?.primary} text-center pb-2`}
+            >
+              {currentCharacter.name}
+            </Heading>
+            <p
+              className={`text-center text-4xl ${
+                currentColorScheme?.text?.accent || 'text-white'
+              } mb-8`}
+            >
+              Profile
+            </p>
           </Flex>
-        </Box>
+          <SwapiSunSVG
+            className="w-32 h-32"
+            primaryColor={currentColorScheme?.background?.primary}
+            secondaryColor={currentColorScheme?.background?.secondary}
+          />
+        </Flex>
       </SwapiSection>
       <SwapiSection
-        themeColors={colors}
         minHeight="400"
         headingAlignment="left"
         headingLevel={2}
         heading="Character Chronicles"
+        backgroundColor={currentColorScheme?.background?.secondary}
+        headingTextColor={currentColorScheme?.text?.accent}
       >
-        <Text className="text-white">{currentCharacter.main_story_arc}</Text>
+        <p className={currentColorScheme?.text?.background}>
+          {currentCharacter.main_story_arc}
+        </p>
       </SwapiSection>
       <SwapiSection
-        themeColors={colors}
         minHeight="400"
         headingAlignment="left"
         headingLevel={2}
         heading="Achievements"
+        backgroundColor={currentColorScheme?.background?.background}
+        headingTextColor={currentColorScheme?.text?.primary}
       >
-        <ul>
+        <ol>
           {currentCharacter.achievements.map((achievement, index) => (
             <li key={`achievement-${index}`}>
-              <Text className="text-white text-xl">{achievement}</Text>
+              <p className={currentColorScheme?.text?.accent}>{achievement}</p>
             </li>
           ))}
-        </ul>
+        </ol>
       </SwapiSection>
       <SwapiSection
-        themeColors={colors}
         minHeight="500"
         headingAlignment="left"
         headingLevel={2}
         heading="The Ultimate Backstory"
+        backgroundColor={currentColorScheme?.background?.secondary}
+        headingTextColor={currentColorScheme?.text?.accent}
       >
-        <Text className="text-white">{currentCharacter.backstory}</Text>
+        <p className={currentColorScheme?.text?.background}>
+          {currentCharacter.backstory}
+        </p>
       </SwapiSection>
 
       <SwapiSection
         minHeight="400"
-        themeColors={colors}
-        className={`bg-no-repeat bg-cover bg-center bg-gradient-to-br ${primaryFromGradient} ${accentViaGradient} ${tertiaryToGradient}`}
+        className={`bg-no-repeat bg-cover bg-center bg-gradient-to-br ${currentColorScheme?.gradient?.background?.from} from-10% ${currentColorScheme?.gradient?.tertiary?.via} via-30 ${currentColorScheme?.gradient?.tertiary?.to} to-90%`}
       >
-        <Text className="text-white text-center">{currentCharacter.quote}</Text>
+        <p className="text-white text-center">{currentCharacter.quote}</p>
       </SwapiSection>
 
       <SwapiSection
@@ -177,12 +266,15 @@ const PersonPage = ({ person }) => {
         headingAlignment="left"
         headingLevel={2}
         heading="Factions"
-        themeColors={colors}
+        backgroundColor={currentColorScheme?.background?.background}
+        headingTextColor={currentColorScheme?.text?.primary}
       >
         <ul>
           {currentCharacter.factions.map((faction) => (
             <li key="faction">
-              <Text className="text-white text-xl">{faction}</Text>
+              <p className={`text-shadow ${currentColorScheme?.text?.accent}`}>
+                {faction}
+              </p>
             </li>
           ))}
         </ul>

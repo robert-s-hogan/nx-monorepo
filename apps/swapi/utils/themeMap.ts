@@ -1,34 +1,6 @@
-// colors: {
-//   primary: '#034160', // Primary Color
-//   secondary: '#1C5A80', // Lighter Shade of Primary
-//   tertiary: '#002D4B', // Darker Shade of Primary
-//   teal: '#03616B', // Analogous Color (Teal)
-//   indigo: '#032B61', // Analogous Color (Indigo)
-//   complementary: '#613504', // Contrasting Color (Complementary Orange)
-//   gold: '#615A03', // Near Complementary (Golden-Yellow)
-//   white: '#fff', // Neutral White
-//   yellow: '#ffb703', // Yellow
-//   'light-blue': '#8ECAE6', // Light Blue
-//   'neutral-light': '#D3D3D3', // Neutral Light
-//   'neutral-dark': '#2C2C2C', // Neutral Dark
-//   transparent: 'rgba(0, 0, 0, 0)', // Transparent
-//   jedi: {
-//     primary: '#546A77', // A shade of neutral blue
-//     secondary: '#8B9BA8', // Lighter shade
-//     tertiary: '#2C3C4A', // Darker shade
-//     accent: '#CDB387', // Light brown reminiscent of Jedi robes
-//     background: '#ECECEC', // Neutral light background
-//   },
-//   sith: {
-//     primary: '#8B0000', // Deep red, associated with the Sith's lightsabers
-//     secondary: '#A62626', // Lighter shade of red
-//     tertiary: '#4B0000', // Darker shade
-//     accent: '#ffffff', // White
-//     background: '#1C1C1C', // Very dark background
-//   },
-// },
+export type Persona = 'Jedi' | 'Sith';
 
-type ThemeColors = {
+export type ThemeColors = {
   hex: {
     primary: string;
     secondary: string;
@@ -261,6 +233,10 @@ export const THEMES: Record<string, ThemeColors> = {
   },
 };
 
-export function getColorMap(theme: string): ThemeColors {
-  return THEMES[theme] || THEMES.Default;
+export function getColorMap(theme?: string): ThemeColors {
+  return THEMES[theme] ?? THEMES.Default;
+}
+
+export function getColorSchemeForPersona(persona?: Persona): ThemeColors {
+  return THEMES[persona] ?? THEMES.Default;
 }
