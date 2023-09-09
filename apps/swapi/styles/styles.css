@@ -15,7 +15,7 @@
     @apply text-xl font-serif font-semibold pb-4;
   }
   p {
-    @apply text-2xl font-sans;
+    @apply text-2xl font-sans pb-2;
   }
   body {
     @apply text-base font-sans;

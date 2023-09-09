@@ -36,32 +36,20 @@ export default function Home() {
   const { data, error } = useSWR('/api/people/');
   return (
     <SwapiLayout>
-      {/* Hero */}
+      {/* Swapi+ */}
       <SwapiSection
         minHeight="600"
-        className="p-25"
+        className="p-25 text-center"
         headingLevel={1}
-        heading="Swapi+"
+        heading="Swapi+ Bank Creator API"
         backgroundColor={colors?.background?.primary}
         headingTextColor={colors?.text?.accent}
-      >
-        <Flex className="flex-col md:flex-row text-center space-y-4 md:space-y-0 md:space-x-2 md:w-96 md:mx-auto justify-center mt-8">
-          <Text className={`font-semibold ${colors?.text?.background}`}>
-            Bank
-          </Text>
-          <Text className={`font-semibold ${colors?.text?.background}`}>
-            Creator
-          </Text>
-          <Text className={`font-semibold ${colors?.text?.background}`}>
-            API
-          </Text>
-        </Flex>
-      </SwapiSection>
-      {/* Welcome to the Jedi Creation Club */}
+      />
+      {/* Welcome to the Star Wars Creation Club */}
       <SwapiSection
         minHeight="600"
         headingLevel={2}
-        heading="Welcome to the Jedi Creation Lab"
+        heading="Welcome to the Star Wars Creation Lab"
         headingAlignment="left"
         className="relative p-4"
         backgroundColor={colors?.background?.background}
@@ -70,18 +58,9 @@ export default function Home() {
         <div className="w-full md:max-w-3xl mr-auto">
           <div className="flex flex-col justify-start gap-4">
             <p>
-              Unleash your creativity and forge your very own Star Wars
-              characters in the Jedi Creation Lab! Dive into the vast universe
-              of character possibilities from a cunning bounty hunter to a
-              legendary Jedi master.
-            </p>
-            <p>
-              Utilize our Character Bank—a meticulously curated selection of
-              iconic Star Wars figures—to fuel your inspiration.
-            </p>
-            <p>
-              Sky’s the limit when you bring your creations to life using our
-              cutting-edge API that makes character creation a breeze.
+              Step into a galaxy far, far away and craft your unique Star Wars
+              characters. From a cunning bounty hunter to a revered Jedi master,
+              the possibilities are endless.
             </p>
           </div>
           <div className="absolute top-[95px] md:top-10 right-[-150px] md:right-0 transform-[rotate(15deg)]">
@@ -93,11 +72,41 @@ export default function Home() {
           <div className="w-full h-auto bg-transparent bg-[radial-gradient(rgb(2,48,71) 1px, transparent 1px), radial-gradient(rgb(2,48,71) 1px, rgb(255,255,255) 1px)] bg-position-[0 0,30px 30px] bg-[60px 60px] rounded-none"></div>
         </div>
       </SwapiSection>
-      {/* Character Bank Highlights */}
+      {/* Character Bank: Fuel Your Imagination */}
       <SwapiSection
         minHeight="600"
         headingLevel={2}
-        heading="Character Bank Highlights"
+        heading="Character Bank: Fuel Your Imagination"
+        headingAlignment="left"
+        className="relative p-4"
+        backgroundColor={colors?.background?.primary}
+        headingTextColor={colors?.text?.accent}
+      >
+        <p className="text-default-background">
+          Dive into our extensive Character Bank—a curated selection of iconic
+          Star Wars figures—and let them guide your imagination.
+        </p>
+      </SwapiSection>
+      {/* Powerful API For Seamless Character Creation */}
+      <SwapiSection
+        minHeight="600"
+        headingLevel={2}
+        heading="Powerful API For Seamless Character Creation"
+        headingAlignment="left"
+        className="relative p-4"
+        backgroundColor={colors?.background?.background}
+        headingTextColor={colors?.text?.tertiary}
+      >
+        <p>
+          Harness our state-of-the-art API. Crafting characters is now as
+          intuitive as it gets.
+        </p>
+      </SwapiSection>
+      {/* Character Bank Spotlight */}
+      <SwapiSection
+        minHeight="600"
+        headingLevel={2}
+        heading="Character Bank Spotlight"
         headingAlignment="left"
         backgroundColor={colors?.background?.primary}
         headingTextColor={colors?.text?.accent}
@@ -133,7 +142,7 @@ export default function Home() {
         </Flex>
       </SwapiSection>
 
-      <SwapiSection
+      {/* <SwapiSection
         minHeight="600"
         headingLevel={2}
         heading="Character Inspirations"
@@ -142,7 +151,6 @@ export default function Home() {
         headingTextColor={colors?.text?.tertiary}
       >
         <div className="grid grid-rows-3 grid-cols-2 gap-4 pb-16">
-          {/* First box: 1row-1column */}
           <div className="relative group overflow-hidden col-span-1 row-span-1">
             <img
               src="https://framerusercontent.com/images/7nfGGDYNAkbf641Ird5mi1Z3VI.jpg?scale-down-to=512"
@@ -154,7 +162,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Second box: 2rows-1column */}
           <div className="relative group overflow-hidden col-span-1 row-span-2">
             <img
               src="https://framerusercontent.com/images/sywZubVBko9GaI341OKwxEr7j0.jpg?scale-down-to=512"
@@ -166,7 +173,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Third box: 1row-1column */}
           <div className="relative group overflow-hidden col-span-1 row-span-2">
             <img
               src="https://framerusercontent.com/images/ZYjTHduElaC4A2vUqo74fwaRMYo.jpg?scale-down-to=512"
@@ -178,7 +184,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Fourth box: 2rows-1column */}
           <div className="relative group overflow-hidden col-span-1 row-span-1">
             <img
               src="https://framerusercontent.com/images/c45gDEeo7tICW6yPT3Gtn5NISH4.jpg?scale-down-to=512"
@@ -190,24 +195,24 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </SwapiSection>
+      </SwapiSection> */}
 
+      {/* Forge Your Galactic Legacy */}
       <SwapiSection
         minHeight="600"
         headingLevel={2}
-        heading="Ready to Forge Your Galaxy?"
+        heading="Forge Your Galactic Legacy"
         className="px-4"
-        backgroundColor={colors?.background?.primary}
-        headingTextColor={colors?.text?.accent}
+        backgroundColor={colors?.background?.background}
+        headingTextColor={colors?.text?.tertiary}
       >
-        <SwapiRightArrow className="w-36 h-36 text-light-blue mx-auto opacity-80" />
-        <p className="font-medium text-center text-white leading-relaxed mb-4">
-          Begin your epic Star Wars character creation journey now! Expand your
-          universe. Don’t miss the chance to explore new stories and create
-          unforgettable adventures.
+        <SwapiRightArrow className="w-48 h-48 text-primary mx-auto opacity-80" />
+        <p className="text-black">
+          Embark on your Star Wars character creation odyssey. Expand your
+          universe, craft new stories, and embark on unforgettable adventures.
         </p>
 
-        <Flex className="justify-center">
+        <Flex className="justify-center py-6">
           <Button className="btn-primary text-center w-auto">Create Now</Button>
         </Flex>
       </SwapiSection>

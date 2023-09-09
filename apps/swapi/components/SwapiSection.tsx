@@ -5,7 +5,7 @@ import { useTheme } from '../context/ThemeProvider';
 
 interface SwapiSectionProps {
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   minHeight: string;
   headingLevel?: number;
   heading?: string;
