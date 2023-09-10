@@ -39,6 +39,7 @@ export default function Home() {
 
   return (
     <SwapiLayout>
+      {/* <SwapiThemeColorPallete themeColors={defaultColorScheme} /> */}
       {/* Swapi+ */}
       <SwapiSection
         minHeight="600"
@@ -47,6 +48,7 @@ export default function Home() {
         heading="Swapi+ Bank Creator API"
         backgroundColor={defaultColorScheme?.background?.primary}
         headingTextColor={defaultColorScheme?.text?.accent}
+        customBg={true}
       />
       {/* Welcome to the Star Wars Creation Club */}
       <SwapiSection
@@ -67,7 +69,9 @@ export default function Home() {
             </p>
           </div>
           <div className="absolute top-[95px] md:top-10 right-[-150px] md:right-0 transform-[rotate(15deg)]">
-            <SwapiSmileySVG />
+            <SwapiSmileySVG
+              className={`h-24 w-24 ${defaultColorScheme?.text?.accent}`}
+            />
           </div>
           <div className="absolute right-[-150px] md:right-[120px] bottom-[180px] md:bottom-[110px] transform-[-translate-x-1/2 -translate-y-1/2] rotate-[-10deg]">
             <SwapiCursiveSVG />
@@ -121,22 +125,30 @@ export default function Home() {
               className="justify-between items-center md:w-full"
             >
               <Flex className="space-x-4">
-                <Text className="text-white font-medium text-xl whitespace-nowrap">
+                <Text
+                  className={`${defaultColorScheme?.text?.background}  font-medium text-xl whitespace-nowrap`}
+                >
                   {person.birth_year}
                 </Text>
-                <Text className="text-[#8ECAE6] whitespace-nowrap text-xl">
+                <Text
+                  className={`${defaultColorScheme?.text?.background} whitespace-nowrap text-xl`}
+                >
                   {person.name}
                 </Text>
               </Flex>
-              <div className="hidden md:block bg-[#8ECAE6] opacity-10 w-full h-[.5px] overflow-hidden relative mx-4" />
+              <div
+                className={`hidden md:block ${defaultColorScheme?.background?.background} opacity-10 w-full h-[.5px] overflow-hidden relative mx-4`}
+              />
               <Link href={`/people/${person.slug}`}>
-                <ArrowCurvedDownRight className="h-16 w-16 text-light-blue ml-auto opacity-80" />
+                <ArrowCurvedDownRight
+                  className={`h-16 w-16 ${defaultColorScheme?.text?.accent} ml-auto opacity-80`}
+                />
               </Link>
             </Flex>
           ))}
           {displayCount < people.length && (
             <Button
-              className="btn-primary"
+              className={`btn-primary text-center w-auto mx-auto ${defaultColorScheme?.background?.accent}`}
               onClick={() => setDisplayCount(displayCount + 4)}
             >
               Load More
@@ -216,7 +228,11 @@ export default function Home() {
         </p>
 
         <Flex className="justify-center py-6">
-          <Button className="btn-primary text-center w-auto">Create Now</Button>
+          <Button
+            className={`btn-primary text-center w-auto ${defaultColorScheme?.background?.accent}`}
+          >
+            Create Now
+          </Button>
         </Flex>
       </SwapiSection>
 

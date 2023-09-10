@@ -12,6 +12,7 @@ import { minHeightMap } from '../../utils/stylesMap';
 import SwapiLayout from '../../components/SwapiLayout';
 import SwapiSection from '../../components/SwapiSection';
 import SwapiSunSVG from '../../icons/SwapiSunSVG';
+import SwapiThemeColorPallete from '../../components/SwapiThemeColorPallete';
 import { people } from '../../data/peopleData';
 import { useTheme } from '../../context/ThemeProvider';
 
@@ -71,6 +72,7 @@ const PersonPage = ({ person }) => {
 
   return (
     <SwapiLayout>
+      {/* <SwapiThemeColorPallete themeColors={currentColorScheme} /> */}
       {/* <div className="p-5 text-sm bg-gradient-to-r from-tertiary via-light-blue to-secondary">
         <Grid className="grid-cols-1 md:grid-cols-3 lg:grid-cols-6">
           <div className="text-white">HEX:</div>
