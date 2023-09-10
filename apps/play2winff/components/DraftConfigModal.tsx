@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent } from 'react';
 import { useRouter } from 'next/router';
 import { Button, Flex, Heading } from '@with-nx/react-ui';
-import { X } from '@with-nx/icons';
+import { FeatherX } from '@with-nx/icons';
 
 type DraftConfigModalProps = {
   isOpen: boolean;
@@ -65,7 +65,7 @@ const DraftConfigModal: React.FC<DraftConfigModalProps> = ({
       <div className="p-4">
         <Flex className="justify-end w-full h-full">
           <Button onClick={onClose} className="flex justify-end mb-4">
-            <X />
+            <FeatherX />
           </Button>
         </Flex>
         <form onSubmit={handleDraftStart}>

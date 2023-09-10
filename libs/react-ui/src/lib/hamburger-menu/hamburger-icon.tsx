@@ -1,4 +1,4 @@
-import { Menu, X } from '@with-nx/icons';
+import { FeatherMenu, FeatherX } from '@with-nx/icons';
 import Button from '../button/button';
 import hamburgerIconStyles from './hamburger-icon.module.css';
 
@@ -22,14 +22,14 @@ const HamburgerIcon = ({
       className={className ? className : hamburgerIconStyles.iconContainer}
       onClick={onClick}
     >
-      <X className={hamburgerIconStyles.icon} />
+      <FeatherX className={hamburgerIconStyles.icon} />
     </div>
   ) : (
     <div
       className={className ? className : hamburgerIconStyles.iconContainer}
       onClick={onClick}
     >
-      <Menu className={hamburgerIconStyles.icon} />
+      <FeatherMenu className={hamburgerIconStyles.icon} />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Button, Flex, Modal, Text } from '@with-nx/react-ui';
-import { Mail, MapPin, X } from '@with-nx/icons';
+import { FeatherMail, FeatherMapPin, FeatherX } from '@with-nx/icons';
 import { ModalProps } from '@with-nx/types';
 
 export function RSHModal({
@@ -56,7 +56,7 @@ export function RSHModal({
         <Modal
           isShowing={isShowing}
           toggle={toggle}
-          icon={<X />}
+          icon={<FeatherX />}
           title="Thanks for taking the time to reach out!"
         >
           {isSubmitted ? (
@@ -70,14 +70,14 @@ export function RSHModal({
               </Text>
 
               <Flex className="items-center mt-4 text-gray-600 dark:text-gray-400">
-                <MapPin className="h-6 w-6" />
+                <FeatherMapPin className="h-6 w-6" />
                 <Text className="ml-4 text-md tracking-wide font-semibold w-40">
                   Sonoma County, CA
                 </Text>
               </Flex>
 
               <Flex className="items-center mt-2 text-gray-600 dark:text-gray-400">
-                <Mail className="h-6 w-6" />
+                <FeatherMail className="h-6 w-6" />
                 <Text className="ml-4 text-md tracking-wide font-semibold w-40">
                   <Link className="text" href="mailto:robert@robertshogan.com">
                     Email me

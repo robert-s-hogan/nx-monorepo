@@ -1,4 +1,4 @@
-// libs/icons/src/lib/ArrowDown.tsx
+// libs/icons/src/lib/FeatherArrowDown.tsx
 import IconWrapper from '../IconWrapper';
 import { CommonProps } from '@with-nx/types';
 

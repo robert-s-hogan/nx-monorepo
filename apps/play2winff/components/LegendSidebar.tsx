@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Button } from '@with-nx/react-ui';
-import { X } from '@with-nx/icons';
+import { FeatherX } from '@with-nx/icons';
 import { Box, Flex } from '@with-nx/react-ui';
 
 import {
@@ -145,7 +145,7 @@ const LegendSidebar = ({ isOpen, onClose }) => {
       <Flex className="justify-between items-center p-4 border-viridian border-b">
         <h2 className="text-lg font-bold">Icon Legend</h2>
         <Button className="p-4" onClick={onClose}>
-          <X className="cursor-pointer" />
+          <FeatherX className="cursor-pointer" />
         </Button>
       </Flex>
       <div className="p-4 flex-col space-y-3">

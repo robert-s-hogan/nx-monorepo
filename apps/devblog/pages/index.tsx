@@ -8,12 +8,11 @@ import {
   Text,
 } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
-import { Mail, LinkedIn } from '@with-nx/icons';
+import { FeatherMail, FeatherLinkedin, FeatherX } from '@with-nx/icons';
 import Image from 'next/image';
 import Script from 'next/script';
 import { BiWrench } from 'react-icons/bi';
 import { useModal } from '@with-nx/react-hooks';
-import { X } from '@with-nx/icons';
 
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogSection from '../components/DevBlogSection';
@@ -56,7 +55,7 @@ export function Index() {
           </Flex>
           <dialog open={isShowing} className="border border-primary">
             <div className="w-full z-10 pb-2" onClick={toggle}>
-              <X className="h-5 w-5 ml-auto opacity-80" />
+              <FeatherX className="h-5 w-5 ml-auto opacity-80" />
             </div>
             <div
               className="calendly-inline-widget"

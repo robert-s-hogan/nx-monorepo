@@ -2,7 +2,7 @@ import DevBlogLayout from '../../components/DevBlogLayout';
 import { Link, Button, Text, Heading, Flex, Section } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
 import { BiWrench } from 'react-icons/bi';
-import { Mail, LinkedIn } from '@with-nx/icons';
+import { FeatherMail, FeatherLinkedin } from '@with-nx/icons';
 import Image from 'next/image';
 
 const Projects = () => {

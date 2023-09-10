@@ -10,7 +10,7 @@ import {
 } from '@with-nx/react-ui';
 import { Card } from '@with-nx/react-ui';
 import { FiMinus, FiPlus, FiCheck } from 'react-icons/fi';
-import { Activity } from '@with-nx/icons';
+import { FeatherActivity } from '@with-nx/icons';
 
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
@@ -452,7 +452,7 @@ function Index() {
         className="h-max py-32 flex flex-col justify-center items-center text-primary space-y-4 bg-hero"
       />
 
-      <Activity className="h-24 w-24 text-blue-500" />
+      <FeatherActivity className="h-24 w-24 text-blue-500" />
       <div className="space-y-12 space-x-8 px-8">
         <div className="p-8 border border-red-500 space-y-4">
           <p>import Stepper from @with-nx/react-ui</p>

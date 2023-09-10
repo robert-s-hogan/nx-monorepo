@@ -9,7 +9,7 @@ import {
   Input,
   Text,
 } from '@with-nx/react-ui';
-import { X } from '@with-nx/icons';
+import { FeatherX } from '@with-nx/icons';
 import { useSearchQuery, useFileTypeSelection } from '@with-nx/react-hooks';
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
@@ -160,7 +160,7 @@ const VersionThree = () => {
                       onClick={() => handleRemoveExcludeTerm(index)}
                     >
                       {term}
-                      <X className="h-4 w-4 ml-2" />
+                      <FeatherX className="h-4 w-4 ml-2" />
                     </Button>
                   </Flex>
                 )
