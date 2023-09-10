@@ -1,3 +1,5 @@
+// can you help me add droidsmith for each?
+
 module.exports = [
   'min-h-[200px]',
   'min-h-[300px]',
@@ -66,6 +68,37 @@ module.exports = [
   'from-sith-background',
   'to-sith-background',
   'via-sith-background',
+
+  'text-droidsmith-primary', // DROIDSMITH
+  'text-droidsmith-secondary',
+  'text-droidsmith-tertiary',
+  'text-droidsmith-accent',
+  'text-droidsmith-background',
+  'bg-droidsmith-primary',
+  'bg-droidsmith-secondary',
+  'bg-droidsmith-tertiary',
+  'bg-droidsmith-accent',
+  'bg-droidsmith-background',
+  'border-droidsmith-primary',
+  'border-droidsmith-secondary',
+  'border-droidsmith-tertiary',
+  'border-droidsmith-accent',
+  'border-droidsmith-background',
+  'from-droidsmith-primary',
+  'to-droidsmith-primary',
+  'via-droidsmith-primary',
+  'from-droidsmith-secondary',
+  'to-droidsmith-secondary',
+  'via-droidsmith-secondary',
+  'from-droidsmith-tertiary',
+  'to-droidsmith-tertiary',
+  'via-droidsmith-tertiary',
+  'from-droidsmith-accent',
+  'to-droidsmith-accent',
+  'via-droidsmith-accent',
+  'from-droidsmith-background',
+  'to-droidsmith-background',
+  'via-droidsmith-background',
 
   'text-default-primary', // DEFAULT
   'text-default-secondary',

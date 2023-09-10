@@ -16,11 +16,12 @@ import CharacterList from '../components/CharacterList';
 import SwapiSearch from '../components/SwapiSearch';
 import SwapiSection from '../components/SwapiSection';
 import { useTheme } from '../context/ThemeProvider';
-import { getColorMap } from '../utils/themeMap';
 
 import SwapiSmileySVG from '../icons/SwapiSmileySVG';
 import SwapiCursiveSVG from '../icons/SwapiCursiveSVG';
 import SwapiRightArrow from '../icons/SwapiRightArrow';
+
+import { getColorSchemeForPersona, Persona } from '../utils/themeMap';
 
 export default function Home() {
   const [character, setCharacter] = useState('');
@@ -34,6 +35,8 @@ export default function Home() {
   };
 
   const { data, error } = useSWR('/api/people/');
+  const defaultColorScheme = getColorSchemeForPersona('Default');
+
   return (
     <SwapiLayout>
       {/* Swapi+ */}
@@ -42,8 +45,8 @@ export default function Home() {
         className="p-25 text-center"
         headingLevel={1}
         heading="Swapi+ Bank Creator API"
-        backgroundColor={colors?.background?.primary}
-        headingTextColor={colors?.text?.accent}
+        backgroundColor={defaultColorScheme?.background?.primary}
+        headingTextColor={defaultColorScheme?.text?.accent}
       />
       {/* Welcome to the Star Wars Creation Club */}
       <SwapiSection
@@ -52,8 +55,8 @@ export default function Home() {
         heading="Welcome to the Star Wars Creation Lab"
         headingAlignment="left"
         className="relative p-4"
-        backgroundColor={colors?.background?.background}
-        headingTextColor={colors?.text?.tertiary}
+        backgroundColor={defaultColorScheme?.background?.background}
+        headingTextColor={defaultColorScheme?.text?.tertiary}
       >
         <div className="w-full md:max-w-3xl mr-auto">
           <div className="flex flex-col justify-start gap-4">
@@ -79,8 +82,8 @@ export default function Home() {
         heading="Character Bank: Fuel Your Imagination"
         headingAlignment="left"
         className="relative p-4"
-        backgroundColor={colors?.background?.primary}
-        headingTextColor={colors?.text?.accent}
+        backgroundColor={defaultColorScheme?.background?.primary}
+        headingTextColor={defaultColorScheme?.text?.accent}
       >
         <p className="text-default-background">
           Dive into our extensive Character Bank—a curated selection of iconic
@@ -94,8 +97,8 @@ export default function Home() {
         heading="Powerful API For Seamless Character Creation"
         headingAlignment="left"
         className="relative p-4"
-        backgroundColor={colors?.background?.background}
-        headingTextColor={colors?.text?.tertiary}
+        backgroundColor={defaultColorScheme?.background?.background}
+        headingTextColor={defaultColorScheme?.text?.tertiary}
       >
         <p>
           Harness our state-of-the-art API. Crafting characters is now as
@@ -108,8 +111,8 @@ export default function Home() {
         headingLevel={2}
         heading="Character Bank Spotlight"
         headingAlignment="left"
-        backgroundColor={colors?.background?.primary}
-        headingTextColor={colors?.text?.accent}
+        backgroundColor={defaultColorScheme?.background?.primary}
+        headingTextColor={defaultColorScheme?.text?.accent}
       >
         <Flex className="flex-col space-y-1 md:w-full">
           {people.slice(0, displayCount).map((person) => (
@@ -147,8 +150,8 @@ export default function Home() {
         headingLevel={2}
         heading="Character Inspirations"
         headingAlignment="left"
-        backgroundColor={colors?.background?.background}
-        headingTextColor={colors?.text?.tertiary}
+        backgroundColor={defaultColorScheme?.background?.background}
+        headingTextColor={defaultColorScheme?.text?.tertiary}
       >
         <div className="grid grid-rows-3 grid-cols-2 gap-4 pb-16">
           <div className="relative group overflow-hidden col-span-1 row-span-1">
@@ -203,8 +206,8 @@ export default function Home() {
         headingLevel={2}
         heading="Forge Your Galactic Legacy"
         className="px-4"
-        backgroundColor={colors?.background?.background}
-        headingTextColor={colors?.text?.tertiary}
+        backgroundColor={defaultColorScheme?.background?.background}
+        headingTextColor={defaultColorScheme?.text?.tertiary}
       >
         <SwapiRightArrow className="w-48 h-48 text-primary mx-auto opacity-80" />
         <p className="text-black">

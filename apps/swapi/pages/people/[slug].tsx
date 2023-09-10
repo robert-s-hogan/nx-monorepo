@@ -4,9 +4,9 @@ import { Box, Flex, Grid, Heading, Slider } from '@with-nx/react-ui';
 import { useRouter } from 'next/router';
 
 import {
-  getColorMap,
   getColorSchemeForPersona,
   Persona,
+  GradientColorScheme,
 } from '../../utils/themeMap';
 import { minHeightMap } from '../../utils/stylesMap';
 import SwapiLayout from '../../components/SwapiLayout';
@@ -64,7 +64,10 @@ const PersonPage = ({ person }) => {
     }
   }, [slug, person]);
 
-  const currentColorScheme = getColorSchemeForPersona(activePersona as Persona);
+  const currentColorScheme = getColorSchemeForPersona(activePersona as any);
+
+  const colorScheme: any = currentColorScheme;
+  console.log(`colorScheme`, colorScheme);
 
   return (
     <SwapiLayout>
@@ -256,7 +259,7 @@ const PersonPage = ({ person }) => {
 
       <SwapiSection
         minHeight="400"
-        className={`bg-no-repeat bg-cover bg-center bg-gradient-to-br ${currentColorScheme?.gradient?.background?.from} from-10% ${currentColorScheme?.gradient?.tertiary?.via} via-30 ${currentColorScheme?.gradient?.tertiary?.to} to-90%`}
+        className={`bg-no-repeat bg-cover bg-center bg-gradient-to-br ${colorScheme?.gradient?.background?.from} from-10% ${colorScheme?.gradient?.tertiary?.via} via-30 ${colorScheme?.gradient?.tertiary?.to} to-90%`}
       >
         <p className="text-white text-center">{currentCharacter.quote}</p>
       </SwapiSection>

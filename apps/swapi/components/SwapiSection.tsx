@@ -1,5 +1,4 @@
 import { Heading, Section } from '@with-nx/react-ui';
-import { getColorMap, ThemeColors } from '../utils/themeMap';
 import { minHeightMap } from '../utils/stylesMap';
 import { useTheme } from '../context/ThemeProvider';
 
@@ -26,8 +25,8 @@ const SwapiSection = ({
 }: SwapiSectionProps) => {
   const { colors } = useTheme();
 
-  const defaultBackgroundColor = 'bg-primary';
-  const defaultTextColor = 'text-primary';
+  const defaultBackgroundColor = 'bg-default-primary';
+  const defaultTextColor = 'text-default-primary';
 
   return (
     <Section

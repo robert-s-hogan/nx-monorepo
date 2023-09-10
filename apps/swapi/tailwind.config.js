@@ -42,6 +42,16 @@ module.exports = {
           accent: '#ffffff', // White
           background: '#1C1C1C', // Very dark background
         },
+        droidsmith: {
+          primary: '#B0B0B0', // Metallic Silver (main color)
+          secondary: '#D3D3D3', // Lighter Metallic Silver
+          tertiary: '#838383', // Darker Metallic Silver
+          accent: '#DAA520', // Gold, reminiscent of C-3PO
+          background: '#2C2C2C', // Dark metallic background similar to droid workshops
+          rust: '#8B4513', // Rust color, representing old or unmaintained droids
+          blue: '#0000FF', // Droid's LED lights, reminiscent of R2-D2
+          red: '#FF0000', // Another LED light, usually indicating issues or alerts
+        }, // add new colors and tailwindclasses to themeMap, tailwind-safelist.js too
         default: {
           primary: '#034160', // Primary Color
           secondary: '#1C5A80', // Lighter Shade of Primary

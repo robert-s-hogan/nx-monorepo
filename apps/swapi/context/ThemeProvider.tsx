@@ -1,20 +1,20 @@
 import React, { createContext, useContext, useState } from 'react';
-import { getColorMap, ThemeColors } from '../utils/themeMap';
+import { getColorMap, DefaultColorScheme } from '../utils/themeMap';
 
 type ThemeContextType = {
   isToggled: boolean;
   toggleTheme: () => void;
   activePersona: string;
   setActivePersona: React.Dispatch<React.SetStateAction<string>>;
-  colors: ThemeColors; // Using the ColorContextType you provided.
+  colors: DefaultColorScheme;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [isToggled, setIsToggled] = useState(false);
-  const [activePersona, setActivePersona] = useState('default'); // Default persona
-  const colors = getColorMap(activePersona || 'default');
+  const [activePersona, setActivePersona] = useState('Default'); // Default persona
+  const colors = getColorMap(activePersona || 'Default');
 
   const toggleTheme = () => {
     setIsToggled(!isToggled);
