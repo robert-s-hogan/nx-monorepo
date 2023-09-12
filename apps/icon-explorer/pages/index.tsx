@@ -29,7 +29,7 @@ export function Index() {
   };
 
   return (
-    <div className={`bg-gray-400`}>
+    <div className={`bg-gray-200`}>
       <div className="pt-8">
         <div className="container mx-auto">
           <Grid className="grid-cols-5 gap-4 items-center">
