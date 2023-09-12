@@ -2,7 +2,7 @@ import IconWrapper from '../IconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaHardDriveIcon = (props: CommonProps) => {
-  const svgClassNames = ['font-awesome', 'fa-harddrive'];
+  const svgClassNames = ['font-awesome', 'harddrive'];
   const combinedClassNames = [...svgClassNames, props.className].join(' ');
   const { className, ...otherProps } = props;
 
@@ -10,13 +10,15 @@ const FaHardDriveIcon = (props: CommonProps) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
-      className={`fa fa-harddrive ${combinedClassNames}`}
-      {...otherProps}
+      className={`fa harddrive ${combinedClassNames}`}
+      {...props}
     >
       {/* <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. --> */}
-      <path d="M64 80c-8.8 0-16 7.2-16 16V258c5.1-1.3 10.5-2 16-2H448c5.5 0 10.9 .7 16 2V96c0-8.8-7.2-16-16-16H64zM48 320v96c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V320c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zM0 320V96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V320v96c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320zm280 48a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm120-24a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
+      <g fill="currentColor">
+        <path d="M64 80c-8.8 0-16 7.2-16 16V258c5.1-1.3 10.5-2 16-2H448c5.5 0 10.9 .7 16 2V96c0-8.8-7.2-16-16-16H64zM48 320v96c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V320c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zM0 320V96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V320v96c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320zm280 48a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm120-24a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
+      </g>
     </svg>
   );
 };
 
-export const FaHardDrive = IconWrapper(FaHardDriveIcon);
+export default IconWrapper(FaHardDriveIcon);

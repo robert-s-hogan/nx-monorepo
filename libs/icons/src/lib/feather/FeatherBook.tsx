@@ -1,26 +1,26 @@
 
-import IconWrapper from '../IconWrapper';
-import { CommonProps } from '@with-nx/types';
-
-const FeatherBookIcon = (props: CommonProps) => {
-  const svgClassNames = ['font-awesome', 'featherbook'];
-  const combinedClassNames = [...svgClassNames, props.className].join(' ');
-
-  // Ensure className is not passed again in the spread operation
-  const { className, ...otherProps } = props;
-
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      width="24" height="24"  fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-      className={`feather feather-featherbook ${combinedClassNames}`}
-      {...otherProps}
-    >
-      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-    </svg>
-  );
-};
-
-export const FeatherBook = IconWrapper(FeatherBookIcon);
+  import IconWrapper from '../IconWrapper';
+  import { CommonProps } from '@with-nx/types';
   
+  const FeatherBookIcon = (props: CommonProps) => {
+    const svgClassNames = ['font-awesome', 'feather-book'];
+    const combinedClassNames = [...svgClassNames, props.className].join(' ');
+  
+    // Ensure className is not passed again in the spread operation
+    const { className, ...otherProps } = props;
+  
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="24" height="24"  fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+        className={`feather feather-book ${combinedClassNames}`}
+        {...props}
+      >
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+      </svg>
+    );
+  };
+  
+  export default IconWrapper(FeatherBookIcon);
+    

@@ -1,4 +1,4 @@
-//feather-icons
+//font-awesome icons
 
 const fs = require('fs');
 const path = require('path');
@@ -11,11 +11,7 @@ if (!fs.existsSync(OUTPUT_DIR)) {
 }
 
 function transformSvgAttributes(attributes) {
-  return attributes
-    .replace(/stroke-width="/g, 'strokeWidth="')
-    .replace(/stroke-linecap="/g, 'strokeLinecap="')
-    .replace(/stroke-linejoin="/g, 'strokeLinejoin="')
-    .replace(/class="/g, 'className="');
+  return attributes.replace(/className="/g, 'className="');
 }
 
 function formatClassName(string) {
@@ -77,15 +73,18 @@ const ${name}Icon = (props: CommonProps) => {
       ${viewBoxAttribute}
       ${attributes.trim()}
       className={\`fa ${formatIconName(name.slice(2))} \${combinedClassNames}\`}
-      {...otherProps}
+      {...props}
+
     >
       {/* <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. --> */}
-      ${cleanedSvgContent}
+      <g fill="currentColor">
+        ${cleanedSvgContent}
+      </g>
     </svg>
   );
 };
 
-export const ${name} = IconWrapper(${name}Icon);
+export default IconWrapper(${name}Icon);
   `;
 }
 

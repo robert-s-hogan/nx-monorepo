@@ -18,7 +18,7 @@ function transformSvgAttributes(attributes) {
     .replace(/stroke-width="/g, 'strokeWidth="')
     .replace(/stroke-linecap="/g, 'strokeLinecap="')
     .replace(/stroke-linejoin="/g, 'strokeLinejoin="')
-    .replace(/class="/g, 'className="');
+    .replace(/className="/g, 'className="');
 }
 
 function createComponentTemplate(name, svgContent) {
@@ -45,32 +45,38 @@ function createComponentTemplate(name, svgContent) {
   const classNameRegex = /className="[^"]+"/;
   attributes = attributes.replace(classNameRegex, '');
 
+  function camelToKebab(string) {
+    return string.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+  }
+
+  const kebabName = camelToKebab(name);
+
   return `
-import IconWrapper from '../IconWrapper';
-import { CommonProps } from '@with-nx/types';
-
-const ${name}Icon = (props: CommonProps) => {
-  const svgClassNames = ['font-awesome', '${name.toLowerCase()}'];
-  const combinedClassNames = [...svgClassNames, props.className].join(' ');
-
-  // Ensure className is not passed again in the spread operation
-  const { className, ...otherProps } = props;
-
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      ${attributes.trim()}
-      className={\`feather feather-${name.toLowerCase()} \${combinedClassNames}\`}
-      {...otherProps}
-    >
-      ${cleanedSvgContent}
-    </svg>
-  );
-};
-
-export const ${name} = IconWrapper(${name}Icon);
-  `;
+  import IconWrapper from '../IconWrapper';
+  import { CommonProps } from '@with-nx/types';
+  
+  const ${name}Icon = (props: CommonProps) => {
+    const svgClassNames = ['font-awesome', '${kebabName}'];
+    const combinedClassNames = [...svgClassNames, props.className].join(' ');
+  
+    // Ensure className is not passed again in the spread operation
+    const { className, ...otherProps } = props;
+  
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        ${attributes.trim()}
+        className={\`feather ${kebabName} \${combinedClassNames}\`}
+        {...props}
+      >
+        ${cleanedSvgContent}
+      </svg>
+    );
+  };
+  
+  export default IconWrapper(${name}Icon);
+    `;
 }
 
 // Read all SVGs from the directory

@@ -21,4 +21,4 @@ const ArrowCurvedDownRightIcon = (props: CommonProps) => {
   );
 };
 
-export const ArrowCurvedDownRight = IconWrapper(ArrowCurvedDownRightIcon);
+export default IconWrapper(ArrowCurvedDownRightIcon);
