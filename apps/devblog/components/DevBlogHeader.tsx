@@ -27,11 +27,11 @@ const links: {
   //   children: 'Blog',
   //   className: 'link',
   // },
-  // {
-  //   href: '/projects',
-  //   children: 'Projects',
-  //   className: 'link',
-  // },
+  {
+    href: '/projects',
+    children: 'Projects',
+    className: 'link',
+  },
 ];
 
 const DevBlogHeader = () => {
@@ -44,7 +44,7 @@ const DevBlogHeader = () => {
   }, []);
 
   const toggleButton = isMounted ? (
-    <button onClick={toggleTheme} className="my-auto h-6">
+    <button onClick={toggleTheme}>
       {theme && theme.name === 'light' ? (
         <FeatherMoon className="h-6 w-6" />
       ) : (
@@ -59,14 +59,14 @@ const DevBlogHeader = () => {
         <Flex className="items-center justify-center">
           {logo} <span>Robert Hogan</span>
         </Flex>
-        <Flex className="flex flex-col lg:flex-row justify-center space-y-4 space-x-4 items-center">
+        <Flex className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 space-x-4 items-center">
           {links.map((link) => (
             <a key={link.href} href={link.href} className="">
               {link.children}
             </a>
           ))}
+          {toggleButton}
         </Flex>
-        {toggleButton}
       </Flex>
       {/* <Navbar
         className="flex justify-between w-full mx-auto space-x-4 py-4 items-center"

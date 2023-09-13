@@ -1,87 +1,55 @@
-import DevBlogLayout from '../../components/DevBlogLayout';
-import { Link, Button, Text, Heading, Flex, Section } from '@with-nx/react-ui';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import { Button, Flex, Grid, Heading, Section, Text } from '@with-nx/react-ui';
+import { FeatherMail, FeatherLinkedin } from '@with-nx/icons';
 import { FiGithub } from 'react-icons/fi';
 import { BiWrench } from 'react-icons/bi';
-import { FeatherMail, FeatherLinkedin } from '@with-nx/icons';
-import Image from 'next/image';
+import Link from 'next/link';
 
-const Projects = () => {
+import { Project, projectsData } from '../../data/projects';
+import DevBlogLayout from '../../components/DevBlogLayout';
+import DevBlogSection from '../../components/DevBlogSection';
+import DevBlogSubTitle from '../../components/DevBlogSubTitle';
+
+type Props = {
+  projects: Project[];
+};
+
+const ProjectPage = ({ projects }) => {
+  const router = useRouter();
+  const { projectId } = router.query;
+
   return (
     <DevBlogLayout>
-      <Section className="space-y-6 px-4 ">
-        <div className="flex flex-col items-center justify-start">
-          <div>
-            <svg
-              className="flex flex-col items-center justify-start w-full h-[225px]"
-              viewBox="0 0 1356 225"
-            >
-              <foreignObject width="100%" height="100%">
-                <h1 className="text-center text-9xl uppercase text-primary silkscreen">
-                  Showcase
-                </h1>
-              </foreignObject>
-            </svg>
-            <div className="flex flex-col items-center justify-start max-w-4xl mx-auto">
-              <h1 className="text-center font-sans text-lg leading-7 text-primary">
-                Embark on a journey exploring a world of top-notch web
-                development projects featuring NX Monorepo, Next.js, React.js,
-                and UI.
-              </h1>
-            </div>
-          </div>
-          <div className="transform rotate-[-3deg]"></div>
-          <div className="transform rotate-[144deg]"></div>
-          <div className="transform rotate-[62deg]"></div>
-        </div>
-      </Section>
-      <Section className="space-y-6 px-4">
-        <div>
-          <div className="space-y-6">
-            <div className="flex flex-col justify-start">
-              <h2 className="font-sans text-left text-4xl text-primary silkscreen">
-                Revolutionizing Web Dev
-              </h2>
-            </div>
-            <div>
-              <div className="flex flex-col justify-start">
-                <h3 className="font-sans text-left text-xl leading-6 text-white">
-                  Gear up for groundbreaking projects utilizing NX Monorepo,
-                  Next.js, and React.js integration to create modular and
-                  scalable codebases.
-                </h3>
-              </div>
-              <div className="flex mt-6">
-                <div className="flex flex-col justify-start space-y-6">
-                  <h2 className="font-sans text-left text-3xl text-primary silkscreen">
-                    362
-                  </h2>
-                  <p className="font-sans text-left leading-6 text-white">
-                    Happy Clients
-                  </p>
-                </div>
-                <div className="flex flex-col justify-start space-y-6">
-                  <h2 className="font-sans text-left text-3xl text-primary silkscreen">
-                    126
-                  </h2>
-                  <p className="font-sans text-left leading-6 text-white">
-                    Astounding Projects
-                  </p>
-                </div>
-                <div className="flex flex-col justify-start space-y-6">
-                  <h2 className="font-sans text-left text-3xl text-primary silkscreen">
-                    99.7
-                  </h2>
-                  <p className="font-sans text-left leading-6 text-white">
-                    Success Rate
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <DevBlogSection className="space-y-6">
+        <Heading level={1}>All Projects</Heading>
+        <Grid className="grid-cols-1 md:grid-cols-2 gap-6 md:12">
+          {projects.map((project) => (
+            <Link key={project.slug} href={`/projects/${project.slug}`}>
+              <Image
+                src={project.image}
+                alt={project.title}
+                height={350}
+                width={500}
+                className="object-cover"
+              />
+              <Heading level={2}>{project.title}</Heading>
+              <DevBlogSubTitle>{project.description}</DevBlogSubTitle>
+            </Link>
+          ))}
+        </Grid>
+      </DevBlogSection>
     </DevBlogLayout>
   );
 };
 
-export default Projects;
+export default ProjectPage;
+
+export const getStaticProps = async () => {
+  return {
+    props: {
+      projects: projectsData,
+    },
+  };
+};
