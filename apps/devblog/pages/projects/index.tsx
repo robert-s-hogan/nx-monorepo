@@ -24,18 +24,22 @@ const ProjectPage = ({ projects }) => {
     <DevBlogLayout>
       <DevBlogSection className="space-y-6">
         <Heading level={1}>All Projects</Heading>
-        <Grid className="grid-cols-1 md:grid-cols-2 gap-6 md:12">
+        <Grid className="grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 md:12 space-y-4">
           {projects.map((project) => (
             <Link key={project.slug} href={`/projects/${project.slug}`}>
               <Image
                 src={project.image}
                 alt={project.title}
-                height={350}
-                width={500}
-                className="object-cover"
+                height={400}
+                width={400}
+                className="h-[400px] w-[400px] md:w-full md:h-[400px] object-cover rounded-2xl"
               />
-              <Heading level={2}>{project.title}</Heading>
-              <DevBlogSubTitle>{project.description}</DevBlogSubTitle>
+              <Heading level={3} className="py-6">
+                {project.title}
+              </Heading>
+              <DevBlogSubTitle className="h-36">
+                {project.description}
+              </DevBlogSubTitle>
             </Link>
           ))}
         </Grid>

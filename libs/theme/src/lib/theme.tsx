@@ -12,8 +12,8 @@ type ThemeColors = {
 
   // Text colors
   'text-color': string; // Main text color.
-  textOnPrimary: string; // Text color on primary colored backgrounds.
-  textOnSecondary: string; // Text color on secondary colored backgrounds.
+  'text-on-primary-color': string; // Text color on primary colored backgrounds.
+  'text-on-secondary-color': string; // Text color on secondary colored backgrounds.
 
   'primary-icon-color': string;
   'secondary-icon-color': string;

@@ -1,5 +1,3 @@
-import { Text } from '@with-nx/react-ui';
-
 interface DevBlogSubTitleProps {
   className?: string;
   children: React.ReactNode;
@@ -9,9 +7,7 @@ export const DevBlogSubTitle = ({
   className,
   children,
 }: DevBlogSubTitleProps) => {
-  return (
-    <Text className={`text-lg ${className ? className : ''}`}>{children}</Text>
-  );
+  return <p className={`text-lg ${className ? className : ''}`}>{children}</p>;
 };
 
 export default DevBlogSubTitle;

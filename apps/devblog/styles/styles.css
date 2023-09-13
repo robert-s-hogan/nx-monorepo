@@ -93,6 +93,9 @@ span {
 
 a:hover {
   color: var(--hover-color);
+  text-decoration: underline;
+  text-decoration-color: #f25626;
+  text-underline-offset: 4px;
   opacity: 0.9;
 }
 

@@ -8,8 +8,9 @@ export const themes = {
     'bg-color': '#ffffff',
     'surface-color': '#F5F5F5', // A general purpose light gray, not directly from your CSS
     'text-color': '#000000',
-    textOnPrimary: '#ffffff',
-    textOnSecondary: '#ffffff',
+    
+    'text-on-primary-color': '#ffffff',
+    'text-on-secondary-color': '#ffffff',
 
     'primary-icon-color': '#4a5568', // Darker color for better contrast on light bg
     'secondary-icon-color': '#a0aec0', // Lighter color for subtlety on light bg
@@ -34,8 +35,8 @@ export const themes = {
     'bg-color': '#1a202c',
     'surface-color': '#3D3D3D', // A general purpose darker gray, not directly from your CSS
     'text-color': '#e2e8f0',
-    textOnPrimary: '#242424', // Estimation based on dark backgrounds
-    textOnSecondary: '#242424', // Estimation based on dark backgrounds
+    'text-on-primary-color': '#242424', // Estimation based on dark backgrounds
+    'text-on-secondary-color': '#242424', // Estimation based on dark backgrounds
 
     'primary-icon-color': '#e2e8f0', // Lighter color for better contrast on dark bg
     'secondary-icon-color': '#5a6678', // Darker color for subtlety
