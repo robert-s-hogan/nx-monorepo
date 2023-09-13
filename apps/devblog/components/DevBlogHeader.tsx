@@ -3,7 +3,7 @@ import { ButtonProps, LinkProps } from '@with-nx/types';
 
 import Image from 'next/image';
 import { useTheme } from '@with-nx/theme';
-import { FiMoon, FiSun } from 'react-icons/fi';
+import { FeatherMoon, FeatherSun } from '@with-nx/icons';
 import { useState, useEffect } from 'react';
 import RSHLogo from '../public/images/rsh_logo.png';
 
@@ -46,17 +46,17 @@ const DevBlogHeader = () => {
   const toggleButton = isMounted ? (
     <button onClick={toggleTheme} className="my-auto h-6">
       {theme && theme.name === 'light' ? (
-        <FiMoon size={20} />
+        <FeatherMoon className="h-6 w-6" />
       ) : (
-        <FiSun size={20} />
+        <FeatherSun className="h-6 w-6" />
       )}
     </button>
   ) : null;
 
   return (
     <header className="container mx-auto max-w-7xl pb-8 px-4 my-10">
-      <Flex className="flex-col justify-center lg:px-4 lg:flex-row lg:justify-between items-center my-4 border-y border-primary py-4 mx-0 md:mx-12 md:justify-between ">
-        <Flex className="items-center justify-center text-primary">
+      <Flex className="flex-col justify-center md:px-4 md:flex-row md:justify-between items-center my-4 border-y py-4 mx-0 md:mx-12">
+        <Flex className="items-center justify-center">
           {logo} <span>Robert Hogan</span>
         </Flex>
         <Flex className="flex flex-col lg:flex-row justify-center space-y-4 space-x-4 items-center">

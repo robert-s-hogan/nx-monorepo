@@ -7,11 +7,9 @@ import {
   Section,
   Text,
 } from '@with-nx/react-ui';
-import { FiGithub } from 'react-icons/fi';
-import { FeatherMail, FeatherLinkedin, FeatherX } from '@with-nx/icons';
+import { FeatherX } from '@with-nx/icons';
 import Image from 'next/image';
 import Script from 'next/script';
-import { BiWrench } from 'react-icons/bi';
 import { useModal } from '@with-nx/react-hooks';
 import { useTheme } from '@with-nx/theme';
 

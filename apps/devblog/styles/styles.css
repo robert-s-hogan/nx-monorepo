@@ -86,6 +86,11 @@ a {
   text-decoration-color: var(--primary-color);
 }
 
+p,
+span {
+  color: var(--text-color);
+}
+
 a:hover {
   color: var(--hover-color);
   opacity: 0.9;
@@ -105,6 +110,10 @@ pre {
 code {
   color: var(--text-secondary);
   font-family: monospace;
+}
+
+input {
+  border-color: var(--border-color);
 }
 
 @layer base {
@@ -195,7 +204,7 @@ code {
   }
 
   .input {
-    @apply border border-gray-300 rounded-2xl px-3 py-2;
+    @apply border rounded-2xl px-3 py-2;
   }
 }
 
@@ -206,12 +215,4 @@ section {
 button[disabled] {
   background-color: var(--disabled-color);
   cursor: not-allowed;
-}
-
-#__next {
-  height: 100%;
-}
-
-.silkscreen {
-  font-family: 'Silkscreen', cursive;
 }
