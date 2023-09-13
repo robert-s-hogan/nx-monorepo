@@ -13,6 +13,7 @@ import Image from 'next/image';
 import Script from 'next/script';
 import { BiWrench } from 'react-icons/bi';
 import { useModal } from '@with-nx/react-hooks';
+import { useTheme } from '@with-nx/theme';
 
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogSection from '../components/DevBlogSection';
@@ -22,7 +23,7 @@ import { projectsData } from '../data/projects';
 
 export function Index() {
   const { isShowing, toggle } = useModal();
-
+  const { theme, toggleTheme } = useTheme();
   return (
     <DevBlogLayout>
       <DevBlogSection className="relative">
