@@ -12,6 +12,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundColor: {
+        'secondary-color': 'var(--secondary-color)',
+      },
       colors: {
         primary: '#f25626',
         secondary: 'grey',

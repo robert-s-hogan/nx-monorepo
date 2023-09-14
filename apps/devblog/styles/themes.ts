@@ -8,7 +8,7 @@ export const themes = {
     'bg-color': '#ffffff',
     'surface-color': '#F5F5F5', // A general purpose light gray, not directly from your CSS
     'text-color': '#000000',
-    
+
     'text-on-primary-color': '#ffffff',
     'text-on-secondary-color': '#ffffff',
 

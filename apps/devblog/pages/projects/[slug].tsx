@@ -5,6 +5,9 @@ import { BiWrench } from 'react-icons/bi';
 import { Box, Button, Heading, Section } from '@with-nx/react-ui';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
+import DevBlogSubTitle from '../../components/DevBlogSubTitle';
+import DevBlogSection from '../../components/DevBlogSection';
+import DevBlogProjectsThemeSection from '../../components/DevBlogProjectsThemeSection';
 import { projectsData } from '../../data/projects';
 
 function ProjectPage({ project }) {
@@ -17,19 +20,24 @@ function ProjectPage({ project }) {
 
   return (
     <DevBlogLayout>
-      <Section
+      <DevBlogSection
         className="bg-cover bg-center relative mt-0"
         style={{ backgroundImage: `url(${project.media.image})` }}
       >
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-image-overlay opacity-50"></div>
         <Heading
           level={1}
-          className="h-full my-auto relative z-10 text-center pt-32"
+          className="h-full w-auto my-auto relative z-10 text-center pt-32 break-normal"
         >
           {project.title}
         </Heading>
+        <DevBlogSubTitle className="text-center relative z-10 text-white">
+          {project.description}
+        </DevBlogSubTitle>
 
-        <div className={`w-full flex justify-center text-black mt-8 pb-32`}>
+        <div
+          className={`w-full relative z-10 flex justify-center text-black mt-8 pb-32`}
+        >
           <Link
             href={project.link}
             target="_blank"
@@ -69,63 +77,68 @@ function ProjectPage({ project }) {
             </Link>
           )}
         </div>
-      </Section>
+      </DevBlogSection>
 
-      <Section className="">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <Heading level={2}>{project.process.title}</Heading>
-              <p>{project.process.description}</p>
-            </div>
-            <div>
-              <Heading level={2}>{project.management.title}</Heading>
-              <p>{project.management.description}</p>
-            </div>
+      <DevBlogSection maxWidth={true} className="bg-secondary-color">
+        <div className="container max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <DevBlogProjectsThemeSection
+              title={project.process.title}
+              description={project.process.description}
+            />
+            <DevBlogProjectsThemeSection
+              title={project.management.title}
+              description={project.management.description}
+            />
           </div>
         </div>
-      </Section>
+      </DevBlogSection>
 
-      <Section className="">
+      <DevBlogSection className="">
         <Heading level={2}>{project.media.title}</Heading>
         <p>{project.media.description}</p>
-      </Section>
+      </DevBlogSection>
 
-      <Section className="">
-        <div className="container mx-auto px-4">
-          <Heading level={2} className="text-center">
-            {project.technologyReason.title}
-          </Heading>
-          <p className="mb-8 text-center">
-            {project.technologyReason.description}
-          </p>
-          {/* If you have a list of tech used, map over them here and display as tiles or cards */}
+      <DevBlogSection maxWidth={true} className="bg-secondary-color">
+        <div className="container max-w-7xl mx-auto px-4">
+          <DevBlogProjectsThemeSection
+            title={project.technologyReason.title}
+            description={project.technologyReason.description}
+          />
         </div>
-      </Section>
+        {/* If you have a list of tech used, map over them here and display as tiles or cards */}
+      </DevBlogSection>
 
-      <Section className="">
-        <div className="container mx-auto px-4">
-          <Heading level={2}>{project.purpose.title}</Heading>
-          <p className="leading-relaxed">{project.purpose.description}</p>
-        </div>
-      </Section>
+      <DevBlogSection className="">
+        <Heading level={2}>{project.purpose.title}</Heading>
+        <p className="leading-relaxed">{project.purpose.description}</p>
+      </DevBlogSection>
 
       {project.resources && (
-        <Section className="">
-          <div className="container mx-auto px-4">
-            <Heading level={2}>Resources & Acknowledgments</Heading>
-            <ul className="list-disc pl-5">
-              {project.resources &&
-                project.resources.map((resource) => (
-                  <li className="mb-2" key={resource}>
-                    <Link href={resource} className="hover:underline">
-                      {resource}
-                    </Link>
-                  </li>
-                ))}
+        <DevBlogSection maxWidth={true} className="bg-secondary-color">
+          <div className="container max-w-7xl mx-auto px-2">
+            <DevBlogProjectsThemeSection
+              title="Resources & Acknowledgments"
+              description={project.resources.description}
+            />
+            <ul
+              className="list-disc pl-5"
+              style={{ color: 'var(--text-on-secondary-color)' }}
+            >
+              {project.resources.map((resource) => (
+                <li className="mb-2" key={resource}>
+                  <Link
+                    href={resource}
+                    className="hover:underline"
+                    style={{ color: 'var(--text-on-secondary-color)' }}
+                  >
+                    {resource}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-        </Section>
+        </DevBlogSection>
       )}
     </DevBlogLayout>
   );

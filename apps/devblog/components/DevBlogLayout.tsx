@@ -14,7 +14,6 @@ const DevBlogLayout = ({
   title,
   description,
   hideNavBar: hideNavBarProp,
-
 }: PageLayoutProps) => {
   const router = useRouter();
   const asPath = router.asPath;
@@ -41,8 +40,8 @@ const DevBlogLayout = ({
         keywords="Robert Hogan, Portfolio, Front End UI/UX Engineer, Vercel, NX, Next.js, featured projects, private NX monorepo, Star Wars API Pagination, interactive map, Memory Game, Game of Concentration, vanilla javascript, web development, web solutions."
       />
       <div
-        className={`container mx-auto ${
-          hideMaxWidth7xl ? 'max-w-full' : 'max-w-7xl'
+        className={`mx-auto ${
+          hideMaxWidth7xl ? 'max-w-full' : ''
         } selection:bg-primary ${className}`}
       >
         {children}

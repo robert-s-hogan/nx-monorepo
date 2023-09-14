@@ -27,7 +27,7 @@ export type Project = {
 export const projectsData: Project[] = [
   {
     slug: 'play-2-win-ff',
-    title: 'Play2winFF Draft Tool',
+    title: 'p2w Draft Tool',
     image: 'https://rshogan.imgix.net/projects/play2winff/p2w_hero.png',
     description:
       'Crafted for Yahoo fantasy football leagues, this tool is indispensable for tracking NFL updates.',
@@ -66,11 +66,7 @@ export const projectsData: Project[] = [
         'While Yahoo provides a baseline for tracking fantasy football, its inherent limitations and single-source dependency prompted the creation of the Play2WinFF Draft Tool. This platform introduces custom rankings, opinions from various experts, and a sprinkle of personal insights to offer a more comprehensive and personalized drafting experience.',
       image: 'https://rshogan.imgix.net/projects/play2winff/p2w_hero.png',
     },
-    resources: [
-      'https://rshogan.imgix.net/projects/play2winff/p2w_hero.png',
-      'https://rshogan.imgix.net/projects/play2winff/p2w_hero.png',
-      'https://rshogan.imgix.net/projects/play2winff/p2w_hero.png',
-    ],
+    resources: ['#1', '#2', '#3'],
     link: 'https://play2winff-nx.vercel.app/',
     github: '',
     category: ['React', 'Typescript', 'TailwindCSS', 'NX', 'Next', 'API'],
@@ -121,11 +117,7 @@ export const projectsData: Project[] = [
         'Driven by a vision to have more control and achieve consistency, this React UI Library was birthed. It sidesteps the inconsistencies of third-party libraries, offering a reliable set of components, each designed with care and precision in a controlled NX monorepo environment.',
       image: 'https://rshogan.imgix.net/projects/play2winff/p2w_purpose.png',
     },
-    resources: [
-      'https://rshogan.imgix.net/projects/play2winff/p2w_resources_1.png',
-      'https://rshogan.imgix.net/projects/play2winff/p2w_resources_2.png',
-      'https://rshogan.imgix.net/projects/play2winff/p2w_resources_3.png',
-    ],
+    resources: ['#1', '#2', '#3'],
     link: 'https://roberthogan-dev-react-ui.vercel.app/',
     github: '', // You can provide the github link here if available.
     category: ['React', 'Typescript', 'CSS', 'Storybook', 'Jest', 'NX'],
@@ -177,11 +169,7 @@ export const projectsData: Project[] = [
         'A pivotal project in the Udacity Front-End Nanodegree, this Memory Game became a testament to my dedication and readiness for an entry-level web development role. It was an affirmation of my skills, my learning curve, and my commitment to the craft.',
       image: 'https://rshogan.imgix.net/projects/play2winff/p2w_purpose.png',
     },
-    resources: [
-      'https://rshogan.imgix.net/projects/play2winff/p2w_resources_1.png',
-      'https://rshogan.imgix.net/projects/play2winff/p2w_resources_2.png',
-      'https://rshogan.imgix.net/projects/play2winff/p2w_resources_3.png',
-    ],
+    resources: ['#1', '#2', '#3'],
     link: 'https://robert-s-hogan.github.io/Project-Memory-Game/',
     github: 'https://github.com/robert-s-hogan/Project-Memory-Game',
     category: ['JavaScript', 'CSS', 'GithubPages'],
@@ -231,11 +219,7 @@ export const projectsData: Project[] = [
         'While SWAPI+ is still in its formative phase, its intent is clear: to offer fans a comprehensive, accurate, and interactive Star Wars character experience. The project currently lays the foundation for this ambitious goal, with more features on the horizon.',
       image: 'https://rshogan.imgix.net/projects/play2winff/p2w_purpose.png',
     },
-    resources: [
-      'https://rshogan.imgix.net/projects/play2winff/p2w_resources_1.png',
-      'https://rshogan.imgix.net/projects/play2winff/p2w_resources_2.png',
-      'https://rshogan.imgix.net/projects/play2winff/p2w_resources_3.png',
-    ],
+    resources: ['#1', '#2', '#3'],
     link: 'https://swapi-nx.vercel.app/',
     github: '', // If you do decide to add a GitHub link in the future, you can update this.
     category: ['React', 'Next', 'Typescript', 'API', 'NX', 'TailwindCSS'],
@@ -285,6 +269,7 @@ export const projectsData: Project[] = [
       image:
         'https://rshogan.imgix.net/projects/devblog/dev_blog-interactive-map-purpose.png', // Placeholder; replace if you have a relevant image.
     },
+    resources: ['#1', '#2', '#3'],
     link: 'https://www.roberthogan.dev/projects/dnd-interactive-map',
     github: '', // If you decide to add a GitHub link in the future, you can update this.
     category: ['React', 'Next', 'NX', 'TailwindCSS'],
@@ -334,11 +319,7 @@ export const projectsData: Project[] = [
         'This tool serves more than just a technical exercise. It embodies a solution for freelancers, aiding them in the hunt for potential clients and opportunities. The ability to identify aging websites presents a niche yet valuable market for web developers.',
       image: 'https://rshogan.imgix.net/projects/play2winff/p2w_purpose.png',
     },
-    resources: [
-      'https://rshogan.imgix.net/projects/play2winff/p2w_resources_1.png',
-      'https://rshogan.imgix.net/projects/play2winff/p2w_resources_2.png',
-      'https://rshogan.imgix.net/projects/play2winff/p2w_resources_3.png',
-    ],
+    resources: ['#1', '#2', '#3'],
     link: 'https://rshogan.imgix.net/projects/devblog/devblog_custom-google-search.png',
     github: '', // If you decide to add a GitHub link in the future, you can update this.
     category: ['React', 'TailwindCSS', 'Google'],

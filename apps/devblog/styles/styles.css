@@ -74,6 +74,8 @@
   --warning-color: #ffd600;
   --info-color: #3db8e9;
   --primary-icon-color: #e2e8f0;
+  --text-on-primary-color: #ffffff;
+  --text-on-secondary-color: #000000;
 }
 
 body {
@@ -135,15 +137,15 @@ input {
   }
 
   h1 {
-    @apply text-6xl md:text-9xl text-center pb-10;
+    @apply text-5xl md:text-9xl text-center pb-10;
   }
 
   h2 {
-    @apply text-4xl md:text-5xl pb-8;
+    @apply text-3xl md:text-5xl pb-8;
   }
 
   h3 {
-    @apply text-4xl;
+    @apply text-2xl;
   }
 
   h4 {
@@ -164,13 +166,8 @@ input {
 }
 
 @layer components {
-  .section {
-    @apply container max-w-7xl mx-auto py-8 px-4;
-  }
-
-  .full-width-container {
-    @apply mx-auto;
-    max-width: 100%;
+  .full-width-section {
+    @apply max-w-full py-8 px-4 mx-auto;
   }
 
   .btn-primary {
@@ -211,8 +208,12 @@ input {
   }
 }
 
-section {
-  @apply my-8;
+.text-on-secondary {
+  color: var(--text-on-secondary-color);
+}
+
+.bg-image-overlay {
+  background-color: var(--text-on-primary-color);
 }
 
 button[disabled] {
