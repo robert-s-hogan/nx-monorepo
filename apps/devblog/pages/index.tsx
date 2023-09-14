@@ -39,7 +39,7 @@ export function Index() {
                 <span className="font-bold">Robert Hogan </span>a seasoned
                 Front-End&nbsp;&nbsp;
                 <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block my-2 mr-3">
-                  <span className="relative text-white px-2">UI Engineer</span>
+                  <span className="relative px-2">UI Engineer</span>
                 </span>
                 with a knack for crafting efficient and user-centric digital
                 experiences.

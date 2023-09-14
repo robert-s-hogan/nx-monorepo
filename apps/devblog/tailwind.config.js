@@ -10,14 +10,21 @@ module.exports = {
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
+  safelist: [
+    'text-nx',
+    'text-storybook',
+    'text-jest',
+    'text-next-js',
+    'text-api',
+    'text-github',
+  ],
   theme: {
     extend: {
+      colors: {
+        primary: 'var(--primary-color)',
+      },
       backgroundColor: {
         'secondary-color': 'var(--secondary-color)',
-      },
-      colors: {
-        primary: '#f25626',
-        secondary: 'grey',
       },
       spacing: {
         215: '215px',

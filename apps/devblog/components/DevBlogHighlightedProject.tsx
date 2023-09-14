@@ -24,13 +24,14 @@ const DevBlogHighlightedProject = ({ project }) => {
           </Heading>
           <p className="text-white text-center w-full">{project.description}</p>
 
-          <div className="flex space-x-2">
-            <Flex className="w-full items-center h-10 md:h-12 bg-black opacity-75 rounded-2xl border border-primary p-3">
+          <div className="relative flex space-x-2">
+            <div className="absolute inset-0 bg-white opacity-85 rounded-2xl" />
+            <Flex className="w-full items-center h-10 md:h-12 rounded-2xl p-3">
               {project.category.map((cat) => {
                 return (
                   <span
                     key={cat}
-                    className={`text-3xl text-white rounded-full overflow-hidden p-1 ${
+                    className={`relative z-10 text-3xl rounded-full overflow-hidden p-1 ${
                       cat === 'GithubPages'
                         ? 'flex items-center justify-center'
                         : ''

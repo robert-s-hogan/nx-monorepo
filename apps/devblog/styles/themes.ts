@@ -28,7 +28,7 @@ export const themes = {
   },
   dark: {
     name: 'dark', // This is used to identify the theme in the UI
-    'primary-color': '#4a5568',
+    'primary-color': '#f25626',
     'secondary-color': '#9DA3A8', // A general purpose dark gray, not directly from your CSS
     'accent-color': '#fff',
 

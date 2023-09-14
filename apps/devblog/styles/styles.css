@@ -1,82 +1,10 @@
-/* help me fill out .dark and .light classes with the following:
-  please default to dark theme
-
-   export const themes = {
-  light: {
-   primary: '#3182ce',
-   secondary: '#4a5568',
-   accent: '#4a5568',   // using heading color as accent for now
-
- background: '#ffffff',
- surface: '#F5F5F5', // A general purpose light gray, not directly from your CSS
- textPrimary: '#000000',
- textSecondary: '#4a5568',
- textOnPrimary: '#ffffff',
- textOnSecondary: '#ffffff',
-
- Functional colors
- success: '#28A745',  Using from previous
- error: '#DC3545',  Using from previous
- warning: '#FFC107',  Using from previous
- info: '#17A2B8',  Using from previous
-
- border: '#EDEDED',
- hover: '#E8E8E8',
- active: '#C5C5C5',
- disabled: '#EDEDED',
- },
- dark: {
- primary: '#4a5568',
- secondary: '#9DA3A8',  A general purpose dark gray, not directly from your CSS
- accent: '#fff',
-
- background: '#1a202c',
- surface: '#3D3D3D',  A general purpose darker gray, not directly from your CSS
- textPrimary: '#e2e8f0',
- textSecondary: '#fff',
- textOnPrimary: '#242424',  Estimation based on dark backgrounds
- textOnSecondary: '#242424',  Estimation based on dark backgrounds
-
-  Functional colors
- success: '#55D68B',  Using from previous
- error: '#F56565',  Using from previous
- warning: '#FFD600',  Using from previous
- info: '#3DB8E9',  Using from previous
-
- border: '#414141',
- hover: '#1D1D1D',
- active: '#0E0E0E',
- disabled: '#5B5B5B',
- },
- };
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700;900&family=Silkscreen&display=swap');
 
 @tailwind components;
 @tailwind base;
 @tailwind utilities;
 
-:root {
-  --bg-color: #1a202c;
-  --heading-color: #e2e8f0;
-  --text-color: #e2e8f0;
-  --primary-color: #4a5568;
-  --secondary-color: #9da3a8;
-  --accent-color: #fff;
-  --surface-color: #3d3d3d;
-  --border-color: #414141;
-  --hover-color: #1d1d1d;
-  --active-color: #0e0e0e;
-  --disabled-color: #5b5b5b;
-  --success-color: #55d68b;
-  --error-color: #f56565;
-  --warning-color: #ffd600;
-  --info-color: #3db8e9;
-  --primary-icon-color: #e2e8f0;
-  --text-on-primary-color: #ffffff;
-  --text-on-secondary-color: #000000;
-}
+/* :root variables can be found in /styles/themes.ts */
 
 body {
   background: var(--bg-color);
@@ -102,7 +30,7 @@ a:hover {
 }
 
 svg {
-  stroke: var(--primary-icon-color) !important;
+  stroke: var(--primary-icon-color);
 }
 
 pre {
@@ -165,17 +93,21 @@ input {
   }
 }
 
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
 @layer components {
   .full-width-section {
     @apply max-w-full py-8 px-4 mx-auto;
   }
 
   .btn-primary {
-    @apply !bg-primary text-white px-3 py-2 rounded-2xl;
+    @apply text-white px-3 py-2 rounded-2xl bg-primary;
   }
 
   .btn-secondary {
-    @apply !bg-secondary text-white px-3 py-2 rounded-2xl;
+    @apply text-white px-3 py-2 rounded-2xl;
   }
 
   .card {

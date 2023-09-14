@@ -15,6 +15,7 @@ module.exports = {
         journal: '#0984e3',
         'konva-js': '#0c74b5',
         'next-js': '#000000',
+        nx: '#0f2440',
         'react-js': '#087ea4',
         'react-query': '#f94354',
         safari: '#1b99f7',

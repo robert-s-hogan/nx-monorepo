@@ -13,7 +13,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si';
-import { TbApi } from 'react-icons/tb';
+import { AiOutlineApi } from 'react-icons/ai';
 import { BiWrench } from 'react-icons/bi';
 
 export function getIconForCategory(category: string): JSX.Element | null {
@@ -23,7 +23,7 @@ export function getIconForCategory(category: string): JSX.Element | null {
     case 'Next':
       return <SiNextdotjs className="text-next-js" />;
     case 'API':
-      return <TbApi className="text-api" />;
+      return <AiOutlineApi className="text-api" />;
     case 'JavaScript':
       return <SiJavascript className="text-javascript " />;
     case 'CSS':
