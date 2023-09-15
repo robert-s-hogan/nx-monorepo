@@ -1,4 +1,4 @@
-import { Flex, Navbar } from '@with-nx/react-ui';
+import { Button, Flex, Navbar } from '@with-nx/react-ui';
 import { ButtonProps, LinkProps } from '@with-nx/types';
 
 import Link from 'next/link';
@@ -14,7 +14,7 @@ const logo = (
     alt="Robert's Dev Logo"
     height={41}
     width={48}
-    className="mr-4"
+    className="mr0 md:mr-4"
   />
 );
 
@@ -45,25 +45,25 @@ const DevBlogHeader = () => {
   }, []);
 
   const toggleButton = isMounted ? (
-    <button onClick={toggleTheme}>
+    <Button onClick={toggleTheme} className="button-icon p-0 !ml-0 md:pl-4">
       {theme && theme.name === 'light' ? (
-        <FeatherMoon className="h-6 w-6" />
+        <FeatherMoon className="moon h-6 w-6" />
       ) : (
-        <FeatherSun className="h-6 w-6" />
+        <FeatherSun className="sun h-6 w-6" />
       )}
-    </button>
+    </Button>
   ) : null;
 
   return (
-    <header className="container mx-auto max-w-7xl pb-8 px-4 my-10">
-      <Flex className="flex-col justify-center md:px-4 md:flex-row md:justify-between items-center my-4 border-y py-4 mx-0 md:mx-12">
+    <header className="container mx-auto max-w-7xl pb-0 px-4 mt-8">
+      <Flex className="flex-col justify-center md:px-4 md:flex-row md:justify-between py-4 mb-8 items-center border-y mx-0 md:mx-12 space-y-2 md:space-y-0">
         <Flex className="items-center justify-center">
           <Link href="/">{logo}</Link>
-          <Link href="/">
+          <Link href="/" className="hidden md:flex">
             <span>Robert Hogan</span>
           </Link>
         </Flex>
-        <Flex className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 space-x-4 items-center">
+        <Flex className="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-4 items-center">
           {links.map((link) => (
             <Link key={link.href} href={link.href} className="">
               <span>{link.children}</span>

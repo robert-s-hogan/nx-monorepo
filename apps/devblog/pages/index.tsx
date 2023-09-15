@@ -70,11 +70,11 @@ export function Index() {
         </Grid>
         <div
           id="left-circle"
-          className="absolute border border-secondary rounded-100  h-155 w-295 top-[-128px] left-[-169px] transform rotate-[62deg] overflow-hidden z-0"
+          className="absolute border border-secondary rounded-100  h-155 w-295 top-[-128px] lg:top-[-64px] left-[-169px] transform rotate-[62deg] overflow-hidden z-0"
         ></div>
         <div
           id="left-circle"
-          className="absolute border border-secondary rounded-100  h-155 w-295 top-[-128px] left-[-169px] transform rotate-[10deg] overflow-hidden z-0"
+          className="absolute border border-secondary rounded-100  h-155 w-295 top-[-128px] lg:top-[-64px] left-[-169px] transform rotate-[10deg] overflow-hidden z-0"
         ></div>
         <div
           id="right-top-circle"

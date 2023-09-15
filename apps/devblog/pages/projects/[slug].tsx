@@ -2,7 +2,8 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { FiGithub } from 'react-icons/fi';
 import { BiWrench } from 'react-icons/bi';
-import { Box, Button, Heading, Section } from '@with-nx/react-ui';
+import { Box, Button, Flex, Heading, Section } from '@with-nx/react-ui';
+import { ButtonLink } from '@with-nx/nextjs-react-ui';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
 import DevBlogSubTitle from '../../components/DevBlogSubTitle';
@@ -21,7 +22,7 @@ function ProjectPage({ project }) {
   return (
     <DevBlogLayout>
       <DevBlogSection
-        className="bg-cover bg-center relative mt-0"
+        className="bg-cover bg-center relative my-0"
         style={{ backgroundImage: `url(${project.media.image})` }}
       >
         <div className="absolute inset-0 bg-image-overlay opacity-50"></div>
@@ -31,48 +32,34 @@ function ProjectPage({ project }) {
         >
           {project.title}
         </Heading>
-        <DevBlogSubTitle className="text-center relative z-10 text-white">
+        <DevBlogSubTitle className="text-center relative z-10">
           {project.description}
         </DevBlogSubTitle>
 
-        <div
-          className={`w-full relative z-10 flex justify-center text-black mt-8 pb-32`}
-        >
-          <Link
+        <div className={`w-full relative z-10 flex justify-center  mt-8 pb-32`}>
+          <ButtonLink
             href={project.link}
-            target="_blank"
-            className={project.isUnderConstruction ? 'no-underline' : ''}
+            disabled={project.isUnderConstruction}
+            className={`btn-primary ${
+              project.isUnderConstruction ? 'disabled no-underline' : ''
+            }`}
           >
-            <Button
-              className="btn-primary"
-              disabled={project.isUnderConstruction}
-              icon={
-                project.isUnderConstruction ? (
-                  <BiWrench size={18} className="mr-2" />
-                ) : (
-                  ''
-                )
-              }
-            >
-              {project.isUnderConstruction
-                ? 'Under Construction'
-                : 'Live Project'}
-            </Button>
-          </Link>
+            {project.isUnderConstruction ? (
+              <Flex className="space-x-4 items-center cursor-not-allowed">
+                <BiWrench size={18} className="mr-2" />
+                Under Construction
+              </Flex>
+            ) : (
+              'Live Project'
+            )}
+          </ButtonLink>
           {project.github && (
-            <Box className="mx-3 text-3xl text-white font-extralight">|</Box>
+            <Box className="mx-3 text-3xl font-extralight">|</Box>
           )}
           {project.github && (
-            <Link
-              href={project.github}
-              target="_blank"
-              className="hover:text-vivid-500"
-            >
+            <Link href={project.github} target="_blank">
               <Button className="btn-secondary">
-                <FiGithub
-                  size={24}
-                  className="text-white hover:text-vivid-500"
-                />
+                <FiGithub size={24} />
               </Button>
             </Link>
           )}

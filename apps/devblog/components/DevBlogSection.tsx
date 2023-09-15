@@ -17,7 +17,7 @@ const DevBlogSection = ({
     <Section
       className={`${
         maxWidth ? 'max-w-full' : 'container max-w-7xl'
-      } mx-auto py-8 space-y-6 px-4 my-16 ${className ? className : ''}`}
+      } mx-auto space-y-6 px-4 py-16 ${className ? className : ''}`}
       style={style}
     >
       {children}

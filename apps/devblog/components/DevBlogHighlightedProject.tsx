@@ -7,8 +7,11 @@ import { getIconForCategory } from '../utils/getIconForCategory';
 
 const DevBlogHighlightedProject = ({ project }) => {
   return (
-    <div className="relative hover:opacity-100 group w-full">
-      <Link href={`/projects/${project.slug}`}>
+    <div className="relative hover:opacity-100 group w-full no-underline-on-hover">
+      <Link
+        href={`/projects/${project.slug}`}
+        className="no-underline-on-hover"
+      >
         <Image
           src={project.image}
           height={400}
