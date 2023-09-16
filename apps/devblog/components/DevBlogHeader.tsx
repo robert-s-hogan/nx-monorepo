@@ -58,7 +58,9 @@ const DevBlogHeader = () => {
     <header className="container mx-auto max-w-7xl pb-0 px-4 mt-8">
       <Flex className="flex-col justify-center md:px-4 md:flex-row md:justify-between py-4 mb-8 items-center border-y mx-0 md:mx-12 space-y-2 md:space-y-0">
         <Flex className="items-center justify-center">
-          <Link href="/">{logo}</Link>
+          <Link href="/" className="button-link">
+            {logo}
+          </Link>
           <Link href="/" className="hidden md:flex">
             <span>Robert Hogan</span>
           </Link>

@@ -160,11 +160,9 @@ input {
 }
 
 /* BUTTON & BUTTON STATE CLASSES */
-
 a button {
   text-decoration: none;
 }
-
 .button-link:hover:before {
   right: 100%;
 }
