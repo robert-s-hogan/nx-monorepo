@@ -17,6 +17,7 @@ module.exports = {
     'text-next-js',
     'text-api',
     'text-github',
+    'absolute',
   ],
   theme: {
     extend: {

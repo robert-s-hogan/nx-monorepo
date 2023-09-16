@@ -10,7 +10,7 @@ const DevBlogHighlightedProject = ({ project }) => {
     <div className="relative w-full no-underline-on-hover">
       <Link
         href={`/projects/${project.slug}`}
-        className="no-underline-on-hover"
+        className="no-underline-on-hover static"
       >
         <Image
           src={project.image}
@@ -21,7 +21,7 @@ const DevBlogHighlightedProject = ({ project }) => {
           loading="lazy"
         />
 
-        <div className="absolute space-y-6 p-4 md:p-8 inset-0 bg-image-overlay bg-opacity-60 flex flex-col justify-center items-center rounded-2xl w-full">
+        <div className="!absolute space-y-6 p-4 md:p-8 inset-0 bg-image-overlay bg-opacity-60 flex flex-col justify-center items-center rounded-2xl w-full">
           <Heading level={3} className="text-center">
             {project.title}
           </Heading>
