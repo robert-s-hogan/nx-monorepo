@@ -28,10 +28,7 @@ export function Index() {
         <Grid className="grid-cols-1 px-2">
           <Flex className="justify-center items-center w-full mx-auto">
             <div className="space-y-4 max-w-4xl">
-              <Heading
-                level={1}
-                className="text-center text-6xl md:text-9xl uppercase"
-              >
+              <Heading level={1} className="text-center">
                 Portfolio
               </Heading>
               <DevBlogSubTitle className="pt-8 mx-4">
@@ -39,7 +36,9 @@ export function Index() {
                 <span className="font-bold">Robert Hogan </span>a seasoned
                 Front-End&nbsp;&nbsp;
                 <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block my-2 mr-3">
-                  <span className="relative px-2">UI Engineer</span>
+                  <span className="relative px-2 font-semibold">
+                    UI Engineer
+                  </span>
                 </span>
                 with a knack for crafting efficient and user-centric digital
                 experiences.
@@ -91,7 +90,7 @@ export function Index() {
           <Heading level={2} className="text-left">
             Highlighted Projects
           </Heading>
-          <Grid className="grid-cols-1 lg:grid-cols-3 relative gap-12">
+          <Grid className="grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 relative gap-12">
             {projectsData.map((project, index) => {
               if (index < 3)
                 return (

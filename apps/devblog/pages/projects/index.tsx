@@ -27,17 +27,21 @@ const ProjectPage = ({ projects }) => {
         <Grid className="grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 md:12 space-y-4">
           {projects.map((project) => (
             <Link key={project.slug} href={`/projects/${project.slug}`}>
-              <Image
-                src={project.image}
-                alt={project.title}
-                height={400}
-                width={400}
-                className="h-[400px] w-[400px] md:w-full md:h-[400px] object-cover rounded-2xl"
-              />
+              <div className="relative h-[400px] w-full md:w-full md:h-[400px] rounded-2xl overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  height={400}
+                  width={400}
+                  className="h-[400px] w-[400px] md:w-full md:h-[400px] object-cover rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-image-overlay"></div>
+              </div>
+
               <Heading level={3} className="py-6">
                 {project.title}
               </Heading>
-              <DevBlogSubTitle className="h-36">
+              <DevBlogSubTitle className="h-auto md:h-36">
                 {project.description}
               </DevBlogSubTitle>
             </Link>

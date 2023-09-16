@@ -58,18 +58,20 @@ function ProjectPage({ project }) {
             <Box className="mx-3 text-3xl font-extralight">|</Box>
           )}
           {project.github && (
-            <Link href={project.github} target="_blank">
-              <Button className="btn-secondary">
-                <FiGithub size={24} />
-              </Button>
-            </Link>
+            <ButtonLink
+              href={project.github}
+              target="_blank"
+              className={`btn-secondary icon-white`}
+            >
+              <FiGithub size={24} />
+            </ButtonLink>
           )}
         </div>
       </DevBlogSection>
 
       <DevBlogSection maxWidth={true} className="bg-secondary-color">
         <div className="container max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-12">
             <DevBlogProjectsThemeSection
               title={project.process.title}
               description={project.process.description}
@@ -83,7 +85,9 @@ function ProjectPage({ project }) {
       </DevBlogSection>
 
       <DevBlogSection className="">
-        <Heading level={2}>{project.media.title}</Heading>
+        <Heading level={2} className="text-xl md:text-5xl">
+          {project.media.title}
+        </Heading>
         <p>{project.media.description}</p>
       </DevBlogSection>
 
@@ -98,7 +102,9 @@ function ProjectPage({ project }) {
       </DevBlogSection>
 
       <DevBlogSection className="">
-        <Heading level={2}>{project.purpose.title}</Heading>
+        <Heading level={2} className="text-xl md:text-5xl">
+          {project.purpose.title}
+        </Heading>
         <p className="leading-relaxed">{project.purpose.description}</p>
       </DevBlogSection>
 
