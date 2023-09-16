@@ -34,7 +34,7 @@ export const themes = {
     'surface-color': '#3D3D3D',
     'text-color': '#e2e8f0',
     'text-on-primary-color': '#ffffff',
-    'text-on-secondary-color': '#d1d4d9',
+    'text-on-secondary-color': '#2a2f40',
     'primary-icon-color': '#e2e8f0',
     'secondary-icon-color': '#5a6678',
     'success-color': '#55D68B',
