@@ -125,11 +125,11 @@ export const projectsData: Project[] = [
   },
   {
     slug: 'memory-game',
-    title: 'A Game of Concentration',
+    title: 'Concentration',
     image:
       'https://rshogan.imgix.net/projects/devblog/dev_blog-concentration.png',
     description:
-      'Delve into a nostalgic journey with "Concentration", an emblem of my foundational foray into web development.',
+      'Delve into a nostalgic journey with "Concentration", an emblem of my foundational foray into web dev.',
     process: {
       title: 'Building from Scratch',
       subtitle: 'My Web Development Onset',

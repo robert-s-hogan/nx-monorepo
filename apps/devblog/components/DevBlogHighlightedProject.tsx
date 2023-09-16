@@ -21,14 +21,14 @@ const DevBlogHighlightedProject = ({ project }) => {
           loading="lazy"
         />
 
-        <div className="!absolute space-y-6 p-4 md:p-8 inset-0 bg-image-overlay bg-opacity-60 flex flex-col justify-center items-center rounded-lg w-full">
+        <div className="!absolute space-y-6 p-4 md:py-6 md:px-2 inset-0 bg-image-overlay bg-opacity-60 flex flex-col justify-center items-center rounded-lg w-full">
           <Heading level={3} className="text-center">
             {project.title}
           </Heading>
           <p className="text-center w-full">{project.description}</p>
 
           <div className="relative flex space-x-2">
-            <div className="absolute inset-0 bg-white opacity-85 rounded-lg" />
+            <div className="absolute inset-0 bg-opposite-theming opacity-80 rounded-lg" />
             <Flex className="w-full items-center h-10 md:h-12 rounded-lg p-3">
               {project.category.map((cat) => {
                 return (

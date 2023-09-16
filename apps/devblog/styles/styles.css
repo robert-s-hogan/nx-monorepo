@@ -227,9 +227,11 @@ a button {
 }
 
 /* BACKGROUND CLASSES */
-
 .bg-image-overlay {
   background-color: var(--bg-opacity-color);
+}
+.bg-opposite-theming {
+  background-color: var(--text-color);
 }
 
 /* DARK LIGHT STYLES */
