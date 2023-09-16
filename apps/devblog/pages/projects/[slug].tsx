@@ -39,6 +39,7 @@ function ProjectPage({ project }) {
         <div className={`w-full relative z-10 flex justify-center  mt-8 pb-32`}>
           <ButtonLink
             href={project.link}
+            target="_blank"
             disabled={project.isUnderConstruction}
             className={`btn-primary ${
               project.isUnderConstruction ? 'disabled no-underline' : ''

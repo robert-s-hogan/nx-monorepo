@@ -85,51 +85,7 @@ export function Index() {
           className="absolute border border-secondary rounded-100 h-155 w-295 bottom-[-140px] right-[45px] transform rotate-3 overflow-hidden z-0"
         ></div>
       </DevBlogSection>
-      {/* <DevBlogSection className="">
-        <Flex className="flex-col items-center justify-start">
-          <div>
-            <Heading level={2} className="text-center">
-              Showcase
-            </Heading>
-            <DevBlogSubTitle className="">
-              Embark on a journey exploring a world of top-notch web development
-              projects featuring NX Monorepo, Next.js, React.js, and UI.
-            </DevBlogSubTitle>
-          </div>
-        </Flex>
-      </DevBlogSection> */}
-      {/* <DevBlogSection className="">
-        <div>
-          <div className="space-y-6">
-            <Flex className="flex-col justify-center">
-              <Heading level={2} className="text-center">
-                Revolutionizing Web Dev
-              </Heading>
-            </Flex>
-            <div>
-              <DevBlogSubTitle className="flex-col justify-start">
-                Gear up for groundbreaking projects utilizing NX Monorepo,
-                Next.js, and React.js integration to create modular and scalable
-                codebases.
-              </DevBlogSubTitle>
-              <Flex className="mt-6 space-y-2 flex-col">
-                <Heading level={3} className="text-left pb-2">
-                  362
-                </Heading>
-                <Text className="text-left">Happy Clients</Text>
-                <Heading level={3} className="text-left pb-2">
-                  126
-                </Heading>
-                <Text className="text-left">Astounding Projects</Text>
-                <Heading level={3} className="text-left pb-2">
-                  99.7
-                </Heading>
-                <Text className="text-left">Success Rate</Text>
-              </Flex>
-            </div>
-          </div>
-        </div>
-      </DevBlogSection> */}
+
       <DevBlogSection className="">
         <Flex className="flex-col justify-start flex-shrink-0 transform-none">
           <Heading level={2} className="text-left">
@@ -148,59 +104,7 @@ export function Index() {
           </Grid>
         </Flex>
       </DevBlogSection>
-      {/* <DevBlogSection className="">
-        <div className="bg-gray-900 p-10">
-          <Grid className="grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-800 p-5 rounded-md">
-              <div
-                className="w-full h-64 bg-center bg-cover rounded-t-md"
-                style={{
-                  backgroundImage: `url(
-                    https://framerusercontent.com/images/mqjZUMwI5vwxD6Vw7Q7IavHW7Fg.jpg?scale-down-to=512
-                  )`,
-                }}
-              ></div>
-              <Heading level={3} className="text-white">
-                Frankly, I’ve never seen more impressive work in web
-                development. These projects are absolutely mind-blowing.
-              </Heading>
-              <Text className="text-center text-white">Samantha Smith</Text>
-            </div>
 
-            <div className="bg-gray-800 p-5 rounded-md">
-              <div
-                className="w-full h-64 bg-center bg-cover rounded-t-md"
-                style={{
-                  backgroundImage: `url(
-                    https://framerusercontent.com/images/AsH6Ju49a4D9586br57cczPXI.jpg?scale-down-to=512
-                  )`,
-                }}
-              ></div>
-              <Heading level={3} className="text-white mt-4 mb-2">
-                The combination of NX Monorepo, Next.js, and React.js lets my
-                team build projects like never before!
-              </Heading>
-              <Text className="text-center text-white">Lucas Johnson</Text>
-            </div>
-
-            <div className="bg-gray-800 p-5 rounded-md">
-              <div
-                className="w-full h-64 bg-center bg-cover rounded-t-md"
-                style={{
-                  backgroundImage: `url(
-                    https://framerusercontent.com/images/XTFrcWInzeF8NXmDlSsA5wgQjYY.jpg?scale-down-to=512'
-                  )`,
-                }}
-              ></div>
-              <Heading level={3} className="text-white">
-                I can’t even begin to express my gratitude for these incredible
-                resources. Bring on the revolution!
-              </Heading>
-              <Text className="text-center text-white">Alexander Park</Text>
-            </div>
-          </Grid>
-        </div>
-      </DevBlogSection> */}
       {/* <DevBlogSection className="">
         <Flex className="flex-col items-center space-y-6">
           <Heading level={2} className="text-center">

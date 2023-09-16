@@ -236,19 +236,3 @@ a button {
 .moon {
   color: var(--moon-icon-color);
 }
-
-/* SAFARI FIXES */
-/* Only for small devices */
-@media screen and (max-width: 600px) {
-  /* Safari 9.1 to 10.1 */
-  _::-webkit-full-page-media,
-  _:future,
-  :root .body {
-    background-color: blue !important;
-  }
-}
-_::-webkit-full-page-media,
-_:future,
-:root .body {
-  background-color: blue !important;
-}

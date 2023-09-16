@@ -7,7 +7,7 @@ import { getIconForCategory } from '../utils/getIconForCategory';
 
 const DevBlogHighlightedProject = ({ project }) => {
   return (
-    <div className="relative hover:opacity-100 group w-full no-underline-on-hover">
+    <div className="relative lg:hover:opacity-100 group w-full no-underline-on-hover">
       <Link
         href={`/projects/${project.slug}`}
         className="no-underline-on-hover"
@@ -21,7 +21,7 @@ const DevBlogHighlightedProject = ({ project }) => {
           loading="lazy"
         />
 
-        <div className="absolute space-y-6 p-8 inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl w-full">
+        <div className="hidden lg:absolute lg:space-y-6 lg:p-8 lg:inset-0 lg:bg-black lg:bg-opacity-60 lg:flex lg:flex-col lg:justify-center lg:items-center opacity-0 lg:opacity-100 lg:group-hover:opacity-100 lg:transition-opacity lg:duration-300 lg:rounded-2xl lg:w-full">
           <Heading level={3} className="text-center">
             {project.title}
           </Heading>

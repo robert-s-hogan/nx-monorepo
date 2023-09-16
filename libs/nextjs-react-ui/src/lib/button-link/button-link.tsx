@@ -6,10 +6,11 @@ export interface ButtonLinkProps {
   href: string;
   children: React.ReactNode;
   disabled?: boolean;
-  type?: 'button' | 'submit' | 'reset'; // Incorporating the common button types
+  type?: 'button' | 'submit' | 'reset';
   style?: React.CSSProperties;
   className?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  target?: string;
 }
 
 export const ButtonLink: React.FC<ButtonLinkProps> = ({
@@ -20,6 +21,7 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
   style,
   className,
   onClick,
+  target,
 }) => {
   const router = useRouter();
   const combinedStyles = [styles.buttonLink, styles[type], className].join(' ');
@@ -31,7 +33,16 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
       onClick(event);
     }
     if (!disabled) {
-      router.push(href);
+      if (target === '_blank') {
+        // Check if href is already an absolute URL
+        const isAbsoluteURL = new RegExp('^(?:[a-z]+:)?//', 'i').test(href);
+        const fullURL = isAbsoluteURL
+          ? href
+          : `${window.location.origin}${router.basePath}${href}`;
+        window.open(fullURL, '_blank');
+      } else {
+        router.push(href);
+      }
     }
   };
 
