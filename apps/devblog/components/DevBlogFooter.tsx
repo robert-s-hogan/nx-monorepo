@@ -8,13 +8,15 @@ const DevBlogFooter = () => {
   return (
     <footer className="container mx-auto max-w-7xl pb-8 px-4">
       <Flex className="items-center justify-between mt-16">
-        <Image
-          src={RSHLogo}
-          loading="lazy"
-          height={25}
-          width={48}
-          alt="RobertsHogan Logo"
-        />
+        <Link href="/" className="button-link">
+          <Image
+            src={RSHLogo}
+            loading="lazy"
+            height={25}
+            width={48}
+            alt="RobertsHogan Logo"
+          />
+        </Link>
 
         <Flex className="sm:mt-0 pt-4 justify-center  space-x-4">
           <Link
