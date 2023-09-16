@@ -23,6 +23,7 @@ export const themes = {
     'disabled-color': '#EDEDED',
     'sun-icon-color': '#FFD700',
     'moon-icon-color': '#C0C0C0',
+    'bg-opacity-color': 'rgba(255, 255, 255, 0.6)',
   },
   dark: {
     name: 'dark',
@@ -48,5 +49,6 @@ export const themes = {
     'disabled-color': '#5B5B5B',
     'sun-icon-color': '#FFA700',
     'moon-icon-color': '#D3D3D3',
+    'bg-opacity-color': 'rgba(26, 32, 44, 0.6)',
   },
 };

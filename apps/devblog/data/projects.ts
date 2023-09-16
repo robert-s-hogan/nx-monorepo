@@ -129,7 +129,7 @@ export const projectsData: Project[] = [
     image:
       'https://rshogan.imgix.net/projects/devblog/dev_blog-concentration.png',
     description:
-      'Delve into a nostalgic journey with "A Game of Concentration", an emblem of my foundational foray into web development, crafted with vanilla JavaScript and a fine selection of assets.',
+      'Delve into a nostalgic journey with "Concentration", an emblem of my foundational foray into web development.',
     process: {
       title: 'Building from Scratch',
       subtitle: 'My Web Development Onset',

@@ -21,11 +21,11 @@ const DevBlogHighlightedProject = ({ project }) => {
           loading="lazy"
         />
 
-        <div className="absolute space-y-6 p-8 inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center rounded-2xl w-full">
+        <div className="absolute space-y-6 p-8 inset-0 bg-image-overlay bg-opacity-60 flex flex-col justify-center items-center rounded-2xl w-full">
           <Heading level={3} className="text-center">
             {project.title}
           </Heading>
-          <p className="text-white text-center w-full">{project.description}</p>
+          <p className="text-center w-full">{project.description}</p>
 
           <div className="relative flex space-x-2">
             <div className="absolute inset-0 bg-white opacity-85 rounded-2xl" />

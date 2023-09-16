@@ -59,6 +59,9 @@
   h6 {
     @apply text-base;
   }
+  a p {
+    color: var(--text-color);
+  }
   button {
     @apply px-3 py-2 rounded-lg transition-all duration-300;
     outline: none;
@@ -214,7 +217,9 @@ a button {
 }
 
 /* TYPOGRAPHY CLASSES */
-
+.text-on-primary {
+  color: var(--text-on-primary-color);
+}
 .text-on-secondary {
   color: var(--text-on-secondary-color);
 }
@@ -222,7 +227,7 @@ a button {
 /* BACKGROUND CLASSES */
 
 .bg-image-overlay {
-  background-color: var(--bg-color);
+  background-color: var(--bg-opacity-color);
 }
 
 /* DARK LIGHT STYLES */
