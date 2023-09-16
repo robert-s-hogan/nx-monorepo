@@ -81,7 +81,7 @@
   }
 
   .card {
-    @apply bg-gray-200 shadow-lg rounded-2xl p-6;
+    @apply bg-gray-200 shadow-lg rounded-lg p-6;
   }
 
   .card-body {
@@ -101,7 +101,7 @@
   }
 
   .input {
-    @apply rounded-2xl px-3 py-2;
+    @apply rounded-lg px-3 py-2;
   }
 }
 
