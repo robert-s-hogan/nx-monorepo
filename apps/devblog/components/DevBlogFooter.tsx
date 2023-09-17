@@ -12,7 +12,7 @@ import RSHLogo from '../public/images/rsh_logo.png';
 const DevBlogFooter = () => {
   return (
     <footer className="container mx-auto max-w-7xl pb-0 px-4 mt-8">
-      <Flex className="flex-row justify-between md:px-4 py-4 mb-8 items-center mx-0 md:mx-12 space-y-2 md:space-y-0">
+      <Flex className="flex-row justify-between md:px-4 py-4 items-center mx-0 md:mx-12 space-y-2 md:space-y-0">
         <Link href="/" className="button-link">
           <CustomRSHLogo className="h-12 w-12 text-primary nav-logo" />
         </Link>
