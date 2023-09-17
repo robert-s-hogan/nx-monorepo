@@ -110,11 +110,18 @@
     @apply px-3 py-2;
   }
 }
-
+html,
 body {
   background: var(--bg-color);
+}
+
+body {
   color: var(--text-color);
   transition: background-color 0.5s, color 0.5s;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 /* LINKS */
