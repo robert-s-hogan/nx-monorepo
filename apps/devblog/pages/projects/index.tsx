@@ -24,7 +24,7 @@ const ProjectPage = ({ projects }) => {
     <DevBlogLayout>
       <DevBlogSection className="space-y-6">
         <Heading level={1}>Projects</Heading>
-        <DevBlogSubTitle>
+        <DevBlogSubTitle className="pb-6">
           Discover a diverse array of my digital creations, ranging from tools
           to apps, and from libraries to immersive interfaces. Each piece
           showcases the pinnacle of front-end craftsmanship and my dedication to
