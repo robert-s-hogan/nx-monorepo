@@ -78,7 +78,7 @@ function ProjectPage({ project }) {
       </DevBlogSection>
 
       <div className="relative flex space-x-2">
-        <div className="absolute inset-0 bg-opposite-theming opacity-50" />
+        <div className="absolute inset-0 bg-" />
         <Flex className="w-full justify-center items-center h-10 py-2">
           {project.category.map((cat) => {
             return (

@@ -233,6 +233,9 @@ a button {
 .text-on-secondary {
   color: var(--text-on-secondary-color);
 }
+.text-github {
+  color: var(--github-icon-color);
+}
 
 /* BACKGROUND CLASSES */
 .bg-image-overlay {
