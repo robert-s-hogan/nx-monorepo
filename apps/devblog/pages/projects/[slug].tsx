@@ -30,7 +30,8 @@ function ProjectPage({ project }) {
           level={1}
           className="h-full w-auto my-auto relative z-10 text-center pt-32 break-normal"
         >
-          {project.title}
+          <span className="hidden md:inline-block">{project.title}</span>
+          <span className="md:hidden">{project.mobileTitle}</span>
         </Heading>
         <DevBlogSubTitle className="text-center relative z-10">
           {project.description}
