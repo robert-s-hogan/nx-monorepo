@@ -237,6 +237,7 @@ a button {
 /* BACKGROUND CLASSES */
 .bg-image-overlay {
   background-color: var(--bg-opacity-color);
+  transition: background-color 0.3s;
 }
 .bg-image-overlay:hover {
   background-color: transparent;
