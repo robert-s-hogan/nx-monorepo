@@ -38,11 +38,13 @@ type ThemeColors = {
 type ThemeType = {
   name: 'light' | 'dark';
   colors: ThemeColors;
+  fadeClass?: string;
 };
 
 interface ThemeContextType {
   theme: ThemeType;
   toggleTheme: () => void;
+  fadeClass?: string;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -66,11 +68,16 @@ export const ThemeProvider = ({
   const [themeName, setThemeName] = useState<'light' | 'dark'>(
     initialThemeName
   );
+  const [fadeClass, setFadeClass] = useState('');
 
   const toggleTheme = () => {
-    setThemeName((prevThemeName) =>
-      prevThemeName === 'light' ? 'dark' : 'light'
-    );
+    setFadeClass('fade-out');
+    setTimeout(() => {
+      setThemeName((prevThemeName) =>
+        prevThemeName === 'light' ? 'dark' : 'light'
+      );
+      setFadeClass('');
+    }, 300);
   };
 
   useEffect(() => {
@@ -96,7 +103,7 @@ export const ThemeProvider = ({
   return (
     <ThemeContext.Provider
       value={{
-        theme: { name: themeName, colors: themes[themeName] },
+        theme: { name: themeName, colors: themes[themeName], fadeClass },
         toggleTheme,
       }}
     >

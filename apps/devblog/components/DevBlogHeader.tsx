@@ -14,7 +14,7 @@ const logo = (
     alt="Robert's Dev Logo"
     height={41}
     width={48}
-    className="mr0 md:mr-4"
+    className="mr0 md:mr-4 nav-logo"
   />
 );
 
@@ -36,7 +36,7 @@ const links: {
 ];
 
 const DevBlogHeader = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, fadeClass } = useTheme();
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -47,9 +47,9 @@ const DevBlogHeader = () => {
   const toggleButton = isMounted ? (
     <Button onClick={toggleTheme} className="button-icon p-0">
       {theme && theme.name === 'light' ? (
-        <FeatherMoon className="moon h-6 w-6" />
+        <FeatherMoon className={`moon h-6 w-6 ${fadeClass}`} />
       ) : (
-        <FeatherSun className="sun h-6 w-6" />
+        <FeatherSun className={`sun h-6 w-6 ${fadeClass}`} />
       )}
     </Button>
   ) : null;

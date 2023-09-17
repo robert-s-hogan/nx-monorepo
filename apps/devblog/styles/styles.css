@@ -114,6 +114,7 @@
 body {
   background: var(--bg-color);
   color: var(--text-color);
+  transition: background-color 0.5s, color 0.5s;
 }
 
 /* LINKS */
@@ -242,15 +243,26 @@ a button {
 }
 
 /* DARK LIGHT STYLES */
-
+.moon,
+.sun {
+  transition: opacity 0.3s, transform 0.3s;
+}
 .sun {
   color: var(--sun-icon-color);
 }
-
 .moon {
   color: var(--moon-icon-color);
+}
+.moon.fade-out,
+.sun.fade-out {
+  opacity: 0;
+  transform: scale(0.9); /* Slight shrink */
 }
 
 .icon-white svg {
   stroke: #ffffff;
+}
+
+.nav-logo {
+  transition: opacity 0.3s;
 }

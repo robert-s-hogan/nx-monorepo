@@ -27,26 +27,6 @@ const DevBlogHighlightedProject = ({ project }) => {
             <span className="md:hidden">{project.mobileTitle}</span>
           </Heading>
           <p className="text-center w-full">{project.description}</p>
-
-          <div className="relative flex space-x-2">
-            <div className="absolute inset-0 bg-opposite-theming opacity-50 rounded" />
-            <Flex className="w-full items-center h-10 rounded py-2">
-              {project.category.map((cat) => {
-                return (
-                  <span
-                    key={cat}
-                    className={`relative z-10 text-2xl rounded-full overflow-hidden p-1 ${
-                      cat === 'GithubPages'
-                        ? 'flex items-center justify-center'
-                        : ''
-                    }`}
-                  >
-                    {getIconForCategory(cat)}
-                  </span>
-                );
-              })}
-            </Flex>
-          </div>
         </div>
       </Link>
     </div>
