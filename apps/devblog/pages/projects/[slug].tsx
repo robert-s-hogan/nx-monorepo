@@ -44,13 +44,15 @@ function ProjectPage({ project }) {
             href={project.link}
             target="_blank"
             disabled={project.isUnderConstruction}
-            className={`btn-primary ${
-              project.isUnderConstruction ? 'disabled no-underline' : ''
+            className={` ${
+              project.isUnderConstruction
+                ? 'disabled no-underline'
+                : 'btn-primary'
             }`}
           >
             {project.isUnderConstruction ? (
               <Flex className="space-x-4 items-center cursor-not-allowed">
-                <BiWrench size={18} className="mr-2" />
+                <BiWrench size={24} className="mr-2" />
                 Under Construction
               </Flex>
             ) : (

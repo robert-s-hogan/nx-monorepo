@@ -196,6 +196,7 @@ a button {
   box-shadow: var(--box-shadow);
 }
 
+.disabled,
 .btn-primary:disabled {
   background-color: var(--disabled-color);
   cursor: not-allowed;
