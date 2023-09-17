@@ -65,8 +65,14 @@
     color: var(--text-color);
   }
   button {
-    @apply px-3 py-2 rounded-lg transition-all duration-300;
+    @apply px-3 py-2 transition-all duration-300;
     outline: none;
+  }
+  img,
+  button,
+  .input,
+  .card {
+    @apply rounded;
   }
 }
 
@@ -81,7 +87,7 @@
   }
 
   .card {
-    @apply bg-gray-200 shadow-lg rounded-lg p-6;
+    @apply bg-gray-200 shadow-lg p-6;
   }
 
   .card-body {
@@ -101,7 +107,7 @@
   }
 
   .input {
-    @apply rounded-lg px-3 py-2;
+    @apply px-3 py-2;
   }
 }
 

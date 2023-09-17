@@ -10,6 +10,7 @@ type Entry = {
 export type Project = {
   slug: string;
   title: string;
+  mobileTitle: string;
   image: string;
   description: string;
   process: Entry;
@@ -28,6 +29,7 @@ export const projectsData: Project[] = [
   {
     slug: 'play-2-win-ff',
     title: 'p2w Draft Tool',
+    mobileTitle: 'p2w Draft Tool',
     image: 'https://rshogan.imgix.net/projects/play2winff/p2w_hero.png',
     description:
       'Crafted for Yahoo fantasy football leagues, this tool is indispensable for tracking NFL updates.',
@@ -75,6 +77,7 @@ export const projectsData: Project[] = [
   {
     slug: 'react-ui-library',
     title: 'React UI Library',
+    mobileTitle: 'React UI Library',
     image:
       'https://rshogan.imgix.net/projects/devblog/dev_blog_react-ui-library.png',
     description:
@@ -126,6 +129,7 @@ export const projectsData: Project[] = [
   {
     slug: 'memory-game',
     title: 'Concentration',
+    mobileTitle: 'Game of Memory',
     image:
       'https://rshogan.imgix.net/projects/devblog/dev_blog-concentration.png',
     description:
@@ -178,6 +182,7 @@ export const projectsData: Project[] = [
   {
     slug: 'swapi-plus',
     title: 'SWAPI+: A New Canon Begins',
+    mobileTitle: 'SWAPI+: A New Canon Begins',
     image: 'https://rshogan.imgix.net/projects/devblog/devblog-swapi-plus.webp',
     description:
       'Redefining the galaxy: An enhanced, interactive showcase of Star Wars characters, centered around the new Disney Canon, built using cutting-edge technologies.',
@@ -228,6 +233,7 @@ export const projectsData: Project[] = [
   {
     slug: 'interactive-map',
     title: 'DnD Campaign Cartographer',
+    mobileTitle: 'DnD Campaign MapArt',
     description:
       'Crafted exclusively for Dungeons and Dragons enthusiasts, this map tool facilitates Dungeon Masters in charting their adventures, enabling a cohesive and engaging narrative experience for all players.',
     image: 'https://rshogan.imgix.net/projects/devblog/dev_blog-map.png',
@@ -278,6 +284,7 @@ export const projectsData: Project[] = [
   {
     slug: 'custom-google-search',
     title: 'Freelance Web Scout',
+    mobileTitle: 'Solo Web Scout',
     image:
       'https://rshogan.imgix.net/projects/devblog/devblog_custom-google-search-2.png',
     description:

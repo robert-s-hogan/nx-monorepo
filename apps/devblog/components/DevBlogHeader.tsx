@@ -45,7 +45,7 @@ const DevBlogHeader = () => {
   }, []);
 
   const toggleButton = isMounted ? (
-    <Button onClick={toggleTheme} className="button-icon p-0 !ml-0 md:pl-4">
+    <Button onClick={toggleTheme} className="button-icon p-0">
       {theme && theme.name === 'light' ? (
         <FeatherMoon className="moon h-6 w-6" />
       ) : (
@@ -56,8 +56,8 @@ const DevBlogHeader = () => {
 
   return (
     <header className="container mx-auto max-w-7xl pb-0 px-4 mt-8">
-      <Flex className="flex-col justify-center md:px-4 md:flex-row md:justify-between py-4 mb-8 items-center border-y mx-0 md:mx-12 space-y-2 md:space-y-0">
-        <Flex className="items-center justify-center">
+      <Flex className="flex-row justify-between md:px-4 py-4 mb-8 items-center border-y mx-0 md:mx-12 space-y-2 md:space-y-0">
+        <Flex className="items-center">
           <Link href="/" className="button-link">
             {logo}
           </Link>
@@ -65,7 +65,7 @@ const DevBlogHeader = () => {
             <span>Robert Hogan</span>
           </Link>
         </Flex>
-        <Flex className="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-4 items-center">
+        <Flex className="flex items-center space-x-4">
           {links.map((link) => (
             <Link key={link.href} href={link.href} className="">
               <span>{link.children}</span>
