@@ -35,6 +35,7 @@ function ProjectPage({ project }) {
           </span>
           <span className="text-5xl md:hidden">{project.mobileTitle}</span>
         </Heading>
+
         <DevBlogSubTitle className="text-center relative z-10">
           {project.description}
         </DevBlogSubTitle>
@@ -113,7 +114,7 @@ function ProjectPage({ project }) {
         <p className="leading-relaxed">{project.purpose.description}</p>
       </DevBlogSection>
 
-      {project.resources && (
+      {/* {project.resources && (
         <DevBlogSection maxWidth={true} className="bg-secondary-color">
           <div className="container max-w-7xl mx-auto px-2">
             <DevBlogProjectsThemeSection
@@ -138,7 +139,7 @@ function ProjectPage({ project }) {
             </ul>
           </div>
         </DevBlogSection>
-      )}
+      )} */}
     </DevBlogLayout>
   );
 }

@@ -277,7 +277,7 @@ export const projectsData: Project[] = [
     },
     resources: ['#1', '#2', '#3'],
     link: 'https://www.roberthogan.dev/projects/dnd-interactive-map',
-    github: '', // If you decide to add a GitHub link in the future, you can update this.
+    github: '',
     category: ['React', 'Next', 'NX', 'TailwindCSS'],
     isUnderConstruction: true,
   },
@@ -328,8 +328,8 @@ export const projectsData: Project[] = [
     },
     resources: ['#1', '#2', '#3'],
     link: 'https://rshogan.imgix.net/projects/devblog/devblog_custom-google-search.png',
-    github: '', // If you decide to add a GitHub link in the future, you can update this.
+    github: '',
     category: ['React', 'TailwindCSS', 'Google'],
-    isUnderConstruction: false,
+    isUnderConstruction: true,
   },
 ];
