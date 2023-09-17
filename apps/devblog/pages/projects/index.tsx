@@ -41,7 +41,8 @@ const ProjectPage = ({ projects }) => {
                   width={400}
                   className="h-[400px] w-full md:h-[400px] object-cover rounded"
                 />
-                <div className="absolute inset-0 bg-image-overlay"></div>
+
+                <div className="absolute inset-0 bg-image-overlay hover:opacity-100"></div>
               </div>
 
               <Heading level={3} className="py-6">

@@ -238,6 +238,9 @@ a button {
 .bg-image-overlay {
   background-color: var(--bg-opacity-color);
 }
+.bg-image-overlay:hover {
+  background-color: transparent;
+}
 .bg-opposite-theming {
   background-color: var(--text-color);
 }
