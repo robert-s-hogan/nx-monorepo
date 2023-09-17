@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Box, Button, Flex, Heading, Link } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
 import { BiWrench } from 'react-icons/bi';
-import { getIconForCategory } from '../utils/getIconForCategory';
 
 const DevBlogHighlightedProject = ({ project }) => {
   return (

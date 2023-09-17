@@ -11,6 +11,8 @@ import DevBlogSection from '../../components/DevBlogSection';
 import DevBlogProjectsThemeSection from '../../components/DevBlogProjectsThemeSection';
 import { projectsData } from '../../data/projects';
 
+import { getIconForCategory } from '../../utils/getIconForCategory';
+
 function ProjectPage({ project }) {
   const router = useRouter();
   const { slug } = router.query;
@@ -74,6 +76,26 @@ function ProjectPage({ project }) {
           )}
         </div>
       </DevBlogSection>
+
+      <div className="relative flex space-x-2">
+        <div className="absolute inset-0 bg-opposite-theming" />
+        <Flex className="w-full justify-center items-center h-10 py-2">
+          {project.category.map((cat) => {
+            return (
+              <span
+                key={cat}
+                className={`relative z-10 text-2xl rounded-full overflow-hidden p-1 ${
+                  cat === 'GithubPages'
+                    ? 'flex items-center justify-center'
+                    : ''
+                }`}
+              >
+                {getIconForCategory(cat)}
+              </span>
+            );
+          })}
+        </Flex>
+      </div>
 
       <DevBlogSection maxWidth={true} className="bg-secondary-color">
         <div className="container max-w-7xl mx-auto px-4">
