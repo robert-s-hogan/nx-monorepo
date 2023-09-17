@@ -4,18 +4,19 @@ import { ButtonProps, LinkProps } from '@with-nx/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from '@with-nx/theme';
-import { FeatherMoon, FeatherSun } from '@with-nx/icons';
+import { CustomRSHLogo, FeatherMoon, FeatherSun } from '@with-nx/icons';
 import { useState, useEffect } from 'react';
 import RSHLogo from '../public/images/rsh_logo.png';
 
 const logo = (
-  <Image
-    src={RSHLogo}
-    alt="Robert's Dev Logo"
-    height={41}
-    width={48}
-    className="mr0 md:mr-4 nav-logo"
-  />
+  // <Image
+  //   src={RSHLogo}
+  //   alt="Robert's Dev Logo"
+  //   height={41}
+  //   width={48}
+  //   className="mr0 md:mr-4 nav-logo"
+  // />
+  <CustomRSHLogo className="h-12 w-12 md:mb-2 text-primary nav-logo" />
 );
 
 const links: {
@@ -56,7 +57,7 @@ const DevBlogHeader = () => {
 
   return (
     <header className="container mx-auto max-w-7xl pb-0 px-4 mt-8">
-      <Flex className="flex-row justify-between md:px-4 py-4 mb-8 items-center border-y mx-0 md:mx-12 space-y-2 md:space-y-0">
+      <Flex className="flex-row justify-between md:px-4 pb-2 md:pb-0 mb-8 items-center border-y mx-0 md:mx-12 space-y-2 md:space-y-0">
         <Flex className="items-center">
           <Link href="/" className="button-link">
             {logo}
