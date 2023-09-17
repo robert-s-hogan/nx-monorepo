@@ -68,11 +68,20 @@ export const ThemeProvider = ({
   );
 
   const toggleTheme = () => {
-    console.log('toggleTheme is called');
     setThemeName((prevThemeName) =>
       prevThemeName === 'light' ? 'dark' : 'light'
     );
   };
+
+  useEffect(() => {
+    // This code runs client-side after the component has mounted
+    const savedTheme = window.localStorage.getItem('theme-name') as
+      | 'light'
+      | 'dark';
+    if (savedTheme) {
+      setThemeName(savedTheme);
+    }
+  }, []); // Empty dependency array ensures this useEffect runs only once
 
   useEffect(() => {
     const root = document.documentElement;
@@ -81,6 +90,7 @@ export const ThemeProvider = ({
     Object.keys(themeColors).forEach((colorKey) => {
       root.style.setProperty(`--${colorKey}`, themeColors[colorKey]);
     });
+    window.localStorage.setItem('theme-name', themeName);
   }, [themeName, themes]);
 
   return (

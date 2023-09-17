@@ -29,7 +29,7 @@ const DevBlogHighlightedProject = ({ project }) => {
           <p className="text-center w-full">{project.description}</p>
 
           <div className="relative flex space-x-2">
-            <div className="absolute inset-0 bg-opposite-theming opacity-80 rounded" />
+            <div className="absolute inset-0 bg-opposite-theming opacity-50 rounded" />
             <Flex className="w-full items-center h-10 rounded py-2">
               {project.category.map((cat) => {
                 return (
