@@ -25,11 +25,13 @@ const DevBlogLayout = ({
       footer={<DevBlogFooter />}
     >
       <Seo
-        title={title ? title : 'Portfolio | Robert Hogan'}
+        title={
+          title ? title : 'Robert Hogan - Front-End UI Engineer | Portfolio'
+        }
         description={
           description
             ? description
-            : 'Explore Robert Hogans portfolio as a Front End UI/UX Engineer, showcasing his expertise in creating innovative web solutions with cutting-edge technologies like Vercel, NX, and Next.js. Discover his featured projects, including an interactive map, memory game, and more.'
+            : 'Robert Hogan, a seasoned Front-End UI Engineer crafting efficient and user-centric digital experiences. Explore highlighted projects such as the p2w Draft Tool, React UI Library, and Concentration game.'
         }
         url="https://www.roberthogan.dev/"
         faviconPath="http://robertshogan.dreamhosters.com/projects/devblog/favicon.ico"
@@ -37,7 +39,7 @@ const DevBlogLayout = ({
         twitterHandle="@robert_s_hogan"
         siteName="Robert Hogans Portfolio"
         appleTouchIconPath="/apple-touch-icon.png"
-        keywords="Robert Hogan, Portfolio, Front End UI/UX Engineer, Vercel, NX, Next.js, featured projects, private NX monorepo, Star Wars API Pagination, interactive map, Memory Game, Game of Concentration, vanilla javascript, web development, web solutions."
+        keywords="Robert Hogan, Front-End UI Engineer, Portfolio, p2w Draft Tool, React UI Library, Concentration, web development, digital experiences, fantasy football tool, Yahoo fantasy football, UI design, React."
       />
       <div
         className={`mx-auto ${

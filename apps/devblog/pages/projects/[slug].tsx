@@ -22,7 +22,10 @@ function ProjectPage({ project }) {
   }
 
   return (
-    <DevBlogLayout>
+    <DevBlogLayout
+      title={`${project.title} | Robert Hogan's Projects`}
+      description={project.description}
+    >
       <DevBlogSection
         className="bg-cover bg-center relative my-0"
         style={{ backgroundImage: `url(${project.media.image})` }}

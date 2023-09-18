@@ -21,10 +21,13 @@ const ProjectPage = ({ projects }) => {
   const { projectId } = router.query;
 
   return (
-    <DevBlogLayout>
+    <DevBlogLayout
+      title="Robert Hogan's Projects - Digital Creations & Front-End Craftsmanship"
+      description="Dive into Robert Hogan's curated showcase of digital projects, from cutting-edge tools and apps to libraries and immersive interfaces. Each piece demonstrates mastery in front-end development and user experience design."
+    >
       <DevBlogSection className="space-y-6">
         <Heading level={1}>Projects</Heading>
-        <DevBlogSubTitle className="pb-6">
+        <DevBlogSubTitle className="pb-6 max-w-3xl mx-auto">
           Discover a diverse array of my digital creations, ranging from tools
           to apps, and from libraries to immersive interfaces. Each piece
           showcases the pinnacle of front-end craftsmanship and my dedication to

@@ -1,4 +1,5 @@
 // lib/index.ts
+export * from './lib/dazzle';
 export * from './lib/feather';
 export * from './lib/font-awesome';
 export * from './lib/game-icons';
