@@ -249,8 +249,10 @@ a button {
   background-color: var(--bg-opacity-color);
   transition: background-color 0.3s;
 }
-.bg-image-overlay:hover {
-  background-color: transparent;
+@media (min-width: 1024px) {
+  .image-overlay:hover {
+    background-color: transparent;
+  }
 }
 .bg-opposite-theming {
   background-color: var(--text-color);

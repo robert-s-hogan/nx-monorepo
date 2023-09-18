@@ -16,7 +16,7 @@ const DevBlogHighlightedProject = ({ project }) => {
           height={400}
           width={400}
           alt={project.title}
-          className="h-[400px] w-full md:h-[400px] object-cover"
+          className="h-[400px] w-full md:h-[400px]  object-cover"
           loading="lazy"
         />
 
