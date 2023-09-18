@@ -22,6 +22,9 @@ interface IconLibraryProps {
     feather: boolean;
     fontAwesome: boolean;
     gameIcons: boolean;
+    dazzle: boolean;
+    custom: boolean;
+    phosphor: boolean;
   };
   setFilters: (filters: Filters | ((prev: Filters) => Filters)) => void;
 }
@@ -86,7 +89,10 @@ const IconLibrary: React.FC<IconLibraryProps> = ({
             const isInSelectedLibrary =
               (icon.name.startsWith('Feather') && filters.feather) ||
               (icon.name.startsWith('Fa') && filters.fontAwesome) ||
-              (icon.name.startsWith('GameIcon') && filters.gameIcons);
+              (icon.name.startsWith('GameIcon') && filters.gameIcons) ||
+              (icon.name.startsWith('Dazzle') && filters.dazzle) ||
+              (icon.name.startsWith('Phosphor') && filters.phosphor) ||
+              (icon.name.startsWith('Custom') && filters.custom);
             return includesSearchTerm && isInSelectedLibrary;
           })
 

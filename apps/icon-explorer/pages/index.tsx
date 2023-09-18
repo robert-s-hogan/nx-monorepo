@@ -22,6 +22,9 @@ export function Index() {
     fontAwesome: true,
     feather: true,
     gameIcons: true,
+    dazzle: true,
+    custom: true,
+    phosphor: true,
   });
 
   const handleFilterChange = (name: keyof typeof filters, value: boolean) => {

@@ -4,6 +4,9 @@ type FiltersType = {
   feather: boolean;
   fontAwesome: boolean;
   gameIcons: boolean;
+  dazzle: boolean;
+  custom: boolean;
+  phosphor: boolean;
 };
 
 interface FilterProps {
