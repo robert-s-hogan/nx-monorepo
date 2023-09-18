@@ -21,7 +21,7 @@ export function getIconForCategory(category: string): JSX.Element | null {
     case 'React':
       return <FaReact className="text-react-js" />;
     case 'Next':
-      return <SiNextdotjs className="text-next-js" />;
+      return <SiNextdotjs className="stroke-next-js" />;
     case 'API':
       return <AiOutlineApi className="text-api" />;
     case 'JavaScript':
@@ -29,7 +29,7 @@ export function getIconForCategory(category: string): JSX.Element | null {
     case 'CSS':
       return <SiCss3 className="text-css" />;
     case 'NX':
-      return <SiNx className="text-nx" />;
+      return <SiNx className="stroke-nx" />;
     case 'Typescript':
       return <SiTypescript className="text-typescript" />;
     case 'Storybook':
