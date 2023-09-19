@@ -11,7 +11,8 @@ export function Index() {
                 className="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12"
                 style={{ color: 'hsl(218, 81%, 95%)' }}
               >
-                The best offer <br />
+                {' '}
+                DBSMarin The best offer <br />
                 <span style={{ color: 'hsl(218, 81%, 75%)' }}>
                   for your business
                 </span>
