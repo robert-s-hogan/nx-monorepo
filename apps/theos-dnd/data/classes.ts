@@ -1,0 +1,177 @@
+import { Class } from '../types/entity';
+
+export const classes: Class[] = [
+  {
+    slug: 'artificer',
+    className: 'artificer',
+    name: 'Artificer',
+    health: 75,
+    hitDamage: 7,
+    criticalDamage: 14,
+    defense: 5,
+    description:
+      'Inventors and creators, artificers craft magical gadgets and imbue items with arcane power.',
+    image:
+      'https://rshogan.imgix.net/projects/theos-dnd/theos-dnd-artificer.png',
+    deadImage: '',
+  },
+  {
+    slug: 'bard',
+    className: 'bard',
+    name: 'Bard',
+    health: 70,
+    hitDamage: 7,
+    criticalDamage: 14,
+    defense: 4,
+    description:
+      'Versatile performers with the ability to cast spells and inspire allies through music and tales.',
+    image: 'https://rshogan.imgix.net/projects/theos-dnd/theos-dnd-bard.png',
+    deadImage: '',
+  },
+  {
+    slug: 'blood-hunter',
+    className: 'blood hunter',
+    name: 'Blood Hunter',
+    health: 70,
+    hitDamage: 8,
+    criticalDamage: 16,
+    defense: 4,
+    image:
+      'https://rshogan.imgix.net/projects/theos-dnd/theos-dnd-blood-hunter',
+    description:
+      'Mysterious and feared for their dark arcane rites, they specialize in tracking and hunting supernatural creatures.',
+    deadImage: '',
+  },
+  {
+    slug: 'barbarian',
+    className: 'barbarian',
+    name: 'Barbarian',
+    health: 100,
+    hitDamage: 10,
+    criticalDamage: 20,
+    defense: 2,
+    description:
+      'Fierce warriors who channel their rage into powerful attacks and have unparalleled strength.',
+    image:
+      'https://rshogan.imgix.net/projects/theos-dnd/theos-dnd-barbarian.png',
+    deadImage: '',
+  },
+  {
+    slug: 'cleric',
+    className: 'cleric',
+    name: 'Cleric',
+    health: 80,
+    hitDamage: 7,
+    criticalDamage: 14,
+    defense: 5,
+    image: 'https://rshogan.imgix.net/projects/theos-dnd/theos-dnd-cleric.png',
+    description:
+      'Healers and protectors, clerics are known for their supportive roles and divine magic.',
+    deadImage: '',
+  },
+  {
+    slug: 'druid',
+    className: 'druid',
+    name: 'Druid',
+    health: 75,
+    hitDamage: 7,
+    criticalDamage: 15,
+    defense: 4,
+    description:
+      'Protectors of nature, druids can shape-shift into animals and command the forces of nature.',
+    image: 'https://rshogan.imgix.net/projects/theos-dnd/theos-dnd-druid.png',
+    deadImage: '',
+  },
+  {
+    slug: 'mage',
+    className: 'mage',
+    name: 'Mage',
+    health: 60,
+    hitDamage: 9,
+    criticalDamage: 18,
+    defense: 3,
+    image: 'https://rshogan.imgix.net/projects/theos-dnd/theos-dnd-mage.png',
+    description:
+      'Practitioners of arcane magic, mages are versatile spellcasters with a wide array of magical abilities.',
+    deadImage: '',
+  },
+  {
+    slug: 'monk',
+    className: 'monk',
+    name: 'Monk',
+    health: 80,
+    hitDamage: 7,
+    criticalDamage: 15,
+    defense: 4,
+    description:
+      'Martial artists who harness the power of their chi to deliver quick and powerful blows.',
+    image: 'https://rshogan.imgix.net/projects/theos-dnd/theos-dnd-monk.png',
+    deadImage: '',
+  },
+  {
+    slug: 'paladin',
+    className: 'paladin',
+    name: 'Paladin',
+    health: 90,
+    hitDamage: 8,
+    criticalDamage: 16,
+    defense: 5,
+    description:
+      'Holy warriors who smite enemies with divine wrath and can heal allies.',
+    image: 'https://rshogan.imgix.net/projects/theos-dnd/theos-dnd-paladin.png',
+    deadImage: '',
+  },
+  {
+    slug: 'ranger',
+    className: 'ranger',
+    name: 'Ranger',
+    health: 85,
+    hitDamage: 8,
+    criticalDamage: 16,
+    defense: 4,
+    description:
+      'Skilled hunters and trackers, rangers are proficient in both melee and ranged combat.',
+    image: 'https://rshogan.imgix.net/projects/theos-dnd/theos-dnd-ranger.png',
+    deadImage: '',
+  },
+  {
+    slug: 'rogue',
+    className: 'sorcerer',
+    name: 'Sorcerer',
+    health: 60,
+    hitDamage: 9,
+    criticalDamage: 19,
+    defense: 3,
+    description:
+      'Innate casters with raw magical talent, often with a hint of wild magic.',
+    image:
+      'https://rshogan.imgix.net/projects/theos-dnd/theos-dnd-sorcerer.png',
+    deadImage: '',
+  },
+  {
+    slug: 'warlock',
+    className: 'warlock',
+    name: 'Warlock',
+    health: 65,
+    hitDamage: 8,
+    criticalDamage: 18,
+    defense: 3,
+    description:
+      'Spellcasters who derive their power from pacts with ancient and powerful beings.',
+    image: 'https://rshogan.imgix.net/projects/theos-dnd/theos-dnd-warlock.png',
+    deadImage: '',
+  },
+  {
+    slug: 'wizard',
+    className: 'wizard',
+    name: 'Wizard',
+    health: 55,
+    hitDamage: 8,
+    criticalDamage: 17,
+    defense: 2,
+    description:
+      'Masters of arcane knowledge, wizards have a wide repertoire of spells they can cast from their spellbooks.',
+    image: 'https://rshogan.imgix.net/projects/theos-dnd/theos-dnd-wizard.png',
+    deadImage: '',
+  },
+];
