@@ -77,8 +77,8 @@ export default function CreaturePage({ creature }: Props) {
 
   return (
     <TheosDndLayout>
-      <Grid className="grid-cols-1 md:grid-cols-7">
-        <Flex className="flex-col md:col-span-3 md:justify-center md:items-center">
+      <Grid className="grid-cols-1 md:grid-cols-5 gap-6 mb-12">
+        <Flex className="flex-col md:col-span-2 md:justify-center md:items-center">
           <TheosDndInfoCard data={player} />
           <span className="text-xs">
             <select value={player.className} onChange={handleClassChange}>
@@ -90,16 +90,16 @@ export default function CreaturePage({ creature }: Props) {
             </select>
           </span>
         </Flex>
-        <Flex className="flex-col justify-center items-center">
+        <Flex className="flex-row md:flex-col justify-center items-center">
           <DiceRoller
             onRoll={handleDiceRoll}
             defense={currentCreature.defense}
           />
-          <Heading level={2} className="text-center mt-16">
+          <Heading level={2} className="text-center mt-12 md:mt-16">
             VS
           </Heading>
         </Flex>
-        <Flex className="flex-col space-y-4 md:col-span-3 md:justify-center md:items-center">
+        <Flex className="flex-col md:col-span-2 file:space-y-4 md:justify-center md:items-center">
           <TheosDndInfoCard data={currentCreature} />
         </Flex>
       </Grid>

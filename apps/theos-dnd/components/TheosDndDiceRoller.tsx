@@ -35,7 +35,7 @@ const DiceRoller: React.FC<DiceRollerProps> = ({ defense, onRoll }) => {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-0 md:space-y-4">
       {outcome ? (
         <div
           className={`flex flex-col items-center space-x-2 transition-opacity duration-1000 ${

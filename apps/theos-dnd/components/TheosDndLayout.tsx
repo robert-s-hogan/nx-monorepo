@@ -41,7 +41,9 @@ const DevBlogLayout = ({
       <div
         className={`mx-auto ${
           hideMaxWidth7xl ? 'max-w-full' : ''
-        } selection:bg-primary ${className}`}
+        } selection:bg-primary container max-w-7xl ${
+          className ? className : ''
+        }`}
       >
         {children}
       </div>

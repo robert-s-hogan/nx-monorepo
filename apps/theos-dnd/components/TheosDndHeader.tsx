@@ -4,7 +4,13 @@ import { ButtonProps, LinkProps } from '@with-nx/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from '@with-nx/theme';
-import { GameIconDoubleDragon, FeatherMoon, FeatherSun } from '@with-nx/icons';
+import {
+  GameIconDoubleDragon,
+  GameIconHolyHandGrenade,
+  GameIconSkeletonKey,
+  FeatherMoon,
+  FeatherSun,
+} from '@with-nx/icons';
 import { useState, useEffect } from 'react';
 
 const logo = <GameIconDoubleDragon className="w-12 h-12" />;
@@ -38,9 +44,9 @@ const DevBlogHeader = () => {
   const toggleButton = isMounted ? (
     <Button onClick={toggleTheme} className="button-icon p-0">
       {theme && theme.name === 'light' ? (
-        <FeatherMoon className={`moon h-6 w-6 ${fadeClass}`} />
+        <GameIconHolyHandGrenade className={`moon h-6 w-6 ${fadeClass}`} />
       ) : (
-        <FeatherSun className={`sun h-6 w-6 ${fadeClass}`} />
+        <GameIconSkeletonKey className={`sun h-6 w-6 ${fadeClass}`} />
       )}
     </Button>
   ) : null;

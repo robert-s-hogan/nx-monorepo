@@ -70,12 +70,22 @@ export const ThemeProvider = ({
   );
   const [fadeClass, setFadeClass] = useState('');
 
+  const playSound = (soundPath: string) => {
+    const audioElement = new Audio(soundPath);
+    audioElement.play();
+  };
+
   const toggleTheme = () => {
     setFadeClass('fade-out');
     setTimeout(() => {
-      setThemeName((prevThemeName) =>
-        prevThemeName === 'light' ? 'dark' : 'light'
-      );
+      setThemeName((prevThemeName) => {
+        const newThemeName = prevThemeName === 'light' ? 'dark' : 'light';
+
+        // Play the sound for the new theme
+        playSound(themes[newThemeName].sound);
+
+        return newThemeName;
+      });
       setFadeClass('');
     }, 300);
   };

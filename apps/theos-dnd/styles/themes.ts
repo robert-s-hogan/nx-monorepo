@@ -24,6 +24,8 @@ export const themes = {
     'sun-icon-color': '#FFD700',
     'moon-icon-color': '#C0C0C0',
     'bg-opacity-color': 'rgba(255, 255, 229, 0.6)', // Based on the light beige bg-color
+    sound:
+      'https://rshogan.imgix.net/projects/theos-dnd/light_mode_toggle_music.mov',
   },
   dark: {
     name: 'dark',
@@ -50,5 +52,7 @@ export const themes = {
     'sun-icon-color': '#FFB640', // A deeper sun icon color
     'moon-icon-color': '#B0B0B0', // A muted moon icon color
     'bg-opacity-color': 'rgba(27, 30, 35, 0.8)', // Based on the dark gray bg-color
+    sound:
+      'https://rshogan.imgix.net/projects/theos-dnd/dark_mode_toggle_music.mov',
   },
 };
