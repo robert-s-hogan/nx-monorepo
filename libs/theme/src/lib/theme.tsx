@@ -32,7 +32,7 @@ type ThemeColors = {
   'active-color': string; // Active state color.
   'disabled-color': string; // Disabled state color.
 
-  // ... any other necessary colors
+  sound: string;
 };
 
 type ThemeType = {
@@ -69,9 +69,13 @@ export const ThemeProvider = ({
     initialThemeName
   );
   const [fadeClass, setFadeClass] = useState('');
+  const [isToggleLocked, setIsToggleLocked] = useState(false);
 
   const playSound = (soundPath: string) => {
     const audioElement = new Audio(soundPath);
+    audioElement.onended = () => {
+      setIsToggleLocked(false); // Unlock the toggle after the sound finishes
+    };
     audioElement.play();
   };
 

@@ -16,7 +16,7 @@ export function Index() {
         <h1>Theo's DnD</h1>
       </Section>
       <Section className="text-center">
-        <Grid className="grid-cols-1 md:grid-cols-3 gap-12">
+        <Grid className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-12">
           {creatures.map((creature) => (
             <a href={`/creatures/${creature.slug}`} key={creature.name}>
               <TheosDndInfoCard data={creature} />

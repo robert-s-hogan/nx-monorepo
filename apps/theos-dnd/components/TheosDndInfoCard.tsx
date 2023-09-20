@@ -21,15 +21,13 @@ export default function InfoCard({ data }: CardProps) {
         <FeatherHeart className="absolute left-0 top-[-1] w-8 h-8" />
         <span className="text-xs">{data.health}</span>
       </div>
-      <div className="h-[200px] w-full md:h-auto xl:h-[400px]">
-        <Image
-          src={isDead && data.deadImage ? data.deadImage : data.image}
-          alt={data.name}
-          height={400}
-          width={400}
-          className="object-cover"
-        />
-      </div>
+      <Image
+        src={isDead && data.deadImage ? data.deadImage : data.image}
+        alt={data.name}
+        height={400}
+        width={400}
+        className="h-[400px] w-full md:h-[400px]  object-cover"
+      />
       {isDead && (
         <div className="absolute inset-0 bg-red-500 opacity-50 flex items-center justify-center">
           <span className="text-2xl font-bold text-white uppercase">Dead</span>
