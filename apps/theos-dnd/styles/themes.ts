@@ -25,7 +25,7 @@ export const themes = {
     'moon-icon-color': '#C0C0C0',
     'bg-opacity-color': 'rgba(232, 245, 233, 0.6)',
     sound:
-      'https://rshogan.imgix.net/projects/theos-dnd/sound/light_mode_toggle_music.mov',
+      'https://rshogan.imgix.net/projects/theos-dnd/sounds/light_mode_toggle_flute.wav',
   },
   dark: {
     name: 'dark',
@@ -53,6 +53,6 @@ export const themes = {
     'moon-icon-color': '#B0B0B0',
     'bg-opacity-color': 'rgba(0, 0, 0, 0.8)',
     sound:
-      'https://rshogan.imgix.net/projects/theos-dnd/sound/dark_mode_toggle_scare.wav',
+      'https://rshogan.imgix.net/projects/theos-dnd/sounds/dark_mode_toggle_roar.wav',
   },
 };

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { Howl } from 'howler';
 
 type ThemeColors = {
   // Core palette
@@ -73,11 +74,16 @@ export const ThemeProvider = ({
   const [isToggleLocked, setIsToggleLocked] = useState(false);
 
   const playSound = (soundPath: string) => {
-    const audioElement = new Audio(soundPath);
-    audioElement.onended = () => {
-      setIsToggleLocked(false); // Unlock the toggle after the sound finishes
-    };
-    audioElement.play();
+    const sound = new Howl({
+      src: [soundPath],
+      onend: () => {
+        setIsToggleLocked(false); // Unlock the toggle after the sound finishes
+      },
+      onerror: (err) => {
+        console.error('Howler Error:', err);
+      },
+    });
+    sound.play();
   };
 
   const toggleTheme = () => {
@@ -97,7 +103,6 @@ export const ThemeProvider = ({
   };
 
   useEffect(() => {
-    // This code runs client-side after the component has mounted
     const savedTheme = window.localStorage.getItem('theme-name') as
       | 'light'
       | 'dark';
