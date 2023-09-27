@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Flex, Grid, Section } from '@with-nx/react-ui';
+
 import TheosDndLayout from '../components/TheosDndLayout';
 import TheosDndCharacterCard from '../components/TheosDndCharacterCard';
-import { CLASS_MODIFIERS, SPECIES_MODIFIERS } from '../data/entity';
-import { ClassName, SpeciesName, Stats } from '../types';
+import { useEntity } from '../context/EntityContext';
+import { Stats } from '../types';
 
 function combineStats(stats1: Stats, stats2: Stats): Stats {
   return {
@@ -25,58 +26,22 @@ function combineStats(stats1: Stats, stats2: Stats): Stats {
 const Battle = () => {
   const router = useRouter();
 
-  const { name, class: className, species: speciesName } = router.query;
+  const { entity, createEntity } = useEntity();
 
-  const selectedClassModifiers = CLASS_MODIFIERS[className as string];
-  const defaultClassModifiers = Object.values(CLASS_MODIFIERS)[0];
-
-  const selectedSpeciesModifiers = SPECIES_MODIFIERS[speciesName as string];
-  const defaultSpeciesModifiers = Object.values(SPECIES_MODIFIERS)[0];
-
-  const combinedStats = combineStats(
-    selectedClassModifiers || defaultClassModifiers,
-    selectedSpeciesModifiers || defaultSpeciesModifiers
-  );
-  console.log(`Combined Stats:`, combinedStats);
-
-  const [player, setPlayer] = useState({
-    name: Array.isArray(name) ? name[0] : name || 'Default Name', // added Array.isArray check
-    stats: combinedStats,
-  });
-
-  if (!className || !speciesName) {
-    return <div>Loading...</div>;
-  }
-
-  const isValidClassName = (name: string): name is ClassName => {
-    return ['Barbarian', 'Mage', 'Ranger'].includes(name);
-  };
-  const classNameString = Array.isArray(className) ? className[0] : className;
-  const validatedClassName: ClassName = isValidClassName(classNameString)
-    ? classNameString
-    : 'Barbarian';
-
-  const isValidSpeciesName = (name: string): name is SpeciesName => {
-    return ['Gargoyle', 'Human', 'Skeleton', 'Zombie'].includes(name);
-  };
-  const speciesNameString = Array.isArray(speciesName)
-    ? speciesName[0]
-    : speciesName;
-  const validatedSpeciesName: SpeciesName = isValidSpeciesName(
-    speciesNameString
-  )
-    ? speciesNameString
-    : 'Human';
+  useEffect(() => {
+    // Get entity data from localStorage
+    const storedEntity = localStorage.getItem('entity');
+    if (storedEntity) {
+      const { name, selectedClass, selectedSpecies } = JSON.parse(storedEntity);
+      createEntity(name, selectedClass, selectedSpecies);
+    }
+  }, []);
 
   return (
     <TheosDndLayout>
       <Section className="container mx-auto max-w-7xl">
         <Grid className="grid-cols-1 md:grid-cols-5 gap-4">
-          <TheosDndCharacterCard
-            player={player}
-            class={validatedClassName}
-            species={validatedSpeciesName}
-          />
+          <TheosDndCharacterCard entity={entity} preview={false} />
         </Grid>
       </Section>
     </TheosDndLayout>

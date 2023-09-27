@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BASE_STATS } from '../data/entity';
+import { BASE_STATS } from '../data';
 
 export function useCharacterResource() {
   const [characterResource, setCharacterResource] = useState(

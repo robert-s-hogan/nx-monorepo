@@ -5,12 +5,11 @@ import {
   GameIconDodge,
   GameIconDrippingBlade,
 } from '@with-nx/icons';
+import { computeTotalStats } from '../utils';
+import { OutcomeType, Stats } from '../types';
+import { CLASS_MODIFIERS, SPECIES_MODIFIERS } from '../data';
 
-export type OutcomeType = {
-  result: string;
-  image: any;
-  damage?: number; // Include the damage amount in the outcome
-};
+const difficulty = 1;
 
 export function useDiceRoll() {
   const [outcome, setOutcome] = useState<OutcomeType | null>(null);
@@ -18,12 +17,22 @@ export function useDiceRoll() {
   const roll = (
     armorValue: number,
     attackType: 'hit' | 'kick' | 'headbutt',
-    playerStats: { strength: number; dexterity: number; constitution: number },
-    playerClass: string
+    playerStats: Stats, // <-- Add this
+    playerClass: string,
+    playerSpecies: string,
+    BASE_STATS: Stats
   ) => {
-    // A sample modifier based on player stats and class
-    const strengthModifier = playerStats.strength / 10;
-    const dexterityModifier = playerStats.dexterity / 10;
+    const classStats = computeTotalStats(
+      BASE_STATS,
+      CLASS_MODIFIERS[playerClass],
+      SPECIES_MODIFIERS[playerSpecies],
+      difficulty
+    );
+    const speciesStats = SPECIES_MODIFIERS[playerSpecies];
+    const effectiveStats = classStats;
+
+    const strengthModifier = effectiveStats.STR / 10; // <-- Update to use effectiveStats
+    const dexterityModifier = effectiveStats.DEX / 10; // <-- Update to use effectiveStats
 
     const outcomes: OutcomeType[] = [
       { result: 'Hit', image: FaHandBackFist },

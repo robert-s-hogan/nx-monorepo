@@ -4,11 +4,7 @@ import {
   GameIconDodge,
   GameIconDrippingBlade,
 } from '@with-nx/icons';
-
-export type OutcomeType = {
-  result: string;
-  image: any;
-};
+import { OutcomeType } from '../types';
 
 export const rollDice = (armorValue: number): OutcomeType => {
   const outcomes: OutcomeType[] = [

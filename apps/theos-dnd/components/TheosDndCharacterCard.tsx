@@ -1,92 +1,56 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Flex, Grid, Heading } from '@with-nx/react-ui';
-
 import {
   FaHandBackFist,
   FeatherHeart,
   FeatherShield,
-  GameIconBarbarian,
-  GameIconBattleAxe,
   GameIconBootKick,
-  GameIconBullseye,
-  GameIconBowman,
-  GameIconChoppedSkull,
-  GameIconFireSpellCast,
-  GameIconGargoyle,
   GameIconInfinity,
-  GameIconPocketBow,
-  GameIconShamblingZombie,
-  GameIconSkeleton,
-  GameIconWizardStaff,
 } from '@with-nx/icons';
-import { CLASS_INDICATORS } from '../data/images';
+
+import {
+  classAbilityIconMap,
+  classIconMap,
+  classWeaponMap,
+  getClassIcons,
+  getSpeciesIcon,
+  speciesIconMap,
+} from '../utils';
+import { CLASS_INDICATORS } from '../data';
 import { useCharacterResource } from '../hooks/useCharacterResource';
 import { ClassName, SpeciesName, Stats } from '../types';
 
-interface CharacterCardProps {
-  player: {
-    name: string;
-    stats: Stats;
-  };
-  class: ClassName;
-  species: SpeciesName;
-}
+const CharacterCard = ({ entity, preview }) => {
+  if (!entity) {
+    return <div>Loading...</div>;
+  }
 
-const classIconMap = {
-  Barbarian: <GameIconBarbarian className="h-10 w-10 xl:w-24 xl:h-24" />,
-  Mage: <GameIconWizardStaff className="h-10 w-10 xl:w-24 xl:h-24" />,
-  Ranger: <GameIconBowman className="h-10 w-10 xl:w-24 xl:h-24" />,
-};
+  const { name, classType, species, stats } = entity;
+  const { DEF, HP } = stats;
 
-const classWeaponMap = {
-  Barbarian: <GameIconBattleAxe className="h-8 w-8 xl:w-24 w:h-24" />,
-  Mage: <GameIconWizardStaff className="h-8 w-8 xl:w-24 w:h-24" />,
-  Ranger: <GameIconPocketBow className="h-8 w-8 xl:w-24 w:h-24 -rotate-45" />,
-};
-
-const classAbilityIconMap = {
-  Barbarian: <GameIconChoppedSkull className="h-10 w-10 xl:w-24 w:h-24" />,
-  Mage: <GameIconFireSpellCast className="h-10 w-10 xl:w-24 w:h-24" />,
-  Ranger: <GameIconBullseye className="h-10 w-10 xl:w-24 w:h-24" />,
-};
-
-const speciesIconMap = {
-  Gargoyle: <GameIconGargoyle className="h-10 w-10 xl:w-24 xl:h-24" />,
-  Skeleton: <GameIconSkeleton className="h-10 w-10 xl:w-24 xl:h-24" />,
-  Zombie: <GameIconShamblingZombie className="h-10 w-10 xl:w-24 xl:h-24" />,
-};
-
-const CharacterCard: React.FC<CharacterCardProps> = ({
-  player,
-  class: className,
-  species,
-}) => {
   const { characterResource, useAbility, regenerateCharacterResource } =
     useCharacterResource();
 
   const [showInsufficientResourceWarning, setShowInsufficientResourceWarning] =
     useState(false);
 
-  const [dummyState, setDummyState] = useState(0);
-
-  const speciesData = CLASS_INDICATORS[className as ClassName];
+  const speciesData = CLASS_INDICATORS[classType as ClassName];
   const indicator = speciesData && speciesData[species as SpeciesName];
   const image = indicator && indicator.image;
 
-  const classIcon = classIconMap[className];
-  const speciesIcon = speciesIconMap[species];
+  const classIcon = classType ? classIconMap[classType] : null;
+  const speciesIcon = species ? speciesIconMap[species] : null;
 
-  if (!className || !species || !image) {
+  if (!classType || !species || !image) {
     return null;
   }
-  const { DEF, HP, RESOURCE } = player.stats;
 
   const classSection = (
     <Flex className="justify-center items-center space-x-2 lg:space-x-1 mt-12 md:mt-0">
       <strong className="pr-2">{classIcon}</strong>
 
-      <span className="font-bold">{player.name}</span>
+      <span className="font-bold">{name}</span>
     </Flex>
   );
 
@@ -100,7 +64,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   const attackIcons = (
     <div className="col-span-1 p-1 xl:p-2 order-2 space-y-6">
       <Flex className="relative items-center justify-between space-x-0">
-        {classWeaponMap[className]}
+        {classWeaponMap[classType]}
         <span className="">{resourceCostIcons}</span>
       </Flex>
       <Flex className="relative items-center justify-between space-x-0">
@@ -114,28 +78,27 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
       <Flex className="relative items-center space-x-0">
         <button
           onClick={() => {
-            if (useAbility(classAbilityManaCost[className])) {
+            if (useAbility(classAbilityManaCost[classType])) {
               // Execute the ability
               setShowInsufficientResourceWarning(false); // Hide any previously shown warning
             } else {
               // Notify player there's not enough resource
               setShowInsufficientResourceWarning(true);
-              setDummyState((prev) => prev + 1); // Force an update
             }
           }}
           className="w-full p-0"
         >
           <Flex
-            className={`xl:relative w-full items-center justify-center ${
-              characterResource / classAbilityManaCost[className] < 1
+            className={`xl:relative w-full items-center justify-center lg:justify-between ${
+              characterResource / classAbilityManaCost[classType] < 1
                 ? 'text-red-500'
                 : ''
             }`}
           >
-            {classAbilityIconMap[className]}
+            {classAbilityIconMap[classType]}
             <span className="flex items-baseline xl:absolute xl:bottom-0 xl:right-[-5px]">
               <span className="text-xs">x </span>
-              {characterResource / classAbilityManaCost[className]}
+              {characterResource / classAbilityManaCost[classType]}
             </span>
           </Flex>
         </button>
@@ -146,7 +109,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   return (
     <Flex className="relative col-span-2">
       <Grid className="grid-cols-4 !gap-1">
-        {attackIcons}
+        {!preview && attackIcons}
 
         <div className="col-span-3 relative border rounded-lg overflow-hidden shadow-md w-full border-white">
           <div className="absolute top-1 left-1 z-20 pl-3 pr-2">
@@ -164,7 +127,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
 
           <Image
             src={image}
-            alt={`${className} ${species}`}
+            alt={`${classType} ${species}`}
             height={400}
             width={400}
             className="hidden md:block h-[400px] lg:h-full w-full object-cover lg:object-contain"
@@ -174,7 +137,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             {classSection}
           </div>
           <Flex className="bg-image-overlay flex-row w-full p-1 md:p-0 lg:p-1 lg:space-x-1 overflow-hidden">
-            {Object.entries(player.stats).map(([stat, value]) => {
+            {Object.entries(stats).map(([stat, value]) => {
               if (
                 stat === 'DEF' ||
                 stat === 'HP' ||
@@ -184,6 +147,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
               ) {
                 return null;
               }
+              const adjustedValue = (value as number) - 8;
               return (
                 <Flex
                   className="flex-col justify-center items-center w-full border border-primary rounded-md p-1 md:p-0 xl:p-1"
@@ -191,7 +155,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                 >
                   <span className="text-xs lg:text-sm">{stat}</span>
                   <span className="text-xs lg:text-sm font-bold">
-                    {value > 0 ? `+${value}` : value}
+                    {adjustedValue > 0 ? `+${adjustedValue}` : adjustedValue}
                   </span>
                 </Flex>
               );

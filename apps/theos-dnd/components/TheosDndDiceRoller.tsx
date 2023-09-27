@@ -7,14 +7,13 @@ import {
   GameIconBootKick,
   GameIconHelmetHeadShot,
 } from '@with-nx/icons'; // Import the new icons
-import { rollDice, OutcomeType } from '../utils/dice';
-type DiceRollerProps = {
-  onRoll: (outcome: OutcomeType) => void;
-  defense: number;
-};
+
+import { useDiceRoll } from '../hooks/useDiceRoll';
+import { rollDice } from '../utils';
+import { DiceRollerProps, OutcomeType } from '../types';
 
 const DiceRoller: React.FC<DiceRollerProps> = ({ defense, onRoll }) => {
-  const [outcome, setOutcome] = useState<OutcomeType | null>(null);
+  const { outcome, roll } = useDiceRoll();
   const [rolling, setRolling] = useState(false);
   const [fading, setFading] = useState(false);
 
@@ -22,14 +21,12 @@ const DiceRoller: React.FC<DiceRollerProps> = ({ defense, onRoll }) => {
     setRolling(true);
     setTimeout(() => {
       const result = rollDice(defense);
-      setOutcome(result);
       onRoll(result);
       setRolling(false);
 
       setTimeout(() => {
         setFading(true);
         setTimeout(() => {
-          setOutcome(null);
           setFading(false);
         }, 1000);
       }, 5000);
