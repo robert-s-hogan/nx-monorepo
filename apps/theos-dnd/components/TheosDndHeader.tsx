@@ -7,6 +7,7 @@ import { useTheme } from '@with-nx/theme';
 import {
   GameIconDoubleDragon,
   GameIconHolyHandGrenade,
+  GameIconMusicalNotes,
   GameIconSkeletonKey,
   FeatherMoon,
   FeatherSun,
@@ -33,16 +34,26 @@ const links: {
 ];
 
 const DevBlogHeader = () => {
-  const { theme, toggleTheme, fadeClass } = useTheme();
+  const { theme, toggleTheme, fadeClass, isToggleLocked } = useTheme();
 
   const [isMounted, setIsMounted] = useState(false);
+
+  const iconClass = isToggleLocked
+    ? 'fade-in-out hidden-icon hidden'
+    : 'fade-in-out visible-icon';
+  const musicNoteClass =
+    theme.name === 'light' ? 'light-bounce' : 'dark-bounce';
+
+  const musicNote = isToggleLocked ? (
+    <GameIconMusicalNotes className={`w-6 h-6 ${musicNoteClass}`} />
+  ) : null;
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
   const toggleButton = isMounted ? (
-    <Button onClick={toggleTheme} className="button-icon p-0">
+    <Button onClick={toggleTheme} className={`${iconClass} button-icon p-0`}>
       {theme && theme.name === 'light' ? (
         <GameIconHolyHandGrenade className={`moon h-6 w-6 ${fadeClass}`} />
       ) : (
@@ -52,11 +63,13 @@ const DevBlogHeader = () => {
   ) : null;
 
   return (
-    <header className="container mx-auto max-w-7xl pb-0 px-4 mt-8">
+    <header className="container mx-auto max-w-7xl pb-0 px-4">
       <Flex className="flex-row justify-between md:px-4 pb-2 md:pb-0 mb-8 items-center space-y-2 md:space-y-0">
         <Flex className="items-center py-4">
           <Link href="/" className="button-link">
-            {logo}
+            <span className="flex items-center">
+              {logo} <span className="ml-4">Theo's DnD</span>
+            </span>
           </Link>
           {/* <Link href="/" className="hidden md:flex">
             <span>Robert Hogan</span>
@@ -68,6 +81,7 @@ const DevBlogHeader = () => {
               <span>{link.children}</span>
             </Link>
           ))}
+          {musicNote}
           {toggleButton}
         </Flex>
       </Flex>

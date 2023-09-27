@@ -1,9 +1,13 @@
 import { useState } from 'react';
 
-import { Button } from '@with-nx/react-ui';
-import { GameIconDiceEightFacesEight } from '@with-nx/icons';
+import { Button, Heading } from '@with-nx/react-ui';
+import {
+  GameIconDiceEightFacesEight,
+  GameIconFist,
+  GameIconBootKick,
+  GameIconHelmetHeadShot,
+} from '@with-nx/icons'; // Import the new icons
 import { rollDice, OutcomeType } from '../utils/dice';
-
 type DiceRollerProps = {
   onRoll: (outcome: OutcomeType) => void;
   defense: number;
@@ -22,10 +26,8 @@ const DiceRoller: React.FC<DiceRollerProps> = ({ defense, onRoll }) => {
       onRoll(result);
       setRolling(false);
 
-      // Begin fading effect after 20 seconds
       setTimeout(() => {
         setFading(true);
-        // Reset after the fade completes (1 second duration in this case)
         setTimeout(() => {
           setOutcome(null);
           setFading(false);
@@ -34,6 +36,12 @@ const DiceRoller: React.FC<DiceRollerProps> = ({ defense, onRoll }) => {
     }, 1000);
   };
 
+  // Map attack type to its icon
+  const attackIcons: Record<string, React.ReactNode> = {
+    Hit: <GameIconFist className="w-24 h-24" />,
+    Kick: <GameIconBootKick className="w-24 h-24" />,
+    Headbutt: <GameIconHelmetHeadShot className="w-24 h-24" />,
+  };
   return (
     <div className="space-y-0 md:space-y-4">
       {outcome ? (
@@ -42,7 +50,10 @@ const DiceRoller: React.FC<DiceRollerProps> = ({ defense, onRoll }) => {
             fading ? 'opacity-0' : 'opacity-100'
           }`}
         >
-          <outcome.image className="w-24 h-24" />
+          {/* Display the appropriate icon based on the outcome result */}
+          <div className={`w-24 h-24 animate-${outcome.result.toLowerCase()}`}>
+            {attackIcons[outcome.result]}
+          </div>
           <div className="text-center">
             <p className="text-lg font-bold">{outcome.result}</p>
           </div>
@@ -54,6 +65,10 @@ const DiceRoller: React.FC<DiceRollerProps> = ({ defense, onRoll }) => {
           />
         </Button>
       )}
+
+      <Heading level={2} className="text-center mt-12 md:mt-16">
+        VS
+      </Heading>
     </div>
   );
 };

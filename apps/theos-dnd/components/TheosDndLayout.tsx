@@ -17,7 +17,7 @@ const DevBlogLayout = ({
   const hideMaxWidth7xl = false;
   return (
     <PageLayout
-      className={`w-full min-h-screen ${className}`}
+      className={`w-full min-h-screen ${className} pulse-bg`}
       header={hideNavBarProp ? '' : <TheosDndHeader />}
       //   footer={<DevBlogFooter />}
     >

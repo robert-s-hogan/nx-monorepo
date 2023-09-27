@@ -178,6 +178,14 @@ input {
   border-width: var(--border-width);
 }
 
+select {
+  border-color: var(--border-color);
+  border-width: var(--border-width);
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  padding: 0.5rem;
+}
+
 /* BUTTON & BUTTON STATE CLASSES */
 a button {
   text-decoration: none;
@@ -280,4 +288,95 @@ a button {
 }
 .nav-logo {
   transition: opacity 0.3s;
+}
+@keyframes smoothBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes franticBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25%,
+  75% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+
+.light-bounce {
+  animation: smoothBounce 1.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+.dark-bounce {
+  animation: franticBounce 0.5s linear infinite;
+}
+
+.fade-in-out {
+  transition: opacity 1s ease-in-out;
+}
+
+.hidden-icon {
+  opacity: 0;
+}
+
+.visible-icon {
+  opacity: 1;
+}
+
+@keyframes colorShift {
+  0% {
+    background: var(--start-gradient-color);
+  }
+  50% {
+    background: var(--mid-gradient-color);
+  }
+  100% {
+    background: var(--end-gradient-color);
+  }
+}
+
+.color-shift-bg {
+  animation: colorShift 10s linear infinite;
+}
+
+@keyframes bgPulse {
+  0%,
+  100% {
+    background-color: var(--bg-color);
+  }
+  50% {
+    background-color: var(--bg-alt-color);
+  }
+}
+
+.pulse-bg {
+  animation: bgPulse 1.5s ease-in-out infinite;
+}
+.punch {
+  animation: punch 0.5s forwards;
+}
+
+@keyframes punch {
+  0% {
+    transform: rotate(90deg) translateY(0);
+  }
+  20% {
+    transform: rotate(90deg) translateY(-400px); /* Note the change here */
+  }
+  80% {
+    transform: rotate(90deg) translateY(-400px); /* And here */
+  }
+  100% {
+    transform: rotate(90deg) translateY(0);
+  }
 }

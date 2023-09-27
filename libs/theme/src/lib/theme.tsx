@@ -45,6 +45,7 @@ interface ThemeContextType {
   theme: ThemeType;
   toggleTheme: () => void;
   fadeClass?: string;
+  isToggleLocked: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -81,6 +82,7 @@ export const ThemeProvider = ({
 
   const toggleTheme = () => {
     setFadeClass('fade-out');
+    setIsToggleLocked(true); // Lock the toggle as the sound starts
     setTimeout(() => {
       setThemeName((prevThemeName) => {
         const newThemeName = prevThemeName === 'light' ? 'dark' : 'light';
@@ -117,8 +119,13 @@ export const ThemeProvider = ({
   return (
     <ThemeContext.Provider
       value={{
-        theme: { name: themeName, colors: themes[themeName], fadeClass },
+        theme: {
+          name: themeName,
+          colors: themes[themeName],
+          fadeClass,
+        },
         toggleTheme,
+        isToggleLocked,
       }}
     >
       {children}
