@@ -52,7 +52,7 @@ export function Index() {
   }
 
   return (
-    <TheosDndLayout>
+    <TheosDndLayout className="mb-8">
       <Section className="text-center space-y-6">
         <h1>Character Creation</h1>
         <p>
@@ -62,23 +62,25 @@ export function Index() {
         <Grid className="grid-cols-1 lg:grid-cols-2">
           <div className="w-full container mx-auto max-w-7xl">
             <h2>Character Customization</h2>
-            <Grid className="grid-cols-1 gap-4">
+            <Grid className="grid-cols-1 gap-12">
               <form
                 onSubmit={handleFight}
                 className="flex flex-col space-y-4 justify-center items-center max-w-md mx-auto"
               >
-                <Flex className="justify-between w-full">
+                <Flex className="justify-between w-full space-x-8">
                   <label>Name:</label>
                   <input
                     type="text"
                     value={name}
+                    className="!w-40"
                     onChange={(e) => setName(e.target.value)}
                   />
                 </Flex>
 
-                <Flex className="justify-between w-full">
+                <Flex className="justify-between w-full space-x-8">
                   <label>Species:</label>
                   <select
+                    className="!w-40"
                     value={selectedSpecies}
                     onChange={(e) =>
                       setSelectedSpecies(e.target.value as SpeciesName)
@@ -93,9 +95,10 @@ export function Index() {
                   </select>
                 </Flex>
 
-                <Flex className="justify-between w-full">
+                <Flex className="justify-between w-full space-x-8">
                   <label>Class:</label>
                   <select
+                    className="!w-40"
                     value={selectedClass}
                     onChange={(e) =>
                       setSelectedClass(e.target.value as ClassName)

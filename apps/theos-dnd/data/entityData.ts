@@ -68,7 +68,7 @@ export const CLASS_INDICATORS: ClassIndicator = {
     },
     Zombie: {
       image:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-zombie.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-zombie-3.png',
       deadImage:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-zombie-dead.png',
     },
@@ -82,7 +82,7 @@ export const CLASS_INDICATORS: ClassIndicator = {
     },
     Human: {
       image:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-human.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-human-2.png',
       deadImage:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-human-dead.png',
     },

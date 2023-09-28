@@ -113,14 +113,14 @@ const CharacterCard = ({ entity, preview }) => {
 
         <div className="col-span-3 relative border rounded-lg overflow-hidden shadow-md w-full border-white">
           <div className="absolute top-1 left-1 z-20 pl-3 pr-2">
-            <FeatherShield className="absolute left-0 top-[-1] w-10 h-10" />
-            <span className="text-xs absolute left-[.75rem] top-[.65rem] md:left-[.85rem] md:top-[.65rem]">
+            <FeatherShield className="absolute left-0 top-[-1] w-10 h-10 text-on-primary" />
+            <span className="text-xs absolute left-[.75rem] top-[.65rem] md:left-[.85rem] md:top-[.65rem] lg:left-[.8rem] text-on-primary">
               {DEF}
             </span>
           </div>
           <div className="absolute top-1 right-1 z-20 px-2">
-            <FeatherHeart className="absolute right-0 top-[-1] w-10 h-10" />
-            <span className="text-xs absolute right-3 md:right-[.8rem] top-[.7rem] md:top-[.5rem]">
+            <FeatherHeart className="absolute right-0 top-[-1] w-10 h-10 text-on-primary" />
+            <span className="text-xs absolute right-3 md:right-[.8rem] lg:right-[.75rem] top-[.7rem] md:top-[.65rem] text-on-primary">
               {HP}
             </span>
           </div>
