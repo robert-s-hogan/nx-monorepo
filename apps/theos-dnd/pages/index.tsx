@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Flex, Grid, Section } from '@with-nx/react-ui';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 import { useEntity } from '../context/EntityContext';
 import { SPECIES_IMAGES, CLASS_INDICATORS } from '../data';
@@ -9,20 +8,19 @@ import { ClassName, SpeciesName } from '../types';
 
 import TheosDndLayout from '../components/TheosDndLayout';
 import TheosDndCharacterCard from '../components/TheosDndCharacterCard';
-import TheosDndInfoCard from '../components/TheosDndInfoCard';
 
 export function Index() {
   const { entity, createEntity } = useEntity();
   const router = useRouter();
 
   const [name, setName] = useState('');
-  const [selectedClass, setSelectedClass] = useState<ClassName>('Barbarian');
+  const [selectedClass, setSelectedClass] = useState<ClassName | ''>('');
   const [selectedSpecies, setSelectedSpecies] = useState<SpeciesName | ''>('');
 
-  // Initialize or update entity whenever form fields change
   useEffect(() => {
     if (name && selectedClass && selectedSpecies) {
-      createEntity(name, selectedClass, selectedSpecies);
+      const previewImage = getPreviewImage();
+      createEntity(name, selectedClass, selectedSpecies, previewImage);
     }
   }, [name, selectedClass, selectedSpecies]);
 
@@ -32,24 +30,42 @@ export function Index() {
       alert('Please fill out all the fields.');
       return;
     }
-
-    // Save entity data to localStorage
+    const previewImage = getPreviewImage();
     localStorage.setItem(
       'entity',
-      JSON.stringify({ name, selectedClass, selectedSpecies })
+      JSON.stringify({
+        name,
+        selectedClass,
+        selectedSpecies,
+        previewImage,
+      })
     );
-
     router.push(
       `/battle?name=${name}&class=${selectedClass}&species=${selectedSpecies}`
     );
   };
 
-  let previewImage = '';
-  if (selectedSpecies && selectedClass) {
-    previewImage = CLASS_INDICATORS[selectedClass][selectedSpecies].image;
-  } else if (selectedSpecies) {
-    previewImage = SPECIES_IMAGES[selectedSpecies].image;
-  }
+  const getPreviewImage = () => {
+    if (entity && entity.selectedSpecies && entity.selectedClass) {
+      return CLASS_INDICATORS[entity.selectedClass][entity.selectedSpecies]
+        .image;
+    }
+    if (entity && entity.selectedSpecies) {
+      return SPECIES_IMAGES[entity.selectedSpecies].image;
+    }
+    if (selectedSpecies && selectedClass) {
+      return CLASS_INDICATORS[selectedClass][selectedSpecies].image;
+    }
+    if (selectedSpecies) {
+      return SPECIES_IMAGES[selectedSpecies].image;
+    }
+    return '';
+  };
+
+  const previewImage = getPreviewImage();
+  const firstImage = Array.isArray(previewImage)
+    ? previewImage[0]
+    : previewImage;
 
   return (
     <TheosDndLayout className="mb-8">
@@ -119,7 +135,7 @@ export function Index() {
               </form>
             </Grid>
           </div>
-          {entity && (
+          {entity && name && selectedSpecies && selectedClass && (
             <Flex className="w-full flex-col justify-center items-center container mx-auto max-w-7xl">
               <h2 className="text-center">Stat Preview</h2>
               <TheosDndCharacterCard entity={entity} preview={true} />

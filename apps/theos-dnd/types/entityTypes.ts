@@ -1,7 +1,12 @@
 // types/entityTypes.ts
 export type ClassName = 'Barbarian' | 'Mage' | 'Ranger';
 
-export type SpeciesName = 'Gargoyle' | 'Human' | 'Skeleton' | 'Zombie';
+export type SpeciesName =
+  | 'Dragon'
+  | 'Gargoyle'
+  | 'Human'
+  | 'Skeleton'
+  | 'Zombie';
 
 export type StatName =
   | 'STR'
@@ -23,6 +28,8 @@ export type Entity = {
   stats: Stats;
   classType?: ClassName;
   species?: SpeciesName;
+  image?: string | string[];
+  previewImage?: string;
 };
 
 export type BaseEntity = {
@@ -31,10 +38,9 @@ export type BaseEntity = {
   hitDamage: number;
   criticalDamage: number;
   defense: number;
-  image: string;
+  image: string | string[];
   description: string;
   slug: string;
-  deadImage: string;
 };
 
 export interface Character extends BaseEntity {
@@ -45,10 +51,9 @@ export interface Character extends BaseEntity {
   hitDamage: number;
   criticalDamage: number;
   defense: number;
-  image: string;
+  image: string | string[];
   description: string;
   slug: string;
-  deadImage: string;
 }
 
 export type Class = BaseEntity & {
@@ -68,8 +73,7 @@ export type CreatureType = BaseEntity & {
 };
 
 export type ImageData = {
-  image: string;
-  deadImage?: string;
+  image: string | string[];
 };
 
 export type SpeciesImages = Record<SpeciesName, ImageData>;

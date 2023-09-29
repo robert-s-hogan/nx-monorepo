@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { Flex, Grid, Heading } from '@with-nx/react-ui';
 import {
   FaHandBackFist,
+  FeatherChevronLeft,
+  FeatherChevronRight,
   FeatherHeart,
   FeatherShield,
   GameIconBootKick,
@@ -20,14 +22,22 @@ import {
 import { CLASS_INDICATORS } from '../data';
 import { useCharacterResource } from '../hooks/useCharacterResource';
 import { ClassName, SpeciesName, Stats } from '../types';
+import { useEntity } from '../context/EntityContext';
 
 const CharacterCard = ({ entity, preview }) => {
   if (!entity) {
     return <div>Loading...</div>;
   }
 
+  const { updateEntityImage } = useEntity();
+
   const { name, classType, species, stats } = entity;
-  const { DEF, HP } = stats;
+  let DEF, HP;
+  if (entity && entity.stats) {
+    const { DEF: def, HP: hp } = entity.stats;
+    DEF = def;
+    HP = hp;
+  }
 
   const { characterResource, useAbility, regenerateCharacterResource } =
     useCharacterResource();
@@ -38,6 +48,30 @@ const CharacterCard = ({ entity, preview }) => {
   const speciesData = CLASS_INDICATORS[classType as ClassName];
   const indicator = speciesData && speciesData[species as SpeciesName];
   const image = indicator && indicator.image;
+
+  const [currentIndex, setCurrentIndex] = useState(0); // To track the current image
+
+  const nextImage = () => {
+    setCurrentIndex((prevIndex) => {
+      const newIndex = (prevIndex + 1) % image.length;
+      if (preview) {
+        // Only update entity image if not in preview
+        updateEntityImage(image[newIndex]);
+      }
+      return newIndex;
+    });
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prevIndex) => {
+      const newIndex = (prevIndex - 1 + image.length) % image.length;
+      if (preview) {
+        // Only update entity image if not in preview
+        updateEntityImage(image[newIndex]);
+      }
+      return newIndex;
+    });
+  };
 
   const classIcon = classType ? classIconMap[classType] : null;
   const speciesIcon = species ? speciesIconMap[species] : null;
@@ -106,12 +140,34 @@ const CharacterCard = ({ entity, preview }) => {
     </div>
   );
 
+  const displayImage =
+    !preview && entity.image
+      ? entity.image
+      : image[currentIndex] || entity.previewImage;
+
   return (
     <Flex className="relative col-span-2">
       <Grid className="grid-cols-4 !gap-1">
         {!preview && attackIcons}
 
         <div className="col-span-3 relative border rounded-lg overflow-hidden shadow-md w-full border-white">
+          {preview && (
+            <>
+              <button
+                onClick={prevImage}
+                className="absolute left-0 z-30 top-1/2 transform -translate-y-1/2"
+              >
+                <FeatherChevronLeft className="text-on-primary w-10 h-10" />
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute -right-3 z-30 top-1/2 transform -translate-y-1/2"
+              >
+                <FeatherChevronRight className="text-on-primary w-10 h-10" />
+              </button>
+            </>
+          )}
+
           <div className="absolute top-1 left-1 z-20 pl-3 pr-2">
             <FeatherShield className="absolute left-0 top-[-1] w-10 h-10 text-on-primary" />
             <span className="text-xs absolute left-[.75rem] top-[.65rem] md:left-[.85rem] md:top-[.65rem] lg:left-[.8rem] text-on-primary">
@@ -126,7 +182,7 @@ const CharacterCard = ({ entity, preview }) => {
           </div>
 
           <Image
-            src={image}
+            src={displayImage} // Use the current index to pick an image
             alt={`${classType} ${species}`}
             height={400}
             width={400}

@@ -22,81 +22,71 @@ export const BASE_STATS: Stats = {
 
 export const CLASS_INDICATORS: ClassIndicator = {
   Barbarian: {
+    Dragon: {
+      image: [
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-dragon.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-dragon-2.png',
+      ],
+    },
     Gargoyle: {
       image:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-gargoyle.png',
-      deadImage:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-gargoyle-dead.png',
     },
     Human: {
       image:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-human.png',
-      deadImage:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-human-dead.png',
     },
     Skeleton: {
       image:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-skeleton.png',
-      deadImage:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-skeleton-dead.png',
     },
     Zombie: {
       image:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-zombie.png',
-      deadImage:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-zombie-dead.png',
     },
   },
   Mage: {
+    Dragon: {
+      image:
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-dragon.png',
+    },
     Gargoyle: {
       image:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-gargoyle.png',
-      deadImage:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-gargoyle-dead.png',
     },
     Human: {
       image:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-human.png',
-      deadImage:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-human-dead.png',
     },
     Skeleton: {
       image:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-skeleton.png',
-      deadImage:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-skeleton-dead.png',
     },
     Zombie: {
       image:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-zombie-3.png',
-      deadImage:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-zombie-dead.png',
     },
   },
   Ranger: {
+    Dragon: {
+      image:
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-dragon.png',
+    },
     Gargoyle: {
       image:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-gargoyle.png',
-      deadImage:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-gargoyle-dead.png',
     },
     Human: {
       image:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-human-2.png',
-      deadImage:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-human-dead.png',
     },
     Skeleton: {
       image:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-skeleton.png',
-      deadImage:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-skeleton-dead.png',
     },
     Zombie: {
       image:
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-zombie-2.png',
-      deadImage:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-zombie-2-dead.png',
     },
   },
 };
@@ -144,6 +134,10 @@ export const CLASS_MODIFIERS = {
 };
 
 export const SPECIES_IMAGES: Record<SpeciesName, ImageData> = {
+  Dragon: {
+    image:
+      'https://rshogan.imgix.net/projects/theos-dnd/species/theos-dnd-species-dragon.png',
+  },
   Gargoyle: {
     image:
       'https://rshogan.imgix.net/projects/theos-dnd/species/theos-dnd-species-gargoyle.png',
@@ -186,19 +180,6 @@ export const SPECIES_MODIFIERS: Record<string, Stats> = {
     DEF: 2,
     HP: 0,
     PHYSICAL_ATTACK: 0,
-    MAGICAL_ATTACK: 0,
-    RESOURCE: 0,
-  },
-  Goblin: {
-    STR: -2,
-    CON: -2,
-    DEX: 1,
-    INT: 0,
-    WIS: 0,
-    CHA: 0,
-    DEF: 0,
-    HP: -10,
-    PHYSICAL_ATTACK: 1,
     MAGICAL_ATTACK: 0,
     RESOURCE: 0,
   },
