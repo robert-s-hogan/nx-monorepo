@@ -26,67 +26,102 @@ export const CLASS_INDICATORS: ClassIndicator = {
       image: [
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-dragon.png',
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-dragon-2.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-dragon-3.png',
       ],
     },
     Gargoyle: {
-      image:
+      image: [
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-gargoyle.png',
+      ],
     },
     Human: {
-      image:
+      image: [
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-human.png',
+      ],
     },
     Skeleton: {
-      image:
+      image: [
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-skeleton.png',
+      ],
     },
     Zombie: {
-      image:
+      image: [
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-barbarian-species-zombie.png',
+      ],
     },
   },
   Mage: {
     Dragon: {
-      image:
+      image: [
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-dragon.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-dragon-2.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-dragon-3.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-dragon-4.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-dragon-5.png',
+      ],
     },
     Gargoyle: {
-      image:
+      image: [
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-gargoyle.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-gargoyle-2.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-gargoyle-3.png',
+      ],
     },
     Human: {
-      image:
+      image: [
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-human.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-human-2.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-human-3.png',
+      ],
     },
     Skeleton: {
-      image:
+      image: [
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-skeleton.png',
+      ],
     },
     Zombie: {
-      image:
+      image: [
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-zombie.png',
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-zombie-3.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-zombie-4.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-zombie-5.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-mage-species-zombie-6.png',
+      ],
     },
   },
   Ranger: {
     Dragon: {
-      image:
+      image: [
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-dragon.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-dragon-2.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-dragon-3.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-dragon-4.png',
+      ],
     },
     Gargoyle: {
-      image:
+      image: [
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-gargoyle.png',
+      ],
     },
     Human: {
-      image:
+      image: [
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-human.png',
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-human-2.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-human-3.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-human-4.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-human-5.png',
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-human-6.png',
+      ],
     },
     Skeleton: {
-      image:
+      image: [
         'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-skeleton.png',
+      ],
     },
     Zombie: {
-      image:
-        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-zombie-2.png',
+      image: [
+        'https://rshogan.imgix.net/projects/theos-dnd/classes/theos-dnd-class-ranger-species-zombie.png',
+      ],
     },
   },
 };

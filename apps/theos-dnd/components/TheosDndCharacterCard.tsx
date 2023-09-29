@@ -151,7 +151,7 @@ const CharacterCard = ({ entity, preview }) => {
         {!preview && attackIcons}
 
         <div className="col-span-3 relative border rounded-lg overflow-hidden shadow-md w-full border-white">
-          {preview && (
+          {preview && image.length > 1 && (
             <>
               <button
                 onClick={prevImage}
@@ -176,7 +176,13 @@ const CharacterCard = ({ entity, preview }) => {
           </div>
           <div className="absolute top-1 right-1 z-20 px-2">
             <FeatherHeart className="absolute right-0 top-[-1] w-10 h-10 text-on-primary" />
-            <span className="text-xs absolute right-3 md:right-[.8rem] lg:right-[.75rem] top-[.7rem] md:top-[.65rem] text-on-primary">
+            <span
+              className={`text-xs absolute ${
+                HP > 100
+                  ? 'right-[.5rem] md:right-[.55rem]'
+                  : 'right-3 md:right-[.8rem] lg:right-[.75rem]'
+              }  top-[.7rem] md:top-[.65rem] text-on-primary`}
+            >
               {HP}
             </span>
           </div>

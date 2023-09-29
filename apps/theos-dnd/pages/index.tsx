@@ -88,7 +88,7 @@ export function Index() {
                   <input
                     type="text"
                     value={name}
-                    className="!w-40"
+                    className="!w-48"
                     onChange={(e) => setName(e.target.value)}
                   />
                 </Flex>
@@ -96,7 +96,7 @@ export function Index() {
                 <Flex className="justify-between w-full space-x-8">
                   <label>Species:</label>
                   <select
-                    className="!w-40"
+                    className="!w-48"
                     value={selectedSpecies}
                     onChange={(e) =>
                       setSelectedSpecies(e.target.value as SpeciesName)
@@ -114,7 +114,7 @@ export function Index() {
                 <Flex className="justify-between w-full space-x-8">
                   <label>Class:</label>
                   <select
-                    className="!w-40"
+                    className="!w-48"
                     value={selectedClass}
                     onChange={(e) =>
                       setSelectedClass(e.target.value as ClassName)
