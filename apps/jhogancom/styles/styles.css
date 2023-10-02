@@ -82,6 +82,16 @@
   }
 }
 
+@layer utilities {
+  .gradient-bg {
+    background-image: linear-gradient(
+      to bottom right,
+      var(--secondary-icon-color),
+      var(--surface-color)
+    );
+  }
+}
+
 html,
 body {
   background: var(--bg-color);

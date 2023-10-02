@@ -24,7 +24,7 @@ export function Index() {
     <JHoganComLayout>
       <Section
         style={{ minHeight: '620px' }}
-        className="bg-gradient-to-br from-peach to-mint scroll-smooth w-full h-full flex justify-center items-center"
+        className="gradient-bg scroll-smooth w-full h-full flex justify-center items-center"
       >
         <Flex className="justify-center flex-col items-center h-full text-center">
           <Heading level={1} className="font-semibold text-4xl text-black">
