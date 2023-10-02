@@ -70,18 +70,20 @@ export function Index() {
   return (
     <TheosDndLayout className="mb-8">
       <Section className="text-center space-y-6">
-        <h1>Character Creation</h1>
-        <p>
-          Welcome to Theos DnD! Create your character and battle your way
-          through the world of monsters!
-        </p>
+        <div className="mb-16">
+          <h1>Character Creation</h1>
+          <p>
+            Welcome to Theos DnD! Create your character and battle your way
+            through the world of monsters!
+          </p>
+        </div>
         <Grid className="grid-cols-1 lg:grid-cols-2">
-          <div className="w-full container mx-auto max-w-7xl">
+          <div className="h-full w-full container mx-auto max-w-7xl">
             <h2>Character Customization</h2>
             <Grid className="grid-cols-1 gap-12">
               <form
                 onSubmit={handleFight}
-                className="flex flex-col space-y-4 justify-center items-center max-w-md mx-auto"
+                className="flex flex-col space-y-4 lg:space-y-6 justify-center max-w-md mx-auto"
               >
                 <Flex className="justify-between w-full space-x-8">
                   <label>Name:</label>
@@ -136,8 +138,7 @@ export function Index() {
             </Grid>
           </div>
           {entity && name && selectedSpecies && selectedClass && (
-            <Flex className="w-full flex-col justify-center items-center container mx-auto max-w-7xl">
-              <h2 className="text-center">Stat Preview</h2>
+            <Flex className="w-full flex-col justify-center container mx-auto max-w-7xl">
               <TheosDndCharacterCard entity={entity} preview={true} />
             </Flex>
           )}
