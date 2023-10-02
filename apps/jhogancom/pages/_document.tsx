@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { FontLoader } from '@with-nx/theme';
 
 class MyDocument extends Document {
   handleOnLoad = (event) => {
@@ -10,19 +11,10 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link
-            rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap"
-            as="style"
-            onLoad={this.handleOnLoad}
+          <FontLoader
+            fontFamily="Montserrat"
+            fontWeights="300;400;600;700;900"
           />
-          <noscript>
-            <link
-              href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap"
-              rel="stylesheet"
-              type="text/css"
-            />
-          </noscript>
         </Head>
         <body>
           <Main />
