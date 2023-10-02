@@ -1,2 +1,2 @@
-export * from './lib/font-loader/font-loader';
+export * from './lib/google-font-loader/google-font-loader';
 export * from './lib/theme';

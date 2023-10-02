@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { FontLoader } from '@with-nx/theme';
+import { GoogleFontLoader } from '@with-nx/theme';
 
 class MyDocument extends Document {
   handleOnLoad = (event) => {
@@ -11,7 +11,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <FontLoader
+          <GoogleFontLoader
             fontFamily="Montserrat"
             fontWeights="300;400;600;700;900"
           />

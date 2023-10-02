@@ -1,9 +1,9 @@
-type FontLoaderProps = {
+type GoogleFontLoaderProps = {
   fontFamily: string;
   fontWeights: string;
 };
 
-export const FontLoader: React.FC<FontLoaderProps> = ({
+export const GoogleFontLoader: React.FC<GoogleFontLoaderProps> = ({
   fontFamily,
   fontWeights,
 }) => {
@@ -24,4 +24,4 @@ export const FontLoader: React.FC<FontLoaderProps> = ({
   );
 };
 
-export default FontLoader;
+export default GoogleFontLoader;
