@@ -57,13 +57,13 @@ const PlayToWinFFHeader = () => {
     <header>
       <div className="container mx-auto  w-full flex flex-col justify-center items-center px-4">
         {/* <Navbar
-          className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black dark:text-white "
+          className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black  "
           links={links}
           logo={logo}
           isOpen={true}
           toggleButton={toggleButton}
         /> */}
-        <nav className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black dark:text-white">
+        <nav className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black ">
           <div className="flex justify-center">
             <Link href="/">
               <Image

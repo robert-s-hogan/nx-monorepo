@@ -4,8 +4,23 @@
 @tailwind base;
 @tailwind utilities;
 
+/* theme colors can be found in /styles/themes.ts */
+
+/* :root variables that do not change with theme */
+:root {
+  --loader-size: 1rem;
+  --loader-border: 0.125rem;
+  --border-width: 0.063rem;
+  --transition-speed: 0.3s;
+  --animation-speed: 1s;
+  --hover-scale: 1.05;
+  --text-underline-offset: 0.25rem;
+  --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
+}
+
 @layer base {
-  html {
+  html,
+  body {
     font-family: 'Montserrat', sans-serif;
   }
   h1,
@@ -48,7 +63,7 @@
     @apply bg-orange hover:opacity-80 px-8 py-2 rounded-lg text-lg text-white;
   }
   .text-primary {
-    @apply text-white dark:text-orange;
+    @apply text-white;
   }
   .card {
     @apply transition duration-500 ease-in-out transform;
@@ -67,13 +82,111 @@
   }
 }
 
-a {
-  @apply text-black dark:text-white;
-}
-a:hover {
-  @apply text-orange;
+html,
+body {
+  background: var(--bg-color);
 }
 
-.text {
-  @apply text-base;
+body {
+  color: var(--text-color);
+  transition: background-color 0.5s, color 0.5s;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* LINKS */
+a {
+  position: relative;
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+/* ICONS */
+svg {
+  stroke: var(--primary-icon-color);
+}
+
+/* DEBUG STYLING */
+pre {
+  background-color: var(--surface-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+code {
+  color: var(--text-secondary);
+  font-family: monospace;
+}
+
+/* FORM ELEMENTS */
+input {
+  border-color: var(--border-color);
+  border-width: var(--border-width);
+}
+
+select {
+  border-color: var(--border-color);
+  border-width: var(--border-width);
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  padding: 0.5rem;
+}
+
+/* BUTTON & BUTTON STATE CLASSES */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--hover-color);
+}
+
+.btn-primary:active {
+  background-color: var(--active-color);
+}
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+
+.disabled,
+.btn-primary:disabled {
+  background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--text-on-primary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--hover-secondary-color);
+}
+
+.btn-secondary:active {
+  background-color: var(--active-secondary-color);
+}
+
+.btn-secondary:focus {
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+
+.btn-secondary:disabled {
+  background-color: var(--disabled-secondary-color);
+  cursor: not-allowed;
+}
+
+/* TYPOGRAPHY CLASSES */
+.text-on-primary {
+  color: var(--text-on-primary-color);
+}
+.text-on-secondary {
+  color: var(--text-on-secondary-color);
 }

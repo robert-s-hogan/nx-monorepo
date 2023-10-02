@@ -46,7 +46,7 @@ const ProjectSection = () => {
             {featuredProjects.map((project) => (
               <div
                 key={project.name}
-                className="card overflow-hidden rounded-lg border border-opacity-20 border-blue text-left"
+                className="card overflow-hidden rounded-lg border border-opacity-20 text-left"
               >
                 <div className="relative h-56 w-full">
                   {loading ? (
@@ -110,7 +110,7 @@ const ProjectSection = () => {
             return (
               <div
                 key={project.name}
-                className="card overflow-hidden rounded-lg border bg-white border-opacity-20 border-blue text-left"
+                className="card overflow-hidden rounded-lg border border-opacity-20 text-left"
               >
                 <div className="relative h-56 w-full">
                   {loading ? (

@@ -1,6 +1,8 @@
 import { AppProps } from 'next/app';
 import { useEffect } from 'react';
-import { ThemeProvider } from 'next-themes';
+import { ThemeProvider } from '@with-nx/theme';
+
+import { themes } from '../styles/themes';
 import { GoogleTagManager } from '@with-nx/analytics';
 import { hotjar } from 'react-hotjar';
 import '../styles/styles.css';
@@ -11,7 +13,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider themes={themes} initialThemeName="light">
       <Component {...pageProps} />
       <GoogleTagManager />
     </ThemeProvider>

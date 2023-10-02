@@ -166,7 +166,7 @@ export function Index() {
         toggle={toggle}
         title="Thanks for taking the time to reach out!"
       >
-        <div className="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg space-y-4">
+        <div className="p-6 mr-2 bg-gray-100  sm:rounded-lg space-y-4">
           <h2 className="text-black font-semibold text-center">
             Thanks for taking the time to reach out! Fill in the form to start a
             conversation
@@ -204,7 +204,7 @@ export function Index() {
               name="name"
               placeholder="Full Name"
               required
-              className="w-100 mt-2 py-3 px-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+              className="w-100 mt-2 py-3 px-4 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
             />
           </div>
 
@@ -218,7 +218,7 @@ export function Index() {
               name="email"
               placeholder="Email"
               required
-              className="w-100 mt-2 py-3 px-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+              className="w-100 mt-2 py-3 px-4 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
             />
           </div>
 
@@ -231,7 +231,7 @@ export function Index() {
               name="message"
               required
               placeholder="What would you like to start building?"
-              className="w-100 mt-2 py-3 px-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+              className="w-100 mt-2 py-3 px-4 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
             />
           </div>
 

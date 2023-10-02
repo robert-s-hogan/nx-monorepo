@@ -60,23 +60,23 @@ export function RSHModal({
           title="Thanks for taking the time to reach out!"
         >
           {isSubmitted ? (
-            <Text className="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 ">
+            <Text className="text-normal text-lg sm:text-2xl font-medium text-gray-600  ">
               Your message has been sent! We'll get back to you soon.
             </Text>
           ) : (
             <>
-              <Text className="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 ">
+              <Text className="text-normal text-lg sm:text-2xl font-medium text-gray-600  ">
                 Fill in the form to start a conversation
               </Text>
 
-              <Flex className="items-center mt-4 text-gray-600 dark:text-gray-400">
+              <Flex className="items-center mt-4 text-gray-600 ">
                 <FeatherMapPin className="h-6 w-6" />
                 <Text className="ml-4 text-md tracking-wide font-semibold w-40">
                   Sonoma County, CA
                 </Text>
               </Flex>
 
-              <Flex className="items-center mt-2 text-gray-600 dark:text-gray-400">
+              <Flex className="items-center mt-2 text-gray-600 ">
                 <FeatherMail className="h-6 w-6" />
                 <Text className="ml-4 text-md tracking-wide font-semibold w-40">
                   <Link className="text" href="mailto:robert@robertshogan.com">
@@ -100,7 +100,7 @@ export function RSHModal({
                     name="name"
                     placeholder="Full Name"
                     required
-                    className="w-100 mt-2 py-3 px-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+                    className="w-100 mt-2 py-3 px-4 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
                   />
                 </Flex>
 
@@ -114,7 +114,7 @@ export function RSHModal({
                     name="email"
                     placeholder="Email"
                     required
-                    className="w-100 mt-2 py-3 px-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+                    className="w-100 mt-2 py-3 px-4 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
                   />
                 </Flex>
 
@@ -127,7 +127,7 @@ export function RSHModal({
                     name="message"
                     required
                     placeholder="What would you like to start building?"
-                    className="w-100 mt-2 py-3 px-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+                    className="w-100 mt-2 py-3 px-4 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
                   />
                 </Flex>
 

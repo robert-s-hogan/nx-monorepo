@@ -32,7 +32,7 @@ export function JHModal({
               onClick={toggle}
             >
               <div
-                className="bg-white text-black dark:text-white border-2 rounded-lg shadow-lg relative flex flex-col outline-none focus:outline-none w-5/6 mx-auto"
+                className="bg-white text-black  border-2 rounded-lg shadow-lg relative flex flex-col outline-none focus:outline-none w-5/6 mx-auto"
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
@@ -44,7 +44,7 @@ export function JHModal({
                     icon={
                       <button
                         type="button"
-                        className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                        className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center  "
                       >
                         <FiX />
                         <span className="sr-only">Close modal</span>

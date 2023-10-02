@@ -14,7 +14,7 @@ const HeroSection = () => {
   return (
     <Hero
       layout="custom"
-      className="max-h-full bg-gradient-to-br from-primary-900 to-primary-700 dark:bg-gradient-to-r  md:py-24 h-max py-32 flex flex-col justify-center items-center text-primary space-y-4 bg-hero"
+      className="max-h-full bg-gradient-to-br from-primary-900 to-primary-700   md:py-24 h-max py-32 flex flex-col justify-center items-center text-primary space-y-4 bg-hero"
     >
       <div className="h-48 w-48 lg:h-64 lg:w-64 object-scale-down flex justify-center mx-auto rounded-lg relative">
         <Image

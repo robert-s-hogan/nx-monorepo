@@ -36,7 +36,7 @@ export async function getStaticProps({ params }) {
 export default function Projects({ project }) {
   return (
     <JHoganComLayout>
-      <div className="relative text-gray-800 bg-gray-50">
+      <div className="relative">
         <section className="relative min-h-screen px-4">
           <Flex className="absolute inset-0 items-center justify-center">
             <Image
@@ -49,10 +49,10 @@ export default function Projects({ project }) {
             <div className="absolute inset-0 bg-black opacity-50"></div>
           </Flex>
           <div className="relative z-10 flex flex-col items-center justify-center text-center h-screen">
-            <h1 className="text-5xl sm:text-6xl lg:text-9xl mb-4 text-white">
+            <h1 className="text-5xl sm:text-6xl lg:text-9xl mb-4">
               {project.name}
             </h1>
-            <h2 className="font-light text-2xl sm:text-3xl lg:text-4xl text-white">
+            <h2 className="font-light text-2xl sm:text-3xl lg:text-4xl">
               {project.description}
             </h2>
           </div>
@@ -64,9 +64,7 @@ export default function Projects({ project }) {
               <br />
 
               <span className="text-lg">
-                <span className="text-blue-600 text-capitalize">
-                  {project.tags}
-                </span>
+                <span className="text-capitalize">{project.tags}</span>
               </span>
             </div>
             <div className="px-2">
@@ -81,10 +79,7 @@ export default function Projects({ project }) {
             <div className="px-2">
               <br />
               <h3 className="text-xl font-bold">Contact</h3>
-              <a
-                className="text-xl hover:text-blue-600"
-                href="mailto:test@nomail.com"
-              >
+              <a className="text-xl" href="mailto:test@nomail.com">
                 test@email.com
               </a>
               <p>675 234 4323</p>

@@ -148,7 +148,7 @@ a,
 
 button,
 button[type='submit'] {
-  @apply text-sm border-2 inline-block align-middle border-vivid-500 hover:text-vivid-500 hover:bg-transparent bg-vivid-500 dark:border-vivid-500 text-white font-bold py-2 px-6 rounded-full transition ease-in-out duration-300;
+  @apply text-sm border-2 inline-block align-middle border-vivid-500 hover:text-vivid-500 hover:bg-transparent bg-vivid-500 text-white font-bold py-2 px-6 rounded-full transition ease-in-out duration-300;
 }
 button.outline {
   @apply text-sm text-vivid-500 border-2 inline-block align-middle  bg-white  hover:border-white hover:bg-white font-bold py-2 px-6 rounded-full transition ease-in-out duration-300;
