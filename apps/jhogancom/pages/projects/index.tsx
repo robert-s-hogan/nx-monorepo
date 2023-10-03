@@ -1,5 +1,5 @@
-import JHoganComLayout from '../../components/layout/JHoganComLayout';
-import ProjectSection from '../../components/projects/ProjectSection';
+import JHoganComLayout from '../../components/JHoganComLayout';
+import ProjectSection from '../../components/JHProjectSection';
 import { Section } from '@with-nx/react-ui';
 export default function Projects() {
   return (

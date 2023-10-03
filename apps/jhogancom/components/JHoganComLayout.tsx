@@ -29,8 +29,8 @@ const JHoganComLayout = ({
             : 'Discover Jessica Hogan, a Data Scientist and Data Analyst specializing in Python, machine learning, SQL, and statistics. With a diverse background and a focus on delivering actionable insights, Jessica is ready to help you make data-driven decisions.'
         }
         url="https://www.jessicahoganma.com/"
-        faviconPath="https://cloudflare-assets-nx-monorepo.vercel.app/jhogancom/favicon.ico"
-        image="https://cloudflare-assets-nx-monorepo.vercel.app/jhogancom/jessica_portrait.webp"
+        faviconPath="https://rshogan.imgix.net/projects/jhogancom/favicon.ico"
+        image="https://rshogan.imgix.net/projects/jhogancom/jessica_portrait.webp"
         twitterHandle="@jessicahoganma"
         siteName="Jessica Hogan's Portfolio"
         appleTouchIconPath="/apple-touch-icon.png"

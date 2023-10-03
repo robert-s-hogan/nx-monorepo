@@ -1,3 +1,4 @@
+export * from './lib/dialog/dialog';
 export * from './lib/slider/slider';
 export * from './lib/error/error';
 export * from './lib/loading/loading';

@@ -1,7 +1,7 @@
 import { FormProps } from '@with-nx/types';
 import React, { useState } from 'react';
 
-export const Form = ({ fields, onSubmit }: FormProps): JSX.Element => {
+export const Form = ({ fields, onSubmit, action }: FormProps): JSX.Element => {
   const [values, setValues] = useState<{ [name: string]: string }>(
     fields.reduce((obj, field) => {
       obj[field.name] = '';
@@ -10,14 +10,15 @@ export const Form = ({ fields, onSubmit }: FormProps): JSX.Element => {
   );
   const [errors, setErrors] = useState<{ [name: string]: string }>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target as HTMLInputElement & HTMLTextAreaElement;
     setValues({ ...values, [name]: value });
     setErrors({ ...errors, [name]: '' });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
     const newErrors: { [name: string]: string } = {};
     fields.forEach((field) => {
       if (field.required && !values[field.name]) {
@@ -31,30 +32,46 @@ export const Form = ({ fields, onSubmit }: FormProps): JSX.Element => {
       }
     });
     if (Object.keys(newErrors).length > 0) {
+      e.preventDefault(); // Prevent form submission if there are validation errors
       setErrors(newErrors);
     } else {
-      onSubmit(values);
+      if (onSubmit) {
+        onSubmit(values); // Call the onSubmit function if provided
+      }
+      // If there are no validation errors and no onSubmit function provided,
+      // the form will be submitted to the URL specified in the action attribute
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} action={action ? action : ''}>
       {fields.map((field) => (
         <div key={field.name}>
           <label htmlFor={field.name}>{field.label}</label>
-          <input
-            type={field.type}
-            name={field.name}
-            id={field.name}
-            value={values[field.name]}
-            onChange={handleChange}
-          />
+          {field.type === 'textarea' ? (
+            <textarea
+              name={field.name}
+              id={field.name}
+              value={values[field.name]}
+              onChange={handleChange}
+            />
+          ) : (
+            <input
+              type={field.type}
+              name={field.name}
+              id={field.name}
+              value={values[field.name]}
+              onChange={handleChange}
+            />
+          )}
           {errors[field.name] ? (
-            <div className="text-red-500">{errors[field.name]}</div>
+            <div className="text-error">{errors[field.name]}</div>
           ) : null}
         </div>
       ))}
-      <button type="submit">Submit</button>
+      <button className="btn-primary" type="submit">
+        Submit
+      </button>
     </form>
   );
 };

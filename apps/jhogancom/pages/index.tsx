@@ -1,6 +1,16 @@
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useModal } from '@with-nx/react-hooks';
-import { Heading, Link, Flex, Section, Text } from '@with-nx/react-ui';
+import {
+  Button,
+  Dialog,
+  Flex,
+  Form,
+  Heading,
+  Link,
+  Section,
+  Text,
+} from '@with-nx/react-ui';
 import {
   FiArrowRight,
   FiMail,
@@ -11,238 +21,173 @@ import {
   FiGithub,
   FiMapPin,
 } from 'react-icons/fi';
+import { useTheme } from '@with-nx/theme';
+import { useHandleBackdropClick } from '@with-nx/react-hooks';
 
-import JHoganComLayout from '../components/layout/JHoganComLayout';
-import ProjectSection from '../components/projects/ProjectSection';
+import JHoganComLayout from '../components/JHoganComLayout';
+import ProjectSection from '../components/JHProjectSection';
+import JHSocialMediaIcons from '../components/JHSocialMediaIcons';
 import JHModal from '../components/JHModal';
 import JHPortrait from '../public/images/jessica_portrait.webp';
 
 export function Index() {
+  const { theme } = useTheme();
+
   const { isShowing, toggle } = useModal();
+  const dialogRef = useRef(null);
+
+  const handleCloseDialog = () => {
+    toggle();
+  };
+
+  useHandleBackdropClick(dialogRef, () => {
+    toggle(); // Toggle the dialog visibility
+    handleCloseDialog(); // Call handleCloseDialog function
+  });
+
+  useEffect(() => {
+    if (isShowing) {
+      dialogRef.current?.showModal();
+    } else {
+      dialogRef.current?.close();
+    }
+  }, [isShowing]);
+
+  const fields = [
+    { name: 'name', label: 'Full Name', type: 'text', required: true },
+    { name: 'email', label: 'Email', type: 'email', required: true },
+    {
+      name: 'message',
+      label: 'Message',
+      type: 'textarea',
+      required: true,
+    },
+  ];
+
+  const handleFormSubmit = (values) => {
+    // handle form submission here
+    console.log(values);
+    // for example, sending the form data to the server or an API endpoint
+  };
 
   return (
     <JHoganComLayout>
       <Section
         style={{ minHeight: '620px' }}
-        className="gradient-bg scroll-smooth w-full h-full flex justify-center items-center"
+        className={`${
+          theme.name === 'light' ? 'light-gradient' : 'dark-gradient'
+        } scroll-smooth w-full h-full flex justify-center items-center`}
       >
-        <Flex className="justify-center flex-col items-center h-full text-center">
-          <Heading level={1} className="font-semibold text-4xl text-black">
+        <Flex className="justify-center flex-col items-center h-full text-center space-y-6">
+          <Heading level={1} className="text-shadow">
             Hi, I am Jessica.
             <br />
-            <Text className="text-black bg-clip-text bg-gradient-to-br from-orange to-peach">
-              Data Scientist and Data Analyst
-            </Text>
+            <Text className="text-shadow">Data Scientist and Data Analyst</Text>
           </Heading>
-          <Text className="text-black text-lg py-2 w-4/5">
+          <Text className="w-4/5 text-shadow">
             I want to help you make the best data-driven decisions and translate
             data into actionable insights.
           </Text>
-          <Flex className="my-4 flex-col justify-center md:flex-row md:space-between">
-            <button
-              className="bg-orange hover:opacity-80 px-8 py-2 rounded-lg text-lg text-white"
-              onClick={() => toggle()}
-            >
+          <Flex className="my-4 flex-col justify-center items-center space-x-4 md:space-x-0 md:flex-row md:space-between">
+            <Button className="btn-primary" onClick={handleCloseDialog}>
               Contact me
-            </button>
-            <Link
-              href="#projects"
-              className="px-8 py-2 rounded-lg hover:no-underline pt-4 md:pt-4"
-            >
-              <Text className="align-middle text-green hover:text-slate text-lg">
-                See My Work
-                <FiArrowRight className="inline-block ml-2" />
-              </Text>
-            </Link>
+            </Button>
           </Flex>
         </Flex>
       </Section>
       <Section id="projects">
         <ProjectSection />
       </Section>
-      {/* <p className="text-center">
-        <Link href="/projects" className="text-gray-500">
-          View all Projects
-        </Link>
-      </p> */}
       <Section id="who-i-am">
         <div className="items-center lg:grid lg:grid-cols-3">
-          <div className="lg:col-span-2 lg:mr-24">
-            <h2 className="text-3xl font-semibold text-gray-800">Who I am</h2>
+          <div className="lg:col-span-2 lg:mr-24 space-y-6">
+            <Heading level={2}>Who I am</Heading>
 
-            <p className="text-gray-500 my-5">
+            <Text>
               I am a Data Scientist and Data Analyst based in Sonoma County,
               California. I have a master’s degree and over eight years
               experience providing actionable insights. I have a diverse
               background working in both public and private sectors from
               research to marketing which gives me a unique eye in which to
               approach your data-driven questions.
-            </p>
+            </Text>
 
-            <Text className="text-gray-500 mt-3">
+            <Text>
               I look forward to hearing about how I can help you solve your data
               questions!
             </Text>
 
-            <span className="inline-flex sm:ml-auto sm:mt-0 pt-4 justify-center sm:justify-start space-x-2">
-              <Link
-                className="text-blue hover:text-black"
-                href="mailto:jessicahoganma@gmail.com"
-              >
-                <FiMail className="w-6 h-6" />
-              </Link>
-
-              <Link
-                className="text-blue hover:text-black hover:scale-110 ml-3"
-                href="https://www.facebook.com/jessicahoganma"
-              >
-                <FiFacebook className="w-6 h-6" />
-              </Link>
-              <Link
-                className="ml-3 text-blue hover:text-black hover:scale-110"
-                href="https://twitter.com/jessicahoganma"
-              >
-                <FiTwitter className="w-6 h-6" />
-              </Link>
-              <Link
-                className="ml-3 text-blue hover:text-black hover:scale-110"
-                href="https://www.instagram.com/jessica_hogan_ma/"
-              >
-                <FiInstagram className="w-6 h-6" />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/jessicahoganma/"
-                className="ml-3 text-blue hover:text-black hover:scale-110"
-              >
-                <FiLinkedin className="w-6 h-6" />
-              </Link>
-
-              <Link
-                className="text-blue hover:text-black hover:scale-110 ml-3"
-                href="https://github.com/jessicahoganma"
-              >
-                <FiGithub className="w-6 h-6" />
-              </Link>
-            </span>
+            <JHSocialMediaIcons />
           </div>
 
           <div className="mt-8 lg:col-span-1">
             <Flex className="items-center justify-center lg:justify-end">
-              <div className="max-w-lg">
-                <Image
-                  width={355}
-                  height={384}
-                  src={JHPortrait}
-                  alt="Jessica Hogan's Portrait"
-                  className="object-contain h-96 w-auto rounded-xl"
-                />
-              </div>
+              <Image
+                width={355}
+                height={384}
+                src={JHPortrait}
+                alt="Jessica Hogan's Portrait"
+                className="object-contain h-96 w-auto"
+              />
             </Flex>
           </div>
         </div>
       </Section>
-      <Section id="contact" style={{ minHeight: '150px' }}>
-        <div className="lg:w-3/4 xl:w-full mx-auto bg-orange text-white rounded-lg shadow-lg overflow-hidden">
-          <div className="flex flex-col md:flex-row md:items-center md:space-x-6 w-11/12 lg:w-3/4 mx-auto justify-center py-8">
-            <h2 className="text-white text-2xl font-semibold text-center">
+      <Section id="contact" className="lg:px-24" style={{ minHeight: '150px' }}>
+        <div className="bg-primary w-full rounded-md shadow-lg">
+          <Flex className="flex-col md:flex-row md:items-center mx-auto justify-center md:justify-between p-8 space-y-6 md:space-y-0 md:space-x-6">
+            <span className="text-3xl font-semibold text-center text-on-primary text-shadow whitespace-nowrap">
               Start a project
-            </h2>
-            <p className="mt-2 text-white md:flex-auto text-center">
+            </span>
+            <Text className="text-center text-on-primary text-shadow lg:whitespace-nowrap">
               Interested in working together? <span className="md:block"></span>
-              We should queue up a chat. I’ll buy the coffee.
-            </p>
-            <button
-              className="rounded-lg mx-auto mt-6 md:mt-0 md:py-3 md:px-4 md:rounded-full py-3 px-10 hover:text-orange hover:bg-white font-semibold border-2 md:w-1/4 bg-orange text-white"
+              We should queue up a chat.
+              <span className="hidden lg:inline-flex">
+                &nbsp;I’ll buy the coffee.
+              </span>
+            </Text>
+            <Button
+              className="mx-auto btn-primary font-semibold border-2 whitespace-nowrap md:whitespace-normal"
               onClick={toggle}
             >
-              Lets do this
-            </button>
-          </div>
+              <span className="md:block">Contact</span>
+              <span className="hidden md:hidden">Let's do this!</span>
+            </Button>
+          </Flex>
         </div>
       </Section>
 
-      <JHModal
+      <Dialog
+        backdropRef={dialogRef}
+        onClose={handleCloseDialog}
+        title="Thanks for taking the time to reach out!"
         isShowing={isShowing}
         toggle={toggle}
-        title="Thanks for taking the time to reach out!"
       >
-        <div className="p-6 mr-2 bg-gray-100  sm:rounded-lg space-y-4">
-          <h2 className="text-black font-semibold text-center">
-            Thanks for taking the time to reach out! Fill in the form to start a
-            conversation
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <Flex className="items-center mt-4 text-black">
-              <FiMapPin className="w-8 h-8 text-gray-500" />
+        <Flex className="flex-col p-2 md:p-6 space-y-6">
+          <Heading level={2} className="text-black font-semibold text-center">
+            Got ideas? Let's talk!
+          </Heading>
+          <Flex className="items-center space-x-4">
+            <FiMapPin className="w-9 h-9" />
 
-              <div className="ml-4 text-md tracking-wide font-semibold w-full ">
-                Sonoma County, CA
-              </div>
-            </Flex>
+            <Text>Sonoma County, CA</Text>
+          </Flex>
 
-            <Flex className="items-center mt-2 text-black">
-              <FiMail className="w-8 h-8 text-gray-500" />
-              <div className="ml-4 text-md tracking-wide font-semibold w-full text-black">
-                <Link className="text" href="mailto:robert@robertshogan.com">
-                  <p className="text-black underline">Email me</p>
-                </Link>
-              </div>
-            </Flex>
-          </div>
-        </div>
-        <form
-          className="px-6 flex flex-col justify-center mb-6"
-          action="https://submit-form.com/F8kispbK"
-        >
-          <div className="flex flex-col">
-            <label htmlFor="name" className="hidden">
-              Full Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Full Name"
-              required
-              className="w-100 mt-2 py-3 px-4 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
-            />
-          </div>
+          <Flex className="items-center space-x-4">
+            <FiMail className="w-8 h-8" />
+            <Link className="text" href="mailto:robert@robertshogan.com">
+              <Text className="underline">Email me</Text>
+            </Link>
+          </Flex>
 
-          <div className="flex flex-col mt-2">
-            <label htmlFor="email" className="hidden">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Email"
-              required
-              className="w-100 mt-2 py-3 px-4 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
-            />
-          </div>
-
-          <div className="flex flex-col mt-2">
-            <label htmlFor="message" className="hidden">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              placeholder="What would you like to start building?"
-              className="w-100 mt-2 py-3 px-4 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full mt-3 bg-orange hover:opacity-80 px-8 py-2 rounded-lg text-lg text-white"
-          >
-            Submit
-          </button>
-        </form>
-      </JHModal>
+          <Form
+            fields={fields}
+            onSubmit={handleFormSubmit}
+            action="https://submit-form.com/F8kispbK"
+          />
+        </Flex>
+      </Dialog>
     </JHoganComLayout>
   );
 }

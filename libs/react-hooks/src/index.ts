@@ -1,3 +1,4 @@
+export * from './lib/use-handle-backdrop-click/use-handle-backdrop-click';
 export * from './lib/use-exclude-terms/use-exclude-terms';
 export * from './lib/use-file-type-selection/use-file-type-selection';
 export * from './lib/use-search-query/use-search-query';

@@ -15,6 +15,7 @@ export interface FormProps {
     required: boolean;
     pattern?: RegExp;
   }>;
+  action?: string;
   onSubmit: (values: { [name: string]: string }) => void;
 }
 

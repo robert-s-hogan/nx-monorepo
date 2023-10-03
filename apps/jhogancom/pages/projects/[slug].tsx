@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { projectStaticData } from '../../data/projects';
-import JHoganComLayout from '../../components/layout/JHoganComLayout';
+import JHoganComLayout from '../../components/JHoganComLayout';
 import JHLogo from '../../public/images/jh_logo_white.webp';
 import { Flex } from '@with-nx/react-ui';
 

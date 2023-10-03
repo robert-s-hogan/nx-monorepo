@@ -1,7 +1,7 @@
 export const themes = {
   light: {
     name: 'light',
-    'primary-color': '#555B6E', // blue
+    'primary-color': '#E07A5F', // blue
     'secondary-color': '#008A7F', // green
     'accent-color': '#89B0AE', // slate
     'bg-color': '#FAF9F9', // white
@@ -26,6 +26,8 @@ export const themes = {
     'bg-opacity-color': 'rgba(250, 249, 249, 0.6)', // white with 0.6 opacity
     sound:
       'http://rshogan.imgix.net/projects/jhogancom/sounds/jhogan_light_sound.mp3',
+    'dialog-bg-color': '#FAF9F9', // white
+    'backdrop-color': '#FAF9F9', // white
   },
   dark: {
     name: 'dark',
@@ -35,7 +37,7 @@ export const themes = {
     'bg-color': '#160C09', // inverted black
     'surface-color': '#E07A5F', // inverted orange
     'text-color': '#FAF9F9', // inverted white
-    'text-on-primary-color': '#160C09', // inverted black
+    'text-on-primary-color': '#FAF9F9', // inverted black
     'text-on-secondary-color': '#160C09', // inverted black
     'primary-icon-color': '#008A7F', // inverted green
     'secondary-icon-color': '#BEE3DB', // inverted mint
@@ -54,5 +56,7 @@ export const themes = {
     'bg-opacity-color': 'rgba(22, 12, 9, 0.8)', // inverted black with 0.8 opacity
     sound:
       'http://rshogan.imgix.net/projects/jhogancom/sounds/jhogan_dark_sound.mp3', // Update URL to dark theme sound file
+    'dialog-bg-color': '#FAF9F9', // inverted black
+    'backdrop-color': '#160C09',
   },
 };

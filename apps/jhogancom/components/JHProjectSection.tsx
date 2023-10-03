@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Flex, Grid, Text, Skeleton } from '@with-nx/react-ui';
+import { FeatherGithub } from '@with-nx/icons';
 
-import { projectStaticData } from '../../data/projects';
+import { projectStaticData } from '../data/projects';
 import { useRouter } from 'next/router';
-import { FiGithub } from 'react-icons/fi';
 
 const ProjectSection = () => {
   const [loading, setLoading] = useState(true);
@@ -48,7 +48,7 @@ const ProjectSection = () => {
                 key={project.name}
                 className="card overflow-hidden rounded-lg border border-opacity-20 text-left"
               >
-                <div className="relative h-56 w-full">
+                <div className="">
                   {loading ? (
                     <Skeleton
                       height={224}
@@ -59,7 +59,8 @@ const ProjectSection = () => {
                     <Image
                       width={355}
                       height={224}
-                      className="object-cover object-center w-full h-56"
+                      style={{ width: '100%', height: 'auto' }} // Apply the styles directly
+                      className="object-cover object-center"
                       src={project.image}
                       alt={project.name}
                     />
@@ -92,10 +93,9 @@ const ProjectSection = () => {
                       <Link
                         target="_blank"
                         rel="noreferrer"
-                        className="text-blue hover:text-black"
                         href={project.link}
                       >
-                        <FiGithub size={24} />
+                        <FeatherGithub className="w-6 h-6" />
                       </Link>
                     </Text>
                   </div>
@@ -112,14 +112,15 @@ const ProjectSection = () => {
                 key={project.name}
                 className="card overflow-hidden rounded-lg border border-opacity-20 text-left"
               >
-                <div className="relative h-56 w-full">
+                <div className="">
                   {loading ? (
                     <Skeleton height={224} isLoading={loading} />
                   ) : (
                     <Image
                       width={355}
                       height={224}
-                      className="object-cover object-center w-full h-56"
+                      style={{ width: '100%', height: 'auto' }} // Apply the styles directly
+                      className="object-cover object-center"
                       src={project.image}
                       alt={project.name}
                     />
@@ -146,13 +147,8 @@ const ProjectSection = () => {
                       #{project.tags}
                     </Text>
 
-                    <Link
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-blue hover:text-black"
-                      href={project.link}
-                    >
-                      <FiGithub size={24} />
+                    <Link target="_blank" rel="noreferrer" href={project.link}>
+                      <FeatherGithub className="w-6 h-6" />
                     </Link>
                   </div>
                 </div>

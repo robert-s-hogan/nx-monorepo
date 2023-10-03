@@ -10,6 +10,7 @@ module.exports = {
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
+  safelist: ['btn-primary'],
   darkMode: 'class',
   theme: {
     colors: {
