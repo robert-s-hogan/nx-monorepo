@@ -16,7 +16,7 @@ export interface FormProps {
     pattern?: RegExp;
   }>;
   action?: string;
-  onSubmit: (values: { [name: string]: string }) => void;
+  onSubmit?: (values: { [name: string]: string }) => boolean | void;
 }
 
 export type FormStep = {

@@ -35,16 +35,15 @@ export const Form = ({ fields, onSubmit, action }: FormProps): JSX.Element => {
       e.preventDefault(); // Prevent form submission if there are validation errors
       setErrors(newErrors);
     } else {
-      if (onSubmit) {
-        onSubmit(values); // Call the onSubmit function if provided
+      if (onSubmit && onSubmit(values) === false) {
+        e.preventDefault(); // Prevent form submission if onSubmit returns false
       }
-      // If there are no validation errors and no onSubmit function provided,
-      // the form will be submitted to the URL specified in the action attribute
+      // The form will be submitted to the URL specified in the action attribute
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} action={action ? action : ''}>
+    <form onSubmit={handleSubmit} action={action ? action : ''} method="post">
       {fields.map((field) => (
         <div key={field.name}>
           <label htmlFor={field.name}>{field.label}</label>

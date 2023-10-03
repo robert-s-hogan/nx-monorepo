@@ -184,7 +184,7 @@ export function Index() {
           <Form
             fields={fields}
             onSubmit={handleFormSubmit}
-            action="https://submit-form.com/F8kispbK"
+            action="https://formsubmit.co/8cd307fd3307175b764f19822bcd9a02"
           />
         </Flex>
       </Dialog>
