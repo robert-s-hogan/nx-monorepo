@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaWikipediaWIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaWikipediaWIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaWikipediaWIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaWikipediaWIcon })
+);

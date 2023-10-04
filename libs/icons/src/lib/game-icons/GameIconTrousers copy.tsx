@@ -1,5 +1,5 @@
 
-  import IconWrapper from '../IconWrapper';
+  import DynamicIconWrapper from '../DynamicIconWrapper';
   import { CommonProps } from '@with-nx/types';
   
   const GameIconTrousers copyIcon = (props: CommonProps) => {
@@ -21,5 +21,8 @@
     );
   };
   
-  export default IconWrapper(GameIconTrousers copyIcon);
+  export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: GameIconTrousers copyIcon })
+);
+
     

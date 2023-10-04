@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaPinterestIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaPinterestIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaPinterestIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaPinterestIcon })
+);

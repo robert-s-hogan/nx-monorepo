@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaStackpathIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaStackpathIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaStackpathIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaStackpathIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaChromeIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaChromeIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaChromeIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaChromeIcon })
+);

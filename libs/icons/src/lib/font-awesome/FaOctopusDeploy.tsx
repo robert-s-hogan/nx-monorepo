@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaOctopusDeployIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaOctopusDeployIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaOctopusDeployIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaOctopusDeployIcon })
+);

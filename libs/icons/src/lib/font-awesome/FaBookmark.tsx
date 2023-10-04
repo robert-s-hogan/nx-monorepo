@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaBookmarkIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaBookmarkIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaBookmarkIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaBookmarkIcon })
+);

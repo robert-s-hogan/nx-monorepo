@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaMixcloudIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaMixcloudIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaMixcloudIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaMixcloudIcon })
+);

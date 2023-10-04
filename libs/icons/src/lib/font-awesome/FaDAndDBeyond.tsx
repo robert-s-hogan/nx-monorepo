@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaDAndDBeyondIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaDAndDBeyondIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaDAndDBeyondIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaDAndDBeyondIcon })
+);

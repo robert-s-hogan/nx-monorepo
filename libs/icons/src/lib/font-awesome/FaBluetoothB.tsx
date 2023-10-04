@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaBluetoothBIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaBluetoothBIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaBluetoothBIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaBluetoothBIcon })
+);

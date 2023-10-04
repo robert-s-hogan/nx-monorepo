@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaMaxcdnIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaMaxcdnIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaMaxcdnIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaMaxcdnIcon })
+);

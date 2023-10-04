@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaGalacticSenateIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaGalacticSenateIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaGalacticSenateIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaGalacticSenateIcon })
+);

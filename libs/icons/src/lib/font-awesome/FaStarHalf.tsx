@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaStarHalfIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaStarHalfIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaStarHalfIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaStarHalfIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaGripfireIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaGripfireIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaGripfireIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaGripfireIcon })
+);

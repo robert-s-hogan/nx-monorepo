@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaObjectUngroupIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaObjectUngroupIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaObjectUngroupIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaObjectUngroupIcon })
+);

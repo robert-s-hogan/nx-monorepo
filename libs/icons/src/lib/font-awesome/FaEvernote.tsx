@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaEvernoteIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaEvernoteIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaEvernoteIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaEvernoteIcon })
+);

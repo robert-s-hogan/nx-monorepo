@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const CustomFireworksIcon = (props: CommonProps) => {
@@ -20,4 +20,6 @@ const CustomFireworksIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(CustomFireworksIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: CustomFireworksIcon })
+);

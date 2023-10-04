@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaGoogleDriveIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaGoogleDriveIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaGoogleDriveIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaGoogleDriveIcon })
+);

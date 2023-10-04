@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaBitbucketIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaBitbucketIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaBitbucketIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaBitbucketIcon })
+);

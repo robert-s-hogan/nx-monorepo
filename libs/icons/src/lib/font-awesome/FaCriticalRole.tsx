@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaCriticalRoleIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaCriticalRoleIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaCriticalRoleIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaCriticalRoleIcon })
+);

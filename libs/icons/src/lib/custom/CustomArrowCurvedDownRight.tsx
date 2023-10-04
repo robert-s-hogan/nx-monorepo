@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const CustomArrowCurvedDownRightIcon = (props: CommonProps) => {
@@ -20,4 +20,6 @@ const CustomArrowCurvedDownRightIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(CustomArrowCurvedDownRightIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: CustomArrowCurvedDownRightIcon })
+);

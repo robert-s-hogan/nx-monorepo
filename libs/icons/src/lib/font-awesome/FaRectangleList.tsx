@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaRectangleListIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaRectangleListIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaRectangleListIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaRectangleListIcon })
+);

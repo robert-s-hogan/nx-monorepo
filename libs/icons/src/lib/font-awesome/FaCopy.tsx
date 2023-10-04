@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaCopyIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaCopyIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaCopyIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaCopyIcon })
+);

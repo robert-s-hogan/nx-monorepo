@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaGitterIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaGitterIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaGitterIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaGitterIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaUniregistryIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaUniregistryIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaUniregistryIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaUniregistryIcon })
+);

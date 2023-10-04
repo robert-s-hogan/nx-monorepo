@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaTeamspeakIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaTeamspeakIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaTeamspeakIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaTeamspeakIcon })
+);

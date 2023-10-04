@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaCss3AltIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaCss3AltIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaCss3AltIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaCss3AltIcon })
+);

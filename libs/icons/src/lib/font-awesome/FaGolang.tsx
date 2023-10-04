@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaGolangIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaGolangIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaGolangIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaGolangIcon })
+);

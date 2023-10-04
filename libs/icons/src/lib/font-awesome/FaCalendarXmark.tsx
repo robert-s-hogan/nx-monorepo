@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaCalendarXmarkIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaCalendarXmarkIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaCalendarXmarkIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaCalendarXmarkIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaSkyatlasIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaSkyatlasIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaSkyatlasIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaSkyatlasIcon })
+);

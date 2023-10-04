@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaKickstarterIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaKickstarterIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaKickstarterIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaKickstarterIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaSearchenginIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaSearchenginIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaSearchenginIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaSearchenginIcon })
+);

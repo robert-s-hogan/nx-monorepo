@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FeatherShieldIcon = (props: CommonProps) => {
@@ -27,4 +27,6 @@ const FeatherShieldIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FeatherShieldIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FeatherShieldIcon })
+);

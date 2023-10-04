@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaFreeCodeCampIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaFreeCodeCampIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaFreeCodeCampIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaFreeCodeCampIcon })
+);

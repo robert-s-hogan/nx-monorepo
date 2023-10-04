@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaCuttlefishIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaCuttlefishIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaCuttlefishIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaCuttlefishIcon })
+);

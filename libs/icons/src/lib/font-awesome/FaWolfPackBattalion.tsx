@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaWolfPackBattalionIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaWolfPackBattalionIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaWolfPackBattalionIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaWolfPackBattalionIcon })
+);

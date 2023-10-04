@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const CustomChickenScratchIcon = (props: CommonProps) => {
@@ -20,4 +20,6 @@ const CustomChickenScratchIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(CustomChickenScratchIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: CustomChickenScratchIcon })
+);

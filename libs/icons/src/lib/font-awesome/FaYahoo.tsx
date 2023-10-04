@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaYahooIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaYahooIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaYahooIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaYahooIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaRedhatIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaRedhatIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaRedhatIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaRedhatIcon })
+);

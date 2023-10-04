@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaClockIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaClockIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaClockIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaClockIcon })
+);

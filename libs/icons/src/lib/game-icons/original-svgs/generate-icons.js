@@ -24,7 +24,7 @@ function createComponentTemplate(name, className, svgContent) {
     .replace(/<path((?!fill=).)*>/g, '<path fill="currentColor"$1>');
 
   return `
-  import IconWrapper from '../IconWrapper';
+  import DynamicIconWrapper from '../DynamicIconWrapper';
   import { CommonProps } from '@with-nx/types';
   
   const ${name}Icon = (props: CommonProps) => {
@@ -46,7 +46,10 @@ function createComponentTemplate(name, className, svgContent) {
     );
   };
   
-  export default IconWrapper(${name}Icon);
+  export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: ${name}Icon })
+);
+
     `;
 }
 

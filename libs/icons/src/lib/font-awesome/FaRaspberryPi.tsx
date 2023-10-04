@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaRaspberryPiIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaRaspberryPiIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaRaspberryPiIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaRaspberryPiIcon })
+);

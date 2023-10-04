@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaLinkedinInIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaLinkedinInIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaLinkedinInIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaLinkedinInIcon })
+);

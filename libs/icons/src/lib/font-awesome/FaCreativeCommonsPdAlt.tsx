@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaCreativeCommonsPdAltIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaCreativeCommonsPdAltIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaCreativeCommonsPdAltIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaCreativeCommonsPdAltIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaGoodreadsGIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaGoodreadsGIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaGoodreadsGIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaGoodreadsGIcon })
+);

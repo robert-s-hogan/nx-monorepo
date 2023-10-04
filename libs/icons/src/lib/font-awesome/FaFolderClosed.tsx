@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaFolderClosedIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaFolderClosedIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaFolderClosedIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaFolderClosedIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const CustomReflectionIcon = (props: CommonProps) => {
@@ -20,4 +20,6 @@ const CustomReflectionIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(CustomReflectionIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: CustomReflectionIcon })
+);

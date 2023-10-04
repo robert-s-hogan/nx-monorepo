@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaFileExcelIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaFileExcelIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaFileExcelIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaFileExcelIcon })
+);

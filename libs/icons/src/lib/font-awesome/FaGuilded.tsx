@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaGuildedIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaGuildedIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaGuildedIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaGuildedIcon })
+);

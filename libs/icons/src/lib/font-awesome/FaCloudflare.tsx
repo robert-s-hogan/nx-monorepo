@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaCloudflareIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaCloudflareIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaCloudflareIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaCloudflareIcon })
+);

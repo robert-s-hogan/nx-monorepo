@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaFedoraIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaFedoraIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaFedoraIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaFedoraIcon })
+);

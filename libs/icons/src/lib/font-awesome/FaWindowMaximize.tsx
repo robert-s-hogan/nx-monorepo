@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaWindowMaximizeIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaWindowMaximizeIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaWindowMaximizeIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaWindowMaximizeIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaPiedPiperAltIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaPiedPiperAltIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaPiedPiperAltIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaPiedPiperAltIcon })
+);

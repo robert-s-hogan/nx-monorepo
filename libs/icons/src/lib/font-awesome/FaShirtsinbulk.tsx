@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaShirtsinbulkIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaShirtsinbulkIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaShirtsinbulkIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaShirtsinbulkIcon })
+);

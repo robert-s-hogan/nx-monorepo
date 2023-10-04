@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const GameIconInvertedDice4Icon = (props: CommonProps) => {
@@ -24,4 +24,6 @@ const GameIconInvertedDice4Icon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(GameIconInvertedDice4Icon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: GameIconInvertedDice4Icon })
+);

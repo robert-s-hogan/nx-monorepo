@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const CustomZapIcon = (props: CommonProps) => {
@@ -20,4 +20,6 @@ const CustomZapIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(CustomZapIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: CustomZapIcon })
+);

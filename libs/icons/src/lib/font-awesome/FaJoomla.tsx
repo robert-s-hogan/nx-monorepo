@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaJoomlaIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaJoomlaIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaJoomlaIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaJoomlaIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaNodeJsIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaNodeJsIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaNodeJsIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaNodeJsIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaWatchmanMonitoringIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaWatchmanMonitoringIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaWatchmanMonitoringIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaWatchmanMonitoringIcon })
+);

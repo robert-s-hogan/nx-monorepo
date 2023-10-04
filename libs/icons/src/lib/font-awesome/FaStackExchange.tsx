@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaStackExchangeIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaStackExchangeIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaStackExchangeIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaStackExchangeIcon })
+);

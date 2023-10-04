@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaFacebookMessengerIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaFacebookMessengerIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaFacebookMessengerIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaFacebookMessengerIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const Custom100Icon = (props: CommonProps) => {
@@ -20,4 +20,6 @@ const Custom100Icon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(Custom100Icon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: Custom100Icon })
+);

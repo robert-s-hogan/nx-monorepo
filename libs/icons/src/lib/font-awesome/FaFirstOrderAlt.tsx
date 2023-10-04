@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaFirstOrderAltIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaFirstOrderAltIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaFirstOrderAltIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaFirstOrderAltIcon })
+);

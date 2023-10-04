@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaNs8Icon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaNs8Icon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaNs8Icon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaNs8Icon })
+);

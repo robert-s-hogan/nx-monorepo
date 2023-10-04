@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaCreativeCommonsNcEuIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaCreativeCommonsNcEuIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaCreativeCommonsNcEuIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaCreativeCommonsNcEuIcon })
+);

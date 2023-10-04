@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaQuinscapeIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaQuinscapeIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaQuinscapeIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaQuinscapeIcon })
+);

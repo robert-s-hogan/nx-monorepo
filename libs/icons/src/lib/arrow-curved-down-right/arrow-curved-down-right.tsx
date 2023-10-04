@@ -1,6 +1,6 @@
 // libs/icons/src/lib/FeatherArrowDown.tsx
-import IconWrapper from '../IconWrapper';
 import { CommonProps } from '@with-nx/types';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 
 const ArrowCurvedDownRightIcon = (props: CommonProps) => {
   return (
@@ -21,4 +21,6 @@ const ArrowCurvedDownRightIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(ArrowCurvedDownRightIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: ArrowCurvedDownRightIcon })
+);

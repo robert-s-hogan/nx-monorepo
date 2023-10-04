@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaOrcidIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaOrcidIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaOrcidIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaOrcidIcon })
+);

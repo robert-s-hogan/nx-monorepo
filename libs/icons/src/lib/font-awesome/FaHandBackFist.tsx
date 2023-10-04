@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaHandBackFistIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaHandBackFistIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaHandBackFistIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaHandBackFistIcon })
+);

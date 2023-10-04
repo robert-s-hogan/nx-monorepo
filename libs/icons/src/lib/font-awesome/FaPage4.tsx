@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaPage4Icon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaPage4Icon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaPage4Icon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaPage4Icon })
+);

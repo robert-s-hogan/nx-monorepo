@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaLyftIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaLyftIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaLyftIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaLyftIcon })
+);

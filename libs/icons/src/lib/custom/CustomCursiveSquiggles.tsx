@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const CustomCursiveSquigglesIcon = (props: CommonProps) => {
@@ -20,4 +20,6 @@ const CustomCursiveSquigglesIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(CustomCursiveSquigglesIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: CustomCursiveSquigglesIcon })
+);

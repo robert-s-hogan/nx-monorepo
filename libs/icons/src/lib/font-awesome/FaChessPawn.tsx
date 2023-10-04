@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaChessPawnIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaChessPawnIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaChessPawnIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaChessPawnIcon })
+);

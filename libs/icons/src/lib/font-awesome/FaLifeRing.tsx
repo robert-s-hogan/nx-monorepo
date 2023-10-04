@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaLifeRingIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaLifeRingIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaLifeRingIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaLifeRingIcon })
+);

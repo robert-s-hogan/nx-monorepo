@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaCloudscaleIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaCloudscaleIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaCloudscaleIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaCloudscaleIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const GameIconWinchesterRifleIcon = (props: CommonProps) => {
@@ -24,4 +24,6 @@ const GameIconWinchesterRifleIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(GameIconWinchesterRifleIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: GameIconWinchesterRifleIcon })
+);

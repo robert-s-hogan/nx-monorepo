@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaAutoprefixerIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaAutoprefixerIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaAutoprefixerIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaAutoprefixerIcon })
+);

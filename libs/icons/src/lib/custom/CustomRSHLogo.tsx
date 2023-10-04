@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const CustomRSHLogo = (props: CommonProps) => {
@@ -24,4 +24,6 @@ const CustomRSHLogo = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(CustomRSHLogo);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: CustomRSHLogo })
+);

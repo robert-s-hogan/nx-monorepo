@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaFonticonsFiIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaFonticonsFiIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaFonticonsFiIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaFonticonsFiIcon })
+);

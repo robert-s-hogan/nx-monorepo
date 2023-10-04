@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaStickerMuleIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaStickerMuleIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaStickerMuleIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaStickerMuleIcon })
+);

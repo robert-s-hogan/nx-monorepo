@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaIntercomIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaIntercomIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaIntercomIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaIntercomIcon })
+);

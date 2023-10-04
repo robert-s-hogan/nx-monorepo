@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaCpanelIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaCpanelIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaCpanelIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaCpanelIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaYoastIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaYoastIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaYoastIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaYoastIcon })
+);

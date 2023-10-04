@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaGetPocketIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaGetPocketIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaGetPocketIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaGetPocketIcon })
+);

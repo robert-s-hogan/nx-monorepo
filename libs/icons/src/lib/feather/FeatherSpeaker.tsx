@@ -1,26 +1,34 @@
+import DynamicIconWrapper from '../DynamicIconWrapper';
+import { CommonProps } from '@with-nx/types';
 
-  import IconWrapper from '../IconWrapper';
-  import { CommonProps } from '@with-nx/types';
-  
-  const FeatherSpeakerIcon = (props: CommonProps) => {
-    const svgClassNames = ['font-awesome', 'feather-speaker'];
-    const combinedClassNames = [...svgClassNames, props.className].join(' ');
-  
-    // Ensure className is not passed again in the spread operation
-    const { className, ...otherProps } = props;
-  
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="24" height="24"  fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-        className={`feather feather-speaker ${combinedClassNames}`}
-        {...props}
-      >
-        <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><circle cx="12" cy="14" r="4"></circle><line x1="12" y1="6" x2="12.01" y2="6"></line>
-      </svg>
-    );
-  };
-  
-  export default IconWrapper(FeatherSpeakerIcon);
-    
+const FeatherSpeakerIcon = (props: CommonProps) => {
+  const svgClassNames = ['font-awesome', 'feather-speaker'];
+  const combinedClassNames = [...svgClassNames, props.className].join(' ');
+
+  // Ensure className is not passed again in the spread operation
+  const { className, ...otherProps } = props;
+
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`feather feather-speaker ${combinedClassNames}`}
+      {...props}
+    >
+      <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+      <circle cx="12" cy="14" r="4"></circle>
+      <line x1="12" y1="6" x2="12.01" y2="6"></line>
+    </svg>
+  );
+};
+
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FeatherSpeakerIcon })
+);

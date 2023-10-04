@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaTwitchIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaTwitchIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaTwitchIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaTwitchIcon })
+);

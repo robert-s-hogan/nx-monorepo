@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaHardDriveIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaHardDriveIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaHardDriveIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaHardDriveIcon })
+);

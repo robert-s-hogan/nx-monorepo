@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaWordpressIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaWordpressIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaWordpressIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaWordpressIcon })
+);

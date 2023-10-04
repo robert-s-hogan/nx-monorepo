@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaOperaIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaOperaIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaOperaIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaOperaIcon })
+);

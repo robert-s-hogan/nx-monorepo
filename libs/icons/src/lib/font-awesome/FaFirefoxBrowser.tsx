@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaFirefoxBrowserIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaFirefoxBrowserIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaFirefoxBrowserIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaFirefoxBrowserIcon })
+);

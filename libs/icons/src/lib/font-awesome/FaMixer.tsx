@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaMixerIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaMixerIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaMixerIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaMixerIcon })
+);

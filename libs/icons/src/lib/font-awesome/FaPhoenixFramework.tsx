@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaPhoenixFrameworkIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaPhoenixFrameworkIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaPhoenixFrameworkIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaPhoenixFrameworkIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaThumbsDownIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaThumbsDownIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaThumbsDownIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaThumbsDownIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaMailchimpIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaMailchimpIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaMailchimpIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaMailchimpIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaEbayIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaEbayIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaEbayIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaEbayIcon })
+);

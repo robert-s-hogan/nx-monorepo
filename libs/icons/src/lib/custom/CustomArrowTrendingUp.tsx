@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const CustomArrowTrendingUpIcon = (props: CommonProps) => {
@@ -20,4 +20,6 @@ const CustomArrowTrendingUpIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(CustomArrowTrendingUpIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: CustomArrowTrendingUpIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const CustomHeartIcon = (props: CommonProps) => {
@@ -20,4 +20,6 @@ const CustomHeartIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(CustomHeartIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: CustomHeartIcon })
+);

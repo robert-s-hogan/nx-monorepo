@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaResearchgateIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaResearchgateIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaResearchgateIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaResearchgateIcon })
+);

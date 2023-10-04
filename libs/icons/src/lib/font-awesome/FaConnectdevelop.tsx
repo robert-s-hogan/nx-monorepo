@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaConnectdevelopIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaConnectdevelopIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaConnectdevelopIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaConnectdevelopIcon })
+);

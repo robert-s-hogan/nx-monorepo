@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaFreebsdIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaFreebsdIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaFreebsdIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaFreebsdIcon })
+);

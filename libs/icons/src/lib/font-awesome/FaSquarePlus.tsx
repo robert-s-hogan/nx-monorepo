@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaSquarePlusIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaSquarePlusIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaSquarePlusIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaSquarePlusIcon })
+);

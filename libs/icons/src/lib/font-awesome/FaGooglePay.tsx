@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaGooglePayIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaGooglePayIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaGooglePayIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaGooglePayIcon })
+);

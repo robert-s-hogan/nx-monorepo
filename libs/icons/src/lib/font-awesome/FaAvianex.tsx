@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaAvianexIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaAvianexIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaAvianexIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaAvianexIcon })
+);

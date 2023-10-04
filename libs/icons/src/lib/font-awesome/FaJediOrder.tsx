@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaJediOrderIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaJediOrderIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaJediOrderIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaJediOrderIcon })
+);

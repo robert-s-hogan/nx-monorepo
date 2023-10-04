@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaYoutubeIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaYoutubeIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaYoutubeIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaYoutubeIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const GameIconPterugesIcon = (props: CommonProps) => {
@@ -24,4 +24,6 @@ const GameIconPterugesIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(GameIconPterugesIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: GameIconPterugesIcon })
+);

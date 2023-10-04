@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaPlaystationIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaPlaystationIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaPlaystationIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaPlaystationIcon })
+);

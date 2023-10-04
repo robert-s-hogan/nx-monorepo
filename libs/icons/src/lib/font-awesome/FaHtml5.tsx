@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaHtml5Icon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaHtml5Icon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaHtml5Icon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaHtml5Icon })
+);

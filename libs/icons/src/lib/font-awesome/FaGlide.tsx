@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaGlideIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaGlideIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaGlideIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaGlideIcon })
+);

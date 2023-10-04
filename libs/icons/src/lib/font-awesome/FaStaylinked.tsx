@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaStaylinkedIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaStaylinkedIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaStaylinkedIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaStaylinkedIcon })
+);

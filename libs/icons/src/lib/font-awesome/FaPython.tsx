@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaPythonIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaPythonIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaPythonIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaPythonIcon })
+);

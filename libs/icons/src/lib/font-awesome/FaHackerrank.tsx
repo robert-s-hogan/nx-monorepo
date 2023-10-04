@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaHackerrankIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaHackerrankIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaHackerrankIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaHackerrankIcon })
+);

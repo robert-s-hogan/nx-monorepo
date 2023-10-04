@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaGooglePlusGIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaGooglePlusGIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaGooglePlusGIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaGooglePlusGIcon })
+);

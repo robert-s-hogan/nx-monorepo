@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaTrelloIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaTrelloIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaTrelloIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaTrelloIcon })
+);

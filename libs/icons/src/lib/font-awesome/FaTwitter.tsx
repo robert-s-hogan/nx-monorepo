@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaTwitterIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaTwitterIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaTwitterIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaTwitterIcon })
+);

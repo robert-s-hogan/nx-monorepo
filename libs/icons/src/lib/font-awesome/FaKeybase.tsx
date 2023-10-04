@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaKeybaseIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaKeybaseIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaKeybaseIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaKeybaseIcon })
+);

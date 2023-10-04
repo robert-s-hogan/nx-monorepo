@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaJsfiddleIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaJsfiddleIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaJsfiddleIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaJsfiddleIcon })
+);

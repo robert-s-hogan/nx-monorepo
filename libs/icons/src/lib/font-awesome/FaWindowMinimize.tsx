@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaWindowMinimizeIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaWindowMinimizeIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaWindowMinimizeIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaWindowMinimizeIcon })
+);

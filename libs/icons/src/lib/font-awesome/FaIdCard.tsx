@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaIdCardIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaIdCardIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaIdCardIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaIdCardIcon })
+);

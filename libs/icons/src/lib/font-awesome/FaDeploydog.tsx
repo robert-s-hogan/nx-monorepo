@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaDeploydogIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaDeploydogIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaDeploydogIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaDeploydogIcon })
+);

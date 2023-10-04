@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FeatherLinkedinIcon = (props: CommonProps) => {
@@ -29,4 +29,6 @@ const FeatherLinkedinIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FeatherLinkedinIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FeatherLinkedinIcon })
+);

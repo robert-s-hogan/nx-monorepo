@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const CustomPencilDrawingIcon = (props: CommonProps) => {
@@ -20,4 +20,6 @@ const CustomPencilDrawingIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(CustomPencilDrawingIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: CustomPencilDrawingIcon })
+);

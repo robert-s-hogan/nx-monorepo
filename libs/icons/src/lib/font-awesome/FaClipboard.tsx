@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaClipboardIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaClipboardIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaClipboardIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaClipboardIcon })
+);

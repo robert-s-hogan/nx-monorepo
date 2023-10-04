@@ -59,7 +59,7 @@ function createComponentTemplate(name, svgContent) {
     : 'viewBox="0 0 24 24"';
 
   return `
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const ${name}Icon = (props: CommonProps) => {
@@ -84,7 +84,10 @@ const ${name}Icon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(${name}Icon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: ${name}Icon })
+);
+
   `;
 }
 

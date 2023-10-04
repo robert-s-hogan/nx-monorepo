@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaSourcetreeIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaSourcetreeIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaSourcetreeIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaSourcetreeIcon })
+);

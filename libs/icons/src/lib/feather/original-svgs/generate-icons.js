@@ -52,7 +52,7 @@ function createComponentTemplate(name, svgContent) {
   const kebabName = camelToKebab(name);
 
   return `
-  import IconWrapper from '../IconWrapper';
+  import DynamicIconWrapper from '../DynamicIconWrapper';
   import { CommonProps } from '@with-nx/types';
   
   const ${name}Icon = (props: CommonProps) => {
@@ -75,7 +75,10 @@ function createComponentTemplate(name, svgContent) {
     );
   };
   
-  export default IconWrapper(${name}Icon);
+  export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: ${name}Icon })
+);
+
     `;
 }
 

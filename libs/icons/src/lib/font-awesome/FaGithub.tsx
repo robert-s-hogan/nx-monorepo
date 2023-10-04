@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaGithubIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaGithubIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaGithubIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaGithubIcon })
+);

@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaDailymotionIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaDailymotionIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaDailymotionIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaDailymotionIcon })
+);

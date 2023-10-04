@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaBootstrapIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaBootstrapIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaBootstrapIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaBootstrapIcon })
+);

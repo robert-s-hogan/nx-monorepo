@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaDraft2digitalIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaDraft2digitalIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaDraft2digitalIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaDraft2digitalIcon })
+);

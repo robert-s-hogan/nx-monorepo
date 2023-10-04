@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaFaceRollingEyesIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaFaceRollingEyesIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaFaceRollingEyesIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaFaceRollingEyesIcon })
+);

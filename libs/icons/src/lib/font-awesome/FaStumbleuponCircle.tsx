@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaStumbleuponCircleIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaStumbleuponCircleIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaStumbleuponCircleIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaStumbleuponCircleIcon })
+);

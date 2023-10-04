@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaDeskproIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaDeskproIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaDeskproIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaDeskproIcon })
+);

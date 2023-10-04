@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaYammerIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaYammerIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaYammerIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaYammerIcon })
+);

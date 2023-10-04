@@ -1,4 +1,4 @@
-import IconWrapper from '../IconWrapper';
+import DynamicIconWrapper from '../DynamicIconWrapper';
 import { CommonProps } from '@with-nx/types';
 
 const FaAndroidIcon = (props: CommonProps) => {
@@ -21,4 +21,6 @@ const FaAndroidIcon = (props: CommonProps) => {
   );
 };
 
-export default IconWrapper(FaAndroidIcon);
+export default DynamicIconWrapper(() =>
+  Promise.resolve({ default: FaAndroidIcon })
+);
