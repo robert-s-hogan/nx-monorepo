@@ -13,7 +13,12 @@ export const GoogleFontLoader: React.FC<GoogleFontLoaderProps> = ({
   fonts,
 }) => {
   const createFontUrl = (font: SingleFont) => {
-    return `https://fonts.googleapis.com/css2?family=${font.fontFamily}:wght@${font.fontWeights}&display=swap`;
+    let url = `https://fonts.googleapis.com/css2?family=${font.fontFamily}`;
+    if (font.fontWeights) {
+      url += `:wght@${font.fontWeights}`;
+    }
+    url += '&display=swap';
+    return url;
   };
 
   const handleOnLoad = (event: React.SyntheticEvent<HTMLLinkElement>) => {

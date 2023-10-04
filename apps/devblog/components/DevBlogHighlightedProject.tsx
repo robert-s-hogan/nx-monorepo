@@ -18,6 +18,7 @@ const DevBlogHighlightedProject = ({ project }) => {
           alt={project.title}
           className="h-[400px] w-full md:h-[400px]  object-cover"
           loading="lazy"
+          sizes="(max-width: 767px) 90vw, (max-width: 1023px) 45vw, 400px"
         />
 
         <div className="!absolute space-y-6 p-4 md:py-6 md:px-2 inset-0 bg-image-overlay bg-opacity-60 flex flex-col justify-center items-center rounded w-full">
