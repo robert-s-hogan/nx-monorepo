@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { useModal } from '@with-nx/react-hooks';
+// import { useModal } from '@with-nx/react-hooks';
 import {
   Button,
-  Dialog,
+  // Dialog,
   Flex,
-  Form,
+  // Form,
   Heading,
   Link,
   Section,
@@ -22,7 +22,7 @@ import {
   FiMapPin,
 } from 'react-icons/fi';
 import { useTheme } from '@with-nx/theme';
-import { useHandleBackdropClick } from '@with-nx/react-hooks';
+// import { useHandleBackdropClick } from '@with-nx/react-hooks';
 
 import dynamic from 'next/dynamic';
 
@@ -37,42 +37,42 @@ import JHPortrait from '../public/images/jessica_portrait.webp';
 export function Index() {
   const { theme } = useTheme();
 
-  const { isShowing, toggle } = useModal();
-  const dialogRef = useRef(null);
+  // const { isShowing, toggle } = useModal();
+  // const dialogRef = useRef(null);
 
-  const handleCloseDialog = () => {
-    toggle();
-  };
+  // const handleCloseDialog = () => {
+  //   toggle();
+  // };
 
-  useHandleBackdropClick(dialogRef, () => {
-    toggle(); // Toggle the dialog visibility
-    handleCloseDialog(); // Call handleCloseDialog function
-  });
+  // useHandleBackdropClick(dialogRef, () => {
+  //   toggle(); // Toggle the dialog visibility
+  //   handleCloseDialog(); // Call handleCloseDialog function
+  // });
 
-  useEffect(() => {
-    if (isShowing) {
-      dialogRef.current?.showModal();
-    } else {
-      dialogRef.current?.close();
-    }
-  }, [isShowing]);
+  // useEffect(() => {
+  //   if (isShowing) {
+  //     dialogRef.current?.showModal();
+  //   } else {
+  //     dialogRef.current?.close();
+  //   }
+  // }, [isShowing]);
 
-  const fields = [
-    { name: 'name', label: 'Full Name', type: 'text', required: true },
-    { name: 'email', label: 'Email', type: 'email', required: true },
-    {
-      name: 'message',
-      label: 'Message',
-      type: 'textarea',
-      required: true,
-    },
-  ];
+  // const fields = [
+  //   { name: 'name', label: 'Full Name', type: 'text', required: true },
+  //   { name: 'email', label: 'Email', type: 'email', required: true },
+  //   {
+  //     name: 'message',
+  //     label: 'Message',
+  //     type: 'textarea',
+  //     required: true,
+  //   },
+  // ];
 
-  const handleFormSubmit = (values) => {
-    // handle form submission here
-    console.log(values);
-    // for example, sending the form data to the server or an API endpoint
-  };
+  // const handleFormSubmit = (values) => {
+  //   // handle form submission here
+  //   console.log(values);
+  //   // for example, sending the form data to the server or an API endpoint
+  // };
 
   return (
     <JHoganComLayout>
@@ -92,11 +92,11 @@ export function Index() {
             I want to help you make the best data-driven decisions and translate
             data into actionable insights.
           </Text>
-          <Flex className="my-4 flex-col justify-center items-center space-x-4 md:space-x-0 md:flex-row md:space-between">
+          {/* <Flex className="my-4 flex-col justify-center items-center space-x-4 md:space-x-0 md:flex-row md:space-between">
             <Button className="btn-primary" onClick={handleCloseDialog}>
               Contact me
             </Button>
-          </Flex>
+          </Flex> */}
         </Flex>
       </Section>
       <Section id="projects">
@@ -138,7 +138,7 @@ export function Index() {
           </div>
         </div>
       </Section>
-      <Section id="contact" className="lg:px-24" style={{ minHeight: '150px' }}>
+      {/* <Section id="contact" className="lg:px-24" style={{ minHeight: '150px' }}>
         <div className="bg-primary w-full rounded-md shadow-lg">
           <Flex className="flex-col md:flex-row md:items-center mx-auto justify-center md:justify-between p-8 space-y-6 md:space-y-0 md:space-x-6">
             <span className="text-3xl font-semibold text-center text-on-primary whitespace-nowrap">
@@ -160,9 +160,9 @@ export function Index() {
             </Button>
           </Flex>
         </div>
-      </Section>
+      </Section> */}
 
-      <Dialog
+      {/* <Dialog
         backdropRef={dialogRef}
         onClose={handleCloseDialog}
         title="Thanks for taking the time to reach out!"
@@ -192,7 +192,7 @@ export function Index() {
             action="https://formsubmit.co/8cd307fd3307175b764f19822bcd9a02"
           />
         </Flex>
-      </Dialog>
+      </Dialog> */}
     </JHoganComLayout>
   );
 }
