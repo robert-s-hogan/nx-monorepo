@@ -9,8 +9,12 @@ import {
   Form,
 } from '@with-nx/react-ui';
 import { Card } from '@with-nx/react-ui';
-import { FiMinus, FiPlus, FiCheck } from 'react-icons/fi';
-import { FeatherActivity } from '@with-nx/icons';
+import {
+  FeatherActivity,
+  FeatherCheck,
+  FeatherMinus,
+  FeatherPlus,
+} from '@with-nx/icons';
 
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
@@ -459,8 +463,8 @@ function Index() {
           <Stepper
             value={quantity}
             onValueChange={handleQuantityChange}
-            minusIcon={<FiMinus />}
-            plusIcon={<FiPlus />}
+            minusIcon={<FeatherMinus />}
+            plusIcon={<FeatherPlus />}
           />
         </div>
 
@@ -475,7 +479,7 @@ function Index() {
             steps={steps}
             onSubmit={onSubmit}
             className=" bg-white text-black rounded pb-14"
-            okayButtonIcon={<FiCheck />}
+            okayButtonIcon={<FeatherCheck />}
             showButtonStatus={[true, true, true, true, true, false, false]}
           />
         </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { Button } from '@with-nx/react-ui';
 import { useRouter } from 'next/router';
-import { FiCheck } from 'react-icons/fi';
+import { FeatherCheck } from '@with-nx/icons';
 
 const CheckoutForm = () => {
   const router = useRouter();
@@ -121,7 +121,7 @@ const CheckoutForm = () => {
       {checkoutStatus === 'success' && (
         <div className="flex flex-col space-y-6 justify-center text-center">
           <div className="mx-auto">
-            <FiCheck color="green" size={64} />
+            <FeatherCheck className="text-green-500 h-6 w-6" />
           </div>
           <h3>Purchase Complete</h3>
           <p>You will be redirected to orders in 5 seconds...</p>

@@ -1,13 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  FiMail,
-  FiFacebook,
-  FiTwitter,
-  FiInstagram,
-  FiLinkedin,
-  FiGithub,
-} from 'react-icons/fi';
 import { Text } from '@with-nx/react-ui';
 
 import JHSocialMediaIcons from './JHSocialMediaIcons';

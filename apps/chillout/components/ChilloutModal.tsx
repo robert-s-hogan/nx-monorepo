@@ -1,5 +1,5 @@
 import { Button, Modal } from '@with-nx/react-ui';
-import { FiX } from 'react-icons/fi';
+import { FeatherX } from '@with-nx/icons';
 import { ModalProps } from '@with-nx/types';
 
 export function ChilloutModal({
@@ -46,7 +46,7 @@ export function ChilloutModal({
                         type="button"
                         className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center  "
                       >
-                        <FiX />
+                        <FeatherX />
                         <span className="sr-only">Close modal</span>
                       </button>
                     }

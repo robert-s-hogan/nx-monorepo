@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { FiGithub } from 'react-icons/fi';
-import { BiWrench } from 'react-icons/bi';
+// import { BiWrench } from 'react-icons/bi';
 import { Box, Button, Flex, Heading, Section } from '@with-nx/react-ui';
 import { ButtonLink } from '@with-nx/nextjs-react-ui';
+import { FeatherGithub, GameIconMonkeyWrench } from '@with-nx/icons';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
 import DevBlogSubTitle from '../../components/DevBlogSubTitle';
@@ -58,7 +58,7 @@ function ProjectPage({ project }) {
           >
             {project.isUnderConstruction ? (
               <Flex className="space-x-4 items-center cursor-not-allowed">
-                <BiWrench size={24} className="mr-2" />
+                <GameIconMonkeyWrench className="w-6 h-6" />
                 Under Construction
               </Flex>
             ) : (
@@ -74,7 +74,7 @@ function ProjectPage({ project }) {
               target="_blank"
               className={`btn-secondary icon-white`}
             >
-              <FiGithub size={24} />
+              <FeatherGithub className="h-12 w-12" />
             </ButtonLink>
           )}
         </div>

@@ -3,7 +3,7 @@ import { ButtonProps, LinkProps } from '@with-nx/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import { FiMoon, FiSun } from 'react-icons/fi';
+import { FeatherMoon, FeatherSun } from '@with-nx/icons';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -49,7 +49,11 @@ const PlayToWinFFHeader = () => {
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       className="my-auto h-6"
     >
-      {theme === 'light' ? <FiMoon size={20} /> : <FiSun size={20} />}
+      {theme === 'light' ? (
+        <FeatherMoon className="w-8 h-8" />
+      ) : (
+        <FeatherSun className="w-8 h-8" />
+      )}
     </button>
   ) : null;
 

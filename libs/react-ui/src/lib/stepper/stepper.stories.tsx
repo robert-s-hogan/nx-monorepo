@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { FiMinus, FiPlus } from 'react-icons/fi';
+import { FeatherMinus, FeatherPlus } from '@with-nx/icons';
 import { Stepper, StepperProps } from './stepper';
 
 const meta: Meta = {
@@ -17,7 +17,7 @@ Primary.args = {
   onValueChange: (newValue: number) => {
     console.log('New Value:', newValue);
   },
-  minusIcon: <FiMinus />,
-  plusIcon: <FiPlus />,
+  minusIcon: <FeatherMinus className="w-6 h-6" />,
+  plusIcon: <FeatherPlus className="w-6 h-6" />,
   className: 'my-stepper',
 };

@@ -16,7 +16,7 @@ function transformSvgAttributes(attributes) {
   // Convert SVG attributes to their React equivalent
   return attributes
     .replace(/strokeWidth="/g, 'strokeWidth="')
-    .replace(/stroke-linecap="/g, 'strokeLinecap="')
+    .replace(/strokeLinecap="/g, 'strokeLinecap="')
     .replace(/stroke-linejoin="/g, 'strokeLinejoin="')
     .replace(/className="/g, 'className="');
 }
