@@ -141,10 +141,10 @@ export function Index() {
       <Section id="contact" className="lg:px-24" style={{ minHeight: '150px' }}>
         <div className="bg-primary w-full rounded-md shadow-lg">
           <Flex className="flex-col md:flex-row md:items-center mx-auto justify-center md:justify-between p-8 space-y-6 md:space-y-0 md:space-x-6">
-            <span className="text-3xl font-semibold text-center text-on-primary text-shadow whitespace-nowrap">
+            <span className="text-3xl font-semibold text-center text-on-primary whitespace-nowrap">
               Start a project
             </span>
-            <Text className="text-center text-on-primary text-shadow lg:whitespace-nowrap">
+            <Text className="text-center text-on-primary lg:whitespace-nowrap">
               Interested in working together? <span className="md:block"></span>
               We should queue up a chat.
               <span className="hidden lg:inline-flex">
