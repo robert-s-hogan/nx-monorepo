@@ -8,9 +8,11 @@ import { CustomJHLogo } from '@with-nx/icons';
 import { useState, useEffect } from 'react';
 
 const logo = (
-  <Button href="/" aria-label="Jessica Hogan's Homepage.">
-    <CustomJHLogo className="h-16 w-16" />
-  </Button>
+  <Link href="/" passHref>
+    <Button aria-label="Jessica Hogan's Homepage.">
+      <CustomJHLogo className="h-16 w-16" />
+    </Button>
+  </Link>
 );
 
 const links: {
