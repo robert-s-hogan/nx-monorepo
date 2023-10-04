@@ -39,7 +39,11 @@ const DevBlogHeader = () => {
   }, []);
 
   const toggleButton = isMounted ? (
-    <Button onClick={toggleTheme} className="button-icon p-0">
+    <Button
+      onClick={toggleTheme}
+      className="button-icon p-0"
+      aria-label="Toggle Theme"
+    >
       {theme && theme.name === 'light' ? (
         <FiMoon className={`moon h-6 w-6 ${fadeClass}`} />
       ) : (
