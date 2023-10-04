@@ -19,9 +19,9 @@ const ProjectCard = ({ project, loading }) => (
           height={375}
           quality={75}
           className="object-cover object-center"
-          // placeholder="blur"
           src={project.image}
           alt={project.name}
+          sizes="(max-width: 767px) 90vw, (max-width: 1023px) 45vw, 500px"
         />
       )}
     </div>
