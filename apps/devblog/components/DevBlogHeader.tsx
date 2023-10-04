@@ -52,7 +52,11 @@ const DevBlogHeader = () => {
     <header className="container mx-auto max-w-7xl pb-0 px-4 mt-8">
       <Flex className="flex-row justify-between md:px-4 pb-2 md:pb-0 mb-8 items-center border-y mx-0 md:mx-12 space-y-2 md:space-y-0">
         <Flex className="items-center">
-          <Link href="/" className="button-link">
+          <Link
+            href="/"
+            className="button-link"
+            aria-label="Robert Hogans Home"
+          >
             {logo}
           </Link>
           <Link href="/" className="hidden md:flex">
