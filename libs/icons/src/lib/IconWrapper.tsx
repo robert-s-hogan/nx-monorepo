@@ -20,6 +20,7 @@ const IconWrapper = (IconComponent: React.FC<IconComponentProps>) => {
     className = '',
     ...props
   }) => {
+    console.log(`Rendering IconWrapper:`, WrappedIcon);
     return (
       <IconComponent
         {...props}

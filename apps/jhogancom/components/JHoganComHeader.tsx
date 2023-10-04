@@ -3,19 +3,13 @@ import Image from 'next/image';
 import { Button, Flex } from '@with-nx/react-ui';
 import { ButtonProps, LinkProps } from '@with-nx/types';
 import { useTheme } from '@with-nx/theme';
-import { FeatherSun, FeatherMoon } from '@with-nx/icons';
+import { CustomJHLogo, FeatherSun, FeatherMoon } from '@with-nx/icons';
 import { useState, useEffect } from 'react';
 
-import JHLogo from '../public/images/jh_logo_white.webp';
-
 const logo = (
-  <Image
-    src={JHLogo}
-    alt="Jessica Hogan's Logo"
-    height="32"
-    width="82"
-    className="h-8"
-  />
+  <Link href="/">
+    <CustomJHLogo className="h-16 w-16" />
+  </Link>
 );
 
 const links: {
@@ -70,14 +64,7 @@ const JHoganComHeader = () => {
     <header>
       <div className="container mx-auto max-w-7xl w-full flex flex-col justify-center items-center px-4">
         <nav className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black ">
-          <Link href="/">
-            <Image
-              src={JHLogo}
-              alt="Jessica Hogan's Logo"
-              height="32"
-              width="82"
-            />
-          </Link>
+          {logo}
           <Flex className="items-center space-x-4">
             <ul className="flex list-style-none space-x-4">
               <li>
