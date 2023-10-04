@@ -22,6 +22,7 @@ const ProjectCard = ({ project, loading }) => (
           src={project.image}
           alt={project.name}
           sizes="(max-width: 767px) 90vw, (max-width: 1023px) 45vw, 500px"
+          loading="lazy"
         />
       )}
     </div>
