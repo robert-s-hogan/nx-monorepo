@@ -13,7 +13,8 @@ class MyDocument extends Document {
         <Head>
           <GoogleFontLoader
             fonts={[
-              { fontFamily: 'Montserrat', fontWeights: '300;400;600;700;900' },
+              { fontFamily: 'Golos Text', fontWeights: '400;600;700;900' },
+              { fontFamily: 'Silkscreen', fontWeights: '' },
             ]}
           />
         </Head>

@@ -1,13 +1,20 @@
-type GoogleFontLoaderProps = {
+import React from 'react';
+
+type SingleFont = {
   fontFamily: string;
   fontWeights: string;
 };
 
+type GoogleFontLoaderProps = {
+  fonts: SingleFont[];
+};
+
 export const GoogleFontLoader: React.FC<GoogleFontLoaderProps> = ({
-  fontFamily,
-  fontWeights,
+  fonts,
 }) => {
-  const fontUrl = `https://fonts.googleapis.com/css2?family=${fontFamily}:wght@${fontWeights}&display=swap`;
+  const createFontUrl = (font: SingleFont) => {
+    return `https://fonts.googleapis.com/css2?family=${font.fontFamily}:wght@${font.fontWeights}&display=swap`;
+  };
 
   const handleOnLoad = (event: React.SyntheticEvent<HTMLLinkElement>) => {
     event.currentTarget.onload = null;
@@ -16,10 +23,19 @@ export const GoogleFontLoader: React.FC<GoogleFontLoaderProps> = ({
 
   return (
     <>
-      <link rel="preload" href={fontUrl} as="style" onLoad={handleOnLoad} />
-      <noscript>
-        <link href={fontUrl} rel="stylesheet" type="text/css" />
-      </noscript>
+      {fonts.map((font, index) => (
+        <React.Fragment key={index}>
+          <link
+            rel="preload"
+            href={createFontUrl(font)}
+            as="style"
+            onLoad={handleOnLoad}
+          />
+          <noscript>
+            <link href={createFontUrl(font)} rel="stylesheet" type="text/css" />
+          </noscript>
+        </React.Fragment>
+      ))}
     </>
   );
 };
