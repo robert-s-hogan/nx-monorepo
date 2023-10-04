@@ -1,45 +1,44 @@
 import {
-  FaHandBackFist,
-  FeatherHeart,
-  FeatherShield,
-  GameIconBarbarian,
-  GameIconBattleAxe,
-  GameIconBootKick,
-  GameIconBullseye,
-  GameIconBowman,
-  GameIconChoppedSkull,
-  GameIconFireSpellCast,
-  GameIconGargoyle,
-  GameIconInfinity,
-  GameIconPocketBow,
-  GameIconShamblingZombie,
-  GameIconSkeleton,
-  GameIconWizardStaff,
-} from '@with-nx/icons';
+  GiBarbarian,
+  GiBattleAxe,
+  GiBootKick,
+  GiBullseye,
+  GiBowman,
+  GiChoppedSkull,
+  GiFireSpellCast,
+  GiFist,
+  GiGargoyle,
+  GiInfinity,
+  GiPocketBow,
+  GiShamblingZombie,
+  GiSkeleton,
+  GiWizardStaff,
+} from 'react-icons/gi';
+import { FiHeart, FiShield } from 'react-icons/fi';
 import { ClassName, SpeciesName } from '../types';
 
 export const classIconMap = {
-  Barbarian: <GameIconBarbarian className="h-10 w-10 xl:w-24 xl:h-24" />,
-  Mage: <GameIconWizardStaff className="h-10 w-10 xl:w-24 xl:h-24" />,
-  Ranger: <GameIconBowman className="h-10 w-10 xl:w-24 xl:h-24" />,
+  Barbarian: <GiBarbarian className="h-10 w-10 xl:w-24 xl:h-24" />,
+  Mage: <GiWizardStaff className="h-10 w-10 xl:w-24 xl:h-24" />,
+  Ranger: <GiBowman className="h-10 w-10 xl:w-24 xl:h-24" />,
 };
 
 export const classWeaponMap = {
-  Barbarian: <GameIconBattleAxe className="h-8 w-8 xl:w-24 xl:h-24" />,
-  Mage: <GameIconWizardStaff className="h-8 w-8 xl:w-24 xl:h-24" />,
-  Ranger: <GameIconPocketBow className="h-8 w-8 xl:w-24 xl:h-24 -rotate-45" />,
+  Barbarian: <GiBattleAxe className="h-8 w-8 xl:w-24 xl:h-24" />,
+  Mage: <GiWizardStaff className="h-8 w-8 xl:w-24 xl:h-24" />,
+  Ranger: <GiPocketBow className="h-8 w-8 xl:w-24 xl:h-24 -rotate-45" />,
 };
 
 export const classAbilityIconMap = {
-  Barbarian: <GameIconChoppedSkull className="h-10 w-10 xl:w-24 xl:h-24" />,
-  Mage: <GameIconFireSpellCast className="h-10 w-10 xl:w-24 xl:h-24" />,
-  Ranger: <GameIconBullseye className="h-10 w-10 xl:w-24 xl:h-24" />,
+  Barbarian: <GiChoppedSkull className="h-10 w-10 xl:w-24 xl:h-24" />,
+  Mage: <GiFireSpellCast className="h-10 w-10 xl:w-24 xl:h-24" />,
+  Ranger: <GiBullseye className="h-10 w-10 xl:w-24 xl:h-24" />,
 };
 
 export const speciesIconMap = {
-  Gargoyle: <GameIconGargoyle className="h-10 w-10 xl:w-24 xl:h-24" />,
-  Skeleton: <GameIconSkeleton className="h-10 w-10 xl:w-24 xl:h-24" />,
-  Zombie: <GameIconShamblingZombie className="h-10 w-10 xl:w-24 xl:h-24" />,
+  Gargoyle: <GiGargoyle className="h-10 w-10 xl:w-24 xl:h-24" />,
+  Skeleton: <GiSkeleton className="h-10 w-10 xl:w-24 xl:h-24" />,
+  Zombie: <GiShamblingZombie className="h-10 w-10 xl:w-24 xl:h-24" />,
 };
 
 // Function to get class-based icons

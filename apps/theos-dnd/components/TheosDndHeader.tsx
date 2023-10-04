@@ -4,17 +4,16 @@ import { ButtonProps, LinkProps } from '@with-nx/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from '@with-nx/theme';
+import { FiMoon, FiSun } from 'react-icons/fi';
 import {
-  GameIconDoubleDragon,
-  GameIconHolyHandGrenade,
-  GameIconMusicalNotes,
-  GameIconSkeletonKey,
-  FeatherMoon,
-  FeatherSun,
-} from '@with-nx/icons';
+  GiDoubleDragon,
+  GiHolyHandGrenade,
+  GiMusicalNotes,
+  GiSkeletonKey,
+} from 'react-icons/gi';
 import { useState, useEffect } from 'react';
 
-const logo = <GameIconDoubleDragon className="w-12 h-12" />;
+const logo = <GiDoubleDragon className="w-12 h-12" />;
 
 const links: {
   href: string;
@@ -45,7 +44,7 @@ const DevBlogHeader = () => {
     theme.name === 'light' ? 'light-bounce' : 'dark-bounce';
 
   const musicNote = isToggleLocked ? (
-    <GameIconMusicalNotes className={`w-6 h-6 ${musicNoteClass}`} />
+    <GiMusicalNotes className={`w-6 h-6 ${musicNoteClass}`} />
   ) : null;
 
   useEffect(() => {
@@ -55,9 +54,9 @@ const DevBlogHeader = () => {
   const toggleButton = isMounted ? (
     <Button onClick={toggleTheme} className={`${iconClass} button-icon p-0`}>
       {theme && theme.name === 'light' ? (
-        <GameIconHolyHandGrenade className={`moon h-6 w-6 ${fadeClass}`} />
+        <GiHolyHandGrenade className={`moon h-6 w-6 ${fadeClass}`} />
       ) : (
-        <GameIconSkeletonKey className={`sun h-6 w-6 ${fadeClass}`} />
+        <GiSkeletonKey className={`sun h-6 w-6 ${fadeClass}`} />
       )}
     </Button>
   ) : null;

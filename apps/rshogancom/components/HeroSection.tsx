@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Script from 'next/script';
 import RSHModal from './RSHModal';
 import { useModal } from '@with-nx/react-hooks';
-import { FeatherX } from '@with-nx/icons';
+import { FiX } from 'react-icons/fi';
 
 import HeroImg from '../assets/images/rsh_hero_circle.webp';
 
@@ -42,7 +42,7 @@ const HeroSection = () => {
       <dialog open={isShowing} className="border border-primary">
         {/* <Button onClick={toggle} autoFocus> */}
         <div className="w-full z-10 pb-2" onClick={toggle}>
-          <FeatherX className="h-5 w-5 ml-auto opacity-80" />
+          <FiX className="h-5 w-5 ml-auto opacity-80" />
         </div>
         {/* </Button> */}
         <div

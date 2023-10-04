@@ -9,12 +9,7 @@ import {
   Form,
 } from '@with-nx/react-ui';
 import { Card } from '@with-nx/react-ui';
-import {
-  FeatherActivity,
-  FeatherCheck,
-  FeatherMinus,
-  FeatherPlus,
-} from '@with-nx/icons';
+import { FiActivity, FiX, FiMinus, FiPlus } from 'react-icons/fi';
 
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
@@ -456,15 +451,15 @@ function Index() {
         className="h-max py-32 flex flex-col justify-center items-center text-primary space-y-4 bg-hero"
       />
 
-      <FeatherActivity className="h-24 w-24 text-blue-500" />
+      <FiActivity className="h-24 w-24 text-blue-500" />
       <div className="space-y-12 space-x-8 px-8">
         <div className="p-8 border border-red-500 space-y-4">
           <p>import Stepper from @with-nx/react-ui</p>
           <Stepper
             value={quantity}
             onValueChange={handleQuantityChange}
-            minusIcon={<FeatherMinus />}
-            plusIcon={<FeatherPlus />}
+            minusIcon={<FiMinus />}
+            plusIcon={<FiPlus />}
           />
         </div>
 
@@ -479,7 +474,7 @@ function Index() {
             steps={steps}
             onSubmit={onSubmit}
             className=" bg-white text-black rounded pb-14"
-            okayButtonIcon={<FeatherCheck />}
+            okayButtonIcon={<FiX />}
             showButtonStatus={[true, true, true, true, true, false, false]}
           />
         </div>

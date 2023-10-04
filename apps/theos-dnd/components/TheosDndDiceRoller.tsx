@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 import { Button, Heading } from '@with-nx/react-ui';
 import {
-  GameIconDiceEightFacesEight,
-  GameIconFist,
-  GameIconBootKick,
-  GameIconHelmetHeadShot,
-} from '@with-nx/icons'; // Import the new icons
+  GiDiceEightFacesEight,
+  GiFist,
+  GiBootKick,
+  GiHelmetHeadShot,
+} from 'react-icons/gi'; // Import the new icons
 
 import { useDiceRoll } from '../hooks/useDiceRoll';
 import { rollDice } from '../utils';
@@ -35,9 +35,9 @@ const DiceRoller: React.FC<DiceRollerProps> = ({ defense, onRoll }) => {
 
   // Map attack type to its icon
   const attackIcons: Record<string, React.ReactNode> = {
-    Hit: <GameIconFist className="w-24 h-24" />,
-    Kick: <GameIconBootKick className="w-24 h-24" />,
-    Headbutt: <GameIconHelmetHeadShot className="w-24 h-24" />,
+    Hit: <GiFist className="w-24 h-24" />,
+    Kick: <GiBootKick className="w-24 h-24" />,
+    Headbutt: <GiHelmetHeadShot className="w-24 h-24" />,
   };
   return (
     <div className="space-y-0 md:space-y-4">
@@ -57,7 +57,7 @@ const DiceRoller: React.FC<DiceRollerProps> = ({ defense, onRoll }) => {
         </div>
       ) : (
         <Button onClick={handleRoll}>
-          <GameIconDiceEightFacesEight
+          <GiDiceEightFacesEight
             className={`w-24 h-24 ${rolling ? 'animate-spin' : ''}`}
           />
         </Button>

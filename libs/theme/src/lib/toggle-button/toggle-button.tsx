@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@with-nx/react-ui';
 import { useTheme } from '@with-nx/theme';
-import { FeatherMoon, FeatherSun } from '@with-nx/icons';
+import { FiMoon, FiSun } from 'react-icons/fi';
 
 const ToggleButton = ({ toggleIcon: ToggleIcon }) => {
   const { toggleTheme, theme, fadeClass } = useTheme();
@@ -17,9 +17,9 @@ const ToggleButton = ({ toggleIcon: ToggleIcon }) => {
       {ToggleIcon ? (
         <ToggleIcon className={`icon h-6 w-6 ${fadeClass}`} />
       ) : theme.name === 'light' ? (
-        <FeatherMoon className={`moon h-6 w-6 ${fadeClass}`} />
+        <FiMoon className={`moon h-6 w-6 ${fadeClass}`} />
       ) : (
-        <FeatherSun className={`sun h-6 w-6 ${fadeClass}`} />
+        <FiSun className={`sun h-6 w-6 ${fadeClass}`} />
       )}
     </Button>
   );

@@ -1,9 +1,14 @@
-// lib/index.ts
-export * from './lib/dazzle';
-export * from './lib/feather';
-export * from './lib/font-awesome';
-export * from './lib/game-icons';
-export * from './lib/custom';
-
-//custom icons
-export { default as ArrowCurvedDownRight } from './lib/arrow-curved-down-right/arrow-curved-down-right';
+export { default as ArrowCurvedDownRight } from './lib/arrow-curved-down-right';
+export { default as Custom100 } from './lib/Custom100';
+export { default as CustomArrowCurvedDownRight } from './lib/CustomArrowCurvedDownRight';
+export { default as CustomArrowTrendingUp } from './lib/CustomArrowTrendingUp';
+export { default as CustomChickenScratch } from './lib/CustomChickenScratch';
+export { default as CustomCursiveSquiggles } from './lib/CustomCursiveSquiggles';
+export { default as CustomFireworks } from './lib/CustomFireworks';
+export { default as CustomHeart } from './lib/CustomHeart';
+export { default as CustomJHLogo } from './lib/CustomJHLogo';
+export { default as CustomPencilDrawing } from './lib/CustomPencilDrawing';
+export { default as CustomReflection } from './lib/CustomReflection';
+export { default as CustomRSHLogo } from './lib/CustomRSHLogo';
+export { default as CustomSmileyFace } from './lib/CustomSmileyFace';
+export { default as CustomZap } from './lib/CustomZap';

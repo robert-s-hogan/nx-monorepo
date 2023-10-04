@@ -2,13 +2,13 @@ import Link from 'next/link';
 
 import { Flex } from '@with-nx/react-ui';
 import {
-  FeatherMail,
-  FeatherFacebook,
-  FeatherTwitter,
-  FeatherInstagram,
-  FeatherLinkedin,
-  FeatherGithub,
-} from '@with-nx/icons';
+  FiMail,
+  FiFacebook,
+  FiTwitter,
+  FiInstagram,
+  FiLinkedin,
+  FiGithub,
+} from 'react-icons/fi';
 
 const JHSocialMediaIcons = () => {
   return (
@@ -18,7 +18,7 @@ const JHSocialMediaIcons = () => {
         href="mailto:jessicahoganma@gmail.com"
         aria-label="Jessica Hogan's Email"
       >
-        <FeatherMail className="w-6 h-6" />
+        <FiMail className="w-6 h-6" />
       </a>
       <a
         className="svg-hover"
@@ -26,7 +26,7 @@ const JHSocialMediaIcons = () => {
         target="_blank"
         aria-label="Jessica Hogan's Facebook"
       >
-        <FeatherFacebook className="w-6 h-6" />
+        <FiFacebook className="w-6 h-6" />
       </a>
       <a
         className="svg-hover"
@@ -34,7 +34,7 @@ const JHSocialMediaIcons = () => {
         target="_blank"
         aria-label="Jessica Hogan's Twitter"
       >
-        <FeatherTwitter className="w-6 h-6" />
+        <FiTwitter className="w-6 h-6" />
       </a>
       <a
         className="svg-hover"
@@ -42,7 +42,7 @@ const JHSocialMediaIcons = () => {
         target="_blank"
         aria-label="Jessica Hogan's Instagram"
       >
-        <FeatherInstagram className="w-6 h-6" />
+        <FiInstagram className="w-6 h-6" />
       </a>
       <a
         href="https://www.linkedin.com/in/jessicahoganma/"
@@ -50,7 +50,7 @@ const JHSocialMediaIcons = () => {
         className="svg-hover"
         aria-label="Jessica Hogan's LinkedIn"
       >
-        <FeatherLinkedin className="w-6 h-6" />
+        <FiLinkedin className="w-6 h-6" />
       </a>
 
       <a
@@ -59,7 +59,7 @@ const JHSocialMediaIcons = () => {
         target="_blank"
         aria-label="Jessica Hogan's Github"
       >
-        <FeatherGithub className="w-6 h-6" />
+        <FiGithub className="w-6 h-6" />
       </a>
     </Flex>
   );

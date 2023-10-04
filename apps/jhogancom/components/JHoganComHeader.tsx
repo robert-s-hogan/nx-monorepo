@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { Button, Flex } from '@with-nx/react-ui';
 import { ButtonProps, LinkProps } from '@with-nx/types';
 import { useTheme } from '@with-nx/theme';
-import { CustomJHLogo, FeatherSun, FeatherMoon } from '@with-nx/icons';
+import { FiSun, FiMoon } from 'react-icons/fi';
+import { CustomJHLogo } from '@with-nx/icons';
 import { useState, useEffect } from 'react';
 
 const logo = (
@@ -53,9 +54,9 @@ const JHoganComHeader = () => {
       }
     >
       {theme && theme.name === 'light' ? (
-        <FeatherMoon className={`moon h-5 w-5 ${fadeClass}`} />
+        <FiMoon className={`moon h-5 w-5 ${fadeClass}`} />
       ) : (
-        <FeatherSun className={`sun h-5 w-5 ${fadeClass}`} />
+        <FiSun className={`sun h-5 w-5 ${fadeClass}`} />
       )}
     </Button>
   ) : null;

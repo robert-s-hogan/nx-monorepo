@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Button, Flex, Grid } from '@with-nx/react-ui';
-import { FeatherCheck } from '@with-nx/icons';
-import { FaAddressBook } from '@with-nx/icons';
+import { FiX } from 'react-icons/fi';
+import { FaAddressBook } from 'react-icons/fa';
 import useIconSearch from '../hooks/useIconSearch';
 
 type Filters = {
@@ -111,7 +111,7 @@ const IconLibrary: React.FC<IconLibraryProps> = ({
                   {clickedIcon === icon.name ? (
                     <Flex className="text-white space-x-1">
                       <p>Copied!</p>
-                      <FeatherCheck className="h-6 w-6" />
+                      <FiX className="h-6 w-6" />
                     </Flex>
                   ) : (
                     <p className="h-6" />

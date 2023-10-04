@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, useEffect, useRef } from 'react';
 import { Button, Flex, Heading, Text } from '@with-nx/react-ui';
-import { FeatherX } from '@with-nx/icons';
+import { FiX } from 'react-icons/fi';
 
 interface DialogProps {
   title: string;
@@ -52,7 +52,7 @@ export const Dialog: FC<DialogProps> = ({
     <dialog ref={backdropRef}>
       <header className="flex justify-end">
         <Button onClick={handleClose}>
-          <FeatherX className="w-6 h-6" />
+          <FiX className="w-6 h-6" />
         </Button>
       </header>
       {children}

@@ -3,7 +3,7 @@ import { Navbar, Flex } from '@with-nx/react-ui';
 import { ButtonProps, LinkProps } from '@with-nx/types';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import { FeatherMoon, FeatherSun, FeatherShoppingCart } from '@with-nx/icons';
+import { FiMoon, FiSun, FiShoppingCart } from 'react-icons/fi';
 import { useSelector } from 'react-redux';
 import { selectTotalQuantity } from '@with-nx/store/cart';
 import { RootState } from '../store';
@@ -39,9 +39,9 @@ const DevBlogHeader = () => {
   //     className="my-auto h-6 text-black flex items-center justify-center"
   //   >
   //     {theme === 'light' ? (
-  //       <FeatherMoon className="w-8 h-8" />
+  //       <FiMoon className="w-8 h-8" />
   //     ) : (
-  //       <FeatherSun className="w-8 h-8" />
+  //       <FiSun className="w-8 h-8" />
   //     )}
   //   </button>
   // ) : null;
@@ -65,7 +65,7 @@ const DevBlogHeader = () => {
       href: '/checkout',
       children: (
         <Flex className="space-x-4">
-          <FeatherShoppingCart className="h-8 w-8" />
+          <FiShoppingCart className="h-8 w-8" />
           {totalQuantity !== null && totalQuantity}
         </Flex>
       ),

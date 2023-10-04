@@ -1,4 +1,4 @@
-import { FeatherMenu, FeatherX } from '@with-nx/icons';
+import { FiMenu, FiX } from 'react-icons/fi';
 import Button from '../button/button';
 import hamburgerIconStyles from './hamburger-icon.module.css';
 
@@ -22,14 +22,14 @@ const HamburgerIcon = ({
       className={className ? className : hamburgerIconStyles.iconContainer}
       onClick={onClick}
     >
-      <FeatherX className={hamburgerIconStyles.icon} />
+      <FiX className={hamburgerIconStyles.icon} />
     </div>
   ) : (
     <div
       className={className ? className : hamburgerIconStyles.iconContainer}
       onClick={onClick}
     >
-      <FeatherMenu className={hamburgerIconStyles.icon} />
+      <FiMenu className={hamburgerIconStyles.icon} />
     </div>
   );
 };

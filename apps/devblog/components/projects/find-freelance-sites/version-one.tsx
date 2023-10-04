@@ -10,7 +10,7 @@ import {
   Input,
   Text,
 } from '@with-nx/react-ui';
-import { FeatherX } from '@with-nx/icons';
+import { FiX } from 'react-icons/fi';
 import { useSearchQuery, useFileTypeSelection } from '@with-nx/react-hooks';
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
@@ -124,7 +124,7 @@ const VersionOne = () => {
                         onClick={() => handleRemoveExcludeTerm(index)}
                       >
                         {term}
-                        <FeatherX className="h-4 w-4 ml-2" />
+                        <FiX className="h-4 w-4 ml-2" />
                       </Button>
                     </Flex>
                   )

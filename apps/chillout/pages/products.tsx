@@ -9,12 +9,7 @@ import {
   Skeleton,
   Spinner,
 } from '@with-nx/react-ui';
-import {
-  FeatherCheck,
-  FeatherDollarSign,
-  FeatherShield,
-  FeatherTruck,
-} from '@with-nx/icons';
+import { FiX, FiDollarSign, FiShield, FiTruck } from 'react-icons/fi';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -97,7 +92,7 @@ const Products = () => {
           <div className="pl-4 mt-12 lg:pl-20 lg:mt-24">
             <Flex className="items-center mb-10">
               <Flex className="justify-center items-center w-12 h-12 mr-6 rounded-md bg-blue-600">
-                <FeatherTruck className="text-white" />
+                <FiTruck className="text-white" />
               </Flex>
               <div>
                 <Text className="text-lg font-semibold text-gray-700">
@@ -111,7 +106,7 @@ const Products = () => {
 
             <Flex className="items-center mb-10">
               <Flex className="justify-center items-center w-12 h-12 mr-6 rounded-md bg-blue-600">
-                <FeatherDollarSign className="w-8 h-8 text-white" />
+                <FiDollarSign className="w-8 h-8 text-white" />
               </Flex>
               <div>
                 <Text className="text-lg font-semibold text-gray-700">
@@ -125,7 +120,7 @@ const Products = () => {
 
             <Flex className="items-center mb-10">
               <Flex className="justify-center items-center w-12 h-12 mr-6 rounded-md bg-blue-600">
-                <FeatherShield className="text-white w-8 h-8" />
+                <FiShield className="text-white w-8 h-8" />
               </Flex>
               <div>
                 <Text className="text-lg font-semibold text-gray-700">
@@ -266,8 +261,7 @@ const Products = () => {
                     >
                       {productInCart ? (
                         <Flex className="items-center space-x-4">
-                          Added to Cart{' '}
-                          <FeatherCheck className="h-6 w-6 text-white" />
+                          Added to Cart <FiX className="h-6 w-6 text-white" />
                         </Flex>
                       ) : (
                         'Add to Cart'

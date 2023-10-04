@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { Button, Flex, Grid, Heading, Section, Text } from '@with-nx/react-ui';
-import { FeatherMail, FeatherLinkedin } from '@with-nx/icons';
+import { FiMail, FiLinkedin } from 'react-icons/fi';
 import { FiGithub } from 'react-icons/fi';
 import { BiWrench } from 'react-icons/bi';
 import Link from 'next/link';

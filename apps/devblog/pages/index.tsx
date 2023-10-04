@@ -7,7 +7,7 @@ import {
   Section,
   Text,
 } from '@with-nx/react-ui';
-import { FeatherX } from '@with-nx/icons';
+import { FiX } from 'react-icons/fi';
 import Image from 'next/image';
 import Script from 'next/script';
 import { useModal } from '@with-nx/react-hooks';
@@ -53,7 +53,7 @@ export function Index() {
           </Flex>
           <dialog open={isShowing} className="border border-primary">
             <div className="w-full z-10 pb-2" onClick={toggle}>
-              <FeatherX className="h-5 w-5 ml-auto opacity-80" />
+              <FiX className="h-5 w-5 ml-auto opacity-80" />
             </div>
             <div
               className="calendly-inline-widget"

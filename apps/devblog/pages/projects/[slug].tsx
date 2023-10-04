@@ -3,8 +3,8 @@ import Link from 'next/link';
 // import { BiWrench } from 'react-icons/bi';
 import { Box, Button, Flex, Heading, Section } from '@with-nx/react-ui';
 import { ButtonLink } from '@with-nx/nextjs-react-ui';
-import { FeatherGithub, GameIconMonkeyWrench } from '@with-nx/icons';
-
+import { FiGithub } from 'react-icons/fi';
+import { GiMonkeyWrench } from 'react-icons/gi';
 import DevBlogLayout from '../../components/DevBlogLayout';
 import DevBlogSubTitle from '../../components/DevBlogSubTitle';
 import DevBlogSection from '../../components/DevBlogSection';
@@ -58,7 +58,7 @@ function ProjectPage({ project }) {
           >
             {project.isUnderConstruction ? (
               <Flex className="space-x-4 items-center cursor-not-allowed">
-                <GameIconMonkeyWrench className="w-6 h-6" />
+                <GiMonkeyWrench className="w-6 h-6" />
                 Under Construction
               </Flex>
             ) : (
@@ -74,7 +74,7 @@ function ProjectPage({ project }) {
               target="_blank"
               className={`btn-secondary icon-white`}
             >
-              <FeatherGithub className="h-12 w-12" />
+              <FiGithub className="h-12 w-12" />
             </ButtonLink>
           )}
         </div>

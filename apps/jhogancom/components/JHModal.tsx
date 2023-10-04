@@ -1,6 +1,6 @@
 import { Button, Modal } from '@with-nx/react-ui';
 import { ModalProps } from '@with-nx/types';
-import { FeatherX } from '@with-nx/icons';
+import { FiX } from 'react-icons/fi';
 
 export function JHModal({
   isShowing,
@@ -46,7 +46,7 @@ export function JHModal({
                         type="button"
                         className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center  "
                       >
-                        <FeatherX className="w-6 h-6" />
+                        <FiX className="w-6 h-6" />
                         <span className="sr-only">Close modal</span>
                       </button>
                     }

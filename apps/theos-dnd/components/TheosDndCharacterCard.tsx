@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Flex, Grid, Heading } from '@with-nx/react-ui';
 import {
-  FaHandBackFist,
-  FeatherChevronLeft,
-  FeatherChevronRight,
-  FeatherHeart,
-  FeatherShield,
-  GameIconBootKick,
-  GameIconInfinity,
-} from '@with-nx/icons';
-
+  FiChevronLeft,
+  FiChevronRight,
+  FiHeart,
+  FiShield,
+} from 'react-icons/fi';
+import { GiBootKick, GiFist, GiInfinity } from 'react-icons/gi';
 import {
   classAbilityIconMap,
   classIconMap,
@@ -88,7 +85,7 @@ const CharacterCard = ({ entity, preview }) => {
     </Flex>
   );
 
-  const resourceCostIcons = <GameIconInfinity className="w-4 h-4" />;
+  const resourceCostIcons = <GiInfinity className="w-4 h-4" />;
   const classAbilityManaCost = {
     Barbarian: 20,
     Mage: 20,
@@ -102,11 +99,11 @@ const CharacterCard = ({ entity, preview }) => {
         <span className="">{resourceCostIcons}</span>
       </Flex>
       <Flex className="relative items-center justify-between space-x-0">
-        <FaHandBackFist className="h-8 w-8 xl:w-24 w:h-24 rotate-90" />
+        <GiFist className="h-8 w-8 xl:w-24 w:h-24 rotate-90" />
         <span className="">{resourceCostIcons}</span>
       </Flex>
       <Flex className="relative items-center justify-between space-x-0">
-        <GameIconBootKick className="h-10 w-10 xl:w-24 w:h-24 rotate-45" />
+        <GiBootKick className="h-10 w-10 xl:w-24 w:h-24 rotate-45" />
         <span className="">{resourceCostIcons}</span>
       </Flex>
       <Flex className="relative items-center space-x-0">
@@ -157,25 +154,25 @@ const CharacterCard = ({ entity, preview }) => {
                 onClick={prevImage}
                 className="absolute left-0 z-30 top-1/2 transform -translate-y-1/2"
               >
-                <FeatherChevronLeft className="text-on-primary w-10 h-10" />
+                <FiChevronLeft className="text-on-primary w-10 h-10" />
               </button>
               <button
                 onClick={nextImage}
                 className="absolute -right-3 z-30 top-1/2 transform -translate-y-1/2"
               >
-                <FeatherChevronRight className="text-on-primary w-10 h-10" />
+                <FiChevronRight className="text-on-primary w-10 h-10" />
               </button>
             </>
           )}
 
           <div className="absolute top-1 left-1 z-20 pl-3 pr-2">
-            <FeatherShield className="absolute left-0 top-[-1] w-10 h-10 text-on-primary" />
+            <FiShield className="absolute left-0 top-[-1] w-10 h-10 text-on-primary" />
             <span className="text-xs absolute left-[.75rem] top-[.65rem] md:left-[.85rem] md:top-[.65rem] lg:left-[.8rem] text-on-primary">
               {DEF}
             </span>
           </div>
           <div className="absolute top-1 right-1 z-20 px-2">
-            <FeatherHeart className="absolute right-0 top-[-1] w-10 h-10 text-on-primary" />
+            <FiHeart className="absolute right-0 top-[-1] w-10 h-10 text-on-primary" />
             <span
               className={`text-xs absolute ${
                 HP > 100

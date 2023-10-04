@@ -1,10 +1,5 @@
 import { useState } from 'react';
-import {
-  FaHandBackFist,
-  GameIconBrokenAxe,
-  GameIconDodge,
-  GameIconDrippingBlade,
-} from '@with-nx/icons';
+import { GiBrokenAxe, GiDodge, GiDrippingBlade, GiFist } from 'react-icons/gi';
 import { computeTotalStats } from '../utils';
 import { OutcomeType, Stats } from '../types';
 import { CLASS_MODIFIERS, SPECIES_MODIFIERS } from '../data';
@@ -35,9 +30,9 @@ export function useDiceRoll() {
     const dexterityModifier = effectiveStats.DEX / 10; // <-- Update to use effectiveStats
 
     const outcomes: OutcomeType[] = [
-      { result: 'Hit', image: FaHandBackFist },
-      { result: 'Critical', image: GameIconDrippingBlade },
-      { result: 'Dodge', image: GameIconDodge },
+      { result: 'Hit', image: GiFist },
+      { result: 'Critical', image: GiDrippingBlade },
+      { result: 'Dodge', image: GiDodge },
     ];
 
     const d20Roll = Math.floor(Math.random() * 20) + 1;
@@ -56,7 +51,7 @@ export function useDiceRoll() {
     } else if (attackRoll > armorValue) {
       setOutcome({ ...outcomes[0], damage: 5 + strengthModifier }); // Example logic for Hit damage
     } else {
-      setOutcome({ result: 'Miss', image: GameIconBrokenAxe });
+      setOutcome({ result: 'Miss', image: GiBrokenAxe });
     }
   };
 

@@ -11,7 +11,7 @@ import {
   Section,
   Text,
 } from '@with-nx/react-ui';
-import { FeatherMail, FeatherMapPin } from '@with-nx/icons';
+import { FiMail, FiMapPin } from 'react-icons/fi';
 import { useTheme } from '@with-nx/theme';
 // import { useHandleBackdropClick } from '@with-nx/react-hooks';
 
@@ -165,13 +165,13 @@ export function Index() {
             Got ideas? Let's talk!
           </Heading>
           <Flex className="items-center space-x-4">
-            <FeatherMapPin className="w-9 h-9" />
+            <FiMapPin className="w-9 h-9" />
 
             <Text>Sonoma County, CA</Text>
           </Flex>
 
           <Flex className="items-center space-x-4">
-            <FeatherMail className="w-8 h-8" />
+            <FiMail className="w-8 h-8" />
             <Link className="text" href="mailto:robert@robertshogan.com">
               <Text className="underline">Email me</Text>
             </Link>

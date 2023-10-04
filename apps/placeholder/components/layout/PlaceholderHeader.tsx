@@ -3,12 +3,12 @@ import { ButtonProps, LinkProps } from '@with-nx/types';
 
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import { FeatherSun, FeatherMoon, FeatherSearch } from '@with-nx/icons';
+import { FiSun, FiMoon, FiSearch } from 'react-icons/fi';
 import PlaceholderImage from '../../public/images/1500.png';
 
 const logo = <Image src={PlaceholderImage} height={50} width={50} alt="Logo" />;
 
-const searchIcon = <FeatherSearch />;
+const searchIcon = <FiSearch />;
 
 const links: {
   href: string;
@@ -73,7 +73,7 @@ const PlaceholderHeader = () => {
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       className="btn-primary text-sm"
     >
-      {theme === 'light' ? <FeatherMoon /> : <FeatherSun />}
+      {theme === 'light' ? <FiMoon /> : <FiSun />}
     </button>
   );
 

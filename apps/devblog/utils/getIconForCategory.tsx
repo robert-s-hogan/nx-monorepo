@@ -1,5 +1,4 @@
 import { FiGithub } from 'react-icons/fi';
-import { FaReact } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import {
   SiCss3,
@@ -8,6 +7,7 @@ import {
   SiJest,
   SiNextdotjs,
   SiNx,
+  SiReact,
   SiReactquery,
   SiStorybook,
   SiTailwindcss,
@@ -19,7 +19,7 @@ import { BiWrench } from 'react-icons/bi';
 export function getIconForCategory(category: string): JSX.Element | null {
   switch (category) {
     case 'React':
-      return <FaReact className="text-react-js" />;
+      return <SiReact className="text-react-js" />;
     case 'Next':
       return <SiNextdotjs className="stroke-next-js" />;
     case 'API':

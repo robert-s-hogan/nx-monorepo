@@ -4,18 +4,11 @@ import { ButtonProps, LinkProps } from '@with-nx/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from '@with-nx/theme';
-import { CustomRSHLogo, FeatherMoon, FeatherSun } from '@with-nx/icons';
+import { FiMoon, FiSun } from 'react-icons/fi';
+import { CustomRSHLogo } from '@with-nx/icons';
 import { useState, useEffect } from 'react';
-import RSHLogo from '../public/images/rsh_logo.png';
 
 const logo = (
-  // <Image
-  //   src={RSHLogo}
-  //   alt="Robert's Dev Logo"
-  //   height={41}
-  //   width={48}
-  //   className="mr0 md:mr-4 nav-logo"
-  // />
   <CustomRSHLogo className="h-12 w-12 md:mb-2 text-primary nav-logo" />
 );
 
@@ -48,9 +41,9 @@ const DevBlogHeader = () => {
   const toggleButton = isMounted ? (
     <Button onClick={toggleTheme} className="button-icon p-0">
       {theme && theme.name === 'light' ? (
-        <FeatherMoon className={`moon h-6 w-6 ${fadeClass}`} />
+        <FiMoon className={`moon h-6 w-6 ${fadeClass}`} />
       ) : (
-        <FeatherSun className={`sun h-6 w-6 ${fadeClass}`} />
+        <FiSun className={`sun h-6 w-6 ${fadeClass}`} />
       )}
     </Button>
   ) : null;

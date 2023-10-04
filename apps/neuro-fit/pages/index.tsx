@@ -1,5 +1,5 @@
 import styles from './index.module.css';
-import { FaSun } from '@with-nx/icons';
+import { FiSun } from 'react-icons/fi';
 
 export function Index() {
   /*
@@ -16,7 +16,7 @@ export function Index() {
               <span> Hello there, </span>
               Welcome neuro-fit 👋
             </h1>
-            <FaSun className="w-16 h-16" />
+            <FiSun className="w-16 h-16" />
           </div>
 
           <div id="hero" className="rounded">

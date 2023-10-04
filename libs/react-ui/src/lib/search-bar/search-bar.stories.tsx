@@ -2,7 +2,7 @@
 
 import { Meta, Story } from '@storybook/react';
 import SearchBar, { SearchBarProps } from './search-bar';
-import { FaSearch } from 'react-icons/fa';
+import { FiSearch } from 'react-icons/fi';
 
 const meta: Meta = {
   component: SearchBar,
@@ -16,7 +16,7 @@ const Template: Story<SearchBarProps> = (args) => <SearchBar {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   placeholder: 'Search for something',
-  icon: <FaSearch />,
+  icon: <FiSearch />,
 };
 Primary.parameters = {
   docs: {
@@ -24,7 +24,7 @@ Primary.parameters = {
       code: `
 <SearchBar
   placeholder="Search for something"
-  icon={<FaSearch />}
+  icon={<FiSearch />}
 />
 `,
     },

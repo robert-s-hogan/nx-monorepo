@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Box, Button, Flex, Section, Stepper, Text } from '@with-nx/react-ui';
-import { FeatherMinus, FeatherPlus, FeatherX } from '@with-nx/icons';
+import { FiMinus, FiPlus, FiX } from 'react-icons/fi';
 import Image from 'next/image';
 import {
   decreaseProductQuantity,
@@ -165,7 +165,7 @@ const MyCart = ({
                   className=""
                   onClick={() => handleRemoveProduct(product.id)}
                 >
-                  <FeatherX className="text-gray-400 h-4 w-4 cursor-pointer" />
+                  <FiX className="text-gray-400 h-4 w-4 cursor-pointer" />
                 </Button>
               </Flex>
               <Flex className="flex-col space-x-4 mb-4">
@@ -195,12 +195,8 @@ const MyCart = ({
                             product.quantity
                           )
                         }
-                        minusIcon={
-                          <FeatherMinus className="text-white h-4 w-4" />
-                        }
-                        plusIcon={
-                          <FeatherPlus className="text-white h-4 w-4" />
-                        }
+                        minusIcon={<FiMinus className="text-white h-4 w-4" />}
+                        plusIcon={<FiPlus className="text-white h-4 w-4" />}
                       />
                     </Flex>
                   </Flex>

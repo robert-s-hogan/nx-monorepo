@@ -1,16 +1,11 @@
-import {
-  FaHandBackFist,
-  GameIconBrokenAxe,
-  GameIconDodge,
-  GameIconDrippingBlade,
-} from '@with-nx/icons';
+import { GiBrokenAxe, GiDodge, GiDrippingBlade, GiFist } from 'react-icons/gi';
 import { OutcomeType } from '../types';
 
 export const rollDice = (armorValue: number): OutcomeType => {
   const outcomes: OutcomeType[] = [
-    { result: 'Hit', image: FaHandBackFist },
-    { result: 'Critical', image: GameIconDrippingBlade },
-    { result: 'Dodge', image: GameIconDodge },
+    { result: 'Hit', image: GiFist },
+    { result: 'Critical', image: GiDrippingBlade },
+    { result: 'Dodge', image: GiDodge },
   ];
 
   const d20Roll = Math.floor(Math.random() * 20) + 1;
@@ -22,5 +17,5 @@ export const rollDice = (armorValue: number): OutcomeType => {
   if (d20Roll < 3) return outcomes[2]; // Dodge
   if (d20Roll > armorValue) return outcomes[0]; // Hit
 
-  return { result: 'Miss', image: GameIconBrokenAxe };
+  return { result: 'Miss', image: GiBrokenAxe };
 };

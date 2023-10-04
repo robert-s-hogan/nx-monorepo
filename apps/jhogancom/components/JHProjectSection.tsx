@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import { Flex, Grid, Heading, Text, Skeleton } from '@with-nx/react-ui';
-import { FeatherGithub } from '@with-nx/icons';
+import { FiGithub } from 'react-icons/fi';
 
 import { projectStaticData } from '../data/projects';
 import { useRouter } from 'next/router';
@@ -54,7 +54,7 @@ const ProjectCard = ({ project, loading }) => (
           href={project.link}
           aria-label={`${project.link}'s Github Link`}
         >
-          <FeatherGithub className="w-6 h-6" />
+          <FiGithub className="w-6 h-6" />
         </a>
       </div>
     </div>

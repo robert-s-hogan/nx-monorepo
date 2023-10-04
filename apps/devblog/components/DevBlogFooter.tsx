@@ -1,11 +1,8 @@
 import Image from 'next/image';
 import { Link, Flex } from '@with-nx/react-ui';
-import {
-  CustomRSHLogo,
-  FeatherGithub,
-  FaLinkedinIn,
-  FeatherMail,
-} from '@with-nx/icons';
+import { CustomRSHLogo } from '@with-nx/icons';
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { SiReact } from 'react-icons/si';
 
 import RSHLogo from '../public/images/rsh_logo.png';
 
@@ -23,7 +20,7 @@ const DevBlogFooter = () => {
             className=" hover:text-vivid-500"
             target="_blank"
           >
-            <FeatherMail className="w-6 h-6" />
+            <FiMail className="w-6 h-6" />
           </Link>
 
           <Link
@@ -31,14 +28,14 @@ const DevBlogFooter = () => {
             className="hover:text-vivid-500"
             target="_blank"
           >
-            <FaLinkedinIn className="w-6 h-6" />
+            <FiLinkedin className="w-6 h-6" />
           </Link>
           <Link
             href="https://github.com/robert-s-hogan"
             className=" hover:text-vivid-500"
             target="_blank"
           >
-            <FeatherGithub className="w-6 h-6" />
+            <FiGithub className="w-6 h-6" />
           </Link>
         </Flex>
       </Flex>

@@ -14,7 +14,7 @@ import {
 } from '@with-nx/react-ui';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FeatherBarChart, FeatherClock, FeatherTag } from '@with-nx/icons';
+import { FiBarChart, FiClock, FiTag } from 'react-icons/fi';
 
 import PlayToWinFFLayout from '../components/PlayToWinFFLayout';
 import EspnNewsFeed from '../components/EspnNewsFeed';
@@ -82,7 +82,7 @@ export function Index() {
             <Grid className="grid grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="feature-item flex flex-col items-center text-center">
                 <div className="text-white">
-                  <FeatherBarChart className="h-12" />
+                  <FiBarChart className="h-12" />
                 </div>
                 <Text className="text-xl mt-4">Custom Rankings</Text>
                 <p>
@@ -92,7 +92,7 @@ export function Index() {
               </div>
               <div className="feature-item flex flex-col items-center text-center">
                 <div className="text-white">
-                  <FeatherClock className="h-12" />
+                  <FiClock className="h-12" />
                 </div>
                 <Text className="text-xl mt-4">Real-Time Draft Tool</Text>
                 <p>
@@ -102,7 +102,7 @@ export function Index() {
               </div>
               <div className="feature-item flex flex-col items-center text-center">
                 <div className="text-white">
-                  <FeatherTag className="h-12" />
+                  <FiTag className="h-12" />
                 </div>
                 <Text className="text-xl mt-4">Custom Player Tags</Text>
                 <p>

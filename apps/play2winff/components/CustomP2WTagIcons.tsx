@@ -1,101 +1,89 @@
 import React from 'react';
 import {
-  FeatherAlertOctagon,
-  FeatherAlertTriangle,
-  FeatherArrowDown,
-  FeatherDollarSign,
-  FeatherFlag,
-  FeatherFileMinus,
-  FeatherFrown,
-  FeatherMoon,
-  FeatherRotateCw,
-  FeatherRefreshCw,
-  FeatherShield,
-  FeatherStar,
-  FeatherTag,
-  FeatherTarget,
-  FeatherTrendingDown,
-  FeatherTrendingUp,
-  FeatherUsers,
-  FeatherXCircle,
-  FeatherZap,
-  FeatherZapOff,
-} from '@with-nx/icons';
+  FiAlertOctagon,
+  FiAlertTriangle,
+  FiArrowDown,
+  FiDollarSign,
+  FiFlag,
+  FiFileMinus,
+  FiFrown,
+  FiMoon,
+  FiRotateCw,
+  FiRefreshCw,
+  FiShield,
+  FiStar,
+  FiTag,
+  FiTarget,
+  FiTrendingDown,
+  FiTrendingUp,
+  FiUsers,
+  FiXCircle,
+  FiZap,
+  FiZapOff,
+} from 'react-icons/fi';
 
-export const BreakoutIcon = () => (
-  <FeatherZap className="h-8 pt-1 text-green-500" />
-);
+export const BreakoutIcon = () => <FiZap className="h-8 pt-1 text-green-500" />;
 
-export const BustIcon = () => (
-  <FeatherZapOff className="h-8 pt-1 text-red-500" />
-);
+export const BustIcon = () => <FiZapOff className="h-8 pt-1 text-red-500" />;
 
 export const CoachedImprovedIcon = () => (
-  <FeatherStar className="h-8 pt-1 text-yellow-400" />
+  <FiStar className="h-8 pt-1 text-yellow-400" />
 );
 
 export const ContractIssuesIcon = () => (
-  <FeatherFileMinus className="h-8 pt-1 text-white" />
+  <FiFileMinus className="h-8 pt-1 text-white" />
 );
 
 export const CrowdedPositionGroupIcon = () => (
-  <FeatherUsers className="h-8 pt-1 text-white" />
+  <FiUsers className="h-8 pt-1 text-white" />
 );
 
-export const FlagPlayerIcon = () => <FeatherFlag className="h-8 pt-1" />;
+export const FlagPlayerIcon = () => <FiFlag className="h-8 pt-1" />;
 
 export const InjuryConcernsIcon = () => (
-  <FeatherAlertTriangle className="h-8 pt-1 text-red-500" />
+  <FiAlertTriangle className="h-8 pt-1 text-red-500" />
 );
 
 export const OffensiveLineDownIcon = () => (
-  <FeatherArrowDown className="h-8 pt-1 text-red-500" />
+  <FiArrowDown className="h-8 pt-1 text-red-500" />
 );
 
 export const OffensiveLinePlusIcon = () => (
-  <FeatherStar className="h-8 pt-1 text-yellow-400" />
+  <FiStar className="h-8 pt-1 text-yellow-400" />
 );
 
 export const OverPricedIcon = () => (
   <div className="icon-container relative flex justify-center items-center w-12 h-12 bg-purple-700 rounded-full text-2xl">
     <span className="absolute left-3 h-8 w-8 text-white">Y</span>
-    <FeatherDollarSign className="icon-inner absolute bottom-4 left-6 h-4 w-4 text-red-500" />
+    <FiDollarSign className="icon-inner absolute bottom-4 left-6 h-4 w-4 text-red-500" />
   </div>
 );
 
-export const PostHypeSleeperIcon = () => (
-  <FeatherRefreshCw className="h-8 pt-1" />
-);
+export const PostHypeSleeperIcon = () => <FiRefreshCw className="h-8 pt-1" />;
 
 export const RookieIcon = () => (
   <span className="h-8 pb-1 text-3xl text-red-300">R</span>
 );
 
-export const SafePlayerIcon = () => <FeatherShield className="h-8 pt-1" />;
+export const SafePlayerIcon = () => <FiShield className="h-8 pt-1" />;
 
-export const SleeperIcon = () => (
-  <FeatherMoon className="h-8 pt-1 text-white" />
-);
+export const SleeperIcon = () => <FiMoon className="h-8 pt-1 text-white" />;
 
 export const SuspensionIcon = () => (
-  <FeatherAlertOctagon className="h-8 pt-1 text-yellow-500" />
+  <FiAlertOctagon className="h-8 pt-1 text-yellow-500" />
 );
 
 export const SwingPlayerIcon = () => (
-  <FeatherRotateCw className="h-8 pt-1 text-black-custom" />
+  <FiRotateCw className="h-8 pt-1 text-black-custom" />
 );
 
-export const TargetIcon = () => (
-  <FeatherTarget className="h-8 pt-1 text-red-500" />
-);
+export const TargetIcon = () => <FiTarget className="h-8 pt-1 text-red-500" />;
 
 export const ValuePickIcon = () => (
   <div className="icon-container relative flex justify-center items-center w-12 h-12 bg-purple-700 rounded-full text-2xl">
     <span className="absolute left-3 h-8 w-8 text-white">Y</span>
-    <FeatherTrendingUp className="icon-inner absolute bottom-4 left-6 h-4 w-4 text-green-500" />
+    <FiTrendingUp className="icon-inner absolute bottom-4 left-6 h-4 w-4 text-green-500" />
   </div>
 );
 
-export const WorriedIcon = () => (
-  <FeatherFrown className="h-8 pt-1 text-blue-500" />
-);
+export const WorriedIcon = () => <FiFrown className="h-8 pt-1 text-blue-500" />;
