@@ -9,7 +9,7 @@ import {
 } from '@with-nx/react-ui';
 import { FiX } from 'react-icons/fi';
 import Image from 'next/image';
-import Script from 'next/script';
+// import Script from 'next/script';
 import { useModal } from '@with-nx/react-hooks';
 import { useTheme } from '@with-nx/theme';
 
@@ -51,7 +51,7 @@ export function Index() {
               </Flex> */}
             </div>
           </Flex>
-          <dialog open={isShowing} className="border border-primary">
+          {/* <dialog open={isShowing} className="border border-primary">
             <div className="w-full z-10 pb-2" onClick={toggle}>
               <FiX className="h-5 w-5 ml-auto opacity-80" />
             </div>
@@ -65,7 +65,7 @@ export function Index() {
               src="https://assets.calendly.com/assets/external/widget.js"
               async
             ></Script>
-          </dialog>
+          </dialog> */}
         </Grid>
         <div
           id="left-circle"
