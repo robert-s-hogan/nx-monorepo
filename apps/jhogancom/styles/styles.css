@@ -169,10 +169,12 @@ form > * + * {
 .btn-primary {
   background-color: var(--primary-color);
   color: var(--text-on-primary-color);
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add transition */
 }
 
 .btn-primary:hover {
   background-color: var(--hover-color);
+  color: var(--text-on-hover-color); /* Optional: Change text color on hover */
 }
 
 .btn-primary:active {
@@ -222,9 +224,9 @@ dialog::backdrop {
 
 .light-gradient {
   background-image: linear-gradient(
-    to bottom right,
+    to bottom left,
     var(--secondary-icon-color),
-    var(--surface-color)
+    var(--gradient-color)
   );
 }
 
@@ -232,7 +234,7 @@ dialog::backdrop {
   background-image: linear-gradient(
     to bottom right,
     var(--secondary-icon-color),
-    var(--surface-color)
+    var(--gradient-color)
   );
 }
 

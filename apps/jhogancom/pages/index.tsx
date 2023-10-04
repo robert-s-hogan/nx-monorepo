@@ -24,10 +24,14 @@ import {
 import { useTheme } from '@with-nx/theme';
 import { useHandleBackdropClick } from '@with-nx/react-hooks';
 
+import dynamic from 'next/dynamic';
+
+const ProjectSection = dynamic(() => import('../components/JHProjectSection'));
+const JHSocialMediaIcons = dynamic(
+  () => import('../components/JHSocialMediaIcons')
+);
+
 import JHoganComLayout from '../components/JHoganComLayout';
-import ProjectSection from '../components/JHProjectSection';
-import JHSocialMediaIcons from '../components/JHSocialMediaIcons';
-import JHModal from '../components/JHModal';
 import JHPortrait from '../public/images/jessica_portrait.webp';
 
 export function Index() {
@@ -127,6 +131,7 @@ export function Index() {
                 height={384}
                 src={JHPortrait}
                 alt="Jessica Hogan's Portrait"
+                loading="lazy"
                 className="object-contain h-96 w-auto"
               />
             </Flex>

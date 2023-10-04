@@ -1,62 +1,63 @@
 export const themes = {
   light: {
     name: 'light',
-    'primary-color': '#E07A5F', // blue
-    'secondary-color': '#008A7F', // green
-    'accent-color': '#89B0AE', // slate
-    'bg-color': '#FAF9F9', // white
-    'surface-color': '#BEE3DB', // mint
-    'text-color': '#160C09', // black
-    'text-on-primary-color': '#FAF9F9', // white
-    'text-on-secondary-color': '#FAF9F9', // white
-    'primary-icon-color': '#555B6E', // blue
-    'secondary-icon-color': '#E07A5F', // orange
-    'success-color': '#008A7F', // green
-    'error-color': '#E07A5F', // orange
-    'warning-color': '#E07A5F', // orange
-    'info-color': '#89B0AE', // slate
-    'border-color': '#BEE3DB', // mint
-    'hover-color': '#555B6E', // blue
-    'active-color': '#008A7F', // green
-    'hover-secondary-color': '#E07A5F', // orange
-    'active-secondary-color': '#E07A5F', // orange
-    'disabled-color': '#f4f4f4', // offWhite
-    'sun-icon-color': '#E07A5F', // orange
-    'moon-icon-color': '#555B6E', // blue
-    'bg-opacity-color': 'rgba(250, 249, 249, 0.6)', // white with 0.6 opacity
+    'primary-color': '#e47461',
+    'secondary-color': '#545b6c',
+    'accent-color': '#545b6c',
+    'bg-color': '#FFFFFF',
+    'surface-color': '#F0F0F0',
+    'text-color': '#000000',
+    'text-on-primary-color': '#000000',
+    'text-on-secondary-color': '#FFFFFF',
+    'primary-icon-color': '#545b6c',
+    'secondary-icon-color': '#e47461',
+    'success-color': '#008000',
+    'error-color': '#FF0000',
+    'warning-color': '#FFA500',
+    'info-color': '#0000FF',
+    'border-color': '#D0D0D0',
+    'hover-color': '#ddd',
+    'active-color': '#ccc',
+    'hover-secondary-color': '#4c5261',
+    'active-secondary-color': '#43485c',
+    'disabled-color': '#e0e0e0',
+    'sun-icon-color': '#FFD700',
+    'moon-icon-color': '#808080',
+    'bg-opacity-color': 'rgba(255, 255, 255, 0.6)',
     sound:
       'http://rshogan.imgix.net/projects/jhogancom/sounds/jhogan_light_sound.mp3',
-    'dialog-bg-color': '#FAF9F9', // white
-    'backdrop-color': '#FAF9F9', // white
+    'dialog-bg-color': '#FFFFFF',
+    'backdrop-color': '#F0F0F0',
+    'gradient-color': '#A8D5C0',
   },
   dark: {
     name: 'dark',
-    'primary-color': '#89B0AE', // inverted slate
-    'secondary-color': '#555B6E', // inverted blue
-    'accent-color': '#008A7F', // inverted green
-    'bg-color': '#160C09', // inverted black
-    'surface-color': '#E07A5F', // inverted orange
-    'text-color': '#FAF9F9', // inverted white
-    'text-on-primary-color': '#FAF9F9', // inverted black
-    'text-on-secondary-color': '#160C09', // inverted black
-    'primary-icon-color': '#008A7F', // inverted green
-    'secondary-icon-color': '#BEE3DB', // inverted mint
-    'success-color': '#555B6E', // inverted blue
-    'error-color': '#008A7F', // inverted green
-    'warning-color': '#008A7F', // inverted green
-    'info-color': '#E07A5F', // inverted orange
-    'border-color': '#E07A5F', // inverted orange
-    'hover-color': '#89B0AE', // inverted slate
-    'active-color': '#555B6E', // inverted blue
-    'hover-secondary-color': '#008A7F', // inverted green
-    'active-secondary-color': '#008A7F', // inverted green
-    'disabled-color': '#FFD6BA', // inverted peach
-    'sun-icon-color': '#555B6E', // inverted blue
-    'moon-icon-color': '#89B0AE', // inverted slate
-    'bg-opacity-color': 'rgba(22, 12, 9, 0.8)', // inverted black with 0.8 opacity
+    'primary-color': '#e47461',
+    'secondary-color': '#545b6c',
+    'accent-color': '#545b6c',
+    'bg-color': '#292929',
+    'surface-color': '#1E1E1E',
+    'text-color': '#D4D4D4',
+    'text-on-primary-color': '#292929',
+    'text-on-secondary-color': '#D4D4D4',
+    'primary-icon-color': '#D4D4D4',
+    'secondary-icon-color': '#e47461',
+    'success-color': '#008000',
+    'error-color': '#FF0000',
+    'warning-color': '#FFA500',
+    'info-color': '#0000FF',
+    'border-color': '#444',
+    'hover-color': '#333',
+    'active-color': '#222',
+    'hover-secondary-color': '#4c5261',
+    'active-secondary-color': '#43485c',
+    'disabled-color': '#3F3F3F',
+    'sun-icon-color': '#FFD700',
+    'moon-icon-color': '#808080',
+    'bg-opacity-color': 'rgba(41, 41, 41, 0.8)',
     sound:
-      'http://rshogan.imgix.net/projects/jhogancom/sounds/jhogan_dark_sound.mp3', // Update URL to dark theme sound file
-    'dialog-bg-color': '#FAF9F9', // inverted black
-    'backdrop-color': '#160C09',
+      'http://rshogan.imgix.net/projects/jhogancom/sounds/jhogan_dark_sound.mp3',
+    'dialog-bg-color': '#FFFFFF',
+    'backdrop-color': '#1E1E1E',
   },
 };
