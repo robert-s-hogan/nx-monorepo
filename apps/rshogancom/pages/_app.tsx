@@ -2,6 +2,9 @@ import { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 
+import { ThemeProvider } from '@with-nx/theme';
+
+import { themes } from '../styles/themes';
 import '../styles/styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
@@ -15,7 +18,11 @@ function CustomApp({ Component, pageProps }: AppProps) {
     });
   }, [router.events]);
 
-  return <Component {...pageProps} />;
+  return (
+    <ThemeProvider themes={themes} initialThemeName="light">
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
 }
 
 export default CustomApp;

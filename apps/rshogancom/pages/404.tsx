@@ -1,4 +1,4 @@
-import RSHoganComLayout from '../components/layout/RSHoganComLayout';
+import RSHoganComLayout from '../components/RSHoganComLayout';
 import { Heading, Link } from '@with-nx/react-ui';
 
 export default function Custom404() {

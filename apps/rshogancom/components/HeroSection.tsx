@@ -5,41 +5,44 @@ import Script from 'next/script';
 import RSHModal from './RSHModal';
 import { useModal } from '@with-nx/react-hooks';
 import { FiX } from 'react-icons/fi';
-
-import HeroImg from '../assets/images/rsh_hero_circle.webp';
+import { useTheme } from '@with-nx/theme';
 
 const HeroSection = () => {
   const { isShowing, toggle } = useModal();
+  const { theme } = useTheme();
 
   return (
     <Hero
       layout="custom"
-      className="max-h-full bg-gradient-to-br from-primary-900 to-primary-700   md:py-24 h-max py-32 flex flex-col justify-center items-center text-primary space-y-4 bg-hero"
+      className={`${
+        theme.name === 'light' ? 'light-gradient' : 'dark-gradient'
+      } max-h-full md:py-24 h-max py-32 flex flex-col justify-center items-center text-primary space-y-4`}
     >
-      <div className="h-48 w-48 lg:h-64 lg:w-64 object-scale-down flex justify-center mx-auto rounded-lg relative">
+      <div className="h-48 w-48 lg:h-64 lg:w-64 object-scale-down flex justify-center mx-auto relative">
         <Image
-          placeholder="blur"
           priority={true}
-          src={HeroImg}
+          src="https://rshogan.imgix.net/projects/rshogancom/images/rsh_hero_circle.webp"
           className="rounded-full"
+          height={256}
+          width={256}
           alt="Robert's Professional Shot"
         />
       </div>
-      <h1 className="text-xl md:text-3xl font-bold text-center text-white md:order-1">
+      <h1 className="text-xl md:text-3xl font-bold text-center md:order-1">
         Web Developer, UI/UX Engineer
       </h1>
-      <p className="text-center text-white">
+      <p className="text-center">
         I design and code beautifully simple things, and I love what I do.
       </p>
       <div className="flex justify-center space-x-8 items-center">
-        <Button className="bg-primary" onClick={toggle}>
+        <Button className="btn-primary" onClick={toggle}>
           Schedule a Meeting
         </Button>
         {/* <NextLink href="/404" className="underline text-primary">
           View Projects
         </NextLink> */}
       </div>
-      <dialog open={isShowing} className="border border-primary">
+      <dialog open={isShowing}>
         {/* <Button onClick={toggle} autoFocus> */}
         <div className="w-full z-10 pb-2" onClick={toggle}>
           <FiX className="h-5 w-5 ml-auto opacity-80" />

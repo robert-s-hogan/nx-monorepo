@@ -1,250 +1,99 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Button, Flex } from '@with-nx/react-ui';
+import { Button, Flex, Grid, Heading, Text } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
+
+import RSHoganComLayout from '../components/RSHoganComLayout';
+import HeroSection from '../components/HeroSection';
+import RSHSection from '../components/RSHSection';
 import RSHModal from '../components/RSHModal';
 
-import RSHoganComLayout from '../components/layout/RSHoganComLayout';
-import HeroSection from '../components/HeroSection';
-
-//projects
-import CoffeeShop from '../public/images/coffee_shop.png';
-import Chillout from '../public/images/chillout.png';
-import DeckShop from '../public/images/deck_shop.png';
-
-//collaborators
-import OneDemocracy from '../assets/images/one_democracy.webp';
-import MGISolution from '../assets/images/mgi_solutions.svg';
-import AnItalianDish from '../assets/images/an_italian_dish.png';
-import ThomasHenryWines from '../assets/images/thomas_henry_wines.png';
-import KRealty from '../assets/images/k_realty.webp';
-import TicketSaver from '../assets/images/ticket_saver.jpeg';
-import JHogan from '../assets/images/jhogan.webp';
-import BMDLogo from '../assets/images/bmd_logo.webp';
-import Testimonial from '../assets/images/rshhogan_testimonials_ellen_2.avif';
+import { collaborators } from '../data/collaborators';
+import { featureCards } from '../data/featureCards';
 
 export function Index() {
   const { isShowing, toggle } = useModal();
+
+  const FeatureCard = ({ title, description, svgPathD }) => (
+    <div className="card p-6 overflow-hidden text-center border-2 bg-white rounded">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="object-center h-24 mx-auto"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1}
+          d={svgPathD}
+        />
+      </svg>
+      <div className="p-4 h-auto space-y-2">
+        <h3 className="font-semibold">{title}</h3>
+        <p className="text-md text-center leading-relaxed block lg:text-sm">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
 
   return (
     <RSHoganComLayout>
       <HeroSection />
       {/* Hi Im Robert */}
-      <section className="w-full bg-white py-24 flex flex-col justify-center text-center px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-black text-2xl font-bold mb-6">
-            Hi, I’m Robert.
-            <br /> Nice to meet you.
-          </h2>
-          <p className="text-black lg:text-xl">
-            Since beginning my journey as a freelance designer nearly 6 years
-            ago, Ive done remote work for agencies, consulted for startups, and
-            collaborated with talented people to create digital products for
-            both business and consumer use. Im quietly confident, naturally
-            curious, and perpetually working on improving my chops one design
-            problem at a time.
-          </p>
-        </div>
-      </section>
-      {/* Skill */}
-      <section className="py-24 bg-neutral-200">
-        <div className="px-4 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-12 md:px-8 lg:gap-24 lg:px-16 xl:gap-8 xl:px-0">
-            <div className="card p-6 overflow-hidden text-center border-2 border-white bg-white rounded hover:border-tertiary-500 text-black">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="object-center h-24 mx-auto"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1}
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                />
-              </svg>
-              <div className="p-4 h-auto">
-                <h3 className="font-semibold">Fast</h3>
-                <div className="text-md text-center leading-relaxed block lg:text-sm">
-                  Fast load times and lag free interaction, my highest priority.
-                </div>
-              </div>
-            </div>
-            <div className="card p-6 overflow-hidden text-center border-2 border-white bg-white rounded hover:border-tertiary-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="object-center h-24 mx-auto"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1}
-                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                />
-              </svg>
-              <div className="p-4 h-auto">
-                <h3 className="font-semibold">Intuitive</h3>
-                <div className="text-md text-center leading-relaxed block lg:text-sm">
-                  Strong preference for easy to use, intuitive UX/UI.
-                </div>
-              </div>
-            </div>
-            <div className="card p-6 overflow-hidden text-center border-2 border-white bg-white rounded hover:border-tertiary-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="object-center h-24 w-24 mx-auto"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1"
-                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                />
-              </svg>
-              <div className="p-4 h-auto">
-                <h3 className="font-semibold">Responsive</h3>
-                <div className="text-md text-center leading-relaxed block lg:text-sm">
-                  My layouts will work on any device, big or small.
-                </div>
-              </div>
-            </div>
-            <div className="card p-6 overflow-hidden text-center border-2 border-white bg-white rounded hover:border-tertiary-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="object-center h-24 mx-auto"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1}
-                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                />
-              </svg>
-              <div className="p-4 h-auto">
-                <h3 className="font-semibold">Optimize Digital Marketing</h3>
-                <div className="text-md text-center leading-relaxed block lg:text-sm">
-                  Constantly improving your digital footprint by testing,
-                  analyzing, and implementing.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <RSHSection className="bg-surface w-full py-24 flex flex-col justify-center text-center px-4">
+        <Heading level={2}>
+          Hi, I’m Robert.
+          <br /> Nice to meet you.
+        </Heading>
+        <Text>
+          Since beginning my journey as a freelance designer nearly 6 years ago,
+          Ive done remote work for agencies, consulted for startups, and
+          collaborated with talented people to create digital products for both
+          business and consumer use. Im quietly confident, naturally curious,
+          and perpetually working on improving my chops one design problem at a
+          time.
+        </Text>
+      </RSHSection>
+
+      {/* Skills */}
+      <RSHSection className="bg-primary py-24">
+        <Grid className="grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-12 md:px-8 lg:gap-24 lg:px-16 xl:gap-8 xl:px-0">
+          {featureCards.map((card, index) => (
+            <FeatureCard key={index} {...card} />
+          ))}
+        </Grid>
+      </RSHSection>
 
       {/* Collaborators */}
-      <div className="max-w-7xl mx-auto py-24 justify-center">
-        <h2 className="text-center text-black text-2xl font-bold mb-12">
+      <RSHSection className="bg-surface py-24 justify-center">
+        <Heading level={2} className="text-center">
           I am proud to have collaborated with some awesome companies:
-        </h2>
+        </Heading>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center">
-          <div className="flex justify-center">
-            <Link href="https://www.onedemocracy.org/">
-              <Image
-                src={OneDemocracy}
-                height={50}
-                width={87}
-                loading="lazy"
-                alt="One Democracy Logo"
-              />
-            </Link>
-          </div>
-          <div className="flex justify-center">
-            <Link href="https://www.mgisolutions.com/">
-              <Image
-                src={MGISolution}
-                height={50}
-                width={190}
-                loading="lazy"
-                alt="MGI Solutions Logo"
-              />
-            </Link>
-          </div>
-          <div className="flex justify-center">
-            <Link href="https://anitaliandish.com/">
-              <Image
-                src={AnItalianDish}
-                height={50}
-                width={200}
-                loading="lazy"
-                alt="An Italian Dish Logo"
-              />
-            </Link>
-          </div>
-
-          <div className="flex justify-center">
-            <Link href="https://www.thomashenrywines.com/">
-              <Image
-                src={ThomasHenryWines}
-                height={50}
-                width={89}
-                loading="lazy"
-                alt="Thomas Henry Wines Logo"
-              />
-            </Link>
-          </div>
-          <div className="flex justify-center">
-            <Link href="https://www.thekrealty.com/">
-              <Image
-                src={KRealty}
-                width={100}
-                height={100}
-                loading="lazy"
-                alt="K Realty Logo"
-              />
-            </Link>
-          </div>
-          <div className="flex justify-center">
-            <Link href="https://ticketsaver.net/">
-              <Image
-                src={TicketSaver}
-                height={75}
-                width={193}
-                loading="lazy"
-                alt="Ticket Saver Logo"
-              />
-            </Link>
-          </div>
-          <div className="flex justify-center">
-            <Link href="https://www.jessicahoganma.com/">
-              <Image
-                src={JHogan}
-                height={50}
-                width={89}
-                loading="lazy"
-                alt="Jessica Hogan MA Logo"
-              />
-            </Link>
-          </div>
-          <div className="flex justify-center">
-            <Link href="https://www.broadwaymedia.com/">
-              <Image
-                src={BMDLogo}
-                height={65}
-                width={88}
-                loading="lazy"
-                alt="Broadway Media Distribution"
-              />
-            </Link>
-          </div>
+          {collaborators.map((collaborator) => (
+            <div className="flex justify-center" key={collaborator.name}>
+              <Link href={collaborator.href}>
+                <Image
+                  src={collaborator.src}
+                  height={collaborator.height}
+                  width={collaborator.width}
+                  loading="lazy"
+                  alt={collaborator.alt}
+                />
+              </Link>
+            </div>
+          ))}
         </div>
-      </div>
+      </RSHSection>
+
       {/* Testimonials */}
-      <section className="w-full bg-white body-font pb-12">
-        <div className="max-w-7xl mx-auto px-5 py-24">
+      <RSHSection className="bg-primary w-full pb-12">
+        <div className="px-5 py-24">
           <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -254,50 +103,48 @@ export function Index() {
             >
               <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
             </svg>
-            <p className="leading-relaxed text-lg mb-6">
+            <Text className="leading-relaxed text-lg mb-6">
               Robert helped me create a website and set up my blog. I had zero
               experience and had no idea how to go about it. Thanks to Roberts
               help, my site is up and running, and I am very pleased with how it
               looks. Robert was so patient and knowledgeable. He made the
               process easy and enjoyable. I highly recommend Robert!
-            </p>
+            </Text>
             <Image
               className="object-cover mx-auto rounded-full"
               alt="Woman Testimonial Portrait"
               height={64}
               width={64}
-              src={Testimonial}
+              src="https://rshogan.imgix.net/projects/rshogancom/images/rshhogan_testimonials_ellen_2.avif"
             />
 
-            <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm mt-3">
+            <Heading level={2} className="text-gray-500 first-line:mt-3">
               Ellen S.
-            </h2>
-            <p className="text-gray-500">
+            </Heading>
+            <Text className="text-gray-500">
               <Link href="https://anitaliandish.com/">AnItalianDish.com</Link>
-            </p>
+            </Text>
           </div>
         </div>
-      </section>
+      </RSHSection>
+
       {/* Start a Project  */}
-      <section className="pb-32 -mt-32 md:-mt-24 lg:-mt-16 text-white text-center">
-        <div className="bg-gradient-to-r from-vivid-900 to-vivid-600  max-w-7xl w-5/6 mx-auto bg-gray-700 text-white rounded-lg shadow-lg overflow-hidden">
-          <div className="flex flex-col lg:flex-row lg:space-x-6 w-3/4 lg:w-5/6 mx-auto justify-center py-12">
-            <h2 className="text-white text-2xl font-bold lg:w-1/4">
+      <RSHSection className="bg-surface pb-32 -mt-32 md:-mt-24 lg:-mt-16 text-center">
+        <div className="w-11/12 mx-auto shadow-lg overflow-hidden">
+          <Flex className="flex-col space-y-8 px-4 lg:space-y-0 lg:flex-row lg:justify-between lg:items-center py-12">
+            <Heading level={2} className="lg:!w-1/3">
               Start a project
-            </h2>
-            <p className="mt-2 text-white lg:flex-auto lg:w-1/2">
+            </Heading>
+            <Text>
               Interested in working together? <span className="lg:block"></span>
               We should queue up a chat. I’ll buy the coffee.
-            </p>
-            <Button
-              className="outline w-1/2 mx-auto mt-6 lg:mt-0 lg:py-0  lg:px-10 lg:w-1/4"
-              onClick={toggle}
-            >
+            </Text>
+            <Button className="btn-primary lg:!w-1/3" onClick={toggle}>
               Lets do this
             </Button>
-          </div>
+          </Flex>
         </div>
-      </section>
+      </RSHSection>
       {isShowing && <RSHModal isShowing={isShowing} toggle={toggle} />}
     </RSHoganComLayout>
   );

@@ -1,24 +1,21 @@
-@import url(https://fonts.googleapis.com/css2?family=Michroma&family=PT+Sans&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=PT+Sans&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .section {
-    @apply container max-w-7xl mx-auto py-8 px-4;
-  }
-  .card {
-    @apply transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110;
-  }
-  .modal-title {
-    @apply text-sm font-bold;
-  }
-}
+/* theme colors can be found in /styles/themes.ts */
 
+/* :root variables that do not change with theme */
 :root {
-  font-family: Arial, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+  --loader-size: 1rem;
+  --loader-border: 0.125rem;
+  --border-width: 0.063rem;
+  --transition-speed: 0.3s;
+  --animation-speed: 1s;
+  --hover-scale: 1.05;
+  --text-underline-offset: 0.25rem;
+  --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
   --font-mono: Fira Mono, monospace;
   --pure-white: #ffffff;
   --primary-color: #b9c6d2;
@@ -30,96 +27,125 @@
   --background-without-opacity: rgba(255, 255, 255, 0.7);
   --column-width: 42rem;
   --column-margin-top: 4rem;
+  --primary-color: #e47461;
+  --secondary-color: #545b6c;
+  --accent-color: #292929;
+  --bg-color: #ffffff;
+  --surface-color: #f0f0f0;
+  --text-color: #000000;
+  --text-on-primary-color: #000000;
+  --text-on-secondary-color: #ffffff;
+  --text-on-surface-color: #000000;
+  --primary-icon-color: #545b6c;
+  --secondary-icon-color: #e47461;
+  --success-color: #008000;
+  --error-color: #ff0000;
+  --warning-color: #ffa500;
+  --info-color: #0000ff;
+  --border-color: #d0d0d0;
+  --hover-color: #ddd;
+  --active-color: #ccc;
+  --hover-secondary-color: #4c5261;
+  --active-secondary-color: #43485c;
+  --disabled-color: #e0e0e0;
+  --sun-icon-color: #ffd700;
+  --moon-icon-color: #808080;
+  --bg-opacity-color: rgba(255, 255, 255, 0.6);
+  --sound: 'http://rshogan.imgix.net/projects/jhogancom/sounds/jhogan_light_sound.mp3';
+  --dialog-bg-color: #ffffff;
+  --backdrop-color: #f0f0f0;
+  --gradient-color: #a8d5c0;
+}
+
+@layer base {
+  html,
+  body {
+    font-family: 'Michroma', sans-serif;
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+  }
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  h5 {
+    @apply text-lg;
+  }
+  h6 {
+    @apply text-base;
+  }
+  p {
+    @apply text-base;
+  }
+  dialog {
+    @apply fixed left-0 top-0 z-50 max-w-7xl translate-y-[30px] md:translate-y-[-135px] lg:translate-y-[-0px] xl:translate-y-[-30px] 2xl:translate-y-[-235px] w-11/12 lg:w-1/2 xl:w-2/5 2xl:w-1/4 h-[530px] md:h-[550px] xl:h-[555px] overflow-y-hidden;
+  }
+  form {
+    @apply flex flex-col space-y-4 pt-4;
+  }
+  form,
+  input,
+  select,
+  textarea,
+  dialog {
+    @apply rounded-md;
+  }
+}
+
+@layer components {
+  .section {
+    @apply container max-w-7xl mx-auto py-8 px-4;
+  }
+  .btn-primary {
+    @apply px-4 py-2 rounded-md text-lg;
+  }
+  .card {
+    @apply transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110;
+  }
+  .modal-title {
+    @apply text-sm font-bold;
+  }
+}
+
+@layer utilities {
+  .svg-hover:hover {
+    transform: scale(1.2);
+  }
+}
+
+html,
+body {
+  background: var(--bg-color);
 }
 
 body {
   min-height: 100vh;
   margin: 0;
   background-color: var(--primary-color);
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     var(--primary-color) 0%,
     var(--secondary-color) 10.45%,
     var(--tertiary-color) 41.35%
-  );
+  ); */
+  transition: background-color 0.5s, color 0.5s;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
-body::before {
-  content: ;
-  width: 80vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 10vw;
-  z-index: -1;
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    var(--pure-white) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  opacity: 0.05;
-}
-
-#svelte {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-h1,
-h2,
-p {
-  font-weight: 400;
-  color: var(--heading-color);
-}
-
-p {
-  line-height: 1.5;
-}
-
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-h1 {
-  font-size: 2rem;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1rem;
-}
-
-pre {
-  font-size: 16px;
-  font-family: var(--font-mono);
-  background-color: rgba(255, 255, 255, 0.45);
-  border-radius: 3px;
-  box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
-  padding: 0.5em;
-  overflow-x: auto;
-  color: var(--text-color);
-}
-
-input,
-button {
-  font-size: inherit;
-  font-family: inherit;
-}
-
-button:focus:not(:focus-visible) {
-  outline: none;
-}
-
-@media (min-width: 720px) {
-  h1 {
-    font-size: 2.4rem;
-  }
+dialog {
+  background-color: var(--dialog-bg-color);
+  border: var(--border-width) solid var(--border-color);
 }
 
 h1,
@@ -127,54 +153,170 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  font-family: Michroma, sans-serif;
+h6,
+p {
+  color: var(--heading-color);
 }
 
-body,
-p,
+/* LINKS */
 a {
-  font-family: PT Sans, sans-serif;
+  position: relative;
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+/* ICONS */
+svg {
+  stroke: var(--primary-icon-color);
+}
+
+/* DEBUG STYLING */
+pre {
+  background-color: var(--surface-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  overflow-x: auto;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+  color: var(--text-secondary);
+  font-family: monospace;
 }
 
-a,
-.text-primary {
-  @apply text-black hover:text-vivid-600 visited:text-vivid-400 relative decoration-vivid-600;
+/* FORM ELEMENTS */
+input,
+textarea {
+  border-color: var(--border-color);
+  border-width: var(--border-width);
 }
 
-button,
-button[type='submit'] {
-  @apply text-sm border-2 inline-block align-middle border-vivid-500 hover:text-vivid-500 hover:bg-transparent bg-vivid-500 text-white font-bold py-2 px-6 rounded-full transition ease-in-out duration-300;
-}
-button.outline {
-  @apply text-sm text-vivid-500 border-2 inline-block align-middle  bg-white  hover:border-white hover:bg-white font-bold py-2 px-6 rounded-full transition ease-in-out duration-300;
-}
-button.icon {
-  @apply bg-transparent;
+select {
+  border-color: var(--border-color);
+  border-width: var(--border-width);
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  padding: 0.5rem;
 }
 
-a:hover,
-a:hover img {
-  @apply hover:no-underline;
+form > div {
+  display: flex;
+  flex-direction: column;
 }
 
-a.text::after {
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  border-radius: 2px;
-  height: 0.1em;
-  bottom: -4px;
-  left: 0;
-  background: currentcolor;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+form > * + * {
+  margin-top: 1rem;
 }
-a.text:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+
+/* BUTTON & BUTTON STATE CLASSES */
+button {
+  font-family: ptsans;
+}
+.bg-primary {
+  background: var(--primary-color);
+  color: var(--text-on-primary-color);
+}
+.bg-secondary {
+  background: var(--secondary-color);
+  color: var(--text-on-secondary-color);
+}
+.bg-surface {
+  background: var(--surface-color);
+  color: var(--text-on-surface-color);
+}
+.btn-primary {
+  background-color: var(--accent-color);
+  color: var(--text-on-primary-color);
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add transition */
+}
+
+.btn-primary:hover {
+  background-color: var(--hover-color);
+  color: var(--text-on-hover-color); /* Optional: Change text color on hover */
+}
+
+.btn-primary:active {
+  background-color: var(--active-color);
+}
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+
+.disabled,
+.btn-primary:disabled {
+  background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--text-on-primary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--hover-secondary-color);
+}
+
+.btn-secondary:active {
+  background-color: var(--active-secondary-color);
+}
+
+.btn-secondary:focus {
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+
+.btn-secondary:disabled {
+  background-color: var(--disabled-secondary-color);
+  cursor: not-allowed;
+}
+
+dialog::backdrop {
+  background-color: var(--backdrop-color, black);
+  position: fixed;
+  inset: 0;
+  opacity: 0.5;
+}
+
+.light-gradient {
+  background-image: linear-gradient(
+    to bottom left,
+    var(--secondary-icon-color),
+    var(--gradient-color)
+  );
+}
+
+.dark-gradient {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--secondary-icon-color),
+    var(--gradient-color)
+  );
+}
+
+/* TYPOGRAPHY CLASSES */
+.text-on-primary {
+  color: var(--text-on-primary-color);
+}
+.text-on-secondary {
+  color: var(--text-on-secondary-color);
+}
+.text-on-accent {
+  color: var(--text-on-accent-color);
+}
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Black shadow with 30% opacity */
+}
+.sun-icon {
+  stroke: var(--sun-icon-color);
+}
+.moon-icon {
+  stroke: var(--moon-icon-color);
+}
+
+/* CARD CLASSES */
+.card {
+  border: var(--border-width) solid var(--border-color);
+  background: var(--bg-color);
 }

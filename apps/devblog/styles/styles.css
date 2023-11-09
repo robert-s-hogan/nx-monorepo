@@ -81,6 +81,10 @@
     @apply max-w-full py-8 px-4 mx-auto;
   }
 
+  .btn-success {
+    @apply bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded;
+  }
+
   .btn-primary,
   .btn-secondary {
     @apply px-3 py-2;
