@@ -7,7 +7,7 @@ import { useModal } from '@with-nx/react-hooks';
 import { FiX } from 'react-icons/fi';
 import { useTheme } from '@with-nx/theme';
 
-const HeroSection = () => {
+const RSHHeroSection = () => {
   const { isShowing, toggle } = useModal();
   const { theme } = useTheme();
 
@@ -18,16 +18,20 @@ const HeroSection = () => {
         theme.name === 'light' ? 'light-gradient' : 'dark-gradient'
       } max-h-full md:py-24 h-max py-32 flex flex-col justify-center items-center text-primary space-y-4`}
     >
-      <div className="h-48 w-48 lg:h-64 lg:w-64 object-scale-down flex justify-center mx-auto relative">
+      <div
+        className="flex justify-center mx-auto relative"
+        style={{ width: '256px', height: '256px' }}
+      >
         <Image
           priority={true}
-          src="https://rshogan.imgix.net/projects/rshogancom/images/rsh_hero_circle.webp"
-          className="rounded-full"
+          src="https://rshogan.imgix.net/projects/rshogancom/images/rsh_home.jpg"
+          className="rounded-full object-cover"
           height={256}
           width={256}
           alt="Robert's Professional Shot"
         />
       </div>
+
       <h1 className="text-xl md:text-3xl font-bold text-center md:order-1">
         Web Developer, UI/UX Engineer
       </h1>
@@ -63,4 +67,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default RSHHeroSection;

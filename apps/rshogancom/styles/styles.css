@@ -91,6 +91,9 @@
   form {
     @apply flex flex-col space-y-4 pt-4;
   }
+  button {
+    @apply px-4 py-2 rounded-md font-semibold;
+  }
   form,
   input,
   select,
@@ -104,9 +107,7 @@
   .section {
     @apply container max-w-7xl mx-auto py-8 px-4;
   }
-  .btn-primary {
-    @apply px-4 py-2 rounded-md text-lg;
-  }
+
   .card {
     @apply transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110;
   }
@@ -210,6 +211,7 @@ form > * + * {
 /* BUTTON & BUTTON STATE CLASSES */
 button {
   font-family: ptsans;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .bg-primary {
   background: var(--primary-color);
@@ -224,14 +226,12 @@ button {
   color: var(--text-on-surface-color);
 }
 .btn-primary {
-  background-color: var(--accent-color);
+  background-color: var(--primary-color);
   color: var(--text-on-primary-color);
-  transition: background-color 0.3s ease, color 0.3s ease; /* Add transition */
 }
 
 .btn-primary:hover {
   background-color: var(--hover-color);
-  color: var(--text-on-hover-color); /* Optional: Change text color on hover */
 }
 
 .btn-primary:active {
@@ -243,15 +243,53 @@ button {
   box-shadow: var(--box-shadow);
 }
 
+.btn-success {
+  background-color: var(--success-color);
+  color: var(--text-color);
+}
+.btn-success:hover {
+  background-color: var(--hover-color);
+}
+
+.btn-disabled {
+  background-color: var(--disabled-color);
+  color: var(--text-color);
+}
+
+.btn-warning {
+  background-color: var(--warning-color);
+  color: var(--text-color);
+}
+.btn-warning:hover {
+  background-color: var(--hover-color);
+}
+
+.btn-accent {
+  background-color: var(--accent-color);
+  color: var(--text-on-accent-color);
+}
+.btn-accent:hover {
+  background-color: var(--hover-color);
+}
+
 .disabled,
 .btn-primary:disabled {
   background-color: var(--disabled-color);
   cursor: not-allowed;
 }
 
+.btn-danger {
+  background-color: var(--error-color);
+  color: var(--text-color);
+}
+
+.btn-danger:hover {
+  background-color: var(--hover-color);
+}
+
 .btn-secondary {
   background-color: var(--secondary-color);
-  color: var(--text-on-primary-color);
+  color: var(--text-on-secondary-color);
 }
 
 .btn-secondary:hover {

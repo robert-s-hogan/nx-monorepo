@@ -5,7 +5,7 @@ import { Button, Flex, Grid, Heading, Text } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
 
 import RSHoganComLayout from '../components/RSHoganComLayout';
-import HeroSection from '../components/HeroSection';
+import RSHHeroSection from '../components/RSHHeroSection';
 import RSHSection from '../components/RSHSection';
 import RSHModal from '../components/RSHModal';
 
@@ -42,7 +42,7 @@ export function Index() {
 
   return (
     <RSHoganComLayout>
-      <HeroSection />
+      <RSHHeroSection />
       {/* Hi Im Robert */}
       <RSHSection className="bg-surface w-full py-24 flex flex-col justify-center text-center px-4">
         <Heading level={2}>
