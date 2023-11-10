@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
+import { Provider } from 'react-redux';
 
 import { ThemeProvider } from '@with-nx/theme';
+import { store } from '../store';
 
 import { themes } from '../styles/themes';
 import '../styles/styles.css';
@@ -19,9 +21,11 @@ function CustomApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    <ThemeProvider themes={themes} initialThemeName="light">
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider themes={themes} initialThemeName="light">
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </Provider>
   );
 }
 

@@ -1,7 +1,7 @@
 //libs/store/cart/cartSlice.ts
 import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Product } from '@with-nx/types';
-import { RootState } from '../../../src';
+import { RootState } from '../../store';
 
 interface CartState {
   items: Product[];
@@ -22,8 +22,10 @@ const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
       if (existingProductIndex >= 0) {
+        // If the product exists, increase the quantity
         state.items[existingProductIndex].quantity += 1;
       } else {
+        // If the product doesn't exist, add it with quantity 1
         const newProduct = { ...action.payload, quantity: 1 };
         state.items.push(newProduct);
       }

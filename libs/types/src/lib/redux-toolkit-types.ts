@@ -10,4 +10,5 @@ export interface Product {
   purchase_link: string;
   quantity: number;
   time: string;
+  url: string;
 }
