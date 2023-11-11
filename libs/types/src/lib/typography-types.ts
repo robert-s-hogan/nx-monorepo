@@ -1,3 +1,7 @@
+type UniversalClickHandler = (
+  event: React.MouseEvent<HTMLElement, MouseEvent>
+) => void;
+
 export interface HeadingProps {
   level: number;
   children: React.ReactNode;
@@ -6,10 +10,11 @@ export interface HeadingProps {
   style?: React.CSSProperties;
   'aria-labelledby'?: string;
   tabIndex?: number;
+  rowWidth?: string;
   isLoading?: boolean;
   width?: number | string;
   height?: number | string;
-  onClick?: (event: React.MouseEvent<HTMLHeadingElement, MouseEvent>) => void;
+  onClick?: UniversalClickHandler;
 }
 
 export interface ListProps {

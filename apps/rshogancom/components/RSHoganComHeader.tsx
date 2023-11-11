@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import Script from 'next/script';
-import { FiSun, FiMoon } from 'react-icons/fi';
+import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 
 import { Button, Flex, Text } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
@@ -14,12 +14,16 @@ import RSHModal from './RSHModal';
 const RSHoganComHeader = () => {
   const { isShowing, toggle } = useModal();
   const { fadeClass, isToggleLocked, theme, toggleTheme } = useTheme();
-
   const [isMounted, setIsMounted] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   const toggleButton = isMounted ? (
     <Button
@@ -45,23 +49,75 @@ const RSHoganComHeader = () => {
         strategy="lazyOnload"
         src="https://assets.calendly.com/assets/external/widget.js"
       />
-      <header className="bg-surface">
-        <div className="w-full mx-auto py-0 md:py-4 lg:px-0 text-lg md:text-2xl lg:max-w-7xl ">
-          <div className="flex justify-between p-4 lg:px-0 text-2xl max-w-7xl">
-            <NextLink href="/" className="flex items-center justify-center">
-              <Flex className="items-center space-x-2">
-                <CustomRSHLogo className="w-16 h-auto" />
-              </Flex>
-            </NextLink>
-            <nav className="flex justify-center space-x-6">
-              <Button className="btn-primary" onClick={toggle} type="submit">
-                Say Hello
-              </Button>
-              {toggleButton}
-            </nav>
+      <nav className="bg-white border-b border-gray-200">
+        <div className="container mx-auto px-6 py-3 flex justify-between items-center">
+          {/* Logo */}
+          <NextLink href="/" className="flex items-center justify-center">
+            <Flex className="items-center">
+              <CustomRSHLogo className="svg-logo w-16 h-auto" />
+            </Flex>
+          </NextLink>
+
+          {/* Dark/Light Toggle and Hamburger Menu for Mobile */}
+          <div className="flex items-center md:hidden">
+            {toggleButton}
+            <button onClick={toggleMobileMenu} className="ml-3">
+              {isMobileMenuOpen ? (
+                <FiX size={24} className="icon-menu" />
+              ) : (
+                <FiMenu size={24} className="icon-menu" />
+              )}
+            </button>
           </div>
+
+          {/* Links and Buttons for Desktop */}
+          <Flex className="hidden md:flex items-center">
+            <NextLink
+              className="text-gray-800 text-sm mx-3 hover:underline"
+              href="/products"
+            >
+              Products
+            </NextLink>
+            <NextLink
+              className="text-gray-800 text-sm mx-3 hover:underline"
+              href="/about"
+            >
+              About
+            </NextLink>
+            <Button
+              className="btn-primary text-sm mx-3"
+              onClick={toggle}
+              type="submit"
+            >
+              Contact
+            </Button>
+          </Flex>
         </div>
-      </header>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden flex flex-col justify-center items-center space-y-4 pb-8">
+            {/* Mobile Menu Content */}
+            <NextLink
+              className="nav-link mx-3 hover:underline block"
+              href="/products"
+            >
+              Products
+            </NextLink>
+            <NextLink className="nav-link mx-3 hover:underline" href="/about">
+              About
+            </NextLink>
+            <Button
+              className="btn-primary mx-3 block"
+              onClick={toggle}
+              type="submit"
+            >
+              Contact
+            </Button>
+          </div>
+        )}
+      </nav>
+
       {isShowing && <RSHModal isShowing={isShowing} toggle={toggle} />}
     </>
   );

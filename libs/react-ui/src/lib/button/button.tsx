@@ -1,6 +1,7 @@
 import React from 'react';
 import buttonStyles from './button.module.css';
 import { ButtonProps } from '@with-nx/types';
+import Skeleton from '../skeleton/skeleton'; // Import Skeleton component
 
 export const Button = ({
   icon,
@@ -17,13 +18,13 @@ export const Button = ({
   isLoading?: boolean;
 }): JSX.Element => {
   return isLoading ? (
-    <div
-      className={buttonStyles.skeleton}
-      style={{
-        width: `${width ? `${width}px` : '100%'}`,
-        height: `${height ? `${height}px` : '100%'}`,
-      }}
-    ></div>
+    // Use Skeleton component when loading
+    <Skeleton
+      isLoading={isLoading}
+      height={height || '40px'} // Default height for buttons
+      width={width || '180px'} // Default width
+      borderRadius="4px" // You can adjust this as needed
+    />
   ) : (
     <button
       className={`${className ? className : `${buttonStyles.button} button`} ${

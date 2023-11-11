@@ -45,7 +45,7 @@ const FooterLink = ({ href, ariaLabel, icon: Icon }) => (
 
 const RSHoganComFooter = () => {
   return (
-    <footer className="bg-accent max-w-7xl mx-auto text-center py-8 space-y-4">
+    <footer className="max-w-7xl mx-auto text-center py-8 space-y-4">
       <Link href="/">
         <CustomRSHLogo className="w-24 h-24 mx-auto" />
       </Link>

@@ -10,6 +10,37 @@
   background-size: 200% 100%;
   animation: loading 1.5s infinite;
   margin-top: 5px;
+  border-radius: 4px;
+  width: 80%; /* Default width */
+}
+
+.skeletonText {
+  min-width: 350px; /* Fallback width */
+}
+
+.skeletonTextContainer .skeletonText {
+  width: 80%; /* Adjust width for mobile screens */
+}
+
+/* Media query for tablets and smaller devices */
+@media (min-width: 768px) {
+  .skeletonTextContainer .skeletonText {
+    width: 75%; /* Adjust width for smaller screens */
+  }
+}
+
+/* Media query for laptops and larger devices */
+@media (min-width: 1024px) {
+  .skeletonTextContainer .skeletonText {
+    width: 50%; /* Adjust width for larger screens */
+  }
+}
+
+/* Media query for desktops and larger devices */
+@media (min-width: 1200px) {
+  .skeletonTextContainer .skeletonText {
+    width: 30%; /* Adjust width for larger screens */
+  }
 }
 
 @keyframes loading {

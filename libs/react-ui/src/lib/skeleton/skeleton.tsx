@@ -1,41 +1,30 @@
 import skeletonStyles from './skeleton.module.css';
-import SkeletonText from './skeleton-text';
 import { SkeletonProps } from '@with-nx/types';
+
 export const Skeleton = ({
   key,
-  width = '100%',
   height = '100%',
+  width = '100%',
   borderRadius = 0,
   isLoading = false,
-  rows = 1,
-  rowWidth = '100%',
   className = '',
 }: SkeletonProps) => {
+  // Directly use the height and width provided via props
   const styles = {
-    width: typeof width === 'number' ? `${width}px` : width,
     height: typeof height === 'number' ? `${height}px` : height,
+    width: typeof width === 'number' ? `${width}px` : '40%',
     borderRadius:
       typeof borderRadius === 'number' ? `${borderRadius}px` : borderRadius,
   };
 
-  const classNames = `skeleton ${skeletonStyles.skeleton} ${className}`;
-
   return (
-    <span
-      className={isLoading ? classNames : ''}
+    <div
+      className={
+        isLoading ? `${skeletonStyles.skeleton} ${className}` : className
+      }
       style={isLoading ? styles : {}}
       key={key}
-    >
-      {isLoading && (
-        <>
-          {rows > 1 ? (
-            <SkeletonText rows={rows} width={rowWidth} height={height} />
-          ) : (
-            <div className={classNames} style={styles}></div>
-          )}
-        </>
-      )}
-    </span>
+    />
   );
 };
 

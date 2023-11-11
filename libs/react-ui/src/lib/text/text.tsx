@@ -1,4 +1,4 @@
-import Skeleton from '../skeleton/skeleton';
+import SkeletonText from '../skeleton/skeleton-text';
 import { TextProps } from '@with-nx/types';
 
 export const Text = ({
@@ -10,16 +10,9 @@ export const Text = ({
   onClick,
   isLoading,
   rows = 1,
-  rowWidth = 100,
   height = 16,
   width = '100%',
-}: TextProps & {
-  isLoading?: boolean;
-  rows?: number;
-  rowWidth?: number;
-  height?: number;
-  width?: string | number;
-}) => {
+}: TextProps & React.HTMLAttributes<HTMLElement>) => {
   const combinedStyles = {
     width: width,
     ...style,
@@ -33,10 +26,9 @@ export const Text = ({
       onClick={onClick}
     >
       {isLoading ? (
-        <Skeleton
+        <SkeletonText
           rows={rows}
           isLoading={isLoading}
-          rowWidth={rowWidth}
           height={height}
           width={width}
         />

@@ -2,28 +2,34 @@ import skeletonTextStyles from './skeleton.module.css';
 
 interface SkeletonTextProps {
   rows?: number;
-  key?: string | number;
-  rowWidth?: string | number;
-  width?: string | number;
   height?: string | number;
+  isLoading?: boolean;
+  width?: string | number;
 }
 
-const SkeletonText = ({ rows, rowWidth, width, height }: SkeletonTextProps) => {
+const SkeletonText = ({
+  rows = 1,
+  height,
+  isLoading,
+  width,
+}: SkeletonTextProps) => {
+  if (!isLoading) {
+    return null;
+  }
+
   return (
-    <span
-      className={`skeleton-text-container ${skeletonTextStyles.skeletonTextContainer}`}
-    >
-      {new Array(rows || 1).fill(null).map((_, index) => (
+    <div className={skeletonTextStyles.skeletonTextContainer}>
+      {Array.from({ length: rows }, (_, index) => (
         <span
-          key={`skeleton-text-${index}`}
-          className={`skeleton-text ${skeletonTextStyles.skeletonText}`}
+          key={index}
+          className={`${skeletonTextStyles.skeletonText}`}
           style={{
-            width: typeof rowWidth === 'number' ? `${rowWidth}px` : rowWidth,
-            height: typeof height === 'number' ? `${height}px` : height,
+            height:
+              typeof height === 'number' ? `${height}px` : height || '20px',
           }}
-        ></span>
+        />
       ))}
-    </span>
+    </div>
   );
 };
 

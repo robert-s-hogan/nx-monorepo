@@ -5,7 +5,6 @@ import { Button, Flex, Grid, Heading, Text } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
 
 import RSHoganComLayout from '../components/RSHoganComLayout';
-import RSHHeroSection from '../components/RSHHeroSection';
 import RSHSection from '../components/RSHSection';
 import RSHModal from '../components/RSHModal';
 
@@ -42,7 +41,247 @@ export function Index() {
 
   return (
     <RSHoganComLayout>
-      <RSHHeroSection />
+      {/* HERO */}
+      <RSHSection fullWidth>
+        <header className="light-gradient flex flex-col items-center justify-center space-y-4 light-gradient text-center py-16">
+          <Heading level={1} isLoading>
+            Innovative Digital Solutions
+          </Heading>
+          <Heading level={2} isLoading>
+            Explore our products and services to enhance your business
+          </Heading>
+          <Button className="btn-primary" isLoading>
+            Get Started
+          </Button>
+        </header>
+      </RSHSection>
+      {/* ABOUT */}
+      <RSHSection className="bg-white py-8">
+        <div className="container mx-auto px-6 text-center">
+          <Heading level={2} className="text-3xl font-semibold text-gray-800">
+            About Us
+          </Heading>
+          <Text className="mt-4 text-gray-600">
+            Learn more about our journey, mission, and the team behind our
+            success.
+          </Text>
+          {/* Add more content or images as needed */}
+        </div>
+      </RSHSection>
+      {/* SERVICE */}
+      <RSHSection className="bg-gray-100 py-8">
+        <div className="container mx-auto px-6">
+          <Heading
+            level={2}
+            className="text-3xl font-semibold text-center text-gray-800"
+          >
+            Our Services
+          </Heading>
+          <Grid className="mt-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Service Cards */}
+            {/* Repeat for each service */}
+            <div className="bg-white shadow-lg rounded-lg p-6">
+              <Heading level={3} className="font-semibold">
+                Service Name
+              </Heading>
+              <Text className="mt-2 text-gray-600">
+                Brief description of the service...
+              </Text>
+            </div>
+          </Grid>
+        </div>
+      </RSHSection>
+      {/* PORTFOLIO */}
+      <RSHSection className="bg-white py-8">
+        <div className="container mx-auto px-6">
+          <Heading
+            level={2}
+            className="text-3xl font-semibold text-center text-gray-800"
+          >
+            Our Portfolio
+          </Heading>
+          <Text className="mt-4 text-gray-600">
+            Check out some of our recent projects and case studies.
+          </Text>
+          {/* Portfolio items */}
+        </div>
+      </RSHSection>
+      {/* BLOG */}
+      <RSHSection className="bg-gray-100 py-8">
+        <div className="container mx-auto px-6">
+          <Heading
+            level={2}
+            className="text-3xl font-semibold text-center text-gray-800"
+          >
+            Latest Insights
+          </Heading>
+          <Grid className="mt-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Blog posts or resources */}
+          </Grid>
+        </div>
+      </RSHSection>
+      {/* CONTACT */}
+      <RSHSection className="bg-white py-8">
+        <div className="container mx-auto px-6 text-center">
+          <Heading level={2} className="text-3xl font-semibold text-gray-800">
+            Get in Touch
+          </Heading>
+          <Text className="mt-4 text-gray-600">
+            Have a question or want to work together?
+          </Text>
+          {/* Contact details or a form */}
+        </div>
+      </RSHSection>
+      {/* FAQ */}
+      <RSHSection className="bg-gray-100 py-8">
+        <div className="container mx-auto px-6">
+          <Heading
+            level={2}
+            className="text-3xl font-semibold text-center text-gray-800"
+          >
+            Frequently Asked Questions
+          </Heading>
+          {/* FAQ items */}
+        </div>
+      </RSHSection>
+      {/* NEWSLETTER */}
+      <RSHSection className="bg-white py-8">
+        <div className="container mx-auto px-6 text-center">
+          <Heading level={2} className="text-3xl font-semibold text-gray-800">
+            Stay Updated
+          </Heading>
+          <Text className="mt-4 text-gray-600">
+            Subscribe to our newsletter for the latest updates.
+          </Text>
+          {/* Newsletter form */}
+        </div>
+      </RSHSection>
+      {/* FEATURED PRODUCTS */}
+      <section className="bg-white py-8">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-semibold text-center text-gray-800">
+            Featured Products
+          </h2>
+          <div className="flex flex-wrap mt-6">
+            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
+              <div className="bg-gray-100 shadow-lg rounded-lg p-4">
+                <img
+                  className="w-full h-48 object-cover rounded"
+                  src="path_to_product_image"
+                  alt="product"
+                />
+                <h3 className="mt-2 text-xl font-medium text-gray-700">
+                  Product Name
+                </h3>
+                <p className="mt-2 text-gray-600">
+                  Short product description...
+                </p>
+                <div className="flex justify-between items-center mt-4">
+                  <span className="text-lg text-gray-700">$Price</span>
+                  <button className="px-3 py-1 bg-blue-600 text-white text-xs font-bold uppercase rounded hover:bg-blue-700">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* TESTIMONIALS */}
+      <section className="bg-white py-8">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-semibold text-center text-gray-800">
+            As Seen In
+          </h2>
+          <div className="flex flex-wrap justify-center items-center mt-6">
+            {collaborators.map((collaborator) => (
+              <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 p-4">
+                <Image
+                  src={collaborator.src}
+                  height={collaborator.height}
+                  width={collaborator.width}
+                  loading="lazy"
+                  alt={collaborator.alt}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-100 py-8">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-semibold text-center text-gray-800">
+            What Our Customers Say
+          </h2>
+          <div className="mt-6 space-y-4">
+            <div className="bg-white shadow-lg rounded-lg p-4">
+              <p className="text-gray-600">
+                "This product was amazing, it really helped me with..."
+              </p>
+              <div className="flex items-center mt-4">
+                <img
+                  className="h-12 w-12 rounded-full"
+                  src="path_to_customer_photo"
+                  alt="customer"
+                />
+                <div className="ml-4">
+                  <p className="text-gray-800 text-lg font-medium">
+                    Customer Name
+                  </p>
+                  <p className="text-gray-600 text-sm">Verified Buyer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container mx-auto px-6 py-8">
+        <h2 className="text-3xl font-semibold text-center text-gray-800">
+          Our Products
+        </h2>
+        <div className="flex items-center flex-wrap mt-8">
+          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
+            <div className="bg-white shadow-xl rounded-lg overflow-hidden">
+              <img
+                className="w-full h-56 object-cover object-center"
+                src="path_to_your_image"
+                alt="product image"
+              />
+              <div className="p-4">
+                <h3 className="text-xl text-gray-800 font-semibold">
+                  Product One
+                </h3>
+                <p className="text-gray-600 mt-2">
+                  Description of Product One.
+                </p>
+                <button className="mt-4 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded hover:bg-blue-700">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-white border-t border-gray-200">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex justify-between">
+            <div>
+              <Heading level={3} className="text-lg font-semibold">
+                YourLogo
+              </Heading>
+              {/* Footer links */}
+            </div>
+            <div>{/* Social media links */}</div>
+          </div>
+          <Text className="text-gray-600 text-sm text-center mt-4">
+            © 2023 Your Web Dev Business. All rights reserved.
+          </Text>
+        </div>
+      </footer>
+
       {/* Hi Im Robert */}
       <RSHSection className="bg-surface w-full py-24 flex flex-col justify-center text-center px-4">
         <Heading level={2}>
@@ -66,29 +305,6 @@ export function Index() {
             <FeatureCard key={index} {...card} />
           ))}
         </Grid>
-      </RSHSection>
-
-      {/* Collaborators */}
-      <RSHSection className="bg-surface py-24 justify-center">
-        <Heading level={2} className="text-center">
-          I am proud to have collaborated with some awesome companies:
-        </Heading>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center">
-          {collaborators.map((collaborator) => (
-            <div className="flex justify-center" key={collaborator.name}>
-              <Link href={collaborator.href}>
-                <Image
-                  src={collaborator.src}
-                  height={collaborator.height}
-                  width={collaborator.width}
-                  loading="lazy"
-                  alt={collaborator.alt}
-                />
-              </Link>
-            </div>
-          ))}
-        </div>
       </RSHSection>
 
       {/* Testimonials */}

@@ -1,65 +1,66 @@
 export const themes = {
   light: {
     name: 'light',
-    'primary-color': '#35469c',
-    'secondary-color': '#292929',
-    'accent-color': '#ff3e00',
-    'bg-color': '#FFFFFF',
-    'surface-color': '#F0F0F0',
-    'text-color': '#000000',
-    'text-on-primary-color': '#FFFFFF',
-    'text-on-secondary-color': '#FFFFFF',
-    'text-on-accent-color': '#FFFFFF',
-    'primary-icon-color': '#ff3e00',
-    'secondary-icon-color': '#35469c',
-    'success-color': '#008000',
-    'error-color': '#FF0000',
-    'warning-color': '#FFA500',
-    'info-color': '#0000FF',
-    'border-color': '#D0D0D0',
-    'hover-color': '#ddd',
-    'active-color': '#ccc',
-    'hover-secondary-color': '#4c5261',
-    'active-secondary-color': '#43485c',
-    'disabled-color': '#e0e0e0',
-    'sun-icon-color': '#FFD700',
-    'moon-icon-color': '#808080',
-    'bg-opacity-color': 'rgba(255, 255, 255, 0.6)',
+    'primary-color': '#ff3e00', // Your logo color as primary
+    'secondary-color': '#A2A2A2', // Light grey for secondary elements
+    'accent-color': '#5AC8FA', // Apple-like blue for accents
+    'bg-color': '#FFFFFF', // White background
+    'surface-color': '#F7F7F7', // Light grey surface
+    'text-color': '#1D1D1F', // Dark grey for text
+    'text-on-primary-color': '#FFFFFF', // White text on primary color
+    'text-on-secondary-color': '#FFFFFF', // White text on secondary color
+    'primary-icon-color': '#ff3e00', // Logo color for primary icons
+    'secondary-icon-color': '#A2A2A2', // Light grey for secondary icons
+    'menu-icon-color': '#007AFF', // New color for menu icons in light theme
+    'success-color': '#34C759', // Green for success messages
+    'error-color': '#FF3B30', // Red for error messages
+    'warning-color': '#FF9500', // Orange for warnings
+    'info-color': '#5AC8FA', // Blue for informational messages
+    'border-color': '#D1D1D1', // Light grey for borders
+    'hover-color': '#E5E5EA', // Very light grey for hover states
+    'active-color': '#C7C7CC', // Slightly darker grey for active states
+    'hover-secondary-color': '#BFBFBF', // Medium grey for secondary hover
+    'active-secondary-color': '#B1B1B1', // Medium-dark grey for secondary active
+    'disabled-color': '#E0E0E0', // Light grey for disabled elements
+    'sun-icon-color': '#FFD60A', // Yellow for sun icon
+    'moon-icon-color': '#636366', // Dark grey for moon icon
+    'bg-opacity-color': 'rgba(255, 255, 255, 0.6)', // Semi-transparent white
+    'dialog-bg-color': '#FFFFFF', // White for dialog backgrounds
+    'backdrop-color': '#F0F0F0', // Light grey for backdrop
+    'gradient-color': '#EFEFEF', // Light grey gradient
     sound:
       'https://rshogan.imgix.net/projects/rshogancom/sounds/rshogancom_flick_switch.wav',
-    'dialog-bg-color': '#FFFFFF',
-    'backdrop-color': '#F0F0F0',
-    'gradient-color': '#6fa3ef',
   },
   dark: {
     name: 'dark',
-    'primary-color': '#e47461',
-    'secondary-color': '#545b6c',
-    'accent-color': '#292929',
-    'bg-color': '#292929',
-    'surface-color': '#1E1E1E',
-    'text-color': '#FFFFFF',
-    'text-on-primary-color': '#FFFFFF',
-    'text-on-secondary-color': '#000000',
-    'primary-icon-color': '#D4D4D4',
-    'secondary-icon-color': '#e47461',
-    'success-color': '#00FF00',
-    'error-color': '#FF0000',
-    'warning-color': '#FFA500',
-    'info-color': '#1E90FF',
-    'border-color': '#545b6c',
-    'hover-color': '#43485c',
-    'active-color': '#4c5261',
-    'hover-secondary-color': '#545b6c',
-    'active-secondary-color': '#4c5261',
-    'disabled-color': '#3F3F3F',
-    'sun-icon-color': '#FFD700',
-    'moon-icon-color': '#808080',
-    'bg-opacity-color': 'rgba(41, 41, 41, 0.8)',
-    'gradient-color': '#545b6c',
+    'primary-color': '#FFFFFF', // White for primary elements
+    'secondary-color': '#636366', // Dark grey for secondary elements
+    'accent-color': '#ff3e00', // Your logo color for accents
+    'bg-color': '#000000', // Black background
+    'surface-color': '#1C1C1E', // Very dark grey surface
+    'text-color': '#FFFFFF', // White text
+    'text-on-primary-color': '#000000', // Black text on primary elements
+    'text-on-secondary-color': '#FFFFFF', // White text on secondary elements
+    'primary-icon-color': '#ff3e00', // Logo color for primary icons
+    'secondary-icon-color': '#FFFFFF', // White for secondary icons
+    'menu-icon-color': '#5AC8FA', // New color for menu icons in dark theme
+    'success-color': '#34C759', // Apple's success green
+    'error-color': '#FF3B30', // Apple's error red
+    'warning-color': '#FF9500', // Apple's warning orange
+    'info-color': '#007AFF', // Apple's info blue
+    'border-color': '#545b6c', // Dark grey border
+    'hover-color': '#2C2C2E', // Slightly lighter grey for hover
+    'active-color': '#3A3A3C', // Slightly darker grey for active
+    'hover-secondary-color': '#48484A', // Medium grey for secondary hover
+    'active-secondary-color': '#545b6c', // Dark grey for secondary active
+    'disabled-color': '#3F3F3F', // Dark grey for disabled elements
+    'sun-icon-color': '#FFD60A', // Bright yellow for sun icon
+    'moon-icon-color': '#8E8E93', // Light grey for moon icon
+    'bg-opacity-color': 'rgba(0, 0, 0, 0.8)', // Semi-transparent black
+    'gradient-color': '#545b6c', // Gradient color (can be adjusted)
     sound:
       'https://rshogan.imgix.net/projects/rshogancom/sounds/rshogancom_whooshdarkhissy.wav',
-    'dialog-bg-color': '#292929',
-    'backdrop-color': '#1E1E1E',
+    'dialog-bg-color': '#1C1C1E', // Very dark grey dialog background
+    'backdrop-color': '#2C2C2E', // Dark grey backdrop
   },
 };
