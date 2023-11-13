@@ -18,27 +18,31 @@
   min-width: 350px; /* Fallback width */
 }
 
-.skeletonTextContainer .skeletonText {
+.skeletonTextContainer .skeletonText,
+.skeleton {
   width: 80%; /* Adjust width for mobile screens */
 }
 
 /* Media query for tablets and smaller devices */
 @media (min-width: 768px) {
-  .skeletonTextContainer .skeletonText {
+  .skeletonTextContainer .skeletonText,
+  .skeleton {
     width: 75%; /* Adjust width for smaller screens */
   }
 }
 
 /* Media query for laptops and larger devices */
 @media (min-width: 1024px) {
-  .skeletonTextContainer .skeletonText {
+  .skeletonTextContainer .skeletonText,
+  .skeleton {
     width: 50%; /* Adjust width for larger screens */
   }
 }
 
 /* Media query for desktops and larger devices */
 @media (min-width: 1200px) {
-  .skeletonTextContainer .skeletonText {
+  .skeletonTextContainer .skeletonText,
+  .skeleton {
     width: 30%; /* Adjust width for larger screens */
   }
 }

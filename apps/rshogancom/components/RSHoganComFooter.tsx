@@ -5,7 +5,7 @@ import {
   FiMail,
   FiTwitter,
 } from 'react-icons/fi';
-import { Link, Text } from '@with-nx/react-ui';
+import { Heading, Link, Text } from '@with-nx/react-ui';
 import { CustomRSHLogo } from '@with-nx/icons';
 
 // Data object to hold the link information
@@ -45,18 +45,26 @@ const FooterLink = ({ href, ariaLabel, icon: Icon }) => (
 
 const RSHoganComFooter = () => {
   return (
-    <footer className="max-w-7xl mx-auto text-center py-8 space-y-4">
-      <Link href="/">
-        <CustomRSHLogo className="w-24 h-24 mx-auto" />
-      </Link>
-      <div className="flex flex-col justify-between">
-        <p>Handcrafted by Robert.</p>
-        <span className="flex sm:mt-0 pt-4 justify-center space-x-4">
-          {footerLinks.map((link, index) => (
-            <FooterLink key={index} {...link} />
-          ))}
-        </span>
+    <footer className="border-t border-gray-200">
+      <div className="flex justify-between items-center">
+        <div>
+          <Link href="/">
+            <CustomRSHLogo className="w-24 h-24 mx-auto" />
+          </Link>
+          {/* Footer links */}
+        </div>
+        <div>
+          {' '}
+          <span className="flex sm:mt-0 pt-4 justify-center space-x-4">
+            {footerLinks.map((link, index) => (
+              <FooterLink key={index} {...link} />
+            ))}
+          </span>
+        </div>
       </div>
+      <Text className=" text-sm text-center mt-4">
+        © 2023 Your Web Dev Business. All rights reserved.
+      </Text>
     </footer>
   );
 };

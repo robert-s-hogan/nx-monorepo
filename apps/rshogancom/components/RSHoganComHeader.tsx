@@ -49,7 +49,7 @@ const RSHoganComHeader = () => {
         strategy="lazyOnload"
         src="https://assets.calendly.com/assets/external/widget.js"
       />
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="border-b border-gray-200">
         <div className="container mx-auto px-6 py-3 flex justify-between items-center">
           {/* Logo */}
           <NextLink href="/" className="flex items-center justify-center">
@@ -72,25 +72,20 @@ const RSHoganComHeader = () => {
 
           {/* Links and Buttons for Desktop */}
           <Flex className="hidden md:flex items-center">
-            <NextLink
-              className="text-gray-800 text-sm mx-3 hover:underline"
-              href="/products"
-            >
+            <NextLink className="text-sm mx-3 hover:underline" href="/products">
               Products
             </NextLink>
-            <NextLink
-              className="text-gray-800 text-sm mx-3 hover:underline"
-              href="/about"
-            >
+            <NextLink className="text-sm mx-3 hover:underline" href="/about">
               About
             </NextLink>
             <Button
-              className="btn-primary text-sm mx-3"
+              className="btn contact-button text-sm mx-3"
               onClick={toggle}
               type="submit"
             >
               Contact
             </Button>
+            {toggleButton}
           </Flex>
         </div>
 

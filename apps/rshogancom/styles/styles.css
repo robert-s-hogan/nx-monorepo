@@ -55,6 +55,7 @@
   --dialog-bg-color: #ffffff;
   --backdrop-color: #f0f0f0;
   --gradient-color: #a8d5c0;
+  --shadow-color: var(--light-shadow-color); /* Default to light theme */
 }
 
 @layer base {
@@ -75,11 +76,11 @@
     @apply text-4xl font-semibold;
   }
   h2 {
-    @apply text-2xl font-semibold;
+    @apply text-3xl font-semibold;
   }
 
   h3 {
-    @apply text-2xl;
+    @apply text-2xl font-semibold;
   }
   h4 {
     @apply text-xl;
@@ -174,9 +175,6 @@ svg {
 }
 .icon-menu {
   stroke: var(--menu-icon-color);
-}
-.svg-logo {
-  stroke: var(--primary-icon-color) !important;
 }
 
 /* DEBUG STYLING */
@@ -323,6 +321,11 @@ button {
   background-color: var(--disabled-color);
   cursor: not-allowed;
 }
+.contact-button {
+  background-color: var(--contact-button-color);
+  color: var(--text-on-primary-color);
+}
+
 dialog::backdrop {
   background-color: var(--backdrop-color, rgba(0, 0, 0, 0.5));
   position: fixed;
@@ -379,4 +382,43 @@ dialog::backdrop {
 }
 .card:hover {
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly larger shadow on hover */
+}
+
+/* RSHSECTION */
+.rsh-section:nth-child(odd) {
+  background-color: var(--bg-color); /* Light background for odd sections */
+  color: var(--text-color); /* Dark text for odd sections */
+}
+
+.rsh-section:nth-child(even) {
+  background-color: var(
+    --secondary-bg-color
+  ); /* Darker background for even sections */
+  color: var(--secondary-text-color); /* Lighter text for even sections */
+}
+
+.rsh-section .container .Heading {
+  color: var(--text-color);
+}
+
+.rsh-section .container .Text {
+  color: var(--secondary-text-color);
+}
+
+.rsh-service-card {
+  background-color: var(--bg-color); /* For individual service cards */
+  /* Add other styles like shadow, rounded corners, etc. */
+}
+
+.rsh-service-card .Heading {
+  /* Styles for headings in service cards */
+}
+
+.rsh-service-card .Text {
+  color: var(--secondary-text-color);
+}
+
+/* SHADOW CLASSES */
+.shadow {
+  box-shadow: var(--shadow-color);
 }

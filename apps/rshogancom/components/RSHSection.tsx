@@ -3,19 +3,21 @@ import { CommonProps } from '@with-nx/types';
 const RSHSection = ({
   children,
   fullWidth = false,
-  useInnerContainer = false,
-  innerContainerClass = 'container mx-auto px-6',
+  innerContainer = false,
+  innerContainerClass = 'container mx-auto px-6 text-center',
   className = '',
 }) => {
   const sectionClass = fullWidth ? 'w-full' : '';
-  const innerContent = useInnerContainer ? (
-    <div className={innerContainerClass}>{children}</div>
-  ) : (
-    children
-  );
+  const containerClass = innerContainer ? innerContainerClass : '';
 
   return (
-    <section className={`${sectionClass} ${className}`}>{innerContent}</section>
+    <section className={`rsh-section${sectionClass} ${className}`}>
+      {innerContainer ? (
+        <div className={containerClass}>{children}</div>
+      ) : (
+        children
+      )}
+    </section>
   );
 };
 

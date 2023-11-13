@@ -5,11 +5,13 @@ export const themes = {
     'secondary-color': '#A2A2A2', // Light grey for secondary elements
     'accent-color': '#5AC8FA', // Apple-like blue for accents
     'bg-color': '#FFFFFF', // White background
+    'secondary-bg-color': '#EFEFEF',
+    'contact-button-color': '#5AC8FA',
     'surface-color': '#F7F7F7', // Light grey surface
     'text-color': '#1D1D1F', // Dark grey for text
     'text-on-primary-color': '#FFFFFF', // White text on primary color
     'text-on-secondary-color': '#FFFFFF', // White text on secondary color
-    'primary-icon-color': '#ff3e00', // Logo color for primary icons
+    'primary-icon-color': '#4a5568', // Logo color for primary icons
     'secondary-icon-color': '#A2A2A2', // Light grey for secondary icons
     'menu-icon-color': '#007AFF', // New color for menu icons in light theme
     'success-color': '#34C759', // Green for success messages
@@ -30,6 +32,7 @@ export const themes = {
     'gradient-color': '#EFEFEF', // Light grey gradient
     sound:
       'https://rshogan.imgix.net/projects/rshogancom/sounds/rshogancom_flick_switch.wav',
+    'shadow-color': 'rgba(0, 0, 0, 0.2)', // Dark shadow for light mode
   },
   dark: {
     name: 'dark',
@@ -37,6 +40,8 @@ export const themes = {
     'secondary-color': '#636366', // Dark grey for secondary elements
     'accent-color': '#ff3e00', // Your logo color for accents
     'bg-color': '#000000', // Black background
+    'secondary-bg-color': '#2C2C2E',
+    'contact-button-color': '#ff3e00',
     'surface-color': '#1C1C1E', // Very dark grey surface
     'text-color': '#FFFFFF', // White text
     'text-on-primary-color': '#000000', // Black text on primary elements
@@ -62,5 +67,6 @@ export const themes = {
       'https://rshogan.imgix.net/projects/rshogancom/sounds/rshogancom_whooshdarkhissy.wav',
     'dialog-bg-color': '#1C1C1E', // Very dark grey dialog background
     'backdrop-color': '#2C2C2E', // Dark grey backdrop
+    'shadow-color': 'rgba(255, 255, 255, 0.1)', // Light shadow for dark mode
   },
 };
