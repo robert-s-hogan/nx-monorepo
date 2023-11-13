@@ -1,5 +1,29 @@
 export const collaborators = [
   {
+    name: 'Broadway Media Distribution',
+    href: 'https://www.broadwaymedia.com/',
+    src: 'https://rshogan.imgix.net/projects/rshogancom/images/bmd_logo.webp',
+    width: 88,
+    height: 65,
+    alt: 'Broadway Media Distribution',
+  },
+  {
+    name: 'Thomas Henry Wines',
+    href: 'https://www.thomashenrywines.com/',
+    src: 'https://rshogan.imgix.net/projects/rshogancom/images/thomas_henry_wines.png',
+    width: 89,
+    height: 50,
+    alt: 'Thomas Henry Wines Logo',
+  },
+  {
+    name: 'An Italian Dish',
+    href: 'https://anitaliandish.com/',
+    src: 'https://rshogan.imgix.net/projects/rshogancom/images/an_italian_dish.png',
+    width: 200,
+    height: 50,
+    alt: 'An Italian Dish Logo',
+  },
+  {
     name: 'One Democracy',
     href: 'https://www.onedemocracy.org/',
     src: 'https://rshogan.imgix.net/projects/rshogancom/images/one_democracy.webp',
@@ -14,22 +38,6 @@ export const collaborators = [
     width: 190,
     height: 50,
     alt: 'MGI Solutions Logo',
-  },
-  {
-    name: 'An Italian Dish',
-    href: 'https://anitaliandish.com/',
-    src: 'https://rshogan.imgix.net/projects/rshogancom/images/an_italian_dish.png',
-    width: 200,
-    height: 50,
-    alt: 'An Italian Dish Logo',
-  },
-  {
-    name: 'Thomas Henry Wines',
-    href: 'https://www.thomashenrywines.com/',
-    src: 'https://rshogan.imgix.net/projects/rshogancom/images/thomas_henry_wines.png',
-    width: 89,
-    height: 50,
-    alt: 'Thomas Henry Wines Logo',
   },
   {
     name: 'K Realty',
@@ -54,13 +62,5 @@ export const collaborators = [
     width: 89,
     height: 50,
     alt: 'Jessica Hogan MA Logo',
-  },
-  {
-    name: 'Broadway Media Distribution',
-    href: 'https://www.broadwaymedia.com/',
-    src: 'https://rshogan.imgix.net/projects/rshogancom/images/bmd_logo.webp',
-    width: 88,
-    height: 65,
-    alt: 'Broadway Media Distribution',
   },
 ];

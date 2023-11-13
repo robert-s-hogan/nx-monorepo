@@ -8,6 +8,8 @@ import {
 import { Heading, Link, Text } from '@with-nx/react-ui';
 import { CustomRSHLogo } from '@with-nx/icons';
 
+import RSHSection from './RSHSection';
+
 // Data object to hold the link information
 export const footerLinks = [
   {
@@ -46,25 +48,25 @@ const FooterLink = ({ href, ariaLabel, icon: Icon }) => (
 const RSHoganComFooter = () => {
   return (
     <footer className="border-t border-gray-200">
-      <div className="flex justify-between items-center">
-        <div>
-          <Link href="/">
-            <CustomRSHLogo className="w-24 h-24 mx-auto" />
-          </Link>
-          {/* Footer links */}
+      <RSHSection className="py-8" innerContainer>
+        <div className="flex justify-between items-center">
+          <div>
+            <Link href="/">
+              <CustomRSHLogo className="w-24 h-24 mx-auto" />
+            </Link>
+          </div>
+          <div>
+            <span className="flex sm:mt-0 pt-4 justify-center space-x-4">
+              {footerLinks.map((link, index) => (
+                <FooterLink key={index} {...link} />
+              ))}
+            </span>
+          </div>
         </div>
-        <div>
-          {' '}
-          <span className="flex sm:mt-0 pt-4 justify-center space-x-4">
-            {footerLinks.map((link, index) => (
-              <FooterLink key={index} {...link} />
-            ))}
-          </span>
-        </div>
-      </div>
-      <Text className=" text-sm text-center mt-4">
-        © 2023 Your Web Dev Business. All rights reserved.
-      </Text>
+        <Text className="text-sm text-center mt-4">
+          © Robertshogan.com. All rights reserved.
+        </Text>
+      </RSHSection>
     </footer>
   );
 };

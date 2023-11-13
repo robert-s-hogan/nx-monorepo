@@ -1,17 +1,24 @@
-import { CommonProps } from '@with-nx/types';
-
 const RSHSection = ({
   children,
   fullWidth = false,
-  innerContainer = false,
+  innerContainer = true, // Set innerContainer to true by default
   innerContainerClass = 'container mx-auto px-6 text-center',
   className = '',
 }) => {
-  const sectionClass = fullWidth ? 'w-full' : '';
+  // Automatically set innerContainer to false if fullWidth is true
+  innerContainer = fullWidth ? false : innerContainer;
+
+  const getSectionClassNames = () => {
+    let sectionClasses = 'rsh-section';
+    sectionClasses += fullWidth ? ' w-full' : ' py-8';
+    sectionClasses += className ? ` ${className}` : '';
+    return sectionClasses;
+  };
+
   const containerClass = innerContainer ? innerContainerClass : '';
 
   return (
-    <section className={`rsh-section${sectionClass} ${className}`}>
+    <section className={getSectionClassNames()}>
       {innerContainer ? (
         <div className={containerClass}>{children}</div>
       ) : (

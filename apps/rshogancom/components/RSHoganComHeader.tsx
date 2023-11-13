@@ -71,18 +71,14 @@ const RSHoganComHeader = () => {
           </div>
 
           {/* Links and Buttons for Desktop */}
-          <Flex className="hidden md:flex items-center">
-            <NextLink className="text-sm mx-3 hover:underline" href="/products">
+          <Flex className="hidden md:flex items-center space-x-3">
+            {/* <NextLink className="nav-link" href="/products">
               Products
-            </NextLink>
-            <NextLink className="text-sm mx-3 hover:underline" href="/about">
+            </NextLink> */}
+            {/* <NextLink className="nav-link" href="/about">
               About
-            </NextLink>
-            <Button
-              className="btn contact-button text-sm mx-3"
-              onClick={toggle}
-              type="submit"
-            >
+            </NextLink> */}
+            <Button className="btn-primary" onClick={toggle} type="submit">
               Contact
             </Button>
             {toggleButton}
@@ -93,7 +89,7 @@ const RSHoganComHeader = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden flex flex-col justify-center items-center space-y-4 pb-8">
             {/* Mobile Menu Content */}
-            <NextLink
+            {/* <NextLink
               className="nav-link mx-3 hover:underline block"
               href="/products"
             >
@@ -101,7 +97,7 @@ const RSHoganComHeader = () => {
             </NextLink>
             <NextLink className="nav-link mx-3 hover:underline" href="/about">
               About
-            </NextLink>
+            </NextLink> */}
             <Button
               className="btn-primary mx-3 block"
               onClick={toggle}

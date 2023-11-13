@@ -18,7 +18,6 @@
   --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
   --font-mono: Fira Mono, monospace;
   --pure-white: #ffffff;
-  --primary-color: #b9c6d2;
   --secondary-color: #d0dde9;
   --tertiary-color: #edf0f8;
   --accent-color: #ff3e00;
@@ -55,7 +54,7 @@
   --dialog-bg-color: #ffffff;
   --backdrop-color: #f0f0f0;
   --gradient-color: #a8d5c0;
-  --shadow-color: var(--light-shadow-color); /* Default to light theme */
+  --shadow-color: var(--light-shadow-color);
 }
 
 @layer base {
@@ -88,11 +87,12 @@
   h5 {
     @apply text-lg;
   }
-  h6 {
-    @apply text-base;
-  }
+  h6,
   p {
     @apply text-base;
+  }
+  a {
+    @apply text-sm;
   }
   dialog {
     @apply fixed left-0 top-0 z-50 max-w-7xl translate-y-[30px] md:translate-y-[-135px] lg:translate-y-[-0px] xl:translate-y-[-30px] 2xl:translate-y-[-235px] w-11/12 lg:w-1/2 xl:w-2/5 2xl:w-1/4 h-[530px] md:h-[550px] xl:h-[555px] overflow-y-hidden;
@@ -111,16 +111,17 @@
     @apply rounded-md;
   }
 }
+
 html,
 body {
-  background: var(--bg-color); /* Typically a light color or white */
-  color: var(--text-color); /* Typically a dark color for contrast */
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
 body {
   min-height: 100vh;
   margin: 0;
-  background-color: var(--bg-color); /* Consistent background color */
+  background-color: var(--bg-color);
   transition: background-color 0.5s, color 0.5s;
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
@@ -131,7 +132,7 @@ body {
 dialog {
   background-color: var(--dialog-bg-color);
   border: var(--border-width) solid var(--border-color);
-  border-radius: 8px; /* Rounded corners for dialogs */
+  border-radius: 8px;
 }
 
 h1,
@@ -141,37 +142,34 @@ h4,
 h5,
 h6,
 p {
-  color: var(--text-color); /* Consistent text color */
-  margin: 0; /* Remove default margins */
-  padding: 0; /* Remove default paddings */
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif; /* System fonts */
+    'Helvetica Neue', Arial, sans-serif;
 }
 
 /* LINKS */
 .nav-link {
-  font-size: 1.125rem; /* 18px */
-  line-height: 1.5rem; /* 24px */
-  padding: 0.5rem 1rem; /* Add some padding for easier tap targets */
-  color: var(--text-color); /* Consistent text color */
+  line-height: 1.5rem;
+  color: var(--text-color);
 }
 .nav-link:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline;
 }
 a {
   position: relative;
   text-decoration: none;
-  color: var(--accent-color); /* Subtle accent color for links */
-  transition: color 0.3s ease; /* Smooth transition for hover effects */
+  color: var(--accent-color);
+  transition: color 0.3s ease;
 }
-
 a:hover {
-  color: darken(var(--accent-color), 10%); /* Slightly darker on hover */
+  color: darken(var(--accent-color), 10%);
 }
 
 /* ICONS */
 svg {
-  transition: stroke 0.3s ease; /* Smooth transition for hover effects */
+  transition: stroke 0.3s ease;
 }
 .icon-menu {
   stroke: var(--menu-icon-color);
@@ -199,8 +197,8 @@ select {
   background-color: var(--surface-color);
   color: var(--text-color);
   padding: 0.5rem;
-  border-radius: 4px; /* Slightly rounded borders for form elements */
-  font-family: inherit; /* Consistent font with the body */
+  border-radius: 4px;
+  font-family: inherit;
 }
 
 form > div {
@@ -229,9 +227,7 @@ button {
 
 .bg-surface {
   background-color: var(--surface-color);
-  color: var(
-    --text-color
-  ); /* Ensure you have a 'text-on-surface-color' if needed */
+  color: var(--text-color);
 }
 
 .btn-primary {
@@ -249,7 +245,7 @@ button {
 
 .btn-primary:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--accent-color); /* Adjusted for focus state */
+  box-shadow: 0 0 0 3px var(--accent-color);
 }
 
 .btn-success {
@@ -314,7 +310,7 @@ button {
 
 .btn-secondary:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--accent-color); /* Adjusted for focus state */
+  box-shadow: 0 0 0 3px var(--accent-color);
 }
 
 .btn-secondary:disabled {
@@ -326,6 +322,7 @@ button {
   color: var(--text-on-primary-color);
 }
 
+/* MODAL CLASSES */
 dialog::backdrop {
   background-color: var(--backdrop-color, rgba(0, 0, 0, 0.5));
   position: fixed;
@@ -340,7 +337,6 @@ dialog::backdrop {
     var(--secondary-icon-color),
     var(--gradient-color)
   );
-  /* Ensure gradients are subtle and not too contrasting */
 }
 .dark-gradient {
   background-image: linear-gradient(
@@ -348,7 +344,6 @@ dialog::backdrop {
     var(--secondary-icon-color),
     var(--gradient-color)
   );
-  /* Same as above, gradients should be smooth and not overpowering */
 }
 
 /* TYPOGRAPHY CLASSES */
@@ -362,7 +357,7 @@ dialog::backdrop {
   color: var(--text-on-accent-color);
 }
 .text-shadow {
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 .sun-icon {
   stroke: var(--sun-icon-color);
@@ -373,52 +368,34 @@ dialog::backdrop {
 
 /* CARD CLASSES */
 .card {
-  border: var(--border-width) solid var(--border-color);
-  background: var(--bg-color);
-  border-radius: 8px; /* Rounded corners for cards */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  padding: 16px; /* Consistent padding inside cards */
-  transition: box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  box-shadow: var(--shadow-color);
+  border-radius: 0.5rem;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.card .Heading {
+  color: var(--text-color);
+}
+.card .Text {
+  color: var(--secondary-text-color);
 }
 .card:hover {
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly larger shadow on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* RSHSECTION */
 .rsh-section:nth-child(odd) {
-  background-color: var(--bg-color); /* Light background for odd sections */
-  color: var(--text-color); /* Dark text for odd sections */
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
-
 .rsh-section:nth-child(even) {
-  background-color: var(
-    --secondary-bg-color
-  ); /* Darker background for even sections */
-  color: var(--secondary-text-color); /* Lighter text for even sections */
+  background-color: var(--secondary-bg-color);
+  color: var(--secondary-text-color);
 }
-
 .rsh-section .container .Heading {
   color: var(--text-color);
 }
-
 .rsh-section .container .Text {
   color: var(--secondary-text-color);
-}
-
-.rsh-service-card {
-  background-color: var(--bg-color); /* For individual service cards */
-  /* Add other styles like shadow, rounded corners, etc. */
-}
-
-.rsh-service-card .Heading {
-  /* Styles for headings in service cards */
-}
-
-.rsh-service-card .Text {
-  color: var(--secondary-text-color);
-}
-
-/* SHADOW CLASSES */
-.shadow {
-  box-shadow: var(--shadow-color);
 }
