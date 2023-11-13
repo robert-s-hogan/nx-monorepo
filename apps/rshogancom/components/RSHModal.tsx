@@ -133,7 +133,7 @@ export function RSHModal({
 
                 <Button
                   type="submit"
-                  className="md:w-32 mt-3"
+                  className="md:w-32 mt-3 btn-primary"
                   isLoading={isLoading}
                 >
                   Submit
