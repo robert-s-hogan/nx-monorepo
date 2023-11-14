@@ -294,7 +294,7 @@ export function Index() {
               <div className="flex items-center mt-4">
                 <Image
                   className="h-12 w-12 rounded-full"
-                  src="https://rshogan.imgix.net/projects/rshogancom/images/rshhogan_testimonials_ellen_2.avif"
+                  src="https://rshogan.imgix.net/projects/rshogancom/images/rshhogan_testimonials_ellen_2.jpeg"
                   loading="lazy"
                   width={200}
                   height={200}
