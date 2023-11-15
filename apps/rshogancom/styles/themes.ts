@@ -33,6 +33,8 @@ export const themes = {
     sound:
       'https://rshogan.imgix.net/projects/rshogancom/sounds/rshogancom_flick_switch.wav',
     'shadow-color': 'rgba(0, 0, 0, 0.2)', // Dark shadow for light mode
+    'skeleton-base-color': '#d0d0d0',
+    'skeleton-shine-color': '255, 255, 255',
   },
   dark: {
     name: 'dark',
@@ -68,5 +70,7 @@ export const themes = {
     'dialog-bg-color': '#1C1C1E', // Very dark grey dialog background
     'backdrop-color': '#2C2C2E', // Dark grey backdrop
     'shadow-color': 'rgba(255, 255, 255, 0.1)', // Light shadow for dark mode
+    'skeleton-base-color': '#3A3A3C',
+    'skeleton-shine-color': '255, 255, 255',
   },
 };

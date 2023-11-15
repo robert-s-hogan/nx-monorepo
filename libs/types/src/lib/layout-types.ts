@@ -7,6 +7,7 @@ export interface BoxProps {
   role?: string;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   style?: React.CSSProperties;
+  isLoading?: boolean;
 }
 
 export interface FlexProps {

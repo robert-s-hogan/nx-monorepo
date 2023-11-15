@@ -60,25 +60,19 @@ export function RSHModal({
           title="Thanks for taking the time to reach out!"
         >
           {isSubmitted ? (
-            <Text className="text-normal text-lg sm:text-2xl font-medium text-gray-600  ">
-              Your message has been sent! We'll get back to you soon.
-            </Text>
+            <Text>Your message has been sent! We'll get back to you soon.</Text>
           ) : (
             <>
-              <Text className="text-normal text-lg sm:text-2xl font-medium text-gray-600  ">
-                Fill in the form to start a conversation
-              </Text>
+              <Text>Fill in the form to start a conversation</Text>
 
-              <Flex className="items-center mt-4 text-gray-600 ">
+              <Flex className="items-center mt-4">
                 <FiMapPin className="h-6 w-6" />
-                <Text className="ml-4 text-md tracking-wide font-semibold w-40">
-                  Sonoma County, CA
-                </Text>
+                <Text className="ml-4">Sonoma County, CA</Text>
               </Flex>
 
-              <Flex className="items-center mt-2 text-gray-600 ">
+              <Flex className="items-center mt-2">
                 <FiMail className="h-6 w-6" />
-                <Text className="ml-4 text-md tracking-wide font-semibold w-40">
+                <Text className="ml-4">
                   <Link className="text" href="mailto:robert@robertshogan.com">
                     Email me
                   </Link>
@@ -86,7 +80,7 @@ export function RSHModal({
               </Flex>
 
               <form
-                className="pt-6 flex flex-col justify-center"
+                className="pt-6 flex flex-col justify-center space-y-2"
                 action="https://submit-form.com/Mj5aEdSo"
                 onSubmit={handleSubmit}
               >
@@ -100,7 +94,7 @@ export function RSHModal({
                     name="name"
                     placeholder="Full Name"
                     required
-                    className="w-100 mt-2 py-3 px-4 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+                    className="w-100"
                   />
                 </Flex>
 
@@ -114,7 +108,7 @@ export function RSHModal({
                     name="email"
                     placeholder="Email"
                     required
-                    className="w-100 mt-2 py-3 px-4 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+                    className="w-100 mt-2"
                   />
                 </Flex>
 
@@ -127,13 +121,13 @@ export function RSHModal({
                     name="message"
                     required
                     placeholder="What would you like to start building?"
-                    className="w-100 mt-2 py-3 px-4 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+                    className="w-100"
                   />
                 </Flex>
 
                 <Button
                   type="submit"
-                  className="md:w-32 mt-3 btn-primary"
+                  className="md:w-32 mt-3 btn-secondary"
                   isLoading={isLoading}
                 >
                   Submit

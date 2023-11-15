@@ -15,6 +15,7 @@ export interface HeadingProps {
   width?: number | string;
   height?: number | string;
   onClick?: UniversalClickHandler;
+  minHeight?: number | string;
 }
 
 export interface ListProps {
@@ -38,4 +39,5 @@ export interface TextProps {
   rowWidth?: number;
   height?: number | string;
   width?: number | string;
+  minHeight?: number | string;
 }

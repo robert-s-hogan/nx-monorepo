@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeadingProps } from '@with-nx/types';
-import SkeletonText from '../skeleton/skeleton-text';
+import { SkeletonText } from '../skeleton-text/skeleton-text';
 
 function DynamicHeading({
   level,
@@ -12,7 +12,14 @@ function DynamicHeading({
       return <h1 {...props}>{children}</h1>;
     case 2:
       return <h2 {...props}>{children}</h2>;
-    // Add cases for other heading levels as needed
+    case 3:
+      return <h3 {...props}>{children}</h3>;
+    case 4:
+      return <h4 {...props}>{children}</h4>;
+    case 5:
+      return <h5 {...props}>{children}</h5>;
+    case 6:
+      return <h6 {...props}>{children}</h6>;
     default:
       return <h1 {...props}>{children}</h1>;
   }
@@ -32,7 +39,15 @@ export const Heading = ({
   onClick,
 }: HeadingProps) => {
   if (isLoading) {
-    return <SkeletonText rows={1} height={height} isLoading={isLoading} />;
+    return (
+      <SkeletonText
+        rows={1}
+        isLoading={isLoading}
+        width={width}
+        level={level}
+        className={className}
+      />
+    );
   }
 
   return (

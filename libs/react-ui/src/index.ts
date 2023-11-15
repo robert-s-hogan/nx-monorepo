@@ -1,3 +1,4 @@
+export * from './lib/skeleton-text/skeleton-text';
 export * from './lib/dialog/dialog';
 export * from './lib/slider/slider';
 export * from './lib/error/error';
@@ -45,6 +46,7 @@ export * from './lib/section/section';
 export * from './lib/seo/seo';
 export * from './lib/select/select';
 export * from './lib/skeleton/skeleton';
+export * from './lib/skeleton-text/skeleton-text';
 export * from './lib/slider/slider';
 export * from './lib/spinner/spinner';
 export * from './lib/stepper/stepper';

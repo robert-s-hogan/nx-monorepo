@@ -18,7 +18,7 @@ const RSHoganComLayout = ({
 }: PageLayoutProps) => {
   return (
     <PageLayout
-      header={hideNavBarProp ? '' : <RSHoganComHeader />}
+      header={!hideNavBarProp && <RSHoganComHeader />}
       footer={<RSHoganComFooter />}
     >
       <Seo

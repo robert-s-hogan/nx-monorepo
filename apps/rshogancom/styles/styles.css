@@ -55,6 +55,8 @@
   --backdrop-color: #f0f0f0;
   --gradient-color: #a8d5c0;
   --shadow-color: var(--light-shadow-color);
+  --skeleton-base-color': #ededed;
+  --skeleton-shine-color': '255, 255, 255';
 }
 
 @layer base {
@@ -72,24 +74,23 @@
   }
 
   h1 {
-    @apply text-4xl font-semibold;
+    @apply text-4xl font-semibold min-h-[2.25rem];
   }
   h2 {
-    @apply text-3xl font-semibold;
+    @apply text-3xl font-semibold min-h-[1.875rem];
   }
-
   h3 {
-    @apply text-2xl font-semibold;
+    @apply text-2xl font-semibold min-h-[1.5rem];
   }
   h4 {
-    @apply text-xl;
+    @apply text-xl font-semibold min-h-[1.375rem];
   }
   h5 {
-    @apply text-lg;
+    @apply text-lg font-semibold min-h-[1.25rem];
   }
   h6,
   p {
-    @apply text-base;
+    @apply text-base min-h-[1.25rem];
   }
   a {
     @apply text-sm;
@@ -101,13 +102,17 @@
     @apply flex flex-col space-y-4 pt-4;
   }
   button {
-    @apply px-4 py-2 rounded-md font-semibold;
+    @apply px-4 py-2 font-semibold;
   }
+  button,
   form,
   input,
   select,
   textarea,
-  dialog {
+  dialog,
+  .modal,
+  .card,
+  .skeleton-text {
     @apply rounded-md;
   }
 }
@@ -197,7 +202,6 @@ select {
   background-color: var(--surface-color);
   color: var(--text-color);
   padding: 0.5rem;
-  border-radius: 4px;
   font-family: inherit;
 }
 
@@ -371,7 +375,6 @@ dialog::backdrop {
   background-color: var(--surface-color);
   color: var(--text-color);
   box-shadow: var(--shadow-color);
-  border-radius: 0.5rem;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 .card .Heading {

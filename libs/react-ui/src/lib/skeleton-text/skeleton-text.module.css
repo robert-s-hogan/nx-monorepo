@@ -1,10 +1,11 @@
+/* skeleton-text.module.css */
 .skeletonTextContainer {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.skeleton {
+.skeletonText {
   background: linear-gradient(
       100deg,
       rgba(var(--skeleton-shine-color), 0) 40%,
@@ -15,11 +16,27 @@
   background-size: 200% 100%;
   background-position-x: 100%;
   animation: 1s loading ease-in-out infinite;
+}
+
+h2.skeletonText,
+h3.skeletonText {
   animation-delay: 0.05s;
+}
+
+p.skeletonText {
+  animation-delay: 0.06s;
 }
 
 @keyframes loading {
   to {
     background-position-x: -20%;
   }
+}
+
+.skeleton-text-placeholder.text-lg {
+  min-height: 1.125rem; /* Height for text-lg */
+}
+
+.skeleton-text-placeholder.text-base {
+  min-height: 1rem; /* Height for text-base */
 }

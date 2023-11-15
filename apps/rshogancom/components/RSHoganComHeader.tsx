@@ -99,7 +99,7 @@ const RSHoganComHeader = () => {
               About
             </NextLink> */}
             <Button
-              className="btn-primary mx-3 block"
+              className="btn-secondary mx-3 block"
               onClick={toggle}
               type="submit"
             >
