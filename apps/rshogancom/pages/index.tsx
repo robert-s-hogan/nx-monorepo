@@ -146,7 +146,7 @@ export function Index() {
       {/* </RSHSection> */}
 
       {/* WHAT OUR CUSTOMERS SAY */}
-      <DynamicRSHWhatOurCustomersSaySection isLoading />
+      <DynamicRSHWhatOurCustomersSaySection isLoading={isLoading} />
       {isShowing && <RSHModal isShowing={isShowing} toggle={toggle} />}
     </RSHoganComLayout>
   );
