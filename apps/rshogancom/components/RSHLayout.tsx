@@ -3,13 +3,13 @@ import { Seo } from '@with-nx/nextjs-react-ui';
 import { PageLayout } from '@with-nx/react-ui';
 import { PageLayoutProps } from '@with-nx/types';
 
-import RSHoganComHeader from './RSHoganComHeader';
+import RSHHeader from './RSHHeader';
 
-const RSHoganComFooter = dynamic(() => import('./RSHoganComFooter'), {
+const RSHFooter = dynamic(() => import('./RSHFooter'), {
   ssr: false,
 });
 
-const RSHoganComLayout = ({
+const RSHLayout = ({
   children,
   className,
   title,
@@ -18,8 +18,8 @@ const RSHoganComLayout = ({
 }: PageLayoutProps) => {
   return (
     <PageLayout
-      header={!hideNavBarProp && <RSHoganComHeader />}
-      footer={<RSHoganComFooter />}
+      header={!hideNavBarProp && <RSHHeader />}
+      footer={<RSHFooter />}
     >
       <Seo
         title={title ? title : 'UI/UX Engineer | Robert Hogan'}
@@ -42,4 +42,4 @@ const RSHoganComLayout = ({
   );
 };
 
-export default RSHoganComLayout;
+export default RSHLayout;

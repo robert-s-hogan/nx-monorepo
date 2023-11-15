@@ -14,7 +14,7 @@ import {
 } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
 
-import RSHoganComLayout from '../components/RSHoganComLayout';
+import RSHLayout from '../components/RSHLayout';
 import RSHSection from '../components/RSHSection';
 import RSHModal from '../components/RSHModal';
 
@@ -89,7 +89,7 @@ export function Index() {
   // );
 
   return (
-    <RSHoganComLayout>
+    <RSHLayout>
       {/* HERO */}
       <RSHHeroSection />
 
@@ -148,7 +148,7 @@ export function Index() {
       {/* WHAT OUR CUSTOMERS SAY */}
       <DynamicRSHWhatOurCustomersSaySection isLoading={isLoading} />
       {isShowing && <RSHModal isShowing={isShowing} toggle={toggle} />}
-    </RSHoganComLayout>
+    </RSHLayout>
   );
 }
 
