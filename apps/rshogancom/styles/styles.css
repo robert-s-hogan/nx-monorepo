@@ -74,26 +74,27 @@
   }
 
   h1 {
-    @apply text-4xl font-semibold min-h-[2.25rem];
+    @apply text-lg min-h-[1.75rem] md:text-xl md:min-h-[2rem] lg:text-2xl lg:min-h-[2.25rem] xl:text-3xl xl:min-h-[2.5rem] 2xl:text-4xl 2xl:min-h-[2.75rem] font-semibold;
   }
   h2 {
-    @apply text-3xl font-semibold min-h-[1.875rem];
+    @apply text-base min-h-[1.5rem] md:text-lg md:min-h-[1.75rem] lg:text-xl lg:min-h-[2rem] xl:text-2xl xl:min-h-[2.25rem] 2xl:text-3xl 2xl:min-h-[2.5rem] font-semibold;
   }
   h3 {
-    @apply text-2xl font-semibold min-h-[1.5rem];
+    @apply text-sm min-h-[1.25rem] md:text-base md:min-h-[1.5rem] lg:text-lg lg:min-h-[1.75rem] xl:text-xl xl:min-h-[2rem] 2xl:text-2xl 2xl:min-h-[2.25rem] font-semibold;
   }
   h4 {
-    @apply text-xl font-semibold min-h-[1.375rem];
+    @apply text-xs min-h-[1.125rem] md:text-sm md:min-h-[1.25rem] lg:text-base lg:min-h-[1.5rem] xl:text-lg xl:min-h-[1.75rem] 2xl:text-xl 2xl:min-h-[2rem] font-semibold;
   }
   h5 {
-    @apply text-lg font-semibold min-h-[1.25rem];
+    @apply text-xs min-h-[1rem] md:text-xs md:min-h-[1.125rem] lg:text-sm lg:min-h-[1.25rem] xl:text-base xl:min-h-[1.5rem] 2xl:text-lg 2xl:min-h-[1.75rem] font-semibold;
   }
   h6,
   p {
-    @apply text-base min-h-[1.25rem];
+    @apply text-xs min-h-[1rem] md:text-sm md:min-h-[1.125rem] lg:text-base lg:min-h-[1.25rem] xl:text-lg xl:min-h-[1.5rem] 2xl:text-base 2xl:min-h-[1.75rem];
   }
+
   a {
-    @apply text-sm;
+    @apply text-xs md:text-sm lg:text-base;
   }
   dialog {
     @apply fixed left-0 top-0 z-50 max-w-7xl translate-y-[30px] md:translate-y-[-135px] lg:translate-y-[-0px] xl:translate-y-[-30px] 2xl:translate-y-[-235px] w-11/12 lg:w-1/2 xl:w-2/5 2xl:w-1/4 h-[530px] md:h-[550px] xl:h-[555px] overflow-y-hidden;
