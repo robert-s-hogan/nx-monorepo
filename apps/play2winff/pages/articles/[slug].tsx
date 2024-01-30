@@ -1,6 +1,7 @@
 // pages/articles/[slug].js
 
 import axios from 'axios';
+import { Heading, Section } from '@with-nx/react-ui';
 
 export async function getServerSideProps(context) {
   const { slug } = context.params;
@@ -16,10 +17,10 @@ export async function getServerSideProps(context) {
 
 const Article = ({ article }) => {
   return (
-    <div>
-      <h1>{article.title}</h1>
+    <Section className="py-32">
+      <Heading level={1}>{article.title}</Heading>
       <div dangerouslySetInnerHTML={{ __html: article.content }} />
-    </div>
+    </Section>
   );
 };
 
