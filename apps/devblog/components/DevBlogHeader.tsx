@@ -17,11 +17,11 @@ const links: {
   children: React.ReactNode;
   className?: string;
 }[] = [
-  // {
-  //   href: '/blog',
-  //   children: 'Blog',
-  //   className: 'link',
-  // },
+  {
+    href: '/blog',
+    children: 'Blog',
+    className: 'link',
+  },
   {
     href: '/projects',
     children: 'Projects',

@@ -21910,22 +21910,12 @@
       },
       {
         "source": "devblog",
-        "target": "npm:openai",
-        "type": "static"
-      },
-      {
-        "source": "devblog",
-        "target": "npm:bottleneck",
+        "target": "utils",
         "type": "static"
       },
       {
         "source": "devblog",
         "target": "constants",
-        "type": "static"
-      },
-      {
-        "source": "devblog",
-        "target": "utils",
         "type": "static"
       },
       {

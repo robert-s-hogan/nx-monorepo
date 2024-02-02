@@ -6,8 +6,8 @@ import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 
 const DevBlogFooter = () => {
   return (
-    <footer className="container mx-auto max-w-7xl pb-0 mt-8">
-      <Flex className="flex-row justify-between py-4 items-center mx-0space-y-2 md:space-y-0">
+    <footer className="container mx-auto max-w-7xl mt-8 pb-0 px-4">
+      <Flex className="flex-row justify-between py-4 items-center mx-0 space-y-2 md:space-y-0 md:px-4 pb-2 md:pb-0 mb-8 md:mx-12">
         <Link href="/" className="button-link" passHref>
           <Button aria-label="Robert Hogans Home">
             <CustomRSHLogo className="h-12 w-12 text-primary nav-logo" />

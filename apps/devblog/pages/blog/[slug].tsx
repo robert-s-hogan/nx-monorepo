@@ -1,28 +1,64 @@
 import { useRouter } from 'next/router';
-import { getPostData, getAllPostIds } from '../../../../_articles';
+// import { getPostData, getAllPostIds } from '../../../../_articles';
 import DevBlogLayout from '../../components/DevBlogLayout';
 import Image from 'next/image';
 
-export async function getStaticPaths() {
-  const paths = getAllPostIds().map((id) => ({
-    params: { slug: id },
+const WP_API_BASE_URL =
+  'https://public-api.wordpress.com/wp/v2/sites/robertshogandev.wordpress.com';
+
+export async function getSortedPostsData(slug?: string) {
+  const categoriesRes = await fetch(`${WP_API_BASE_URL}/categories`);
+  const categories = await categoriesRes.json();
+
+  const categoryMap = categories.reduce((acc, category) => {
+    acc[category.id] = category.name;
+    return acc;
+  }, {});
+
+  let postsRes;
+  if (slug) {
+    postsRes = await fetch(`${WP_API_BASE_URL}/posts?slug=${slug}`);
+  } else {
+    postsRes = await fetch(`${WP_API_BASE_URL}/posts`);
+  }
+  const posts = await postsRes.json();
+
+  return posts.map((post) => ({
+    id: post.slug,
+    title: post.title.rendered,
+    date: new Date(post.date).toLocaleDateString(),
+    contentHtml: post.content.rendered, // Ensure this is the correct path to the post content
+    categories: post.categories.map(
+      (categoryId) => categoryMap[categoryId] || 'Uncategorized'
+    ),
   }));
-  return {
-    paths,
-    fallback: false,
-  };
+}
+
+export async function getStaticPaths() {
+  const posts = await getSortedPostsData(); // Fetch all posts to generate paths
+  const paths = posts.map((post) => ({
+    params: { slug: post.id },
+  }));
+
+  return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.slug);
+  const postData = await getSortedPostsData(params.slug);
+  const post = postData[0]; // Assuming getSortedPostsData returns an array
+
+  if (!post) {
+    return { notFound: true };
+  }
+
   return {
     props: {
-      postData,
+      post,
     },
   };
 }
 
-export default function Post({ postData }) {
+export default function Post({ post }) {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -32,21 +68,11 @@ export default function Post({ postData }) {
   return (
     <DevBlogLayout>
       <article className="space-y-8 px-4">
-        <h1>{postData.title}</h1>
+        <h1>{post.title}</h1>
         <div
           className="space-y-6"
-          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
-        {postData.image && (
-          <div>
-            <Image
-              src={postData.image}
-              alt={`Image for ${postData.title}`}
-              width={600}
-              height={400}
-            />
-          </div>
-        )}
       </article>
     </DevBlogLayout>
   );

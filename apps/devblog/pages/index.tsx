@@ -19,7 +19,41 @@ import DevBlogSubTitle from '../components/DevBlogSubTitle';
 import DevBlogHighlightedProject from '../components/DevBlogHighlightedProject';
 import { projectsData } from '../data/projects';
 
-export function Index() {
+const WP_API_BASE_URL =
+  'https://public-api.wordpress.com/wp/v2/sites/robertshogandev.wordpress.com';
+
+export async function getSortedPostsData() {
+  const categoriesRes = await fetch(`${WP_API_BASE_URL}/categories`);
+  const categories = await categoriesRes.json();
+
+  const categoryMap = categories.reduce((acc, category) => {
+    acc[category.id] = category.name;
+    return acc;
+  }, {});
+
+  const postsRes = await fetch(`${WP_API_BASE_URL}/posts`);
+  const posts = await postsRes.json();
+
+  return posts.map((post) => ({
+    id: post.slug,
+    title: post.title.rendered,
+    date: new Date(post.date).toLocaleDateString(),
+    categories: post.categories.map(
+      (categoryId) => categoryMap[categoryId] || 'Uncategorized'
+    ),
+  }));
+}
+
+export async function getStaticProps() {
+  const allPostsData = await getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+export function Index({ allPostsData }) {
   const { isShowing, toggle } = useModal();
   const { theme, toggleTheme } = useTheme();
   return (
@@ -85,7 +119,27 @@ export function Index() {
         ></div>
       </DevBlogSection>
 
-      <DevBlogSection className="">
+      <section className="container mx-auto max-w-7xl space-y-6 px-4">
+        <h2 className="text-2xl font-bold">Latest Posts</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {allPostsData.map(({ id, date, title, categories }) => (
+            <div
+              key={id}
+              className="bg-white shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300"
+            >
+              <Link href={`/blog/${id}`}>
+                <p className="text-lg font-semibold">{title}</p>
+              </Link>
+              <div className="flex items-center space-x-4 mt-4">
+                <p className="text-sm text-gray-600">{categories.join(', ')}</p>
+                <p className="text-sm text-gray-500">{date}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* <DevBlogSection className="">
         <Flex className="flex-col justify-start flex-shrink-0 transform-none">
           <Heading level={2} className="text-left">
             Highlighted Projects
@@ -102,7 +156,7 @@ export function Index() {
             })}
           </Grid>
         </Flex>
-      </DevBlogSection>
+      </DevBlogSection> */}
 
       {/* <DevBlogSection className="">
         <Flex className="flex-col items-center space-y-6">
