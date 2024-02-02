@@ -50,7 +50,7 @@ export function Index() {
           </Heading>
           <Text className="sub-title">
             Here you’ll want to write something super slick and succinct. Bonus
-            points for subtle poetic prose
+            points for subtle poetic prose!
           </Text>
           <Link href="/products" className="btn-primary">
             See How
