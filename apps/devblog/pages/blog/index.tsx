@@ -22,7 +22,6 @@ export async function getSortedPostsData(slug?: string) {
     postsRes = await fetch(`${WP_API_BASE_URL}/posts`);
   }
   const posts = await postsRes.json();
-  console.log('Posts:', posts); // Add this line
 
   return posts.map((post) => ({
     id: post.slug,
@@ -47,7 +46,7 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
   return (
     <DevBlogLayout>
-      <section className="container mx-auto max-w-7xl space-y-6 px-4">
+      <section className="container mx-auto max-w-4xl space-y-6 px-4">
         <h1 className="font-bold">Digital Garden</h1>
         <p className="text-center">
           A collection of topics, notes, and half-baked explorations I'm always
@@ -57,14 +56,16 @@ export default function Home({ allPostsData }) {
           {allPostsData.map(({ id, date, title, categories }) => (
             <div
               key={id}
-              className="bg-white shadow-md rounded-lg p-6 hover:shadow-2xl"
+              className="bg-secondary-color shadow-md rounded-lg p-6 hover:shadow-2xl"
             >
               <Link href={`/blog/${id}`}>
-                <p className="">{title}</p>
+                <p className="text-on-secondary">{title}</p>
               </Link>
               <div className="flex items-center space-x-4 mt-4">
-                <p className="text-sm">{categories.join(', ')}</p>
-                <p className="text-sm">{date}</p>
+                <p className="text-sm text-on-secondary">
+                  {categories.join(', ')}
+                </p>
+                <p className="text-sm text-on-secondary">{date}</p>
               </div>
             </div>
           ))}
