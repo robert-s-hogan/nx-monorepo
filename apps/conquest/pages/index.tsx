@@ -183,7 +183,7 @@ export default function Home() {
     <ConquestLayout>
       <section className="h-screen w-full">
         <Flex className="items-center justify-center h-1/2">
-          <h1 className="text-center">Welcome to Conquest of Heroes</h1>
+          <h1 className="text-center">Welcome to Conquest of Heroes!</h1>
         </Flex>
       </section>
       {/*      <Stack spacing={8}>
