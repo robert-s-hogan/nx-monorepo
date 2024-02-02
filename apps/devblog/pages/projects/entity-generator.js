@@ -70,7 +70,7 @@ export default function EntityGenerator() {
       }
     }
 
-    // Find the corresponding adventuring day XP for the calculated level
+    // Find the corresponding adventuring day XP for the calculated levels
     const adventuringDayXP = dndAdventuringDayXP.find(
       (item) => item.level === currentLevel.level
     );
