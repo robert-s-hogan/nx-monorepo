@@ -1045,3 +1045,31 @@
 [NX Daemon Server] - 2024-02-06T02:14:26.485Z - [WATCHER]: Stopping the watcher for /Users/roberthogan/github/nx-monorepo (sources)
 [NX Daemon Server] - 2024-02-06T02:14:26.487Z - [WATCHER]: Stopping the watcher for /Users/roberthogan/github/nx-monorepo (outputs)
 [NX Daemon Server] - 2024-02-06T02:14:26.487Z - Server stopped because: "10800000ms of inactivity"
+[NX Daemon Server] - 2024-02-07T20:58:28.459Z - Started listening on: /var/folders/sc/hn4x06p16vl_0bk6tg6vc98w0000gn/T/e4f03fb3c6b272fb3319/d.sock
+[NX Daemon Server] - 2024-02-07T20:58:28.467Z - [WATCHER]: Subscribed to changes within: /Users/roberthogan/github/nx-monorepo (native)
+[NX Daemon Server] - 2024-02-07T20:58:28.470Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-07T20:58:28.472Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-07T20:58:28.475Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-07T20:58:28.477Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-02-07T20:58:28.752Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-07T20:58:28.753Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-07T20:58:28.753Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-07T20:58:28.988Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-02-07T20:58:28.993Z - Time taken for 'total for creating and serializing project graph' 510.27444199938327ms
+[NX Daemon Server] - 2024-02-07T20:58:28.997Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-02-07T20:58:28.997Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 511. Response time: 9.
+[NX Daemon Server] - 2024-02-07T20:58:29.347Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-02-07T20:58:29.347Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-02-07T20:58:29.347Z - Handled HASH_TASKS. Handling time: 33. Response time: 0.
+[NX Daemon Server] - 2024-02-07T20:58:34.929Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-07T20:58:40.953Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-07T20:58:41.441Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-07T20:58:41.525Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-07T20:58:41.883Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-07T20:58:42.936Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-07T20:59:41.643Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-07T20:59:41.937Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-07T20:59:42.702Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-07T20:59:42.766Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-07T20:59:42.976Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-07T21:01:07.440Z - [WATCHER]: Processing file changes in outputs

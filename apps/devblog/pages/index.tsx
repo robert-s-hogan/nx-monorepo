@@ -128,7 +128,9 @@ export function Index({ allPostsData }) {
               className="bg-white shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300"
             >
               <Link href={`/blog/${id}`}>
-                <p className="text-lg font-semibold">{title}</p>
+                <p className="text-lg font-semibold">
+                  {title.replace(/&nbsp;/g, ' ')}
+                </p>
               </Link>
               <div className="flex items-center space-x-4 mt-4">
                 <p className="text-sm text-gray-600">{categories.join(', ')}</p>
