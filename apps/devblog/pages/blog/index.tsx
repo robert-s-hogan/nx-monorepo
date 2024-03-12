@@ -53,20 +53,15 @@ export default function Home({ allPostsData }) {
           A collection of topics, notes, and half-baked explorations I'm always
           tending to.
         </p>
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 space-y-2">
           {allPostsData.map(({ id, date, title, categories }) => (
-            <div
-              key={id}
-              className="bg-secondary-color shadow-md rounded-lg p-6 hover:shadow-2xl"
-            >
+            <div key={id} className="bg-gray-800 p-4 rounded-md">
               <Link href={`/blog/${id}`}>
-                <p className="text-on-secondary">{title}</p>
+                <p className="">{title}</p>
               </Link>
-              <div className="flex items-center space-x-4 mt-4">
-                <p className="text-sm text-on-secondary">
-                  {categories.join(', ')}
-                </p>
-                <p className="text-sm text-on-secondary">{date}</p>
+              <div className="flex items-center space-x-4 mt-4 md:mt-0">
+                <p className="text-sm">{categories.join(', ')}</p>
+                <p className="text-sm">{date}</p>
               </div>
             </div>
           ))}
