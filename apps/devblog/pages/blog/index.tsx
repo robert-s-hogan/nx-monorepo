@@ -61,7 +61,7 @@ export default function Home({ allPostsData }) {
               </Link>
               <div className="flex items-center space-x-4 mt-4 md:mt-0">
                 <p className="text-sm">{categories.join(', ')}</p>
-                <p className="text-sm">{date}</p>
+                <p className="text-xs">{date}</p>
               </div>
             </div>
           ))}
