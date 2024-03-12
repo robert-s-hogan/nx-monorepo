@@ -137,43 +137,6 @@ export function Index({ allPostsData }) {
           ))}
         </div>
       </section>
-
-      {/* <DevBlogSection className="">
-        <Flex className="flex-col justify-start flex-shrink-0 transform-none">
-          <Heading level={2} className="text-left">
-            Highlighted Projects
-          </Heading>
-          <Grid className="grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 relative gap-12">
-            {projectsData.map((project, index) => {
-              if (index < 3)
-                return (
-                  <DevBlogHighlightedProject
-                    key={`project ${index}`}
-                    project={project}
-                  />
-                );
-            })}
-          </Grid>
-        </Flex>
-      </DevBlogSection> */}
-
-      {/* <DevBlogSection className="">
-        <Flex className="flex-col items-center space-y-6">
-          <Heading level={2} className="text-center">
-            Get Started
-          </Heading>
-
-          <p className="text-center">
-            Ready to transform your web development process and create
-            awe-inspiring projects? Don’t hesitate, join the revolution now!
-          </p>
-
-          <Button className="btn-primary">Launch Your Project</Button>
-
-          <div className="rotate-[-124deg]"></div>
-          <div className="rotate-[-26deg]"></div>
-        </Flex>
-      </DevBlogSection> */}
     </DevBlogLayout>
   );
 }
