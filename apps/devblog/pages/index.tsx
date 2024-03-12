@@ -122,13 +122,12 @@ export function Index({ allPostsData }) {
       <section className="container mx-auto max-w-7xl space-y-6 px-4">
         <h2 className="text-2xl font-bold">Latest Posts</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {allPostsData.map(({ id, date, title, categories }) => (
             <div
               key={id}
               className="bg-white shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300"
             >
               <Link href={`/blog/${id}`}>
-                <p className="text-lg font-semibold">
+                <p className="text-lg text-black font-semibold">
                   {title.replace(/&nbsp;/g, ' ')}
                 </p>
               </Link>
