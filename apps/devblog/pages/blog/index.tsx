@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import DevBlogLayout from '../../components/DevBlogLayout';
+import DevBlogSection from '../../components/DevBlogSection';
 
 // Define the base URL for your WordPress API
 const WP_API_BASE_URL =
@@ -46,7 +47,7 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
   return (
     <DevBlogLayout>
-      <section className="container mx-auto max-w-4xl space-y-6 px-4">
+      <DevBlogSection className="space-y-6">
         <h1 className="font-bold">Digital Garden</h1>
         <p className="text-center">
           A collection of topics, notes, and half-baked explorations I'm always
@@ -70,7 +71,7 @@ export default function Home({ allPostsData }) {
             </div>
           ))}
         </section>
-      </section>
+      </DevBlogSection>
     </DevBlogLayout>
   );
 }

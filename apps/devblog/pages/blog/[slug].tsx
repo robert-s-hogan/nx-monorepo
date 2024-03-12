@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 // import { getPostData, getAllPostIds } from '../../../../_articles';
 import DevBlogLayout from '../../components/DevBlogLayout';
+import DevBlogSection from '../../components/DevBlogSection';
 import Image from 'next/image';
 
 const WP_API_BASE_URL =
@@ -67,13 +68,15 @@ export default function Post({ post }) {
 
   return (
     <DevBlogLayout>
-      <article className="space-y-8 px-4">
-        <h1>{post.title}</h1>
-        <div
-          className="space-y-6"
-          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-        />
-      </article>
+      <DevBlogSection className="space-y-6">
+        <article className="space-y-8 px-4">
+          <h1>{post.title}</h1>
+          <div
+            className="space-y-6"
+            dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+          />
+        </article>
+      </DevBlogSection>
     </DevBlogLayout>
   );
 }
