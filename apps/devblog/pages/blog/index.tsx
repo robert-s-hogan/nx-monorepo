@@ -55,7 +55,7 @@ export default function Home({ allPostsData }) {
         </p>
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 space-y-2 md:space-y-0">
           {allPostsData.map(({ id, date, title, categories }) => (
-            <div key={id} className="bg-gray-800 p-4 rounded-md">
+            <div key={id} className="p-4 rounded-md">
               <Link href={`/blog/${id}`}>
                 <p className="">{title}</p>
               </Link>
