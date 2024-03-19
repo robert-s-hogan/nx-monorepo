@@ -65,17 +65,13 @@ export function Index({ allPostsData }) {
               <Heading level={1} className="text-center">
                 Portfolio
               </Heading>
+
               <DevBlogSubTitle className="pt-8 mx-4">
-                <span className="font-bold">Hello!</span> I'm{` `}
-                <span className="font-bold">Robert Hogan </span>a seasoned
-                Front-End&nbsp;&nbsp;
-                <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block my-2 mr-3">
-                  <span className="relative px-2 font-semibold">
-                    UI Engineer
-                  </span>
-                </span>
-                with a knack for crafting efficient and user-centric digital
-                experiences.
+                👋 I'm Robert Hogan:{' '}
+                <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block my-2 mr-1">
+                  <span className="relative px-2 font-semibold">Front End</span>
+                </span>{' '}
+                Mastery to AI-Integrated Web Development
               </DevBlogSubTitle>
 
               {/* <Flex className="space-x-4 items-center mx-4">
