@@ -9,7 +9,6 @@ import {
 } from '@with-nx/react-ui';
 import { FiX } from 'react-icons/fi';
 import Image from 'next/image';
-// import Script from 'next/script';
 import { useModal } from '@with-nx/react-hooks';
 import { useTheme } from '@with-nx/theme';
 
