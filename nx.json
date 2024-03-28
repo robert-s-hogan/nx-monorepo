@@ -44,6 +44,11 @@
     },
     "build-storybook": {
       "inputs": ["default", "^production", "!{projectRoot}/.storybook/**/*"]
+    },
+    "@nx/next:build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "generators": {
@@ -63,6 +68,12 @@
       }
     },
     "@nrwl/next": {
+      "application": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    },
+    "@nx/next": {
       "application": {
         "style": "css",
         "linter": "eslint"
