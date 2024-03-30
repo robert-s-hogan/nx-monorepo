@@ -1,28 +1,62 @@
+'use client';
 import React from 'react';
+import { useAuth } from '@contexts/AuthContext';
+import { signOut } from 'firebase/auth';
+import { auth } from '@data/firebaseConfig';
+import LoginButton from '@components/LoginButton';
+import LogoutButton from '@components/LogoutButton';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const LOGO = '/conquest_logo.jpg';
 
 interface NavbarProps {
-  title: string;
+  isAdmin?: boolean;
+  loading?: boolean;
+  title?: string;
 }
 
-const Navbar = ({ title }: NavbarProps) => {
+const Navbar: React.FC<NavbarProps> = ({ title }) => {
+  const { currentUser, loading } = useAuth();
+
+  if (loading) return null;
+
   return (
-    <nav className="bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <div className="flex-shrink-0">{/* Your logo or brand */}</div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                {/* Your navigation links */}
-              </div>
-            </div>
-          </div>
-          <div className="hidden md:block">
-            {/* Additional actions or buttons */}
-          </div>
+    <header className="w-full text-center pt-8">
+      <nav className="w-full flex items-center justify-between max-w-4xl 2xl:max-w-7xl container mx-auto lg:mx-auto px-4">
+        <div>
+          <Link href="/">
+            <Image
+              src={LOGO}
+              alt="The Hogans Logo"
+              width={64}
+              height={64}
+              priority
+            />
+          </Link>
         </div>
-      </div>
-    </nav>
+
+        <div className="flex space-between space-x-4 text-xl">
+          <Link href="/campaigns">Campaigns</Link>
+          {/* <Link href="/encounters">Encounters</Link> */}
+        </div>
+
+        <div className="flex items-center space-x-4">
+          {currentUser ? (
+            <>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center bg-blue-500 text-white text-xl">
+                {currentUser.displayName
+                  ? currentUser.displayName[0].toUpperCase()
+                  : 'U'}
+              </div>
+              <LogoutButton />
+            </>
+          ) : (
+            <LoginButton />
+          )}
+        </div>
+      </nav>
+    </header>
   );
 };
 

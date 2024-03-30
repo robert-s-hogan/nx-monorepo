@@ -34,12 +34,7 @@ const CharacterAvatar: React.FC<CharacterAvatarProps> = ({ data }) => {
       );
   }
 
-  return (
-    <div>
-      {/* <pre className="text-black">{JSON.stringify(data, null, 2)}</pre> */}
-      {component}
-    </div>
-  );
+  return <div>{component}</div>;
 };
 
 export default CharacterAvatar;

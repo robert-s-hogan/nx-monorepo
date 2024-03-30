@@ -24,7 +24,10 @@
       "@contexts/*": ["src/app/contexts/*"],
       "@data/*": ["src/app/data/*"],
       "@encounters/*": ["src/app/encounters/*"],
+      "@hooks/*": ["src/app/hooks/*"],
+      "@services/*": ["src/app/services/*"],
       "@styles/*": ["src/app/styles/*"],
+      "@types/*": ["src/app/types/*"],
       "@utils/*": ["src/app/utils/*"]
     }
   },

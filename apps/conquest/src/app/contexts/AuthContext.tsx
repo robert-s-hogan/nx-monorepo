@@ -7,15 +7,10 @@ import React, {
   useEffect,
   ReactNode,
 } from 'react';
-import { auth } from '@data/firebaseConfig';
 import { User, onAuthStateChanged } from 'firebase/auth';
 
-// Define the type for your context to include only the current user and loading state
-type AuthContextType = {
-  currentUser: User | null;
-  loading: boolean;
-  isAdmin: boolean;
-};
+import { auth } from '@data/firebaseConfig';
+import { AuthContextType, AuthProviderProps } from '../types';
 
 // Create the context with an initial undefined value
 export const AuthContext = createContext<AuthContextType | undefined>(
@@ -31,11 +26,6 @@ export const useAuth = () => {
   return context;
 };
 
-// Define the props type for your AuthProvider component
-type AuthProviderProps = {
-  children: ReactNode;
-};
-
 // AuthProvider component definition
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -45,6 +35,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   useEffect(() => {
     // Subscribe to the authentication state changes
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (currentUser && user) {
+        console.log(`currrentUSer`, currentUser);
+      }
       setCurrentUser(user); // Set the current user
       setLoading(false); // Update the loading state
     });

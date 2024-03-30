@@ -3,9 +3,8 @@ import Layout from '@components/Layout';
 
 const RootPage: React.FC = () => {
   return (
-    <Layout title="Home | Conquest">
+    <Layout>
       <h1>Welcome to the homepage!</h1>
-      <p>This is a generic RootPage component.</p>
     </Layout>
   );
 };

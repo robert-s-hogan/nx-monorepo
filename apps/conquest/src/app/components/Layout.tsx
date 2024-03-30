@@ -7,7 +7,7 @@ import Navbar from '@components/Navbar';
 
 interface LayoutProps {
   children: React.ReactNode;
-  title: string;
+  title?: string;
   loading?: boolean;
 }
 
@@ -15,8 +15,8 @@ const Layout = ({ children, title, loading }: LayoutProps) => {
   return (
     <div className="w-full">
       <Head>
-        <title>{title ? title : 'Conquest'}</title>
-        <link rel="icon" href="/new-favicon.ico" />
+        <title>{title ? title : 'The Hogans'}</title>
+        <link rel="icon" href="/conquest_logo.ico" />
       </Head>
       {loading ? (
         <header className="w-full text-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 py-1 md:py-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:relative lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
@@ -42,14 +42,6 @@ const Layout = ({ children, title, loading }: LayoutProps) => {
       <main className="max-w-4xl 2xl:max-w-7xl container mx-auto flex items-center justify-center flex-col">
         {children}
       </main>
-      <div className="max-w-4xl 2xl:max-w-7xl container mx-auto font-mono font-bold flex items-center space-x-4 my-6 px-4">
-        {loading && (
-          <>
-            <Link href="/">Home</Link>
-            <Link href="/recipes">Recipes</Link>
-          </>
-        )}
-      </div>
     </div>
   );
 };

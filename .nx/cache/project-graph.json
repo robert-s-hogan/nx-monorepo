@@ -3846,6 +3846,15 @@
         "hash": "sha512-DCVwMxqYzpUCiDMl7hQ384FqP4T3DbNpXU8pt681l3UWCip1WUiD5JrkImUwCB9a7f2cq4CUTmi5r/xIMRPY1Q=="
       }
     },
+    "npm:@headlessui/react": {
+      "type": "npm",
+      "name": "npm:@headlessui/react",
+      "data": {
+        "version": "1.7.18",
+        "packageName": "@headlessui/react",
+        "hash": "sha512-4i5DOrzwN4qSgNsL4Si61VMkUcWbcSKueUV7sFhpHzQcSShdlHENE5+QBntMSRvHt8NyoFO2AGG8si9lq+w4zQ=="
+      }
+    },
     "npm:@humanwhocodes/config-array": {
       "type": "npm",
       "name": "npm:@humanwhocodes/config-array",
@@ -3871,6 +3880,33 @@
         "version": "2.0.2",
         "packageName": "@humanwhocodes/object-schema",
         "hash": "sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw=="
+      }
+    },
+    "npm:@icon/ionicons": {
+      "type": "npm",
+      "name": "npm:@icon/ionicons",
+      "data": {
+        "version": "5.4.0-alpha.0",
+        "packageName": "@icon/ionicons",
+        "hash": "sha512-AS1BqaqxMvAHqX+gQsviNP8mmsYO2Levl+b2JRLU28G+b0E78dJ6ZFNoU3WWsGyXklruM5oE0Vf0shyNIjfY7w=="
+      }
+    },
+    "npm:@ionic/core": {
+      "type": "npm",
+      "name": "npm:@ionic/core",
+      "data": {
+        "version": "7.8.2",
+        "packageName": "@ionic/core",
+        "hash": "sha512-1Iwe4XSaEYD0u7U/AnnKYNRXmPxx/doTl6pExXq/nlEd7q0AykRkPEy5rClqrQcJOrgFogAx1FwSObfgm0xnNw=="
+      }
+    },
+    "npm:@ionic/react": {
+      "type": "npm",
+      "name": "npm:@ionic/react",
+      "data": {
+        "version": "7.8.2",
+        "packageName": "@ionic/react",
+        "hash": "sha512-ZeVBsCNNqiLS9Bjr0NVAknhStv4x3GpgQxRZG8Nf/98R1pRdbmq75bZC5Sg/zk0KfHJPfXy/Rsb+8LklYyu8Nw=="
       }
     },
     "npm:@isaacs/cliui": {
@@ -5601,6 +5637,15 @@
         "hash": "sha512-Uy0+khmZqUrUGm5dmMqVlnvufZRSK0FbYzVgp0UMstm+F5+W2/jnEEQyc9vo1ZR/E5ZI/B1WjjoTqBqwJL6Krw=="
       }
     },
+    "npm:@stencil/core": {
+      "type": "npm",
+      "name": "npm:@stencil/core",
+      "data": {
+        "version": "4.13.0",
+        "packageName": "@stencil/core",
+        "hash": "sha512-gg+gtBWekQ08mDja8GVAUHNu+rrFhQaKZDvfhnS3l/5JbYiJddTimuDPPhuc0sR0JZL1iRdJTJSa+JbvmnQ1cQ=="
+      }
+    },
     "npm:@storybook/addon-actions": {
       "type": "npm",
       "name": "npm:@storybook/addon-actions",
@@ -6454,6 +6499,24 @@
         "version": "10.1.68",
         "packageName": "@tanem/svg-injector",
         "hash": "sha512-UkJajeR44u73ujtr5GVSbIlELDWD/mzjqWe54YMK61ljKxFcJoPd9RBSaO7xj02ISCWUqJW99GjrS+sVF0UnrA=="
+      }
+    },
+    "npm:@tanstack/react-virtual": {
+      "type": "npm",
+      "name": "npm:@tanstack/react-virtual",
+      "data": {
+        "version": "3.2.0",
+        "packageName": "@tanstack/react-virtual",
+        "hash": "sha512-OEdMByf2hEfDa6XDbGlZN8qO6bTjlNKqjM3im9JG+u3mCL8jALy0T/67oDI001raUUPh1Bdmfn4ZvPOV5knpcg=="
+      }
+    },
+    "npm:@tanstack/virtual-core": {
+      "type": "npm",
+      "name": "npm:@tanstack/virtual-core",
+      "data": {
+        "version": "3.2.0",
+        "packageName": "@tanstack/virtual-core",
+        "hash": "sha512-P5XgYoAw/vfW65byBbJQCw+cagdXDT/qH6wmABiLt4v4YBT2q2vqCOhihe+D1Nt325F/S/0Tkv6C5z0Lv+VBQQ=="
       }
     },
     "npm:@testing-library/dom": {
@@ -13483,6 +13546,15 @@
         "version": "2.2.4",
         "packageName": "invariant",
         "hash": "sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA=="
+      }
+    },
+    "npm:ionicons": {
+      "type": "npm",
+      "name": "npm:ionicons",
+      "data": {
+        "version": "7.3.1",
+        "packageName": "ionicons",
+        "hash": "sha512-1boG4EQTBBpQ4/0PU60Yi78Iw/k8iNtKu9c0NmsbzHGnWAcwpiovG9Wi/rk5UlF+DC+CR4XDCxKo91YqvAxkww=="
       }
     },
     "npm:ip-address": {
@@ -22618,12 +22690,47 @@
       },
       {
         "source": "conquest",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "conquest",
         "target": "npm:next",
         "type": "static"
       },
       {
         "source": "conquest",
-        "target": "npm:react",
+        "target": "npm:swr",
+        "type": "static"
+      },
+      {
+        "source": "conquest",
+        "target": "npm:formik",
+        "type": "static"
+      },
+      {
+        "source": "conquest",
+        "target": "npm:@ionic/react",
+        "type": "static"
+      },
+      {
+        "source": "conquest",
+        "target": "npm:ionicons",
+        "type": "static"
+      },
+      {
+        "source": "conquest",
+        "target": "npm:@headlessui/react",
+        "type": "static"
+      },
+      {
+        "source": "conquest",
+        "target": "npm:firebase",
+        "type": "static"
+      },
+      {
+        "source": "conquest",
+        "target": "npm:@nx/react",
         "type": "static"
       }
     ],
@@ -27039,6 +27146,28 @@
         "type": "static"
       }
     ],
+    "npm:@headlessui/react": [
+      {
+        "source": "npm:@headlessui/react",
+        "target": "npm:@tanstack/react-virtual",
+        "type": "static"
+      },
+      {
+        "source": "npm:@headlessui/react",
+        "target": "npm:client-only",
+        "type": "static"
+      },
+      {
+        "source": "npm:@headlessui/react",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "npm:@headlessui/react",
+        "target": "npm:react-dom",
+        "type": "static"
+      }
+    ],
     "npm:@humanwhocodes/config-array": [
       {
         "source": "npm:@humanwhocodes/config-array",
@@ -27053,6 +27182,50 @@
       {
         "source": "npm:@humanwhocodes/config-array",
         "target": "npm:minimatch@3.1.2",
+        "type": "static"
+      }
+    ],
+    "npm:@ionic/core": [
+      {
+        "source": "npm:@ionic/core",
+        "target": "npm:@stencil/core",
+        "type": "static"
+      },
+      {
+        "source": "npm:@ionic/core",
+        "target": "npm:ionicons",
+        "type": "static"
+      },
+      {
+        "source": "npm:@ionic/core",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@ionic/react": [
+      {
+        "source": "npm:@ionic/react",
+        "target": "npm:@ionic/core",
+        "type": "static"
+      },
+      {
+        "source": "npm:@ionic/react",
+        "target": "npm:ionicons",
+        "type": "static"
+      },
+      {
+        "source": "npm:@ionic/react",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "npm:@ionic/react",
+        "target": "npm:react-dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@ionic/react",
+        "target": "npm:tslib",
         "type": "static"
       }
     ],
@@ -33921,6 +34094,23 @@
       {
         "source": "npm:@tanem/svg-injector",
         "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@tanstack/react-virtual": [
+      {
+        "source": "npm:@tanstack/react-virtual",
+        "target": "npm:@tanstack/virtual-core",
+        "type": "static"
+      },
+      {
+        "source": "npm:@tanstack/react-virtual",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "npm:@tanstack/react-virtual",
+        "target": "npm:react-dom",
         "type": "static"
       }
     ],
@@ -43166,6 +43356,13 @@
       {
         "source": "npm:invariant",
         "target": "npm:loose-envify",
+        "type": "static"
+      }
+    ],
+    "npm:ionicons": [
+      {
+        "source": "npm:ionicons",
+        "target": "npm:@stencil/core",
         "type": "static"
       }
     ],
