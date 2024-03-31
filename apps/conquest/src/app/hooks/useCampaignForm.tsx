@@ -10,10 +10,7 @@ import {
   deleteCampaign,
 } from '@services/campaignService';
 
-export const useCampaignForm = (
-  onOperationSuccess: () => void,
-  updateCampaigns: () => Promise<void>
-) => {
+export const useCampaignForm = () => {
   const { currentUser } = useAuth();
   const { campaigns, mutate } = useCampaigns(); // Use mutate from useCampaigns
 
@@ -25,8 +22,7 @@ export const useCampaignForm = (
     try {
       const newCampaignData = { ...campaignData, accountId: currentUser.uid };
       await addCampaign(newCampaignData);
-      await updateCampaigns(); // This should refresh the campaigns list internally
-      onOperationSuccess();
+      mutate();
     } catch (error) {
       console.error('Error adding campaign:', error);
     }
@@ -39,29 +35,20 @@ export const useCampaignForm = (
     }
     try {
       await editCampaign(campaignData.id, campaignData);
-      await updateCampaigns(); // This should refresh the campaigns list internally
-      onOperationSuccess();
+
+      mutate();
     } catch (error) {
       console.error('Error updating campaign:', error);
     }
   };
 
   const handleDeleteCampaign = async (campaignId: string) => {
-    console.log(`Attempting to delete campaign with ID: ${campaignId}`);
-
     if (!currentUser) {
       console.error('No user authenticated');
       return;
     }
 
-    console.log(`Current campaigns before deletion:`, campaigns);
-    const updatedCampaigns = campaigns.filter((c) => c.id !== campaignId);
-    console.log(
-      `Campaigns after local filtering (before optimistic update):`,
-      updatedCampaigns
-    );
-
-    mutate(updatedCampaigns, false); // Update the cache without revalidating
+    mutate();
 
     try {
       await deleteCampaign(campaignId);
@@ -69,7 +56,6 @@ export const useCampaignForm = (
       mutate();
     } catch (error) {
       console.error('Error deleting campaign:', error);
-      onOperationSuccess();
     }
   };
 

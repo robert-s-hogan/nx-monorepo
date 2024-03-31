@@ -20,7 +20,7 @@ const CampaignList: React.FC<CampaignListProps> = ({
                 <IonIcon icon={create} size="large" />
               </button>
 
-              <button onClick={() => onDelete(campaign.id)}>
+              <button onClick={() => onDelete(campaign.id as string)}>
                 <IonIcon icon={trash} size="large" />
               </button>
             </div>

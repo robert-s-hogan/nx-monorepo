@@ -23,9 +23,8 @@ const CampaignModalManager = ({
   operation: 'add' | 'edit' | 'delete';
   campaign: Campaign;
 }) => {
-  const { updateCampaigns } = useCampaigns();
   const { handleAddCampaign, handleDeleteCampaign, handleEditCampaign } =
-    useCampaignForm(onClose, updateCampaigns);
+    useCampaignForm();
 
   const handleSave = async (campaignData: Partial<Campaign>) => {
     if (!campaignData.name) {
