@@ -4,7 +4,9 @@ import Layout from '@components/Layout';
 const RootPage: React.FC = () => {
   return (
     <Layout>
-      <h1>Welcome to the homepage!</h1>
+      <div className="container mx-auto my-16">
+        <h1 className="text-center">Home</h1>
+      </div>
     </Layout>
   );
 };

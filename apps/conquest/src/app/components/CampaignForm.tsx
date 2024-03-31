@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { Campaign, CampaignFormProps } from '../types';
+import { generateSlug } from '@utils/generateSlug';
 
 const CampaignForm: React.FC<CampaignFormProps> = ({
   campaign,
@@ -20,7 +21,12 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
       rests: campaign?.rests || 1,
     },
     onSubmit: (values) => {
-      onSubmit(values); // This function should handle form submission logic
+      // Generate the slug from the campaign name
+      const slug = generateSlug(values.name);
+      // Include the slug in the submission values
+      const submissionValues = { ...values, slug };
+      // Pass the updated values including the slug to the parent's onSubmit handler
+      onSubmit(submissionValues, campaign?.id);
     },
     // Optionally add a validation schema here if needed
   });

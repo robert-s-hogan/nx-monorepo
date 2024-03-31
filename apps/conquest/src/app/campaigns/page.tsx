@@ -45,6 +45,8 @@ const CampaignsPage: NextPage = () => {
   if (error) return <div>Failed to load campaigns</div>;
   if (!campaigns) return <div>Loading...</div>;
 
+  console.log(`Campaigns:`, campaigns);
+
   return (
     <Layout title="Campaigns | Conquest">
       <div className="max-w-4xl xl:max-w-7xl container mx-auto space-y-8 mt-8 px-4">

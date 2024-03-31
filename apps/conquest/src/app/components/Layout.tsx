@@ -14,10 +14,6 @@ interface LayoutProps {
 const Layout = ({ children, title, loading }: LayoutProps) => {
   return (
     <div className="w-full">
-      <Head>
-        <title>{title ? title : 'The Hogans'}</title>
-        <link rel="icon" href="/conquest_logo.ico" />
-      </Head>
       {loading ? (
         <header className="w-full text-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 py-1 md:py-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:relative lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           <nav className="w-full flex items-center justify-between max-w-4xl 2xl:max-w-7xl container mx-auto lg:mx-auto">

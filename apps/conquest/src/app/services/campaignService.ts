@@ -5,7 +5,9 @@ import {
   doc,
   deleteDoc,
   getDocs,
+  query,
   updateDoc,
+  where,
 } from 'firebase/firestore';
 import { Campaign } from '../types';
 
@@ -49,4 +51,20 @@ export const fetchCampaigns = async (): Promise<Campaign[]> => {
   });
 
   return campaigns;
+};
+
+// Fetching a Campaign by Slug from Firestore
+export const fetchCampaignBySlug = async (
+  slug: string
+): Promise<Campaign | null> => {
+  const campaignsRef = collection(db, 'campaigns');
+  const q = query(campaignsRef, where('slug', '==', slug));
+  const querySnapshot = await getDocs(q);
+
+  if (querySnapshot.empty) {
+    return null; // Campaign not found
+  }
+
+  const doc = querySnapshot.docs[0];
+  return { id: doc.id, ...(doc.data() as Campaign) };
 };
