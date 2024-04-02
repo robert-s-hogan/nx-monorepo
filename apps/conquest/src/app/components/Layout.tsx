@@ -1,9 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
-import Head from 'next/head';
 import '@styles/global.css';
 
-import Navbar from '@components/Navbar';
+import Navbar from '@conquestComponents/Navbar';
 
 interface LayoutProps {
   children: React.ReactNode;

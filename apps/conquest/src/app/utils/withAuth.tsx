@@ -1,6 +1,6 @@
 import React, { ComponentType, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; // Correctly import useRouter from next/navigation
-import { useAuth } from '@contexts/AuthContext';
+import { useAuth } from '@conquestContexts/AuthContext';
 
 // Define props for the HOC, focusing on authentication requirement
 interface WithAuthOptions {

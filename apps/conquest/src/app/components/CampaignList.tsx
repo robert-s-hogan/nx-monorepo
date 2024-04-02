@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
-import { fetchCampaigns } from '../services/campaignService';
 import { CampaignListProps } from '@conquestTypes/Campaign';
 import { IonIcon } from '@ionic/react';
 import { create, trash } from 'ionicons/icons';

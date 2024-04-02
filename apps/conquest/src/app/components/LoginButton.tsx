@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { signInWithGoogle } from '@data/signInWithGoogle';
+import { signInWithGoogle } from '@conquestData/signInWithGoogle';
 import { IonIcon } from '@ionic/react';
 import { logoGoogle } from 'ionicons/icons';
 

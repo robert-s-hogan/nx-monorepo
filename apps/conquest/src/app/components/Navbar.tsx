@@ -1,10 +1,8 @@
 'use client';
 import React from 'react';
-import { useAuth } from '@contexts/AuthContext';
-import { signOut } from 'firebase/auth';
-import { auth } from '@data/firebaseConfig';
-import LoginButton from '@components/LoginButton';
-import LogoutButton from '@components/LogoutButton';
+import { useAuth } from '@conquestContexts/AuthContext';
+import LoginButton from '@conquestComponents/LoginButton';
+import LogoutButton from '@conquestComponents/LogoutButton';
 import Image from 'next/image';
 import Link from 'next/link';
 

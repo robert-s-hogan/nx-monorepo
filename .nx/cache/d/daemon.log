@@ -1,625 +1,105 @@
-[NX Daemon Server] - 2024-04-02T19:11:15.699Z - Started listening on: /var/folders/sc/hn4x06p16vl_0bk6tg6vc98w0000gn/T/e4f03fb3c6b272fb3319/d.sock
-[NX Daemon Server] - 2024-04-02T19:11:15.713Z - [WATCHER]: Subscribed to changes within: /Users/roberthogan/github/nx-monorepo (native)
-[NX Daemon Server] - 2024-04-02T19:11:15.715Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:11:15.718Z - Established a connection. Number of open connections: 2
-[NX Daemon Server] - 2024-04-02T19:11:15.721Z - Closed a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:11:15.723Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-04-02T19:11:15.919Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:11:15.920Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:11:15.920Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:11:20.592Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-04-02T19:11:20.596Z - Time taken for 'total for creating and serializing project graph' 4869.737693000003ms
-[NX Daemon Server] - 2024-04-02T19:11:20.607Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-04-02T19:11:20.607Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 4870. Response time: 15.
-[NX Daemon Server] - 2024-04-02T19:11:21.027Z - [REQUEST]: Responding to the client. handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:11:21.027Z - Done responding to the client handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:11:21.027Z - Handled HASH_TASKS. Handling time: 32. Response time: 0.
-[NX Daemon Server] - 2024-04-02T19:11:24.765Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:11:26.918Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:11:26.970Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:11:27.415Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:11:27.515Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:11:27.567Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:11:27.982Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:11:29.493Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:11:29.729Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:11:29.779Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:11:33.550Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:11:33.663Z - [REQUEST]: Responding to the client. recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:11:33.663Z - Done responding to the client recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:11:33.663Z - Handled RECORD_OUTPUTS_HASH. Handling time: 27. Response time: 0.
-[NX Daemon Server] - 2024-04-02T19:11:33.674Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:11:33.677Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:12:45.823Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:13:04.161Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:13:04.161Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:13:04.162Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:13:04.164Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-04-02T19:13:04.164Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-04-02T19:13:04.166Z - Time taken for 'total for creating and serializing project graph' 0.40311499999370426ms
-[NX Daemon Server] - 2024-04-02T19:13:04.176Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-04-02T19:13:04.176Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 12.
-[NX Daemon Server] - 2024-04-02T19:13:04.417Z - [REQUEST]: Responding to the client. handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:13:04.437Z - Done responding to the client handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:13:04.437Z - Handled HASH_TASKS. Handling time: 9. Response time: 20.
-[NX Daemon Server] - 2024-04-02T19:13:07.697Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:13:08.825Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:13:13.101Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:13:14.972Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:13:17.114Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:13:17.197Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:13:21.125Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:13:22.753Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:13:22.812Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:13:27.203Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:13:27.314Z - [REQUEST]: Responding to the client. recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:13:27.314Z - Done responding to the client recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:13:27.314Z - Handled RECORD_OUTPUTS_HASH. Handling time: 2. Response time: 0.
-[NX Daemon Server] - 2024-04-02T19:13:27.325Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:13:27.355Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:14:10.049Z - [WATCHER]: apps/conquest/tsconfig.json was modified
-[NX Daemon Server] - 2024-04-02T19:14:10.049Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:14:10.153Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:14:10.153Z - [REQUEST]: apps/conquest/tsconfig.json
-[NX Daemon Server] - 2024-04-02T19:14:10.154Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:14:10.277Z - Time taken for 'hash changed files from watcher' 1.8953660000115633ms
-[NX Daemon Server] - 2024-04-02T19:14:36.498Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:14:36.500Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:14:36.501Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:14:36.504Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-04-02T19:14:36.504Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-04-02T19:14:36.506Z - Time taken for 'total for creating and serializing project graph' 0.26172400009818375ms
-[NX Daemon Server] - 2024-04-02T19:14:36.513Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-04-02T19:14:36.514Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 10.
-[NX Daemon Server] - 2024-04-02T19:14:36.855Z - [REQUEST]: Responding to the client. handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:14:36.859Z - Done responding to the client handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:14:36.859Z - Handled HASH_TASKS. Handling time: 75. Response time: 4.
-[NX Daemon Server] - 2024-04-02T19:14:37.262Z - [REQUEST]: Responding to the client. recordOutputsHash
-Error: write EPIPE
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:952:11)
-    at Socket._write (node:net:964:8)
-    at writeOrBuffer (node:internal/streams/writable:556:12)
-    at _write (node:internal/streams/writable:490:10)
-    at Writable.write (node:internal/streams/writable:494:10)
-    at /Users/roberthogan/github/nx-monorepo/node_modules/.pnpm/nx@17.3.0_@swc-node+register@1.6.7_@swc+core@1.3.107/node_modules/nx/src/daemon/server/shutdown-utils.js:59:16
-    at new Promise (<anonymous>)
-    at respondToClient (/Users/roberthogan/github/nx-monorepo/node_modules/.pnpm/nx@17.3.0_@swc-node+register@1.6.7_@swc+core@1.3.107/node_modules/nx/src/daemon/server/shutdown-utils.js:55:12) {
-  errno: -32,
-  code: 'EPIPE',
-  syscall: 'write'
-}
-[NX Daemon Server] - 2024-04-02T19:14:37.269Z - Done responding to the client recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:14:37.269Z - Socket error
-Error: write EPIPE
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:952:11)
-    at Socket._write (node:net:964:8)
-    at writeOrBuffer (node:internal/streams/writable:556:12)
-    at _write (node:internal/streams/writable:490:10)
-    at Writable.write (node:internal/streams/writable:494:10)
-    at /Users/roberthogan/github/nx-monorepo/node_modules/.pnpm/nx@17.3.0_@swc-node+register@1.6.7_@swc+core@1.3.107/node_modules/nx/src/daemon/server/shutdown-utils.js:59:16
-    at new Promise (<anonymous>)
-    at respondToClient (/Users/roberthogan/github/nx-monorepo/node_modules/.pnpm/nx@17.3.0_@swc-node+register@1.6.7_@swc+core@1.3.107/node_modules/nx/src/daemon/server/shutdown-utils.js:55:12) {
-  errno: -32,
-  code: 'EPIPE',
-  syscall: 'write'
-}
-[NX Daemon Server] - 2024-04-02T19:14:37.269Z - Handled RECORD_OUTPUTS_HASH. Handling time: 23. Response time: 7.
-[NX Daemon Server] - 2024-04-02T19:14:37.269Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:14:39.778Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:14:39.778Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:14:39.779Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:14:39.782Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-04-02T19:14:39.783Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-04-02T19:14:39.786Z - Time taken for 'total for creating and serializing project graph' 0.193284000037238ms
-[NX Daemon Server] - 2024-04-02T19:14:39.796Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-04-02T19:14:39.796Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 13.
-[NX Daemon Server] - 2024-04-02T19:14:40.020Z - [REQUEST]: Responding to the client. handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:14:40.023Z - Done responding to the client handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:14:40.024Z - Handled HASH_TASKS. Handling time: 68. Response time: 4.
-[NX Daemon Server] - 2024-04-02T19:14:43.956Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:14:49.129Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:14:55.370Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:14:55.371Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:14:55.372Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:14:55.373Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-04-02T19:14:55.374Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-04-02T19:14:55.376Z - Time taken for 'total for creating and serializing project graph' 0.15845300001092255ms
-[NX Daemon Server] - 2024-04-02T19:14:55.385Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-04-02T19:14:55.385Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 11.
-[NX Daemon Server] - 2024-04-02T19:14:55.514Z - [REQUEST]: Responding to the client. handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:14:55.514Z - Done responding to the client handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:14:55.514Z - Handled HASH_TASKS. Handling time: 9. Response time: 0.
-[NX Daemon Server] - 2024-04-02T19:14:57.823Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:14:59.565Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:15:01.145Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:15:01.487Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:15:01.571Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:15:02.083Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:15:02.291Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:15:02.473Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:15:02.539Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:15:05.232Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:15:05.302Z - [REQUEST]: Responding to the client. recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:15:05.302Z - Done responding to the client recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:15:05.302Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 0.
-[NX Daemon Server] - 2024-04-02T19:15:05.312Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:15:05.345Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:17:05.828Z - [WATCHER]: apps/conquest/src/app/campaigns/page.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:17:05.829Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:17:05.933Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:17:05.934Z - [REQUEST]: apps/conquest/src/app/campaigns/page.tsx
-[NX Daemon Server] - 2024-04-02T19:17:05.934Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:17:06.109Z - Time taken for 'hash changed files from watcher' 5.023053999990225ms
-[NX Daemon Server] - 2024-04-02T19:17:11.397Z - [WATCHER]: apps/conquest/src/app/campaigns/page.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:17:11.397Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:17:11.604Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:17:11.604Z - [REQUEST]: apps/conquest/src/app/campaigns/page.tsx
-[NX Daemon Server] - 2024-04-02T19:17:11.605Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:17:11.750Z - Time taken for 'hash changed files from watcher' 5.260691000148654ms
-[NX Daemon Server] - 2024-04-02T19:17:18.259Z - [WATCHER]: apps/conquest/src/app/campaigns/page.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:17:18.259Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:17:18.662Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:17:18.662Z - [REQUEST]: apps/conquest/src/app/campaigns/page.tsx
-[NX Daemon Server] - 2024-04-02T19:17:18.662Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:17:18.820Z - Time taken for 'hash changed files from watcher' 2.798958000028506ms
-[NX Daemon Server] - 2024-04-02T19:17:19.372Z - [WATCHER]: apps/conquest/src/app/campaigns/page.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:17:19.372Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:17:20.179Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:17:20.179Z - [REQUEST]: apps/conquest/src/app/campaigns/page.tsx
-[NX Daemon Server] - 2024-04-02T19:17:20.179Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:17:20.255Z - Time taken for 'hash changed files from watcher' 5.371325999964029ms
-[NX Daemon Server] - 2024-04-02T19:20:40.511Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:20:40.512Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:20:40.513Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:20:40.516Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-04-02T19:20:40.516Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-04-02T19:20:40.519Z - Time taken for 'total for creating and serializing project graph' 0.23243800015188754ms
-[NX Daemon Server] - 2024-04-02T19:20:40.533Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-04-02T19:20:40.533Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 17.
-[NX Daemon Server] - 2024-04-02T19:20:40.694Z - [REQUEST]: Responding to the client. handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:20:40.697Z - Done responding to the client handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:20:40.698Z - Handled HASH_TASKS. Handling time: 23. Response time: 4.
-[NX Daemon Server] - 2024-04-02T19:20:43.413Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:20:45.551Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:20:45.602Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:20:45.882Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:20:45.934Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:20:46.334Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:20:47.557Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:20:47.754Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:20:47.812Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:20:50.971Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:20:51.062Z - [REQUEST]: Responding to the client. recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:20:51.063Z - Done responding to the client recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:20:51.063Z - Handled RECORD_OUTPUTS_HASH. Handling time: 2. Response time: 1.
-[NX Daemon Server] - 2024-04-02T19:20:51.074Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:20:51.098Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:21:10.428Z - [WATCHER]: apps/conquest/src/app/components/CampaignDeleteConfirmation.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:21:10.429Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:21:10.535Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:21:10.535Z - [REQUEST]: apps/conquest/src/app/components/CampaignDeleteConfirmation.tsx
-[NX Daemon Server] - 2024-04-02T19:21:10.535Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:21:10.676Z - Time taken for 'hash changed files from watcher' 5.348309999797493ms
-[NX Daemon Server] - 2024-04-02T19:21:14.998Z - [WATCHER]: apps/conquest/src/app/components/CampaignDeleteConfirmation.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:21:14.999Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:21:15.204Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:21:15.204Z - [REQUEST]: apps/conquest/src/app/components/CampaignDeleteConfirmation.tsx
-[NX Daemon Server] - 2024-04-02T19:21:15.204Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:21:15.375Z - Time taken for 'hash changed files from watcher' 4.500158999813721ms
-[NX Daemon Server] - 2024-04-02T19:21:28.104Z - [WATCHER]: apps/conquest/src/app/components/CampaignForm.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:21:28.105Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:21:28.510Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:21:28.510Z - [REQUEST]: apps/conquest/src/app/components/CampaignForm.tsx
-[NX Daemon Server] - 2024-04-02T19:21:28.510Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:21:28.684Z - Time taken for 'hash changed files from watcher' 3.390290000010282ms
-[NX Daemon Server] - 2024-04-02T19:22:02.628Z - [WATCHER]: apps/conquest/src/app/types/Campaign/index.ts was modified
-[NX Daemon Server] - 2024-04-02T19:22:02.629Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:22:03.432Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:22:03.432Z - [REQUEST]: apps/conquest/src/app/types/Campaign/index.ts
-[NX Daemon Server] - 2024-04-02T19:22:03.432Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:22:03.582Z - Time taken for 'hash changed files from watcher' 2.7426390000618994ms
-[NX Daemon Server] - 2024-04-02T19:22:05.592Z - [WATCHER]: apps/conquest/src/app/types/Campaign/index.ts was modified
-[NX Daemon Server] - 2024-04-02T19:22:05.593Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:22:07.198Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:22:07.198Z - [REQUEST]: apps/conquest/src/app/types/Campaign/index.ts
-[NX Daemon Server] - 2024-04-02T19:22:07.198Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:22:07.277Z - Time taken for 'hash changed files from watcher' 2.295228000031784ms
-[NX Daemon Server] - 2024-04-02T19:22:13.622Z - [WATCHER]: apps/conquest/src/app/components/CampaignList.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:22:13.622Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:22:16.826Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:22:16.826Z - [REQUEST]: apps/conquest/src/app/components/CampaignList.tsx
-[NX Daemon Server] - 2024-04-02T19:22:16.826Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:22:16.994Z - Time taken for 'hash changed files from watcher' 2.1450080000795424ms
-[NX Daemon Server] - 2024-04-02T19:22:20.405Z - [WATCHER]: apps/conquest/src/app/components/CampaignModal.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:22:20.405Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:22:25.850Z - [WATCHER]: apps/conquest/src/app/components/CampaignModalManager.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:22:25.850Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:22:26.809Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:22:26.809Z - [REQUEST]: apps/conquest/src/app/components/CampaignModal.tsx,apps/conquest/src/app/components/CampaignModalManager.tsx
-[NX Daemon Server] - 2024-04-02T19:22:26.809Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:22:26.954Z - Time taken for 'hash changed files from watcher' 1.828304999973625ms
-[NX Daemon Server] - 2024-04-02T19:22:32.985Z - [WATCHER]: apps/conquest/src/app/components/CampaignPreview.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:22:32.985Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:22:39.391Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:22:39.391Z - [REQUEST]: apps/conquest/src/app/components/CampaignPreview.tsx
-[NX Daemon Server] - 2024-04-02T19:22:39.391Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:22:39.543Z - Time taken for 'hash changed files from watcher' 5.3138689999468625ms
-[NX Daemon Server] - 2024-04-02T19:22:40.517Z - [WATCHER]: apps/conquest/src/app/components/CampaignPreview.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:22:40.517Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:22:42.395Z - [WATCHER]: apps/conquest/src/app/components/CampaignPreview.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:22:42.395Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:22:46.919Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:22:46.920Z - [REQUEST]: apps/conquest/src/app/components/CampaignPreview.tsx
-[NX Daemon Server] - 2024-04-02T19:22:46.920Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:22:47.053Z - Time taken for 'hash changed files from watcher' 1.8656289998907596ms
-[NX Daemon Server] - 2024-04-02T19:23:10.859Z - [WATCHER]: apps/conquest/src/app/components/CampaignPreview.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:23:10.859Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:23:11.314Z - [WATCHER]: apps/conquest/src/app/components/CampaignPreview.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:23:11.315Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:23:11.990Z - [WATCHER]: apps/conquest/src/app/components/CampaignPreview.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:23:11.991Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:23:12.247Z - [WATCHER]: apps/conquest/src/app/components/CampaignPreview.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:23:12.247Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:23:17.267Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:23:17.267Z - [REQUEST]: apps/conquest/src/app/components/CampaignPreview.tsx
-[NX Daemon Server] - 2024-04-02T19:23:17.267Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:23:17.345Z - Time taken for 'hash changed files from watcher' 5.492388000013307ms
-[NX Daemon Server] - 2024-04-02T19:24:14.741Z - [WATCHER]: apps/conquest/src/app/components/CampaignPreview.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:24:14.742Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:24:21.144Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:24:21.144Z - [REQUEST]: apps/conquest/src/app/components/CampaignPreview.tsx
-[NX Daemon Server] - 2024-04-02T19:24:21.144Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:24:21.224Z - Time taken for 'hash changed files from watcher' 2.557742000091821ms
-[NX Daemon Server] - 2024-04-02T19:24:51.609Z - [WATCHER]: apps/conquest/src/app/components/CampaignPreview.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:24:51.610Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:24:51.804Z - [WATCHER]: apps/conquest/src/app/components/CampaignPreview.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:24:51.804Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:24:58.012Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:24:58.013Z - [REQUEST]: apps/conquest/src/app/components/CampaignPreview.tsx
-[NX Daemon Server] - 2024-04-02T19:24:58.013Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:24:58.092Z - Time taken for 'hash changed files from watcher' 1.5113970001693815ms
-[NX Daemon Server] - 2024-04-02T19:31:56.447Z - [WATCHER]: apps/conquest/src/app/components/CampaignPreview.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:31:56.448Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:32:02.850Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:32:02.851Z - [REQUEST]: apps/conquest/src/app/components/CampaignPreview.tsx
-[NX Daemon Server] - 2024-04-02T19:32:02.851Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:32:03.003Z - Time taken for 'hash changed files from watcher' 2.918830000096932ms
-[NX Daemon Server] - 2024-04-02T19:32:06.221Z - [WATCHER]: apps/conquest/src/app/components/EncounterForm.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:32:06.222Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:32:11.733Z - [WATCHER]: apps/conquest/src/app/components/EncountersList.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:32:11.734Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:32:12.624Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:32:12.624Z - [REQUEST]: apps/conquest/src/app/components/EncounterForm.tsx,apps/conquest/src/app/components/EncountersList.tsx
-[NX Daemon Server] - 2024-04-02T19:32:12.624Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:32:12.774Z - Time taken for 'hash changed files from watcher' 1.6533839998301119ms
-[NX Daemon Server] - 2024-04-02T19:32:27.692Z - [WATCHER]: apps/conquest/src/app/constants/experienceConstants.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:32:27.693Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:32:34.099Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:32:34.099Z - [REQUEST]: apps/conquest/src/app/constants/experienceConstants.tsx
-[NX Daemon Server] - 2024-04-02T19:32:34.099Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:32:34.253Z - Time taken for 'hash changed files from watcher' 4.947892999975011ms
-[NX Daemon Server] - 2024-04-02T19:32:40.625Z - [WATCHER]: apps/conquest/src/app/constants/experienceConstants.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:32:40.625Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:32:46.154Z - [WATCHER]: apps/conquest/src/app/constants/experienceConstants.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:32:46.154Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:32:47.027Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:32:47.027Z - [REQUEST]: apps/conquest/src/app/constants/experienceConstants.tsx
-[NX Daemon Server] - 2024-04-02T19:32:47.027Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:32:47.173Z - Time taken for 'hash changed files from watcher' 1.778690000064671ms
-[NX Daemon Server] - 2024-04-02T19:32:54.470Z - [WATCHER]: apps/conquest/src/app/contexts/AuthContext.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:32:54.470Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:32:59.834Z - [WATCHER]: apps/conquest/src/app/contexts/CampaignContext.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:32:59.834Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:33:00.874Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:33:00.875Z - [REQUEST]: apps/conquest/src/app/contexts/AuthContext.tsx,apps/conquest/src/app/contexts/CampaignContext.tsx
-[NX Daemon Server] - 2024-04-02T19:33:00.875Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:33:01.021Z - Time taken for 'hash changed files from watcher' 3.7572149999905378ms
-[NX Daemon Server] - 2024-04-02T19:33:33.649Z - [WATCHER]: apps/conquest/src/app/contexts/CampaignContext.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:33:33.650Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:33:36.702Z - [WATCHER]: apps/conquest/src/app/contexts/CampaignContext.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:33:36.702Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:33:40.052Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:33:40.053Z - [REQUEST]: apps/conquest/src/app/contexts/CampaignContext.tsx
-[NX Daemon Server] - 2024-04-02T19:33:40.053Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:33:40.226Z - Time taken for 'hash changed files from watcher' 2.1481920001097023ms
-[NX Daemon Server] - 2024-04-02T19:33:44.489Z - [WATCHER]: apps/conquest/src/app/hooks/useCampaignForm.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:33:44.489Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:33:50.893Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:33:50.893Z - [REQUEST]: apps/conquest/src/app/hooks/useCampaignForm.tsx
-[NX Daemon Server] - 2024-04-02T19:33:50.893Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:33:51.064Z - Time taken for 'hash changed files from watcher' 3.00921899988316ms
-[NX Daemon Server] - 2024-04-02T19:34:04.902Z - [WATCHER]: apps/conquest/src/app/hooks/useCampaignOperations.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:34:04.903Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:34:10.658Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:34:10.658Z - [WATCHER]: apps/conquest/src/app/hooks/useCampaigns.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:34:11.305Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:34:11.305Z - [REQUEST]: apps/conquest/src/app/hooks/useCampaignOperations.tsx,apps/conquest/src/app/hooks/useCampaigns.tsx
-[NX Daemon Server] - 2024-04-02T19:34:11.305Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:34:11.458Z - Time taken for 'hash changed files from watcher' 1.7728220000863075ms
-[NX Daemon Server] - 2024-04-02T19:34:15.633Z - [WATCHER]: apps/conquest/src/app/hooks/useEncounterCalculations.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:34:15.633Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:34:22.037Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:34:22.037Z - [REQUEST]: apps/conquest/src/app/hooks/useEncounterCalculations.tsx
-[NX Daemon Server] - 2024-04-02T19:34:22.037Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:34:22.246Z - [WATCHER]: apps/conquest/src/app/hooks/useEncounterCalculations.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:34:22.247Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:34:22.248Z - Time taken for 'hash changed files from watcher' 2.1670670001767576ms
-[NX Daemon Server] - 2024-04-02T19:34:27.623Z - [WATCHER]: apps/conquest/src/app/hooks/useEncounters.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:34:27.623Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:34:28.649Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:34:28.649Z - [REQUEST]: apps/conquest/src/app/hooks/useEncounterCalculations.tsx,apps/conquest/src/app/hooks/useEncounters.tsx
-[NX Daemon Server] - 2024-04-02T19:34:28.649Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:34:28.844Z - Time taken for 'hash changed files from watcher' 1.9835510000120848ms
-[NX Daemon Server] - 2024-04-02T19:34:32.298Z - [WATCHER]: apps/conquest/src/app/hooks/useModal.ts was modified
-[NX Daemon Server] - 2024-04-02T19:34:32.299Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:34:35.871Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:34:35.871Z - [WATCHER]: apps/conquest/src/app/hooks/useModal.ts was modified
-[NX Daemon Server] - 2024-04-02T19:34:38.701Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:34:38.701Z - [REQUEST]: apps/conquest/src/app/hooks/useModal.ts
-[NX Daemon Server] - 2024-04-02T19:34:38.701Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:34:38.850Z - Time taken for 'hash changed files from watcher' 1.9388449997641146ms
-[NX Daemon Server] - 2024-04-02T19:34:42.353Z - [WATCHER]: apps/conquest/src/app/services/campaignService.ts was modified
-[NX Daemon Server] - 2024-04-02T19:34:42.353Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:34:46.456Z - [WATCHER]: apps/conquest/src/app/services/encounterService.ts was modified
-[NX Daemon Server] - 2024-04-02T19:34:46.457Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:34:48.757Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:34:48.757Z - [REQUEST]: apps/conquest/src/app/services/campaignService.ts,apps/conquest/src/app/services/encounterService.ts
-[NX Daemon Server] - 2024-04-02T19:34:48.757Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:34:48.892Z - Time taken for 'hash changed files from watcher' 2.937227999791503ms
-[NX Daemon Server] - 2024-04-02T19:34:53.713Z - [WATCHER]: apps/conquest/src/app/types/Campaign/index.ts was modified
-[NX Daemon Server] - 2024-04-02T19:34:53.713Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:34:57.055Z - [WATCHER]: apps/conquest/src/app/types/Campaign/index.ts was modified
-[NX Daemon Server] - 2024-04-02T19:34:57.055Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:35:00.116Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:35:00.116Z - [REQUEST]: apps/conquest/src/app/types/Campaign/index.ts
-[NX Daemon Server] - 2024-04-02T19:35:00.116Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:35:00.248Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:35:00.248Z - Time taken for 'hash changed files from watcher' 1.4792700000107288ms
-[NX Daemon Server] - 2024-04-02T19:35:00.248Z - Established a connection. Number of open connections: 2
-[NX Daemon Server] - 2024-04-02T19:35:00.248Z - Closed a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:35:00.249Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-04-02T19:35:00.249Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-04-02T19:35:00.252Z - Time taken for 'total for creating and serializing project graph' 0.17557499976828694ms
-[NX Daemon Server] - 2024-04-02T19:35:00.261Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-04-02T19:35:00.261Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 12.
-[NX Daemon Server] - 2024-04-02T19:35:00.540Z - [REQUEST]: Responding to the client. handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:35:00.541Z - Done responding to the client handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:35:00.541Z - Handled HASH_TASKS. Handling time: 21. Response time: 1.
-[NX Daemon Server] - 2024-04-02T19:35:03.574Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:35:05.681Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:35:05.735Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:35:06.026Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:35:06.078Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:35:07.814Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:35:08.001Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:35:08.065Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:35:11.629Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:35:11.734Z - [REQUEST]: Responding to the client. recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:35:11.735Z - Done responding to the client recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:35:11.735Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 1.
-[NX Daemon Server] - 2024-04-02T19:35:11.748Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:35:11.767Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:37:25.505Z - [WATCHER]: apps/conquest/src/app/types/Encounter/index.ts was modified
-[NX Daemon Server] - 2024-04-02T19:37:25.505Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:37:25.611Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:37:25.611Z - [REQUEST]: apps/conquest/src/app/types/Encounter/index.ts
-[NX Daemon Server] - 2024-04-02T19:37:25.612Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:37:25.783Z - Time taken for 'hash changed files from watcher' 4.430774999782443ms
-[NX Daemon Server] - 2024-04-02T19:37:35.166Z - [WATCHER]: apps/conquest/src/app/types/Encounter/index.ts was modified
-[NX Daemon Server] - 2024-04-02T19:37:35.166Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:37:35.369Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:37:35.369Z - [REQUEST]: apps/conquest/src/app/types/Encounter/index.ts
-[NX Daemon Server] - 2024-04-02T19:37:35.369Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:37:35.545Z - Time taken for 'hash changed files from watcher' 2.206383000127971ms
-[NX Daemon Server] - 2024-04-02T19:37:46.929Z - [WATCHER]: apps/conquest/src/app/types/Encounter/index.ts was modified
-[NX Daemon Server] - 2024-04-02T19:37:46.930Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:37:47.332Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:37:47.332Z - [REQUEST]: apps/conquest/src/app/types/Encounter/index.ts
-[NX Daemon Server] - 2024-04-02T19:37:47.332Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:37:47.464Z - Time taken for 'hash changed files from watcher' 2.2071320000104606ms
-[NX Daemon Server] - 2024-04-02T19:37:49.393Z - [WATCHER]: apps/conquest/src/app/types/Encounter/index.ts was modified
-[NX Daemon Server] - 2024-04-02T19:37:49.394Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:37:50.198Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:37:50.198Z - [REQUEST]: apps/conquest/src/app/types/Encounter/index.ts
-[NX Daemon Server] - 2024-04-02T19:37:50.198Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:37:50.271Z - Time taken for 'hash changed files from watcher' 4.067668000236154ms
-[NX Daemon Server] - 2024-04-02T19:37:51.768Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:37:51.769Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:37:51.770Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:37:51.772Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-04-02T19:37:51.772Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-04-02T19:37:51.775Z - Time taken for 'total for creating and serializing project graph' 0.2580550001002848ms
-[NX Daemon Server] - 2024-04-02T19:37:51.786Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-04-02T19:37:51.787Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 15.
-[NX Daemon Server] - 2024-04-02T19:37:52.043Z - [REQUEST]: Responding to the client. handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:37:52.044Z - Done responding to the client handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:37:52.044Z - Handled HASH_TASKS. Handling time: 20. Response time: 1.
-[NX Daemon Server] - 2024-04-02T19:37:55.188Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:37:57.160Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:37:57.220Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:37:58.650Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:37:58.917Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:37:59.195Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:02.156Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:02.229Z - [REQUEST]: Responding to the client. recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:38:02.230Z - Done responding to the client recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:38:02.230Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 1.
-[NX Daemon Server] - 2024-04-02T19:38:02.240Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:38:02.268Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:25.407Z - [WATCHER]: apps/conquest/src/app/types/Utility/index.ts was modified
-[NX Daemon Server] - 2024-04-02T19:38:25.407Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:25.510Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:38:25.511Z - [REQUEST]: apps/conquest/src/app/types/Utility/index.ts
-[NX Daemon Server] - 2024-04-02T19:38:25.511Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:38:25.691Z - Time taken for 'hash changed files from watcher' 2.0961569999344647ms
-[NX Daemon Server] - 2024-04-02T19:38:28.149Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:38:28.149Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:38:28.150Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:38:28.152Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-04-02T19:38:28.152Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-04-02T19:38:28.155Z - Time taken for 'total for creating and serializing project graph' 0.22489700000733137ms
-[NX Daemon Server] - 2024-04-02T19:38:28.165Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-04-02T19:38:28.165Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 13.
-[NX Daemon Server] - 2024-04-02T19:38:28.319Z - [REQUEST]: Responding to the client. handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:38:28.319Z - Done responding to the client handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:38:28.319Z - Handled HASH_TASKS. Handling time: 20. Response time: 0.
-[NX Daemon Server] - 2024-04-02T19:38:30.619Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:32.316Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:32.370Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:33.514Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:33.757Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:33.826Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:36.828Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:36.909Z - [REQUEST]: Responding to the client. recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:38:36.909Z - Done responding to the client recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:38:36.909Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 0.
-[NX Daemon Server] - 2024-04-02T19:38:36.919Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:38:36.948Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:47.170Z - [WATCHER]: apps/conquest/src/app/utils/campaignUtils.ts was modified
-[NX Daemon Server] - 2024-04-02T19:38:47.170Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:47.273Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:38:47.273Z - [REQUEST]: apps/conquest/src/app/utils/campaignUtils.ts
-[NX Daemon Server] - 2024-04-02T19:38:47.273Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:38:47.433Z - Time taken for 'hash changed files from watcher' 1.9599930001422763ms
-[NX Daemon Server] - 2024-04-02T19:38:50.551Z - [WATCHER]: apps/conquest/src/app/utils/campaignUtils.ts was modified
-[NX Daemon Server] - 2024-04-02T19:38:50.552Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:50.756Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:38:50.756Z - [REQUEST]: apps/conquest/src/app/utils/campaignUtils.ts
-[NX Daemon Server] - 2024-04-02T19:38:50.757Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:38:50.929Z - Time taken for 'hash changed files from watcher' 3.804810000117868ms
-[NX Daemon Server] - 2024-04-02T19:38:53.022Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:38:53.023Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:38:53.024Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:38:53.027Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-04-02T19:38:53.027Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-04-02T19:38:53.031Z - Time taken for 'total for creating and serializing project graph' 0.3214309997856617ms
-[NX Daemon Server] - 2024-04-02T19:38:53.042Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-04-02T19:38:53.042Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 15.
-[NX Daemon Server] - 2024-04-02T19:38:53.214Z - [REQUEST]: Responding to the client. handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:38:53.214Z - Done responding to the client handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:38:53.215Z - Handled HASH_TASKS. Handling time: 19. Response time: 1.
-[NX Daemon Server] - 2024-04-02T19:38:57.392Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:59.251Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:38:59.302Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:00.671Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:00.966Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:01.036Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:04.150Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:04.245Z - [REQUEST]: Responding to the client. recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:39:04.245Z - Done responding to the client recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:39:04.245Z - Handled RECORD_OUTPUTS_HASH. Handling time: 5. Response time: 0.
-[NX Daemon Server] - 2024-04-02T19:39:04.256Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:39:04.282Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:05.489Z - [WATCHER]: apps/conquest/src/app/utils/campaignUtils.ts was modified
-[NX Daemon Server] - 2024-04-02T19:39:05.490Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:05.595Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:39:05.595Z - [REQUEST]: apps/conquest/src/app/utils/campaignUtils.ts
-[NX Daemon Server] - 2024-04-02T19:39:05.595Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:39:05.666Z - Time taken for 'hash changed files from watcher' 2.9697799999266863ms
-[NX Daemon Server] - 2024-04-02T19:39:11.938Z - [WATCHER]: apps/conquest/src/app/utils/generateSlug.ts was modified
-[NX Daemon Server] - 2024-04-02T19:39:11.939Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:12.146Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:39:12.147Z - [REQUEST]: apps/conquest/src/app/utils/generateSlug.ts
-[NX Daemon Server] - 2024-04-02T19:39:12.147Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:39:12.321Z - Time taken for 'hash changed files from watcher' 5.086403999943286ms
-[NX Daemon Server] - 2024-04-02T19:39:14.284Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:39:14.284Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:39:14.285Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:39:14.287Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-04-02T19:39:14.287Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-04-02T19:39:14.290Z - Time taken for 'total for creating and serializing project graph' 0.19521600008010864ms
-[NX Daemon Server] - 2024-04-02T19:39:14.300Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-04-02T19:39:14.300Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 13.
-[NX Daemon Server] - 2024-04-02T19:39:14.438Z - [REQUEST]: Responding to the client. handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:39:14.439Z - Done responding to the client handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:39:14.439Z - Handled HASH_TASKS. Handling time: 18. Response time: 1.
-[NX Daemon Server] - 2024-04-02T19:39:17.029Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:18.791Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:18.846Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:19.148Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:19.198Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:20.318Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:20.614Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:20.801Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:23.665Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:24.387Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:24.523Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:24.601Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:24.790Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:24.961Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:25.830Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:25.920Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:25.978Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:26.030Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:32.140Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:32.260Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:32.411Z - [REQUEST]: Responding to the client. recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:39:32.411Z - Done responding to the client recordOutputsHash
-[NX Daemon Server] - 2024-04-02T19:39:32.411Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 0.
-[NX Daemon Server] - 2024-04-02T19:39:32.411Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:32.474Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:39:50.003Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:40:09.058Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:40:09.059Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:40:09.060Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-04-02T19:40:09.062Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-04-02T19:40:09.062Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-04-02T19:40:09.065Z - Time taken for 'total for creating and serializing project graph' 0.14051900012418628ms
-[NX Daemon Server] - 2024-04-02T19:40:09.073Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-04-02T19:40:09.074Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 12.
-[NX Daemon Server] - 2024-04-02T19:40:09.228Z - [REQUEST]: Responding to the client. handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:40:09.228Z - Done responding to the client handleHashTasks
-[NX Daemon Server] - 2024-04-02T19:40:09.228Z - Handled HASH_TASKS. Handling time: 8. Response time: 0.
-[NX Daemon Server] - 2024-04-02T19:40:14.158Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:14.455Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:14.517Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:14.753Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:14.971Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:17.196Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:44.109Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:44.174Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:44.257Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:44.310Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:47.972Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:48.114Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:49.253Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:51.263Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:52.015Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:52.081Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:53.171Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:54.321Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:40:54.992Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:43:00.457Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:43:04.606Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:43:05.311Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:43:21.900Z - [WATCHER]: apps/conquest/src/app/hooks/useCampaignOperations.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:43:21.900Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:43:22.004Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:43:22.004Z - [REQUEST]: apps/conquest/src/app/hooks/useCampaignOperations.tsx
-[NX Daemon Server] - 2024-04-02T19:43:22.004Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:43:22.202Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:43:22.202Z - Time taken for 'hash changed files from watcher' 1.7038210001774132ms
-[NX Daemon Server] - 2024-04-02T19:43:22.462Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:43:24.228Z - [WATCHER]: apps/conquest/src/app/hooks/useCampaignOperations.tsx was modified
-[NX Daemon Server] - 2024-04-02T19:43:24.228Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:43:24.431Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-04-02T19:43:24.431Z - [REQUEST]: apps/conquest/src/app/hooks/useCampaignOperations.tsx
-[NX Daemon Server] - 2024-04-02T19:43:24.431Z - [REQUEST]: 
-[NX Daemon Server] - 2024-04-02T19:43:24.644Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:43:24.648Z - Time taken for 'hash changed files from watcher' 2.200647000223398ms
-[NX Daemon Server] - 2024-04-02T19:43:24.821Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:43:41.282Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:43:41.410Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:44:41.986Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:44:42.376Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:44:43.091Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:44:43.587Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:44:43.821Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:44:44.876Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:44:45.281Z - [WATCHER]: Processing file changes in outputs
-[NX Daemon Server] - 2024-04-02T19:49:06.038Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-04-02T19:49:06.248Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:24.295Z - Started listening on: /var/folders/sc/hn4x06p16vl_0bk6tg6vc98w0000gn/T/e4f03fb3c6b272fb3319/d.sock
+[NX Daemon Server] - 2024-04-02T20:28:24.300Z - [WATCHER]: Subscribed to changes within: /Users/roberthogan/github/nx-monorepo (native)
+[NX Daemon Server] - 2024-04-02T20:28:24.303Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-02T20:28:24.304Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-02T20:28:24.306Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-02T20:28:24.308Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-02T20:28:24.426Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-02T20:28:24.426Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-02T20:28:24.426Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-02T20:28:28.556Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-02T20:28:28.560Z - Time taken for 'total for creating and serializing project graph' 4248.030303999782ms
+[NX Daemon Server] - 2024-04-02T20:28:28.570Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-02T20:28:28.570Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 4249. Response time: 14.
+[NX Daemon Server] - 2024-04-02T20:28:28.923Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-02T20:28:28.924Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-02T20:28:28.924Z - Handled HASH_TASKS. Handling time: 21. Response time: 1.
+[NX Daemon Server] - 2024-04-02T20:28:32.219Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:34.562Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:36.380Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:36.828Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:36.880Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:36.940Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:36.958Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-02T20:28:36.958Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-02T20:28:36.958Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 0.
+[NX Daemon Server] - 2024-04-02T20:28:36.975Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-02T20:28:48.943Z - [WATCHER]: apps/conquest/src/app/page.tsx was modified
+[NX Daemon Server] - 2024-04-02T20:28:48.944Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:49.052Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-02T20:28:49.053Z - [REQUEST]: apps/conquest/src/app/page.tsx
+[NX Daemon Server] - 2024-04-02T20:28:49.053Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-02T20:28:49.233Z - Time taken for 'hash changed files from watcher' 5.320505999960005ms
+[NX Daemon Server] - 2024-04-02T20:28:52.417Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:52.418Z - [WATCHER]: apps/conquest/src/app/page.tsx was modified
+[NX Daemon Server] - 2024-04-02T20:28:52.623Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-02T20:28:52.623Z - [REQUEST]: apps/conquest/src/app/page.tsx
+[NX Daemon Server] - 2024-04-02T20:28:52.623Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-02T20:28:52.703Z - Time taken for 'hash changed files from watcher' 2.950738999992609ms
+[NX Daemon Server] - 2024-04-02T20:28:54.749Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-02T20:28:54.749Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-02T20:28:54.749Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-02T20:28:54.751Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-02T20:28:54.751Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-02T20:28:54.754Z - Time taken for 'total for creating and serializing project graph' 0.3065169993788004ms
+[NX Daemon Server] - 2024-04-02T20:28:54.762Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-02T20:28:54.762Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 11.
+[NX Daemon Server] - 2024-04-02T20:28:54.976Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-02T20:28:54.977Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-02T20:28:54.977Z - Handled HASH_TASKS. Handling time: 20. Response time: 1.
+[NX Daemon Server] - 2024-04-02T20:28:57.524Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:59.130Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:59.186Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:59.473Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:59.539Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:28:59.990Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:01.647Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:01.842Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:01.898Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:06.406Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:06.498Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-02T20:29:06.498Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-02T20:29:06.498Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 0.
+[NX Daemon Server] - 2024-04-02T20:29:06.509Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-02T20:29:06.541Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:14.657Z - [WATCHER]: apps/conquest/src/app/components/LogoutButton.tsx was modified
+[NX Daemon Server] - 2024-04-02T20:29:14.658Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:14.760Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-02T20:29:14.760Z - [REQUEST]: apps/conquest/src/app/components/LogoutButton.tsx
+[NX Daemon Server] - 2024-04-02T20:29:14.760Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-02T20:29:14.968Z - Time taken for 'hash changed files from watcher' 2.4923769999295473ms
+[NX Daemon Server] - 2024-04-02T20:29:16.914Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-02T20:29:16.915Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-02T20:29:16.916Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-02T20:29:16.917Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-02T20:29:16.918Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-02T20:29:16.920Z - Time taken for 'total for creating and serializing project graph' 0.17648900020867586ms
+[NX Daemon Server] - 2024-04-02T20:29:16.930Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-02T20:29:16.930Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 12.
+[NX Daemon Server] - 2024-04-02T20:29:17.145Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-02T20:29:17.145Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-02T20:29:17.145Z - Handled HASH_TASKS. Handling time: 22. Response time: 0.
+[NX Daemon Server] - 2024-04-02T20:29:19.733Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:21.355Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:21.414Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:21.554Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:21.612Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:22.574Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:22.873Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:23.056Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:25.428Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:26.114Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:26.502Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:26.628Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:27.298Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:27.616Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:27.677Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:27.737Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:33.435Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:33.582Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:33.596Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-02T20:29:33.596Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-02T20:29:33.596Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 0.
+[NX Daemon Server] - 2024-04-02T20:29:33.634Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:33.687Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-02T20:29:53.849Z - Closed a connection. Number of open connections: 0

@@ -4,7 +4,6 @@ const CampaignDeleteConfirmation = ({
   onConfirm,
   onCancel,
   campaignId,
-  campaign,
 }: CampaignDeleteConfirmationProps) => {
   return (
     <div className="p-4">

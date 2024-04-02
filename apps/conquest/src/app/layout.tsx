@@ -1,5 +1,5 @@
 import '@styles/global.css';
-import { AuthProvider } from '@contexts/AuthContext';
+import { AuthProvider } from '@conquestContexts/AuthContext';
 
 export const metadata = {
   title: 'Home | Conquest',

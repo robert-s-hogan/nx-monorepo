@@ -3,12 +3,8 @@ import React from 'react';
 import { Campaign } from '@conquestTypes/Campaign';
 import { Difficulty } from '@conquestTypes/Encounter';
 
-import {
-  getAdventuringDayXp,
-  getLevelDetailsFromExperience,
-  getXPThresholds,
-} from '../constants/experienceConstants';
-import { useEncounterCalculations } from '@hooks/useEncounterCalculations';
+import { getLevelDetailsFromExperience } from '@conquestConstants/experienceConstants';
+import { useEncounterCalculations } from '@conquestHooks/useEncounterCalculations';
 
 interface CampaignPreviewProps {
   campaign: Campaign;

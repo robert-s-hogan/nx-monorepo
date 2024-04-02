@@ -1,6 +1,5 @@
 import {
   Difficulty,
-  ThresholdLevels,
   XPLookupTable,
   XPThresholdsByCharLvl,
 } from '@conquestTypes/Encounter';

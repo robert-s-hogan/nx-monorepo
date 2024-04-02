@@ -1,4 +1,4 @@
-import { db } from '@data/firebaseConfig';
+import { db } from '@conquestData/firebaseConfig';
 import {
   addDoc,
   collection,
@@ -11,7 +11,7 @@ import {
 } from 'firebase/firestore';
 import { Campaign } from '@conquestTypes/Campaign';
 
-import { generateSlug } from '@utils/generateSlug';
+import { generateSlug } from '@conquestUtils/generateSlug';
 
 // Adding a Campaign to Firestore
 export const addCampaign = async (campaignData: Campaign): Promise<string> => {

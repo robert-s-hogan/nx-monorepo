@@ -1,9 +1,5 @@
-import { useEffect, useState } from 'react';
-
-import CampaignForm from '@components/CampaignForm';
-import ConquestModal from '@components/ConquestModal';
-import CampaignDeleteConfirmation from '@components/CampaignDeleteConfirmation';
-import { Campaign, CampaignModalProps } from '@conquestTypes/Campaign';
+import ConquestModal from '@conquestComponents/ConquestModal';
+import { CampaignModalProps } from '@conquestTypes/Campaign';
 
 const CampaignModal: React.FC<CampaignModalProps> = ({
   isOpen,

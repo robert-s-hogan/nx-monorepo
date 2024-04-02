@@ -5,13 +5,13 @@ import { NextPage } from 'next';
 import useSWR from 'swr';
 import { useRouter } from 'next/navigation';
 
-import Layout from '@components/Layout';
-import CampaignList from '@components/CampaignList';
-import CampaignModalManager from '@components/CampaignModalManager';
-import withAuth from '@utils/withAuth';
+import Layout from '@conquestComponents/Layout';
+import CampaignList from '@conquestComponents/CampaignList';
+import CampaignModalManager from '@conquestComponents/CampaignModalManager';
+import withAuth from '@conquestUtils/withAuth';
 import { Campaign } from '@conquestTypes/Campaign';
 import { ModalOperation } from '@conquestTypes/Utility';
-import { fetchCampaigns as fetchCampaignsService } from '@services/campaignService';
+import { fetchCampaigns as fetchCampaignsService } from '@conquestServices/campaignService';
 
 const CampaignsPage: NextPage = () => {
   // useSWR hook for fetching and caching the campaigns data

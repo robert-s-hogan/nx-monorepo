@@ -8,13 +8,12 @@ import React, {
   useCallback,
 } from 'react';
 
-import { useAuth } from '@contexts/AuthContext';
 import {
   addCampaign,
   editCampaign,
   deleteCampaign,
   fetchCampaigns,
-} from '@services/campaignService';
+} from '@conquestServices/campaignService';
 import { CampaignContextType } from '@conquestTypes/Campaign';
 import { ProviderProps } from '@conquestTypes/Utility';
 

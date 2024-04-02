@@ -19,16 +19,17 @@
     "types": ["jest", "node"],
     "baseUrl": ".",
     "paths": {
-      "@campaigns/*": ["src/app/campaigns/*"],
-      "@components/*": ["src/app/components/*"],
-      "@contexts/*": ["src/app/contexts/*"],
-      "@data/*": ["src/app/data/*"],
-      "@encounters/*": ["src/app/encounters/*"],
-      "@hooks/*": ["src/app/hooks/*"],
-      "@services/*": ["src/app/services/*"],
-      "@styles/*": ["src/app/styles/*"],
+      "@conquestCampaigns/*": ["src/app/campaigns/*"],
+      "@conquestComponents/*": ["src/app/components/*"],
+      "@conquestConstants/*": ["src/app/constants/*"],
+      "@conquestContexts/*": ["src/app/contexts/*"],
+      "@conquestData/*": ["src/app/data/*"],
+      "@conquestEncounters/*": ["src/app/encounters/*"],
+      "@conquestHooks/*": ["src/app/hooks/*"],
+      "@conquestServices/*": ["src/app/services/*"],
+      "@conquestStyles/*": ["src/app/styles/*"],
       "@conquestTypes/*": ["src/app/types/*"],
-      "@utils/*": ["src/app/utils/*"]
+      "@conquestUtils/*": ["src/app/utils/*"]
     }
   },
   "include": [

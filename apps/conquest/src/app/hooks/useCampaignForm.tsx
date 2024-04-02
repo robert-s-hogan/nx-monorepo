@@ -1,18 +1,17 @@
 import useSWR from 'swr';
-import { useContext } from 'react';
 
 import { Campaign } from '@conquestTypes/Campaign';
-import { useAuth } from '@contexts/AuthContext';
-import { useCampaigns } from '@hooks/useCampaigns';
+import { useAuth } from '@conquestContexts/AuthContext';
+import { useCampaigns } from '@conquestHooks/useCampaigns';
 import {
   addCampaign,
   editCampaign,
   deleteCampaign,
-} from '@services/campaignService';
+} from '@conquestServices/campaignService';
 
 export const useCampaignForm = () => {
   const { currentUser } = useAuth();
-  const { campaigns, mutate } = useCampaigns(); // Use mutate from useCampaigns
+  const { mutate } = useCampaigns(); // Use mutate from useCampaigns
 
   const handleAddCampaign = async (campaignData: Campaign): Promise<void> => {
     console.log('Current User:', currentUser);

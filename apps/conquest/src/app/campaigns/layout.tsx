@@ -1,5 +1,5 @@
-import { CampaignProvider } from '@contexts/CampaignContext';
-import { AuthProvider } from '@contexts/AuthContext';
+import { CampaignProvider } from '@conquestContexts/CampaignContext';
+import { AuthProvider } from '@conquestContexts/AuthContext';
 
 interface CampaignsLayoutProps {
   children: React.ReactNode;

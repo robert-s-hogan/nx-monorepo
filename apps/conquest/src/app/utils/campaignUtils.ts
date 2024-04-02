@@ -1,4 +1,4 @@
-import { db } from '@data/firebaseConfig';
+import { db } from '@conquestData/firebaseConfig';
 import {
   addDoc,
   collection,

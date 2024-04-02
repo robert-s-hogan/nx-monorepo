@@ -4,9 +4,9 @@ import React, { useState, useEffect } from 'react';
 // import { useRouter } from 'next/navigation';
 // import EncounterForm from '@components/EncounterForm';
 // import { Encounter } from '../../../types';
-// import { addEncounter, editEncounter } from '@services/encounterService';
-// import { useEncounters } from '@hooks/useEncounters';
-// import { useEncounterCalculations } from '@hooks/useEncounterCalculations';
+// import { addEncounter, editEncounter } from '@conquestServices/encounterService';
+// import { useEncounters } from '@conquestHooks/useEncounters';
+// import { useEncounterCalculations } from '@conquestHooks/useEncounterCalculations';
 
 const EncounterPage = () => {
   // const [encounter, setEncounter] = useState<Encounter | null>(null);

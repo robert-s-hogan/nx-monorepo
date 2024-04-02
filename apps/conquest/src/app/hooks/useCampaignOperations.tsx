@@ -1,5 +1,5 @@
 import { useRouter } from 'next/navigation';
-import { useCampaignForm } from '@hooks/useCampaignForm';
+import { useCampaignForm } from '@conquestHooks/useCampaignForm';
 import { Campaign } from '@conquestTypes/Campaign';
 import { ModalOperation } from '@conquestTypes/Utility';
 

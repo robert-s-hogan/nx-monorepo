@@ -1,5 +1,5 @@
-import useSWR, { mutate } from 'swr';
-import { fetchCampaigns as fetchCampaignsService } from '@services/campaignService';
+import useSWR from 'swr';
+import { fetchCampaigns as fetchCampaignsService } from '@conquestServices/campaignService';
 import { Campaign } from '@conquestTypes/Campaign';
 
 export const useCampaigns = () => {

@@ -3,15 +3,15 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-import Layout from '@components/Layout';
-import CampaignForm from '@components/CampaignForm';
-import { fetchCampaignBySlug } from '@services/campaignService';
+import Layout from '@conquestComponents/Layout';
+import CampaignForm from '@conquestComponents/CampaignForm';
+import { fetchCampaignBySlug } from '@conquestServices/campaignService';
 import { Campaign as CampaignType } from '../../types'; // Renamed for clarity
-import { useCampaignForm } from '@hooks/useCampaignForm';
-import { useCampaigns } from '@hooks/useCampaigns'; // Import the useCampaigns hook
-import EncountersList from '@components/EncountersList';
-import { EncounterProvider } from '@contexts/EncounterContext';
-import { useEncounters } from '@hooks/useEncounters';
+import { useCampaignForm } from '@conquestHooks/useCampaignForm';
+import { useCampaigns } from '@conquestHooks/useCampaigns'; // Import the useCampaigns hook
+import EncountersList from '@conquestComponents/EncountersList';
+import { EncounterProvider } from '@conquestContexts/EncounterContext';
+import { useEncounters } from '@conquestHooks/useEncounters';
 import { IonIcon } from '@ionic/react';
 import { chevronBack, create, trash } from 'ionicons/icons';
 
