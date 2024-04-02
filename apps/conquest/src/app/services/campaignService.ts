@@ -11,14 +11,23 @@ import {
 } from 'firebase/firestore';
 import { Campaign } from '../types';
 
+import { generateSlug } from '@utils/generateSlug';
+
 // Adding a Campaign to Firestore
 export const addCampaign = async (campaignData: Campaign): Promise<string> => {
   if (!campaignData) {
     throw new Error('Campaign data is required');
   }
+
+  // Generate the slug using the campaign name
+  const slug = generateSlug(campaignData.name);
+
+  // Include the generated slug in the campaign data
+  const dataWithSlug = { ...campaignData, slug };
+
   try {
-    const campaignRef = await addDoc(collection(db, 'campaigns'), campaignData);
-    return campaignRef.id;
+    const campaignRef = await addDoc(collection(db, 'campaigns'), dataWithSlug);
+    return campaignRef.id; // Return the Firestore document ID of the added campaign
   } catch (error) {
     throw new Error('Failed to add campaign');
   }
@@ -29,8 +38,16 @@ export const editCampaign = async (
   id: string,
   campaignData: Partial<Campaign>
 ): Promise<void> => {
-  const campaignRef = doc(db, 'campaigns', id);
-  await updateDoc(campaignRef, campaignData);
+  console.log(`Editing campaign with ID: ${id}`);
+  console.log(`New campaign data: ${JSON.stringify(campaignData)}`);
+  try {
+    const campaignRef = doc(db, 'campaigns', id);
+    console.log(`Campaign reference: ${campaignRef}`);
+    await updateDoc(campaignRef, campaignData);
+  } catch (error) {
+    console.error('Error updating campaign:', error);
+    // Handle the error appropriately
+  }
 };
 
 // Deleting a Campaign from Firestore

@@ -1,126 +1,123 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { Campaign, CampaignFormProps } from '../types';
-import { generateSlug } from '@utils/generateSlug';
 
 const CampaignForm: React.FC<CampaignFormProps> = ({
   campaign,
   onSubmit,
   operation,
+  difficulty,
+  onDifficultyChange,
 }) => {
   const formik = useFormik({
     initialValues: {
       id: campaign?.id || '',
       name: campaign?.name || '',
+      slug: campaign?.slug || '',
       description: campaign?.description || '',
-      playerLevel: campaign?.playerLevel || 1,
+      numberOfPlayers: campaign?.numberOfPlayers || 0,
       playerExperienceStart: campaign?.playerExperienceStart || 100,
-      encounterAdjustedExperience: campaign?.encounterAdjustedExperience || 0,
-      encounterExperience: campaign?.encounterExperience || 0,
       groupDead: campaign?.groupDead ?? false,
       rests: campaign?.rests || 1,
     },
     onSubmit: (values) => {
-      // Generate the slug from the campaign name
-      const slug = generateSlug(values.name);
-      // Include the slug in the submission values
-      const submissionValues = { ...values, slug };
-      // Pass the updated values including the slug to the parent's onSubmit handler
-      onSubmit(submissionValues, campaign?.id);
+      console.log(`Form data: ${JSON.stringify(values)}`);
+      const { id, ...campaignData } = values;
+      console.log('Campaign data for save:', campaignData);
+
+      if (operation === 'edit') {
+        // Include the `id` in `campaignData` for editing
+        campaignData.id = id;
+      }
+
+      // Pass `campaignData` to `handleSave`, which now may or may not include `id`
+      onSubmit(campaignData);
     },
-    // Optionally add a validation schema here if needed
   });
+
+  // Handle changes to the "Number of Players" field
+  const handleNumberOfPlayersChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const updatedValue = e.target.value;
+    formik.setFieldValue('numberOfPlayers', updatedValue); // Update the Formik state
+  };
+
+  // Handle changes to the "Difficulty" field
+  const handleDifficultyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newDifficulty = e.target.value;
+    onDifficultyChange(newDifficulty); // Call the parent's onDifficultyChange handler with the new value
+  };
 
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault(); // First, prevent the default form submission behavior
-        if (operation === 'edit' && campaign?.id) {
-          onSubmit(formik.values, campaign.id);
-        } else {
-          onSubmit(formik.values);
-        }
-      }}
+      onSubmit={formik.handleSubmit}
       className="flex flex-col space-y-4 pt-4"
     >
-      <label htmlFor="name">Campaign Name</label>
-      <input
-        id="name"
-        type="text"
-        {...formik.getFieldProps('name')} // This replaces onChange, onBlur, value
-        required
-        placeholder="Enter New Campaign Name"
-      />
+      {/* Name input */}
+      <div className="space-y-1">
+        <label htmlFor="name">Campaign Name</label>
+        <input
+          id="name"
+          type="text"
+          {...formik.getFieldProps('name')}
+          required
+          placeholder="Enter New Campaign Name"
+        />
+      </div>
 
-      <label htmlFor="description">Campaign Description</label>
-      <input
-        id="description"
-        type="text"
-        {...formik.getFieldProps('description')}
-        placeholder="Description"
-      />
+      {/* Description input */}
+      <div className="space-y-1">
+        <label htmlFor="description">Campaign Description</label>
+        <input
+          id="description"
+          type="text"
+          {...formik.getFieldProps('description')}
+          placeholder="Description"
+        />
+      </div>
 
-      <label htmlFor="playerLevel">Player Level</label>
-      <input
-        id="playerLevel"
-        type="number"
-        {...formik.getFieldProps('playerLevel')}
-        required
-        min="1"
-        placeholder="Player Level"
-      />
+      {/* Number of Players input */}
+      <div className="space-y-1">
+        <label htmlFor="numberOfPlayers">Number of Players</label>
+        <input
+          id="numberOfPlayers"
+          type="number"
+          {...formik.getFieldProps('numberOfPlayers')}
+          onChange={handleNumberOfPlayersChange}
+          required
+          min="1"
+          placeholder="Number of Players"
+        />
+      </div>
 
-      <label htmlFor="playerExperienceStart">Player Experience Start</label>
-      <input
-        id="playerExperienceStart"
-        type="number"
-        {...formik.getFieldProps('playerExperienceStart')}
-        required
-        min="1"
-        placeholder="Player Experience Start"
-      />
+      {/* Player Experience Start input */}
+      <div className="space-y-1">
+        <label htmlFor="playerExperienceStart">Player Experience Start</label>
+        <input
+          id="playerExperienceStart"
+          type="number"
+          name="playerExperienceStart"
+          onChange={formik.handleChange}
+          value={formik.values.playerExperienceStart}
+          required
+          min="1"
+          placeholder="Player Experience Start"
+        />
+      </div>
 
-      {operation === 'edit' && (
-        <>
-          <label htmlFor="encounterAdjustedExperience">
-            Encounter Adjusted Experience
-          </label>
-          <input
-            id="encounterAdjustedExperience"
-            type="number"
-            {...formik.getFieldProps('encounterAdjustedExperience')}
-            required
-            min="0"
-            placeholder="Encounter Adjusted Experience"
-          />
-          <label htmlFor="encounterExperience">Encounter Experience</label>
-          <input
-            id="encounterExperience"
-            type="number"
-            {...formik.getFieldProps('encounterExperience')}
-            required
-            min="0"
-            placeholder="Encounter Experience"
-          />
-          <label htmlFor="groupDead">Group Dead?</label>
-          <input
-            className="mr-auto"
-            id="groupDead"
-            type="checkbox"
-            {...formik.getFieldProps('groupDead')}
-          />
-          <label htmlFor="rests">Rests</label>
-          <input
-            id="rests"
-            type="number"
-            {...formik.getFieldProps('rests')}
-            required
-            min="0"
-            placeholder="Rests"
-          />
-        </>
-      )}
+      <div className="space-y-1 space-x-4">
+        <label htmlFor="groupDead">Group Dead?</label>
+        <input
+          id="groupDead"
+          type="checkbox"
+          {...formik.getFieldProps('groupDead')}
+          onChange={(e) => formik.setFieldValue('groupDead', e.target.checked)}
+          checked={formik.values.groupDead}
+        />
+      </div>
 
+      {/* Submit button */}
       <button type="submit" className="btn-primary">
         {campaign ? 'Update Campaign' : 'Add Campaign'}
       </button>

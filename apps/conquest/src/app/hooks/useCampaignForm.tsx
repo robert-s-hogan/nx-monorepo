@@ -15,10 +15,13 @@ export const useCampaignForm = () => {
   const { campaigns, mutate } = useCampaigns(); // Use mutate from useCampaigns
 
   const handleAddCampaign = async (campaignData: Campaign) => {
+    console.log('Current User:', currentUser);
+
     if (!currentUser) {
       console.error('No user authenticated');
       return;
     }
+
     try {
       const newCampaignData = { ...campaignData, accountId: currentUser.uid };
       await addCampaign(newCampaignData);
@@ -29,10 +32,12 @@ export const useCampaignForm = () => {
   };
 
   const handleEditCampaign = async (campaignData: Partial<Campaign>) => {
+    console.log('Current User:', currentUser);
     if (!currentUser || !campaignData.id) {
       console.error('No user authenticated or campaign ID is undefined');
       return;
     }
+
     try {
       await editCampaign(campaignData.id, campaignData);
 

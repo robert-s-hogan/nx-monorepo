@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { NextPage } from 'next';
 import useSWR, { mutate } from 'swr';
+import { useRouter } from 'next/navigation';
 
 import Layout from '@components/Layout';
 import CampaignList from '@components/CampaignList';
@@ -18,6 +19,7 @@ const CampaignsPage: NextPage = () => {
     error,
     mutate,
   } = useSWR<Campaign[]>('campaigns', fetchCampaignsService);
+  const router = useRouter();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalOperation, setModalOperation] = useState<ModalOperation | null>(
@@ -42,10 +44,12 @@ const CampaignsPage: NextPage = () => {
     mutate();
   };
 
+  const handleRedirectEdit = (campaign: Campaign) => {
+    router.push(`/campaigns/${campaign.slug}`);
+  };
+
   if (error) return <div>Failed to load campaigns</div>;
   if (!campaigns) return <div>Loading...</div>;
-
-  console.log(`Campaigns:`, campaigns);
 
   return (
     <Layout title="Campaigns | Conquest">
@@ -54,9 +58,15 @@ const CampaignsPage: NextPage = () => {
           Add Campaign
         </button>
 
+        <div className="space-y-0">
+          <pre>isModalOpen: {JSON.stringify(isModalOpen, null, 2)}</pre>
+          <pre>modalOperation: {JSON.stringify(modalOperation, null, 2)}</pre>
+          <pre>modalData: {JSON.stringify(modalData, null, 2)}</pre>
+        </div>
+
         <CampaignList
           campaigns={campaigns}
-          onEdit={(campaign: Campaign) => openModal('edit', campaign)}
+          hideEdit={true}
           onDelete={(campaignId: string) => {
             const campaignToDelete = campaigns.find((c) => c.id === campaignId);
             if (campaignToDelete) {
@@ -64,6 +74,7 @@ const CampaignsPage: NextPage = () => {
             }
           }}
         />
+
         {isModalOpen && (
           <CampaignModalManager
             isOpen={isModalOpen}

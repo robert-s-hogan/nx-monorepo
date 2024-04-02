@@ -10,6 +10,7 @@ const CampaignList: React.FC<CampaignListProps> = ({
   campaigns,
   onEdit,
   onDelete,
+  hideEdit,
 }) => {
   return (
     <>
@@ -17,29 +18,30 @@ const CampaignList: React.FC<CampaignListProps> = ({
         {campaigns.length === 0 && <p>No campaigns found</p>}
         {campaigns.map((campaign) => (
           <div key={campaign.id} className="border border-black">
-            <Link
-              href={`/campaigns/${encodeURIComponent(campaign.name)}`}
-              key={campaign.id}
-            >
-              {/* <div className="flex justify-end">
-              <button onClick={() => onEdit(campaign)}>
-                <IonIcon icon={create} size="large" />
-              </button>
+            <div className="flex justify-end pr-2 pt-2">
+              {!hideEdit && (
+                <button onClick={() => onEdit(campaign)}>
+                  <IonIcon icon={create} size="large" />
+                </button>
+              )}
 
               <button onClick={() => onDelete(campaign.id as string)}>
                 <IonIcon icon={trash} size="large" />
               </button>
-            </div> */}
+            </div>
+            <Link href={`/campaigns/${campaign.slug}`} key={campaign.id}>
               <div className="p-4">
-                <h2>{campaign.name}</h2>
-                <p>{campaign.description}</p>
-                <p>Player Level: {campaign.playerLevel}</p>
+                <div className="pb-3">
+                  <div className="flex space-x-2 items-center">
+                    <h2 className="">{campaign.name}</h2>{' '}
+                    <span className="text-gray-400 text-sm">
+                      /{campaign.slug}
+                    </span>
+                  </div>
+                  <p>{campaign.description}</p>
+                </div>
+                <>Number of Players: {campaign.numberOfPlayers}</>
                 <p>Player Experience Start: {campaign.playerExperienceStart}</p>
-                <p>
-                  Encounter Adjusted Experience:{' '}
-                  {campaign.encounterAdjustedExperience}
-                </p>
-                <p>Encounter Experience: {campaign.encounterExperience}</p>
                 <p>Group Dead?: {campaign.groupDead ? 'Yes' : 'No'}</p>
                 <p>Rests: {campaign.rests}</p>
               </div>

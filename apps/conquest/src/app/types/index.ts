@@ -14,13 +14,10 @@ export type AuthProviderProps = {
 export interface Campaign {
   id?: string | undefined;
   name: string;
+  slug: string;
   description: string;
-  playerLevel: number;
   playerExperienceStart: number;
-  encounterAdjustedExperience: number;
-  encounterExperience: number;
   groupDead: boolean;
-  rests: number;
   accountId: string;
   createdAt?: Date;
   updatedAt?: Date;
@@ -80,6 +77,35 @@ export interface CampaignDeleteConfirmationProps {
   onCancel: () => void;
   campaignId: string | undefined;
 }
+
+export type Encounter = {
+  id: number;
+  campaignId: number;
+  mapId: number;
+  playerExperienceStart: number;
+  adventuringDayXPLimit: number;
+  adventuringDayXPStart: number;
+  encounterDifficultyOptions: string;
+  adventuringDayXPFinish: number;
+  playerExperienceEarnedFromEncounter: number;
+  playerExperienceFinish: number;
+  levelOfPlayersCharactersFinish: number;
+  shortRestNeededFirst: string;
+  shortRestNeededSecond: string;
+  longRestNeeded: boolean;
+  timeSpentBetweenResting: number;
+  timeBetweenEncounters: string;
+  mapShape: string;
+  mapTerrainType: string;
+  startingQuadrantOfOpposition: boolean;
+  objective: string;
+  timeOfDay: string;
+  weather: boolean;
+  cumulativeGoldEarnedStart: number;
+  goldEarnedPerPlayer: number;
+  cumulativeGoldEarnedFinish: number;
+  doesCaravanAppear: boolean;
+};
 
 export interface FormData {
   [key: string]: any; // Use a more specific type instead of 'any' if possible

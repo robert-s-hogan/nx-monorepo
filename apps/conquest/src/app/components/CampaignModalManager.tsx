@@ -5,7 +5,8 @@ import CampaignForm from '@components/CampaignForm';
 import CampaignModal from '@components/CampaignModal';
 
 import { useCampaigns } from '@hooks/useCampaigns';
-import { useCampaignForm } from '@hooks/useCampaignForm';
+import { useCampaignOperations } from '@hooks/useCampaignOperations';
+
 import {
   Campaign,
   CampaignAddModalProps,
@@ -23,90 +24,43 @@ const CampaignModalManager = ({
   operation: 'add' | 'edit' | 'delete';
   campaign: Campaign;
 }) => {
-  const { handleAddCampaign, handleDeleteCampaign, handleEditCampaign } =
-    useCampaignForm();
+  const { handleSave, handleDelete } = useCampaignOperations(onClose);
+  let titleText =
+    operation === 'add'
+      ? 'Add Campaign'
+      : operation === 'edit'
+      ? 'Edit Campaign'
+      : 'Delete Campaign';
 
-  const handleSave = async (campaignData: Partial<Campaign>) => {
-    if (!campaignData.name) {
-      console.error('Required campaign data is missing.');
-      return;
-    }
-
-    if (operation === 'edit' && campaign?.id) {
-      await handleEditCampaign(campaignData as Campaign);
-    } else if (operation === 'add') {
-      await handleAddCampaign(campaignData as Campaign);
-    }
-    onClose();
-  };
-
-  const handleDelete = async () => {
-    if (campaign && campaign.id) {
-      await handleDeleteCampaign(campaign.id);
-    }
-    onClose();
-  };
-
-  const renderAddOrEditModalContent = (): JSX.Element => {
-    const modalProps: CampaignAddModalProps = {
-      isOpen,
-      onClose,
-      onSave: handleSave,
-    };
-    return (
-      <>
-        <CampaignModal
-          {...modalProps}
-          operation={operation}
-          title={operation === 'add' ? 'New Campaign' : 'Edit Campaign'}
-          campaign={campaign}
-        >
+  const renderContent = () => {
+    switch (operation) {
+      case 'add':
+      case 'edit':
+        return (
           <CampaignForm
             campaign={campaign}
-            onSubmit={handleSave}
+            onSubmit={(formData) => handleSave(formData, operation)}
             operation={operation}
           />
-        </CampaignModal>
-      </>
-    );
-  };
-
-  const renderDeleteModalContent = (): JSX.Element => {
-    const handleDeleteAdjusted = () => {
-      if (campaign && campaign.id) {
-        handleDeleteCampaign(campaign.id);
-      }
-      onClose();
-    };
-
-    const deleteModalProps = {
-      isOpen,
-      onClose,
-      campaign,
-      onDelete: handleDeleteAdjusted,
-    };
-    return (
-      <CampaignModal
-        {...deleteModalProps}
-        // title="Delete Campaign"
-        operation={operation}
-      >
-        <CampaignDeleteConfirmation
-          campaignId={campaign.id}
-          campaign={campaign}
-          onConfirm={handleDelete}
-          onCancel={onClose}
-        />
-      </CampaignModal>
-    );
+        );
+      case 'delete':
+        return (
+          <CampaignDeleteConfirmation
+            campaignId={campaign.id}
+            campaign={campaign}
+            onConfirm={() => handleDelete(campaign.id)}
+            onCancel={onClose}
+          />
+        );
+      default:
+        return null; // Or some default/fallback content
+    }
   };
 
   return (
-    <>
-      {operation === 'delete'
-        ? renderDeleteModalContent()
-        : renderAddOrEditModalContent()}
-    </>
+    <CampaignModal isOpen={isOpen} onClose={onClose} title={titleText}>
+      {renderContent()}
+    </CampaignModal>
   );
 };
 
