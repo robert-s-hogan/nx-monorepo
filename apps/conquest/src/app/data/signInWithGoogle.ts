@@ -14,7 +14,6 @@ export const signInWithGoogle = () => {
       ) as OAuthCredential | null;
 
       if (credential) {
-        // Now that we've confirmed credential is not null, it's safe to access accessToken
         const token = credential.accessToken;
       }
 
@@ -29,7 +28,6 @@ export const signInWithGoogle = () => {
 
       const email = error.customData.email;
 
-      // It's safe to assume `credential` might also be null here, hence not using it directly
       console.error(errorMessage);
     });
 };

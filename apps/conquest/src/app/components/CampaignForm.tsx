@@ -21,27 +21,23 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
     onSubmit: (values) => {
       console.log(`Form data: ${JSON.stringify(values)}`);
 
-      // Start with all values for 'add' operation
       let campaignData: Partial<Campaign> = { ...values };
 
       if (operation === 'edit') {
-        // For 'edit', ensure 'id' is included
         campaignData = { ...values, id: values.id };
       }
 
       console.log('Campaign data for save:', campaignData);
 
-      // Pass `campaignData` to `onSubmit`, which may or may not include `id` depending on the operation
       onSubmit(campaignData);
     },
   });
 
-  // Handle changes to the "Number of Players" field
   const handleNumberOfPlayersChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const updatedValue = e.target.value;
-    formik.setFieldValue('numberOfPlayers', updatedValue); // Update the Formik state
+    formik.setFieldValue('numberOfPlayers', updatedValue);
   };
 
   return (

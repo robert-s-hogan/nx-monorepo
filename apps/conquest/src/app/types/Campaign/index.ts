@@ -33,8 +33,8 @@ export interface CampaignDeleteModalProps {
 }
 
 export interface CampaignFormProps {
-  campaign?: Partial<Campaign> | null; // Include null
-  onSubmit: (formData: Partial<Campaign>, campaignId?: string) => void; // Updated to expect an optional campaignId
+  campaign?: Partial<Campaign> | null;
+  onSubmit: (formData: Partial<Campaign>, campaignId?: string) => void;
   operation: ModalOperation;
 }
 
@@ -49,7 +49,7 @@ export interface CampaignModalManagerProps {
   isOpen: boolean;
   onClose: () => void;
   operation: ModalOperation;
-  campaign: Campaign | undefined | null; // Include null
+  campaign: Campaign | null;
 }
 
 export interface CampaignModalProps {
@@ -57,10 +57,10 @@ export interface CampaignModalProps {
   title?: string;
   isOpen: boolean;
   onClose: () => void;
-  operation?: ModalOperation; // Made optional
-  campaign: Campaign | undefined | null; // Include null
-  onSave?: (campaignData: Partial<Campaign>) => void; // Made optional
-  onDelete?: (campaign: Campaign) => void; // Made optional
+  operation?: ModalOperation;
+  campaign: Campaign | undefined | null;
+  onSave?: (campaignData: Partial<Campaign>) => void;
+  onDelete?: (campaign: Campaign) => void;
 }
 
 export interface CampaignDeleteConfirmationProps {

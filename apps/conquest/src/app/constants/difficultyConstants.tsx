@@ -1,5 +1,4 @@
 export function getRandomEncounterDifficulty() {
-  // Simulate a 1d100 roll
   const roll = Math.floor(Math.random() * 100) + 1;
 
   if (roll <= 15) {

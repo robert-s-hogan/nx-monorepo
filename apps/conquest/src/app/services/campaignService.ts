@@ -13,27 +13,23 @@ import { Campaign } from '@conquestTypes/Campaign';
 
 import { generateSlug } from '@conquestUtils/generateSlug';
 
-// Adding a Campaign to Firestore
 export const addCampaign = async (campaignData: Campaign): Promise<string> => {
   if (!campaignData) {
     throw new Error('Campaign data is required');
   }
 
-  // Generate the slug using the campaign name
   const slug = generateSlug(campaignData.name);
 
-  // Include the generated slug in the campaign data
   const dataWithSlug = { ...campaignData, slug };
 
   try {
     const campaignRef = await addDoc(collection(db, 'campaigns'), dataWithSlug);
-    return campaignRef.id; // Return the Firestore document ID of the added campaign
+    return campaignRef.id;
   } catch (error) {
     throw new Error('Failed to add campaign');
   }
 };
 
-// Updating an Existing Campaign in Firestore
 export const editCampaign = async (
   id: string,
   campaignData: Partial<Campaign>
@@ -46,17 +42,14 @@ export const editCampaign = async (
     await updateDoc(campaignRef, campaignData);
   } catch (error) {
     console.error('Error updating campaign:', error);
-    // Handle the error appropriately
   }
 };
 
-// Deleting a Campaign from Firestore
 export const deleteCampaign = async (id: string): Promise<void> => {
   const campaignRef = doc(db, 'campaigns', id);
   await deleteDoc(campaignRef);
 };
 
-// Fetching All Campaigns from Firestore
 export const fetchCampaigns = async (): Promise<Campaign[]> => {
   const campaignsCollection = collection(db, 'campaigns');
   const campaignsSnapshot = await getDocs(campaignsCollection);
@@ -70,7 +63,6 @@ export const fetchCampaigns = async (): Promise<Campaign[]> => {
   return campaigns;
 };
 
-// Fetching a Campaign by Slug from Firestore
 export const fetchCampaignBySlug = async (
   slug: string
 ): Promise<Campaign | null> => {
@@ -79,7 +71,7 @@ export const fetchCampaignBySlug = async (
   const querySnapshot = await getDocs(q);
 
   if (querySnapshot.empty) {
-    return null; // Campaign not found
+    return null;
   }
 
   const doc = querySnapshot.docs[0];

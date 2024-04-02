@@ -17,20 +17,16 @@ export const useCampaignOperations = (onClose: () => void) => {
       return;
     }
 
-    // Assuming the 'name' field is mandatory and the rest can be partial
-    // for 'add' operation, ensure all required fields are present or have default values
     if (operation === 'add') {
       const fullCampaignData: Campaign = {
-        // Provide default values or validation for all required Campaign properties
-        name: campaignData.name, // 'name' is already validated above
-        slug: campaignData.slug ?? 'default-slug', // Example default value
+        name: campaignData.name,
+        slug: campaignData.slug ?? 'default-slug',
         description: campaignData.description ?? '',
         numberOfPlayers: campaignData.numberOfPlayers ?? 1,
         playerExperienceStart: campaignData.playerExperienceStart ?? 0,
         groupDead: campaignData.groupDead ?? false,
         rests: campaignData.rests ?? 0,
-        accountId: 'default-account', // This should be derived from your auth logic
-        // Add other required fields with default values or validation here
+        accountId: 'default-account',
       };
 
       await handleAddCampaign(fullCampaignData);
@@ -39,7 +35,7 @@ export const useCampaignOperations = (onClose: () => void) => {
         console.error('No campaign ID provided for edit operation');
         return;
       }
-      await handleEditCampaign(campaignData as Campaign); // Type assertion, be cautious
+      await handleEditCampaign(campaignData as Campaign);
       router.push(`/campaigns/${campaignData.slug}`);
     }
 

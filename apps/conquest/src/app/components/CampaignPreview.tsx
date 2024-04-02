@@ -23,12 +23,10 @@ const CampaignPreview: React.FC<CampaignPreviewProps> = ({
   campaign,
   difficulty,
 }) => {
-  // Fetch level details based on player's starting experience
   const levelDetails = getLevelDetailsFromExperience(
     campaign.playerExperienceStart
   );
 
-  // Use custom hook to get encounter calculations based on campaign and difficulty
   const { xpThresholds, adventuringDayXp, adventuringDayXPLimit } =
     useEncounterCalculations(campaign, difficulty);
 

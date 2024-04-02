@@ -15,6 +15,6 @@ export const useEncounters = (campaignId: string) => {
     encounters,
     isLoading: !error && !encounters,
     isError: error,
-    mutate, // Exposing mutate for refetching or updating encounters data
+    mutate,
   };
 };

@@ -8,14 +8,14 @@ interface ConquestModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
-  children: React.ReactNode; // Accept any React node as children
+  children: React.ReactNode;
 }
 
 const ConquestModal: React.FC<ConquestModalProps> = ({
   isOpen,
   onClose,
   title,
-  children, // Now using children prop
+  children,
 }) => {
   return (
     <>

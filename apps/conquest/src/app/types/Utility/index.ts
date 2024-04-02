@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 export interface FormData {
-  [key: string]: any; // Use a more specific type instead of 'any' if possible
+  [key: string]: any;
 }
 
 export type ProviderProps = {

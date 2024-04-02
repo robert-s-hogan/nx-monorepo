@@ -11,7 +11,6 @@ import {
 } from 'firebase/firestore';
 import { Encounter } from '@conquestTypes/Encounter';
 
-// Add an Encounter
 export const addEncounter = async (
   encounterData: Encounter
 ): Promise<string> => {
@@ -19,10 +18,9 @@ export const addEncounter = async (
     collection(db, 'encounters'),
     encounterData
   );
-  return encounterRef.id; // Return the Firestore document ID
+  return encounterRef.id;
 };
 
-// Edit an Encounter
 export const editEncounter = async (
   id: string,
   encounterData: Partial<Encounter>
@@ -31,13 +29,11 @@ export const editEncounter = async (
   await updateDoc(encounterRef, encounterData);
 };
 
-// Delete an Encounter
 export const deleteEncounter = async (id: string): Promise<void> => {
   const encounterRef = doc(db, 'encounters', id);
   await deleteDoc(encounterRef);
 };
 
-// Fetch Encounters by Campaign ID
 export const fetchEncountersByCampaign = async (
   campaignId: string
 ): Promise<Encounter[]> => {

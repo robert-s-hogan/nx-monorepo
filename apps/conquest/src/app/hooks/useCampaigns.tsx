@@ -13,6 +13,6 @@ export const useCampaigns = () => {
     campaigns,
     isLoading: !error && !campaigns,
     isError: error,
-    mutate, // Expose mutate function for refreshing campaigns data
+    mutate,
   };
 };

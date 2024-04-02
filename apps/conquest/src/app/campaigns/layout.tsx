@@ -6,8 +6,6 @@ interface CampaignsLayoutProps {
 }
 
 const CampaignsLayout = ({ children }: CampaignsLayoutProps) => {
-  // Get the current campaign ID from the router query
-
   return (
     <AuthProvider>
       <CampaignProvider>{children}</CampaignProvider>

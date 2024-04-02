@@ -45,18 +45,16 @@ const CampaignModalManager = ({
             campaign={campaign}
             onConfirm={() => {
               if (campaign.id) {
-                // Check if campaign.id is defined
                 handleDelete(campaign.id);
               } else {
                 console.error('Campaign ID is undefined.');
-                // Handle the undefined ID case here (e.g., show an error message)
               }
             }}
             onCancel={onClose}
           />
         );
       default:
-        return null; // Or some default/fallback content
+        return null;
     }
   };
 

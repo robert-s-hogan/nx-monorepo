@@ -4,7 +4,6 @@ import {
   XPThresholdsByCharLvl,
 } from '@conquestTypes/Encounter';
 
-// Defining the xpLookupTable with explicit type XPLookupTable
 export const xpLookupTable: XPLookupTable = {
   1: 300,
   2: 600,
@@ -180,7 +179,7 @@ export const getLevelDetailsFromExperience = (experience: number) => {
     (entry) => experience >= entry.xpStart && experience <= entry.xpEnd
   );
 
-  return levelDetails || xpTotalToLevelTable[xpTotalToLevelTable.length - 1]; // Return the last level if experience exceeds all defined levels
+  return levelDetails || xpTotalToLevelTable[xpTotalToLevelTable.length - 1];
 };
 
 export const xpThresholdsByCharLvl: XPThresholdsByCharLvl = {
@@ -215,7 +214,6 @@ export const getXPThresholds = (
   return thresholds[encounterDifficultyOptions] * numberOfPlayers;
 };
 
-// For the adventuring day calculations
 export const calculateAdventuringDayXPStart = (
   adventuringDayXPLimit: number,
   adventuringDayXPLimitDifference: number,

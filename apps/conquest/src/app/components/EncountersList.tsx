@@ -1,5 +1,3 @@
-// components/EncountersList.jsx
-
 import React from 'react';
 import { EncounterListProps } from '@conquestTypes/Encounter';
 
@@ -10,7 +8,7 @@ const EncountersList: React.FC<EncounterListProps> = ({ encounters = [] }) => {
       <ul>
         {encounters &&
           encounters.map((encounter, index) => (
-            <li key={index}>{encounter.id}</li> // Display basic info, consider adding more details or actions
+            <li key={index}>{encounter.id}</li>
           ))}
       </ul>
     </div>

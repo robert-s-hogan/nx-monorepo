@@ -66,7 +66,6 @@ export function useEncounterCalculations(
           ),
         });
 
-        // Use getAdventuringDayXp to set the Adventuring Day XP Limit based on the level
         const adventuringDayXP = getAdventuringDayXp(details.level);
         setAdventuringDayXp(adventuringDayXP);
         setAdventuringDayXPLimit(adventuringDayXP * campaign.numberOfPlayers);

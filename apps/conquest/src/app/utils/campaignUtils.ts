@@ -9,24 +9,20 @@ import {
 } from 'firebase/firestore';
 import { Campaign } from '@conquestTypes/Campaign';
 
-// Adding a Campaign to Firestore
 export const addCampaign = async (campaignData: Campaign): Promise<string> => {
   try {
-    // Create the document in Firestore and get the reference
     const docRef = await addDoc(collection(db, 'campaigns'), campaignData);
 
-    // Update the document with the newly generated ID
     await updateDoc(docRef, { id: docRef.id });
 
-    console.log('Campaign added with ID:', docRef.id); // Log success with the new document ID
+    console.log('Campaign added with ID:', docRef.id);
     return docRef.id;
   } catch (error) {
     console.error('Error adding campaign:', error);
-    throw new Error('Failed to add campaign'); // Throw a user-friendly error
+    throw new Error('Failed to add campaign');
   }
 };
 
-// Updating an existing Campaign in Firestore
 export const editCampaign = async (
   id: string,
   campaignData: Partial<Campaign>
@@ -42,18 +38,16 @@ export const editCampaign = async (
   }
 };
 
-// Deleting a Campaign from Firestore
 export const deleteCampaign = async (id: string): Promise<void> => {
   try {
     await deleteDoc(doc(db, 'campaigns', id));
-    console.log('Campaign deleted:', id); // Log success
+    console.log('Campaign deleted:', id);
   } catch (error) {
     console.error('Error deleting campaign:', error);
-    throw new Error('Failed to delete campaign'); // Throw a user-friendly error
+    throw new Error('Failed to delete campaign');
   }
 };
 
-// Fetching all Campaigns from Firestore
 export const fetchCampaigns = async (): Promise<Campaign[]> => {
   try {
     const campaignsCollectionRef = collection(db, 'campaigns');
@@ -64,6 +58,6 @@ export const fetchCampaigns = async (): Promise<Campaign[]> => {
     })) as Campaign[];
   } catch (error) {
     console.error('Error fetching campaigns:', error);
-    throw new Error('Failed to fetch campaigns'); // Throw a user-friendly error
+    throw new Error('Failed to fetch campaigns');
   }
 };
