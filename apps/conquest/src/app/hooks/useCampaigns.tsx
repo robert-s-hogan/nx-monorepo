@@ -1,6 +1,6 @@
 import useSWR, { mutate } from 'swr';
 import { fetchCampaigns as fetchCampaignsService } from '@services/campaignService';
-import { Campaign } from '../types';
+import { Campaign } from '@conquestTypes/Campaign';
 
 export const useCampaigns = () => {
   const {

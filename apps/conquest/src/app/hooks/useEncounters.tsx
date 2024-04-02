@@ -1,9 +1,8 @@
 import useSWR from 'swr';
 import { fetchEncounters as fetchEncountersService } from '@services/encounterService';
-import { Encounter } from '../types'; // Assuming Encounter type is defined in your types file
+import { Encounter } from '@conquestTypes/Encounter';
 
 export const useEncounters = (campaignId: string) => {
-  // Use campaignId in your key to fetch encounters related to a specific campaign
   const {
     data: encounters,
     error,
@@ -16,6 +15,6 @@ export const useEncounters = (campaignId: string) => {
     encounters,
     isLoading: !error && !encounters,
     isError: error,
-    mutate, // Expose mutate function for refreshing encounters data
+    mutate, // Exposing mutate for refetching or updating encounters data
   };
 };

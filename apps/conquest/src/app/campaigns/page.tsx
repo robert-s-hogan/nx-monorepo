@@ -2,14 +2,15 @@
 
 import React, { useState } from 'react';
 import { NextPage } from 'next';
-import useSWR, { mutate } from 'swr';
+import useSWR from 'swr';
 import { useRouter } from 'next/navigation';
 
 import Layout from '@components/Layout';
 import CampaignList from '@components/CampaignList';
 import CampaignModalManager from '@components/CampaignModalManager';
 import withAuth from '@utils/withAuth';
-import { Campaign, ModalOperation } from '../types';
+import { Campaign } from '@conquestTypes/Campaign';
+import { ModalOperation } from '@conquestTypes/Utility';
 import { fetchCampaigns as fetchCampaignsService } from '@services/campaignService';
 
 const CampaignsPage: NextPage = () => {

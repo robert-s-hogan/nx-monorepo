@@ -1,13 +1,11 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import { Campaign, CampaignFormProps } from '../types';
+import { Campaign, CampaignFormProps } from '@conquestTypes/Campaign';
 
 const CampaignForm: React.FC<CampaignFormProps> = ({
   campaign,
   onSubmit,
   operation,
-  difficulty,
-  onDifficultyChange,
 }) => {
   const formik = useFormik({
     initialValues: {
@@ -22,15 +20,18 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
     },
     onSubmit: (values) => {
       console.log(`Form data: ${JSON.stringify(values)}`);
-      const { id, ...campaignData } = values;
-      console.log('Campaign data for save:', campaignData);
+
+      // Start with all values for 'add' operation
+      let campaignData: Partial<Campaign> = { ...values };
 
       if (operation === 'edit') {
-        // Include the `id` in `campaignData` for editing
-        campaignData.id = id;
+        // For 'edit', ensure 'id' is included
+        campaignData = { ...values, id: values.id };
       }
 
-      // Pass `campaignData` to `handleSave`, which now may or may not include `id`
+      console.log('Campaign data for save:', campaignData);
+
+      // Pass `campaignData` to `onSubmit`, which may or may not include `id` depending on the operation
       onSubmit(campaignData);
     },
   });
@@ -41,12 +42,6 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
   ) => {
     const updatedValue = e.target.value;
     formik.setFieldValue('numberOfPlayers', updatedValue); // Update the Formik state
-  };
-
-  // Handle changes to the "Difficulty" field
-  const handleDifficultyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newDifficulty = e.target.value;
-    onDifficultyChange(newDifficulty); // Call the parent's onDifficultyChange handler with the new value
   };
 
   return (

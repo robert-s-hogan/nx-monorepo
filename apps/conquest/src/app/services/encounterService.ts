@@ -9,7 +9,7 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
-import { Encounter } from '../types'; // Assuming you've created an Encounter type
+import { Encounter } from '@conquestTypes/Encounter';
 
 // Add an Encounter
 export const addEncounter = async (
@@ -54,7 +54,9 @@ export const fetchEncountersByCampaign = async (
   return encounters;
 };
 
-export const fetchEncounters = async (): Promise<Encounter[]> => {
+export const fetchEncounters = async (
+  campaignId: string
+): Promise<Encounter[]> => {
   const encountersRef = collection(db, 'encounters');
   const querySnapshot = await getDocs(encountersRef);
 

@@ -29,7 +29,7 @@ export default function DynamicCampaignPage() {
     encounters,
     isLoading: isEncountersLoading,
     isError: isEncountersError,
-  } = useEncounters(selectedCampaign?.id);
+  } = useEncounters(selectedCampaign?.id as string); // Fetch encounters for the selected campaign
 
   // Fetch the selected campaign data based on the slug
   useEffect(() => {
@@ -61,36 +61,44 @@ export default function DynamicCampaignPage() {
           <div className="w-full lg:w-1/2 p-4 flex flex-col">
             <div className="flex items-center space-between space-x-2">
               <h2>Your Campaign</h2>
-              <button className="btn-primary" onClick={handleAddCampaign}>
+              <button
+                className="btn-primary"
+                onClick={handleAddCampaign as any}
+              >
                 Add
               </button>
             </div>
             {!isEditMode ? (
               <>
-                {campaigns.map((campaign) => (
-                  <div
-                    key={campaign.id}
-                    className="border border-black rounded my-4 p-4"
-                  >
-                    <div className="flex items-center space-between space-x-2">
-                      <button
-                        onClick={() => setIsEditMode(true)}
-                        className="btn-edit flex ml-auto"
-                      >
-                        <IonIcon icon={create} size="large" />
-                      </button>
-                      <button onClick={() => onDelete(campaign.id as string)}>
-                        <IonIcon icon={trash} size="large" />
-                      </button>
+                {campaigns &&
+                  campaigns.map((campaign) => (
+                    <div
+                      key={campaign.id}
+                      className="border border-black rounded my-4 p-4"
+                    >
+                      <div className="flex items-center space-between space-x-2">
+                        <button
+                          onClick={() => handleEditCampaign(campaign)}
+                          className="btn-edit flex ml-auto"
+                        >
+                          <IonIcon icon={create} size="large" />
+                        </button>
+                        <button
+                          onClick={() =>
+                            handleDeleteCampaign(campaign.id as string)
+                          }
+                        >
+                          <IonIcon icon={trash} size="large" />
+                        </button>
+                      </div>
+                      <div className="pb-2">
+                        <h2 className="my-0">{campaign.name}</h2>
+                        <p className="py-0">{campaign.description}</p>
+                      </div>
+                      <p>Players: {campaign.numberOfPlayers}</p>
+                      <p>Group Alive: {campaign.groupDead ? 'No' : 'Yes'}</p>
                     </div>
-                    <div className="pb-2">
-                      <h2 className="my-0">{campaign.name}</h2>
-                      <p className="py-0">{campaign.description}</p>
-                    </div>
-                    <p>Players: {campaign.numberOfPlayers}</p>
-                    <p>Group Alive: {campaign.groupDead ? 'No' : 'Yes'}</p>
-                  </div>
-                ))}
+                  ))}
               </>
             ) : (
               <div className="border border-black mb-4 p-4">
@@ -114,7 +122,7 @@ export default function DynamicCampaignPage() {
             ) : isEncountersError ? (
               <div>Error loading encounters.</div>
             ) : (
-              <EncountersList encounters={encounters} />
+              <EncountersList encounters={encounters || []} />
             )}
           </div>
         </div>

@@ -7,7 +7,7 @@ import {
   getDocs,
   updateDoc,
 } from 'firebase/firestore';
-import { Campaign } from '../CampaignContext';
+import { Campaign } from '@conquestTypes/Campaign';
 
 // Adding a Campaign to Firestore
 export const addCampaign = async (campaignData: Campaign): Promise<string> => {

@@ -2878,15 +2878,6 @@
       "type": "npm",
       "name": "npm:@babel/preset-typescript",
       "data": {
-        "version": "7.12.13",
-        "packageName": "@babel/preset-typescript",
-        "hash": "sha512-gYry7CeXwD2wtw5qHzrtzKaShEhOfTmKb4i0ZxeYBcBosN5VuAudsNbjX7Oj5EAfQ3K4s4HsVMQRRcqGsPvs2A=="
-      }
-    },
-    "npm:@babel/preset-typescript@7.24.1": {
-      "type": "npm",
-      "name": "npm:@babel/preset-typescript@7.24.1",
-      "data": {
         "version": "7.24.1",
         "packageName": "@babel/preset-typescript",
         "hash": "sha512-1DBaMmRDpuYQBPWD8Pf/WEwCrtgRHxsZnP4mIy9G/X+hFfbI47Q2G4t1Paakld84+qsk2fSsUPMKg71jkoOOaQ=="
@@ -7401,15 +7392,6 @@
         "hash": "sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q=="
       }
     },
-    "npm:@typescript-eslint/eslint-plugin": {
-      "type": "npm",
-      "name": "npm:@typescript-eslint/eslint-plugin",
-      "data": {
-        "version": "6.20.0",
-        "packageName": "@typescript-eslint/eslint-plugin",
-        "hash": "sha512-fTwGQUnjhoYHeSF6m5pWNkzmDDdsKELYrOBxhjMrofPqCkoC2k3B2wvGHFxa1CTIqkEn88nlW1HVMztjo2K8Hg=="
-      }
-    },
     "npm:@typescript-eslint/parser": {
       "type": "npm",
       "name": "npm:@typescript-eslint/parser",
@@ -7449,15 +7431,6 @@
     "npm:@typescript-eslint/type-utils": {
       "type": "npm",
       "name": "npm:@typescript-eslint/type-utils",
-      "data": {
-        "version": "6.20.0",
-        "packageName": "@typescript-eslint/type-utils",
-        "hash": "sha512-qnSobiJQb1F5JjN0YDRPHruQTrX7ICsmltXhkV536mp4idGAYrIyr47zF/JmkJtEcAVnIz4gUYJ7gOZa6SmN4g=="
-      }
-    },
-    "npm:@typescript-eslint/type-utils@6.21.0": {
-      "type": "npm",
-      "name": "npm:@typescript-eslint/type-utils@6.21.0",
       "data": {
         "version": "6.21.0",
         "packageName": "@typescript-eslint/type-utils",
@@ -7518,22 +7491,13 @@
         "hash": "sha512-6npJTkZcO+y2/kr+z0hc4HwNfrrP4kNYh57ek7yCNlrBjWQ1Y0OS7jiZTkgumrvkX5HkEKXFZkkdFNkaW2wmUQ=="
       }
     },
-    "npm:@typescript-eslint/utils@5.62.0": {
-      "type": "npm",
-      "name": "npm:@typescript-eslint/utils@5.62.0",
-      "data": {
-        "version": "5.62.0",
-        "packageName": "@typescript-eslint/utils",
-        "hash": "sha512-n8oxjeb5aIbPFEtmQxQYOLI0i9n5ySBEY/ZEHHZqKQSFnxio1rv6dthascc9dLuwrL0RC5mPCxB7vnAVGAYWAQ=="
-      }
-    },
     "npm:@typescript-eslint/utils": {
       "type": "npm",
       "name": "npm:@typescript-eslint/utils",
       "data": {
-        "version": "6.20.0",
+        "version": "5.62.0",
         "packageName": "@typescript-eslint/utils",
-        "hash": "sha512-/EKuw+kRu2vAqCoDwDCBtDRU6CTKbUmwwI7SH7AashZ+W+7o8eiyy6V2cdOqN49KsTcASWsC5QeghYuRDTyOOg=="
+        "hash": "sha512-n8oxjeb5aIbPFEtmQxQYOLI0i9n5ySBEY/ZEHHZqKQSFnxio1rv6dthascc9dLuwrL0RC5mPCxB7vnAVGAYWAQ=="
       }
     },
     "npm:@typescript-eslint/utils@6.21.0": {
@@ -20955,13 +20919,22 @@
         "hash": "sha512-sJ0T08dV5eoZroaq9uPKBoNcGslHBR4E4y+EBHs//SiGbblGe7IeduP/IH4ddCcj0qp3PHwDwGnuvqEAnKlq/Q=="
       }
     },
-    "npm:typescript": {
+    "npm:typescript@5.3.3": {
       "type": "npm",
-      "name": "npm:typescript",
+      "name": "npm:typescript@5.3.3",
       "data": {
         "version": "5.3.3",
         "packageName": "typescript",
         "hash": "sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw=="
+      }
+    },
+    "npm:typescript": {
+      "type": "npm",
+      "name": "npm:typescript",
+      "data": {
+        "version": "5.4.3",
+        "packageName": "typescript",
+        "hash": "sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg=="
       }
     },
     "npm:ufo": {
@@ -22117,6 +22090,11 @@
       },
       {
         "source": "nextjs-react-ui",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "nextjs-react-ui",
         "target": "npm:react",
         "type": "static"
       }
@@ -22148,6 +22126,11 @@
     "coffee-shop": [
       {
         "source": "coffee-shop",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "coffee-shop",
         "target": "react-ui",
         "type": "static"
       },
@@ -22164,6 +22147,11 @@
       {
         "source": "coffee-shop",
         "target": "types",
+        "type": "static"
+      },
+      {
+        "source": "coffee-shop",
+        "target": "npm:@nrwl/next",
         "type": "static"
       },
       {
@@ -22180,6 +22168,11 @@
         "source": "coffee-shop",
         "target": "npm:@testing-library/react",
         "type": "static"
+      },
+      {
+        "source": "coffee-shop",
+        "target": "npm:@nrwl/react",
+        "type": "static"
       }
     ],
     "placeholder": [
@@ -22195,12 +22188,27 @@
       },
       {
         "source": "placeholder",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "placeholder",
         "target": "npm:next-themes",
         "type": "static"
       },
       {
         "source": "placeholder",
+        "target": "npm:react-icons",
+        "type": "static"
+      },
+      {
+        "source": "placeholder",
         "target": "nextjs-react-ui",
+        "type": "static"
+      },
+      {
+        "source": "placeholder",
+        "target": "npm:@nrwl/next",
         "type": "static"
       },
       {
@@ -22216,6 +22224,11 @@
       {
         "source": "placeholder",
         "target": "npm:@testing-library/react",
+        "type": "static"
+      },
+      {
+        "source": "placeholder",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
@@ -22254,6 +22267,11 @@
       },
       {
         "source": "accountant",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "accountant",
         "target": "nextjs-react-ui",
         "type": "static"
       },
@@ -22264,7 +22282,17 @@
       },
       {
         "source": "accountant",
+        "target": "npm:@nrwl/next",
+        "type": "static"
+      },
+      {
+        "source": "accountant",
         "target": "npm:@testing-library/react",
+        "type": "static"
+      },
+      {
+        "source": "accountant",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
@@ -22272,6 +22300,16 @@
       {
         "source": "play2winff",
         "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "npm:react-icons",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "npm:next",
         "type": "static"
       },
       {
@@ -22306,7 +22344,7 @@
       },
       {
         "source": "play2winff",
-        "target": "npm:next",
+        "target": "npm:@nrwl/next",
         "type": "static"
       },
       {
@@ -22318,6 +22356,11 @@
         "source": "play2winff",
         "target": "npm:@testing-library/react",
         "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "npm:@nrwl/react",
+        "type": "static"
       }
     ],
     "rshogancom": [
@@ -22328,12 +22371,22 @@
       },
       {
         "source": "rshogancom",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "rshogancom",
         "target": "npm:react",
         "type": "static"
       },
       {
         "source": "rshogancom",
         "target": "npm:react-redux",
+        "type": "static"
+      },
+      {
+        "source": "rshogancom",
+        "target": "npm:react-icons",
         "type": "static"
       },
       {
@@ -22378,12 +22431,22 @@
       },
       {
         "source": "rshogancom",
+        "target": "npm:@nrwl/next",
+        "type": "static"
+      },
+      {
+        "source": "rshogancom",
         "target": "npm:@sendgrid/mail",
         "type": "static"
       },
       {
         "source": "rshogancom",
         "target": "npm:redux",
+        "type": "static"
+      },
+      {
+        "source": "rshogancom",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
@@ -22416,6 +22479,11 @@
         "source": "analytics",
         "target": "npm:@testing-library/react",
         "type": "static"
+      },
+      {
+        "source": "analytics",
+        "target": "npm:next",
+        "type": "static"
       }
     ],
     "constants": [],
@@ -22432,7 +22500,17 @@
       },
       {
         "source": "jhogancom",
+        "target": "npm:react-icons",
+        "type": "static"
+      },
+      {
+        "source": "jhogancom",
         "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "jhogancom",
+        "target": "npm:next",
         "type": "static"
       },
       {
@@ -22452,6 +22530,11 @@
       },
       {
         "source": "jhogancom",
+        "target": "npm:@nrwl/next",
+        "type": "static"
+      },
+      {
+        "source": "jhogancom",
         "target": "analytics",
         "type": "static"
       },
@@ -22459,9 +22542,29 @@
         "source": "jhogancom",
         "target": "npm:react-hotjar",
         "type": "static"
+      },
+      {
+        "source": "jhogancom",
+        "target": "npm:@nrwl/react",
+        "type": "static"
       }
     ],
     "neuro-fit": [
+      {
+        "source": "neuro-fit",
+        "target": "npm:@nrwl/next",
+        "type": "static"
+      },
+      {
+        "source": "neuro-fit",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "neuro-fit",
+        "target": "npm:react-icons",
+        "type": "static"
+      },
       {
         "source": "neuro-fit",
         "target": "npm:react",
@@ -22470,6 +22573,11 @@
       {
         "source": "neuro-fit",
         "target": "npm:@testing-library/react",
+        "type": "static"
+      },
+      {
+        "source": "neuro-fit",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
@@ -22481,7 +22589,17 @@
       },
       {
         "source": "theos-dnd",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "theos-dnd",
         "target": "react-ui",
+        "type": "static"
+      },
+      {
+        "source": "theos-dnd",
+        "target": "npm:react-icons",
         "type": "static"
       },
       {
@@ -22497,6 +22615,16 @@
       {
         "source": "theos-dnd",
         "target": "nextjs-react-ui",
+        "type": "static"
+      },
+      {
+        "source": "theos-dnd",
+        "target": "npm:@nrwl/next",
+        "type": "static"
+      },
+      {
+        "source": "theos-dnd",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
@@ -22545,6 +22673,11 @@
         "source": "conquest",
         "target": "npm:firebase",
         "type": "static"
+      },
+      {
+        "source": "conquest",
+        "target": "npm:@nx/react",
+        "type": "static"
       }
     ],
     "react-ui": [
@@ -22556,6 +22689,11 @@
       {
         "source": "react-ui",
         "target": "npm:@storybook/react",
+        "type": "static"
+      },
+      {
+        "source": "react-ui",
+        "target": "npm:@testing-library/jest-dom",
         "type": "static"
       },
       {
@@ -22575,11 +22713,31 @@
       },
       {
         "source": "react-ui",
+        "target": "npm:react-icons",
+        "type": "static"
+      },
+      {
+        "source": "react-ui",
         "target": "react-hooks",
+        "type": "static"
+      },
+      {
+        "source": "react-ui",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "react-ui",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
     "devblog": [
+      {
+        "source": "devblog",
+        "target": "npm:next",
+        "type": "static"
+      },
       {
         "source": "devblog",
         "target": "react-ui",
@@ -22588,6 +22746,11 @@
       {
         "source": "devblog",
         "target": "icons",
+        "type": "static"
+      },
+      {
+        "source": "devblog",
+        "target": "npm:react-icons",
         "type": "static"
       },
       {
@@ -22637,6 +22800,11 @@
       },
       {
         "source": "devblog",
+        "target": "npm:@nrwl/next",
+        "type": "static"
+      },
+      {
+        "source": "devblog",
         "target": "npm:@next/mdx",
         "type": "static"
       },
@@ -22647,17 +22815,17 @@
       },
       {
         "source": "devblog",
-        "target": "npm:next",
-        "type": "static"
-      },
-      {
-        "source": "devblog",
         "target": "utils",
         "type": "static"
       },
       {
         "source": "devblog",
         "target": "constants",
+        "type": "static"
+      },
+      {
+        "source": "devblog",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
@@ -22670,6 +22838,11 @@
       {
         "source": "icons",
         "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "icons",
+        "target": "npm:next",
         "type": "static"
       }
     ],
@@ -22723,7 +22896,17 @@
       },
       {
         "source": "swapi",
+        "target": "npm:react-icons",
+        "type": "static"
+      },
+      {
+        "source": "swapi",
         "target": "nextjs-react-ui",
+        "type": "static"
+      },
+      {
+        "source": "swapi",
+        "target": "npm:@nrwl/next",
         "type": "static"
       },
       {
@@ -22734,6 +22917,11 @@
       {
         "source": "swapi",
         "target": "icons",
+        "type": "static"
+      },
+      {
+        "source": "swapi",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
@@ -22756,6 +22944,11 @@
       {
         "source": "theme",
         "target": "react-ui",
+        "type": "static"
+      },
+      {
+        "source": "theme",
+        "target": "npm:react-icons",
         "type": "static"
       }
     ],
@@ -24825,7 +25018,7 @@
     "npm:@babel/plugin-transform-typescript": [
       {
         "source": "npm:@babel/plugin-transform-typescript",
-        "target": "npm:@babel/core",
+        "target": "npm:@babel/core@7.24.3",
         "type": "static"
       },
       {
@@ -24846,11 +25039,6 @@
       {
         "source": "npm:@babel/plugin-transform-typescript",
         "target": "npm:@babel/plugin-syntax-typescript",
-        "type": "static"
-      },
-      {
-        "source": "npm:@babel/plugin-transform-typescript",
-        "target": "npm:@babel/core@7.24.3",
         "type": "static"
       }
     ],
@@ -25418,53 +25606,31 @@
     "npm:@babel/preset-typescript": [
       {
         "source": "npm:@babel/preset-typescript",
-        "target": "npm:@babel/core",
-        "type": "static"
-      },
-      {
-        "source": "npm:@babel/preset-typescript",
-        "target": "npm:@babel/helper-plugin-utils",
-        "type": "static"
-      },
-      {
-        "source": "npm:@babel/preset-typescript",
-        "target": "npm:@babel/helper-validator-option",
-        "type": "static"
-      },
-      {
-        "source": "npm:@babel/preset-typescript",
-        "target": "npm:@babel/plugin-transform-typescript",
-        "type": "static"
-      }
-    ],
-    "npm:@babel/preset-typescript@7.24.1": [
-      {
-        "source": "npm:@babel/preset-typescript@7.24.1",
         "target": "npm:@babel/core@7.24.3",
         "type": "static"
       },
       {
-        "source": "npm:@babel/preset-typescript@7.24.1",
+        "source": "npm:@babel/preset-typescript",
         "target": "npm:@babel/helper-plugin-utils",
         "type": "static"
       },
       {
-        "source": "npm:@babel/preset-typescript@7.24.1",
+        "source": "npm:@babel/preset-typescript",
         "target": "npm:@babel/helper-validator-option",
         "type": "static"
       },
       {
-        "source": "npm:@babel/preset-typescript@7.24.1",
+        "source": "npm:@babel/preset-typescript",
         "target": "npm:@babel/plugin-syntax-jsx",
         "type": "static"
       },
       {
-        "source": "npm:@babel/preset-typescript@7.24.1",
+        "source": "npm:@babel/preset-typescript",
         "target": "npm:@babel/plugin-transform-modules-commonjs",
         "type": "static"
       },
       {
-        "source": "npm:@babel/preset-typescript@7.24.1",
+        "source": "npm:@babel/preset-typescript",
         "target": "npm:@babel/plugin-transform-typescript",
         "type": "static"
       }
@@ -28702,7 +28868,7 @@
       },
       {
         "source": "npm:@nx/eslint-plugin",
-        "target": "npm:@typescript-eslint/type-utils@6.21.0",
+        "target": "npm:@typescript-eslint/type-utils",
         "type": "static"
       },
       {
@@ -28769,7 +28935,7 @@
       },
       {
         "source": "npm:@nx/eslint",
-        "target": "npm:typescript",
+        "target": "npm:typescript@5.3.3",
         "type": "static"
       }
     ],
@@ -28873,7 +29039,7 @@
       },
       {
         "source": "npm:@nx/js",
-        "target": "npm:@babel/preset-typescript@7.24.1",
+        "target": "npm:@babel/preset-typescript",
         "type": "static"
       },
       {
@@ -29578,6 +29744,11 @@
       {
         "source": "npm:@phenomnomnominal/tsquery",
         "target": "npm:esquery",
+        "type": "static"
+      },
+      {
+        "source": "npm:@phenomnomnominal/tsquery",
+        "target": "npm:typescript@5.3.3",
         "type": "static"
       },
       {
@@ -33623,7 +33794,7 @@
       },
       {
         "source": "npm:@svgr/webpack",
-        "target": "npm:@babel/preset-typescript@7.24.1",
+        "target": "npm:@babel/preset-typescript",
         "type": "static"
       },
       {
@@ -34431,78 +34602,6 @@
         "type": "static"
       }
     ],
-    "npm:@typescript-eslint/eslint-plugin": [
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:@eslint-community/regexpp",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:@typescript-eslint/parser",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:@typescript-eslint/scope-manager",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:@typescript-eslint/type-utils",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:@typescript-eslint/utils",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:@typescript-eslint/visitor-keys",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:debug",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:eslint",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:graphemer",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:ignore",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:natural-compare",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:semver@7.6.0",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:ts-api-utils",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:typescript",
-        "type": "static"
-      }
-    ],
     "npm:@typescript-eslint/parser": [
       {
         "source": "npm:@typescript-eslint/parser",
@@ -34579,63 +34678,31 @@
     "npm:@typescript-eslint/type-utils": [
       {
         "source": "npm:@typescript-eslint/type-utils",
-        "target": "npm:@typescript-eslint/typescript-estree",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/type-utils",
-        "target": "npm:@typescript-eslint/utils",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/type-utils",
-        "target": "npm:debug",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/type-utils",
-        "target": "npm:eslint",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/type-utils",
-        "target": "npm:ts-api-utils",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/type-utils",
-        "target": "npm:typescript",
-        "type": "static"
-      }
-    ],
-    "npm:@typescript-eslint/type-utils@6.21.0": [
-      {
-        "source": "npm:@typescript-eslint/type-utils@6.21.0",
         "target": "npm:@typescript-eslint/typescript-estree@6.21.0",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/type-utils@6.21.0",
+        "source": "npm:@typescript-eslint/type-utils",
         "target": "npm:@typescript-eslint/utils@6.21.0",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/type-utils@6.21.0",
+        "source": "npm:@typescript-eslint/type-utils",
         "target": "npm:debug",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/type-utils@6.21.0",
+        "source": "npm:@typescript-eslint/type-utils",
         "target": "npm:eslint",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/type-utils@6.21.0",
+        "source": "npm:@typescript-eslint/type-utils",
         "target": "npm:ts-api-utils",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/type-utils@6.21.0",
+        "source": "npm:@typescript-eslint/type-utils",
         "target": "npm:typescript",
         "type": "static"
       }
@@ -34776,53 +34843,6 @@
         "type": "static"
       }
     ],
-    "npm:@typescript-eslint/utils@5.62.0": [
-      {
-        "source": "npm:@typescript-eslint/utils@5.62.0",
-        "target": "npm:@eslint-community/eslint-utils",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/utils@5.62.0",
-        "target": "npm:@types/json-schema",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/utils@5.62.0",
-        "target": "npm:@types/semver",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/utils@5.62.0",
-        "target": "npm:@typescript-eslint/scope-manager@5.62.0",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/utils@5.62.0",
-        "target": "npm:@typescript-eslint/types@5.62.0",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/utils@5.62.0",
-        "target": "npm:@typescript-eslint/typescript-estree@5.62.0",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/utils@5.62.0",
-        "target": "npm:eslint",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/utils@5.62.0",
-        "target": "npm:eslint-scope@5.1.1",
-        "type": "static"
-      },
-      {
-        "source": "npm:@typescript-eslint/utils@5.62.0",
-        "target": "npm:semver@7.6.0",
-        "type": "static"
-      }
-    ],
     "npm:@typescript-eslint/utils": [
       {
         "source": "npm:@typescript-eslint/utils",
@@ -34841,22 +34861,27 @@
       },
       {
         "source": "npm:@typescript-eslint/utils",
-        "target": "npm:@typescript-eslint/scope-manager",
+        "target": "npm:@typescript-eslint/scope-manager@5.62.0",
         "type": "static"
       },
       {
         "source": "npm:@typescript-eslint/utils",
-        "target": "npm:@typescript-eslint/types",
+        "target": "npm:@typescript-eslint/types@5.62.0",
         "type": "static"
       },
       {
         "source": "npm:@typescript-eslint/utils",
-        "target": "npm:@typescript-eslint/typescript-estree",
+        "target": "npm:@typescript-eslint/typescript-estree@5.62.0",
         "type": "static"
       },
       {
         "source": "npm:@typescript-eslint/utils",
         "target": "npm:eslint",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/utils",
+        "target": "npm:eslint-scope@5.1.1",
         "type": "static"
       },
       {
@@ -40143,7 +40168,7 @@
       },
       {
         "source": "npm:eslint-plugin-storybook",
-        "target": "npm:@typescript-eslint/utils@5.62.0",
+        "target": "npm:@typescript-eslint/utils",
         "type": "static"
       },
       {
@@ -44567,7 +44592,7 @@
       },
       {
         "source": "npm:jscodeshift",
-        "target": "npm:@babel/preset-typescript@7.24.1",
+        "target": "npm:@babel/preset-typescript",
         "type": "static"
       },
       {
@@ -52854,7 +52879,7 @@
       },
       {
         "source": "npm:ts-node",
-        "target": "npm:typescript",
+        "target": "npm:typescript@5.3.3",
         "type": "static"
       },
       {
@@ -52865,6 +52890,11 @@
       {
         "source": "npm:ts-node",
         "target": "npm:yn",
+        "type": "static"
+      },
+      {
+        "source": "npm:ts-node",
+        "target": "npm:typescript",
         "type": "static"
       }
     ],

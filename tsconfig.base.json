@@ -1,41 +1,43 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@with-nx/analytics": ["libs/analytics/src/index.ts"],
-      "@with-nx/constants": ["libs/constants/src/index.ts"],
-      "@with-nx/icons": ["libs/icons/src/index.ts"],
-      "@with-nx/icons/feather": ["libs/icons/feather/src/index.ts"],
-      "@with-nx/library": ["libs/library/src/index.ts"],
-      "@with-nx/markdown": ["libs/markdown/src/index.ts"],
-      "@with-nx/nextjs-react-ui": ["libs/nextjs-react-ui/src/index.ts"],
-      "@with-nx/react-hooks": ["libs/react-hooks/src/index.ts"],
-      "@with-nx/react-ui": ["libs/react-ui/src/index.ts"],
-      "@with-nx/shared": ["libs/shared/src/index.ts"],
-      "@with-nx/shared/mdx-elements": ["libs/shared/mdx-elements/src/index.ts"],
-      "@with-nx/store": ["libs/store/src/index.ts"],
-      "@with-nx/store/cart": ["libs/store/cart/src/index.ts"],
-      "@with-nx/store/checkout": ["libs/store/checkout/src/index.ts"],
-      "@with-nx/store/form": ["libs/store/form/src/index.ts"],
-      "@with-nx/store/products": ["libs/store/products/src/index.ts"],
-      "@with-nx/theme": ["libs/theme/src/index.ts"],
-      "@with-nx/types": ["libs/types/src/index.ts"],
-      "@with-nx/ui": ["libs/ui/src/index.ts"],
-      "@with-nx/utils": ["libs/utils/src/index.ts"]
-    }
-  },
-  "exclude": ["node_modules", "tmp"]
-}
+    "compileOnSave": false,
+    "compilerOptions": {
+      "rootDir": ".",
+      "sourceMap": true,
+      "declaration": false,
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "importHelpers": true,
+      "target": "es2015",
+      "module": "esnext",
+      "lib": ["es2017", "dom"],
+      "skipLibCheck": true,
+      "skipDefaultLibCheck": true,
+      "baseUrl": ".",
+      "paths": {
+        "@with-nx/analytics": ["libs/analytics/src/index.ts"],
+        "@with-nx/constants": ["libs/constants/src/index.ts"],
+        "@with-nx/icons": ["libs/icons/src/index.ts"],
+        "@with-nx/icons/feather": ["libs/icons/feather/src/index.ts"],
+        "@with-nx/library": ["libs/library/src/index.ts"],
+        "@with-nx/markdown": ["libs/markdown/src/index.ts"],
+        "@with-nx/nextjs-react-ui": ["libs/nextjs-react-ui/src/index.ts"],
+        "@with-nx/react-hooks": ["libs/react-hooks/src/index.ts"],
+        "@with-nx/react-ui": ["libs/react-ui/src/index.ts"],
+        "@with-nx/shared": ["libs/shared/src/index.ts"],
+        "@with-nx/shared/mdx-elements": ["libs/shared/mdx-elements/src/index.ts"],
+        "@with-nx/store": ["libs/store/src/index.ts"],
+        "@with-nx/store/cart": ["libs/store/cart/src/index.ts"],
+        "@with-nx/store/checkout": ["libs/store/checkout/src/index.ts"],
+        "@with-nx/store/form": ["libs/store/form/src/index.ts"],
+        "@with-nx/store/products": ["libs/store/products/src/index.ts"],
+        "@with-nx/theme": ["libs/theme/src/index.ts"],
+        "@with-nx/types": ["libs/types/src/index.ts"],
+        "@with-nx/ui": ["libs/ui/src/index.ts"],
+        "@with-nx/utils": ["libs/utils/src/index.ts"]
+      }
+    },
+    "exclude": ["node_modules", "tmp"]
+  }
+  
+  

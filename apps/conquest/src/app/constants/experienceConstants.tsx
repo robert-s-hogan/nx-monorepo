@@ -1,4 +1,12 @@
-export const xpLookupTable = {
+import {
+  Difficulty,
+  ThresholdLevels,
+  XPLookupTable,
+  XPThresholdsByCharLvl,
+} from '@conquestTypes/Encounter';
+
+// Defining the xpLookupTable with explicit type XPLookupTable
+export const xpLookupTable: XPLookupTable = {
   1: 300,
   2: 600,
   3: 1200,
@@ -21,7 +29,7 @@ export const xpLookupTable = {
   20: 40000,
 };
 
-export const getAdventuringDayXp = (level) => {
+export const getAdventuringDayXp = (level: number) => {
   return xpLookupTable[level];
 };
 
@@ -168,7 +176,7 @@ export const xpTotalToLevelTable = [
   },
 ];
 
-export const getLevelDetailsFromExperience = (experience) => {
+export const getLevelDetailsFromExperience = (experience: number) => {
   const levelDetails = xpTotalToLevelTable.find(
     (entry) => experience >= entry.xpStart && experience <= entry.xpEnd
   );
@@ -176,7 +184,7 @@ export const getLevelDetailsFromExperience = (experience) => {
   return levelDetails || xpTotalToLevelTable[xpTotalToLevelTable.length - 1]; // Return the last level if experience exceeds all defined levels
 };
 
-export const xpThresholdsByCharLvl = {
+export const xpThresholdsByCharLvl: XPThresholdsByCharLvl = {
   1: { Easy: 25, Medium: 50, Hard: 75, Deadly: 100 },
   2: { Easy: 50, Medium: 100, Hard: 150, Deadly: 200 },
   3: { Easy: 75, Medium: 150, Hard: 225, Deadly: 400 },
@@ -200,20 +208,19 @@ export const xpThresholdsByCharLvl = {
 };
 
 export const getXPThresholds = (
-  level,
-  numberOfPlayers,
-  encounterDifficultyOptions
+  level: number,
+  numberOfPlayers: number,
+  encounterDifficultyOptions: Difficulty
 ) => {
-  // Assuming encounterDifficultyOptions is one of "Easy", "Medium", "Hard", "Deadly"
   const thresholds = xpThresholdsByCharLvl[level] || {};
   return thresholds[encounterDifficultyOptions] * numberOfPlayers;
 };
 
 // For the adventuring day calculations
 export const calculateAdventuringDayXPStart = (
-  adventuringDayXPLimit, // From previous encounter
-  adventuringDayXPLimitDifference, // Difference between encounters
-  percentOfAdventuringDayXPRemaining // Percent remaining for the day
+  adventuringDayXPLimit: number,
+  adventuringDayXPLimitDifference: number,
+  percentOfAdventuringDayXPRemaining: number
 ) => {
   return (
     adventuringDayXPLimit +

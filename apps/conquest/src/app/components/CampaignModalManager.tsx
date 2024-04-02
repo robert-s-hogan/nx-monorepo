@@ -11,7 +11,7 @@ import {
   Campaign,
   CampaignAddModalProps,
   CampaignDeleteModalProps,
-} from '../types';
+} from '@conquestTypes/Campaign';
 
 const CampaignModalManager = ({
   isOpen,
@@ -48,7 +48,15 @@ const CampaignModalManager = ({
           <CampaignDeleteConfirmation
             campaignId={campaign.id}
             campaign={campaign}
-            onConfirm={() => handleDelete(campaign.id)}
+            onConfirm={() => {
+              if (campaign.id) {
+                // Check if campaign.id is defined
+                handleDelete(campaign.id);
+              } else {
+                console.error('Campaign ID is undefined.');
+                // Handle the undefined ID case here (e.g., show an error message)
+              }
+            }}
             onCancel={onClose}
           />
         );
@@ -58,7 +66,13 @@ const CampaignModalManager = ({
   };
 
   return (
-    <CampaignModal isOpen={isOpen} onClose={onClose} title={titleText}>
+    <CampaignModal
+      isOpen={isOpen}
+      onClose={onClose}
+      title={titleText}
+      operation={operation}
+      campaign={campaign}
+    >
       {renderContent()}
     </CampaignModal>
   );

@@ -9,7 +9,7 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
-import { Campaign } from '../types';
+import { Campaign } from '@conquestTypes/Campaign';
 
 import { generateSlug } from '@utils/generateSlug';
 

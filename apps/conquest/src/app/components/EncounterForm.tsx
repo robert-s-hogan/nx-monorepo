@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import { Encounter, EncounterFormProps } from '../types'; // Assuming you have these types defined
+import { Encounter, EncounterFormProps } from '@conquestTypes/Encounter';
 
 const EncounterForm: React.FC<EncounterFormProps> = ({
   encounter,
@@ -17,7 +17,16 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
       // Add other encounter fields here
     },
     onSubmit: (values) => {
-      onSubmit(values); // Call onSubmit provided by the parent component
+      // Ensure numeric fields are converted to numbers
+      const formValues: Partial<Encounter> = {
+        ...values,
+        id: values.id ? values.id : undefined, // Convert id to a number, or undefined if it's not provided
+        campaignId: Number(values.campaignId), // Always convert campaignId to a number
+        mapId: Number(values.mapId),
+        // Handle other fields similarly, especially numeric fields
+      };
+
+      onSubmit(formValues); // Now passing correctly typed form values to the onSubmit function
     },
   });
 

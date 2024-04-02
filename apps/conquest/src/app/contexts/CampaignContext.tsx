@@ -15,7 +15,8 @@ import {
   deleteCampaign,
   fetchCampaigns,
 } from '@services/campaignService';
-import { CampaignContextType, ProviderProps } from '../types';
+import { CampaignContextType } from '@conquestTypes/Campaign';
+import { ProviderProps } from '@conquestTypes/Utility';
 
 export const CampaignContext = createContext<CampaignContextType | undefined>(
   undefined

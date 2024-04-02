@@ -104,7 +104,6 @@
   "devDependencies": {
     "@babel/core": "7.12.13",
     "@babel/preset-react": "^7.23.3",
-    "@babel/preset-typescript": "7.12.13",
     "@nestjs/schematics": "10.1.0",
     "@nestjs/testing": "10.3.1",
     "@nestjs/typeorm": "^9.0.1",
@@ -144,8 +143,6 @@
     "@types/react": "18.2.33",
     "@types/react-dom": "18.2.14",
     "@types/react-router-dom": "5.3.3",
-    "@typescript-eslint/eslint-plugin": "6.20.0",
-    "@typescript-eslint/parser": "6.20.0",
     "@vercel/remote-nx": "^1.1.1",
     "autoprefixer": "10.4.13",
     "babel-jest": "^29.7.0",
@@ -173,7 +170,7 @@
     "ts-loader": "^9.5.1",
     "ts-node": "10.9.1",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
-    "typescript": "5.3.3",
+    "typescript": "^5.4.3",
     "url-loader": "^4.1.1"
   }
 }

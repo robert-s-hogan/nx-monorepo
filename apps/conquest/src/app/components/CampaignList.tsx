@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 import { fetchCampaigns } from '../services/campaignService';
-import { CampaignListProps } from '../types';
+import { CampaignListProps } from '@conquestTypes/Campaign';
 import { IonIcon } from '@ionic/react';
 import { create, trash } from 'ionicons/icons';
 
@@ -19,15 +19,17 @@ const CampaignList: React.FC<CampaignListProps> = ({
         {campaigns.map((campaign) => (
           <div key={campaign.id} className="border border-black">
             <div className="flex justify-end pr-2 pt-2">
-              {!hideEdit && (
+              {!hideEdit && onEdit && (
                 <button onClick={() => onEdit(campaign)}>
                   <IonIcon icon={create} size="large" />
                 </button>
               )}
 
-              <button onClick={() => onDelete(campaign.id as string)}>
-                <IonIcon icon={trash} size="large" />
-              </button>
+              {onDelete && (
+                <button onClick={() => onDelete(campaign.id as string)}>
+                  <IonIcon icon={trash} size="large" />
+                </button>
+              )}
             </div>
             <Link href={`/campaigns/${campaign.slug}`} key={campaign.id}>
               <div className="p-4">

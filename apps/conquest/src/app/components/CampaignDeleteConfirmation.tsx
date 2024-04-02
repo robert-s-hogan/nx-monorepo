@@ -1,4 +1,4 @@
-import { CampaignDeleteConfirmationProps } from '../types';
+import { CampaignDeleteConfirmationProps } from '@conquestTypes/Campaign';
 
 const CampaignDeleteConfirmation = ({
   onConfirm,

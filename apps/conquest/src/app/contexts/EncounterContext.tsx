@@ -1,5 +1,3 @@
-// contexts/EncounterContext.jsx
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import {
   addEncounter,
@@ -7,8 +5,9 @@ import {
   deleteEncounter,
   fetchEncounters,
   fetchEncountersByCampaign,
-} from '@services/encounterService'; // Ensure you have these functions defined in your services
-import { EncounterContextType, ProviderProps } from '../types'; // Define or import necessary types
+} from '@services/encounterService';
+import { Encounter, EncounterContextType } from '@conquestTypes/Encounter'
+import { ProviderProps } from '@conquestTypes/Utility';
 
 export const useEncounters = () => {
   const context = useContext(EncounterContext);
@@ -22,15 +21,15 @@ export const EncounterContext = createContext<EncounterContextType | undefined>(
 );
 
 export const EncounterProvider: React.FC<ProviderProps> = ({ children }) => {
-  const [encounters, setEncounters] = useState([]);
+  const [encounters, setEncounters] = useState<Encounter[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const campaignId = 'your-campaign-id'; // You need to define how to get this ID
+    const campaignId = 'your-campaign-id';
     setLoading(true);
     fetchEncountersByCampaign(campaignId)
-      .then((data) => {
+      .then((data: Encounter[]) => {
         setEncounters(data);
         setError('');
       })
@@ -46,7 +45,7 @@ export const EncounterProvider: React.FC<ProviderProps> = ({ children }) => {
     addEncounter,
     editEncounter,
     deleteEncounter,
-    fetchEncounters, // Consider passing a campaignId if encounters are fetched per campaign
+    fetchEncounters,
   };
 
   return (

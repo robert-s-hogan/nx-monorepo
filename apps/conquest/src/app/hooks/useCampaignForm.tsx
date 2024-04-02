@@ -1,7 +1,7 @@
-import useSWR, { mutate } from 'swr';
+import useSWR from 'swr';
 import { useContext } from 'react';
 
-import { Campaign } from '../types';
+import { Campaign } from '@conquestTypes/Campaign';
 import { useAuth } from '@contexts/AuthContext';
 import { useCampaigns } from '@hooks/useCampaigns';
 import {
@@ -14,7 +14,7 @@ export const useCampaignForm = () => {
   const { currentUser } = useAuth();
   const { campaigns, mutate } = useCampaigns(); // Use mutate from useCampaigns
 
-  const handleAddCampaign = async (campaignData: Campaign) => {
+  const handleAddCampaign = async (campaignData: Campaign): Promise<void> => {
     console.log('Current User:', currentUser);
 
     if (!currentUser) {
@@ -23,7 +23,11 @@ export const useCampaignForm = () => {
     }
 
     try {
-      const newCampaignData = { ...campaignData, accountId: currentUser.uid };
+      const newCampaignData: Campaign = {
+        ...campaignData,
+        accountId: currentUser.uid,
+      };
+
       await addCampaign(newCampaignData);
       mutate();
     } catch (error) {
@@ -31,7 +35,9 @@ export const useCampaignForm = () => {
     }
   };
 
-  const handleEditCampaign = async (campaignData: Partial<Campaign>) => {
+  const handleEditCampaign = async (
+    campaignData: Partial<Campaign>
+  ): Promise<void> => {
     console.log('Current User:', currentUser);
     if (!currentUser || !campaignData.id) {
       console.error('No user authenticated or campaign ID is undefined');
@@ -47,7 +53,7 @@ export const useCampaignForm = () => {
     }
   };
 
-  const handleDeleteCampaign = async (campaignId: string) => {
+  const handleDeleteCampaign = async (campaignId: string): Promise<void> => {
     if (!currentUser) {
       console.error('No user authenticated');
       return;
