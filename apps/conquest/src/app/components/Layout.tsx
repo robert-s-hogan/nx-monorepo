@@ -1,5 +1,5 @@
 import React from 'react';
-import '@styles/global.css';
+import '@conquestStyles/global.css';
 
 import Navbar from '@conquestComponents/Navbar';
 

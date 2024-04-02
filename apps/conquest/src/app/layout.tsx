@@ -1,4 +1,4 @@
-import '@styles/global.css';
+import '@conquestStyles/global.css';
 import { AuthProvider } from '@conquestContexts/AuthContext';
 
 export const metadata = {
