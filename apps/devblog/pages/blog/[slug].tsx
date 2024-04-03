@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-// import { getPostData, getAllPostIds } from '../../../../_articles';
 import DevBlogLayout from '../../components/DevBlogLayout';
 import DevBlogSection from '../../components/DevBlogSection';
 import Image from 'next/image';

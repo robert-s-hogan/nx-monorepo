@@ -1,3 +1,4 @@
+// Original path: apps/conquest/src/app/contexts/AuthContext.tsx
 'use client';
 
 import React, {

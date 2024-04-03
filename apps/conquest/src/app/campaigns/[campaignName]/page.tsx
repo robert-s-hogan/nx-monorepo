@@ -51,7 +51,7 @@ const DynamicCampaignsPage: NextPage = () => {
     <EncounterProvider>
       <Layout title={selectedCampaign.name}>
         <div className="flex flex-col lg:flex-row w-full">
-          <CampaignListWithModal campaigns={campaigns || []} />
+          <CampaignListWithModal campaigns={campaigns || []} hideEdit={false} />
 
           <div className="w-full lg:w-1/2 p-4 flex flex-col">
             {isEncountersLoading ? (

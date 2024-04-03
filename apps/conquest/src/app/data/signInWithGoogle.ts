@@ -1,4 +1,4 @@
-import { auth } from './firebaseConfig';
+import { auth } from '@conquestData/firebaseConfig';
 import {
   GoogleAuthProvider,
   signInWithPopup,

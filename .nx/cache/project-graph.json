@@ -1127,6 +1127,30 @@
         "implicitDependencies": []
       }
     },
+    "@with-nx/firebase": {
+      "name": "@with-nx/firebase",
+      "type": "lib",
+      "data": {
+        "root": "libs/firebase",
+        "targets": {
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "executor": "@nx/eslint:lint",
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "name": "@with-nx/firebase",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/firebase/src",
+        "projectType": "library",
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
     "conquest": {
       "name": "conquest",
       "type": "app",
@@ -22625,6 +22649,13 @@
       {
         "source": "theos-dnd",
         "target": "npm:@nrwl/react",
+        "type": "static"
+      }
+    ],
+    "@with-nx/firebase": [
+      {
+        "source": "@with-nx/firebase",
+        "target": "npm:firebase",
         "type": "static"
       }
     ],

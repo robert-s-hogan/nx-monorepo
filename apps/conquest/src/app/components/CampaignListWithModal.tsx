@@ -21,10 +21,15 @@ const CampaignListWithModal = ({
   };
 
   return (
-    <>
-      <button onClick={() => openModal('add')} className="btn btn-primary">
-        Add Campaign
-      </button>
+    <div className="w-full lg:w-1/2 p-4 flex flex-col">
+      <h2 className="mb-4">Campaigns</h2>
+      {hideEdit && (
+        <div className="flex w-auto">
+          <button onClick={() => openModal('add')} className="btn btn-primary">
+            Add Campaign
+          </button>
+        </div>
+      )}
 
       <CampaignList
         campaigns={campaigns}
@@ -45,7 +50,7 @@ const CampaignListWithModal = ({
           campaign={modalData as Campaign}
         />
       )}
-    </>
+    </div>
   );
 };
 
