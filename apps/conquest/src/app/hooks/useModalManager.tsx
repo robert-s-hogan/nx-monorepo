@@ -1,28 +1,31 @@
-import { useState } from 'react';
-import { ModalOperation } from '@conquestTypes/Utility';
-import { Campaign } from '@conquestTypes/Campaign';
+import { useState, useCallback } from 'react';
+import { ModalOperation, ModalState } from '../types';
 
-const useModalManager = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalOperation, setModalOperation] = useState<ModalOperation>(null);
-  const [modalData, setModalData] = useState<Campaign | null>(null);
+export default function useModalManager<T>(): {
+  modalState: ModalState<T>;
+  openModal: (operation: ModalOperation, data: T) => void;
+  closeModal: () => void;
+} {
+  const [modalState, setModalState] = useState<ModalState<T>>({
+    isOpen: false,
+    operation: null,
+    data: null,
+  });
 
-  const openModal = (
-    operation: ModalOperation,
-    data: Campaign | null = null
-  ) => {
-    setIsModalOpen(true);
-    setModalOperation(operation);
-    setModalData(data);
-  };
+  const openModal = useCallback((operation: ModalOperation, data: T) => {
+    setModalState({
+      isOpen: true,
+      operation,
+      data,
+    });
+  }, []);
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setModalOperation(null);
-    setModalData(null);
-  };
+  const closeModal = useCallback(() => {
+    setModalState((prevState) => ({
+      ...prevState,
+      isOpen: false,
+    }));
+  }, []);
 
-  return { isModalOpen, modalOperation, modalData, openModal, closeModal };
-};
-
-export default useModalManager;
+  return { modalState, openModal, closeModal };
+}

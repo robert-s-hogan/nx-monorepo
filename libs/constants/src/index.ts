@@ -3,6 +3,7 @@
 export * from './lib/dnd-base-attribute-data';
 export * from './lib/dnd-caravan-data';
 export * from './lib/dnd-data';
+export * from './lib/dnd-encounter';
 export * from './lib/dnd-entities-data';
 export * from './lib/dnd-environment-data';
 export * from './lib/dnd-loading-messages';

@@ -1,8 +1,8 @@
 import React from 'react';
-import CampaignList from '@conquestComponents/CampaignList';
-import CampaignModalManager from '@conquestComponents/CampaignModalManager';
-import useModalManager from '@conquestHooks/useModalManager';
-import { Campaign } from '@conquestTypes/Campaign';
+import CampaignList from '../components/CampaignList';
+import CampaignModalManager from '../components/CampaignModalManager';
+import useModalManager from '../hooks/useModalManager';
+import { Campaign } from '../types';
 
 interface CampaignListWithModalProps {
   campaigns: Campaign[];
@@ -13,8 +13,13 @@ const CampaignListWithModal = ({
   campaigns,
   hideEdit = false,
 }: CampaignListWithModalProps) => {
-  const { isModalOpen, modalOperation, modalData, openModal, closeModal } =
-    useModalManager();
+  // Destructure the `modalState` from the hook and then use its properties.
+  const { modalState, openModal, closeModal } = useModalManager<Campaign>();
+  const {
+    isOpen: isModalOpen,
+    operation: modalOperation,
+    data: modalData,
+  } = modalState;
 
   const handleEdit = (campaign: Campaign) => {
     openModal('edit', campaign);
@@ -25,7 +30,10 @@ const CampaignListWithModal = ({
       <h2 className="mb-4">Campaigns</h2>
       {hideEdit && (
         <div className="flex w-auto">
-          <button onClick={() => openModal('add')} className="btn btn-primary">
+          <button
+            onClick={() => openModal('add', campaigns[0])}
+            className="btn btn-primary"
+          >
             Add Campaign
           </button>
         </div>
@@ -34,7 +42,7 @@ const CampaignListWithModal = ({
       <CampaignList
         campaigns={campaigns}
         hideEdit={hideEdit}
-        onEdit={handleEdit} // Pass the handleEdit function as the onEdit prop
+        onEdit={handleEdit}
         onDelete={(campaignId) => {
           const campaignToDelete = campaigns.find((c) => c.id === campaignId);
           if (campaignToDelete) {

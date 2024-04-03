@@ -10,8 +10,8 @@ import React, {
 } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
 
-import { auth } from '@conquestData/firebaseConfig';
-import { AuthContextType, AuthProviderProps } from '@conquestTypes/Auth';
+import { auth } from '../../../../../libs/firebase/src/lib/firebase-config';
+import { AuthContextType, AuthProviderProps } from '../types';
 
 export const AuthContext = createContext<AuthContextType | undefined>(
   undefined

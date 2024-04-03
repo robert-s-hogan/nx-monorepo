@@ -1,6 +1,6 @@
 import React, { ComponentType, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@conquestContexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
 
 interface WithAuthOptions {
   authenticationRequired?: boolean;

@@ -1,4 +1,4 @@
-import { db } from '@conquestData/firebaseConfig';
+import { db } from '../../../../../libs/firebase/src/lib/firebase-config';
 import {
   addDoc,
   collection,
@@ -9,7 +9,7 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
-import { Encounter } from '@conquestTypes/Encounter';
+import { Encounter } from '../types';
 
 export const addEncounter = async (
   encounterData: Encounter

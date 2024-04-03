@@ -1,6 +1,6 @@
 import React from 'react';
 import { signOut } from 'firebase/auth';
-import { auth } from '@conquestData/firebaseConfig';
+import { auth } from '../../../../../libs/firebase/src/lib/firebase-config';
 import { IonIcon } from '@ionic/react';
 import { logOut } from 'ionicons/icons';
 

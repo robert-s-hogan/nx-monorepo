@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Campaign } from '@conquestTypes/Campaign';
-import { Difficulty } from '@conquestTypes/Encounter';
+import { Campaign } from '../types';
+import { Difficulty } from '../types';
 
-import { getLevelDetailsFromExperience } from '@conquestConstants/experienceConstants';
-import { useEncounterCalculations } from '@conquestHooks/useEncounterCalculations';
+import { getLevelDetailsFromExperience } from '../constants/experienceConstants';
+import { useEncounterCalculations } from '../hooks/useEncounterCalculations';
 
 interface CampaignPreviewProps {
   campaign: Campaign;

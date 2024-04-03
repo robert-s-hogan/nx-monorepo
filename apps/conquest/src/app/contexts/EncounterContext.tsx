@@ -5,9 +5,9 @@ import {
   deleteEncounter,
   fetchEncounters,
   fetchEncountersByCampaign,
-} from '@conquestServices/encounterService';
-import { Encounter, EncounterContextType } from '@conquestTypes/Encounter';
-import { ProviderProps } from '@conquestTypes/Utility';
+} from '../services/encounterService';
+import { Encounter, EncounterContextType } from '../types';
+import { ProviderProps } from '../types';
 
 export const useEncounters = () => {
   const context = useContext(EncounterContext);

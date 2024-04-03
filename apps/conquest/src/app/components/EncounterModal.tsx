@@ -1,7 +1,8 @@
+import React from 'react';
 import ConquestModal from './ConquestModal';
-import { CampaignModalProps } from '../types';
+import { EncounterModalProps } from '../types';
 
-const CampaignModal: React.FC<CampaignModalProps> = ({
+const EncounterModal: React.FC<EncounterModalProps> = ({
   isOpen,
   onClose,
   title,
@@ -14,4 +15,4 @@ const CampaignModal: React.FC<CampaignModalProps> = ({
   );
 };
 
-export default CampaignModal;
+export default EncounterModal;

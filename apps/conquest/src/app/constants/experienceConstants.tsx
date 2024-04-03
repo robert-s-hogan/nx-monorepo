@@ -1,8 +1,4 @@
-import {
-  Difficulty,
-  XPLookupTable,
-  XPThresholdsByCharLvl,
-} from '@conquestTypes/Encounter';
+import { Difficulty, XPLookupTable, XPThresholdsByCharLvl } from '../types';
 
 export const xpLookupTable: XPLookupTable = {
   1: 300,

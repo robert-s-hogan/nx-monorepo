@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
-type EncountersLayoutProps = {
-  children: ReactNode;
-};
+interface LayoutProps {
+  children: React.ReactNode;
+}
 
-const EncountersLayout = ({ children }: EncountersLayoutProps) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div>
       {/* Add your header component here */}
@@ -19,4 +19,4 @@ const EncountersLayout = ({ children }: EncountersLayoutProps) => {
   );
 };
 
-export default EncountersLayout;
+export default Layout;

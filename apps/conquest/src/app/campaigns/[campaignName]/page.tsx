@@ -4,16 +4,16 @@ import { useEffect, useState } from 'react';
 import { NextPage } from 'next';
 import { usePathname } from 'next/navigation';
 
-import Layout from '@conquestComponents/Layout';
-import { fetchCampaignBySlug } from '@conquestServices/campaignService';
+import Layout from '../../components/Layout';
+import { fetchCampaignBySlug } from '../../services/campaignService';
 import { Campaign as CampaignType } from '../../types';
-import EncountersList from '@conquestComponents/EncountersList';
-import { EncounterProvider } from '@conquestContexts/EncounterContext';
-import { useEncounters } from '@conquestHooks/useEncounters';
-import { fetchCampaigns as fetchCampaignsService } from '@conquestServices/campaignService';
-import { Campaign } from '@conquestTypes/Campaign';
+import EncounterListWithModal from '../../components/EncounterListWithModal';
+import { EncounterProvider } from '../../contexts/EncounterContext';
+import { useEncounters } from '../../hooks/useEncounters';
+import { fetchCampaigns as fetchCampaignsService } from '../../services/campaignService';
 import useSWR from 'swr';
-import CampaignListWithModal from '@conquestComponents/CampaignListWithModal';
+import CampaignListWithModal from '../../components/CampaignListWithModal';
+import { Campaign } from '../../types';
 
 const DynamicCampaignsPage: NextPage = () => {
   const pathname = usePathname();
@@ -59,7 +59,7 @@ const DynamicCampaignsPage: NextPage = () => {
             ) : isEncountersError ? (
               <div>Error loading encounters.</div>
             ) : (
-              <EncountersList encounters={encounters || []} />
+              <EncounterListWithModal encounters={encounters || []} />
             )}
           </div>
         </div>

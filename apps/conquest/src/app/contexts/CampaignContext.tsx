@@ -13,9 +13,9 @@ import {
   editCampaign,
   deleteCampaign,
   fetchCampaigns,
-} from '@conquestServices/campaignService';
-import { CampaignContextType } from '@conquestTypes/Campaign';
-import { ProviderProps } from '@conquestTypes/Utility';
+} from '../services/campaignService';
+import { CampaignContextType } from '../types';
+import { ProviderProps } from '../types';
 
 export const CampaignContext = createContext<CampaignContextType | undefined>(
   undefined
@@ -42,6 +42,7 @@ export const CampaignProvider: React.FC<ProviderProps> = ({ children }) => {
     addCampaign,
     editCampaign,
     deleteCampaign,
+    mutate: () => void {},
   };
 
   return (

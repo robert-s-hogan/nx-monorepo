@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import { Campaign, CampaignFormProps } from '@conquestTypes/Campaign';
+import { Campaign, CampaignFormProps } from '../types';
 
 const CampaignForm: React.FC<CampaignFormProps> = ({
   campaign,

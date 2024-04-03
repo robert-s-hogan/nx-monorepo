@@ -1,7 +1,7 @@
 import { useRouter } from 'next/navigation';
-import { useCampaignForm } from '@conquestHooks/useCampaignForm';
-import { Campaign } from '@conquestTypes/Campaign';
-import { ModalOperation } from '@conquestTypes/Utility';
+import { useCampaignForm } from './useCampaignForm';
+import { Campaign } from '../types';
+import { ModalOperation } from '../types';
 
 export const useCampaignOperations = (onClose: () => void) => {
   const router = useRouter();

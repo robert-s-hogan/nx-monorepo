@@ -1,6 +1,6 @@
 import useSWR from 'swr';
-import { fetchEncounters as fetchEncountersService } from '@conquestServices/encounterService';
-import { Encounter } from '@conquestTypes/Encounter';
+import { fetchEncounters as fetchEncountersService } from '../services/encounterService';
+import { Encounter } from '../types';
 
 export const useEncounters = (campaignId: string) => {
   const {

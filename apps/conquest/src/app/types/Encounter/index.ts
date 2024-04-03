@@ -1,4 +1,5 @@
-import { ModalOperation } from '@conquestTypes/Utility';
+import { ReactNode } from 'react';
+import { ModalOperation } from '../../types';
 
 export type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Deadly';
 
@@ -35,6 +36,12 @@ export interface EncounterContextType {
   encounters: Encounter[];
 }
 
+export interface EncounterDeleteConfirmationProps {
+  encounter?: Encounter | null;
+  onConfirm: () => void;
+  onCancel: () => void;
+}
+
 export interface EncounterFormProps {
   encounter?: Partial<Encounter> | null;
   onSubmit: (formData: Partial<Encounter>, encounterId?: number) => void;
@@ -44,8 +51,34 @@ export interface EncounterFormProps {
 export interface EncounterListProps {
   encounters?: Encounter[];
   onEdit?: (encounter: Encounter) => void;
-  onDelete?: (encounterId: number) => void;
+  onDelete?: (encounterId: string) => void; // Change from number to string
   hideEdit?: boolean;
+}
+
+export interface EncounterListWithModalProps {
+  encounters: Encounter[];
+  hideEdit?: boolean;
+}
+
+export interface EncounterModalProps {
+  children?: ReactNode;
+  title?: string;
+  isOpen: boolean;
+  onClose: () => void;
+  operation?: ModalOperation;
+  encounter?: Encounter | null; // Optional encounter for context, might not be needed depending on your modal's use cases
+}
+
+export interface EncounterModalManagerProps {
+  isOpen: boolean;
+  onClose: () => void;
+  operation: ModalOperation;
+  encounter?: Encounter | null;
+}
+
+export interface EncounterOperations {
+  handleSave: (formData: Partial<Encounter>, operation: ModalOperation) => void;
+  handleDelete: (encounterId: string) => void;
 }
 
 export type ThresholdLevels = Record<Difficulty, number>;

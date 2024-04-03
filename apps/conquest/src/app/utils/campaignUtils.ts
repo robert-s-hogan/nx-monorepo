@@ -1,4 +1,4 @@
-import { db } from '@conquestData/firebaseConfig';
+import { db } from '../../../../../libs/firebase/src/lib/firebase-config';
 import {
   addDoc,
   collection,
@@ -7,7 +7,7 @@ import {
   getDocs,
   updateDoc,
 } from 'firebase/firestore';
-import { Campaign } from '@conquestTypes/Campaign';
+import { Campaign } from '../types';
 
 export const addCampaign = async (campaignData: Campaign): Promise<string> => {
   try {

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ModalOperation, ModalState } from '@conquestTypes/Utility';
+import { ModalOperation, ModalState } from '../types';
 
 export const useModal = <T>() => {
   const [modalState, setModalState] = useState<ModalState<T>>({

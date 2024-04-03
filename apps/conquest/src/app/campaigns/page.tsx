@@ -4,11 +4,11 @@ import React from 'react';
 import { NextPage } from 'next';
 import useSWR from 'swr';
 
-import Layout from '@conquestComponents/Layout';
-import withAuth from '@conquestUtils/withAuth';
-import { Campaign } from '@conquestTypes/Campaign';
-import { fetchCampaigns as fetchCampaignsService } from '@conquestServices/campaignService';
-import CampaignListWithModal from '@conquestComponents/CampaignListWithModal';
+import Layout from '../components/Layout';
+import withAuth from '../utils/withAuth';
+import { Campaign } from '../types';
+import { fetchCampaigns as fetchCampaignsService } from '../services/campaignService';
+import CampaignListWithModal from '../components/CampaignListWithModal';
 
 const CampaignsPage: NextPage = () => {
   const {

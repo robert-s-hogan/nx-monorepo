@@ -17,20 +17,7 @@
       }
     ],
     "types": ["jest", "node"],
-    "baseUrl": ".",
-    "paths": {
-      "@conquestCampaigns/*": ["src/app/campaigns/*"],
-      "@conquestComponents/*": ["src/app/components/*"],
-      "@conquestConstants/*": ["src/app/constants/*"],
-      "@conquestContexts/*": ["src/app/contexts/*"],
-      "@conquestData/*": ["src/app/data/*"],
-      "@conquestEncounters/*": ["src/app/encounters/*"],
-      "@conquestHooks/*": ["src/app/hooks/*"],
-      "@conquestServices/*": ["src/app/services/*"],
-      "@conquestStyles/*": ["src/app/styles/*"],
-      "@conquestTypes/*": ["src/app/types/*"],
-      "@conquestUtils/*": ["src/app/utils/*"]
-    }
+    "baseUrl": "."
   },
   "include": [
     "**/*.ts",

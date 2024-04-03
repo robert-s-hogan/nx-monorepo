@@ -4,8 +4,8 @@ import {
   getLevelDetailsFromExperience,
   getXPThresholds,
 } from '../constants/experienceConstants';
-import { Campaign } from '@conquestTypes/Campaign';
-import { Difficulty } from '@conquestTypes/Encounter';
+import { Campaign } from '../types';
+import { Difficulty } from '../types';
 
 interface LevelDetails {
   level: number;

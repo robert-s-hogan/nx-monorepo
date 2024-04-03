@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { CampaignListProps } from '@conquestTypes/Campaign';
+import { CampaignListProps } from '../types';
 import { IonIcon } from '@ionic/react';
 import { create, trash } from 'ionicons/icons';
 
@@ -16,9 +16,9 @@ const CampaignList: React.FC<CampaignListProps> = ({
       <div className="grid grid-cols-1 gap-8 w-full">
         {campaigns.length === 0 && <p>No campaigns found</p>}
         {campaigns.map((campaign) => (
-          <>
+          <React.Fragment key={campaign.id}>
             {hideEdit ? (
-              <div key={campaign.id} className="border border-black rounded">
+              <div className="border border-black rounded">
                 <Link href={`/campaigns/${campaign.slug}`} key={campaign.id}>
                   <div className="p-4">
                     <div className="pb-3">
@@ -65,7 +65,7 @@ const CampaignList: React.FC<CampaignListProps> = ({
                 <p>Rests: {campaign.rests}</p>
               </div>
             )}
-          </>
+          </React.Fragment>
         ))}
       </div>
     </>

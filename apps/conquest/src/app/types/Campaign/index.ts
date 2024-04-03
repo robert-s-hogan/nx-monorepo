@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ModalOperation } from '@conquestTypes/Utility';
+import { ModalOperation } from '../../types';
 
 export interface Campaign {
   id?: string | undefined;
@@ -23,6 +23,7 @@ export interface CampaignAddModalProps {
 
 export interface CampaignContextType {
   campaigns: Campaign[];
+  mutate: () => void; // This is the missing property the error is about
 }
 
 export interface CampaignDeleteModalProps {

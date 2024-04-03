@@ -1,12 +1,12 @@
 import React from 'react';
 
-import CampaignDeleteConfirmation from '@conquestComponents/CampaignDeleteConfirmation';
-import CampaignForm from '@conquestComponents/CampaignForm';
-import CampaignModal from '@conquestComponents/CampaignModal';
+import CampaignDeleteConfirmation from '../components/CampaignDeleteConfirmation';
+import CampaignForm from '../components/CampaignForm';
+import CampaignModal from '../components/CampaignModal';
 
-import { useCampaignOperations } from '@conquestHooks/useCampaignOperations';
+import { useCampaignOperations } from '../hooks/useCampaignOperations';
 
-import { Campaign } from '@conquestTypes/Campaign';
+import { Campaign } from '../types';
 
 const CampaignModalManager = ({
   isOpen,

@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '@conquestComponents/Layout';
+import Layout from './components/Layout';
 
 const RootPage: React.FC = () => {
   return (

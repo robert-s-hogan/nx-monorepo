@@ -1,13 +1,13 @@
 import { useRouter } from 'next/navigation';
 
-import { Campaign } from '@conquestTypes/Campaign';
-import { useAuth } from '@conquestContexts/AuthContext';
-import { useCampaigns } from '@conquestHooks/useCampaigns';
+import { Campaign } from '../types';
+import { useAuth } from '../contexts/AuthContext';
+import { useCampaigns } from '../contexts/CampaignContext';
 import {
   addCampaign,
   editCampaign,
   deleteCampaign,
-} from '@conquestServices/campaignService';
+} from '../services/campaignService';
 
 export const useCampaignForm = () => {
   const router = useRouter();
