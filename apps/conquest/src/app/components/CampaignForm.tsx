@@ -93,17 +93,6 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
         />
       </div>
 
-      <div className="space-y-1 space-x-4">
-        <label htmlFor="groupDead">Group Dead?</label>
-        <input
-          id="groupDead"
-          type="checkbox"
-          {...formik.getFieldProps('groupDead')}
-          onChange={(e) => formik.setFieldValue('groupDead', e.target.checked)}
-          checked={formik.values.groupDead}
-        />
-      </div>
-
       {/* Submit button */}
       <button type="submit" className="btn-primary">
         {campaign ? 'Update Campaign' : 'Add Campaign'}
