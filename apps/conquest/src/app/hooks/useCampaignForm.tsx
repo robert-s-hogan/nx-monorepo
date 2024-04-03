@@ -1,4 +1,4 @@
-import useSWR from 'swr';
+import { useRouter } from 'next/navigation';
 
 import { Campaign } from '@conquestTypes/Campaign';
 import { useAuth } from '@conquestContexts/AuthContext';
@@ -10,12 +10,11 @@ import {
 } from '@conquestServices/campaignService';
 
 export const useCampaignForm = () => {
+  const router = useRouter();
   const { currentUser } = useAuth();
-  const { mutate } = useCampaigns(); // Use mutate from useCampaigns
+  const { mutate } = useCampaigns();
 
   const handleAddCampaign = async (campaignData: Campaign): Promise<void> => {
-    console.log('Current User:', currentUser);
-
     if (!currentUser) {
       console.error('No user authenticated');
       return;
@@ -37,7 +36,6 @@ export const useCampaignForm = () => {
   const handleEditCampaign = async (
     campaignData: Partial<Campaign>
   ): Promise<void> => {
-    console.log('Current User:', currentUser);
     if (!currentUser || !campaignData.id) {
       console.error('No user authenticated or campaign ID is undefined');
       return;
@@ -62,8 +60,8 @@ export const useCampaignForm = () => {
 
     try {
       await deleteCampaign(campaignId);
-      console.log(`Successfully deleted campaign with ID: ${campaignId}`);
       mutate();
+      router.push('/campaigns'); // Redirect to the /campaigns page
     } catch (error) {
       console.error('Error deleting campaign:', error);
     }

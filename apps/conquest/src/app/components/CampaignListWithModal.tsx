@@ -6,11 +6,19 @@ import { Campaign } from '@conquestTypes/Campaign';
 
 interface CampaignListWithModalProps {
   campaigns: Campaign[];
+  hideEdit?: boolean;
 }
 
-const CampaignListWithModal = ({ campaigns }: CampaignListWithModalProps) => {
+const CampaignListWithModal = ({
+  campaigns,
+  hideEdit = false,
+}: CampaignListWithModalProps) => {
   const { isModalOpen, modalOperation, modalData, openModal, closeModal } =
     useModalManager();
+
+  const handleEdit = (campaign: Campaign) => {
+    openModal('edit', campaign);
+  };
 
   return (
     <>
@@ -20,7 +28,8 @@ const CampaignListWithModal = ({ campaigns }: CampaignListWithModalProps) => {
 
       <CampaignList
         campaigns={campaigns}
-        hideEdit={true}
+        hideEdit={hideEdit}
+        onEdit={handleEdit} // Pass the handleEdit function as the onEdit prop
         onDelete={(campaignId) => {
           const campaignToDelete = campaigns.find((c) => c.id === campaignId);
           if (campaignToDelete) {
@@ -28,12 +37,12 @@ const CampaignListWithModal = ({ campaigns }: CampaignListWithModalProps) => {
           }
         }}
       />
-      {isModalOpen && modalData && (
+      {isModalOpen && (
         <CampaignModalManager
           isOpen={isModalOpen}
           onClose={closeModal}
           operation={modalOperation || 'add'}
-          campaign={modalData}
+          campaign={modalData as Campaign}
         />
       )}
     </>

@@ -19,15 +19,11 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
       rests: campaign?.rests || 1,
     },
     onSubmit: (values) => {
-      console.log(`Form data: ${JSON.stringify(values)}`);
-
       let campaignData: Partial<Campaign> = { ...values };
 
       if (operation === 'edit') {
         campaignData = { ...values, id: values.id };
       }
-
-      console.log('Campaign data for save:', campaignData);
 
       onSubmit(campaignData);
     },

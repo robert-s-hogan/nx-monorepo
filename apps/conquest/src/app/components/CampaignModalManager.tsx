@@ -41,7 +41,7 @@ const CampaignModalManager = ({
       case 'delete':
         return (
           <CampaignDeleteConfirmation
-            campaignId={campaign.id}
+            campaignId={campaign ? campaign.id : undefined} // Handle potential null campaign
             campaign={campaign}
             onConfirm={() => {
               if (campaign.id) {

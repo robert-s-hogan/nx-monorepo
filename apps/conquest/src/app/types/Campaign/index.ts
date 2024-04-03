@@ -30,12 +30,13 @@ export interface CampaignDeleteModalProps {
   onClose: () => void;
   campaign: Campaign;
   onDelete: (campaignId: string) => void;
+  campaignName?: string;
 }
 
 export interface CampaignFormProps {
-  campaign?: Partial<Campaign> | null;
-  onSubmit: (formData: Partial<Campaign>, campaignId?: string) => void;
-  operation: ModalOperation;
+  campaign: Campaign | null;
+  onSubmit: (campaignData: Partial<Campaign>) => void;
+  operation: 'add' | 'edit';
 }
 
 export interface CampaignListProps {

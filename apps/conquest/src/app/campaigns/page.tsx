@@ -11,7 +11,6 @@ import { fetchCampaigns as fetchCampaignsService } from '@conquestServices/campa
 import CampaignListWithModal from '@conquestComponents/CampaignListWithModal';
 
 const CampaignsPage: NextPage = () => {
-  // useSWR hook for fetching and caching the campaigns data
   const {
     data: campaigns,
     error,
@@ -24,7 +23,7 @@ const CampaignsPage: NextPage = () => {
   return (
     <Layout title="Campaigns | Conquest">
       <div className="max-w-4xl xl:max-w-7xl container mx-auto space-y-8 mt-8 px-4">
-        <CampaignListWithModal campaigns={campaigns} />
+        <CampaignListWithModal campaigns={campaigns} hideEdit={true} />
       </div>
     </Layout>
   );

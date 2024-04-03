@@ -4,14 +4,16 @@ const CampaignDeleteConfirmation = ({
   onConfirm,
   onCancel,
   campaignId,
+  campaign,
 }: CampaignDeleteConfirmationProps) => {
+  const campaignName = campaign ? campaign.name : '';
   return (
     <div className="p-4">
       <h3 className="text-lg font-semibold">Confirm Deletion</h3>
       <p className="my-2">
         Are you sure you want to delete{' '}
-        <span className="font-bold text-lg">{campaignId}</span> This action
-        cannot be undone.
+        <span className="font-bold text-lg">{campaignName}</span>? cannot be
+        undone.
       </p>
       <div className="flex justify-end space-x-2">
         <button

@@ -18,7 +18,6 @@ export const signInWithGoogle = () => {
       }
 
       const user = result.user;
-      console.log('user', user);
     })
     .catch((error) => {
       console.error('Error during Google sign-in:', error.message);

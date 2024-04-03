@@ -8,7 +8,6 @@ const LogoutButton: React.FC = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      console.log('User signed out successfully');
     } catch (error) {
       console.error('Sign out error', error);
     }

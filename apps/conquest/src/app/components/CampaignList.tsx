@@ -18,8 +18,8 @@ const CampaignList: React.FC<CampaignListProps> = ({
         {campaigns.map((campaign) => (
           <div key={campaign.id} className="border border-black">
             <div className="flex justify-end pr-2 pt-2">
-              {!hideEdit && onEdit && (
-                <button onClick={() => onEdit(campaign)}>
+              {!hideEdit && (
+                <button onClick={() => onEdit && onEdit(campaign)}>
                   <IonIcon icon={create} size="large" />
                 </button>
               )}

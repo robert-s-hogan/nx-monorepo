@@ -15,7 +15,6 @@ export const addCampaign = async (campaignData: Campaign): Promise<string> => {
 
     await updateDoc(docRef, { id: docRef.id });
 
-    console.log('Campaign added with ID:', docRef.id);
     return docRef.id;
   } catch (error) {
     console.error('Error adding campaign:', error);
@@ -31,7 +30,6 @@ export const editCampaign = async (
   try {
     const campaignDocRef = doc(db, 'campaigns', id);
     await updateDoc(campaignDocRef, campaignData);
-    console.log('Campaign updated:', id);
   } catch (error) {
     console.error('Error updating campaign:', error);
     throw new Error('Failed to update campaign');
@@ -41,7 +39,6 @@ export const editCampaign = async (
 export const deleteCampaign = async (id: string): Promise<void> => {
   try {
     await deleteDoc(doc(db, 'campaigns', id));
-    console.log('Campaign deleted:', id);
   } catch (error) {
     console.error('Error deleting campaign:', error);
     throw new Error('Failed to delete campaign');
