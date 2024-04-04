@@ -1,16 +1,13 @@
 import { db } from '../../../../../libs/firebase/src/lib/firebase-config';
 import {
-  addDoc,
-  collection,
-  doc,
-  deleteDoc,
-  getDocs,
-  query,
-  updateDoc,
-  where,
-} from 'firebase/firestore';
-import { Campaign } from '../types';
+  addDocument,
+  deleteDocument,
+  editDocument,
+  fetchDocuments,
+} from '../../../../../libs/firebase/src/lib/firebase-crud';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
+import { Campaign } from '../types';
 import { generateSlug } from '../utils/generateSlug';
 
 export const addCampaign = async (campaignData: Campaign): Promise<string> => {
@@ -19,13 +16,13 @@ export const addCampaign = async (campaignData: Campaign): Promise<string> => {
   }
 
   const slug = generateSlug(campaignData.name);
-
   const dataWithSlug = { ...campaignData, slug };
 
   try {
-    const campaignRef = await addDoc(collection(db, 'campaigns'), dataWithSlug);
-    return campaignRef.id;
+    // Use addDocument from firebase-crud
+    return await addDocument('campaigns', dataWithSlug);
   } catch (error) {
+    console.error('Error adding campaign:', error);
     throw new Error('Failed to add campaign');
   }
 };
@@ -34,46 +31,51 @@ export const editCampaign = async (
   id: string,
   campaignData: Partial<Campaign>
 ): Promise<void> => {
-  console.log(`Editing campaign with ID: ${id}`);
-  console.log(`New campaign data: ${JSON.stringify(campaignData)}`);
   try {
-    const campaignRef = doc(db, 'campaigns', id);
-    console.log(`Campaign reference: ${campaignRef}`);
-    await updateDoc(campaignRef, campaignData);
+    // Use editDocument from firebase-crud
+    await editDocument('campaigns', id, campaignData);
   } catch (error) {
     console.error('Error updating campaign:', error);
+    throw new Error('Failed to update campaign');
   }
 };
 
 export const deleteCampaign = async (id: string): Promise<void> => {
-  const campaignRef = doc(db, 'campaigns', id);
-  await deleteDoc(campaignRef);
+  try {
+    // Use deleteDocument from firebase-crud
+    await deleteDocument('campaigns', id);
+  } catch (error) {
+    console.error('Error deleting campaign:', error);
+    throw new Error('Failed to delete campaign');
+  }
 };
 
 export const fetchCampaigns = async (): Promise<Campaign[]> => {
-  const campaignsCollection = collection(db, 'campaigns');
-  const campaignsSnapshot = await getDocs(campaignsCollection);
-
-  const campaigns: Campaign[] = [];
-  campaignsSnapshot.forEach((doc) => {
-    const campaign = doc.data() as Campaign;
-    campaigns.push({ ...campaign, id: doc.id });
-  });
-
-  return campaigns;
+  try {
+    // Use fetchDocuments from firebase-crud
+    return await fetchDocuments<Campaign>('campaigns');
+  } catch (error) {
+    console.error('Error fetching campaigns:', error);
+    throw new Error('Failed to fetch campaigns');
+  }
 };
 
 export const fetchCampaignBySlug = async (
   slug: string
 ): Promise<Campaign | null> => {
-  const campaignsRef = collection(db, 'campaigns');
-  const q = query(campaignsRef, where('slug', '==', slug));
-  const querySnapshot = await getDocs(q);
+  try {
+    const campaignsRef = collection(db, 'campaigns');
+    const q = query(campaignsRef, where('slug', '==', slug));
+    const querySnapshot = await getDocs(q);
 
-  if (querySnapshot.empty) {
-    return null;
+    if (querySnapshot.empty) {
+      return null;
+    }
+
+    const doc = querySnapshot.docs[0];
+    return { id: doc.id, ...(doc.data() as Campaign) };
+  } catch (error) {
+    console.error('Error fetching campaign by slug:', error);
+    throw new Error('Failed to fetch campaign by slug');
   }
-
-  const doc = querySnapshot.docs[0];
-  return { id: doc.id, ...(doc.data() as Campaign) };
 };

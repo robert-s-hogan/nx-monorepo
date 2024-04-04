@@ -42,7 +42,6 @@ export const CampaignProvider: React.FC<ProviderProps> = ({ children }) => {
     addCampaign,
     editCampaign,
     deleteCampaign,
-    mutate: () => void {},
   };
 
   return (

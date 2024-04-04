@@ -13,7 +13,7 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
       name: campaign?.name || '',
       slug: campaign?.slug || '',
       description: campaign?.description || '',
-      numberOfPlayers: campaign?.numberOfPlayers || 0,
+      numberOfPlayers: campaign?.numberOfPlayers || 1,
       playerExperienceStart: campaign?.playerExperienceStart || 100,
       groupDead: campaign?.groupDead ?? false,
       rests: campaign?.rests || 1,

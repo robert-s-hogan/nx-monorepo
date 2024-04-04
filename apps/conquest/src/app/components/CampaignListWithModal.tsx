@@ -7,11 +7,13 @@ import { Campaign } from '../types';
 interface CampaignListWithModalProps {
   campaigns: Campaign[];
   hideEdit?: boolean;
+  selectedCampaignSlug?: string;
 }
 
 const CampaignListWithModal = ({
   campaigns,
   hideEdit = false,
+  selectedCampaignSlug,
 }: CampaignListWithModalProps) => {
   // Destructure the `modalState` from the hook and then use its properties.
   const { modalState, openModal, closeModal } = useModalManager<Campaign>();
@@ -31,7 +33,7 @@ const CampaignListWithModal = ({
       {hideEdit && (
         <div className="flex w-auto">
           <button
-            onClick={() => openModal('add', campaigns[0])}
+            onClick={() => openModal('add', {} as Campaign)}
             className="btn btn-primary"
           >
             Add Campaign
@@ -49,6 +51,7 @@ const CampaignListWithModal = ({
             openModal('delete', campaignToDelete);
           }
         }}
+        selectedCampaignSlug={selectedCampaignSlug}
       />
       {isModalOpen && (
         <CampaignModalManager

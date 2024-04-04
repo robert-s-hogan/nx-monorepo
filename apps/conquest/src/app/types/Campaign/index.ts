@@ -23,7 +23,6 @@ export interface CampaignAddModalProps {
 
 export interface CampaignContextType {
   campaigns: Campaign[];
-  mutate: () => void; // This is the missing property the error is about
 }
 
 export interface CampaignDeleteModalProps {
@@ -45,6 +44,7 @@ export interface CampaignListProps {
   onEdit?: (campaign: Campaign) => void;
   onDelete: (campaignId: string) => void;
   hideEdit?: boolean;
+  selectedCampaignSlug?: string;
 }
 
 export interface CampaignModalManagerProps {

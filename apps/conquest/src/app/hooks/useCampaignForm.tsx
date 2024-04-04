@@ -2,7 +2,7 @@ import { useRouter } from 'next/navigation';
 
 import { Campaign } from '../types';
 import { useAuth } from '../contexts/AuthContext';
-import { useCampaigns } from '../contexts/CampaignContext';
+import { useCampaigns } from '../hooks/useCampaigns';
 import {
   addCampaign,
   editCampaign,
