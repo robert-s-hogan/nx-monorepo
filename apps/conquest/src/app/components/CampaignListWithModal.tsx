@@ -28,7 +28,7 @@ const CampaignListWithModal = ({
   };
 
   return (
-    <div className="w-full lg:w-1/2 p-4 flex flex-col">
+    <div className="w-full lg:w-1/2 p-4 flex flex-col space-y-8">
       <h2 className="mb-4">Campaigns</h2>
       {hideEdit && (
         <div className="flex w-auto">

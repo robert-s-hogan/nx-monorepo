@@ -24,7 +24,7 @@ const CampaignList: React.FC<CampaignListProps> = ({
               !selectedCampaignSlug || campaign.slug === selectedCampaignSlug
           )
           .map((campaign) => (
-            <div key={campaign.id} className="border border-black rounded">
+            <div key={campaign.id} className="border border-black rounded p-4">
               {hideEdit ? (
                 <Link href={`/campaigns/${campaign.slug}`}>
                   <div className="pb-3">

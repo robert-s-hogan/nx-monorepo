@@ -7,13 +7,16 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div>
-      {/* Add your header component here */}
-      <header>{/* Header content */}</header>
+      <header>
+        <nav>
+          <a href="/admin/maps">Maps</a>
+          <a href="/admin/items">Items</a>
+          <a href="/admin/entities">Entities</a>
+        </nav>
+      </header>
 
-      {/* Add your main content component here */}
       <main>{children}</main>
 
-      {/* Add your footer component here */}
       <footer>{/* Footer content */}</footer>
     </div>
   );

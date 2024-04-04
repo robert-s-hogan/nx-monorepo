@@ -1,66 +1,86 @@
-import { db } from '../../../../../libs/firebase/src/lib/firebase-config';
 import {
-  addDoc,
-  collection,
-  doc,
-  deleteDoc,
-  getDocs,
-  query,
-  updateDoc,
-  where,
-} from 'firebase/firestore';
+  addDocument,
+  deleteDocument,
+  editDocument,
+  fetchDocuments,
+} from '../../../../../libs/firebase/src/lib/firebase-crud';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../../../../libs/firebase/src/lib/firebase-config';
 import { Encounter } from '../types';
 
 export const addEncounter = async (
   encounterData: Encounter
 ): Promise<string> => {
-  const encounterRef = await addDoc(
-    collection(db, 'encounters'),
-    encounterData
-  );
-  return encounterRef.id;
+  if (!encounterData) {
+    throw new Error('Encounter data is required');
+  }
+  try {
+    return await addDocument('encounters', encounterData);
+  } catch (error) {
+    console.error('Error adding encounter:', error);
+    throw new Error('Failed to add encounter');
+  }
 };
 
 export const editEncounter = async (
   id: string,
   encounterData: Partial<Encounter>
 ): Promise<void> => {
-  const encounterRef = doc(db, 'encounters', id);
-  await updateDoc(encounterRef, encounterData);
+  try {
+    await editDocument('encounters', id, encounterData);
+  } catch (error) {
+    console.error('Error updating encounter:', error);
+    throw new Error('Failed to update encounter');
+  }
 };
 
 export const deleteEncounter = async (id: string): Promise<void> => {
-  const encounterRef = doc(db, 'encounters', id);
-  await deleteDoc(encounterRef);
-};
-
-export const fetchEncountersByCampaign = async (
-  campaignId: string
-): Promise<Encounter[]> => {
-  const encountersRef = collection(db, 'encounters');
-  const q = query(encountersRef, where('campaignId', '==', campaignId));
-  const querySnapshot = await getDocs(q);
-
-  const encounters: Encounter[] = [];
-  querySnapshot.forEach((doc) => {
-    const encounter = doc.data() as Encounter;
-    encounters.push({ ...encounter, id: doc.id });
-  });
-
-  return encounters;
+  try {
+    await deleteDocument('encounters', id);
+  } catch (error) {
+    console.error('Error deleting encounter:', error);
+    throw new Error('Failed to delete encounter');
+  }
 };
 
 export const fetchEncounters = async (
   campaignId: string
 ): Promise<Encounter[]> => {
-  const encountersRef = collection(db, 'encounters');
-  const querySnapshot = await getDocs(encountersRef);
+  try {
+    const encountersRef = collection(db, 'encounters');
+    const q = query(encountersRef, where('campaignId', '==', campaignId));
+    const querySnapshot = await getDocs(q);
 
-  const encounters: Encounter[] = [];
-  querySnapshot.forEach((doc) => {
-    const encounter = doc.data() as Encounter;
-    encounters.push({ ...encounter, id: doc.id });
-  });
+    const encounters: Encounter[] = [];
+    querySnapshot.forEach((doc) => {
+      const encounter = doc.data() as Encounter;
+      encounters.push({ ...encounter, id: doc.id });
+    });
 
-  return encounters;
+    return encounters;
+  } catch (error) {
+    console.error('Error fetching encounters:', error);
+    throw new Error('Failed to fetch encounters');
+  }
+};
+
+export const fetchEncountersByCampaign = async (
+  campaignId: string
+): Promise<Encounter[]> => {
+  try {
+    const encountersRef = collection(db, 'encounters');
+    const q = query(encountersRef, where('campaignId', '==', campaignId));
+    const querySnapshot = await getDocs(q);
+
+    const encounters: Encounter[] = [];
+    querySnapshot.forEach((doc) => {
+      const encounter = doc.data() as Encounter;
+      encounters.push({ ...encounter, id: doc.id });
+    });
+
+    return encounters;
+  } catch (error) {
+    console.error('Error fetching encounters:', error);
+    throw new Error('Failed to fetch encounters');
+  }
 };
