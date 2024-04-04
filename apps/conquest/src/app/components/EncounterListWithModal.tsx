@@ -2,11 +2,13 @@ import React from 'react';
 import EncounterList from '../components/EncounterList';
 import EncounterModalManager from '../components/EncounterModalManager';
 import useModalManager from '../hooks/useModalManager';
-import { Encounter } from '../types';
+import { Campaign, Encounter } from '../types';
+import { FirestoreDocument } from '../../../../../libs/firebase/src/lib/types';
 
 interface EncounterListWithModalProps {
   encounters: Encounter[];
   hideEdit?: boolean;
+  campaigns?: FirestoreDocument<Campaign>[];
 }
 
 const EncounterListWithModal = ({

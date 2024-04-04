@@ -7,9 +7,15 @@ const EncounterModal: React.FC<EncounterModalProps> = ({
   onClose,
   title,
   children,
+  fullScreen,
 }) => {
   return (
-    <ConquestModal isOpen={isOpen} onClose={onClose} title={title}>
+    <ConquestModal
+      isOpen={isOpen}
+      onClose={onClose}
+      title={title}
+      fullScreen={fullScreen}
+    >
       {children}
     </ConquestModal>
   );

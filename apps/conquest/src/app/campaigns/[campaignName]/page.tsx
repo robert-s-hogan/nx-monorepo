@@ -1,28 +1,21 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { NextPage } from 'next';
-import { usePathname } from 'next/navigation';
-
 import Layout from '../../components/Layout';
-import { fetchCampaignBySlug } from '../../services/campaignService';
-import { Campaign as CampaignType } from '../../types';
 import EncounterListWithModal from '../../components/EncounterListWithModal';
 import { EncounterProvider } from '../../contexts/EncounterContext';
 import { useEncounters } from '../../hooks/useEncounters';
-import useSWR from 'swr';
 import CampaignListWithModal from '../../components/CampaignListWithModal';
-import { fetchCampaigns as fetchCampaignsService } from '../../services/campaignService';
+import { useCampaigns } from '../../hooks/useCampaigns'; // Assuming useCampaigns is in the hooks directory
 
 const DynamicCampaignsPage: NextPage = () => {
-  const pathname = usePathname();
-  const { data: campaigns } = useSWR<CampaignType[]>(
-    'campaigns',
-    fetchCampaignsService
-  );
-  const [selectedCampaign, setSelectedCampaign] = useState<CampaignType | null>(
-    null
-  );
+  const {
+    campaigns,
+    selectedCampaign,
+    isLoading: isCampaignsLoading,
+    isError: isCampaignsError,
+  } = useCampaigns();
 
   const {
     encounters,
@@ -31,33 +24,22 @@ const DynamicCampaignsPage: NextPage = () => {
   } = useEncounters(selectedCampaign?.id as string);
 
   useEffect(() => {
-    const slug = pathname.split('/').pop();
-    if (slug && campaigns) {
-      // Check if the campaign is already in the fetched campaigns list
-      const campaignFromList = campaigns.find(
-        (campaign) => campaign.slug === slug
-      );
-      if (campaignFromList) {
-        setSelectedCampaign(campaignFromList);
-      } else {
-        // Fetch the campaign by slug if not found in the list
-        const fetchAndSetCampaign = async () => {
-          const fetchedCampaign = await fetchCampaignBySlug(
-            decodeURIComponent(slug)
-          );
-          setSelectedCampaign(fetchedCampaign);
-        };
-        fetchAndSetCampaign();
-      }
+    if (!selectedCampaign) {
+      console.log('No campaign selected or campaign data is still loading.');
     }
-  }, [pathname, campaigns]); // Depend on campaigns to ensure it's loaded
+  }, [selectedCampaign]);
 
-  if (!selectedCampaign) return <div>Loading...</div>;
+  if (isCampaignsLoading) return <div>Loading campaigns...</div>;
+  if (isCampaignsError) return <div>Error loading campaigns.</div>;
+  if (!selectedCampaign) return <div>No campaign selected.</div>;
 
   return (
     <EncounterProvider>
       <Layout title={selectedCampaign.name}>
         <div className="flex flex-col lg:flex-row w-full">
+          <pre>
+            Select campaign: {JSON.stringify(selectedCampaign, null, 2)}
+          </pre>
           <CampaignListWithModal
             campaigns={campaigns || []}
             hideEdit={false}
@@ -70,7 +52,10 @@ const DynamicCampaignsPage: NextPage = () => {
             ) : isEncountersError ? (
               <div>Error loading encounters.</div>
             ) : (
-              <EncounterListWithModal encounters={encounters || []} />
+              <EncounterListWithModal
+                encounters={encounters || []}
+                campaigns={campaigns}
+              />
             )}
           </div>
         </div>

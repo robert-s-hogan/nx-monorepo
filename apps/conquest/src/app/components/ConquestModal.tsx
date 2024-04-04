@@ -9,6 +9,7 @@ interface ConquestModalProps {
   onClose: () => void;
   title?: string;
   children: React.ReactNode;
+  fullScreen?: boolean;
 }
 
 const ConquestModal: React.FC<ConquestModalProps> = ({
@@ -16,7 +17,9 @@ const ConquestModal: React.FC<ConquestModalProps> = ({
   onClose,
   title,
   children,
+  fullScreen,
 }) => {
+  const screenSize = fullScreen ? 'max-w-7xl' : 'max-w-xl';
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -44,7 +47,11 @@ const ConquestModal: React.FC<ConquestModalProps> = ({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel
+                  className={`${
+                    screenSize && screenSize
+                  } w-full  transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all sm:my-8 sm:align-middle sm:w-full sm:p-6'`}
+                >
                   <div className="flex justify-between">
                     <Dialog.Title
                       as="h2"

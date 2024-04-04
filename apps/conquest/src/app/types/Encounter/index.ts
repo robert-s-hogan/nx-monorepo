@@ -7,7 +7,7 @@ export type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Deadly';
 
 export type Encounter = {
   id?: string;
-  campaignId: number;
+  campaignId: string;
   mapId: number;
   playerExperienceStart: number;
   adventuringDayXPLimit: number;
@@ -51,6 +51,7 @@ export interface EncounterFormProps {
   operation: 'add' | 'edit';
   // Add the 'campaigns' prop to the type definition
   campaigns?: FirestoreDocument<Campaign>[];
+  campaignId: string; // Assuming campaignId is of type string
 }
 
 export interface EncounterListProps {
@@ -72,6 +73,7 @@ export interface EncounterModalProps {
   onClose: () => void;
   operation?: ModalOperation;
   encounter?: Encounter | null; // Optional encounter for context, might not be needed depending on your modal's use cases
+  fullScreen?: boolean;
 }
 
 export interface EncounterModalManagerProps {

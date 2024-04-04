@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { Encounter, EncounterFormProps } from '../types';
+import { useCampaigns } from '../hooks/useCampaigns'; // Assuming useCampaigns is in the hooks directory
 import { dndGameObjectives } from '../../../../../libs/constants/src/lib/dnd-encounter';
 
 function formatFieldValue(value: any, inputType: string) {
@@ -23,10 +24,12 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
   onSubmit,
   operation,
 }) => {
+  const { selectedCampaign } = useCampaigns();
+
   const formik = useFormik({
     initialValues: {
       id: encounter?.id || '',
-      campaignId: encounter?.campaignId || 0,
+      campaignId: selectedCampaign?.id || '',
       mapId: encounter?.mapId || 0,
       playerExperienceStart: encounter?.playerExperienceStart || 0,
       adventuringDayXPLimit: encounter?.adventuringDayXPLimit || 0,
@@ -56,17 +59,7 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
       doesCaravanAppear: encounter?.doesCaravanAppear || false,
     },
     onSubmit: (values) => {
-      const formValues: Partial<Encounter> = {
-        ...values,
-        id: operation === 'edit' ? values.id : undefined,
-        // Ensure startingQuadrantOfOpposition is a boolean or undefined
-        startingQuadrantOfOpposition:
-          values.startingQuadrantOfOpposition === ''
-            ? undefined
-            : values.startingQuadrantOfOpposition === 'true',
-      };
-
-      onSubmit(formValues);
+      onSubmit(values as Encounter);
     },
   });
 

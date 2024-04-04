@@ -1,4 +1,5 @@
 import React from 'react';
+import { usePathname } from 'next/navigation';
 
 import EncounterDeleteConfirmation from '../components/EncounterDeleteConfirmation'; // A delete confirmation component you'll need to create
 import EncounterForm from '../components/EncounterForm'; // A form component you'll need to create
@@ -6,6 +7,7 @@ import EncounterModal from '../components/EncounterModal'; // A modal component 
 import { useEncounterOperations } from '../hooks/useEncounterOperations'; // A hook you'll need to create
 import { Encounter } from '../types'; // A type you'll need to create
 import { useCampaigns } from '../hooks/useCampaigns'; // A hook you'll need to create
+import EncounterList from './EncounterList';
 
 const EncounterModalManager = ({
   isOpen,
@@ -19,7 +21,7 @@ const EncounterModalManager = ({
   encounter: Encounter | null; // Ensure encounter can be null for 'add' operation
 }) => {
   const { handleSave, handleDelete } = useEncounterOperations(onClose);
-  const { campaigns, isLoading, isError } = useCampaigns();
+  const { campaigns, isLoading, isError, selectedCampaign } = useCampaigns();
 
   // Conditional rendering based on loading or error state
   if (isLoading) return <div>Loading...</div>;
@@ -39,6 +41,7 @@ const EncounterModalManager = ({
         return (
           <EncounterForm
             encounter={encounter}
+            campaignId={selectedCampaign?.id ?? ''} // Pass the id of selectedCampaign, with fallback
             campaigns={campaigns} // Pass campaigns data to the form
             onSubmit={(formData) => handleSave(formData, operation)}
             operation={operation}
@@ -70,8 +73,9 @@ const EncounterModalManager = ({
       title={titleText}
       operation={operation}
       encounter={encounter}
+      fullScreen={true}
     >
-      {renderContent()}
+      <div className="grid grid-cols-2 gap-4 w-full">{renderContent()}</div>
     </EncounterModal>
   );
 };
