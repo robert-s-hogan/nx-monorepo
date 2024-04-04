@@ -3,10 +3,9 @@ import React from 'react';
 import EncounterDeleteConfirmation from '../components/EncounterDeleteConfirmation'; // A delete confirmation component you'll need to create
 import EncounterForm from '../components/EncounterForm'; // A form component you'll need to create
 import EncounterModal from '../components/EncounterModal'; // A modal component you'll need to create
-
 import { useEncounterOperations } from '../hooks/useEncounterOperations'; // A hook you'll need to create
-
 import { Encounter } from '../types'; // A type you'll need to create
+import { useCampaigns } from '../hooks/useCampaigns'; // A hook you'll need to create
 
 const EncounterModalManager = ({
   isOpen,
@@ -20,6 +19,11 @@ const EncounterModalManager = ({
   encounter: Encounter | null; // Ensure encounter can be null for 'add' operation
 }) => {
   const { handleSave, handleDelete } = useEncounterOperations(onClose);
+  const { campaigns, isLoading, isError } = useCampaigns();
+
+  // Conditional rendering based on loading or error state
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error loading campaigns.</div>;
 
   let titleText =
     operation === 'add'
@@ -35,6 +39,7 @@ const EncounterModalManager = ({
         return (
           <EncounterForm
             encounter={encounter}
+            campaigns={campaigns} // Pass campaigns data to the form
             onSubmit={(formData) => handleSave(formData, operation)}
             operation={operation}
           />

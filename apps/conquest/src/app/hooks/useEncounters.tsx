@@ -1,20 +1,26 @@
-import useSWR from 'swr';
-import { fetchEncounters as fetchEncountersService } from '../services/encounterService';
-import { Encounter } from '../types';
+import { useCollection } from '../../../../../libs/firebase/src/lib/useCollection';
+import { Encounter, FirestoreDocument } from '../types';
 
-export const useEncounters = (campaignId: string) => {
+// Assuming useCollection is adapted to accept parameters for queries
+export const useEncounters = (
+  campaignId: string
+): {
+  encounters: FirestoreDocument<Encounter>[] | undefined;
+  isLoading: boolean;
+  isError: any;
+  mutate: typeof mutate; // Using typeof to reference the mutate function's type
+} => {
   const {
-    data: encounters,
-    error,
+    documents: encounters,
+    isLoading,
+    isError,
     mutate,
-  } = useSWR<Encounter[]>(`campaigns/${campaignId}/encounters`, () =>
-    fetchEncountersService(campaignId)
-  );
+  } = useCollection<Encounter>(`campaigns/${campaignId}/encounters`);
 
   return {
     encounters,
-    isLoading: !error && !encounters,
-    isError: error,
+    isLoading,
+    isError,
     mutate,
   };
 };

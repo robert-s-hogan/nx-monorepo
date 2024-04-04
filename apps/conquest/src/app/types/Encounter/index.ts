@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 import { ModalOperation } from '../../types';
+import { FirestoreDocument } from '../../../../../../libs/firebase/src/lib/types';
+import { Campaign } from '../Campaign';
 
 export type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Deadly';
 
@@ -42,10 +44,13 @@ export interface EncounterDeleteConfirmationProps {
   onCancel: () => void;
 }
 
+// Your existing EncounterFormProps definition might look something like this
 export interface EncounterFormProps {
-  encounter?: Partial<Encounter> | null;
-  onSubmit: (formData: Partial<Encounter>, encounterId?: number) => void;
-  operation: ModalOperation;
+  encounter: Encounter | null;
+  onSubmit: (values: Partial<Encounter>) => void;
+  operation: 'add' | 'edit';
+  // Add the 'campaigns' prop to the type definition
+  campaigns?: FirestoreDocument<Campaign>[];
 }
 
 export interface EncounterListProps {
