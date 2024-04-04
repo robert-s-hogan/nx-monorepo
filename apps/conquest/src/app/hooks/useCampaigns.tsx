@@ -1,18 +1,24 @@
-import useSWR from 'swr';
-import { fetchCampaigns as fetchCampaignsService } from '../services/campaignService';
 import { Campaign } from '../types';
+import { useCollection } from '../../../../../libs/firebase/src/lib/useCollection';
+import { FirestoreDocument } from '../../../../../libs/firebase/src/lib/types';
 
-export const useCampaigns = () => {
+export const useCampaigns = (): {
+  campaigns: FirestoreDocument<Campaign>[] | undefined;
+  isLoading: boolean;
+  isError: any;
+  mutate: typeof mutate; // Use typeof to reference the mutate function's type directly
+} => {
   const {
-    data: campaigns,
-    error,
+    documents: campaigns,
+    isLoading,
+    isError,
     mutate,
-  } = useSWR<Campaign[]>('campaigns', fetchCampaignsService);
+  } = useCollection<Campaign>('campaigns');
 
   return {
     campaigns,
-    isLoading: !error && !campaigns,
-    isError: error,
+    isLoading,
+    isError,
     mutate,
   };
 };

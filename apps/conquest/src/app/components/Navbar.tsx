@@ -36,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({ title }) => {
 
         <div className="flex space-between space-x-4 text-xl">
           <Link href="/campaigns">Campaigns</Link>
-          {/* <Link href="/encounters">Encounters</Link> */}
+          <Link href="/admin">Admin</Link>
         </div>
 
         <div className="flex items-center space-x-4">

@@ -12,6 +12,11 @@ export interface FieldConfig {
   // Add other props like validation rules if needed
 }
 
+// Extending FieldConfig to include options for select fields
+export interface ExtendedFieldConfig extends FieldConfig {
+  options?: Array<{ label: string; value: string | number }>; // For select fields
+}
+
 // Props for the generic form component
 export interface ConquestFormProps {
   fields: FieldConfig[];

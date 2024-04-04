@@ -22643,6 +22643,11 @@
       },
       {
         "source": "conquest",
+        "target": "firebase",
+        "type": "static"
+      },
+      {
+        "source": "conquest",
         "target": "npm:swr",
         "type": "static"
       },
@@ -22678,11 +22683,6 @@
       },
       {
         "source": "conquest",
-        "target": "firebase",
-        "type": "static"
-      },
-      {
-        "source": "conquest",
         "target": "npm:@nx/react",
         "type": "static"
       }
@@ -22691,6 +22691,16 @@
       {
         "source": "firebase",
         "target": "npm:firebase",
+        "type": "static"
+      },
+      {
+        "source": "firebase",
+        "target": "npm:swr",
+        "type": "static"
+      },
+      {
+        "source": "firebase",
+        "target": "npm:react",
         "type": "static"
       }
     ],

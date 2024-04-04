@@ -56,11 +56,8 @@ export const useCampaignForm = () => {
       return;
     }
 
-    mutate();
-
     try {
       await deleteCampaign(campaignId);
-      mutate();
       router.push('/campaigns'); // Redirect to the /campaigns page
     } catch (error) {
       console.error('Error deleting campaign:', error);

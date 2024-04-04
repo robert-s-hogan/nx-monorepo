@@ -1,25 +1,18 @@
 import React from 'react';
+import Layout from '../components/Layout';
 
-interface LayoutProps {
+interface AdminLayoutPageProps {
   children: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const AdminLayoutPage: React.FC<AdminLayoutPageProps> = ({ children }) => {
   return (
-    <div>
-      <header>
-        <nav>
-          <a href="/admin/maps">Maps</a>
-          <a href="/admin/items">Items</a>
-          <a href="/admin/entities">Entities</a>
-        </nav>
-      </header>
-
-      <main>{children}</main>
+    <Layout title="Admin | Conquest">
+      <main className="w-full">{children}</main>
 
       <footer>{/* Footer content */}</footer>
-    </div>
+    </Layout>
   );
 };
 
-export default Layout;
+export default AdminLayoutPage;
