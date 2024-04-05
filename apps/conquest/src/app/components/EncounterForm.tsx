@@ -24,20 +24,20 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
   onSubmit,
   operation,
 }) => {
-  const { selectedCampaign } = useCampaigns();
+  const { campaigns, selectedCampaign } = useCampaigns();
 
   const formik = useFormik({
     initialValues: {
       id: encounter?.id || '',
       campaignId: selectedCampaign?.id || '',
       mapId: encounter?.mapId || 0,
-      playerExperienceStart: encounter?.playerExperienceStart || 0,
+      playerExperienceStart: selectedCampaign?.playerExperienceStart || 0,
       adventuringDayXPLimit: encounter?.adventuringDayXPLimit || 0,
       adventuringDayXPStart: encounter?.adventuringDayXPStart || 0,
       encounterDifficultyOptions: encounter?.encounterDifficultyOptions || '',
       adventuringDayXPFinish: encounter?.adventuringDayXPFinish || 0,
-      playerExperienceEarnedFromEncounter:
-        encounter?.playerExperienceEarnedFromEncounter || 0,
+      // playerExperienceEarnedFromEncounter:
+      //   encounter?.playerExperienceEarnedFromEncounter || 0,
       playerExperienceFinish: encounter?.playerExperienceFinish || 0,
       levelOfPlayersCharactersFinish:
         encounter?.levelOfPlayersCharactersFinish || 0,
@@ -53,13 +53,28 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
       objective: encounter?.objective || '',
       timeOfDay: encounter?.timeOfDay || '',
       weather: encounter?.weather || false,
-      cumulativeGoldEarnedStart: encounter?.cumulativeGoldEarnedStart || 0,
-      goldEarnedPerPlayer: encounter?.goldEarnedPerPlayer || 0,
-      cumulativeGoldEarnedFinish: encounter?.cumulativeGoldEarnedFinish || 0,
-      doesCaravanAppear: encounter?.doesCaravanAppear || false,
+      // cumulativeGoldEarnedStart: encounter?.cumulativeGoldEarnedStart || 0,
+      // goldEarnedPerPlayer: encounter?.goldEarnedPerPlayer || 0,
+      // cumulativeGoldEarnedFinish: encounter?.cumulativeGoldEarnedFinish || 0,
+      // doesCaravanAppear: encounter?.doesCaravanAppear || false,
     },
     onSubmit: (values) => {
-      onSubmit(values as Encounter);
+      // Convert startingQuadrantOfOpposition to boolean if it's a string
+      const startingQuadrantOfOpposition =
+        values.startingQuadrantOfOpposition === 'true' ||
+        values.startingQuadrantOfOpposition === true;
+
+      let encounterData: Partial<Encounter> = {
+        ...values,
+        startingQuadrantOfOpposition,
+      };
+
+      // Remove the id property for 'add' operation to avoid sending an empty string as ID
+      if (operation === 'add') {
+        delete encounterData.id;
+      }
+
+      onSubmit(encounterData);
     },
   });
 
@@ -75,9 +90,15 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
     }
   };
 
+  console.log(`selectedCampaign`, selectedCampaign);
+
   return (
     <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-4">
       {Object.entries(formik.values).map(([key, value]) => {
+        if (key === 'id') {
+          return null;
+        }
+
         const inputType = getInputType(value);
 
         // Use the utility function to format the field value

@@ -7,6 +7,7 @@ import {
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../../../../libs/firebase/src/lib/firebase-config';
 import { Encounter } from '../types';
+import { doc, setDoc } from 'firebase/firestore';
 
 export const addEncounter = async (
   encounterData: Encounter
@@ -14,8 +15,18 @@ export const addEncounter = async (
   if (!encounterData) {
     throw new Error('Encounter data is required');
   }
+
   try {
-    return await addDocument('encounters', encounterData);
+    // Add a new document in collection "encounters"
+    const docRef = doc(collection(db, 'encounters'));
+
+    // Set the document with encounterData (without an ID)
+    await setDoc(docRef, encounterData);
+
+    // Now, update the document with its generated ID
+    await setDoc(docRef, { ...encounterData, id: docRef.id }, { merge: true });
+
+    return docRef.id; // Return the generated document ID
   } catch (error) {
     console.error('Error adding encounter:', error);
     throw new Error('Failed to add encounter');

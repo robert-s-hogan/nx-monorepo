@@ -37,9 +37,6 @@ const DynamicCampaignsPage: NextPage = () => {
     <EncounterProvider>
       <Layout title={selectedCampaign.name}>
         <div className="flex flex-col lg:flex-row w-full">
-          <pre>
-            Select campaign: {JSON.stringify(selectedCampaign, null, 2)}
-          </pre>
           <CampaignListWithModal
             campaigns={campaigns || []}
             hideEdit={false}
