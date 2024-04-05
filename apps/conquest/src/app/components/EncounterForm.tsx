@@ -95,7 +95,7 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
   return (
     <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-4">
       {Object.entries(formik.values).map(([key, value]) => {
-        if (key === 'id') {
+        if (key === 'id' || key === 'campaignId' || key === 'mapId') {
           return null;
         }
 
