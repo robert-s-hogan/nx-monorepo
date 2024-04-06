@@ -21961,6 +21961,11 @@
       },
       {
         "source": "nextjs-react-ui",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "nextjs-react-ui",
         "target": "npm:react",
         "type": "static"
       }
@@ -21992,6 +21997,11 @@
     "coffee-shop": [
       {
         "source": "coffee-shop",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "coffee-shop",
         "target": "react-ui",
         "type": "static"
       },
@@ -22008,6 +22018,11 @@
       {
         "source": "coffee-shop",
         "target": "types",
+        "type": "static"
+      },
+      {
+        "source": "coffee-shop",
+        "target": "npm:@nrwl/next",
         "type": "static"
       },
       {
@@ -22024,6 +22039,11 @@
         "source": "coffee-shop",
         "target": "npm:@testing-library/react",
         "type": "static"
+      },
+      {
+        "source": "coffee-shop",
+        "target": "npm:@nrwl/react",
+        "type": "static"
       }
     ],
     "placeholder": [
@@ -22039,12 +22059,27 @@
       },
       {
         "source": "placeholder",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "placeholder",
         "target": "npm:next-themes",
         "type": "static"
       },
       {
         "source": "placeholder",
+        "target": "npm:react-icons",
+        "type": "static"
+      },
+      {
+        "source": "placeholder",
         "target": "nextjs-react-ui",
+        "type": "static"
+      },
+      {
+        "source": "placeholder",
+        "target": "npm:@nrwl/next",
         "type": "static"
       },
       {
@@ -22060,6 +22095,11 @@
       {
         "source": "placeholder",
         "target": "npm:@testing-library/react",
+        "type": "static"
+      },
+      {
+        "source": "placeholder",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
@@ -22098,6 +22138,11 @@
       },
       {
         "source": "accountant",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "accountant",
         "target": "nextjs-react-ui",
         "type": "static"
       },
@@ -22108,7 +22153,17 @@
       },
       {
         "source": "accountant",
+        "target": "npm:@nrwl/next",
+        "type": "static"
+      },
+      {
+        "source": "accountant",
         "target": "npm:@testing-library/react",
+        "type": "static"
+      },
+      {
+        "source": "accountant",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
@@ -22116,6 +22171,16 @@
       {
         "source": "play2winff",
         "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "npm:react-icons",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "npm:next",
         "type": "static"
       },
       {
@@ -22150,7 +22215,7 @@
       },
       {
         "source": "play2winff",
-        "target": "npm:next",
+        "target": "npm:@nrwl/next",
         "type": "static"
       },
       {
@@ -22162,6 +22227,11 @@
         "source": "play2winff",
         "target": "npm:@testing-library/react",
         "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "npm:@nrwl/react",
+        "type": "static"
       }
     ],
     "rshogancom": [
@@ -22172,12 +22242,22 @@
       },
       {
         "source": "rshogancom",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "rshogancom",
         "target": "npm:react",
         "type": "static"
       },
       {
         "source": "rshogancom",
         "target": "npm:react-redux",
+        "type": "static"
+      },
+      {
+        "source": "rshogancom",
+        "target": "npm:react-icons",
         "type": "static"
       },
       {
@@ -22222,12 +22302,22 @@
       },
       {
         "source": "rshogancom",
+        "target": "npm:@nrwl/next",
+        "type": "static"
+      },
+      {
+        "source": "rshogancom",
         "target": "npm:@sendgrid/mail",
         "type": "static"
       },
       {
         "source": "rshogancom",
         "target": "npm:redux",
+        "type": "static"
+      },
+      {
+        "source": "rshogancom",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
@@ -22260,6 +22350,11 @@
         "source": "analytics",
         "target": "npm:@testing-library/react",
         "type": "static"
+      },
+      {
+        "source": "analytics",
+        "target": "npm:next",
+        "type": "static"
       }
     ],
     "constants": [],
@@ -22276,7 +22371,17 @@
       },
       {
         "source": "jhogancom",
+        "target": "npm:react-icons",
+        "type": "static"
+      },
+      {
+        "source": "jhogancom",
         "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "jhogancom",
+        "target": "npm:next",
         "type": "static"
       },
       {
@@ -22296,6 +22401,11 @@
       },
       {
         "source": "jhogancom",
+        "target": "npm:@nrwl/next",
+        "type": "static"
+      },
+      {
+        "source": "jhogancom",
         "target": "analytics",
         "type": "static"
       },
@@ -22303,9 +22413,29 @@
         "source": "jhogancom",
         "target": "npm:react-hotjar",
         "type": "static"
+      },
+      {
+        "source": "jhogancom",
+        "target": "npm:@nrwl/react",
+        "type": "static"
       }
     ],
     "neuro-fit": [
+      {
+        "source": "neuro-fit",
+        "target": "npm:@nrwl/next",
+        "type": "static"
+      },
+      {
+        "source": "neuro-fit",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "neuro-fit",
+        "target": "npm:react-icons",
+        "type": "static"
+      },
       {
         "source": "neuro-fit",
         "target": "npm:react",
@@ -22314,6 +22444,11 @@
       {
         "source": "neuro-fit",
         "target": "npm:@testing-library/react",
+        "type": "static"
+      },
+      {
+        "source": "neuro-fit",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
@@ -22325,7 +22460,17 @@
       },
       {
         "source": "theos-dnd",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "theos-dnd",
         "target": "react-ui",
+        "type": "static"
+      },
+      {
+        "source": "theos-dnd",
+        "target": "npm:react-icons",
         "type": "static"
       },
       {
@@ -22342,6 +22487,16 @@
         "source": "theos-dnd",
         "target": "nextjs-react-ui",
         "type": "static"
+      },
+      {
+        "source": "theos-dnd",
+        "target": "npm:@nrwl/next",
+        "type": "static"
+      },
+      {
+        "source": "theos-dnd",
+        "target": "npm:@nrwl/react",
+        "type": "static"
       }
     ],
     "conquest": [
@@ -22357,12 +22512,12 @@
       },
       {
         "source": "conquest",
-        "target": "firebase",
+        "target": "npm:next",
         "type": "static"
       },
       {
         "source": "conquest",
-        "target": "npm:next",
+        "target": "firebase",
         "type": "static"
       },
       {
@@ -22382,6 +22537,11 @@
       },
       {
         "source": "conquest",
+        "target": "npm:ionicons",
+        "type": "static"
+      },
+      {
+        "source": "conquest",
         "target": "npm:@headlessui/react",
         "type": "static"
       },
@@ -22389,9 +22549,24 @@
         "source": "conquest",
         "target": "constants",
         "type": "static"
+      },
+      {
+        "source": "conquest",
+        "target": "npm:firebase",
+        "type": "static"
+      },
+      {
+        "source": "conquest",
+        "target": "npm:@nx/react",
+        "type": "static"
       }
     ],
     "firebase": [
+      {
+        "source": "firebase",
+        "target": "npm:firebase",
+        "type": "static"
+      },
       {
         "source": "firebase",
         "target": "npm:swr",
@@ -22416,6 +22591,11 @@
       },
       {
         "source": "react-ui",
+        "target": "npm:@testing-library/jest-dom",
+        "type": "static"
+      },
+      {
+        "source": "react-ui",
         "target": "types",
         "type": "static"
       },
@@ -22431,11 +22611,31 @@
       },
       {
         "source": "react-ui",
+        "target": "npm:react-icons",
+        "type": "static"
+      },
+      {
+        "source": "react-ui",
         "target": "react-hooks",
+        "type": "static"
+      },
+      {
+        "source": "react-ui",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "react-ui",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
     "devblog": [
+      {
+        "source": "devblog",
+        "target": "npm:next",
+        "type": "static"
+      },
       {
         "source": "devblog",
         "target": "react-ui",
@@ -22444,6 +22644,11 @@
       {
         "source": "devblog",
         "target": "icons",
+        "type": "static"
+      },
+      {
+        "source": "devblog",
+        "target": "npm:react-icons",
         "type": "static"
       },
       {
@@ -22493,6 +22698,11 @@
       },
       {
         "source": "devblog",
+        "target": "npm:@nrwl/next",
+        "type": "static"
+      },
+      {
+        "source": "devblog",
         "target": "npm:@next/mdx",
         "type": "static"
       },
@@ -22503,17 +22713,17 @@
       },
       {
         "source": "devblog",
-        "target": "npm:next",
-        "type": "static"
-      },
-      {
-        "source": "devblog",
         "target": "utils",
         "type": "static"
       },
       {
         "source": "devblog",
         "target": "constants",
+        "type": "static"
+      },
+      {
+        "source": "devblog",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
@@ -22526,6 +22736,11 @@
       {
         "source": "icons",
         "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "icons",
+        "target": "npm:next",
         "type": "static"
       }
     ],
@@ -22579,7 +22794,17 @@
       },
       {
         "source": "swapi",
+        "target": "npm:react-icons",
+        "type": "static"
+      },
+      {
+        "source": "swapi",
         "target": "nextjs-react-ui",
+        "type": "static"
+      },
+      {
+        "source": "swapi",
+        "target": "npm:@nrwl/next",
         "type": "static"
       },
       {
@@ -22590,6 +22815,11 @@
       {
         "source": "swapi",
         "target": "icons",
+        "type": "static"
+      },
+      {
+        "source": "swapi",
+        "target": "npm:@nrwl/react",
         "type": "static"
       }
     ],
@@ -22612,6 +22842,11 @@
       {
         "source": "theme",
         "target": "react-ui",
+        "type": "static"
+      },
+      {
+        "source": "theme",
+        "target": "npm:react-icons",
         "type": "static"
       }
     ],

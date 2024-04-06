@@ -1,10 +1,10 @@
-import { db } from '../../../../../libs/firebase/src/lib/firebase-config';
+import { db } from '@with-nx/firebase';
 import {
   addDocument,
   deleteDocument,
   editDocument,
   fetchDocuments,
-} from '../../../../../libs/firebase/src/lib/firebase-crud';
+} from '@with-nx/firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
 import { Campaign } from '../types';

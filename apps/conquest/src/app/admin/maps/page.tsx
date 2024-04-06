@@ -1,14 +1,10 @@
 // pages/admin/maps/index.tsx
 'use client';
 import React from 'react';
-import { useFirestoreCollection } from '../../../../../../libs/firebase/src/lib/useFirestoreCollections'; // Adjust the import path as necessary
-import { Map } from '../../types'; // Adjust the import path as necessary
+import { useFirestoreCollection } from '@with-nx/firebase';
+import { Map } from '../../types';
 
 const AdminMapsPage: React.FC = () => {
-  // Use your fetching hook to check if form fields configuration exists
-  // const { documents: formFields, loading } = useFirestoreCollection(
-  //   'formFields/mapsFormFields'
-  // );
   const {
     documents: maps,
     loading,

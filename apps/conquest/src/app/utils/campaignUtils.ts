@@ -1,4 +1,4 @@
-import { db } from '../../../../../libs/firebase/src/lib/firebase-config';
+import { db } from '@with-nx/firebase';
 import {
   addDoc,
   collection,

@@ -1,21 +1,18 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { Encounter, EncounterFormProps } from '../types';
-import { useCampaigns } from '../hooks/useCampaigns'; // Assuming useCampaigns is in the hooks directory
-import { dndGameObjectives } from '../../../../../libs/constants/src/lib/dnd-encounter';
+import { useCampaigns } from '../hooks/useCampaigns';
+import { dndGameObjectives } from '@with-nx/constants';
 
 function formatFieldValue(value: any, inputType: string) {
-  // For checkboxes, return the value as is, since they work with boolean values
   if (inputType === 'checkbox') {
     return value;
   }
 
-  // Convert boolean values to strings for all other input types
   if (typeof value === 'boolean') {
-    return value ? 'Yes' : 'No'; // or simply value.toString()
+    return value ? 'Yes' : 'No';
   }
 
-  // Return the value as is for non-boolean types
   return value;
 }
 

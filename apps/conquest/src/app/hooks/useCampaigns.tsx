@@ -1,6 +1,6 @@
 import { Campaign } from '../types';
-import { useCollection } from '../../../../../libs/firebase/src/lib/useCollection';
-import { FirestoreDocument } from '../../../../../libs/firebase/src/lib/types';
+import { useCollection } from '@with-nx/firebase';
+import { FirestoreDocument } from '@with-nx/firebase';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 export const useCampaigns = (): {

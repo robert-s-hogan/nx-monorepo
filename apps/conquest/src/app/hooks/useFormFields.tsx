@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../../../../libs/firebase/src/lib/firebase-config';
+import { db } from '@with-nx/firebase';
 import { FieldConfig } from '../types'; // Adjust the import path as necessary
 
 export const useFormFields = (formName: string) => {

@@ -1,4 +1,4 @@
-import { useCollection } from '../../../../../libs/firebase/src/lib/useCollection';
+import { useCollection } from '@with-nx/firebase';
 import { Encounter, FirestoreDocument } from '../types';
 
 // Assuming useCollection is adapted to accept parameters for queries

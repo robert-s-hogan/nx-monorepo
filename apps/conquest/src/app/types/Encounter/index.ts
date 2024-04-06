@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { ModalOperation } from '../../types';
-import { FirestoreDocument } from '../../../../../../libs/firebase/src/lib/types';
+import { FirestoreDocument } from '@with-nx/firebase';
 import { Campaign } from '../Campaign';
 
 export type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Deadly';

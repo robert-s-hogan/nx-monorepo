@@ -3,7 +3,7 @@ import EncounterList from '../components/EncounterList';
 import EncounterModalManager from '../components/EncounterModalManager';
 import useModalManager from '../hooks/useModalManager';
 import { Campaign, Encounter } from '../types';
-import { FirestoreDocument } from '../../../../../libs/firebase/src/lib/types';
+import { FirestoreDocument } from '@with-nx/firebase';
 
 interface EncounterListWithModalProps {
   encounters: Encounter[];
