@@ -6,6 +6,22 @@
       "data": {
         "root": "libs/nextjs-react-ui",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/nextjs-react-ui/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          },
           "test": {
             "executor": "@nrwl/jest:jest",
             "inputs": [
@@ -26,22 +42,6 @@
                 "codeCoverage": true
               }
             }
-          },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "libs/nextjs-react-ui/**/*.{ts,tsx,js,jsx}"
-              ]
-            },
-            "configurations": {}
           }
         },
         "name": "nextjs-react-ui",
@@ -120,6 +120,22 @@
       "data": {
         "root": "apps/coffee-shop",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/coffee-shop/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          },
           "build": {
             "executor": "@nrwl/next:build",
             "dependsOn": [
@@ -165,22 +181,6 @@
               }
             }
           },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "apps/coffee-shop/**/*.{ts,tsx,js,jsx}"
-              ]
-            },
-            "configurations": {}
-          },
           "serve": {
             "executor": "@nrwl/next:server",
             "defaultConfiguration": "development",
@@ -221,6 +221,22 @@
       "data": {
         "root": "apps/placeholder",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/placeholder/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          },
           "build": {
             "executor": "@nrwl/next:build",
             "dependsOn": [
@@ -258,22 +274,6 @@
             "options": {
               "jestConfig": "apps/placeholder/jest.config.ts",
               "passWithNoTests": true
-            },
-            "configurations": {}
-          },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "apps/placeholder/**/*.{ts,tsx,js,jsx}"
-              ]
             },
             "configurations": {}
           },
@@ -392,6 +392,22 @@
       "data": {
         "root": "apps/accountant",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/accountant/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          },
           "build": {
             "executor": "@nrwl/next:build",
             "dependsOn": [
@@ -437,22 +453,6 @@
               }
             }
           },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "apps/accountant/**/*.{ts,tsx,js,jsx}"
-              ]
-            },
-            "configurations": {}
-          },
           "serve": {
             "executor": "@nrwl/next:server",
             "defaultConfiguration": "development",
@@ -493,6 +493,22 @@
       "data": {
         "root": "apps/play2winff",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/play2winff/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          },
           "build": {
             "executor": "@nrwl/next:build",
             "dependsOn": [
@@ -538,22 +554,6 @@
               }
             }
           },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "apps/play2winff/**/*.{ts,tsx,js,jsx}"
-              ]
-            },
-            "configurations": {}
-          },
           "serve": {
             "executor": "@nrwl/next:server",
             "defaultConfiguration": "development",
@@ -594,6 +594,22 @@
       "data": {
         "root": "apps/rshogancom",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/rshogancom/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          },
           "build": {
             "executor": "@nrwl/next:build",
             "dependsOn": [
@@ -631,22 +647,6 @@
             "options": {
               "jestConfig": "apps/rshogancom/jest.config.ts",
               "passWithNoTests": true
-            },
-            "configurations": {}
-          },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "apps/rshogancom/**/*.{ts,tsx,js,jsx}"
-              ]
             },
             "configurations": {}
           },
@@ -783,6 +783,22 @@
       "data": {
         "root": "libs/constants",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/constants/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          },
           "test": {
             "executor": "@nrwl/jest:jest",
             "inputs": [
@@ -803,22 +819,6 @@
                 "codeCoverage": true
               }
             }
-          },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "libs/constants/**/*.ts"
-              ]
-            },
-            "configurations": {}
           }
         },
         "name": "constants",
@@ -835,6 +835,22 @@
       "data": {
         "root": "apps/jhogancom",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/jhogancom/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          },
           "build": {
             "executor": "@nrwl/next:build",
             "dependsOn": [
@@ -872,22 +888,6 @@
             "options": {
               "jestConfig": "apps/jhogancom/jest.config.ts",
               "passWithNoTests": true
-            },
-            "configurations": {}
-          },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "apps/jhogancom/**/*.{ts,tsx,js,jsx}"
-              ]
             },
             "configurations": {}
           },
@@ -931,6 +931,22 @@
       "data": {
         "root": "apps/neuro-fit",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/neuro-fit/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          },
           "build": {
             "executor": "@nrwl/next:build",
             "dependsOn": [
@@ -976,22 +992,6 @@
               }
             }
           },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "apps/neuro-fit/**/*.{ts,tsx,js,jsx}"
-              ]
-            },
-            "configurations": {}
-          },
           "serve": {
             "executor": "@nrwl/next:server",
             "defaultConfiguration": "development",
@@ -1032,6 +1032,22 @@
       "data": {
         "root": "apps/theos-dnd",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/theos-dnd/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          },
           "build": {
             "executor": "@nrwl/next:build",
             "dependsOn": [
@@ -1077,22 +1093,6 @@
               }
             }
           },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "apps/theos-dnd/**/*.{ts,tsx,js,jsx}"
-              ]
-            },
-            "configurations": {}
-          },
           "serve": {
             "executor": "@nrwl/next:server",
             "defaultConfiguration": "development",
@@ -1133,6 +1133,15 @@
       "data": {
         "root": "apps/conquest",
         "targets": {
+          "lint": {
+            "executor": "@nx/eslint:lint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "options": {},
+            "configurations": {}
+          },
           "build": {
             "executor": "@nx/next:build",
             "cache": true,
@@ -1170,15 +1179,6 @@
             "options": {
               "jestConfig": "apps/conquest/jest.config.ts"
             },
-            "configurations": {}
-          },
-          "lint": {
-            "executor": "@nx/eslint:lint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "options": {},
             "configurations": {}
           },
           "serve": {
@@ -1245,22 +1245,6 @@
       "data": {
         "root": "libs/react-ui",
         "targets": {
-          "test": {
-            "executor": "@nrwl/jest:jest",
-            "inputs": [
-              "default",
-              "^production",
-              "{workspaceRoot}/jest.preset.js"
-            ],
-            "outputs": [
-              "{workspaceRoot}/coverage/libs/react-ui"
-            ],
-            "options": {
-              "jestConfig": "libs/react-ui/jest.config.ts",
-              "passWithNoTests": true
-            },
-            "configurations": {}
-          },
           "lint": {
             "executor": "@nrwl/linter:eslint",
             "inputs": [
@@ -1274,6 +1258,22 @@
               "lintFilePatterns": [
                 "libs/react-ui/**/*.{ts,tsx,js,jsx}"
               ]
+            },
+            "configurations": {}
+          },
+          "test": {
+            "executor": "@nrwl/jest:jest",
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "outputs": [
+              "{workspaceRoot}/coverage/libs/react-ui"
+            ],
+            "options": {
+              "jestConfig": "libs/react-ui/jest.config.ts",
+              "passWithNoTests": true
             },
             "configurations": {}
           },
@@ -1338,6 +1338,22 @@
       "data": {
         "root": "apps/devblog",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/devblog/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          },
           "build": {
             "executor": "@nrwl/next:build",
             "dependsOn": [
@@ -1375,22 +1391,6 @@
             "options": {
               "jestConfig": "apps/devblog/jest.config.ts",
               "passWithNoTests": true
-            },
-            "configurations": {}
-          },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "apps/devblog/**/*.{ts,tsx,js,jsx}"
-              ]
             },
             "configurations": {}
           },
@@ -1528,6 +1528,22 @@
       "data": {
         "root": "apps/swapi",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/swapi/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          },
           "build": {
             "executor": "@nrwl/next:build",
             "dependsOn": [
@@ -1565,22 +1581,6 @@
             "options": {
               "jestConfig": "apps/swapi/jest.config.ts",
               "passWithNoTests": true
-            },
-            "configurations": {}
-          },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "apps/swapi/**/*.{ts,tsx,js,jsx}"
-              ]
             },
             "configurations": {}
           },
@@ -1655,6 +1655,22 @@
       "data": {
         "root": "libs/types",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/types/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          },
           "test": {
             "executor": "@nrwl/jest:jest",
             "inputs": [
@@ -1675,22 +1691,6 @@
                 "codeCoverage": true
               }
             }
-          },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "libs/types/**/*.ts"
-              ]
-            },
-            "configurations": {}
           }
         },
         "name": "types",
@@ -1707,6 +1707,22 @@
       "data": {
         "root": "libs/utils",
         "targets": {
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/utils/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          },
           "test": {
             "executor": "@nrwl/jest:jest",
             "inputs": [
@@ -1727,22 +1743,6 @@
                 "codeCoverage": true
               }
             }
-          },
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json"
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "libs/utils/**/*.ts"
-              ]
-            },
-            "configurations": {}
           }
         },
         "name": "utils",
@@ -4540,81 +4540,81 @@
       "type": "npm",
       "name": "npm:@nrwl/cypress",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/cypress",
-        "hash": "sha512-sQfFgeVeJtiRTtiHsaSo32JHdhL1ARU64AKRSJFoEjAMml4IVvsKqaKGqE100SMU73Zp9rDEGdyT+SdPmthjFA=="
+        "hash": "sha512-P44e3hmhXWK6jALoHK8bAVUvIqGP8SCX/GM/e6jVAZIjvAC+L69WTkAXVLgZkiD8WpZegSho47AtaL1D256a/g=="
       }
     },
     "npm:@nrwl/devkit": {
       "type": "npm",
       "name": "npm:@nrwl/devkit",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/devkit",
-        "hash": "sha512-6RBr1aMzrpY0kk9L9buqT9H7Nv8+QujJPo4ASr6jp/5d5gPBsebeTn6qSvv1xJSB0GhB1ACOeq1nVkbwRQoQCw=="
+        "hash": "sha512-BJQdPmXFze7g4zsHhwSTssAcm/hvl0rXbIzZYQxncsVU4d+Fx0GS3JYBZ+9EcfnCeAEb10jGvn7Rfk+0okMmOw=="
       }
     },
     "npm:@nrwl/eslint-plugin-nx": {
       "type": "npm",
       "name": "npm:@nrwl/eslint-plugin-nx",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/eslint-plugin-nx",
-        "hash": "sha512-oD7X2CSx+zBEUfM4jdLkedAbJnnv1FXuNOotnjCMu6Bx3cAKyvGpXE07IKIK77K7Bm82egmI+UVrmgpYGXIyyQ=="
+        "hash": "sha512-hwIqxp2A0G250tFzEDmVbhwhtldoB7858848AME99Nt9Ij27ThzYaLIG+TYicmb+Rq2FqG9G/6wS89eg1aAg2Q=="
       }
     },
     "npm:@nrwl/jest": {
       "type": "npm",
       "name": "npm:@nrwl/jest",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/jest",
-        "hash": "sha512-+sjh1RYCE9wbHvdy01PhBZ7v4tgF1vupuzOy3xskBesW8p25B/ZjOEpZxiQpZvtU8aJ9r1OyncC5biKFLnkLAw=="
+        "hash": "sha512-64Ebl6GYOQ8AWp/MpPx8qXwKla3x0wnVGjJK4gUGOJ9ShMQnzd4hgYLpVuB4Des7QSxXoict3YVOVocY0joNow=="
       }
     },
     "npm:@nrwl/js": {
       "type": "npm",
       "name": "npm:@nrwl/js",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/js",
-        "hash": "sha512-+COyT27frMSARYNPyFDL404nOgMmJQ0o5ap24hYond3TUuhYa5LKB0AQvEZZEz6Wb0Z/KdWRi44mw4+Gm+5Beg=="
+        "hash": "sha512-fOpKQg7CvzOmcow9fbBc5l96Pbv8gTe9qba4jiw3Z+EH776qraNBL9pRpff653V+obVh//gkq84BUeoJgk8vzQ=="
       }
     },
     "npm:@nrwl/linter": {
       "type": "npm",
       "name": "npm:@nrwl/linter",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/linter",
-        "hash": "sha512-SMINMCGKQqpkaB0FM5NYTuJOqH5X+VEkKEoW2VVsCmgN1TuQHReliY5oI64nXcq0U/vDvvHFSLmtwl/VPZgLcw=="
+        "hash": "sha512-nfLrTDllfCBTuYvKCYIVNizKLIpcNP54hcj90AVUDgfeHfUu41BVg0FM5nOP9hPIc5FcFtYBCoSE+v5obQd0hA=="
       }
     },
     "npm:@nrwl/nest": {
       "type": "npm",
       "name": "npm:@nrwl/nest",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/nest",
-        "hash": "sha512-d8czfFFgYbUacgRDykUdtHhxzIypeRFshZTtsXj3u+KwsW02pzEd6mpk2jbcRBL0d6iXLNOsr1+ovQTUJEOlrA=="
+        "hash": "sha512-hQqh3kGZ6Ky7zHzyRDNnzZ57Egn7w96IEfABsT2nnpej0LPWebryPefGSAI4Afgy2q8jSUFj9Bgjf6j93Ogiqg=="
       }
     },
     "npm:@nrwl/next": {
       "type": "npm",
       "name": "npm:@nrwl/next",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/next",
-        "hash": "sha512-Q5izhRw/dBK832Tj8aNp0qRFJBm7cG6nLLDiNbJiFXO3tUm8gj2926IX0tkSq9YpOpfvblHg/Dyncr83Z5ag5Q=="
+        "hash": "sha512-IYhN3ZngkEVZx3oDD2P2EbEyc6o+GHh4kMNRkxit5p59qfbT7TLucYWGo0zugx7BdX32n680w6O00OSA73bk2Q=="
       }
     },
     "npm:@nrwl/node": {
       "type": "npm",
       "name": "npm:@nrwl/node",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/node",
-        "hash": "sha512-HA8Psc575XV1RsZIiyRWbhHID3HlYJc8pSrMWCAW5ycajdqYsGUtid4EQntUHwtHNEozud0mUpmdYTBJqehfWA=="
+        "hash": "sha512-cQWAAtG+AexiWsU+5DRfEvbHhU0vkcvhdD3yUG8HjcMjc7eHS82PPxWUk/EzEI/3+3fYcHhSw5F/WyqaVkYJaw=="
       }
     },
     "npm:@nrwl/nx-cloud": {
@@ -4711,18 +4711,18 @@
       "type": "npm",
       "name": "npm:@nrwl/react",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/react",
-        "hash": "sha512-m3DrXr6bBB69nM0Ql1sibgC+grQv/XP0ZhXaxCUEKRHvwtilhR26n0hQGwtKA4VoM0ChVj4q4u160p48i+9nnw=="
+        "hash": "sha512-TjSLtfAcL3OK05+a5cuuuXDnnckEpuPd5Qbr3WA43zVX4IJie7zWIedkjJhGzAYjHOmBtCo21eV3qD/V84nnmA=="
       }
     },
     "npm:@nrwl/storybook": {
       "type": "npm",
       "name": "npm:@nrwl/storybook",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/storybook",
-        "hash": "sha512-YfUi4mzr3eT+95cxD/EWcx7fJr8NyWRbza2QvXBd6Bt/cvUn8O5g38S3HvJRts/Q8TaDH9+lYQpk50H3PFnCtg=="
+        "hash": "sha512-+kZYFSKtZp4+qDav2Z9+xGtRoCiYFE7toKSWNO+7qBmuEm+noCppgxyJ4dv92gc2DR8FSWPrHKp5x+Km0dwJYQ=="
       }
     },
     "npm:@nrwl/tao@15.9.2": {
@@ -4738,36 +4738,36 @@
       "type": "npm",
       "name": "npm:@nrwl/tao",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/tao",
-        "hash": "sha512-tXjAbbw8Ir3cY/PQVHiC7q10jsU43r5kkEVwa2vzd1rfPtPFvj9WtgwISd+GstuppYtsbNi+UgTNmHX8dRKPYQ=="
+        "hash": "sha512-vmteqzGcKPbexaAVPb/7VfXI5dXxzZwSm3rem3z20QlDOmNh1545VLO9YEfT5xzmZT2CC7F0etR4KcrJLtoT5g=="
       }
     },
     "npm:@nrwl/web": {
       "type": "npm",
       "name": "npm:@nrwl/web",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/web",
-        "hash": "sha512-r9A9cernK/Q5VIHhcSIkiqwPF81CNwhk4uo+nhtnsrrGyKGCgvjFWmUTutfLD+FeQixIKgA+6FcarQYC2wpplA=="
+        "hash": "sha512-nlucIDaMUOAG5xOJTCzvKHhCAxergYUrfi2XgPYjg4mu+ApqJxI7HO6FVXZazdivEwNy++BLErjmOjMb52iaVw=="
       }
     },
     "npm:@nrwl/webpack": {
       "type": "npm",
       "name": "npm:@nrwl/webpack",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/webpack",
-        "hash": "sha512-VGM/FP7QQsXY4jVJ6DkpuFI34+iHKWrcybRj7s3RsNoDhCN6RlpGZ6OKtxOItSvv0O/EJxFOcJL3Ve1U9A16Jw=="
+        "hash": "sha512-ygkYzE+ihhFBuMmOuOkGse0Aas0CSbJ8uLth8UumnapU1euBTP5blhp+y6HRCRT8SzfGzc0qJ+M8YLb6E/DvMQ=="
       }
     },
     "npm:@nrwl/workspace": {
       "type": "npm",
       "name": "npm:@nrwl/workspace",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nrwl/workspace",
-        "hash": "sha512-Vqd6S3IlLtIeSru84T+gX+AtMZYS7qgXTujo2ux0q2gc/AxtHp7etmiUqKuXV4Q9QqBqsxZZg+P6NWzyPJACDg=="
+        "hash": "sha512-5tVtui/iy+VZTk3x/eFj21Zm0ICPUre9CfB5jlJ2MwH8w+96+186Yt2XGJATkFfnVnjqnszOcjk5BLlra8fdLA=="
       }
     },
     "npm:@nuxtjs/opencollective": {
@@ -4783,225 +4783,225 @@
       "type": "npm",
       "name": "npm:@nx/cypress",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/cypress",
-        "hash": "sha512-gt/kZN3d3xXuJruY+11DEROA8xK8oxfbKoNE7f53cn0sY5Lsk/CwZ/y+4p4DAyk3bkOzqSK8J6SVud4LQxaODg=="
+        "hash": "sha512-TY5LC4cXFAMq3hrIQDTKYwGgNVDWCTF6i22gaaMlTayowfSWcEug5FHfBGXzpvYR4Q5Snci988krI1yN/6Fbfw=="
       }
     },
     "npm:@nx/devkit": {
       "type": "npm",
       "name": "npm:@nx/devkit",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/devkit",
-        "hash": "sha512-Yz/uLYfy2QLeeCJecgKXuT4z0eGx/yBw3VxkgD0zSvpSIg8p1OGSK/rUQ47n/FibsLRdXa1Me5uE57rNt/FKvA=="
+        "hash": "sha512-dugw9Jm3Og28uwGee94P3KYkqiUV7J8RgibOQjQG4J2Vt3DPBNEGSgBD72qKkzpioEo+XSVUkn9h3GrdmnRU+Q=="
       }
     },
     "npm:@nx/eslint-plugin": {
       "type": "npm",
       "name": "npm:@nx/eslint-plugin",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/eslint-plugin",
-        "hash": "sha512-XZHmU/CIYJql48dvx7s9yBUJZb4OrUtRgpkm5/XY/vFAIgCyTIalXiDdM+BvxWns1c5aTbEEQvtJ9clXdjuTbg=="
+        "hash": "sha512-vOHkzHNpDLLd5RMrL/8/sAdqBqMcf2FrSJWug6W4cC0x8hzUpNwnfEn+i4ZCV/QxduQH4/UP96AbOm7rzwoAdg=="
       }
     },
     "npm:@nx/eslint": {
       "type": "npm",
       "name": "npm:@nx/eslint",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/eslint",
-        "hash": "sha512-EHDhystP1y+8LtQfflvbHVrIdMTAoXp/xQrXiH/8U5ESbezBQUT7B75UOiWAzI+lBn9uwailMKhfEiIf4t5uRQ=="
+        "hash": "sha512-qr1A3on5tPR3Rxsrg1wlPLVB/L6iFDp+II1xBb/3PBAsddKvPCzPASsogAm0Q3RdqK2JkJrwo/rX3YxwrjZ5cQ=="
       }
     },
     "npm:@nx/jest": {
       "type": "npm",
       "name": "npm:@nx/jest",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/jest",
-        "hash": "sha512-AEfA3IYCcQObYxKrnW5/Hu6l4Sp5wgEe/lXkYgcdOlcJkEg8DSYoS8M5soESAugka2H8CbvY6ZUXUacTjh1RIQ=="
+        "hash": "sha512-AMI/RuTlNz5d0JiBdraCkZ1ABfEyuJkdCvVjo/RDu1NAw1Xv4hI4+5UG7sb/bJoX6n+lK1SS51z+Zb/ab8lQoQ=="
       }
     },
     "npm:@nx/js": {
       "type": "npm",
       "name": "npm:@nx/js",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/js",
-        "hash": "sha512-EQXlUW83w4D2//AXMW4AQUocBs4Nwfl15gPERahpzyTK6CKSOV3nKyORCTnVa5TgtugRXGluTbN3TxamSoWpug=="
+        "hash": "sha512-hFSmgyaMVIlN/SyFwOwn/IveHsGxxJOv7qhewACg9NlKOa6+eEJYlEbOik9LjvcosDOh5icrngjsFgFJoC1sWA=="
       }
     },
     "npm:@nx/linter": {
       "type": "npm",
       "name": "npm:@nx/linter",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/linter",
-        "hash": "sha512-uLgqXMhYyomPx0ruhSygPqa9Q7WtDWdwlfOs5Zgrv9xrL+wfSgVqu2sFbBp9fy1P+6BHreiAA0JAr5E/TLv1Ww=="
+        "hash": "sha512-buxqe0N/d5iVWA4zE/jX8xrkCJLyGG2h1bSTrz1oyPvM3SdcWr69JpL8j1wtBvnKo/brDzLbNWsnrUwO9cgSAQ=="
       }
     },
     "npm:@nx/nest": {
       "type": "npm",
       "name": "npm:@nx/nest",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/nest",
-        "hash": "sha512-NWc7SN0DweXnrHVrb/QHaPLQaufRNpw1LwMCGMNWyGbNQAn3AYSTJjPQwlNKrN3lwLPgP5vfGpERg1DR1cxyww=="
+        "hash": "sha512-kBIKF08iB8V4k9RaPsSzawaVIZo/czx+SEaQmS7+fSsVerLji5ZJoFKqSxnDz6ksW1lfkmRpymSdWWHRc/UDKA=="
       }
     },
     "npm:@nx/next": {
       "type": "npm",
       "name": "npm:@nx/next",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/next",
-        "hash": "sha512-PQ+O6bmsRgQBZwPWZTeBZxDKyEORK/rqlpIio1Iyg2dzepzfHcFHaNpRcXVsUwJQmqjyQIXc/8B23gGJ9KYQsw=="
+        "hash": "sha512-lzHTTF75TfW2fkDegQALK7CwQHEDM4eynwItonKorsM3ksBzTYSJAVZaCWS/8QKiCQZqSnWsynXbasdnxOMcew=="
       }
     },
     "npm:@nx/node": {
       "type": "npm",
       "name": "npm:@nx/node",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/node",
-        "hash": "sha512-nnsL2G6U4vtoIKi6SDOeGNkvNk0hBEDC0iWesJqt0OtF/eGNJbz9d0vtfM7byLe6lNjngHjBlpQd8QwkgWancQ=="
+        "hash": "sha512-ryI+xzFLBNlRqLNH5UkHO2ZYIs1u1dUbkf7HTyJ4AOrzH2kuBd7tKfFI/IcDzmhjMOfhDYPC0RV7osOSS5Vdiw=="
       }
     },
     "npm:@nx/nx-darwin-arm64": {
       "type": "npm",
       "name": "npm:@nx/nx-darwin-arm64",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/nx-darwin-arm64",
-        "hash": "sha512-mZ5X2rmtzmEGnt5ddpKlyQDGRd1wh0HSJtWvjruj6fYLNNpoosnXefI0PQLZUw13hf8OpJNo8J6xKfjIViSa8g=="
+        "hash": "sha512-TEks/vXHE87rNvVqhcIzQOM/+aZvNCf/70PhGG4RBEb+qV0C1kw7nygzdoLI4inFC76Qxhyya/K3J2OnU5ATiw=="
       }
     },
     "npm:@nx/nx-darwin-x64": {
       "type": "npm",
       "name": "npm:@nx/nx-darwin-x64",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/nx-darwin-x64",
-        "hash": "sha512-FeYvbr0OOIdn9xvuNZlLHQKwdAPN9KcWnmIysJTQZeanvUf6tifkhBUU1cXDduAkdut5iibnnA91JhcEj4x9yg=="
+        "hash": "sha512-UsBbNbNXj+L2OzPyQYotyzmZF4h+ryaZ8quYDfdnlYwvFeqkdb2QJ3vJRd6in0kMWGrdk/ria/wZMCxR7U1ggg=="
       }
     },
     "npm:@nx/nx-freebsd-x64": {
       "type": "npm",
       "name": "npm:@nx/nx-freebsd-x64",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/nx-freebsd-x64",
-        "hash": "sha512-Owt/5jT8IG5I6eRbs8en+bHvi2St+k1Z1S1CLArlnfTzkTgVGz/R39HD4OouEVnr2dQPkfc7ms6+XkhlYx5NLg=="
+        "hash": "sha512-f9BXGOeRPhrsNm99TCnOqZZeZUqN1BUOEzWa12eo3u+vQG6Qba3qKn7T92SeEzxOx/mUP/Csv3pFYoY6TE26jA=="
       }
     },
     "npm:@nx/nx-linux-arm-gnueabihf": {
       "type": "npm",
       "name": "npm:@nx/nx-linux-arm-gnueabihf",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/nx-linux-arm-gnueabihf",
-        "hash": "sha512-6D6ZC4EdBjAE0QgLYXuk7AC5r/LM+XUUOa5tFAV6fsAKn+GjVFsmP8dl/HEHfg+vx619+o+IrVrOA+h6ztmNJA=="
+        "hash": "sha512-ekqr5jZhD6PxGM5IbI/RtlERDJ+8HR04OIdfo6HkbwxwCHxZlzZq+ApEZYum4AbjP6cuc3Zd/us1uuDqfQbeHw=="
       }
     },
     "npm:@nx/nx-linux-arm64-gnu": {
       "type": "npm",
       "name": "npm:@nx/nx-linux-arm64-gnu",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/nx-linux-arm64-gnu",
-        "hash": "sha512-RHZ9nPZ4ivv9p+djO9WqoilMhjlR8/rj7P4sog5OpeRE5EWc65Rb7SFwjek1IovS2gbbK+3P2y8Q4G7lyvbe5w=="
+        "hash": "sha512-iAW2J8NBFU4zDn5nqRgUq4t7gYC8ALyALzznr97ZvMTQorWfmHYgPUAj/opNqUcr10fjxcmXT0Ux2SX3DgUDmw=="
       }
     },
     "npm:@nx/nx-linux-arm64-musl": {
       "type": "npm",
       "name": "npm:@nx/nx-linux-arm64-musl",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/nx-linux-arm64-musl",
-        "hash": "sha512-WginA4UHdrRhK40pDV8sv3Izho5aOzWf3iC8WVXi8r850mVbOE88JaWnO7TJ7zNWgiM32/OZeVyaYQ/Wv8pYjw=="
+        "hash": "sha512-AJjGVHGGew0QVKUL30mjFjafowrSDYSQ1GgkJCLuWef5jl4rFvm9ruZswVja1KfZTFaImTCU01tZjPBr3zhmAA=="
       }
     },
     "npm:@nx/nx-linux-x64-gnu": {
       "type": "npm",
       "name": "npm:@nx/nx-linux-x64-gnu",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/nx-linux-x64-gnu",
-        "hash": "sha512-Fekq6TWZAN7T1Yi+IVAPQ3wUmsmtvu3WyvXiVBjVKh8C1H/PKPcNi+4kaG9Ys1BhBZhqiEfTgc44RF9xLM9IAQ=="
+        "hash": "sha512-nk5Xg8vmbBRoL0fOgZNBl1paC7hmjACLaSBmU7U2X+Y+QPGQzSw2b+Zn1MKVUWDmc4E6VnQfZ8n0L27+r9NgRw=="
       }
     },
     "npm:@nx/nx-linux-x64-musl": {
       "type": "npm",
       "name": "npm:@nx/nx-linux-x64-musl",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/nx-linux-x64-musl",
-        "hash": "sha512-3Uk7x2/giczRCva7RsWd/KjgeYH9kOQFiqzE4heMrjBEuJQfACDlasjIrTRv9bwLrZ6otkBVeX/zmE9kBo3tOA=="
+        "hash": "sha512-bOlhul/eov58k9fX8lltopUDOIBEohZq2qc4ag91W2r4jdp6suAiqfXRxQwNZ2iHd8nAXuCDIHCbUuojs6OZnA=="
       }
     },
     "npm:@nx/nx-win32-arm64-msvc": {
       "type": "npm",
       "name": "npm:@nx/nx-win32-arm64-msvc",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/nx-win32-arm64-msvc",
-        "hash": "sha512-y0d79+FYtSEI96KGAjIUrD7/xybAp7aSjqqesM0WP2+DIJBYkdjK6maTKxkB5gb3FBJyhfNYr4A1NqDnvbPtvA=="
+        "hash": "sha512-olXer0LnCvJrdV5ynd19fZHvvarRK/p1JnkoOUZDPVV+A3jGQQ8+paz+/5iLQBKA+5VcgWyqAaGFJnpyEFmnoQ=="
       }
     },
     "npm:@nx/nx-win32-x64-msvc": {
       "type": "npm",
       "name": "npm:@nx/nx-win32-x64-msvc",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/nx-win32-x64-msvc",
-        "hash": "sha512-17b7hh8VMGWHq0yQDxevLUM0K4ZoNUah3oYVbYe46tp1w7D4u44vDkOOE2SpV2E/alllcDES1etcVsYQSMTGig=="
+        "hash": "sha512-BgzPjF/wqi7zIFcspcKzN37BX1wgGo0OTLncK2PN5nyzSQ+XeNbR5laDswxzOGdB4CRLPqak2+YMhYnoiXeRCg=="
       }
     },
     "npm:@nx/react": {
       "type": "npm",
       "name": "npm:@nx/react",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/react",
-        "hash": "sha512-+7odmLhQY9JQH9Jw6FH46Oy0IubzrKAjbC2ljiqmNNglMj0RpaByQD9M1XzqJRgCQ25FNu8jOqrluGBNKtJyPw=="
+        "hash": "sha512-KMI3UHKZKq13OYDhrXjt49YbiP+6n17Blz0+5xXJL4gdQ1XsQ1NAsI+GfkyUI3vm5ID4O6SenqYnNIvSLUNGaQ=="
       }
     },
     "npm:@nx/storybook": {
       "type": "npm",
       "name": "npm:@nx/storybook",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/storybook",
-        "hash": "sha512-qVyl/0Eesf8nDqzxpmccqBX2+v7QfyZh3HPgjqcVZxWR+CMsUm7xJVHaXQhluQL89DZFtjdmp0ddC3grQ2bvzg=="
+        "hash": "sha512-6XvgLD2L4+cbEwPneey+mxB7nGUi4l0K+R1AWjijGg14X2IzyCTgs5up56vIAKVuwuXxGWUTuXgSXwfKXINLIg=="
       }
     },
     "npm:@nx/web": {
       "type": "npm",
       "name": "npm:@nx/web",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/web",
-        "hash": "sha512-+baTjEQOBs5kcjh9FVd/50ZNjDw4cwGxl3lQbYzuvKFXYLHkZ6pyaD31eFlbddj++Xe9cA5Lhh3BE++AquHuLw=="
+        "hash": "sha512-nDiCHinZGfkGWuTL2HLk6tUcKILMYtrtd6c/cE8T+5TnTXNaMrOQFt1GvDa60HGh8xgRgpjzTsGfJFrf90GJcA=="
       }
     },
     "npm:@nx/webpack": {
       "type": "npm",
       "name": "npm:@nx/webpack",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/webpack",
-        "hash": "sha512-zgc8e0yh8YkbvytSUzeMXUgtxO1xlqX6iXxikCw8aXCM76vBMXd1Kn+kin3gyY5lcPyL/9BihKS4VtP+g67FrA=="
+        "hash": "sha512-0X7HXrF/VP9BrbbYD4Ewr4KnMT85eSaIBr/TvTrUM4v2BXqPgP4NVQhkd6jLlEkWuDlYtAgwFjcx4NGWRqnwbw=="
       }
     },
     "npm:@nx/workspace": {
       "type": "npm",
       "name": "npm:@nx/workspace",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "@nx/workspace",
-        "hash": "sha512-peZQmiibIVNoDYHgTvrd+2k14KfuquarnoDrNT4USpOz36B6usMGEOw8a2kZ+7TZ7xpCGOhDTr3jHYTg8NFBUg=="
+        "hash": "sha512-en3lSArMrHZ75SqMHnnZjXiMunc6QFDMcglNPQwIE8TuXnV8UWQ1e4hkzRo6hY/YOoY7HcFvMEJ5KyP8OWCmQg=="
       }
     },
     "npm:@parcel/watcher": {
@@ -6957,13 +6957,13 @@
         "hash": "sha512-FQx220y22OKNTqaByeBGqHWYz4cl94tpcxeFdvBo3wjG6XPBuZ0BNgNZRV5J5TFmmcsJ4IzsLkmGRiQbnYsBEQ=="
       }
     },
-    "npm:@types/node@16.18.94": {
+    "npm:@types/node@16.18.95": {
       "type": "npm",
-      "name": "npm:@types/node@16.18.94",
+      "name": "npm:@types/node@16.18.95",
       "data": {
-        "version": "16.18.94",
+        "version": "16.18.95",
         "packageName": "@types/node",
-        "hash": "sha512-X8q3DoKq8t/QhA0Rk/9wJUajxtXRDiCK+cVaONKLxpsjPhu+xX6uZuEj4UKGLQ4p0obTdFxa0cP/BMvf9mOYZA=="
+        "hash": "sha512-z9w+CcR7ahc7UhsKe+PGB25nmPmCERQBAdLdFHhoZ6+FfgSr7gUvdQI0eLH2t7ue8u5wKsLdde6cHKPjhC8vGg=="
       }
     },
     "npm:@types/node": {
@@ -11200,9 +11200,9 @@
       "type": "npm",
       "name": "npm:envinfo",
       "data": {
-        "version": "7.11.1",
+        "version": "7.12.0",
         "packageName": "envinfo",
-        "hash": "sha512-8PiZgZNIB4q/Lw4AhOvAfB/ityHAd2bli3lESSWmWSzSsl5dKpy5N1d1Rfkd2teq/g9xN90lc6o98DOjMeYHpg=="
+        "hash": "sha512-Iw9rQJBGpJRd3rwXm9ft/JiGoAZmLxxJZELYDQoPRZ4USVhkKtIcNBPw6U+/K2mBpaqM25JSV6Yl4Az9vO2wJg=="
       }
     },
     "npm:errno": {
@@ -11977,6 +11977,15 @@
         "version": "6.0.1",
         "packageName": "file-entry-cache",
         "hash": "sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg=="
+      }
+    },
+    "npm:file-loader": {
+      "type": "npm",
+      "name": "npm:file-loader",
+      "data": {
+        "version": "6.2.0",
+        "packageName": "file-loader",
+        "hash": "sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw=="
       }
     },
     "npm:file-system-cache": {
@@ -16474,9 +16483,9 @@
       "type": "npm",
       "name": "npm:nx",
       "data": {
-        "version": "18.2.2",
+        "version": "18.2.3",
         "packageName": "nx",
-        "hash": "sha512-ZEnN+2XV6QWI3q6N/I9byjSK2ErxAJJjKIWFQ45RW7+KCFbiwF0zeGnn5zruSHY7nbTrUf5C7MDA80eXam5DTg=="
+        "hash": "sha512-4XGvvIzXeeeSj1hObiBL7E7aXX6rbiB1F856AqUdGoysYfkhcxOFyeAv5XsXeukl9gYwh/LH84paXjEOkGaJlA=="
       }
     },
     "npm:nypm": {
@@ -29127,6 +29136,11 @@
       },
       {
         "source": "npm:@nx/next",
+        "target": "npm:file-loader",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/next",
         "target": "npm:fs-extra",
         "type": "static"
       },
@@ -29148,11 +29162,6 @@
       {
         "source": "npm:@nx/next",
         "target": "npm:tslib",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nx/next",
-        "target": "npm:url-loader",
         "type": "static"
       },
       {
@@ -29232,6 +29241,11 @@
       {
         "source": "npm:@nx/react",
         "target": "npm:chalk",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/react",
+        "target": "npm:file-loader",
         "type": "static"
       },
       {
@@ -37559,7 +37573,7 @@
       },
       {
         "source": "npm:cypress",
-        "target": "npm:@types/node@16.18.94",
+        "target": "npm:@types/node@16.18.95",
         "type": "static"
       },
       {
@@ -40805,6 +40819,23 @@
       {
         "source": "npm:file-entry-cache",
         "target": "npm:flat-cache",
+        "type": "static"
+      }
+    ],
+    "npm:file-loader": [
+      {
+        "source": "npm:file-loader",
+        "target": "npm:loader-utils@2.0.4",
+        "type": "static"
+      },
+      {
+        "source": "npm:file-loader",
+        "target": "npm:schema-utils@3.3.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:file-loader",
+        "target": "npm:webpack",
         "type": "static"
       }
     ],
