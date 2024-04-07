@@ -1,9 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "npmScope": "with-nx",
-  "affected": {
-    "defaultBase": "main"
-  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@vercel/remote-nx",
@@ -49,6 +46,11 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
+    },
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "generators": {
@@ -78,6 +80,11 @@
         "style": "css",
         "linter": "eslint"
       }
+    },
+    "@nx/react": {
+      "library": {
+        "unitTestRunner": "none"
+      }
     }
   },
   "defaultProject": "devblog",
@@ -104,5 +111,7 @@
         "targetName": "lint"
       }
     }
-  ]
+  ],
+  "useInferencePlugins": false,
+  "defaultBase": "main"
 }
