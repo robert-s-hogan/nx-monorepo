@@ -22128,17 +22128,12 @@
     "headless-ui": [
       {
         "source": "headless-ui",
-        "target": "npm:@nx/react",
+        "target": "npm:react",
         "type": "static"
       },
       {
         "source": "headless-ui",
         "target": "npm:@headlessui/react",
-        "type": "static"
-      },
-      {
-        "source": "headless-ui",
-        "target": "npm:react",
         "type": "static"
       },
       {
@@ -22149,6 +22144,11 @@
       {
         "source": "headless-ui",
         "target": "npm:ionicons",
+        "type": "static"
+      },
+      {
+        "source": "headless-ui",
+        "target": "npm:@nx/react",
         "type": "static"
       }
     ],
