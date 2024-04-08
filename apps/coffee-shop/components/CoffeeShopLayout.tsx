@@ -10,7 +10,7 @@ const CoffeeShopFooter = dynamic(() => import('./CoffeeShopFooter'), {
   ssr: false,
 });
 
-const ChilloutLayout = ({
+const CoffeeShopLayout = ({
   children,
   className = '',
   title,
@@ -56,4 +56,4 @@ const ChilloutLayout = ({
   );
 };
 
-export default ChilloutLayout;
+export default CoffeeShopLayout;
