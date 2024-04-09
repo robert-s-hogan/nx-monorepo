@@ -6,10 +6,14 @@ export interface Campaign {
   name: string;
   slug: string;
   description: string;
-  playerExperienceStart: number;
   numberOfPlayers: number;
+  playerExperienceStart: number;
+  levelOfPlayersCharactersStart: number;
+  adventuringDayXPLimit: number;
   groupDead: boolean;
-  rests: number;
+  shortRestNeededFirst?: boolean;
+  shortRestNeededSecond?: boolean;
+  longRestNeeded?: boolean;
   accountId: string;
   createdAt?: Date;
   updatedAt?: Date;

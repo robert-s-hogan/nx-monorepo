@@ -13,6 +13,7 @@ export type Encounter = {
   adventuringDayXPLimit: number;
   adventuringDayXPStart: number;
   encounterDifficultyOptions: string;
+  xpThreshold: number;
   adventuringDayXPFinish: number;
   playerExperienceEarnedFromEncounter: number;
   playerExperienceFinish: number;

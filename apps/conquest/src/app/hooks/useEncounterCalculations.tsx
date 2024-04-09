@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
-  getAdventuringDayXp,
+  getAdventuringDayXpLimit,
   getLevelDetailsFromExperience,
   getXPThresholds,
 } from '../constants/experienceConstants';
@@ -66,7 +66,10 @@ export function useEncounterCalculations(
           ),
         });
 
-        const adventuringDayXP = getAdventuringDayXp(details.level);
+        const adventuringDayXP = getAdventuringDayXpLimit(
+          details.level,
+          campaign.numberOfPlayers
+        );
         setAdventuringDayXp(adventuringDayXP);
         setAdventuringDayXPLimit(adventuringDayXP * campaign.numberOfPlayers);
       }

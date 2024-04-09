@@ -24,8 +24,14 @@ export const useCampaignOperations = (onClose: () => void) => {
         description: campaignData.description ?? '',
         numberOfPlayers: campaignData.numberOfPlayers ?? 1,
         playerExperienceStart: campaignData.playerExperienceStart ?? 0,
+        levelOfPlayersCharactersStart:
+          campaignData.levelOfPlayersCharactersStart ?? 1,
+        adventuringDayXPLimit: campaignData.adventuringDayXPLimit ?? 0,
         groupDead: campaignData.groupDead ?? false,
-        rests: campaignData.rests ?? 0,
+        shortRestNeededFirst: campaignData.shortRestNeededFirst ?? false,
+        shortRestNeededSecond: campaignData.shortRestNeededSecond ?? false,
+        longRestNeeded: campaignData.longRestNeeded ?? false,
+
         accountId: 'default-account',
       };
 

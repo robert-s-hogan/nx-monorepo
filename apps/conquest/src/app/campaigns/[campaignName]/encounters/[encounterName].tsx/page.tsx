@@ -21,7 +21,7 @@ const DynamicEncounterPage = () => {
       {/* Adjust if you have a different layout or title */}
       <div className="max-w-4xl xl:max-w-7xl container mx-auto space-y-8 mt-8 px-4">
         <h1>Encounter Management</h1>
-        <EncounterListWithModal encounters={encounters} />
+        {/* <EncounterListWithModal encounters={encounters} /> */}
       </div>
     </Layout>
   );

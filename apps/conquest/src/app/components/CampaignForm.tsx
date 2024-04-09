@@ -1,12 +1,37 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { Campaign, CampaignFormProps } from '../types';
+import {
+  calculateRestsNeeded,
+  getLevelDetailsFromExperience,
+  getAdventuringDayXpLimit,
+} from '../constants/experienceConstants';
 
 const CampaignForm: React.FC<CampaignFormProps> = ({
   campaign,
   onSubmit,
   operation,
 }) => {
+  if (!campaign) {
+    // Handle the case where campaign is null
+    return;
+  }
+  const levelDetails = getLevelDetailsFromExperience(
+    campaign.playerExperienceStart
+  );
+  const adventuringDayXP = getAdventuringDayXpLimit(
+    levelDetails.level,
+    campaign.numberOfPlayers
+  );
+
+  const rests = calculateRestsNeeded(
+    levelDetails.xpStart,
+    levelDetails.xpEnd,
+    campaign?.playerExperienceStart || 100,
+    campaign?.numberOfPlayers,
+    levelDetails.level
+  );
+
   const formik = useFormik({
     initialValues: {
       id: campaign?.id || '',
@@ -15,8 +40,12 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
       description: campaign?.description || '',
       numberOfPlayers: campaign?.numberOfPlayers || 1,
       playerExperienceStart: campaign?.playerExperienceStart || 100,
+      levelOfPlayersCharactersStart: levelDetails.level,
+      adventuringDayXPLimit: adventuringDayXP,
       groupDead: campaign?.groupDead ?? false,
-      rests: campaign?.rests || 1,
+      shortRestNeededFirst: rests.shortRestNeededFirst,
+      shortRestNeededSecond: rests.shortRestNeededSecond,
+      longRestNeeded: rests.longRestNeeded,
     },
     onSubmit: (values) => {
       let campaignData: Partial<Campaign> = { ...values };
@@ -41,6 +70,8 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
       onSubmit={formik.handleSubmit}
       className="flex flex-col space-y-4 pt-4"
     >
+      <pre>campaign: {JSON.stringify(campaign, null, 2)}</pre>
+
       {/* Name input */}
       <div className="space-y-1">
         <label htmlFor="name">Campaign Name</label>
@@ -91,6 +122,22 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
           min="1"
           placeholder="Player Experience Start"
         />
+      </div>
+
+      <div className="space-y-1">
+        <h3>Calculations</h3>
+      </div>
+
+      {/* Level of Players Characters Start input */}
+      <div className="grid grid-cols-2 gap-1 space-y-1">
+        <p>xpStart: {levelDetails.xpStart}</p>
+        <p>adventuringDayXP: {adventuringDayXP}</p>
+        <p>xpEnd: {levelDetails.xpEnd}</p>
+        <p>xpNeeded: {levelDetails.xpNeeded}</p>
+        <p>level: {levelDetails.level}</p>
+        <p>firstRestNeeded?: {rests.shortRestNeededFirst ? 'Yes' : 'No'}</p>
+        <p>secondRestNeeded?: {rests.shortRestNeededSecond ? 'Yes' : 'No'}</p>
+        <p>longRestNeeded?: {rests.longRestNeeded ? 'Yes' : 'No'}</p>
       </div>
 
       {/* Submit button */}

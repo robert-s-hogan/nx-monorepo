@@ -41,7 +41,6 @@ const CampaignList: React.FC<CampaignListProps> = ({
                     Player Experience Start: {campaign.playerExperienceStart}
                   </p>
                   <p>Group Dead?: {campaign.groupDead ? 'Yes' : 'No'}</p>
-                  <p>Rests: {campaign.rests}</p>
                 </Link>
               ) : (
                 <div className="p-4">
@@ -68,7 +67,6 @@ const CampaignList: React.FC<CampaignListProps> = ({
                     Player Experience Start: {campaign.playerExperienceStart}
                   </p>
                   <p>Group Dead?: {campaign.groupDead ? 'Yes' : 'No'}</p>
-                  <p>Rests: {campaign.rests}</p>
                 </div>
               )}
             </div>

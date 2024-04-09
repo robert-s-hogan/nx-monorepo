@@ -23,8 +23,55 @@ export const xpLookupTable: XPLookupTable = {
   20: 40000,
 };
 
-export const getAdventuringDayXp = (level: number) => {
-  return xpLookupTable[level];
+export const getAdventuringDayXpLimit = (
+  level: number,
+  numberOfPlayers: number
+) => {
+  const numPlayers =
+    typeof numberOfPlayers === 'string'
+      ? parseInt(numberOfPlayers, 10)
+      : numberOfPlayers;
+  const xpPerPlayer = xpLookupTable[level];
+  return xpPerPlayer * numPlayers;
+};
+
+export const calculateRestsNeeded = (
+  xpStart: number,
+  xpTotal: number,
+  playerExperienceStart: number,
+  numberOfPlayers: number,
+  level: number
+) => {
+  // Calculate the Adventuring Day XP limit based on the level and number of players
+  const adventuringDayXPLimit = getAdventuringDayXpLimit(
+    level,
+    numberOfPlayers
+  );
+
+  // Calculate the remaining XP for the day
+  const xpEarnedToday = playerExperienceStart - xpStart; // XP earned today is the difference
+  const remainingXP = adventuringDayXPLimit - xpEarnedToday;
+
+  // Calculate the percentage of remaining XP
+  const percentRemainingXP = (remainingXP / adventuringDayXPLimit) * 100;
+
+  // Thresholds
+  const firstRestThreshold = 68; // 68% for the first short rest
+  const secondRestThreshold = 35; // 35% for the second short rest
+  const easyXPThreshold = xpThresholdsByCharLvl[level].Easy;
+
+  // Determine if rests are needed based on the remaining XP percentage
+  const shortRestNeededFirst = percentRemainingXP < firstRestThreshold;
+  const shortRestNeededSecond = percentRemainingXP < secondRestThreshold;
+
+  // Determine if a long rest is needed
+  const longRestNeeded = remainingXP < easyXPThreshold;
+
+  return {
+    shortRestNeededFirst,
+    shortRestNeededSecond,
+    longRestNeeded,
+  };
 };
 
 export const xpTotalToLevelTable = [
@@ -178,6 +225,20 @@ export const getLevelDetailsFromExperience = (experience: number) => {
   return levelDetails || xpTotalToLevelTable[xpTotalToLevelTable.length - 1];
 };
 
+export function getRandomEncounterDifficulty(): Difficulty {
+  const roll = Math.floor(Math.random() * 100) + 1;
+
+  if (roll <= 15) {
+    return 'Deadly';
+  } else if (roll <= 50) {
+    return 'Hard';
+  } else if (roll <= 90) {
+    return 'Medium';
+  } else {
+    return 'Easy';
+  }
+}
+
 export const xpThresholdsByCharLvl: XPThresholdsByCharLvl = {
   1: { Easy: 25, Medium: 50, Hard: 75, Deadly: 100 },
   2: { Easy: 50, Medium: 100, Hard: 150, Deadly: 200 },
@@ -199,6 +260,15 @@ export const xpThresholdsByCharLvl: XPThresholdsByCharLvl = {
   18: { Easy: 2100, Medium: 4200, Hard: 6300, Deadly: 9500 },
   19: { Easy: 2400, Medium: 4900, Hard: 7300, Deadly: 10900 },
   20: { Easy: 2800, Medium: 5700, Hard: 8500, Deadly: 12700 },
+};
+
+export const getXpThresholdForRandomDifficulty = (characterLevel: number) => {
+  const difficulty = getRandomEncounterDifficulty();
+  const thresholds = xpThresholdsByCharLvl[characterLevel];
+  if (!thresholds) {
+    throw new Error('Invalid character level');
+  }
+  return thresholds[difficulty];
 };
 
 export const getXPThresholds = (
