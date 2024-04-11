@@ -91,3 +91,12 @@ export interface CampaignDeleteConfirmationProps {
   onCancel: () => void;
   campaignId: string | undefined;
 }
+
+export interface RestCalculationDisplayProps {
+  shortRestsNeeded: boolean[];
+  shortRestsAvailable: boolean[];
+  shortRestsRemaining: number;
+  longRestNeeded: boolean;
+  onTakeShortRest: (restNumber: 1 | 2) => void;
+  onTakeLongRest: () => void;
+}

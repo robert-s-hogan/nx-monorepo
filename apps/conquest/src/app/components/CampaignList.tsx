@@ -1,21 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 import { IonIcon } from '@ionic/react';
-import {
-  checkmarkCircleOutline,
-  alertCircleOutline,
-  create,
-  trash,
-} from 'ionicons/icons';
+import { create, trash } from 'ionicons/icons';
 
-import { CampaignListProps } from '../types';
+import { Campaign, CampaignListProps } from '../types';
 import {
   calculateRestsNeeded,
-  getLevelDetailsFromExperience,
   getAdventuringDayXpLimit,
 } from '../constants/experienceConstants';
 import ProgressBar from './ProgressBar';
 import RestCalculationDisplay from './RestCalculationDisplay';
+import { useRestOperations } from '../hooks/useRestOperations';
+import { useCampaigns } from '../hooks/useCampaigns';
 
 const CampaignList: React.FC<CampaignListProps> = ({
   campaigns,
@@ -24,6 +20,19 @@ const CampaignList: React.FC<CampaignListProps> = ({
   hideEdit,
   selectedCampaignSlug,
 }) => {
+  const { selectedCampaign } = useCampaigns();
+
+  const { takeShortRest, takeLongRest, shortRestsAvailable } =
+    useRestOperations(selectedCampaign as Campaign);
+
+  const handleTakeShortRest = (restNumber: 1 | 2) => {
+    takeShortRest(restNumber);
+  };
+
+  const handleTakeLongRest = () => {
+    takeLongRest();
+  };
+
   return (
     <>
       <div className="grid grid-cols-1 gap-8 w-full">
@@ -56,8 +65,6 @@ const CampaignList: React.FC<CampaignListProps> = ({
                 key={campaign.id}
                 className="border border-black rounded p-4"
               >
-                <pre>rests: {JSON.stringify(rests, null, 2)}</pre>
-
                 {hideEdit ? (
                   <>
                     <div className="pb-3">
@@ -74,7 +81,7 @@ const CampaignList: React.FC<CampaignListProps> = ({
                       </div>
                       <p>{campaign.description}</p>
                     </div>
-                    <div className="grid grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 gap-8">
                       <div className="p-4 space-y-1 bg-white rounded shadow">
                         <h2 className="font-bold">XP Calculations</h2>
                         <p>
@@ -97,9 +104,11 @@ const CampaignList: React.FC<CampaignListProps> = ({
                             rests.shortRestNeededFirst,
                             rests.shortRestNeededSecond,
                           ]}
-                          shortRestsRemaining={rests.shortRestCounter} // Assuming this is your field for remaining rests
-                          totalShortRests={2} // Assuming you have a max of 2 short rests, adjust as necessary
+                          shortRestsAvailable={shortRestsAvailable}
+                          shortRestsRemaining={rests.shortRestCounter}
                           longRestNeeded={rests.longRestNeeded}
+                          onTakeShortRest={handleTakeShortRest}
+                          onTakeLongRest={handleTakeLongRest}
                         />
                       </div>
                     </div>
@@ -124,13 +133,37 @@ const CampaignList: React.FC<CampaignListProps> = ({
                       </div>
                       <p>{campaign.description}</p>
                     </div>
-                    <p>Number of Players: {campaign.numberOfPlayers}</p>
-                    <ProgressBar
-                      xpStart={campaign.levelDetails.xpStart}
-                      xpEnd={campaign.levelDetails.xpEnd}
-                      playerExperience={campaign.playerExperienceStart}
-                    />
-                    <p>Group Dead?: {campaign.groupDead ? 'Yes' : 'No'}</p>
+                    <div className="grid grid-cols-1 gap-8">
+                      <div className="p-4 space-y-1 bg-white rounded shadow">
+                        <h2 className="font-bold">XP Calculations</h2>
+                        <p>
+                          Player Experience Start:{' '}
+                          {campaign.playerExperienceStart}
+                        </p>
+                        <p>Adventuring Day XP Limit: {adventuringDayXP}</p>
+
+                        <ProgressBar
+                          xpStart={campaign.levelDetails?.xpStart}
+                          xpEnd={campaign.levelDetails?.xpEnd}
+                          playerExperience={campaign.playerExperienceStart}
+                        />
+
+                        <p>Level of Players: {levelDetails?.level}</p>
+                      </div>
+                      <div>
+                        <RestCalculationDisplay
+                          shortRestsNeeded={[
+                            rests.shortRestNeededFirst,
+                            rests.shortRestNeededSecond,
+                          ]}
+                          shortRestsAvailable={shortRestsAvailable}
+                          shortRestsRemaining={rests.shortRestCounter}
+                          longRestNeeded={rests.longRestNeeded}
+                          onTakeShortRest={handleTakeShortRest}
+                          onTakeLongRest={handleTakeLongRest}
+                        />
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>

@@ -52,29 +52,30 @@ export const calculateRestsNeeded = (
   const remainingXP = adventuringDayXPLimit - xpEarnedToday;
   const percentRemainingXP = (remainingXP / adventuringDayXPLimit) * 100;
 
-  const firstRestThreshold = 68;
-  const secondRestThreshold = 35;
-  const easyXPThreshold = xpThresholdsByCharLvl[level].Easy;
+  const shortRestsAvailable = [false, false]; // Default availability
 
-  const shortRestNeededFirst = percentRemainingXP < firstRestThreshold;
-  const shortRestNeededSecond = percentRemainingXP < secondRestThreshold;
-  const xpToNextLevel = xpEnd - playerExperienceStart;
-  const longRestNeeded = xpToNextLevel < easyXPThreshold;
+  // If the first rest has not been taken and the XP threshold is met, it is available
+  if (!shortRestsTaken[0] && percentRemainingXP < 68) {
+    shortRestsAvailable[0] = true;
+  }
 
-  let shortRestCounter = 2; // Start with 2 short rests available
+  // If the second rest has not been taken, the first has, and the XP threshold is met, it is available
+  if (!shortRestsTaken[1] && shortRestsTaken[0] && percentRemainingXP < 35) {
+    shortRestsAvailable[1] = true;
+  }
 
-  // Decrement shortRestCounter for each rest taken
-  shortRestsTaken.forEach((restTaken) => {
-    if (restTaken) {
-      shortRestCounter -= 1;
-    }
-  });
+  const longRestNeeded = remainingXP < xpThresholdsByCharLvl[level].Easy;
+
+  const shortRestNeededFirst = !shortRestsTaken[0] && shortRestsAvailable[0];
+  const shortRestNeededSecond = !shortRestsTaken[1] && shortRestsAvailable[1];
+
+  const shortRestCounter = shortRestsTaken.filter((rest) => rest).length;
 
   return {
     shortRestNeededFirst,
     shortRestNeededSecond,
     longRestNeeded,
-    shortRestCounter, // Include shortRestCounter in the returned object
+    shortRestCounter, // The actual calculated number of short rests remaining
   };
 };
 

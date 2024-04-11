@@ -21,7 +21,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   const getTooltipText = () => {
     const xpIntoLevel = playerExperience - xpStart;
     const xpNeeded = xpEnd - xpStart;
-    return `${xpIntoLevel} / ${xpNeeded} XP into Level`;
+    const progressPercentage = calculateProgressPercentage();
+    return `${xpIntoLevel} / ${xpNeeded} XP into Level (${progressPercentage.toFixed(
+      2
+    )}%)`;
   };
 
   const progressPercentage = calculateProgressPercentage();
@@ -36,9 +39,22 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
         className="bg-blue-600 h-2 rounded"
         style={{ width: `${progressPercentage}%` }}
       ></div>
+      {/* Conditionally render the threshold markers */}
+      {progressPercentage < 68 && (
+        <div
+          className="absolute bg-red-600 h-2 w-0.5"
+          style={{ left: '68%' }}
+        ></div>
+      )}
+      {progressPercentage < 35 && (
+        <div
+          className="absolute bg-red-600 h-2 w-0.5"
+          style={{ left: '35%' }}
+        ></div>
+      )}
       {showTooltip && (
         <div
-          className="absolute -top-8 left-0 bg-black text-white text-sm p-1 rounded"
+          className="absolute -top-8 right-0 bg-black text-white text-sm p-1 rounded w-1/2"
           style={{ marginLeft: `${progressPercentage}%` }}
         >
           {getTooltipText()}

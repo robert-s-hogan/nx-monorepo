@@ -1,68 +1,55 @@
 import React from 'react';
-import { checkmarkCircleOutline, alertCircleOutline } from 'ionicons/icons';
-import { IonIcon } from '@ionic/react';
-
-// Define a TypeScript interface for the component props
-interface RestCalculationDisplayProps {
-  shortRestsNeeded: [boolean, boolean]; // Tuple type for the first and second rest indicators
-  shortRestsRemaining: number;
-  totalShortRests: number;
-  longRestNeeded: boolean;
-}
+import { IonButton, IonIcon } from '@ionic/react';
+import { checkmarkCircleOutline, bedOutline } from 'ionicons/icons';
+import { RestCalculationDisplayProps } from '../types';
 
 const RestCalculationDisplay: React.FC<RestCalculationDisplayProps> = ({
   shortRestsNeeded,
+  shortRestsAvailable,
   shortRestsRemaining,
-  totalShortRests,
   longRestNeeded,
+  onTakeShortRest,
+  onTakeLongRest,
 }) => {
   // Calculate the width percentage for the progress bar
-  const progressWidth = `${(shortRestsRemaining / totalShortRests) * 100}%`;
+  const progressWidth = `${(shortRestsRemaining / 2) * 100}%`;
+
+  const renderShortRestButton = (index: number) => {
+    return shortRestsAvailable[index] ? (
+      <IonButton
+        size="small"
+        onClick={() => onTakeShortRest((index + 1) as 1 | 2)}
+      >
+        Take rest
+      </IonButton>
+    ) : shortRestsNeeded[index] ? (
+      <IonIcon icon={checkmarkCircleOutline} color="success" />
+    ) : null;
+  };
 
   return (
     <div className="p-4 space-y-4 bg-white rounded shadow">
-      <div>
-        <h3 className="font-bold">Rest Calculation</h3>
-      </div>
-
-      {/* Short Rests Needed Indicators */}
+      <h3 className="font-bold">Rest Calculation</h3>
       <div className="space-y-2">
-        <div className="flex items-center space-x-2">
-          <IonIcon
-            icon={
-              shortRestsNeeded[0] ? alertCircleOutline : checkmarkCircleOutline
-            }
-            className={`text-lg ${
-              shortRestsNeeded[0] ? 'text-red-500' : 'text-green-500'
-            }`}
-          />
-          <div>
-            1st Short Rest Needed?: {shortRestsNeeded[0] ? 'Yes' : 'No'}
+        {[...Array(2)].map((_, index) => (
+          <div key={index} className="flex items-center justify-between">
+            <span>
+              {index + 1}
+              {index + 1 === 1 ? 'st' : 'nd'} short rest{' '}
+              {shortRestsNeeded[index] ? 'needed' : 'not needed'}.
+            </span>
+            {renderShortRestButton(index)}
           </div>
-        </div>
+        ))}
 
-        <div className="flex items-center space-x-2">
-          <IonIcon
-            icon={
-              shortRestsNeeded[1] ? alertCircleOutline : checkmarkCircleOutline
-            }
-            className={`text-lg ${
-              shortRestsNeeded[1] ? 'text-red-500' : 'text-green-500'
-            }`}
-          />
-          <div>
-            2nd Short Rest Needed?: {shortRestsNeeded[1] ? 'Yes' : 'No'}
-          </div>
-        </div>
-
-        <div className="flex items-center space-x-2">
-          <IonIcon
-            icon={longRestNeeded ? alertCircleOutline : checkmarkCircleOutline}
-            className={`text-lg ${
-              longRestNeeded ? 'text-red-500' : 'text-green-500'
-            }`}
-          />
-          <div>Long Rest Needed?: {longRestNeeded ? 'Yes' : 'No'}</div>
+        <div className="flex items-center justify-between">
+          <span>Long rest {longRestNeeded ? 'needed' : 'not needed'}.</span>
+          {longRestNeeded && (
+            <IonButton size="small" onClick={onTakeLongRest}>
+              <IonIcon slot="start" icon={bedOutline} />
+              Take rest
+            </IonButton>
+          )}
         </div>
       </div>
 
@@ -73,7 +60,7 @@ const RestCalculationDisplay: React.FC<RestCalculationDisplayProps> = ({
           <div
             className="bg-blue-600 h-2.5 rounded"
             style={{ width: progressWidth }}
-          ></div>
+          />
         </div>
       </div>
     </div>
