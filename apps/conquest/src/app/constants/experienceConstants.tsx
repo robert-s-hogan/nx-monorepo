@@ -37,7 +37,7 @@ export const getAdventuringDayXpLimit = (
 
 export const calculateRestsNeeded = (
   xpStart: number,
-  xpTotal: number,
+  xpEnd: number,
   playerExperienceStart: number,
   numberOfPlayers: number,
   level: number,
@@ -58,7 +58,8 @@ export const calculateRestsNeeded = (
 
   const shortRestNeededFirst = percentRemainingXP < firstRestThreshold;
   const shortRestNeededSecond = percentRemainingXP < secondRestThreshold;
-  const longRestNeeded = remainingXP < easyXPThreshold;
+  const xpToNextLevel = xpEnd - playerExperienceStart;
+  const longRestNeeded = xpToNextLevel < easyXPThreshold;
 
   let shortRestCounter = 2; // Start with 2 short rests available
 

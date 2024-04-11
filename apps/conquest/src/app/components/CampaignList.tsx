@@ -1,7 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { IonIcon } from '@ionic/react';
-import { create, trash } from 'ionicons/icons';
+import {
+  checkmarkCircleOutline,
+  alertCircleOutline,
+  create,
+  trash,
+} from 'ionicons/icons';
 
 import { CampaignListProps } from '../types';
 import {
@@ -9,8 +14,8 @@ import {
   getLevelDetailsFromExperience,
   getAdventuringDayXpLimit,
 } from '../constants/experienceConstants';
-import { useCampaigns } from '../hooks/useCampaigns';
 import ProgressBar from './ProgressBar';
+import RestCalculationDisplay from './RestCalculationDisplay';
 
 const CampaignList: React.FC<CampaignListProps> = ({
   campaigns,
@@ -51,28 +56,32 @@ const CampaignList: React.FC<CampaignListProps> = ({
                 key={campaign.id}
                 className="border border-black rounded p-4"
               >
-                <pre>campaign: {JSON.stringify(campaign, null, 2)}</pre>
+                <pre>rests: {JSON.stringify(rests, null, 2)}</pre>
 
                 {hideEdit ? (
-                  <Link href={`/campaigns/${campaign.slug}`}>
+                  <>
                     <div className="pb-3">
                       <div className="flex space-x-2 items-center">
-                        <h2 className="">{campaign.name}</h2>{' '}
-                        <span className="text-gray-400 text-sm">
-                          /{campaign.slug}
-                        </span>
+                        <Link href={`/campaigns/${campaign.slug}`}>
+                          <div className="flex space-x-2 items-center">
+                            <h2 className="">{campaign.name}</h2>
+                            <span>({campaign.numberOfPlayers})</span>
+                          </div>
+                          <span className="text-gray-400 text-sm">
+                            /{campaign.slug}
+                          </span>
+                        </Link>
                       </div>
                       <p>{campaign.description}</p>
                     </div>
                     <div className="grid grid-cols-2 gap-8">
-                      <div>
-                        <h2>XP Calculations</h2>
+                      <div className="p-4 space-y-1 bg-white rounded shadow">
+                        <h2 className="font-bold">XP Calculations</h2>
                         <p>
                           Player Experience Start:{' '}
                           {campaign.playerExperienceStart}
                         </p>
                         <p>Adventuring Day XP Limit: {adventuringDayXP}</p>
-                        <h2>Level Details:</h2>
 
                         <ProgressBar
                           xpStart={campaign.levelDetails?.xpStart}
@@ -83,23 +92,18 @@ const CampaignList: React.FC<CampaignListProps> = ({
                         <p>Level of Players: {levelDetails?.level}</p>
                       </div>
                       <div>
-                        <h2>Rest Calculation</h2>
-                        <p>
-                          1st Short Rest Needed?:{' '}
-                          {rests.shortRestNeededFirst ? 'Yes' : 'No'}
-                        </p>
-                        <p>
-                          2nd Short Rest Needed?:{' '}
-                          {rests.shortRestNeededSecond ? 'Yes' : 'No'}
-                        </p>
-                        <p>
-                          1st Short Rest Needed?:{' '}
-                          {rests.longRestNeeded ? 'Yes' : 'No'}
-                        </p>
-                        <p>Short Rests Remaining: {rests.shortRestCounter}</p>{' '}
+                        <RestCalculationDisplay
+                          shortRestsNeeded={[
+                            rests.shortRestNeededFirst,
+                            rests.shortRestNeededSecond,
+                          ]}
+                          shortRestsRemaining={rests.shortRestCounter} // Assuming this is your field for remaining rests
+                          totalShortRests={2} // Assuming you have a max of 2 short rests, adjust as necessary
+                          longRestNeeded={rests.longRestNeeded}
+                        />
                       </div>
                     </div>
-                  </Link>
+                  </>
                 ) : (
                   <div className="p-4">
                     <div className="flex justify-end pr-2 pt-2">
