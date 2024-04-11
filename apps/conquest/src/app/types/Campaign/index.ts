@@ -1,6 +1,13 @@
 import { ReactNode } from 'react';
 import { ModalOperation } from '../../types';
 
+export interface LevelDetails {
+  xpStart: number;
+  xpEnd: number;
+  xpNeeded: number;
+  level: number;
+}
+
 export interface Campaign {
   id?: string | undefined;
   name: string;
@@ -8,15 +15,24 @@ export interface Campaign {
   description: string;
   numberOfPlayers: number;
   playerExperienceStart: number;
+  levelDetails: LevelDetails;
   levelOfPlayersCharactersStart: number;
   adventuringDayXPLimit: number;
   groupDead: boolean;
   shortRestNeededFirst?: boolean;
   shortRestNeededSecond?: boolean;
+  shortRests?: boolean[];
   longRestNeeded?: boolean;
   accountId: string;
   createdAt?: Date;
   updatedAt?: Date;
+}
+
+export interface CampaignSubmissionData extends Partial<Campaign> {
+  xpStart?: number;
+  xpEnd?: number;
+  xpNeeded?: number;
+  level?: number;
 }
 
 export interface CampaignAddModalProps {

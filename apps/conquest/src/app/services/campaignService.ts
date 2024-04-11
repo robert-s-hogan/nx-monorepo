@@ -14,7 +14,6 @@ export const addCampaign = async (campaignData: Campaign): Promise<string> => {
   if (!campaignData) {
     throw new Error('Campaign data is required');
   }
-
   const slug = generateSlug(campaignData.name);
   const dataWithSlug = { ...campaignData, slug };
 

@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
-import { Campaign, CampaignFormProps } from '../types';
+import { Campaign, CampaignFormProps, CampaignSubmissionData } from '../types';
 import {
-  calculateRestsNeeded,
-  getLevelDetailsFromExperience,
   getAdventuringDayXpLimit,
+  getLevelDetailsFromExperience,
 } from '../constants/experienceConstants';
 
 const CampaignForm: React.FC<CampaignFormProps> = ({
@@ -12,24 +11,8 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
   onSubmit,
   operation,
 }) => {
-  if (!campaign) {
-    // Handle the case where campaign is null
-    return;
-  }
-  const levelDetails = getLevelDetailsFromExperience(
-    campaign.playerExperienceStart
-  );
-  const adventuringDayXP = getAdventuringDayXpLimit(
-    levelDetails.level,
-    campaign.numberOfPlayers
-  );
-
-  const rests = calculateRestsNeeded(
-    levelDetails.xpStart,
-    levelDetails.xpEnd,
-    campaign?.playerExperienceStart || 100,
-    campaign?.numberOfPlayers,
-    levelDetails.level
+  const initialLevelDetails = getLevelDetailsFromExperience(
+    campaign?.playerExperienceStart || 100
   );
 
   const formik = useFormik({
@@ -40,29 +23,52 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
       description: campaign?.description || '',
       numberOfPlayers: campaign?.numberOfPlayers || 1,
       playerExperienceStart: campaign?.playerExperienceStart || 100,
-      levelOfPlayersCharactersStart: levelDetails.level,
-      adventuringDayXPLimit: adventuringDayXP,
+      levelDetails: initialLevelDetails, // Store the entire levelDetails object
       groupDead: campaign?.groupDead ?? false,
-      shortRestNeededFirst: rests.shortRestNeededFirst,
-      shortRestNeededSecond: rests.shortRestNeededSecond,
-      longRestNeeded: rests.longRestNeeded,
     },
     onSubmit: (values) => {
-      let campaignData: Partial<Campaign> = { ...values };
-
-      if (operation === 'edit') {
-        campaignData = { ...values, id: values.id };
-      }
-
-      onSubmit(campaignData);
+      const submissionData: CampaignSubmissionData = {
+        ...values,
+        levelDetails: values.levelDetails, // Make sure this line is correctly including levelDetails
+      };
+      console.log(`submissionData: ${JSON.stringify(submissionData, null, 2)}`);
+      onSubmit(submissionData); // Ensure this onSubmit is correctly handling the data
     },
   });
+
+  // Effect to update levelDetails as playerExperienceStart changes
+  useEffect(() => {
+    const newLevelDetails = getLevelDetailsFromExperience(
+      formik.values.playerExperienceStart
+    );
+    formik.setFieldValue('levelDetails', newLevelDetails);
+    console.log(formik.values); // Log to verify levelDetails is updated
+  }, [formik.values.playerExperienceStart]);
 
   const handleNumberOfPlayersChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const updatedValue = e.target.value;
     formik.setFieldValue('numberOfPlayers', updatedValue);
+  };
+
+  const calculateProgressPercentage = () => {
+    const xpStart = formik.values.levelDetails.xpStart;
+    const xpEnd = formik.values.levelDetails.xpEnd;
+    const playerXp = formik.values.playerExperienceStart;
+    const progress = ((playerXp - xpStart) / (xpEnd - xpStart)) * 100;
+    return Math.min(Math.max(progress, 0), 100); // Clamps the value between 0 and 100
+  };
+  const [showTooltip, setShowTooltip] = useState(false);
+  const progressPercentage = calculateProgressPercentage();
+
+  // Function to format the tooltip text
+  const getTooltipText = () => {
+    const xpStart = formik.values.levelDetails.xpStart;
+    const playerXp = formik.values.playerExperienceStart;
+    const xpIntoLevel = playerXp - xpStart;
+    const xpNeeded = formik.values.levelDetails.xpNeeded;
+    return `${xpIntoLevel} / ${xpNeeded} XP into Level`;
   };
 
   return (
@@ -130,19 +136,30 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
 
       {/* Level of Players Characters Start input */}
       <div className="grid grid-cols-2 gap-1 space-y-1">
-        <p>xpStart: {levelDetails.xpStart}</p>
-        <p>adventuringDayXP: {adventuringDayXP}</p>
-        <p>xpEnd: {levelDetails.xpEnd}</p>
-        <p>xpNeeded: {levelDetails.xpNeeded}</p>
-        <p>level: {levelDetails.level}</p>
-        <p>firstRestNeeded?: {rests.shortRestNeededFirst ? 'Yes' : 'No'}</p>
-        <p>secondRestNeeded?: {rests.shortRestNeededSecond ? 'Yes' : 'No'}</p>
-        <p>longRestNeeded?: {rests.longRestNeeded ? 'Yes' : 'No'}</p>
+        <p>Level: {formik.values.levelDetails.level}</p>
+        <div
+          className="w-full bg-gray-200 rounded h-2 relative"
+          onMouseEnter={() => setShowTooltip(true)}
+          onMouseLeave={() => setShowTooltip(false)}
+        >
+          <div
+            className="bg-blue-600 h-2 rounded"
+            style={{ width: `${progressPercentage}%` }}
+          ></div>
+          {showTooltip && (
+            <div
+              className="absolute -top-8 left-0 bg-black text-white text-sm p-1 rounded"
+              style={{ marginLeft: `${progressPercentage}%` }}
+            >
+              {getTooltipText()}
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Submit button */}
       <button type="submit" className="btn-primary">
-        {campaign ? 'Update Campaign' : 'Add Campaign'}
+        {operation === 'edit' ? 'Update Campaign' : 'Add Campaign'}
       </button>
     </form>
   );

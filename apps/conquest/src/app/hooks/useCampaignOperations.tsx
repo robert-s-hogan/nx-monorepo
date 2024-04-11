@@ -26,6 +26,12 @@ export const useCampaignOperations = (onClose: () => void) => {
         playerExperienceStart: campaignData.playerExperienceStart ?? 0,
         levelOfPlayersCharactersStart:
           campaignData.levelOfPlayersCharactersStart ?? 1,
+        levelDetails: campaignData.levelDetails ?? {
+          xpStart: 0,
+          xpEnd: 100,
+          xpNeeded: 100,
+          level: 1,
+        },
         adventuringDayXPLimit: campaignData.adventuringDayXPLimit ?? 0,
         groupDead: campaignData.groupDead ?? false,
         shortRestNeededFirst: campaignData.shortRestNeededFirst ?? false,

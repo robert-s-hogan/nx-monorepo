@@ -2,13 +2,14 @@ import { Campaign } from '../types';
 import { useCollection } from '@with-nx/firebase';
 import { FirestoreDocument } from '@with-nx/firebase';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { getLevelDetailsFromExperience } from '../constants/experienceConstants';
 
 export const useCampaigns = (): {
   campaigns: FirestoreDocument<Campaign>[] | undefined;
   isLoading: boolean;
   isError: any;
   mutate: typeof mutate;
-  selectedCampaign: FirestoreDocument<Campaign> | undefined; // Add selectedCampaign to the return type
+  selectedCampaign: FirestoreDocument<Campaign> | undefined;
 } => {
   const {
     documents: campaigns,
@@ -16,19 +17,22 @@ export const useCampaigns = (): {
     isError,
     mutate,
   } = useCollection<Campaign>('campaigns');
+
   const pathname = usePathname();
   const [searchParams] = useSearchParams();
 
-  // Adapt the logic here based on how your campaign slug is represented in the URL
-  // For example, if your URL is like '/campaigns/[campaignSlug]', you might extract the slug like this:
+  // Extracting the campaignSlug from the URL or query parameters
   const campaignSlug = pathname.split('/').pop();
+  // const campaignSlug = searchParams.get('slug'); // Or this, depending on your URL structure
 
-  // Or, if you're using query parameters like '/campaigns?slug=[campaignSlug]'
-  // const campaignSlug = searchParams.get('slug');
-
-  // Find the selected campaign based on the slug
   const selectedCampaign = campaigns?.find(
     (campaign) => campaign.slug === campaignSlug
+  );
+
+  console.log(
+    `selectedCampaign.playerExperienceStart: ${
+      selectedCampaign?.playerExperienceStart || 0
+    }`
   );
 
   return {
@@ -36,6 +40,6 @@ export const useCampaigns = (): {
     isLoading,
     isError,
     mutate,
-    selectedCampaign, // Include selectedCampaign in the returned object
+    selectedCampaign,
   };
 };
