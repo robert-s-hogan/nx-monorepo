@@ -21,6 +21,7 @@ export interface Campaign {
   groupDead: boolean;
   shortRestNeededFirst?: boolean;
   shortRestNeededSecond?: boolean;
+  shortRestCounter?: number;
   shortRests?: boolean[];
   longRestNeeded?: boolean;
   accountId: string;
@@ -93,9 +94,10 @@ export interface CampaignDeleteConfirmationProps {
 }
 
 export interface RestCalculationDisplayProps {
-  shortRestsNeeded: boolean[];
+  playerExperienceStart: number;
+  adventuringDayXPLimit: number;
+  xpStart: number;
   shortRestsAvailable: boolean[];
-  shortRestsRemaining: number;
   longRestNeeded: boolean;
   onTakeShortRest: (restNumber: 1 | 2) => void;
   onTakeLongRest: () => void;

@@ -1,67 +1,78 @@
 import React from 'react';
-import { IonButton, IonIcon } from '@ionic/react';
-import { checkmarkCircleOutline, bedOutline } from 'ionicons/icons';
-import { RestCalculationDisplayProps } from '../types';
 
-const RestCalculationDisplay: React.FC<RestCalculationDisplayProps> = ({
-  shortRestsNeeded,
+const RestCalculationDisplay: React.FC<{
+  playerExperienceStart: number;
+  adventuringDayXPLimit: number;
+  xpStart: number;
+  xpThresholdEasy: number; // New prop for dynamic XP threshold for a long rest
+  shortRestsAvailable: boolean[];
+  longRestNeeded: boolean; // New prop to determine if a long rest is needed
+}> = ({
+  playerExperienceStart,
+  adventuringDayXPLimit,
+  xpStart,
+  xpThresholdEasy,
   shortRestsAvailable,
-  shortRestsRemaining,
   longRestNeeded,
-  onTakeShortRest,
-  onTakeLongRest,
 }) => {
-  // Calculate the width percentage for the progress bar
-  const progressWidth = `${(shortRestsRemaining / 2) * 100}%`;
+  // Calculate XP gained and percentage of XP limit reached
+  const xpGained = playerExperienceStart - xpStart;
+  const xpPercentage = (xpGained / adventuringDayXPLimit) * 100;
 
-  const renderShortRestButton = (index: number) => {
-    return shortRestsAvailable[index] ? (
-      <IonButton
-        size="small"
-        onClick={() => onTakeShortRest((index + 1) as 1 | 2)}
-      >
-        Take rest
-      </IonButton>
-    ) : shortRestsNeeded[index] ? (
-      <IonIcon icon={checkmarkCircleOutline} color="success" />
-    ) : null;
-  };
+  // Calculate the percentage for the dynamic long rest threshold
+  const longRestThresholdPercentage =
+    (xpThresholdEasy / adventuringDayXPLimit) * 100;
 
   return (
-    <div className="p-4 space-y-4 bg-white rounded shadow">
+    <div className="p-4 bg-white rounded shadow">
       <h3 className="font-bold">Rest Calculation</h3>
-      <div className="space-y-2">
-        {[...Array(2)].map((_, index) => (
-          <div key={index} className="flex items-center justify-between">
-            <span>
-              {index + 1}
-              {index + 1 === 1 ? 'st' : 'nd'} short rest{' '}
-              {shortRestsNeeded[index] ? 'needed' : 'not needed'}.
-            </span>
-            {renderShortRestButton(index)}
-          </div>
-        ))}
-
-        <div className="flex items-center justify-between">
-          <span>Long rest {longRestNeeded ? 'needed' : 'not needed'}.</span>
-          {longRestNeeded && (
-            <IonButton size="small" onClick={onTakeLongRest}>
-              <IonIcon slot="start" icon={bedOutline} />
-              Take rest
-            </IonButton>
-          )}
-        </div>
+      <div className="relative mt-4 mb-4 w-full bg-gray-200 rounded h-5">
+        <div
+          className="bg-blue-500 h-full"
+          style={{ width: `${xpPercentage}%` }}
+        ></div>
+        {/* Markers for short rests and dynamic long rest thresholds */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '35%',
+            top: '0',
+            height: '100%',
+            width: '2px',
+            backgroundColor: 'red',
+          }}
+          title="Short Rest 1 Threshold"
+        ></div>
+        <div
+          style={{
+            position: 'absolute',
+            left: '68%',
+            top: '0',
+            height: '100%',
+            width: '2px',
+            backgroundColor: 'red',
+          }}
+          title="Short Rest 2 Threshold"
+        ></div>
+        <div
+          style={{
+            position: 'absolute',
+            right: `${longRestThresholdPercentage}%`,
+            top: '0',
+            height: '100%',
+            width: '2px',
+            backgroundColor: 'green',
+          }}
+          title="Long Rest Threshold"
+        ></div>
       </div>
-
-      {/* Short Rests Remaining Progress Bar */}
-      <div>
-        <div className="text-sm font-semibold">Short Rests Remaining</div>
-        <div className="w-full bg-gray-200 rounded h-2.5">
-          <div
-            className="bg-blue-600 h-2.5 rounded"
-            style={{ width: progressWidth }}
-          />
-        </div>
+      <div className="text-sm">
+        {shortRestsAvailable[0] ? (
+          <p>First short rest taken at {xpPercentage.toFixed(2)}%.</p>
+        ) : (
+          <p>First short rest needed before 35%.</p>
+        )}
+        {/* Additional logic for second short rest and long rest can be added similarly */}
       </div>
     </div>
   );

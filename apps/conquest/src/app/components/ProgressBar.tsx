@@ -4,60 +4,66 @@ interface ProgressBarProps {
   xpStart: number;
   xpEnd: number;
   playerExperience: number;
+  onTakeFirstShortRest: () => void;
+  onTakeSecondShortRest: () => void;
+  isShortRestAvailable: boolean[];
 }
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
   xpStart,
   xpEnd,
   playerExperience,
+  onTakeFirstShortRest,
+  onTakeSecondShortRest,
+  isShortRestAvailable,
 }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  const calculateProgressPercentage = () => {
-    const progress = ((playerExperience - xpStart) / (xpEnd - xpStart)) * 100;
-    return Math.min(Math.max(progress, 0), 100); // Clamps the value between 0 and 100
-  };
-
-  const getTooltipText = () => {
-    const xpIntoLevel = playerExperience - xpStart;
-    const xpNeeded = xpEnd - xpStart;
-    const progressPercentage = calculateProgressPercentage();
-    return `${xpIntoLevel} / ${xpNeeded} XP into Level (${progressPercentage.toFixed(
-      2
-    )}%)`;
-  };
-
-  const progressPercentage = calculateProgressPercentage();
+  // Calculate the width of the progress bar based on experience
+  const progressPercentage =
+    ((playerExperience - xpStart) / (xpEnd - xpStart)) * 100;
 
   return (
     <div
-      className="w-full bg-gray-200 rounded h-2 relative"
+      className="relative w-full bg-gray-200 rounded h-2"
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >
       <div
-        className="bg-blue-600 h-2 rounded"
+        className="bg-blue-600 h-full rounded"
         style={{ width: `${progressPercentage}%` }}
       ></div>
-      {/* Conditionally render the threshold markers */}
-      {progressPercentage < 68 && (
-        <div
-          className="absolute bg-red-600 h-2 w-0.5"
-          style={{ left: '68%' }}
-        ></div>
-      )}
-      {progressPercentage < 35 && (
-        <div
-          className="absolute bg-red-600 h-2 w-0.5"
+
+      {/* Buttons for taking rests */}
+      {isShortRestAvailable[0] && (
+        <button
+          className="absolute bottom-[-20px] transform -translate-x-1/2 text-white bg-red-600 px-2 py-1 rounded text-xs"
           style={{ left: '35%' }}
-        ></div>
+          onClick={onTakeFirstShortRest}
+        >
+          Take 1st Short Rest
+        </button>
       )}
+      {isShortRestAvailable[1] && (
+        <button
+          className="absolute bottom-[-20px] transform -translate-x-1/2 text-white bg-red-600 px-2 py-1 rounded text-xs"
+          style={{ left: '68%' }}
+          onClick={onTakeSecondShortRest}
+        >
+          Take 2nd Short Rest
+        </button>
+      )}
+
+      {/* Tooltip */}
       {showTooltip && (
         <div
-          className="absolute -top-8 right-0 bg-black text-white text-sm p-1 rounded w-1/2"
-          style={{ marginLeft: `${progressPercentage}%` }}
+          className="absolute -top-8 px-1 py-0.5 rounded bg-black text-white text-xs"
+          style={{
+            left: `calc(${progressPercentage}% - 12px)`, // Offset for the tooltip pointer
+          }}
         >
-          {getTooltipText()}
+          {playerExperience - xpStart} / {xpEnd - xpStart} XP (
+          {progressPercentage.toFixed(2)}%)
         </div>
       )}
     </div>

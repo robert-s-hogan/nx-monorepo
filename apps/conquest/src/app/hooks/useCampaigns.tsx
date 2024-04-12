@@ -29,12 +29,6 @@ export const useCampaigns = (): {
     (campaign) => campaign.slug === campaignSlug
   );
 
-  console.log(
-    `selectedCampaign.playerExperienceStart: ${
-      selectedCampaign?.playerExperienceStart || 0
-    }`
-  );
-
   return {
     campaigns,
     isLoading,

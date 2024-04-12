@@ -7,6 +7,7 @@ import { Campaign, CampaignListProps } from '../types';
 import {
   calculateRestsNeeded,
   getAdventuringDayXpLimit,
+  xpThresholdsByCharLvl,
 } from '../constants/experienceConstants';
 import ProgressBar from './ProgressBar';
 import RestCalculationDisplay from './RestCalculationDisplay';
@@ -50,6 +51,10 @@ const CampaignList: React.FC<CampaignListProps> = ({
               campaign.numberOfPlayers
             );
 
+            const xpThresholdEasy =
+              xpThresholdsByCharLvl[levelDetails?.level || 1]?.Easy *
+              campaign.numberOfPlayers;
+
             const shortRestsTaken = campaign.shortRests || [false, false];
 
             const rests = calculateRestsNeeded(
@@ -60,6 +65,7 @@ const CampaignList: React.FC<CampaignListProps> = ({
               levelDetails?.level || 1,
               shortRestsTaken // pass the shortRestsTaken array
             );
+
             return (
               <div
                 key={campaign.id}
@@ -94,21 +100,24 @@ const CampaignList: React.FC<CampaignListProps> = ({
                           xpStart={campaign.levelDetails?.xpStart}
                           xpEnd={campaign.levelDetails?.xpEnd}
                           playerExperience={campaign.playerExperienceStart}
+                          onTakeFirstShortRest={() => handleTakeShortRest(1)}
+                          onTakeSecondShortRest={() => handleTakeShortRest(2)}
+                          isShortRestAvailable={shortRestsAvailable}
+                          // onTakeLongRest={handleTakeLongRest}
                         />
 
                         <p>Level of Players: {levelDetails?.level}</p>
                       </div>
                       <div>
                         <RestCalculationDisplay
-                          shortRestsNeeded={[
-                            rests.shortRestNeededFirst,
-                            rests.shortRestNeededSecond,
-                          ]}
+                          playerExperienceStart={campaign.playerExperienceStart}
+                          adventuringDayXPLimit={adventuringDayXP}
+                          xpStart={campaign.levelDetails?.xpStart}
+                          xpThresholdEasy={xpThresholdEasy}
                           shortRestsAvailable={shortRestsAvailable}
-                          shortRestsRemaining={rests.shortRestCounter}
                           longRestNeeded={rests.longRestNeeded}
-                          onTakeShortRest={handleTakeShortRest}
-                          onTakeLongRest={handleTakeLongRest}
+                          // onTakeShortRest={handleTakeShortRest}
+                          // onTakeLongRest={handleTakeLongRest}
                         />
                       </div>
                     </div>
@@ -146,21 +155,24 @@ const CampaignList: React.FC<CampaignListProps> = ({
                           xpStart={campaign.levelDetails?.xpStart}
                           xpEnd={campaign.levelDetails?.xpEnd}
                           playerExperience={campaign.playerExperienceStart}
+                          onTakeFirstShortRest={() => handleTakeShortRest(1)}
+                          onTakeSecondShortRest={() => handleTakeShortRest(2)}
+                          isShortRestAvailable={shortRestsAvailable}
+                          // onTakeLongRest={handleTakeLongRest}
                         />
 
                         <p>Level of Players: {levelDetails?.level}</p>
                       </div>
                       <div>
                         <RestCalculationDisplay
-                          shortRestsNeeded={[
-                            rests.shortRestNeededFirst,
-                            rests.shortRestNeededSecond,
-                          ]}
+                          playerExperienceStart={campaign.playerExperienceStart}
+                          adventuringDayXPLimit={adventuringDayXP}
+                          xpStart={campaign.levelDetails?.xpStart}
+                          xpThresholdEasy={xpThresholdEasy}
                           shortRestsAvailable={shortRestsAvailable}
-                          shortRestsRemaining={rests.shortRestCounter}
                           longRestNeeded={rests.longRestNeeded}
-                          onTakeShortRest={handleTakeShortRest}
-                          onTakeLongRest={handleTakeLongRest}
+                          // onTakeShortRest={handleTakeShortRest}
+                          // onTakeLongRest={handleTakeLongRest}
                         />
                       </div>
                     </div>
