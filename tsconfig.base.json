@@ -48,7 +48,8 @@
       "@with-nx/theme": ["libs/theme/src/index.ts"],
       "@with-nx/types": ["libs/types/src/index.ts"],
       "@with-nx/ui": ["libs/ui/src/index.ts"],
-      "@with-nx/utils": ["libs/utils/src/index.ts"]
+      "@with-nx/utils": ["libs/utils/src/index.ts"],
+      "generic-ui": ["libs/generic-ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
