@@ -25341,6 +25341,11 @@
         "source": "swapi",
         "target": "npm:@nrwl/react",
         "type": "static"
+      },
+      {
+        "source": "swapi",
+        "target": "npm:three",
+        "type": "static"
       }
     ],
     "theme": [

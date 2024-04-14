@@ -68,7 +68,6 @@ const PersonPage = ({ person }) => {
   const currentColorScheme = getColorSchemeForPersona(activePersona as any);
 
   const colorScheme: any = currentColorScheme;
-  console.log(`colorScheme`, colorScheme);
 
   return (
     <SwapiLayout>

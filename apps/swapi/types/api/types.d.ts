@@ -5,7 +5,7 @@ export interface ApiResponse<T> {
   results: T[];
 }
 
-export interface Person  {
+export interface Person {
   name: string;
   height: string;
   mass: string;

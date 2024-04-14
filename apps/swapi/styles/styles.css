@@ -148,3 +148,35 @@ input[type='radio']:checked ~ span {
     opacity: 0.1;
   }
 }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.planet {
+  animation-name: rotate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* Animation duration will be set in-line to adjust for each planet's rotation period */
+}
+
+@keyframes rotate3D {
+  0% {
+    transform: rotateY(0deg) rotateX(20deg);
+  }
+  50% {
+    transform: rotateY(180deg) rotateX(20deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(20deg);
+  }
+}
+
+.grid {
+  perspective: 800px; /* Adjust this value to get the desired depth effect */
+}
