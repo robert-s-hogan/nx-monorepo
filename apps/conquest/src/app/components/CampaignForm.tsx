@@ -120,50 +120,54 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
         />
       </div>
 
-      {/* Group Dead input */}
-      <div className="space-y-1">
-        <label htmlFor="groupDead">Oh, they dead</label>
-        <input
-          id="groupDead"
-          type="checkbox"
-          checked={formik.values.groupDead}
-          onChange={() =>
-            formik.setFieldValue('groupDead', !formik.values.groupDead)
-          }
-        />
-      </div>
+      {!campaign && (
+        <>
+          <div className="space-y-1">
+            <label htmlFor="groupDead">Oh, they dead</label>
+            <input
+              id="groupDead"
+              type="checkbox"
+              checked={formik.values.groupDead}
+              onChange={() =>
+                formik.setFieldValue('groupDead', !formik.values.groupDead)
+              }
+            />
+          </div>
 
-      {/* Long Rest Needed input */}
-      <div className="space-y-1">
-        <label htmlFor="longRestNeeded">Long Rest Needed</label>
-        <select
-          id="longRestNeeded"
-          value={formik.values.longRestNeeded ? 'true' : 'false'}
-          onChange={(e) =>
-            formik.setFieldValue('longRestNeeded', e.target.value === 'true')
-          }
-        >
-          {longRestOptions.map((option, index) => (
-            <option key={index} value={String(option.value)}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </div>
+          <div className="space-y-1">
+            <label htmlFor="longRestNeeded">Long Rest Needed</label>
+            <select
+              id="longRestNeeded"
+              value={formik.values.longRestNeeded ? 'true' : 'false'}
+              onChange={(e) =>
+                formik.setFieldValue(
+                  'longRestNeeded',
+                  e.target.value === 'true'
+                )
+              }
+            >
+              {longRestOptions.map((option, index) => (
+                <option key={index} value={String(option.value)}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
 
-      {/* Short Rests input */}
-      <div className="space-y-1">
-        <label htmlFor="shortRests">Number of Short Rests Taken</label>
-        <select
-          id="shortRests"
-          value={formik.values.shortRests.length}
-          onChange={handleShortRestsChange}
-        >
-          <option value={0}>0</option>
-          <option value={1}>1</option>
-          <option value={2}>2</option>
-        </select>
-      </div>
+          <div className="space-y-1">
+            <label htmlFor="shortRests">Number of Short Rests Taken</label>
+            <select
+              id="shortRests"
+              value={formik.values.shortRests.length}
+              onChange={handleShortRestsChange}
+            >
+              <option value={0}>0</option>
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+            </select>
+          </div>
+        </>
+      )}
 
       {/* Submit button */}
       <button type="submit" className="btn-primary">

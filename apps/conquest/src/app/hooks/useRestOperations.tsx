@@ -9,8 +9,6 @@ import { editCampaign } from '../services/campaignService';
 export const useRestOperations = (campaign: Campaign) => {
   console.log(`Campaign: ${JSON.stringify(campaign)}`);
   const defaultResponse = {
-    shortRestNeededFirst: false,
-    shortRestNeededSecond: false,
     longRestNeeded: false,
     shortRestCounter: 0,
     shortRestsAvailable: [false, false],
@@ -62,7 +60,6 @@ export const useRestOperations = (campaign: Campaign) => {
       await editCampaign(id, {
         shortRests: updatedShortRests,
         // Ensure you persist the updated shortRestCounter back to the campaign data.
-        shortRestCounter: updatedShortRestCounter,
       });
       console.log(`Short rest ${restNumber} taken for campaign ${id}.`);
     } catch (error) {

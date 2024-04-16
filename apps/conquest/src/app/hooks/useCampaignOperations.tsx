@@ -34,9 +34,8 @@ export const useCampaignOperations = (onClose: () => void) => {
         },
         adventuringDayXPLimit: campaignData.adventuringDayXPLimit ?? 0,
         groupDead: campaignData.groupDead ?? false,
-        shortRestNeededFirst: campaignData.shortRestNeededFirst ?? false,
-        shortRestNeededSecond: campaignData.shortRestNeededSecond ?? false,
         longRestNeeded: campaignData.longRestNeeded ?? false,
+        shortRests: campaignData?.shortRests || [],
 
         accountId: 'default-account',
       };

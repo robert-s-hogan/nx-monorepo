@@ -12,14 +12,12 @@ export type Encounter = {
   playerExperienceStart: number;
   adventuringDayXPLimit: number;
   adventuringDayXPStart: number;
-  encounterDifficultyOptions: string;
   xpThreshold: number;
   adventuringDayXPFinish: number;
   playerExperienceEarnedFromEncounter: number;
   playerExperienceFinish: number;
+  encounterDifficultyOptions: Difficulty; // not string!
   levelOfPlayersCharactersFinish: number;
-  shortRestNeededFirst: string;
-  shortRestNeededSecond: string;
   longRestNeeded: boolean;
   timeSpentBetweenResting: number;
   timeBetweenEncounters: string;

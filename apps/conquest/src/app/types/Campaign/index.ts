@@ -19,9 +19,6 @@ export interface Campaign {
   levelOfPlayersCharactersStart: number;
   adventuringDayXPLimit: number;
   groupDead: boolean;
-  shortRestNeededFirst?: boolean;
-  shortRestNeededSecond?: boolean;
-  shortRestCounter?: number;
   shortRests?: boolean[];
   longRestNeeded?: boolean;
   accountId: string;
