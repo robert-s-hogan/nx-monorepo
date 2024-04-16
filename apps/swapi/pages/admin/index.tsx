@@ -3,6 +3,7 @@ import { useSWRApi } from '../../api/useSWRApi';
 import { ApiResponse, Planet } from '../../types/api/types';
 import { endpoints } from '../../api/endpoints';
 import Swapi3DPlanet from '../../components/Planets/Swapi3DPlanet'; // Ensure this path is correct
+import Earth from '../../components/Planets/Planet'; // Ensure this path is correct
 
 interface AdminProps {
   // Additional props can be added here
@@ -47,6 +48,7 @@ const AdminPage: React.FC<AdminProps> = (props) => {
 
   return (
     <div>
+      <Earth />
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-8 m-8">
         {planets.map((planet) => (
           <div
