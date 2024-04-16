@@ -51,17 +51,9 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
     formik.setFieldValue('numberOfPlayers', updatedValue);
   };
 
-  const calculateProgressPercentage = () => {
-    const xpStart = formik.values.levelDetails.xpStart;
-    const xpEnd = formik.values.levelDetails.xpEnd;
-    const playerXp = formik.values.playerExperienceStart;
-    const progress = ((playerXp - xpStart) / (xpEnd - xpStart)) * 100;
-    return Math.min(Math.max(progress, 0), 100); // Clamps the value between 0 and 100
-  };
-
   const handleShortRestsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const count = Number(e.target.value);
-    formik.setFieldValue('shortRests', Array(count).fill(true));
+    formik.setFieldValue('shortRests', Array(count).fill(true)); // This should correctly create an array of booleans
   };
 
   const longRestOptions = [
@@ -146,13 +138,13 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
         <label htmlFor="longRestNeeded">Long Rest Needed</label>
         <select
           id="longRestNeeded"
-          value={formik.values.longRestNeeded}
+          value={formik.values.longRestNeeded ? 'true' : 'false'}
           onChange={(e) =>
             formik.setFieldValue('longRestNeeded', e.target.value === 'true')
           }
         >
-          {longRestOptions.map((option) => (
-            <option key={option.value} value={option.value}>
+          {longRestOptions.map((option, index) => (
+            <option key={index} value={String(option.value)}>
               {option.label}
             </option>
           ))}
