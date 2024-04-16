@@ -88,37 +88,41 @@ const CampaignList: React.FC<CampaignListProps> = ({
                       <p>{campaign.description}</p>
                     </div>
                     <div className="grid grid-cols-1 gap-8">
-                      <div className="p-4 space-y-1 bg-white rounded shadow">
-                        <h2 className="font-bold">XP Calculations</h2>
-                        <p>
-                          Player Experience Start:{' '}
-                          {campaign.playerExperienceStart}
-                        </p>
-                        <p>Adventuring Day XP Limit: {adventuringDayXP}</p>
+                      <div className="p-4 space-y-2 bg-white rounded shadow">
+                        <div>
+                          <h2 className="font-bold">XP Calculations</h2>
+                          <p>
+                            Player Experience Start:{' '}
+                            {campaign.playerExperienceStart}
+                          </p>
+                          <p>Adventuring Day XP Limit: {adventuringDayXP}</p>
 
-                        <ProgressBar
-                          xpStart={campaign.levelDetails?.xpStart}
-                          xpEnd={campaign.levelDetails?.xpEnd}
-                          playerExperience={campaign.playerExperienceStart}
-                          onTakeFirstShortRest={() => handleTakeShortRest(1)}
-                          onTakeSecondShortRest={() => handleTakeShortRest(2)}
-                          isShortRestAvailable={shortRestsAvailable}
-                          // onTakeLongRest={handleTakeLongRest}
-                        />
+                          <ProgressBar
+                            xpStart={campaign.levelDetails?.xpStart}
+                            xpEnd={campaign.levelDetails?.xpEnd}
+                            playerExperience={campaign.playerExperienceStart}
+                            onTakeFirstShortRest={() => handleTakeShortRest(1)}
+                            onTakeSecondShortRest={() => handleTakeShortRest(2)}
+                            isShortRestAvailable={shortRestsAvailable}
+                            // onTakeLongRest={handleTakeLongRest}
+                          />
 
-                        <p>Level of Players: {levelDetails?.level}</p>
-                      </div>
-                      <div>
-                        <RestCalculationDisplay
-                          playerExperienceStart={campaign.playerExperienceStart}
-                          adventuringDayXPLimit={adventuringDayXP}
-                          xpStart={campaign.levelDetails?.xpStart}
-                          xpThresholdEasy={xpThresholdEasy}
-                          shortRestsAvailable={shortRestsAvailable}
-                          longRestNeeded={rests.longRestNeeded}
-                          // onTakeShortRest={handleTakeShortRest}
-                          // onTakeLongRest={handleTakeLongRest}
-                        />
+                          <p>Level of Players: {levelDetails?.level}</p>
+                        </div>
+                        <div>
+                          <RestCalculationDisplay
+                            playerExperienceStart={
+                              campaign.playerExperienceStart
+                            }
+                            adventuringDayXPLimit={adventuringDayXP}
+                            xpStart={campaign.levelDetails?.xpStart}
+                            xpThresholdEasy={xpThresholdEasy}
+                            shortRestsAvailable={shortRestsAvailable}
+                            longRestNeeded={rests.longRestNeeded}
+                            // onTakeShortRest={handleTakeShortRest}
+                            // onTakeLongRest={handleTakeLongRest}
+                          />
+                        </div>
                       </div>
                     </div>
                   </>
@@ -143,37 +147,41 @@ const CampaignList: React.FC<CampaignListProps> = ({
                       <p>{campaign.description}</p>
                     </div>
                     <div className="grid grid-cols-1 gap-8">
-                      <div className="p-4 space-y-1 bg-white rounded shadow">
-                        <h2 className="font-bold">XP Calculations</h2>
-                        <p>
-                          Player Experience Start:{' '}
-                          {campaign.playerExperienceStart}
-                        </p>
-                        <p>Adventuring Day XP Limit: {adventuringDayXP}</p>
+                      <div className="p-4 space-y-2 bg-white rounded shadow">
+                        <div>
+                          <h2 className="font-bold">XP Calculations</h2>
+                          <p>
+                            Player Experience Start:{' '}
+                            {campaign.playerExperienceStart}
+                          </p>
+                          <p>Adventuring Day XP Limit: {adventuringDayXP}</p>
 
-                        <ProgressBar
-                          xpStart={campaign.levelDetails?.xpStart}
-                          xpEnd={campaign.levelDetails?.xpEnd}
-                          playerExperience={campaign.playerExperienceStart}
-                          onTakeFirstShortRest={() => handleTakeShortRest(1)}
-                          onTakeSecondShortRest={() => handleTakeShortRest(2)}
-                          isShortRestAvailable={shortRestsAvailable}
-                          // onTakeLongRest={handleTakeLongRest}
-                        />
+                          <ProgressBar
+                            xpStart={campaign.levelDetails?.xpStart}
+                            xpEnd={campaign.levelDetails?.xpEnd}
+                            playerExperience={campaign.playerExperienceStart}
+                            onTakeFirstShortRest={() => handleTakeShortRest(1)}
+                            onTakeSecondShortRest={() => handleTakeShortRest(2)}
+                            isShortRestAvailable={shortRestsAvailable}
+                            // onTakeLongRest={handleTakeLongRest}
+                          />
 
-                        <p>Level of Players: {levelDetails?.level}</p>
-                      </div>
-                      <div>
-                        <RestCalculationDisplay
-                          playerExperienceStart={campaign.playerExperienceStart}
-                          adventuringDayXPLimit={adventuringDayXP}
-                          xpStart={campaign.levelDetails?.xpStart}
-                          xpThresholdEasy={xpThresholdEasy}
-                          shortRestsAvailable={shortRestsAvailable}
-                          longRestNeeded={rests.longRestNeeded}
-                          // onTakeShortRest={handleTakeShortRest}
-                          // onTakeLongRest={handleTakeLongRest}
-                        />
+                          <p>Level of Players: {levelDetails?.level}</p>
+                        </div>
+                        <div>
+                          <RestCalculationDisplay
+                            playerExperienceStart={
+                              campaign.playerExperienceStart
+                            }
+                            adventuringDayXPLimit={adventuringDayXP}
+                            xpStart={campaign.levelDetails?.xpStart}
+                            xpThresholdEasy={xpThresholdEasy}
+                            shortRestsAvailable={shortRestsAvailable}
+                            longRestNeeded={rests.longRestNeeded}
+                            // onTakeShortRest={handleTakeShortRest}
+                            // onTakeLongRest={handleTakeLongRest}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>

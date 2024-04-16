@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
-import { Campaign, CampaignFormProps, CampaignSubmissionData } from '../types';
-import {
-  getAdventuringDayXpLimit,
-  getLevelDetailsFromExperience,
-} from '../constants/experienceConstants';
+import { CampaignFormProps, CampaignSubmissionData } from '../types';
+import { getLevelDetailsFromExperience } from '../constants/experienceConstants';
 
 const CampaignForm: React.FC<CampaignFormProps> = ({
   campaign,
@@ -25,6 +22,8 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
       playerExperienceStart: campaign?.playerExperienceStart || 100,
       levelDetails: initialLevelDetails, // Store the entire levelDetails object
       groupDead: campaign?.groupDead ?? false,
+      longRestNeeded: campaign?.longRestNeeded ?? false,
+      shortRests: campaign?.shortRests || [],
     },
     onSubmit: (values) => {
       const submissionData: CampaignSubmissionData = {
@@ -59,17 +58,16 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
     const progress = ((playerXp - xpStart) / (xpEnd - xpStart)) * 100;
     return Math.min(Math.max(progress, 0), 100); // Clamps the value between 0 and 100
   };
-  const [showTooltip, setShowTooltip] = useState(false);
-  const progressPercentage = calculateProgressPercentage();
 
-  // Function to format the tooltip text
-  const getTooltipText = () => {
-    const xpStart = formik.values.levelDetails.xpStart;
-    const playerXp = formik.values.playerExperienceStart;
-    const xpIntoLevel = playerXp - xpStart;
-    const xpNeeded = formik.values.levelDetails.xpNeeded;
-    return `${xpIntoLevel} / ${xpNeeded} XP into Level`;
+  const handleShortRestsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const count = Number(e.target.value);
+    formik.setFieldValue('shortRests', Array(count).fill(true));
   };
+
+  const longRestOptions = [
+    { label: 'No', value: false },
+    { label: 'Yes', value: true },
+  ];
 
   return (
     <form
@@ -130,31 +128,49 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
         />
       </div>
 
+      {/* Group Dead input */}
       <div className="space-y-1">
-        <h3>Calculations</h3>
+        <label htmlFor="groupDead">Oh, they dead</label>
+        <input
+          id="groupDead"
+          type="checkbox"
+          checked={formik.values.groupDead}
+          onChange={() =>
+            formik.setFieldValue('groupDead', !formik.values.groupDead)
+          }
+        />
       </div>
 
-      {/* Level of Players Characters Start input */}
-      <div className="grid grid-cols-2 gap-1 space-y-1">
-        <p>Level: {formik.values.levelDetails.level}</p>
-        <div
-          className="w-full bg-gray-200 rounded h-2 relative"
-          onMouseEnter={() => setShowTooltip(true)}
-          onMouseLeave={() => setShowTooltip(false)}
+      {/* Long Rest Needed input */}
+      <div className="space-y-1">
+        <label htmlFor="longRestNeeded">Long Rest Needed</label>
+        <select
+          id="longRestNeeded"
+          value={formik.values.longRestNeeded}
+          onChange={(e) =>
+            formik.setFieldValue('longRestNeeded', e.target.value === 'true')
+          }
         >
-          <div
-            className="bg-blue-600 h-2 rounded"
-            style={{ width: `${progressPercentage}%` }}
-          ></div>
-          {showTooltip && (
-            <div
-              className="absolute -top-8 left-0 bg-black text-white text-sm p-1 rounded"
-              style={{ marginLeft: `${progressPercentage}%` }}
-            >
-              {getTooltipText()}
-            </div>
-          )}
-        </div>
+          {longRestOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Short Rests input */}
+      <div className="space-y-1">
+        <label htmlFor="shortRests">Number of Short Rests Taken</label>
+        <select
+          id="shortRests"
+          value={formik.values.shortRests.length}
+          onChange={handleShortRestsChange}
+        >
+          <option value={0}>0</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+        </select>
       </div>
 
       {/* Submit button */}

@@ -24,7 +24,7 @@ const RestCalculationDisplay: React.FC<{
     (xpThresholdEasy / adventuringDayXPLimit) * 100;
 
   return (
-    <div className="p-4 bg-white rounded shadow">
+    <>
       <h3 className="font-bold">Rest Calculation</h3>
       <div className="relative mt-4 mb-4 w-full bg-gray-200 rounded h-5">
         <div
@@ -65,16 +65,15 @@ const RestCalculationDisplay: React.FC<{
           }}
           title="Long Rest Threshold"
         ></div>
-      </div>
-      <div className="text-sm">
-        {shortRestsAvailable[0] ? (
+
+        {/* {shortRestsAvailable[0] ? (
           <p>First short rest taken at {xpPercentage.toFixed(2)}%.</p>
         ) : (
           <p>First short rest needed before 35%.</p>
-        )}
+        )} */}
         {/* Additional logic for second short rest and long rest can be added similarly */}
       </div>
-    </div>
+    </>
   );
 };
 
