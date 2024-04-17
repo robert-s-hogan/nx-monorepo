@@ -25,7 +25,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   return (
     <div
-      className="relative w-full bg-gray-200 rounded h-2"
+      className="relative w-full bg-gray-200 rounded h-6"
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >

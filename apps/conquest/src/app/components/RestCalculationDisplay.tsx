@@ -24,8 +24,16 @@ const RestCalculationDisplay: React.FC<{
     (xpThresholdEasy / adventuringDayXPLimit) * 100;
 
   return (
-    <>
-      <h3 className="font-bold">Rest Calculation</h3>
+    <div className="space-y-2">
+      <div className="w-full flex items-center">
+        <h2 className="py-1 px-6 bg-white border-t border-b border-t-2 border-b-2 border-t-black border-b-black">
+          Rest Calculations
+        </h2>
+        <div />
+      </div>
+      <div className="w-full flex items-center justify-between">
+        <p>Rest Progress Bar</p>
+      </div>
       <div className="relative mt-4 mb-4 w-full bg-gray-200 rounded h-5">
         <div
           className="bg-blue-500 h-full"
@@ -73,7 +81,7 @@ const RestCalculationDisplay: React.FC<{
         )} */}
         {/* Additional logic for second short rest and long rest can be added similarly */}
       </div>
-    </>
+    </div>
   );
 };
 
