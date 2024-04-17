@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useFormik } from 'formik';
 import { Difficulty, Encounter, EncounterFormProps } from '../types';
 import { useCampaigns } from '../hooks/useCampaigns';
+import { useRestOperations } from '../hooks/useRestOperations';
 import {
   getAdventuringDayXpLimit,
   getLevelDetailsFromExperience,
@@ -28,6 +29,18 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
   operation,
 }) => {
   const { selectedCampaign } = useCampaigns();
+  if (!selectedCampaign) {
+    return <p>No campaign selected</p>;
+  }
+  const {
+    longRestNeeded,
+    shortRestsAvailable,
+    takeShortRest,
+    takeLongRest,
+    timeSpentResting,
+    timeBetweenEncounters,
+  } = useRestOperations(selectedCampaign);
+
   const playerStartingExperience =
     encounter?.playerExperienceStart ||
     selectedCampaign?.playerExperienceStart ||
@@ -65,7 +78,6 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
       xpThreshold: encounter?.xpThreshold || xpThreshold,
       longRestNeeded: encounter?.longRestNeeded || false,
       timeSpentBetweenResting: encounter?.timeSpentBetweenResting || 0,
-      timeBetweenEncounters: encounter?.timeBetweenEncounters || '',
       mapShape: encounter?.mapShape || '',
       mapTerrainType: encounter?.mapTerrainType || '',
       startingQuadrantOfOpposition:
@@ -73,6 +85,9 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
       objective: encounter?.objective || '',
       timeOfDay: encounter?.timeOfDay || '',
       weather: encounter?.weather || false,
+      timeSpentResting: timeSpentResting || 0,
+      timeBetweenEncounters: timeBetweenEncounters || 0,
+      shortRestsAvailable: shortRestsAvailable || [false, false],
       // cumulativeGoldEarnedStart: encounter?.cumulativeGoldEarnedStart || 0,
       // goldEarnedPerPlayer: encounter?.goldEarnedPerPlayer || 0,
       // cumulativeGoldEarnedFinish: encounter?.cumulativeGoldEarnedFinish || 0,
@@ -118,12 +133,12 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
       selectedCampaign.numberOfPlayers, // Assuming selectedCampaign is a valid Campaign object
       formik.values.encounterDifficultyOptions
     );
-
-    formik.setFieldValue('xpThreshold', xpThresholdValue);
   }, [
     formik.values.levelOfPlayersCharactersStart,
     selectedCampaign.numberOfPlayers,
     formik.values.encounterDifficultyOptions,
+    shortRestsAvailable,
+    longRestNeeded,
   ]);
 
   const getInputType = (value: any) => {
@@ -142,6 +157,7 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
   return (
     <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-4">
       <pre>encounter: {JSON.stringify(encounter, null, 2)}</pre>
+
       <pre>selectedCampaign: {JSON.stringify(selectedCampaign, null, 2)}</pre>
 
       <div className="space-y-1">
@@ -162,7 +178,6 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
       </div>
 
       {Object.entries(formik.values).map(([key, value]) => {
-        // Exclude non-editable fields based on your criteria
         if (
           [
             'id',
@@ -197,7 +212,6 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
         );
       })}
 
-      {/* Submit button */}
       <button type="submit" className="btn-primary col-span-2">
         {operation === 'edit' ? 'Update Encounter' : 'Add Encounter'}
       </button>

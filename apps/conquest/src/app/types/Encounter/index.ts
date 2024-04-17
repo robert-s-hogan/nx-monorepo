@@ -20,7 +20,7 @@ export type Encounter = {
   levelOfPlayersCharactersFinish: number;
   longRestNeeded: boolean;
   timeSpentBetweenResting: number;
-  timeBetweenEncounters: string;
+  timeBetweenEncounters: number;
   mapShape: string;
   mapTerrainType: string;
   startingQuadrantOfOpposition: boolean;
