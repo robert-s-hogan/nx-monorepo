@@ -7,7 +7,7 @@ const Blog = () => {
   return (
     <AccountantLayout>
       <div className="blog-background">
-        <h2>Accounting Blog</h2>
+        <h2>Accountant Blog</h2>
       </div>
       <div className="container blog">
         <div className="row">
