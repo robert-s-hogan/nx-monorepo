@@ -1,0 +1,54 @@
+{
+  "name": "swapi-cards",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/swapi-cards",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/swapi-cards"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/swapi-cards"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "swapi-cards:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "swapi-cards:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "swapi-cards:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "swapi-cards:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/swapi-cards/jest.config.ts"
+      }
+    }
+  }
+}

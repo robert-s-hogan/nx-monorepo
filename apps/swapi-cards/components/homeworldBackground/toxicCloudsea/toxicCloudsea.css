@@ -1,0 +1,108 @@
+.cloud-container {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  position: absolute;
+  width: 800%;
+  height: 100%;
+  background-image: url('https://www.seekpng.com/png/full/1-18983_thunder-cloud-png-clip-art-transparent-library-thunder.png');
+  background-size: cover;
+  transform: rotate(180deg);
+}
+
+.cloud-container:after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  bottom: 0;
+  height: 70%;
+  display: block;
+  background-image: linear-gradient(transparent, #fff);
+  z-index: 10;
+}
+
+.square {
+  --rotate: 132deg;
+
+  transform: rotate(45deg);
+  width: 300px;
+  height: 300px;
+  position: relative;
+  filter: drop-shadow(0px 0px 9px rgba(30, 139, 195, 1));
+}
+
+.square:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border-width: 8px;
+  border-style: solid;
+  border-image: linear-gradient(~'var(--rotate)', #5ddcff, #3c67e3 43%, #4e00c2)
+    30;
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  box-shadow: 0 0 1px 1px #fff, inset 0 0 1px 1px #fff;
+  z-inde: -1;
+  //animation: shadow 1s;
+  //animation-fill-mode: both;
+  //animation-play-state: running;
+  //animation-iteration-count: infinite;
+}
+
+@keyframes shadow {
+  0% {
+    --rotate: 0deg;
+  }
+  15% {
+    --rotate: 45deg;
+  }
+  30% {
+    --rotate: 90deg;
+  }
+  45% {
+    --rotate: 135deg;
+  }
+  60% {
+    --rotate: 180deg;
+  }
+  75% {
+    --rotate: 225deg;
+  }
+  90% {
+    --rotate: 270deg;
+  }
+  95% {
+    --rotate: 315deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+.bg-toxicCloudsea {
+  background-image: linear-gradient(0deg, #022244, #58c8da);
+}
+.bg-toxicCloudsea::after,
+.bg-toxicCloudsea::before {
+  background-color: white;
+  width: 120%;
+  height: 120px;
+  position: absolute;
+  content: '';
+  top: -280px;
+  left: -10%;
+  border-radius: 100%;
+  animation: waves 10s ease infinite;
+  opacity: 0.2;
+}
+
+.bg-toxicCloudsea::before {
+  top: -60px;
+  animation-delay: 5s;
+  opacity: 0.1;
+  left: -5%;
+}

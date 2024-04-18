@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Poller+One&family=Roboto+Flex:opsz,wght@8..144,300;8..144,600;8..144,1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-3xl font-serif font-semibold;
+  }
+  h2 {
+    @apply text-2xl font-serif font-semibold;
+  }
+  h3 {
+    @apply text-xl font-serif font-semibold;
+  }
+  p {
+    @apply text-base font-serif;
+  }
+  body {
+    @apply text-base font-serif;
+  }
+  ul {
+    @apply p-0;
+  }
+  input {
+    @apply border-black border-solid rounded-lg py-3 px-0 my-0 border-0 outline-none text-center;
+  }
+  button[type='submit'] {
+    @apply border-black text-white border-solid rounded-lg py-2 px-4 font-serif text-3xl bg-pink;
+  }
+}
+
+@layer components {
+  .card {
+    @apply border-black text-black border-2;
+  }
+  .letter-box {
+    @apply bg-white text-white font-bold border-black rounded-lg px-4 py-2 text-3xl;
+  }
+  .card-title {
+    @apply text-2xl z-10 font-sans p-2 border-black bg-yellow text-black px-1 lg:text-lg m-0 font-semibold border-t-4 whitespace-nowrap;
+  }
+}
+
+button,
+input,
+.card,
+.letter-box {
+  -webkit-box-shadow: 6px 6px 0px 0px #0c0c0c;
+  box-shadow: 6px 6px 0px 0px #0c0c0c;
+  border-radius: 4px;
+  border: 6px solid #0c0c0c;
+}
+
+body {
+  background: #4c3cfa;
+}
+.bg-blue {
+  background: #0cdad0;
+}
+.background-black {
+  @apply bg-black;
+}
+.background-blue {
+  @apply bg-skyBlue;
+}
+.background-blue-gray,
+.bg-blue-gray {
+  @apply bg-gradient-to-r from-darkBlue via-skyBlue to-grey;
+}
+.bg-green-tan-brown {
+  @apply bg-gradient-to-r from-green via-tan to-brown;
+}
+.bg-fair-green-yellow {
+  @apply bg-gradient-to-r from-fair via-green to-yellow;
+}
+.bg-grey-green-yellow {
+  @apply bg-gradient-to-r from-grey via-green to-yellow;
+}
+.bg-red-blue-white {
+  @apply bg-gradient-to-r from-red via-blue to-white;
+}
+.bg-white-blue {
+  @apply bg-gradient-to-r from-white to-darkBlue;
+}
+.bg-white-red {
+  @apply bg-gradient-to-r from-white to-red;
+}
+.bg-brown-white {
+  @apply bg-gradient-to-r from-brown to-white;
+}
+.bg-green-yellow {
+  @apply bg-gradient-to-r from-green to-yellow;
+}
+.bg-silver-red {
+  @apply bg-gradient-to-r from-silver to-red;
+}
+.bg-green-grey {
+  @apply bg-gradient-to-r from-green to-grey;
+}
+.bg-brown-grey {
+  @apply bg-gradient-to-r from-brown to-grey;
+}
+.bg-auburn-white {
+  @apply bg-gradient-to-r from-brown to-grey;
+}
+.bg-auburn-grey {
+  @apply bg-gradient-to-r from-auburn to-grey;
+}
+.bg-grey-red {
+  @apply bg-gradient-to-r from-grey to-red;
+}
+.bg-blue-grey {
+  @apply bg-gradient-to-r from-blue to-grey;
+}
+.bg-grey-blue {
+  @apply bg-gradient-to-r from-grey to-blue;
+}
+.background-brown {
+  @apply bg-brown;
+}
+.background-white {
+  @apply bg-white;
+}
+.background-yellow {
+  @apply bg-yellow;
+}
+.background-orange {
+  @apply bg-orange;
+}
+.background-red {
+  @apply bg-red;
+}
+.background-green {
+  @apply bg-green;
+}
+.background-purple {
+  @apply bg-purple;
+}
+.background-pink {
+  @apply bg-pink;
+}
+
+.background-hazel {
+  @apply bg-green;
+}
+.bg-fair {
+  background: #ffd6a4;
+}
+.bg-light {
+  background: #fbe5ba;
+}
+.bg-pale {
+  background: #fdf5e2;
+}
+.bg-hazel {
+  background: #637f19;
+}
+.bg-metal {
+  background-color: #5b6467;
+  background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
+}
+.bg-dark {
+  background: #6f4f1d;
+}
+.bg-grey {
+  background: #999999;
+}
+.bg-blond {
+  background: #faf0be;
+}
+.background-gold,
+.bg-gold {
+  background: #ffd700;
+}
+
+/* LANDSCAPES */
+.bg-naboo {
+  background: linear-gradient(to bottom, #1111de 0%, #0cdad0 70%, #0cdad0 100%);
+}
+.tree {
+  clip-path: polygon(50% 0%, 22% 100%, 75% 100%);
+  box-shadow: 2px 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
