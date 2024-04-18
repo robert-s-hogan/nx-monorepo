@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import SwapiCardsBarren from '../SwapiCardsBarren';
 import SwapiCardsCityscape from '../SwapiCardsCityscape';
 import SwapiCardsDesert from '../SwapiCardsDesert';
-import Forests from './forests/Forests';
+import Forests from '../SwapiCardsForest';
 import GasGiant from './gasGiant/GasGiant';
 import Grasslands from './grasslands/Grasslands';
 import Jungles from './jungle/Jungle';

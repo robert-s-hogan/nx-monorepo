@@ -11,12 +11,12 @@ const SwapiCardsPeopleList: React.FC = () => {
 
   return (
     <div>
-      {data &&
+      {/* {data &&
         data.map((person) => (
           <div key={person.name}>
             <p>{person.name}</p>
           </div>
-        ))}
+        ))} */}
       <div>
         {previousPage && (
           <button onClick={() => fetchPage(previousPage)}>Previous</button>

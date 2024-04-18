@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import useSWR from 'swr';
 import axios from 'axios';
 import { PaginatedApiResponse } from '../types';
@@ -6,44 +6,25 @@ import { PaginatedApiResponse } from '../types';
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 function useSWAPIFetch<T>(initialUrl: string) {
-  const [url, setUrl] = useState<string>(initialUrl);
+  const [url, setUrl] = useState(initialUrl);
 
-  // SWR hook for data fetching
-  const { data, error, mutate } = useSWR<PaginatedApiResponse<T>>(
+  // SWR hook for data fetching with dynamic key
+  const { data, error, isValidating } = useSWR<PaginatedApiResponse<T>>(
     url,
-    fetcher,
-    {
-      onErrorRetry: (error, key, option, revalidate, { retryCount }) => {
-        // Retry on failure, up to a maximum of 5 retries, with a delay of 2 seconds
-        if (retryCount >= 5) return;
-        setTimeout(() => revalidate({ retryCount }), 2000);
-      },
-    }
+    fetcher
   );
 
-  const [nextPage, setNextPage] = useState<string | null>(null);
-  const [previousPage, setPreviousPage] = useState<string | null>(null);
-
-  useEffect(() => {
-    // Ensure we are updating the pagination URLs only after data changes
-    if (data) {
-      setNextPage(data.next);
-      setPreviousPage(data.previous);
-    }
-  }, [data]); // dependency on data ensures this runs only when data changes
-
-  // Helper function to change page
+  // Helper function to change page URL
   const fetchPage = (newUrl: string) => {
-    setUrl(newUrl);
-    mutate(); // Trigger revalidation
+    setUrl(newUrl); // Just update the URL state
   };
 
   return {
-    data: data ? (data.results as T) : null,
-    loading: !error && !data,
+    data: data?.results as T[],
+    loading: isValidating,
     error: error ? error.message : '',
-    nextPage,
-    previousPage,
+    nextPage: data?.next || null,
+    previousPage: data?.previous || null,
     fetchPage,
   };
 }

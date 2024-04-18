@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SwapiCardsTree from '../../SwapiCardsTree';
+import SwapiCardsTree from './SwapiCardsTree';
 
 const forestsAnimationStyles = `
   @keyframes rain {
@@ -12,7 +12,7 @@ const forestsAnimationStyles = `
   }
 `;
 
-interface SwapiCardsProps {
+interface SwapiCardsForestProps {
   homeworld: string;
   terrain: string;
 }
@@ -78,7 +78,7 @@ function renderTrees(
   );
 }
 
-function Forests({ homeworld, terrain }: SwapiCardsProps) {
+function SwapiCardsForest({ homeworld, terrain }: SwapiCardsForestProps) {
   const [findTerrain, setFindTerrain] = useState<string | null>(null);
 
   useEffect(() => {
@@ -115,4 +115,4 @@ function Forests({ homeworld, terrain }: SwapiCardsProps) {
   );
 }
 
-export default Forests;
+export default SwapiCardsForest;

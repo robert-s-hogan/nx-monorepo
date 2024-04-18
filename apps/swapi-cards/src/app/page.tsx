@@ -1,16 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useSWAPIFetch from '../../hooks/useSWAPIFetch';
 import { StarWarsCharacter } from '../../types';
 import Header from '../../components/SwapiCardsHeader';
 import Hero from '../../components/SwapiCardsHero';
 import Loading from '../../components/SwapiCardsLoading';
-import Card from '../../components/SwapiCardsCard';
+import SwapiCardsCard from '../../components/SwapiCardsCard';
+import SwapiCardsLoadingCard from '../../components/SwapiCardsLoadingCard';
 
 function App() {
   const [character, setCharacter] = useState('');
   const [searchResults, setSearchResults] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
 
   const {
     data: characters,
@@ -19,7 +21,7 @@ function App() {
     nextPage,
     previousPage,
     fetchPage,
-  } = useSWAPIFetch<StarWarsCharacter[]>('https://swapi.dev/api/people/');
+  } = useSWAPIFetch<StarWarsCharacter>('https://swapi.dev/api/people/');
 
   function getSearchData(event: React.FormEvent) {
     event.preventDefault();
@@ -37,9 +39,20 @@ function App() {
     }
   };
 
-  if (loading) return <Loading />;
-  if (error) return <p>Oops! Something went wrong.</p>;
+  useEffect(() => {
+    if (loading) {
+      // Set a delay of 1 second before showing the loading indicator
+      const timer = setTimeout(() => {
+        setShowLoading(true);
+      }, 1250); // Adjust the time as needed
 
+      return () => clearTimeout(timer);
+    } else {
+      setShowLoading(false);
+    }
+  }, [loading]);
+
+  if (error) return <p>Oops! Something went wrong.</p>;
   return (
     <div className="px-2">
       <Hero />
@@ -70,20 +83,26 @@ function App() {
       )}
       <div className="max-w-4xl lg:max-w-6xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto my-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 w-full">
-          {characters?.map((char) => (
-            <Card
-              key={char.name}
-              name={char.name}
-              mass={char.mass}
-              height={char.height}
-              hair_color={char.hair_color}
-              skin_color={char.skin_color}
-              eye_color={char.eye_color}
-              birth_year={char.birth_year}
-              gender={char.gender}
-              homeworld={char.homeworld}
-            />
-          ))}
+          {loading
+            ? Array.from({ length: 10 }).map((_, index) => (
+                <SwapiCardsLoadingCard key={index} />
+              ))
+            : characters
+            ? characters?.map((char: StarWarsCharacter) => (
+                <SwapiCardsCard
+                  key={char.name}
+                  name={char.name}
+                  mass={char.mass}
+                  height={char.height}
+                  hair_color={char.hair_color}
+                  skin_color={char.skin_color}
+                  eye_color={char.eye_color}
+                  birth_year={char.birth_year}
+                  gender={char.gender}
+                  homeworld={char.homeworld}
+                />
+              ))
+            : null}
         </div>
         <div className="mt-4 flex justify-between">
           <button
