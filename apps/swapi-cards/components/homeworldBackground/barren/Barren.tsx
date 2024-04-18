@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './barren.scss';
+import barrenStyles from './barren.module.css';
 
 interface Props {
   homeworld: string;
@@ -37,13 +37,13 @@ const Barren: React.FC<Props> = (props) => {
           <div className="star s14"></div>
         </div>
         <div className="sun"></div>
-        <div className="mountain m2"></div>
-        <div className="mountain m1"></div>
-        <div className="cactus c2">
+        <div className={`${barrenStyles.mountain} m2`}></div>
+        <div className={`${barrenStyles.mountain} m1`}></div>
+        <div className={`${barrenStyles.cactus} c2`}>
           <div className="arm left"></div>
           <div className="arm right"></div>
         </div>
-        <div className="cactus c1">
+        <div className={`${barrenStyles.cactus} c1`}>
           <div className="arm left"></div>
           <div className="arm right"></div>
         </div>

@@ -1,11 +1,11 @@
-interface Props {
+interface SwapiCardsPaginationProps {
   page: number;
   nextPage: number;
   previousPage: number;
   getInitialData: () => void;
 }
 
-const Pagination: React.FC<Props> = (props) => {
+const SwapiCardsPagination: React.FC<SwapiCardsPaginationProps> = (props) => {
   const { page, nextPage, previousPage, getInitialData } = props;
 
   return (
@@ -30,4 +30,4 @@ const Pagination: React.FC<Props> = (props) => {
   );
 };
 
-export default Pagination;
+export default SwapiCardsPagination;

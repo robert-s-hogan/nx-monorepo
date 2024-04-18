@@ -1,4 +1,4 @@
-const Hero: React.FC = () => {
+const SwapiCardsHero: React.FC = () => {
   return (
     <div className="max-w-4xl container mx-auto my-4 md:flex md:justify-center">
       <div className="flex justify-center my-4 space-x-8">
@@ -17,4 +17,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero;
+export default SwapiCardsHero;

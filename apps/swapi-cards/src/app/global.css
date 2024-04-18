@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --pink: #a11f49; /* Original pink color */
+  --pink-darker0: #a11f49; /* The same pink for consistency */
+  --pink-darker15: #8e193f; /* Darkened by 15%, adjust as necessary */
+  --yellow: #fed064;
+  --white: #f3f0f8;
+  --orange: #fe9364;
+  --bg-color: #a67a71;
+}
+
 @layer base {
   h1 {
     @apply text-3xl font-serif font-semibold;
@@ -192,4 +202,62 @@ body {
 button[disabled] {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* barren animations */
+@include animation(shiningStar) {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@include animation(sunshineBef) {
+  0% {
+    opacity: 0.4;
+  }
+  25% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+@include animation(sunshineAft) {
+  0% {
+    opacity: 0.2;
+  }
+  25% {
+    opacity: 0.05;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  75% {
+    opacity: 0.05;
+  }
+  100% {
+    opacity: 0.2;
+  }
 }

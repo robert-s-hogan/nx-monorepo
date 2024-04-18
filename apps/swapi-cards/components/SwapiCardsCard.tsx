@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-import CardTitle from '../cardTitle/CardTitle';
-import CardFace from '../cardFace/CardFace';
+import CardTitle from './SwapiCardsCardTitle';
+import CardFace from './SwapiCardsFace';
 // import CardHomeworld from '../cardHomeworld/CardHomeworld';
-import HomeworldBackground from '../homeworldBackground/HomeworldBackground';
+import HomeworldBackground from './homeworldBackground/HomeworldBackground';
 
-interface CardProps {
+interface SwapiCardsCardProps {
   name: string;
   mass: string; // Updated to string if the API provides a string
   height: string; // Updated to string if the API provides a string
@@ -17,7 +17,7 @@ interface CardProps {
   gender: string;
 }
 
-const Card: React.FC<CardProps> = ({
+const SwapiCardsCard: React.FC<SwapiCardsCardProps> = ({
   name,
   mass,
   height,
@@ -94,4 +94,4 @@ const Card: React.FC<CardProps> = ({
   );
 };
 
-export default Card;
+export default SwapiCardsCard;

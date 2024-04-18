@@ -1,0 +1,140 @@
+/* Example for transform */
+.element {
+  transform: var(--transform-info);
+  -webkit-transform: var(--transform-info);
+  -moz-transform: var(--transform-info);
+  -ms-transform: var(--transform-info);
+}
+
+/* For animations, define keyframes directly */
+@keyframes sunshineBef {
+  0% {
+    opacity: 0.4;
+  }
+  25% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+.mountain {
+  position: absolute;
+}
+.mountain.m1 {
+  background-color: calculate darken(--pink, 10%);
+  border-radius: 100%;
+  height: 200px;
+  width: 120%;
+  left: -10%;
+  bottom: -15%;
+  transform: rotate(-9deg);
+}
+.mountain.m2 {
+  background-color: calculate darken(--pink, 20%);
+  border-radius: 40% 0% 0 0;
+  height: 280px;
+  right: 0;
+  left: -15%;
+  top: 50%;
+  bottom: -50%;
+  transform: rotate(6deg);
+}
+
+.cactus {
+  border-radius: 30% 30% 0 0;
+  position: absolute;
+}
+
+.arm {
+  position: absolute;
+}
+
+.armLeft {
+  border-radius: 60% 60% 0% 60%;
+}
+
+.armRight {
+  border-radius: 60% 60% 60% 0;
+}
+.c1 {
+  background-color: var(--pink-darker0);
+  bottom: 142px;
+  height: 30px;
+  right: 70px;
+  width: 7px;
+}
+
+.arm1 {
+  background-color: var(--pink-darker0);
+  width: 6px;
+}
+
+.arm1Left {
+  height: 15px;
+  left: -10px;
+  top: 7px;
+}
+
+.arm1AfterLeft,
+.arm1AfterRight {
+  background-color: var(--pink-darker0);
+  bottom: 0;
+  content: '';
+  height: 4px;
+  position: absolute;
+  width: 5px;
+}
+
+.arm1AfterLeft {
+  right: -5px;
+}
+
+.arm1AfterRight {
+  left: -5px;
+}
+
+.arm1Right {
+  height: 13px;
+  right: -10px;
+  top: 3px;
+}
+
+.c2 {
+  background-color: var(--pink-darker15);
+  bottom: 188px;
+  height: 25px;
+  left: 40px;
+  width: 5px;
+}
+
+.arm2 {
+  background-color: var(--pink-darker15);
+  width: 4px;
+}
+
+.arm2Left {
+  height: 10px;
+  left: -8px;
+  top: 3px;
+}
+
+.arm2Right {
+  height: 14px;
+  right: -9px;
+  top: 3px;
+}
+
+.star {
+  background-color: var(--white);
+  height: 1px;
+  position: absolute;
+  width: 1px;
+}

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import useSWAPIFetch from '../../hooks/useSWAPIFetch';
-import { StarWarsCharacter } from '../../types';
+import useSWAPIFetch from '../hooks/useSWAPIFetch';
+import { StarWarsCharacter } from '../types';
 
-const SearchBar: React.FC = () => {
+const SwapiCardsSearchBar: React.FC = () => {
   const { data, fetchPage } = useSWAPIFetch<StarWarsCharacter[]>(
     'https://swapi.dev/api/people/'
   );
@@ -47,4 +47,4 @@ const SearchBar: React.FC = () => {
   );
 };
 
-export default SearchBar;
+export default SwapiCardsSearchBar;

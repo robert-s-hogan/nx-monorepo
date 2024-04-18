@@ -3,10 +3,10 @@
 import React, { useState } from 'react';
 import useSWAPIFetch from '../../hooks/useSWAPIFetch';
 import { StarWarsCharacter } from '../../types';
-import Header from '../../components/header/Header';
-import Hero from '../../components/hero/Hero';
-import Loading from '../../components/loading/Loading';
-import Card from '../../components/card/Card';
+import Header from '../../components/SwapiCardsHeader';
+import Hero from '../../components/SwapiCardsHero';
+import Loading from '../../components/SwapiCardsLoading';
+import Card from '../../components/SwapiCardsCard';
 
 function App() {
   const [character, setCharacter] = useState('');

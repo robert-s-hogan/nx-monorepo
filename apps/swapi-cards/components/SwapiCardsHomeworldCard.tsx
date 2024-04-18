@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 
-interface Props {
+interface SwapiCardsHomeworldCardProps {
   homeworld: string;
   fetchData: (url: string) => void;
 }
 
-const CardHomeworld: React.FC<Props> = (props) => {
+const SwapiCardsHomeworldCard: React.FC<SwapiCardsHomeworldCardProps> = (
+  props
+) => {
   const { homeworld } = props;
 
   const [homeworldName, setHomeworldName] = useState('');
@@ -24,4 +26,4 @@ const CardHomeworld: React.FC<Props> = (props) => {
   return <p>Homeworld: {homeworldName}</p>;
 };
 
-export default CardHomeworld;
+export default SwapiCardsHomeworldCard;

@@ -24460,11 +24460,6 @@
       },
       {
         "source": "swapi-cards",
-        "target": "npm:next",
-        "type": "static"
-      },
-      {
-        "source": "swapi-cards",
         "target": "npm:@nx/next",
         "type": "static"
       },
@@ -24481,6 +24476,11 @@
       {
         "source": "swapi-cards",
         "target": "npm:axios",
+        "type": "static"
+      },
+      {
+        "source": "swapi-cards",
+        "target": "npm:next",
         "type": "static"
       }
     ],

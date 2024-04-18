@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-interface Props {
+interface SwapiCardsFaceProps {
   name: string;
   hairColor: string;
   eyeColor: string;
@@ -11,7 +11,7 @@ interface Props {
   updateColors?: (url: string) => void;
 }
 
-const CardFace: React.FC<Props> = (props) => {
+const SwapiCardsFace: React.FC<SwapiCardsFaceProps> = (props) => {
   const { hairColor, eyeColor, skinColor, gender, styles } = props;
 
   const [cleanHair, setCleanHair] = useState('');
@@ -88,4 +88,4 @@ const CardFace: React.FC<Props> = (props) => {
   );
 };
 
-export default CardFace;
+export default SwapiCardsFace;

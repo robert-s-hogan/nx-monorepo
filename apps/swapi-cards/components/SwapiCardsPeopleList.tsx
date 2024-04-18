@@ -2,7 +2,7 @@ import React from 'react';
 import useSWAPIFetch from '../hooks/useSWAPIFetch';
 import { StarWarsCharacter, StarWarsPeopleResponse } from '../types';
 
-const PeopleList: React.FC = () => {
+const SwapiCardsPeopleList: React.FC = () => {
   const { data, loading, error, nextPage, previousPage, fetchPage } =
     useSWAPIFetch<StarWarsCharacter[]>('https://swapi.dev/api/people/');
 
@@ -27,4 +27,4 @@ const PeopleList: React.FC = () => {
   );
 };
 
-export default PeopleList;
+export default SwapiCardsPeopleList;

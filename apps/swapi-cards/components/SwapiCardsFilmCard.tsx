@@ -1,8 +1,8 @@
-interface CardFilmsProps {
+interface SwapiCardsFilmCardProps {
   films: Array<string>;
 }
 
-const CardFilms: React.FC<CardFilmsProps> = (props) => {
+const SwapiCardsFilmCard: React.FC<SwapiCardsFilmCardProps> = (props) => {
   const { films } = props;
 
   return (
@@ -15,4 +15,4 @@ const CardFilms: React.FC<CardFilmsProps> = (props) => {
   );
 };
 
-export default CardFilms;
+export default SwapiCardsFilmCard;
