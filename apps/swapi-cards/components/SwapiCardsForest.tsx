@@ -34,7 +34,7 @@ const treeConfigurations = [
     bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
     rotateDeg: '45deg',
     position: { left: '20%', top: '5%' },
-    positionClass: 'forest-row-one',
+    positionClass: 'forest-row-two',
   },
   {
     backgroundColor: 'var(--tree-three-top)',
@@ -43,7 +43,7 @@ const treeConfigurations = [
     bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
     rotateDeg: '49deg',
     position: { left: '40%', top: '8%' },
-    positionClass: 'forest-row-one',
+    positionClass: 'forest-row-three',
   },
   {
     backgroundColor: 'var(--tree-four-top)',
@@ -52,7 +52,7 @@ const treeConfigurations = [
     bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
     rotateDeg: '45deg',
     position: { left: '60%', top: '3%' },
-    positionClass: 'forest-row-one',
+    positionClass: 'forest-row-four',
   },
   {
     backgroundColor: 'var(--tree-five-top)',
@@ -61,7 +61,7 @@ const treeConfigurations = [
     bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
     rotateDeg: '49deg',
     position: { left: '80%', top: '10%' },
-    positionClass: 'forest-row-one',
+    positionClass: 'forest-row-five',
   },
 ];
 
@@ -72,7 +72,11 @@ function renderTrees(
   return (
     <div className={`${positionClass} h-full w-full absolute`} style={position}>
       {treeConfigurations.map((tree) => (
-        <SwapiCardsTree style={tree.position} {...tree} />
+        <SwapiCardsTree
+          key={tree.positionClass}
+          style={tree.position}
+          {...tree}
+        />
       ))}
     </div>
   );
