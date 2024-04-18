@@ -1,285 +1,118 @@
-import { useState, useEffect } from 'react';
-import './forests.css';
+import React, { useState, useEffect } from 'react';
+import SwapiCardsTree from '../../SwapiCardsTree';
 
-interface Props {
-  homeworld: string;
-  terrain: string | null;
-}
-
-const Forests: React.FC<Props> = (props) => {
-  const { homeworld, terrain } = props;
-
-  const [findTerrain, setfindTerrain] = useState<string | null>(null);
-
-  async function selectTerrain(terrain: string) {
-    let tempFemale = terrain.search('rainforest');
-    if (tempFemale === 0) {
-      setfindTerrain('rainforest');
+const forestsAnimationStyles = `
+  @keyframes rain {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 20% 100%;
     }
   }
+`;
 
-  const [homeworldName, setHomeworldName] = useState('');
+interface SwapiCardsProps {
+  homeworld: string;
+  terrain: string;
+}
+const treeConfigurations = [
+  {
+    backgroundColor: 'var(--tree-one-top)',
+    trunkColor: 'var(--tree-one-trunk)',
+    topRounded:
+      'rounded-tl-[37%] rounded-tr-[51%] rounded-br-[34%] rounded-bl-[43%] rounded-t-[57%] rounded-b-[27%]',
+    bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
+    rotateDeg: '45deg',
+    position: { right: '-20%', top: '7%' },
+    positionClass: 'forest-row-one',
+  },
+  {
+    backgroundColor: 'var(--tree-two-top)',
+    trunkColor: 'var(--tree-two-trunk)',
+    topRounded: 'rounded-[100%_36%_51%_42%/100%_100%_33%_21%]',
+    bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
+    rotateDeg: '45deg',
+    position: { left: '20%', top: '5%' },
+    positionClass: 'forest-row-one',
+  },
+  {
+    backgroundColor: 'var(--tree-three-top)',
+    trunkColor: 'var(--tree-three-trunk)',
+    topRounded: 'rounded-[100%_79%_63%_54%/100%_82%_46%_53%]',
+    bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
+    rotateDeg: '49deg',
+    position: { left: '40%', top: '8%' },
+    positionClass: 'forest-row-one',
+  },
+  {
+    backgroundColor: 'var(--tree-four-top)',
+    trunkColor: 'var(--tree-four-trunk)',
+    topRounded: 'rounded-[100%_79%_63%_54%/100%_89%_60%_53%]',
+    bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
+    rotateDeg: '45deg',
+    position: { left: '60%', top: '3%' },
+    positionClass: 'forest-row-one',
+  },
+  {
+    backgroundColor: 'var(--tree-five-top)',
+    trunkColor: 'var(--tree-five-trunk)',
+    topRounded: 'rounded-[46%_100%_63%_47%/100%_89%_46%_39%]',
+    bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
+    rotateDeg: '49deg',
+    position: { left: '80%', top: '10%' },
+    positionClass: 'forest-row-one',
+  },
+];
+
+function renderTrees(
+  positionClass: string,
+  position: { left: string; top: string; zIndex?: number }
+) {
+  return (
+    <div className={`${positionClass} h-full w-full absolute`} style={position}>
+      {treeConfigurations.map((tree) => (
+        <SwapiCardsTree style={tree.position} {...tree} />
+      ))}
+    </div>
+  );
+}
+
+function Forests({ homeworld, terrain }: SwapiCardsProps) {
+  const [findTerrain, setFindTerrain] = useState<string | null>(null);
+
   useEffect(() => {
-    setHomeworldName(homeworld);
-    if (terrain !== null) {
-      selectTerrain(terrain);
+    if (terrain?.startsWith('rainforest')) {
+      setFindTerrain('rainforest');
     }
   }, [homeworld, terrain]);
 
   return (
-    <div className="w-96 h-96 relative lg:w-80 xl:w-72 bg-forests -z-1">
-      {findTerrain && (
-        <div className={`absolute w-96 h-96 z-5 bg-${terrain}`}></div>
-      )}
-      <h3 className="z-20 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-black">
-        {homeworldName}
-      </h3>
-      <div className="forest-row-one h-96 w-96 absolute -left-24 lg:top-8  z-2">
-        <div className="forest-tree absolute tree-one">
-          <div className="top-one"></div>
-          <div className="trunk-one"></div>
-          <div className="trunk-one-bottom"></div>
-          <div className="branch-one-right">
-            <div className="branch-one-r"></div>
-            <div className="branch-one-r branch-2r"></div>
-          </div>
-          <div className="branch-one-left">
-            <div className="branch-one-l"></div>
-            <div className="branch-one-l branch-2l"></div>
-          </div>
-        </div>
-        <div className="forest-tree absolute tree-two">
-          <div className="top-two"></div>
-          <div className="trunk-two"></div>
-          <div className="trunk-two-bottom"></div>
-          <div className="branch-two-right">
-            <div className="branch-two-r branch-rf"></div>
-            <div className="branch-two-r branch-rs"></div>
-            <div className="branch-two-r branch-rt"></div>
-          </div>
-          <div className="branch-two-left">
-            <div className="branch-two-l branch-lf"></div>
-            <div className="branch-two-l branch-ls"></div>
-            <div className="branch-two-l branch-lt"></div>
-          </div>
-        </div>
-        <div className="forest-tree absolute tree-three">
-          <div className="top-three"></div>
-          <div className="trunk-three"></div>
-          <div className="trunk-three-bottom"></div>
-          <div className="branch-three-right">
-            <div className="branch-three-r"></div>
-            <div className="branch-three-r branch-three-rs"></div>
-          </div>
-          <div className="branch-three-left">
-            <div className="branch-three-l"></div>
-            <div className="branch-three-l branch-three-ls"></div>
-          </div>
-        </div>
-        <div className="forest-tree absolute tree-four">
-          <div className="top-four"></div>
-          <div className="trunk-four"></div>
-          <div className="trunk-four-bottom"></div>
-        </div>
-        <div className="forest-tree absolute tree-five">
-          <div className="top-five"></div>
-          <div className="trunk-five"></div>
-          <div className="trunk-five-bottom"></div>
-          <div className="branch-five-right">
-            <div className="branch-five-r"></div>
-            <div className="branch-five-r branch-five-rs"></div>
-          </div>
-          <div className="branch-five-left">
-            <div className="branch-five-l"></div>
-            <div className="branch-five-l branch-five-ls"></div>
-          </div>
-        </div>
+    <>
+      <style>{forestsAnimationStyles}</style>
+      <div className={`w-96 h-96 relative bg-white -z-10`}>
+        {findTerrain && (
+          <div className="absolute inset-0 bg-[url('https://i.postimg.cc/XvR6CjbY/rain.png')] animate-rain"></div>
+        )}
+        <h3 className="absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-black z-20">
+          {homeworld}
+        </h3>
+        {renderTrees('forest-row-one', { left: '-30%', top: '0%', zIndex: 2 })}
+        {renderTrees('forest-row-two', { left: '-20%', top: '20%', zIndex: 3 })}
+        {renderTrees('forest-row-three', {
+          left: '-25%',
+          top: '35%',
+          zIndex: 4,
+        })}
+        {renderTrees('forest-row-four', { left: '-5%', top: '28%', zIndex: 5 })}
+        {renderTrees('forest-row-five', {
+          left: '-15%',
+          top: '13%',
+          zIndex: 6,
+        })}
       </div>
-      <div className="forest-row-two h-96 w-96 absolute -left-48 top-24 2xl:top-36 2xl:-left-24 z-2">
-        <div className="forest-tree absolute tree-one">
-          <div className="top-one"></div>
-          <div className="trunk-one"></div>
-          <div className="trunk-one-bottom"></div>
-          <div className="branch-one-right">
-            <div className="branch-one-r"></div>
-            <div className="branch-one-r branch-2r"></div>
-          </div>
-          <div className="branch-one-left">
-            <div className="branch-one-l"></div>
-            <div className="branch-one-l branch-2l"></div>
-          </div>
-        </div>
-        <div className="forest-tree absolute tree-two">
-          <div className="top-two"></div>
-          <div className="trunk-two"></div>
-          <div className="trunk-two-bottom"></div>
-          <div className="branch-two-right">
-            <div className="branch-two-r branch-rf"></div>
-            <div className="branch-two-r branch-rs"></div>
-            <div className="branch-two-r branch-rt"></div>
-          </div>
-          <div className="branch-two-left">
-            <div className="branch-two-l branch-lf"></div>
-            <div className="branch-two-l branch-ls"></div>
-            <div className="branch-two-l branch-lt"></div>
-          </div>
-        </div>
-        <div className="forest-tree absolute tree-three">
-          <div className="top-three"></div>
-          <div className="trunk-three"></div>
-          <div className="trunk-three-bottom"></div>
-          <div className="branch-three-right">
-            <div className="branch-three-r"></div>
-            <div className="branch-three-r branch-three-rs"></div>
-          </div>
-          <div className="branch-three-left">
-            <div className="branch-three-l"></div>
-            <div className="branch-three-l branch-three-ls"></div>
-          </div>
-        </div>
-        <div className="forest-tree absolute tree-four">
-          <div className="top-four"></div>
-          <div className="trunk-four"></div>
-          <div className="trunk-four-bottom"></div>
-        </div>
-        <div className="forest-tree absolute tree-five">
-          <div className="top-five"></div>
-          <div className="trunk-five"></div>
-          <div className="trunk-five-bottom"></div>
-          <div className="branch-five-right">
-            <div className="branch-five-r"></div>
-            <div className="branch-five-r branch-five-rs"></div>
-          </div>
-          <div className="branch-five-left">
-            <div className="branch-five-l"></div>
-            <div className="branch-five-l branch-five-ls"></div>
-          </div>
-        </div>
-      </div>
-      <div className="forest-row-three h-96 w-96 absolute -left-2 2xl:-left-24 top-48 z-3">
-        <div className="forest-tree absolute tree-one">
-          <div className="top-one"></div>
-          <div className="trunk-one"></div>
-          <div className="trunk-one-bottom"></div>
-          <div className="branch-one-right">
-            <div className="branch-one-r"></div>
-            <div className="branch-one-r branch-2r"></div>
-          </div>
-          <div className="branch-one-left">
-            <div className="branch-one-l"></div>
-            <div className="branch-one-l branch-2l"></div>
-          </div>
-        </div>
-        <div className="forest-tree absolute tree-two">
-          <div className="top-two"></div>
-          <div className="trunk-two"></div>
-          <div className="trunk-two-bottom"></div>
-          <div className="branch-two-right">
-            <div className="branch-two-r branch-rf"></div>
-            <div className="branch-two-r branch-rs"></div>
-            <div className="branch-two-r branch-rt"></div>
-          </div>
-          <div className="branch-two-left">
-            <div className="branch-two-l branch-lf"></div>
-            <div className="branch-two-l branch-ls"></div>
-            <div className="branch-two-l branch-lt"></div>
-          </div>
-        </div>
-        <div className="forest-tree absolute tree-three">
-          <div className="top-three"></div>
-          <div className="trunk-three"></div>
-          <div className="trunk-three-bottom"></div>
-          <div className="branch-three-right">
-            <div className="branch-three-r"></div>
-            <div className="branch-three-r branch-three-rs"></div>
-          </div>
-          <div className="branch-three-left">
-            <div className="branch-three-l"></div>
-            <div className="branch-three-l branch-three-ls"></div>
-          </div>
-        </div>
-        <div className="forest-tree absolute tree-four">
-          <div className="top-four"></div>
-          <div className="trunk-four"></div>
-          <div className="trunk-four-bottom"></div>
-        </div>
-        <div className="forest-tree absolute tree-five">
-          <div className="top-five"></div>
-          <div className="trunk-five"></div>
-          <div className="trunk-five-bottom"></div>
-          <div className="branch-five-right">
-            <div className="branch-five-r"></div>
-            <div className="branch-five-r branch-five-rs"></div>
-          </div>
-          <div className="branch-five-left">
-            <div className="branch-five-l"></div>
-            <div className="branch-five-l branch-five-ls"></div>
-          </div>
-        </div>
-      </div>
-      <div className="forest-row-four h-96 w-96 absolute -right-24 top-24 z-2">
-        <div className="forest-tree absolute tree-one">
-          <div className="top-one"></div>
-          <div className="trunk-one"></div>
-          <div className="trunk-one-bottom"></div>
-          <div className="branch-one-right">
-            <div className="branch-one-r"></div>
-            <div className="branch-one-r branch-2r"></div>
-          </div>
-          <div className="branch-one-left">
-            <div className="branch-one-l"></div>
-            <div className="branch-one-l branch-2l"></div>
-          </div>
-        </div>
-        <div className="forest-tree absolute tree-two">
-          <div className="top-two"></div>
-          <div className="trunk-two"></div>
-          <div className="trunk-two-bottom"></div>
-          <div className="branch-two-right">
-            <div className="branch-two-r branch-rf"></div>
-            <div className="branch-two-r branch-rs"></div>
-            <div className="branch-two-r branch-rt"></div>
-          </div>
-          <div className="branch-two-left">
-            <div className="branch-two-l branch-lf"></div>
-            <div className="branch-two-l branch-ls"></div>
-            <div className="branch-two-l branch-lt"></div>
-          </div>
-        </div>
-        <div className="forest-tree absolute tree-three">
-          <div className="top-three"></div>
-          <div className="trunk-three"></div>
-          <div className="trunk-three-bottom"></div>
-          <div className="branch-three-right">
-            <div className="branch-three-r"></div>
-            <div className="branch-three-r branch-three-rs"></div>
-          </div>
-          <div className="branch-three-left">
-            <div className="branch-three-l"></div>
-            <div className="branch-three-l branch-three-ls"></div>
-          </div>
-        </div>
-        <div className="forest-tree absolute tree-four">
-          <div className="top-four"></div>
-          <div className="trunk-four"></div>
-          <div className="trunk-four-bottom"></div>
-        </div>
-        <div className="forest-tree absolute tree-five">
-          <div className="top-five"></div>
-          <div className="trunk-five"></div>
-          <div className="trunk-five-bottom"></div>
-          <div className="branch-five-right">
-            <div className="branch-five-r"></div>
-            <div className="branch-five-r branch-five-rs"></div>
-          </div>
-          <div className="branch-five-left">
-            <div className="branch-five-l"></div>
-            <div className="branch-five-l branch-five-ls"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </>
   );
-};
+}
 
 export default Forests;

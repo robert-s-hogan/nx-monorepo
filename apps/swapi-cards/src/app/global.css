@@ -12,6 +12,22 @@
   --white: #f3f0f8;
   --orange: #fe9364;
   --bg-color: #a67a71;
+  --background-starfield: radial-gradient(
+    ellipse at bottom,
+    #1b2735 0%,
+    #090a0f 100%
+  );
+  --star-color: #fff;
+  --tree-one-top: #aadcd7;
+  --tree-one-trunk: #dcac5f;
+  --tree-two-top: #307c7c;
+  --tree-two-trunk: #594a42;
+  --tree-three-top: #608445;
+  --tree-three-trunk: #6d5f58;
+  --tree-four-top: #c43c32;
+  --tree-four-trunk: #5f3f3f;
+  --tree-five-top: #babc5a;
+  --tree-five-trunk: #537335;
 }
 
 @layer base {

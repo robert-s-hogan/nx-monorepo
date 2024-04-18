@@ -24460,6 +24460,21 @@
       },
       {
         "source": "swapi-cards",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "swapi-cards",
+        "target": "npm:swr",
+        "type": "static"
+      },
+      {
+        "source": "swapi-cards",
+        "target": "npm:axios",
+        "type": "static"
+      },
+      {
+        "source": "swapi-cards",
         "target": "npm:@nx/next",
         "type": "static"
       },
@@ -24471,16 +24486,6 @@
       {
         "source": "swapi-cards",
         "target": "npm:@nx/react",
-        "type": "static"
-      },
-      {
-        "source": "swapi-cards",
-        "target": "npm:axios",
-        "type": "static"
-      },
-      {
-        "source": "swapi-cards",
-        "target": "npm:next",
         "type": "static"
       }
     ],

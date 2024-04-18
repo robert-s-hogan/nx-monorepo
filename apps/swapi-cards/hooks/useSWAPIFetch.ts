@@ -1,57 +1,51 @@
+import { useState, useEffect } from 'react';
+import useSWR from 'swr';
 import axios from 'axios';
-import { useState, useEffect, useCallback } from 'react';
 import { PaginatedApiResponse } from '../types';
 
-// Update the PaginationResponse to expect results to be of type T
-interface PaginationResponse<T> {
-  data: T | null;
-  loading: boolean;
-  error: string;
-  nextPage: string | null;
-  previousPage: string | null;
-  fetchPage: (url: string) => void;
-}
+const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
-function useSWAPIFetch<T>(initialUrl: string): PaginationResponse<T> {
+function useSWAPIFetch<T>(initialUrl: string) {
   const [url, setUrl] = useState<string>(initialUrl);
-  // Here, data is expected to be of type T which should be an array or similar structure based on your API
-  const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string>('');
+
+  // SWR hook for data fetching
+  const { data, error, mutate } = useSWR<PaginatedApiResponse<T>>(
+    url,
+    fetcher,
+    {
+      onErrorRetry: (error, key, option, revalidate, { retryCount }) => {
+        // Retry on failure, up to a maximum of 5 retries, with a delay of 2 seconds
+        if (retryCount >= 5) return;
+        setTimeout(() => revalidate({ retryCount }), 2000);
+      },
+    }
+  );
+
   const [nextPage, setNextPage] = useState<string | null>(null);
   const [previousPage, setPreviousPage] = useState<string | null>(null);
 
-  const fetchPage = useCallback((newUrl: string) => {
-    setUrl(newUrl);
-  }, []);
-
   useEffect(() => {
-    const fetchData = async () => {
-      if (!url) return;
-      setLoading(true);
-      try {
-        // The axios.get call expects PaginatedApiResponse which should match T
-        const response = await axios.get<PaginatedApiResponse<T>>(url);
-        // Since T is the type of the results array, we directly set it here
-        setData(response.data.results as T);
-        setNextPage(response.data.next);
-        setPreviousPage(response.data.previous);
-        setError('');
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          setError(error.message);
-        } else {
-          setError('An unknown error occurred');
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
+    // Ensure we are updating the pagination URLs only after data changes
+    if (data) {
+      setNextPage(data.next);
+      setPreviousPage(data.previous);
+    }
+  }, [data]); // dependency on data ensures this runs only when data changes
 
-    fetchData();
-  }, [url]);
+  // Helper function to change page
+  const fetchPage = (newUrl: string) => {
+    setUrl(newUrl);
+    mutate(); // Trigger revalidation
+  };
 
-  return { data, loading, error, nextPage, previousPage, fetchPage };
+  return {
+    data: data ? (data.results as T) : null,
+    loading: !error && !data,
+    error: error ? error.message : '',
+    nextPage,
+    previousPage,
+    fetchPage,
+  };
 }
 
 export default useSWAPIFetch;

@@ -38,6 +38,16 @@ module.exports = {
       serif: ['Roboto Flex', 'sans-serif'],
     },
     extend: {
+      backgroundImage: {
+        'cityscape-gradient':
+          'linear-gradient(0deg, #2883ff -25%, #24266b 40%, #0b0b2b 75%, #000 100%)',
+        starfield: 'var(--background-starfield)',
+      },
+      colors: {
+        starfield: 'var(--background-starfield)',
+        star: 'var(--star-color)',
+      },
+
       spacing: {
         18: '4.5rem',
         22: '5.5rem',

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import Barren from './barren/Barren';
-import Cityscape from './cityscape/Cityscape';
-import Desert from './desert/Desert';
+import SwapiCardsBarren from '../SwapiCardsBarren';
+import SwapiCardsCityscape from '../SwapiCardsCityscape';
+import SwapiCardsDesert from '../SwapiCardsDesert';
 import Forests from './forests/Forests';
 import GasGiant from './gasGiant/GasGiant';
 import Grasslands from './grasslands/Grasslands';
@@ -14,15 +14,15 @@ import Rocky from './rocky/Rocky';
 import RockyIslands from './rockyIslands/RockyIslands';
 import Scrublands from './scrublands/Scrublands';
 import ToxicCloudsea from './toxicCloudsea/ToxicCloudsea';
-import Unknown from './unknown/Unknown';
+import SwapiCardsUnknown from '../SwapiCardsUnknown';
 
-interface Props {
+interface HomeworldBackgroundProps {
   homeworld: string;
   styles: string;
   planet: string;
 }
 
-const HomeworldBackground: React.FC<Props> = (props) => {
+const HomeworldBackground: React.FC<HomeworldBackgroundProps> = (props) => {
   const { homeworld, styles, planet } = props;
 
   const [homeworldName, setHomeworldName] = useState('');
@@ -46,12 +46,16 @@ const HomeworldBackground: React.FC<Props> = (props) => {
     try {
       switch (terrain) {
         case 'barren':
-          return <Barren homeworld={homeworldName} terrain={terrain} />;
+          return (
+            <SwapiCardsBarren homeworld={homeworldName} terrain={terrain} />
+          );
         case 'toxic cloudsea':
           return <ToxicCloudsea homeworld={homeworldName} terrain={terrain} />;
         case 'desert':
         case 'deserts':
-          return <Desert homeworld={homeworldName} terrain={terrain} />;
+          return (
+            <SwapiCardsDesert homeworld={homeworldName} terrain={terrain} />
+          );
         case 'grasslands':
         case 'grassy hills':
         case 'grass':
@@ -72,7 +76,9 @@ const HomeworldBackground: React.FC<Props> = (props) => {
         case 'city':
         case 'urban':
         case 'urban areas':
-          return <Cityscape homeworld={homeworldName} terrain={terrain} />;
+          return (
+            <SwapiCardsCityscape homeworld={homeworldName} terrain={terrain} />
+          );
         case 'plains':
           return <Plains homeworld={homeworldName} terrain={terrain} />;
         case 'lakes':
@@ -81,7 +87,9 @@ const HomeworldBackground: React.FC<Props> = (props) => {
         case 'mountains':
           return <Mountains homeworld={homeworldName} terrain={terrain} />;
         case 'unknown':
-          return <Unknown homeworld={homeworldName} terrain={terrain} />;
+          return (
+            <SwapiCardsUnknown homeworld={homeworldName} terrain={terrain} />
+          );
         case 'ocean':
         case 'oceans':
           return <Ocean homeworld={homeworldName} terrain={terrain} />;

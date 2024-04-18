@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-interface Props {
+interface SwapiCardDesertProps {
   homeworld: string;
   terrain: string | null;
 }
 
-const Desert: React.FC<Props> = (props) => {
+const SwapiCardsDesert: React.FC<SwapiCardDesertProps> = (props) => {
   const { homeworld } = props;
 
   const [homeworldName, setHomeworldName] = useState('');
@@ -33,4 +33,4 @@ const Desert: React.FC<Props> = (props) => {
   );
 };
 
-export default Desert;
+export default SwapiCardsDesert;

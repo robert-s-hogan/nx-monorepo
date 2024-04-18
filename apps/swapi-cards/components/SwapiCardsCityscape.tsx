@@ -1,29 +1,29 @@
-import { useState, useEffect } from 'react';
-import css from './cityscape.module.css';
-interface Props {
+import React, { useState, useEffect } from 'react';
+
+interface SwapiCardsCityscapeProps {
   homeworld: string;
-  terrain: string | null;
+  terrain: string;
 }
 
-const Cityscape: React.FC<Props> = (props) => {
-  const { homeworld } = props;
-
+const SwapiCardsCityscape = ({
+  homeworld,
+  terrain,
+}: SwapiCardsCityscapeProps) => {
   const [homeworldName, setHomeworldName] = useState('');
+
   useEffect(() => {
     setHomeworldName(homeworld);
   }, [homeworld]);
 
   return (
-    <div className={`w-96 h-96 ${css.bgCityscape}`}>
+    <div className="w-full h-full">
       <h3 className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-white">
         {homeworldName}
       </h3>
-      <div className={css.skylight}></div>
-      <div className={css.road}></div>
-
-      <div className={css.city}>
+      <div className="w-full min-h-screen bg-[url('https://www.teahub.io/photos/full/134-1346974_and-star-light-wallpaper-sky-black-white-clipart.png')] bg-contain bg-top bg-no-repeat bg-screen opacity-50 z-0 filter brightness-50 ..."></div>
+      <div className="absolute bottom-0 w-full h-[40%] bg-[#05051d] filter blur-sm z-50 ..."></div>
+      <div className="absolute bottom-[40%] w-full z-0">
         <svg
-          className={css.citylights}
           viewBox="0 0 1059 263"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -7240,11 +7240,14 @@ const Cityscape: React.FC<Props> = (props) => {
           </defs>
         </svg>
       </div>
-      <div className={css.moonlight}>
+      {/* <div className={css.moonlight}>
         <span></span>
+      </div> */}
+      <div className="absolute w-[95px] h-[95px] shadow-[0_0_150px_rgba(255,255,255,0.25),0_0_200px_#fff] rounded-full bg-white top-[-5%] left-[10%] z-100">
+        <span className="z-150 w-full filter contrast-50 brightness-150 blur-[0.5px] scale-105 ..."></span>
       </div>
     </div>
   );
 };
 
-export default Cityscape;
+export default SwapiCardsCityscape;
