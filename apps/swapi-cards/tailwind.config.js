@@ -44,6 +44,11 @@ module.exports = {
         starfield: 'var(--background-starfield)',
         'gas-giant': "url('/swapi/swapi-gas-giant.png')",
       }),
+      clipPath: {
+        hill: 'polygon(50% 0%, 100% 100%, 0 100%)', // A simple hill shape
+        'hill-steep': 'polygon(30% 0%, 100% 100%, 0 100%)', // A steeper hill
+        // Add more custom shapes here
+      },
       colors: {
         starfield: 'var(--background-starfield)',
         star: 'var(--star-color)',

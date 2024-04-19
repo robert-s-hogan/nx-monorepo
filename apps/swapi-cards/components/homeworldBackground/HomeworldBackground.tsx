@@ -4,7 +4,7 @@ import SwapiCardsCityscape from '../SwapiCardsCityscape';
 import SwapiCardsDesert from '../SwapiCardsDesert';
 import SwapiCardsForest from '../SwapiCardsForest';
 import GasGiant from '../SwapiCardsGasGiant';
-import Grasslands from './grasslands/Grasslands';
+import Grasslands from '../SwapiCardsGrasslands';
 import Jungles from './jungle/Jungle';
 import Lakes from './lakes/Lakes';
 import Mountains from './mountain/Mountains';
