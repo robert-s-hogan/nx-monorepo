@@ -1,12 +1,20 @@
 function SwapiCardsStar() {
-  return <div className="bg-white h-[1px] w-[1px] absolute"></div>;
+  // Generate random positions for each star
+  const top = Math.random() * 100;
+  const left = Math.random() * 100;
+
+  return (
+    <div
+      className="bg-white h-[1px] w-[1px] absolute"
+      style={{ top: `${top}%`, left: `${left}%` }}
+    ></div>
+  );
 }
 
-// For creating multiple stars dynamically
 function SwapiCardsSky({ count = 100 }) {
   return (
     <div className="relative h-screen w-screen">
-      {Array.from({ length: count }).map((_, index) => (
+      {Array.from({ length: count }, (_, index) => (
         <SwapiCardsStar key={index} />
       ))}
     </div>

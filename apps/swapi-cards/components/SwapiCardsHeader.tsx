@@ -1,9 +1,9 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 
 const SwapiCardsHeader: React.FC = () => {
   return (
     <header className="flex justify-end p-3 max-w-4xl lg:max-w-7xl xl:max-w-screen-2xl xl:p-0 mx-auto">
-      <a
+      {/* <a
         href="https://github.com/robert-s-hogan/react-fetch-star-wars"
         target="_blank"
         rel="noopener noreferrer"
@@ -14,7 +14,7 @@ const SwapiCardsHeader: React.FC = () => {
           width={50}
           height={50}
         />
-      </a>
+      </a> */}
     </header>
   );
 };

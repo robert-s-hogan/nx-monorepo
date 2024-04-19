@@ -17,7 +17,7 @@ const Grasslands = (props: Props) => {
   return (
     <div className={`${grasslandsStyles.bgSky} w-full bg-sky`}>
       <div
-        className={`${grasslandsStyles.hill2} absolute top-0 right-7 rounded-full w-96 h-72`}
+        className={`${grasslandsStyles.hill2} absolute top-0 right-7 rounded-full w-96 h-full`}
       ></div>
       <div
         className={`${grasslandsStyles.hill1} absolute bottom-32 left-7 rounded-full w-64 h-56`}

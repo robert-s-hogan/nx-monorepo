@@ -73,7 +73,7 @@ const SwapiCardsCard = React.memo<SwapiCardsCardProps>(
             <div
               className={
                 !isShown
-                  ? 'absolute top-0 w-full transition ease-in-out delay-300 bg-white opacity-80 h-80 mt-14 z-10'
+                  ? 'absolute top-0 w-full transition ease-in-out delay-300 bg-white  h-80 mt-14 z-10'
                   : ''
               }
             >

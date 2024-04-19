@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import SwapiCardsBarren from '../SwapiCardsBarren';
 import SwapiCardsCityscape from '../SwapiCardsCityscape';
 import SwapiCardsDesert from '../SwapiCardsDesert';
-import Forests from '../SwapiCardsForest';
-import GasGiant from './gasGiant/GasGiant';
+import SwapiCardsForest from '../SwapiCardsForest';
+import GasGiant from '../SwapiCardsGasGiant';
 import Grasslands from './grasslands/Grasslands';
 import Jungles from './jungle/Jungle';
 import Lakes from './lakes/Lakes';
@@ -70,7 +70,9 @@ const HomeworldBackground: React.FC<HomeworldBackgroundProps> = (props) => {
         case 'forests':
         case 'rain forest':
         case 'rainforests':
-          return <Forests homeworld={homeworldName} terrain={terrain} />;
+          return (
+            <SwapiCardsForest homeworld={homeworldName} terrain={terrain} />
+          );
         case 'cityscape':
         case 'cities':
         case 'city':

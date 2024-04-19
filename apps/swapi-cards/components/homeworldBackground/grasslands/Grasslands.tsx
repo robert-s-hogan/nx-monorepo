@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import './grasslands.css';
+import SwapiCardsGround from '../../SwapiCardsGround';
+import SwapiCardsHill from '../../SwapiCardsHill';
+import SwapiCardsTree from '../../SwapiCardsTree';
 
 interface Props {
   homeworld: string;
@@ -19,26 +21,42 @@ const Grasslands: React.FC<Props> = (props) => {
       <h3 className="z-10 absolute right-2 m-0 uppercase p-4 text-2xl font-light pr-6 text-brown">
         {homeworldName}
       </h3>
-      <div className="hill2 absolute top-0 right-7 rounded-full w-96 h-72"></div>
-      <div className="hill1 absolute bottom-32 left-7 rounded-full w-64 h-56"></div>
-      <div className="ground absolute bottom-0 w-full h-52"></div>
-      <div className="tree tree1 h-36 w-36 absolute bottom-36 left-0 rounded-full">
-        <div className="trunk mt-16 ml-16">
-          <div className="leftbranch absolute mt-3 -ml-6"></div>
-          <div className="rightbranch absolute mt-1 ml-2"></div>
-        </div>
-      </div>
-      <div className="tree tree2 h-36 w-36 absolute bottom-20 left-24 lg:left-12 rounded-full">
-        <div className="trunk mt-16 ml-16">
-          <div className="leftbranch absolute mt-3 -ml-6"></div>
-          <div className="rightbranch absolute mt-1 ml-2"></div>
-        </div>
-      </div>
-      <div className="tree tree3 h-36 w-36 absolute bottom-48 lg:bottom-40 right-12 lg:right-12 rounded-full">
-        <div className="trunk mt-16 ml-16">
-          <div className="leftbranch absolute mt-3 -ml-6"></div>
-          <div className="rightbranch absolute mt-1 ml-2"></div>
-        </div>
+      <div className="content-wrapper w-96 h-96 relative lg:w-80 xl:w-72 ">
+        <SwapiCardsGround color="--lg" />
+
+        <SwapiCardsHill
+          color="--dg"
+          className="hill2 top-0 right-7 w-96 h-full"
+        />
+        <SwapiCardsHill
+          color="--lg"
+          className="hill1 bottom-32 left-7 w-64 h-full"
+        />
+
+        <SwapiCardsTree
+          backgroundColor="var(--tree-two-trunk)"
+          trunkColor="var(--tree-two-trunk)"
+          topRounded="rounded-[100%_36%_51%_42%/100%_100%_33%_21%]"
+          bottomRounded="rounded-[30%_70%_53%_47%/76%_69%_31%_24%]"
+          rotateDeg="45deg"
+          style={{ left: '30%', top: '5%' }}
+        />
+        <SwapiCardsTree
+          backgroundColor="var(--tree-two-trunk)"
+          trunkColor="var(--tree-two-trunk)"
+          topRounded="rounded-[100%_36%_51%_42%/100%_100%_33%_21%]"
+          bottomRounded="rounded-[30%_70%_53%_47%/76%_69%_31%_24%]"
+          rotateDeg="45deg"
+          style={{ left: '60%', top: '15%' }}
+        />
+        <SwapiCardsTree
+          backgroundColor="var(--tree-two-trunk)"
+          trunkColor="var(--tree-two-trunk)"
+          topRounded="rounded-[100%_36%_51%_42%/100%_100%_33%_21%]"
+          bottomRounded="rounded-[30%_70%_53%_47%/76%_69%_31%_24%]"
+          rotateDeg="45deg"
+          style={{ left: '0%', top: '25%' }}
+        />
       </div>
     </div>
   );
