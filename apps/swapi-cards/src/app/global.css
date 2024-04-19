@@ -12,12 +12,8 @@
   --white: #f3f0f8;
   --orange: #fe9364;
   --bg-color: #a67a71;
-  --background-starfield: radial-gradient(
-    ellipse at bottom,
-    #1b2735 0%,
-    #090a0f 100%
-  );
-  --star-color: #fff;
+  --starfield: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  --star: #fff;
   --tree-one-top: #aadcd7;
   --tree-one-trunk: #dcac5f;
   --tree-two-top: #307c7c;
@@ -28,11 +24,20 @@
   --tree-four-trunk: #5f3f3f;
   --tree-five-top: #babc5a;
   --tree-five-trunk: #537335;
-  --sky: #dacd6d;
   --lg: #9db56d;
   --dg: #466e61;
   --tree: #6a976c;
   --trunk: #374544;
+  /* scrublands */
+  --sky: #98e1ed; /* cls-1 */
+  --mountain-one: #194759; /* cls-2 */
+  --mountain-two: #669970; /* cls-3 */
+  --mountain-three: #417656; /* cls-4 */
+  --foreground: #52755b; /* cls-5 */
+  --bush-one: #0d7637; /* cls-6 */
+  --bush: #024c10; /* cls-10 */
+  --bush-two: #88ba7b; /* cls-11 */
+  --dirt: #7a573b; /* cls-15 */
 }
 
 @layer base {
@@ -93,12 +98,10 @@ body {
 .background-black {
   @apply bg-black;
 }
-.background-blue {
-  @apply bg-skyBlue;
-}
+
 .background-blue-gray,
 .bg-blue-gray {
-  @apply bg-gradient-to-r from-darkBlue via-skyBlue to-grey;
+  @apply bg-gradient-to-r from-dark-blue via-sky-blue to-grey;
 }
 .bg-green-tan-brown {
   @apply bg-gradient-to-r from-green via-tan to-brown;
@@ -113,7 +116,7 @@ body {
   @apply bg-gradient-to-r from-red via-blue to-white;
 }
 .bg-white-blue {
-  @apply bg-gradient-to-r from-white to-darkBlue;
+  @apply bg-gradient-to-r from-white to-dark-blue;
 }
 .bg-white-red {
   @apply bg-gradient-to-r from-white to-red;

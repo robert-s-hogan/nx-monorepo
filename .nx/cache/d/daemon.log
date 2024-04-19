@@ -11191,3 +11191,1869 @@
 [NX Daemon Server] - 2024-04-19T14:43:44.407Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2024-04-19T14:43:44.497Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2024-04-19T14:43:44.552Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:42.979Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:43.062Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:47.810Z - Established a connection. Number of open connections: 5
+[NX Daemon Server] - 2024-04-19T14:44:47.811Z - Closed a connection. Number of open connections: 4
+[NX Daemon Server] - 2024-04-19T14:44:47.812Z - Established a connection. Number of open connections: 5
+[NX Daemon Server] - 2024-04-19T14:44:47.814Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T14:44:47.815Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T14:44:47.818Z - Time taken for 'total for creating and serializing project graph' 0.6054700016975403ms
+[NX Daemon Server] - 2024-04-19T14:44:47.827Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T14:44:47.827Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 12.
+[NX Daemon Server] - 2024-04-19T14:44:48.231Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-19T14:44:48.234Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-19T14:44:48.234Z - Handled HASH_TASKS. Handling time: 74. Response time: 3.
+[NX Daemon Server] - 2024-04-19T14:44:48.401Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.401Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.401Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 13. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.408Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.408Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.408Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 6. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.411Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.411Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.411Z - Handled RECORD_OUTPUTS_HASH. Handling time: 2. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.415Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.415Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.415Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.427Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.427Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.427Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 8. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.440Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.440Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.441Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 12. Response time: 1.
+[NX Daemon Server] - 2024-04-19T14:44:48.445Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.445Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.445Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.450Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.450Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.450Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.458Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.458Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.458Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 4. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.469Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.469Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.469Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 10. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.471Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.471Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.471Z - Handled RECORD_OUTPUTS_HASH. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.473Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.473Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.474Z - Handled RECORD_OUTPUTS_HASH. Handling time: 1. Response time: 1.
+[NX Daemon Server] - 2024-04-19T14:44:48.496Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.496Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.496Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 16. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.517Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.517Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.517Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 20. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.553Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:48.595Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.596Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.596Z - Handled RECORD_OUTPUTS_HASH. Handling time: 5. Response time: 1.
+[NX Daemon Server] - 2024-04-19T14:44:48.605Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:48.656Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:48.672Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.672Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.672Z - Handled RECORD_OUTPUTS_HASH. Handling time: 4. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.674Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.674Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T14:44:48.674Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:44:48.675Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.676Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:44:48.676Z - Handled RECORD_OUTPUTS_HASH. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2024-04-19T14:44:48.709Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:51.240Z - Established a connection. Number of open connections: 6
+[NX Daemon Server] - 2024-04-19T14:44:51.241Z - Closed a connection. Number of open connections: 5
+[NX Daemon Server] - 2024-04-19T14:44:51.243Z - Established a connection. Number of open connections: 6
+[NX Daemon Server] - 2024-04-19T14:44:51.247Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T14:44:51.247Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T14:44:51.251Z - Time taken for 'total for creating and serializing project graph' 0.1727059930562973ms
+[NX Daemon Server] - 2024-04-19T14:44:51.257Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T14:44:51.257Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 10.
+[NX Daemon Server] - 2024-04-19T14:44:52.369Z - Established a connection. Number of open connections: 7
+[NX Daemon Server] - 2024-04-19T14:44:52.420Z - Closed a connection. Number of open connections: 6
+[NX Daemon Server] - 2024-04-19T14:44:52.421Z - Established a connection. Number of open connections: 7
+[NX Daemon Server] - 2024-04-19T14:44:52.424Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T14:44:52.424Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T14:44:52.428Z - Time taken for 'total for creating and serializing project graph' 0.3045639991760254ms
+[NX Daemon Server] - 2024-04-19T14:44:52.437Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T14:44:52.437Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 13.
+[NX Daemon Server] - 2024-04-19T14:44:52.757Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T14:44:52.757Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T14:44:52.760Z - Time taken for 'total for creating and serializing project graph' 0.19147999584674835ms
+[NX Daemon Server] - 2024-04-19T14:44:52.767Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T14:44:52.767Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 10.
+[NX Daemon Server] - 2024-04-19T14:44:52.970Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:54.391Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:56.018Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:56.379Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:56.672Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:56.723Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:57.480Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T14:44:57.480Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T14:44:57.482Z - Time taken for 'total for creating and serializing project graph' 0.18964599072933197ms
+[NX Daemon Server] - 2024-04-19T14:44:57.486Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T14:44:57.486Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 6.
+[NX Daemon Server] - 2024-04-19T14:44:57.525Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:57.619Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:59.262Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:44:59.331Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:01.752Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:01.935Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:01.987Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:02.309Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:02.505Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:03.429Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:03.503Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:04.035Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:04.102Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:04.154Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:04.272Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:04.530Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:04.618Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:04.670Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:04.757Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:04.830Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:04.897Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:04.974Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:06.593Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:06.669Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:07.451Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:08.126Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:08.559Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:08.633Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:08.734Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:08.808Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:08.890Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:09.016Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:09.073Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:09.326Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:17.105Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:17.170Z - Closed a connection. Number of open connections: 6
+[NX Daemon Server] - 2024-04-19T14:45:17.448Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:17.535Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:45:17.535Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:45:17.535Z - Handled RECORD_OUTPUTS_HASH. Handling time: 4. Response time: 0.
+[NX Daemon Server] - 2024-04-19T14:45:17.535Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:17.592Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:19.284Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:19.496Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:19.515Z - Closed a connection. Number of open connections: 5
+[NX Daemon Server] - 2024-04-19T14:45:19.666Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:19.752Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:20.285Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:45:20.286Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T14:45:20.286Z - Handled RECORD_OUTPUTS_HASH. Handling time: 8. Response time: 1.
+[NX Daemon Server] - 2024-04-19T14:45:20.366Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T14:45:51.764Z - Closed a connection. Number of open connections: 4
+[NX Daemon Server] - 2024-04-19T16:13:54.428Z - [WATCHER]: apps/swapi-cards/components/homeworldBackground/scrublands/Scrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:13:54.428Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:13:54.531Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:13:54.531Z - [REQUEST]: apps/swapi-cards/components/homeworldBackground/scrublands/Scrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:13:54.532Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:13:55.035Z - Time taken for 'hash changed files from watcher' 2.5615350008010864ms
+[NX Daemon Server] - 2024-04-19T16:13:55.119Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:13:55.460Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:13:56.240Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:13:56.292Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:13:56.406Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:14:02.496Z - [WATCHER]: apps/swapi-cards/components/homeworldBackground/scrublands/Scrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:14:02.497Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:14:02.700Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:14:02.700Z - [REQUEST]: apps/swapi-cards/components/homeworldBackground/scrublands/Scrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:14:02.700Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:14:03.022Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:14:03.022Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:14:03.024Z - Time taken for 'hash changed files from watcher' 2.3493210077285767ms
+[NX Daemon Server] - 2024-04-19T16:14:05.087Z - [WATCHER]: apps/swapi-cards/components/homeworldBackground/scrublands/Scrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:14:05.087Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:14:05.307Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:14:05.414Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:14:05.490Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:14:05.490Z - [REQUEST]: apps/swapi-cards/components/homeworldBackground/scrublands/Scrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:14:05.490Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:14:05.779Z - Time taken for 'hash changed files from watcher' 2.2627580016851425ms
+[NX Daemon Server] - 2024-04-19T16:15:05.363Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:05.512Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:05.603Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:05.654Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:34.427Z - [WATCHER]: apps/swapi-cards/components/homeworldBackground/scrublands/Scrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:15:34.427Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:35.086Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:35.243Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:15:35.243Z - [REQUEST]: apps/swapi-cards/components/homeworldBackground/scrublands/Scrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:15:35.243Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:15:35.688Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:35.689Z - Time taken for 'hash changed files from watcher' 9.07685598731041ms
+[NX Daemon Server] - 2024-04-19T16:15:45.774Z - [WATCHER]: apps/swapi-cards/components/homeworldBackground/scrublands/scrublands.scss was modified
+[NX Daemon Server] - 2024-04-19T16:15:45.775Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:45.860Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:46.245Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:47.376Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:15:47.376Z - [REQUEST]: apps/swapi-cards/components/homeworldBackground/scrublands/scrublands.scss
+[NX Daemon Server] - 2024-04-19T16:15:47.376Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:15:47.700Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:47.700Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:47.700Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:47.700Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:47.701Z - Time taken for 'hash changed files from watcher' 2.0664730072021484ms
+[NX Daemon Server] - 2024-04-19T16:15:52.374Z - [WATCHER]: apps/swapi-cards/components/homeworldBackground/scrublands/scrublands.scss was modified
+[NX Daemon Server] - 2024-04-19T16:15:52.374Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:52.415Z - [WATCHER]: apps/swapi-cards/components/homeworldBackground/scrublands/scrublands.scss was modified
+[NX Daemon Server] - 2024-04-19T16:15:52.416Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:52.965Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:53.060Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:15:55.577Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:15:55.577Z - [REQUEST]: apps/swapi-cards/components/homeworldBackground/scrublands/scrublands.scss
+[NX Daemon Server] - 2024-04-19T16:15:55.577Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:15:55.800Z - Time taken for 'hash changed files from watcher' 1.5040040016174316ms
+[NX Daemon Server] - 2024-04-19T16:16:53.057Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:16:53.127Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:16:53.250Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:16:53.301Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:16:53.353Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:16:57.369Z - [WATCHER]: apps/swapi-cards/components/homeworldBackground/scrublands/scrublands.scss was modified
+[NX Daemon Server] - 2024-04-19T16:16:57.370Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:16:57.592Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:16:58.050Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:17:03.772Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:17:03.788Z - [REQUEST]: apps/swapi-cards/components/homeworldBackground/scrublands/scrublands.scss
+[NX Daemon Server] - 2024-04-19T16:17:03.788Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:17:04.078Z - Time taken for 'hash changed files from watcher' 1.740095004439354ms
+[NX Daemon Server] - 2024-04-19T16:17:19.453Z - [WATCHER]: apps/swapi-cards/components/homeworldBackground/scrublands/scrublands.scss was modified
+[NX Daemon Server] - 2024-04-19T16:17:19.454Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:17:19.510Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:17:19.759Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:17:25.855Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:17:25.856Z - [REQUEST]: apps/swapi-cards/components/homeworldBackground/scrublands/scrublands.scss
+[NX Daemon Server] - 2024-04-19T16:17:25.856Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:17:26.120Z - Time taken for 'hash changed files from watcher' 1.5027210116386414ms
+[NX Daemon Server] - 2024-04-19T16:18:19.587Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:18:19.643Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:18:19.697Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:18:19.818Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:18:19.937Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:19:30.427Z - [WATCHER]: apps/swapi-cards/components/homeworldBackground/scrublands/Scrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:19:30.432Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:19:31.112Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:19:31.359Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:19:32.241Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:19:32.296Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:19:32.370Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:19:36.833Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:19:36.833Z - [REQUEST]: apps/swapi-cards/components/homeworldBackground/scrublands/Scrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:19:36.833Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:19:37.102Z - Time taken for 'hash changed files from watcher' 1.4784809947013855ms
+[NX Daemon Server] - 2024-04-19T16:19:53.276Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:03.409Z - [WATCHER]: apps/swapi-cards/components/background/Sky.tsx was created or restored
+[NX Daemon Server] - 2024-04-19T16:20:03.412Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:03.515Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:20:03.515Z - [REQUEST]: apps/swapi-cards/components/background/Sky.tsx
+[NX Daemon Server] - 2024-04-19T16:20:03.515Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:20:04.181Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:04.182Z - Time taken for 'hash changed files from watcher' 2.1699180006980896ms
+[NX Daemon Server] - 2024-04-19T16:20:05.215Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:05.290Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:05.443Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:08.618Z - [WATCHER]: apps/swapi-cards/components/background/Sky.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:20:08.619Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:08.821Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:20:08.822Z - [REQUEST]: apps/swapi-cards/components/background/Sky.tsx
+[NX Daemon Server] - 2024-04-19T16:20:08.822Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:20:09.295Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:09.296Z - Time taken for 'hash changed files from watcher' 1.5443280041217804ms
+[NX Daemon Server] - 2024-04-19T16:20:23.448Z - [WATCHER]: apps/swapi-cards/components/homeworldBackground/scrublands/Scrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:20:23.448Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:23.851Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:20:23.851Z - [REQUEST]: apps/swapi-cards/components/homeworldBackground/scrublands/Scrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:20:23.851Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:20:24.104Z - Time taken for 'hash changed files from watcher' 2.0890810042619705ms
+[NX Daemon Server] - 2024-04-19T16:20:32.034Z - [WATCHER]: 0 file(s) created or restored, 1 file(s) modified, 1 file(s) deleted
+[NX Daemon Server] - 2024-04-19T16:20:32.035Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:32.837Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:20:32.837Z - [REQUEST]: apps/swapi-cards/components/Scrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:20:32.837Z - [REQUEST]: apps/swapi-cards/components/homeworldBackground/scrublands/Scrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:20:33.413Z - Time taken for 'hash changed files from watcher' 2.35801799595356ms
+[NX Daemon Server] - 2024-04-19T16:20:33.932Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:34.052Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:34.104Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:48.983Z - [WATCHER]: apps/swapi-cards/components/Scrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:20:48.983Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:50.585Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:20:50.585Z - [REQUEST]: apps/swapi-cards/components/Scrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:20:50.585Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:20:50.925Z - Time taken for 'hash changed files from watcher' 2.2471090108156204ms
+[NX Daemon Server] - 2024-04-19T16:20:51.067Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:20:51.142Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:00.580Z - [WATCHER]: 0 file(s) created or restored, 1 file(s) modified, 1 file(s) deleted
+[NX Daemon Server] - 2024-04-19T16:21:00.580Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:02.315Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:02.368Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:02.425Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:03.781Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:21:03.781Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:21:03.781Z - [REQUEST]: apps/swapi-cards/components/Scrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:21:04.075Z - Time taken for 'hash changed files from watcher' 1.9152709990739822ms
+[NX Daemon Server] - 2024-04-19T16:21:08.515Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:21:08.515Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:10.376Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:10.454Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:14.918Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:21:14.918Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:21:14.918Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:21:15.246Z - Time taken for 'hash changed files from watcher' 2.4410600066184998ms
+[NX Daemon Server] - 2024-04-19T16:21:23.582Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:21:23.582Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:29.984Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:21:29.984Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:21:29.984Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:21:30.215Z - Time taken for 'hash changed files from watcher' 1.4846710115671158ms
+[NX Daemon Server] - 2024-04-19T16:21:31.074Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:21:31.074Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:32.317Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:32.377Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:32.596Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:36.029Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:36.031Z - [WATCHER]: apps/swapi-cards/components/background/Sky.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:21:37.476Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:21:37.476Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx,apps/swapi-cards/components/background/Sky.tsx
+[NX Daemon Server] - 2024-04-19T16:21:37.476Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:21:37.969Z - Time taken for 'hash changed files from watcher' 1.6278679966926575ms
+[NX Daemon Server] - 2024-04-19T16:21:38.484Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:38.486Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:21:40.059Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:21:44.889Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:21:44.889Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:21:44.889Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:21:45.091Z - Time taken for 'hash changed files from watcher' 1.6729899942874908ms
+[NX Daemon Server] - 2024-04-19T16:22:18.747Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:22:20.656Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:22:20.756Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:22:27.699Z - [WATCHER]: apps/swapi-cards/components/background/Sky.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:22:27.700Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:22:32.835Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:22:32.835Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:22:34.101Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:22:34.102Z - [REQUEST]: apps/swapi-cards/components/background/Sky.tsx,apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:22:34.102Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:22:34.389Z - Time taken for 'hash changed files from watcher' 1.5852499902248383ms
+[NX Daemon Server] - 2024-04-19T16:22:34.421Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:22:34.515Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:22:35.264Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:22:35.265Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:22:36.992Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:22:41.667Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:22:41.668Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:22:41.668Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:22:41.841Z - Time taken for 'hash changed files from watcher' 1.4971169978380203ms
+[NX Daemon Server] - 2024-04-19T16:22:55.483Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:22:55.484Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:22:57.080Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:22:57.080Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:22:58.770Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:22:58.858Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:01.885Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:23:01.885Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:23:01.885Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:23:02.199Z - Time taken for 'hash changed files from watcher' 1.4646400064229965ms
+[NX Daemon Server] - 2024-04-19T16:23:07.774Z - [WATCHER]: apps/swapi-cards/components/homeworldBackground/HomeworldBackground.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:23:07.775Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:08.564Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:09.246Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:09.817Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:10.036Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:10.972Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:11.043Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:11.100Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:11.149Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:13.346Z - [WATCHER]: apps/swapi-cards/components/homeworldBackground/HomeworldBackground.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:23:13.346Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:14.015Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:14.177Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:23:14.177Z - [REQUEST]: apps/swapi-cards/components/homeworldBackground/HomeworldBackground.tsx
+[NX Daemon Server] - 2024-04-19T16:23:14.177Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:23:14.563Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:14.564Z - Time taken for 'hash changed files from watcher' 1.8685359954833984ms
+[NX Daemon Server] - 2024-04-19T16:23:15.114Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:15.170Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:15.249Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:55.219Z - [WATCHER]: apps/swapi-cards/components/background/MountainOne.tsx was created or restored
+[NX Daemon Server] - 2024-04-19T16:23:55.220Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:55.325Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:23:55.325Z - [REQUEST]: apps/swapi-cards/components/background/MountainOne.tsx
+[NX Daemon Server] - 2024-04-19T16:23:55.325Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:23:55.900Z - Time taken for 'hash changed files from watcher' 2.4857610017061234ms
+[NX Daemon Server] - 2024-04-19T16:23:56.060Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:56.569Z - [WATCHER]: apps/swapi-cards/components/background/MountainOne.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:23:56.569Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:56.772Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:23:56.772Z - [REQUEST]: apps/swapi-cards/components/background/MountainOne.tsx
+[NX Daemon Server] - 2024-04-19T16:23:56.772Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:23:57.079Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:57.080Z - Time taken for 'hash changed files from watcher' 1.7775520086288452ms
+[NX Daemon Server] - 2024-04-19T16:23:57.945Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:58.010Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:23:58.105Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:04.078Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:24:04.095Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:04.497Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:24:04.498Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:24:04.498Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:24:04.884Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:04.885Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:04.885Z - Time taken for 'hash changed files from watcher' 2.6319369971752167ms
+[NX Daemon Server] - 2024-04-19T16:24:05.135Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:05.953Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:06.188Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:06.254Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:16.943Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:24:16.943Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:17.746Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:24:17.746Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:24:17.746Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:24:17.973Z - Time taken for 'hash changed files from watcher' 1.8628879934549332ms
+[NX Daemon Server] - 2024-04-19T16:24:18.873Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:18.966Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:24.624Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:24:24.624Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:26.226Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:24:26.226Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:24:26.226Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:24:26.453Z - Time taken for 'hash changed files from watcher' 1.4768729954957962ms
+[NX Daemon Server] - 2024-04-19T16:24:26.644Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:26.732Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:31.005Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:31.006Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:24:32.798Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:32.868Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:34.209Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:24:34.209Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:24:34.209Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:24:34.405Z - Time taken for 'hash changed files from watcher' 2.029663994908333ms
+[NX Daemon Server] - 2024-04-19T16:24:39.972Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:24:39.972Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:41.974Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:42.064Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:46.376Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:24:46.376Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:24:46.376Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:24:46.575Z - Time taken for 'hash changed files from watcher' 1.7945960015058517ms
+[NX Daemon Server] - 2024-04-19T16:24:53.012Z - [WATCHER]: apps/swapi-cards/components/background/MountainOne.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:24:53.012Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:24:59.414Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:24:59.414Z - [REQUEST]: apps/swapi-cards/components/background/MountainOne.tsx
+[NX Daemon Server] - 2024-04-19T16:24:59.414Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:24:59.604Z - Time taken for 'hash changed files from watcher' 1.475045993924141ms
+[NX Daemon Server] - 2024-04-19T16:25:07.397Z - [WATCHER]: apps/swapi-cards/components/background/MountainTwo.tsx was created or restored
+[NX Daemon Server] - 2024-04-19T16:25:07.398Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:25:07.501Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:25:07.501Z - [REQUEST]: apps/swapi-cards/components/background/MountainTwo.tsx
+[NX Daemon Server] - 2024-04-19T16:25:07.501Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:25:07.831Z - Time taken for 'hash changed files from watcher' 2.261240005493164ms
+[NX Daemon Server] - 2024-04-19T16:25:08.955Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:25:09.013Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:25:09.110Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:25:09.161Z - [WATCHER]: apps/swapi-cards/components/background/MountainTwo.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:25:09.161Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:25:09.363Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:25:09.364Z - [REQUEST]: apps/swapi-cards/components/background/MountainTwo.tsx
+[NX Daemon Server] - 2024-04-19T16:25:09.364Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:25:09.645Z - Time taken for 'hash changed files from watcher' 1.8064980059862137ms
+[NX Daemon Server] - 2024-04-19T16:25:12.762Z - [WATCHER]: apps/swapi-cards/components/background/MountainTwo.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:25:12.763Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:25:13.165Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:25:13.166Z - [REQUEST]: apps/swapi-cards/components/background/MountainTwo.tsx
+[NX Daemon Server] - 2024-04-19T16:25:13.166Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:25:13.375Z - Time taken for 'hash changed files from watcher' 1.4376929998397827ms
+[NX Daemon Server] - 2024-04-19T16:25:14.077Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:25:14.136Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:25:14.188Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:25:25.749Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:25:25.749Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:25:26.551Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:25:26.551Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:25:26.551Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:25:26.754Z - Time taken for 'hash changed files from watcher' 1.5719849914312363ms
+[NX Daemon Server] - 2024-04-19T16:25:27.792Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:25:27.845Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:25:27.922Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:26:26.675Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:26:26.778Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:26:26.949Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:30.922Z - [WATCHER]: apps/swapi-cards/components/background/MountainThree.tsx was created or restored
+[NX Daemon Server] - 2024-04-19T16:27:30.923Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:31.025Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:27:31.026Z - [REQUEST]: apps/swapi-cards/components/background/MountainThree.tsx
+[NX Daemon Server] - 2024-04-19T16:27:31.026Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:27:31.484Z - Time taken for 'hash changed files from watcher' 2.5515560060739517ms
+[NX Daemon Server] - 2024-04-19T16:27:32.409Z - [WATCHER]: apps/swapi-cards/components/background/MountainThree.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:27:32.410Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:32.612Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:27:32.612Z - [REQUEST]: apps/swapi-cards/components/background/MountainThree.tsx
+[NX Daemon Server] - 2024-04-19T16:27:32.612Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:27:32.968Z - Time taken for 'hash changed files from watcher' 1.5018209964036942ms
+[NX Daemon Server] - 2024-04-19T16:27:34.038Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:34.084Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:34.155Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:37.361Z - [WATCHER]: apps/swapi-cards/components/background/MountainThree.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:27:37.361Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:37.764Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:27:37.764Z - [REQUEST]: apps/swapi-cards/components/background/MountainThree.tsx
+[NX Daemon Server] - 2024-04-19T16:27:37.764Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:27:38.066Z - Time taken for 'hash changed files from watcher' 2.4026069939136505ms
+[NX Daemon Server] - 2024-04-19T16:27:38.991Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:39.172Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:41.585Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:27:41.585Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:42.388Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:27:42.388Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:27:42.388Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:27:42.555Z - Time taken for 'hash changed files from watcher' 1.5664800107479095ms
+[NX Daemon Server] - 2024-04-19T16:27:43.449Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:43.507Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:51.079Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:27:51.079Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:52.683Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:27:52.683Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:27:52.683Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:27:53.014Z - Time taken for 'hash changed files from watcher' 2.6149359941482544ms
+[NX Daemon Server] - 2024-04-19T16:27:53.068Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:27:53.157Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:28:04.576Z - [WATCHER]: apps/swapi-cards/components/background/Foreground.tsx was created or restored
+[NX Daemon Server] - 2024-04-19T16:28:04.577Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:28:04.701Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:28:04.701Z - [REQUEST]: apps/swapi-cards/components/background/Foreground.tsx
+[NX Daemon Server] - 2024-04-19T16:28:04.701Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:28:05.473Z - Time taken for 'hash changed files from watcher' 2.7896509915590286ms
+[NX Daemon Server] - 2024-04-19T16:28:05.818Z - [WATCHER]: apps/swapi-cards/components/background/Foreground.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:28:05.820Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:28:06.021Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:28:06.034Z - [REQUEST]: apps/swapi-cards/components/background/Foreground.tsx
+[NX Daemon Server] - 2024-04-19T16:28:06.052Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:28:06.543Z - Time taken for 'hash changed files from watcher' 2.090052992105484ms
+[NX Daemon Server] - 2024-04-19T16:28:07.846Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:28:07.909Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:29:07.035Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:29:07.142Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:09.161Z - [WATCHER]: apps/swapi-cards/components/background/BushOne.tsx was created or restored
+[NX Daemon Server] - 2024-04-19T16:48:09.162Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:09.264Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:48:09.264Z - [REQUEST]: apps/swapi-cards/components/background/BushOne.tsx
+[NX Daemon Server] - 2024-04-19T16:48:09.264Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:48:10.141Z - Time taken for 'hash changed files from watcher' 2.2477860003709793ms
+[NX Daemon Server] - 2024-04-19T16:48:10.533Z - [WATCHER]: apps/swapi-cards/components/background/BushOne.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:48:10.542Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:10.742Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:48:10.742Z - [REQUEST]: apps/swapi-cards/components/background/BushOne.tsx
+[NX Daemon Server] - 2024-04-19T16:48:10.742Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:48:11.083Z - Time taken for 'hash changed files from watcher' 2.43257600069046ms
+[NX Daemon Server] - 2024-04-19T16:48:12.329Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:12.391Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:12.456Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:17.753Z - [WATCHER]: apps/swapi-cards/components/background/BushTwo.tsx was created or restored
+[NX Daemon Server] - 2024-04-19T16:48:17.753Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:17.856Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:48:17.856Z - [REQUEST]: apps/swapi-cards/components/background/BushTwo.tsx
+[NX Daemon Server] - 2024-04-19T16:48:17.857Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:48:18.436Z - Time taken for 'hash changed files from watcher' 2.3530509918928146ms
+[NX Daemon Server] - 2024-04-19T16:48:19.812Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:19.934Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:23.611Z - [WATCHER]: apps/swapi-cards/components/background/BushTwo.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:48:23.611Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:23.814Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:48:23.814Z - [REQUEST]: apps/swapi-cards/components/background/BushTwo.tsx
+[NX Daemon Server] - 2024-04-19T16:48:23.814Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:48:24.240Z - Time taken for 'hash changed files from watcher' 1.7443080097436905ms
+[NX Daemon Server] - 2024-04-19T16:48:25.358Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:25.423Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:27.709Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was created or restored
+[NX Daemon Server] - 2024-04-19T16:48:27.709Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:27.819Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:48:27.819Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T16:48:27.819Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:48:28.204Z - Time taken for 'hash changed files from watcher' 3.61812099814415ms
+[NX Daemon Server] - 2024-04-19T16:48:29.403Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:29.455Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:29.522Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:31.488Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:48:31.488Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:31.691Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:48:31.691Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T16:48:31.691Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:48:32.157Z - Time taken for 'hash changed files from watcher' 2.179980993270874ms
+[NX Daemon Server] - 2024-04-19T16:48:33.201Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:33.372Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:33.510Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:33.571Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:44.809Z - [WATCHER]: apps/swapi-cards/components/background/Dirt.tsx was created or restored
+[NX Daemon Server] - 2024-04-19T16:48:44.810Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:44.913Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:48:44.913Z - [REQUEST]: apps/swapi-cards/components/background/Dirt.tsx
+[NX Daemon Server] - 2024-04-19T16:48:44.913Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:48:45.420Z - Time taken for 'hash changed files from watcher' 2.3924719989299774ms
+[NX Daemon Server] - 2024-04-19T16:48:45.590Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:46.063Z - [WATCHER]: apps/swapi-cards/components/background/Dirt.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:48:46.064Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:46.268Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:48:46.268Z - [REQUEST]: apps/swapi-cards/components/background/Dirt.tsx
+[NX Daemon Server] - 2024-04-19T16:48:46.268Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:48:46.739Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:46.743Z - Time taken for 'hash changed files from watcher' 2.902076005935669ms
+[NX Daemon Server] - 2024-04-19T16:48:46.974Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:47.325Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:47.475Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:48.109Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:48.174Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:48.240Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:48.296Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:48.376Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:48.599Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:48.714Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:48.857Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:48:48.912Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:49:09.157Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:49:09.157Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:49:09.562Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:49:09.562Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:49:09.562Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:49:10.039Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:49:10.040Z - Time taken for 'hash changed files from watcher' 2.0020640045404434ms
+[NX Daemon Server] - 2024-04-19T16:49:10.196Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:49:10.490Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:49:10.899Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T16:49:10.908Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:49:11.219Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:49:11.344Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:49:11.702Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T16:49:11.702Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T16:49:11.702Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T16:49:11.869Z - Time taken for 'hash changed files from watcher' 2.2501609921455383ms
+[NX Daemon Server] - 2024-04-19T16:50:11.328Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:50:11.429Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T16:50:11.522Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:11.262Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:15:11.263Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:12.358Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:12.865Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:15:12.865Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:15:12.865Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:15:13.120Z - Time taken for 'hash changed files from watcher' 1.5126439929008484ms
+[NX Daemon Server] - 2024-04-19T17:15:13.976Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:15:13.977Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:14.632Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:15.735Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:15.795Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:15.857Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:15.914Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:16.633Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:15:16.633Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:17.179Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:15:17.179Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:15:17.179Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:15:17.476Z - Time taken for 'hash changed files from watcher' 1.5649549961090088ms
+[NX Daemon Server] - 2024-04-19T17:15:17.517Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:18.277Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:18.278Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:15:19.004Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:20.053Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:20.158Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:20.223Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:20.275Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:24.681Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:15:24.681Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:15:24.681Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:15:24.825Z - Time taken for 'hash changed files from watcher' 1.5294750034809113ms
+[NX Daemon Server] - 2024-04-19T17:15:35.397Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:15:35.397Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:36.500Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:41.800Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:15:41.800Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:15:41.800Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:15:41.952Z - Time taken for 'hash changed files from watcher' 1.47843699157238ms
+[NX Daemon Server] - 2024-04-19T17:15:55.453Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:15:55.453Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:57.183Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:15:57.183Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:58.099Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:58.359Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:58.895Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:15:58.895Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:15:59.721Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:16:00.805Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:16:00.968Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:16:01.025Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:16:01.091Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:16:01.856Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:16:01.856Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:16:01.856Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:16:02.083Z - Time taken for 'hash changed files from watcher' 2.2654879987239838ms
+[NX Daemon Server] - 2024-04-19T17:18:30.448Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:18:30.448Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:18:30.797Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:18:31.452Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:18:36.851Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:18:36.851Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T17:18:36.851Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:18:37.189Z - Time taken for 'hash changed files from watcher' 1.6149080097675323ms
+[NX Daemon Server] - 2024-04-19T17:19:30.911Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:19:31.005Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:19:31.544Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:19:31.601Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:19:31.679Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:24.440Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:20:24.441Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:25.088Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:25.431Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:30.842Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:20:30.843Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T17:20:30.843Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:20:31.259Z - Time taken for 'hash changed files from watcher' 2.2139479964971542ms
+[NX Daemon Server] - 2024-04-19T17:20:34.381Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:20:34.382Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:34.763Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:34.920Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:40.783Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:20:40.785Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T17:20:40.785Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:20:41.138Z - Time taken for 'hash changed files from watcher' 2.326585993170738ms
+[NX Daemon Server] - 2024-04-19T17:20:44.222Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:44.225Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:20:44.370Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:44.628Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:50.627Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:20:50.628Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T17:20:50.628Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:20:50.871Z - Time taken for 'hash changed files from watcher' 1.6497910022735596ms
+[NX Daemon Server] - 2024-04-19T17:20:54.490Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:20:54.490Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:54.603Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:54.934Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:56.010Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:56.121Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:57.669Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:57.669Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:20:58.010Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:20:58.153Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:21:00.893Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:21:00.893Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T17:21:00.893Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:21:01.135Z - Time taken for 'hash changed files from watcher' 1.7077839970588684ms
+[NX Daemon Server] - 2024-04-19T17:21:02.153Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:21:02.153Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:21:02.384Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:21:02.483Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:21:04.200Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:21:04.200Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:21:04.501Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:21:04.609Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:21:08.556Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:21:08.557Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T17:21:08.557Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:21:08.718Z - Time taken for 'hash changed files from watcher' 1.9006300121545792ms
+[NX Daemon Server] - 2024-04-19T17:22:04.557Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:04.661Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:04.715Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:04.768Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:08.413Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:22:08.413Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:08.974Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:09.609Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:09.980Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:22:09.980Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:10.526Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:10.706Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:14.816Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:22:14.816Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T17:22:14.816Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:22:15.075Z - Time taken for 'hash changed files from watcher' 1.9505000114440918ms
+[NX Daemon Server] - 2024-04-19T17:22:16.029Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:22:16.029Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:16.288Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:16.587Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:16.638Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:17.448Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:17.519Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:17.570Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:17.672Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:17.778Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:17.836Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:22.432Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:22:22.432Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T17:22:22.432Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:22:22.691Z - Time taken for 'hash changed files from watcher' 2.1248410046100616ms
+[NX Daemon Server] - 2024-04-19T17:22:42.531Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:22:42.532Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:43.334Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:43.868Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:44.381Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:45.496Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:45.573Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:45.632Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:22:48.934Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:22:48.934Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T17:22:48.934Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:22:49.182Z - Time taken for 'hash changed files from watcher' 1.5003940016031265ms
+[NX Daemon Server] - 2024-04-19T17:23:43.951Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:23:44.003Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:23:44.060Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:24:29.741Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:24:29.742Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:24:30.989Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:24:30.989Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:24:31.399Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:24:31.760Z - Closed a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-19T17:24:31.765Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-19T17:24:31.833Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-19T17:24:31.895Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:24:34.127Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-19T17:24:34.129Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-19T17:24:34.131Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-19T17:24:34.136Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T17:24:34.138Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:24:34.139Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:24:34.139Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:24:34.443Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T17:24:34.447Z - Time taken for 'total for creating and serializing project graph' 307.0349150002003ms
+[NX Daemon Server] - 2024-04-19T17:24:34.454Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T17:24:34.454Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 307. Response time: 11.
+[NX Daemon Server] - 2024-04-19T17:24:34.843Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-19T17:24:34.844Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-19T17:24:34.844Z - Handled HASH_TASKS. Handling time: 29. Response time: 1.
+[NX Daemon Server] - 2024-04-19T17:24:36.948Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-19T17:24:36.949Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-19T17:24:36.949Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-19T17:24:36.952Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T17:24:36.953Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T17:24:36.958Z - Time taken for 'total for creating and serializing project graph' 1.111726999282837ms
+[NX Daemon Server] - 2024-04-19T17:24:36.964Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T17:24:36.964Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 11.
+[NX Daemon Server] - 2024-04-19T17:24:38.933Z - Established a connection. Number of open connections: 4
+[NX Daemon Server] - 2024-04-19T17:24:38.936Z - Closed a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-19T17:24:38.938Z - Established a connection. Number of open connections: 4
+[NX Daemon Server] - 2024-04-19T17:24:38.941Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T17:24:38.942Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T17:24:38.944Z - Time taken for 'total for creating and serializing project graph' 0.17743000388145447ms
+[NX Daemon Server] - 2024-04-19T17:24:38.953Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T17:24:38.953Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 11.
+[NX Daemon Server] - 2024-04-19T17:24:39.105Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T17:24:39.105Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T17:24:39.108Z - Time taken for 'total for creating and serializing project graph' 0.31077300012111664ms
+[NX Daemon Server] - 2024-04-19T17:24:39.111Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T17:24:39.111Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 6.
+[NX Daemon Server] - 2024-04-19T17:24:41.123Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:24:41.202Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:24:42.363Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:24:42.422Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:24:42.660Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:24:42.721Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T17:24:42.721Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T17:24:42.726Z - Time taken for 'total for creating and serializing project graph' 0.22094498574733734ms
+[NX Daemon Server] - 2024-04-19T17:24:42.754Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T17:24:42.754Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 33.
+[NX Daemon Server] - 2024-04-19T17:24:42.774Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:24:47.204Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:24:47.204Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:24:47.306Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:24:47.306Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T17:24:47.306Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:24:47.559Z - Time taken for 'hash changed files from watcher' 1.4550670087337494ms
+[NX Daemon Server] - 2024-04-19T17:24:51.933Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:24:51.933Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:24:52.136Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:24:52.136Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T17:24:52.137Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:24:52.352Z - Time taken for 'hash changed files from watcher' 1.7763110101222992ms
+[NX Daemon Server] - 2024-04-19T17:25:00.029Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:25:00.030Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:25:00.432Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:25:00.432Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T17:25:00.432Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:25:00.683Z - Time taken for 'hash changed files from watcher' 1.5550460070371628ms
+[NX Daemon Server] - 2024-04-19T17:25:03.964Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:25:06.584Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:25:07.292Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:25:08.126Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:25:08.229Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:25:08.311Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:25:08.803Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:25:09.538Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:25:09.608Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:25:09.755Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:34:47.494Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:34:47.495Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:34:47.812Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:34:48.302Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:34:48.302Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T17:34:48.302Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:34:48.872Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:34:48.875Z - Time taken for 'hash changed files from watcher' 2.75177700817585ms
+[NX Daemon Server] - 2024-04-19T17:34:49.227Z - [WATCHER]: apps/swapi-cards/components/background/Bush.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:34:49.235Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:34:49.567Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:34:50.212Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:34:50.840Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:34:50.840Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx
+[NX Daemon Server] - 2024-04-19T17:34:50.840Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:34:51.312Z - Time taken for 'hash changed files from watcher' 3.0525230020284653ms
+[NX Daemon Server] - 2024-04-19T17:34:51.331Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:34:51.475Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:34:51.548Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:34:51.667Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:35:36.556Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:35:36.556Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:35:36.677Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:35:37.309Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:35:39.757Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:35:39.758Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T17:35:39.758Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:35:39.982Z - Time taken for 'hash changed files from watcher' 1.5880440026521683ms
+[NX Daemon Server] - 2024-04-19T17:35:40.726Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:35:40.728Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:35:40.871Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:35:41.349Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:35:47.130Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:35:47.130Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T17:35:47.130Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:35:47.306Z - Time taken for 'hash changed files from watcher' 1.4699070006608963ms
+[NX Daemon Server] - 2024-04-19T17:36:40.897Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:36:41.032Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:36:41.113Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:36:41.178Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:36:41.395Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:36:41.473Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:00.786Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:37:00.786Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:01.013Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:01.592Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:07.189Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:37:07.189Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T17:37:07.189Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:37:07.410Z - Time taken for 'hash changed files from watcher' 1.497640997171402ms
+[NX Daemon Server] - 2024-04-19T17:37:10.627Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:37:10.627Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:10.749Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:11.065Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:13.912Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:37:13.912Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:14.020Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:14.285Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:17.030Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:37:17.030Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T17:37:17.030Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:37:17.259Z - Time taken for 'hash changed files from watcher' 1.9769069999456406ms
+[NX Daemon Server] - 2024-04-19T17:37:17.527Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:37:17.527Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:17.572Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:37:17.572Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:17.782Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:18.069Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:37:18.069Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:18.164Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:19.637Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:20.013Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:37:20.013Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:20.622Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:20.885Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:22.043Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:22.181Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:22.332Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:22.400Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:23.929Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:37:23.930Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T17:37:23.930Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:37:24.472Z - Time taken for 'hash changed files from watcher' 2.250471994280815ms
+[NX Daemon Server] - 2024-04-19T17:37:46.143Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:37:46.143Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:46.266Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:46.783Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:52.546Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:37:52.546Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T17:37:52.546Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:37:52.942Z - Time taken for 'hash changed files from watcher' 1.5475270003080368ms
+[NX Daemon Server] - 2024-04-19T17:37:53.587Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:37:53.587Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:53.703Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:53.955Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:37:59.989Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:37:59.989Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T17:37:59.989Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:38:00.234Z - Time taken for 'hash changed files from watcher' 1.6534850001335144ms
+[NX Daemon Server] - 2024-04-19T17:38:53.928Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:38:54.003Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:38:54.075Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:38:54.129Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:38:54.181Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:38:54.232Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:38:54.389Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:41:04.073Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:41:04.074Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:41:04.311Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:41:05.098Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:41:10.477Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:41:10.477Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:41:10.477Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:41:10.746Z - Time taken for 'hash changed files from watcher' 1.6623750030994415ms
+[NX Daemon Server] - 2024-04-19T17:42:04.363Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:04.457Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:04.563Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:04.702Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:42:04.702Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:04.755Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:04.872Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:05.188Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:10.603Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:42:10.604Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:10.688Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:11.105Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:42:11.105Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:42:11.105Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:42:11.414Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:11.415Z - Time taken for 'hash changed files from watcher' 1.6004469990730286ms
+[NX Daemon Server] - 2024-04-19T17:42:11.741Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:12.187Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:12.337Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:13.530Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:13.591Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:13.735Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:13.847Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:42:13.901Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:43:12.304Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:43:12.360Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:43:12.545Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:44:44.589Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:44:44.589Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:44:44.804Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:44:45.477Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:44:50.992Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:44:50.992Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:44:50.992Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:44:51.233Z - Time taken for 'hash changed files from watcher' 1.5099620074033737ms
+[NX Daemon Server] - 2024-04-19T17:45:24.787Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:45:24.787Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:45:25.436Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:45:25.572Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:45:26.494Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:45:26.553Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:45:27.861Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:45:27.862Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:45:27.954Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:45:28.482Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:45:31.190Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:45:31.190Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:45:31.190Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:45:31.503Z - Time taken for 'hash changed files from watcher' 2.2609799951314926ms
+[NX Daemon Server] - 2024-04-19T17:46:00.191Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:46:00.192Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:00.744Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:00.875Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:06.595Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:46:06.595Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:46:06.595Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:46:06.868Z - Time taken for 'hash changed files from watcher' 1.6193429976701736ms
+[NX Daemon Server] - 2024-04-19T17:46:07.186Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:46:07.186Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:07.294Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:07.849Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:08.899Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:13.588Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:46:13.588Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:46:13.588Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:46:13.799Z - Time taken for 'hash changed files from watcher' 1.503488004207611ms
+[NX Daemon Server] - 2024-04-19T17:46:14.502Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:46:14.502Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:14.598Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:15.086Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:20.904Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:46:20.905Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:46:20.905Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:46:21.105Z - Time taken for 'hash changed files from watcher' 1.520794004201889ms
+[NX Daemon Server] - 2024-04-19T17:46:34.808Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:46:34.809Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:34.908Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:35.513Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:36.580Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:36.668Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:41.211Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:46:41.211Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:46:41.211Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:46:41.626Z - Time taken for 'hash changed files from watcher' 1.4742020070552826ms
+[NX Daemon Server] - 2024-04-19T17:46:51.699Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:46:51.731Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:51.817Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:52.502Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:58.133Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:46:58.133Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:46:58.133Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:46:58.399Z - Time taken for 'hash changed files from watcher' 1.5149580091238022ms
+[NX Daemon Server] - 2024-04-19T17:46:58.433Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:46:58.433Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:58.545Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:46:59.051Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:00.119Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:00.197Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:00.289Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:04.835Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:47:04.836Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:47:04.836Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:47:05.097Z - Time taken for 'hash changed files from watcher' 1.651314988732338ms
+[NX Daemon Server] - 2024-04-19T17:47:07.349Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:47:07.349Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:07.478Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:07.992Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:13.569Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:47:13.569Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:13.688Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:13.751Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:47:13.751Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:47:13.751Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:47:14.024Z - Time taken for 'hash changed files from watcher' 1.9651409983634949ms
+[NX Daemon Server] - 2024-04-19T17:47:14.276Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:15.433Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:15.485Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:21.422Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:47:21.431Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:21.606Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:22.145Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:27.833Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:47:27.833Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:47:27.833Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:47:28.063Z - Time taken for 'hash changed files from watcher' 1.528105989098549ms
+[NX Daemon Server] - 2024-04-19T17:47:32.834Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:47:32.834Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:33.247Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:33.326Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:34.294Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:39.236Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:47:39.237Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:47:39.237Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:47:39.539Z - Time taken for 'hash changed files from watcher' 1.431770995259285ms
+[NX Daemon Server] - 2024-04-19T17:47:46.864Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:47:46.864Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:47.013Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:47.531Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:53.267Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:47:53.267Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:47:53.267Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:47:53.440Z - Time taken for 'hash changed files from watcher' 2.312717005610466ms
+[NX Daemon Server] - 2024-04-19T17:47:58.812Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:47:58.812Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:58.936Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:47:59.500Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:48:00.572Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:48:00.624Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:48:05.214Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:48:05.214Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:48:05.214Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:48:05.469Z - Time taken for 'hash changed files from watcher' 1.7976949959993362ms
+[NX Daemon Server] - 2024-04-19T17:48:07.324Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:48:07.325Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:48:07.437Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:48:08.057Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:48:13.726Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:48:13.726Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:48:13.726Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:48:13.939Z - Time taken for 'hash changed files from watcher' 1.860161006450653ms
+[NX Daemon Server] - 2024-04-19T17:48:17.002Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:48:17.002Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:48:17.106Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:48:17.530Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:48:18.583Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:48:18.635Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:48:23.405Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:48:23.405Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:48:23.405Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:48:23.595Z - Time taken for 'hash changed files from watcher' 1.5869619995355606ms
+[NX Daemon Server] - 2024-04-19T17:49:17.201Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:17.454Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:17.521Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:17.785Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:37.402Z - [WATCHER]: apps/swapi-cards/components/background/Sky.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:49:37.402Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:37.663Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:38.224Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:41.996Z - [WATCHER]: apps/swapi-cards/components/background/Sky.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:49:41.997Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:42.296Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:42.478Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:43.382Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:43.451Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:43.518Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:43.805Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:49:43.805Z - [REQUEST]: apps/swapi-cards/components/background/Sky.tsx
+[NX Daemon Server] - 2024-04-19T17:49:43.805Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:49:44.082Z - Time taken for 'hash changed files from watcher' 1.521708995103836ms
+[NX Daemon Server] - 2024-04-19T17:49:46.426Z - [WATCHER]: apps/swapi-cards/components/background/Sky.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:49:46.426Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:46.956Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:47.297Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:49:52.829Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:49:52.829Z - [REQUEST]: apps/swapi-cards/components/background/Sky.tsx
+[NX Daemon Server] - 2024-04-19T17:49:52.829Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:49:53.085Z - Time taken for 'hash changed files from watcher' 2.338892012834549ms
+[NX Daemon Server] - 2024-04-19T17:50:02.176Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T17:50:02.176Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:50:02.283Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:50:02.657Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:50:03.802Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:50:04.018Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:50:04.092Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:50:08.578Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:50:08.579Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T17:50:08.579Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:50:08.844Z - Time taken for 'hash changed files from watcher' 1.6503600031137466ms
+[NX Daemon Server] - 2024-04-19T17:51:02.447Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:51:02.513Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:51:02.616Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:53:15.208Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:53:15.209Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:53:15.449Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:53:16.176Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T17:53:16.181Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:53:16.313Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:53:16.745Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:53:17.802Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:53:17.854Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:53:21.611Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:53:21.611Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T17:53:21.612Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:53:21.908Z - Time taken for 'hash changed files from watcher' 1.545743003487587ms
+[NX Daemon Server] - 2024-04-19T17:54:15.945Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:54:15.945Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:54:16.548Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:54:16.844Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:54:16.921Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:54:17.046Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:54:17.105Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:54:22.348Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:54:22.348Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:54:22.348Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:54:22.733Z - Time taken for 'hash changed files from watcher' 1.739105999469757ms
+[NX Daemon Server] - 2024-04-19T17:54:22.813Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:54:22.814Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:54:29.216Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:54:29.216Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:54:29.216Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:54:29.461Z - Time taken for 'hash changed files from watcher' 2.10588900744915ms
+[NX Daemon Server] - 2024-04-19T17:54:31.683Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:54:31.683Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:54:35.614Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:54:35.614Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:54:38.085Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:54:38.085Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:54:38.085Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:54:38.391Z - Time taken for 'hash changed files from watcher' 1.4930080026388168ms
+[NX Daemon Server] - 2024-04-19T17:54:40.286Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:54:40.289Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:54:46.689Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:54:46.690Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:54:46.690Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:54:46.918Z - Time taken for 'hash changed files from watcher' 2.2234940081834793ms
+[NX Daemon Server] - 2024-04-19T17:55:16.780Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:55:16.878Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:55:16.928Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:55:16.997Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:55:36.034Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:55:36.034Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:55:42.436Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:55:42.436Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:55:42.436Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:55:42.701Z - Time taken for 'hash changed files from watcher' 1.6048310101032257ms
+[NX Daemon Server] - 2024-04-19T17:55:44.855Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:55:44.855Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:55:51.259Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:55:51.260Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:55:51.260Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:55:51.753Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:55:51.753Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:55:51.757Z - Time taken for 'hash changed files from watcher' 2.4630800038576126ms
+[NX Daemon Server] - 2024-04-19T17:55:55.683Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:55:55.683Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:55:58.156Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:55:58.156Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:55:58.156Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:55:58.385Z - Time taken for 'hash changed files from watcher' 2.115542992949486ms
+[NX Daemon Server] - 2024-04-19T17:56:11.022Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:56:11.022Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:56:17.424Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:56:17.425Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:56:17.425Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:56:17.702Z - Time taken for 'hash changed files from watcher' 1.7813059985637665ms
+[NX Daemon Server] - 2024-04-19T17:56:19.159Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:56:19.159Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:56:23.944Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:56:23.944Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:56:25.562Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:56:25.562Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:56:25.562Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:56:25.788Z - Time taken for 'hash changed files from watcher' 1.700189009308815ms
+[NX Daemon Server] - 2024-04-19T17:56:31.769Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:56:31.770Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:56:38.172Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:56:38.172Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:56:38.172Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:56:38.484Z - Time taken for 'hash changed files from watcher' 2.162310004234314ms
+[NX Daemon Server] - 2024-04-19T17:56:46.161Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:56:46.162Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:56:50.995Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:56:50.995Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:56:52.563Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:56:52.563Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:56:52.563Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:56:52.827Z - Time taken for 'hash changed files from watcher' 1.6047489941120148ms
+[NX Daemon Server] - 2024-04-19T17:56:57.812Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:56:57.813Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:57:04.215Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:57:04.215Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:57:04.215Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:57:04.509Z - Time taken for 'hash changed files from watcher' 1.4894080013036728ms
+[NX Daemon Server] - 2024-04-19T17:57:05.241Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:57:05.242Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:57:11.644Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:57:11.644Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:57:11.645Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:57:11.888Z - Time taken for 'hash changed files from watcher' 1.7724199891090393ms
+[NX Daemon Server] - 2024-04-19T17:57:12.507Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:57:12.509Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:57:16.748Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:57:16.748Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:57:18.912Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:57:18.912Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:57:18.913Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:57:19.198Z - Time taken for 'hash changed files from watcher' 3.139618992805481ms
+[NX Daemon Server] - 2024-04-19T17:57:20.274Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:57:20.275Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:57:21.677Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:57:21.678Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:57:26.678Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:57:26.679Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:57:26.679Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:57:26.896Z - Time taken for 'hash changed files from watcher' 2.173676997423172ms
+[NX Daemon Server] - 2024-04-19T17:57:47.471Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:57:47.473Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:57:52.033Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:57:52.033Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:57:53.875Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:57:53.876Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:57:53.876Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:57:54.145Z - Time taken for 'hash changed files from watcher' 1.5104089975357056ms
+[NX Daemon Server] - 2024-04-19T17:57:59.064Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:57:59.064Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:58:00.869Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T17:58:00.869Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:58:02.431Z - Closed a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-19T17:58:02.438Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-19T17:58:02.496Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-19T17:58:02.558Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:58:04.794Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-19T17:58:04.794Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-19T17:58:04.796Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-19T17:58:04.797Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T17:58:04.799Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T17:58:04.799Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T17:58:04.799Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T17:58:05.055Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T17:58:05.060Z - Time taken for 'total for creating and serializing project graph' 257.7512229979038ms
+[NX Daemon Server] - 2024-04-19T17:58:05.095Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T17:58:05.095Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 258. Response time: 40.
+[NX Daemon Server] - 2024-04-19T17:58:05.584Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-19T17:58:05.585Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-19T17:58:05.586Z - Handled HASH_TASKS. Handling time: 67. Response time: 2.
+[NX Daemon Server] - 2024-04-19T17:58:07.477Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-19T17:58:07.478Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-19T17:58:07.478Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-19T17:58:07.480Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T17:58:07.480Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T17:58:07.482Z - Time taken for 'total for creating and serializing project graph' 0.11288100481033325ms
+[NX Daemon Server] - 2024-04-19T17:58:07.487Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T17:58:07.487Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 7.
+[NX Daemon Server] - 2024-04-19T17:58:08.762Z - Established a connection. Number of open connections: 4
+[NX Daemon Server] - 2024-04-19T17:58:08.764Z - Closed a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-19T17:58:08.764Z - Established a connection. Number of open connections: 4
+[NX Daemon Server] - 2024-04-19T17:58:08.767Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T17:58:08.767Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T17:58:08.769Z - Time taken for 'total for creating and serializing project graph' 0.15878300368785858ms
+[NX Daemon Server] - 2024-04-19T17:58:08.774Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T17:58:08.774Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 7.
+[NX Daemon Server] - 2024-04-19T17:58:08.894Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T17:58:08.894Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T17:58:08.896Z - Time taken for 'total for creating and serializing project graph' 0.16712500154972076ms
+[NX Daemon Server] - 2024-04-19T17:58:08.899Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T17:58:08.900Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 6.
+[NX Daemon Server] - 2024-04-19T17:58:10.513Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:58:11.135Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:58:11.398Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:58:11.440Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T17:58:11.440Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T17:58:11.442Z - Time taken for 'total for creating and serializing project graph' 0.20504899322986603ms
+[NX Daemon Server] - 2024-04-19T17:58:11.457Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T17:58:11.457Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 17.
+[NX Daemon Server] - 2024-04-19T17:58:11.503Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:59:48.609Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:59:50.919Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:59:51.087Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:59:51.976Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:59:52.341Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:59:52.418Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:59:52.816Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:59:53.311Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:59:53.579Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:59:54.602Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T17:59:54.668Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:00:28.176Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T18:00:28.177Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:00:28.278Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:00:28.278Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T18:00:28.278Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:00:28.796Z - Time taken for 'hash changed files from watcher' 2.1888010054826736ms
+[NX Daemon Server] - 2024-04-19T18:00:29.366Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:00:38.423Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T18:00:38.423Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:00:38.626Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:00:38.626Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T18:00:38.626Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:00:39.039Z - Time taken for 'hash changed files from watcher' 2.477841004729271ms
+[NX Daemon Server] - 2024-04-19T18:00:39.555Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:00:40.434Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:00:40.487Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:00:40.662Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:00:40.727Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:00:40.873Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:01:39.675Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:01:39.731Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:01:39.920Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:02:45.067Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T18:02:45.068Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:02:45.448Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:02:45.470Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:02:45.470Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T18:02:45.470Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:02:45.885Z - Time taken for 'hash changed files from watcher' 2.2778010070323944ms
+[NX Daemon Server] - 2024-04-19T18:02:46.922Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:02:47.709Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:02:48.134Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:02:48.286Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:02:48.982Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:02:49.405Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:02:49.508Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:02:49.679Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:02:49.914Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:03:49.118Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:03:49.316Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:03:52.714Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T18:03:52.714Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:03:53.521Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:03:53.521Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T18:03:53.521Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:03:54.236Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:03:54.236Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:03:54.244Z - Time taken for 'hash changed files from watcher' 2.6507889926433563ms
+[NX Daemon Server] - 2024-04-19T18:04:01.040Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T18:04:01.041Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:04:01.635Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:04:01.853Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:04:02.647Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:04:02.647Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T18:04:02.647Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:04:03.255Z - [WATCHER]: apps/swapi-cards/src/app/global.css was modified
+[NX Daemon Server] - 2024-04-19T18:04:03.257Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:04:03.259Z - Time taken for 'hash changed files from watcher' 3.839474007487297ms
+[NX Daemon Server] - 2024-04-19T18:04:03.572Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:04:03.733Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:04:04.638Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:04:04.715Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:04:06.458Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:04:06.458Z - [REQUEST]: apps/swapi-cards/src/app/global.css
+[NX Daemon Server] - 2024-04-19T18:04:06.458Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:04:06.634Z - Time taken for 'hash changed files from watcher' 2.1627040058374405ms
+[NX Daemon Server] - 2024-04-19T18:04:12.257Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T18:04:12.258Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:04:13.400Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:04:18.661Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:04:18.661Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T18:04:18.661Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:04:18.809Z - Time taken for 'hash changed files from watcher' 1.8194900006055832ms
+[NX Daemon Server] - 2024-04-19T18:05:03.809Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:05:03.863Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:05:04.030Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:05:13.418Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:05:13.485Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:05:13.569Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:05:13.656Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:05:30.295Z - [WATCHER]: apps/swapi-cards/tailwind.config.js was modified
+[NX Daemon Server] - 2024-04-19T18:05:30.295Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:05:31.776Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:05:32.817Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:05:32.874Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:05:32.941Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:05:36.697Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:05:36.697Z - [REQUEST]: apps/swapi-cards/tailwind.config.js
+[NX Daemon Server] - 2024-04-19T18:05:36.697Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:05:36.940Z - Time taken for 'hash changed files from watcher' 1.5566869974136353ms
+[NX Daemon Server] - 2024-04-19T18:07:44.358Z - Closed a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-19T18:07:44.365Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-19T18:07:44.413Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-19T18:07:44.476Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:07:46.328Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-19T18:07:46.329Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-19T18:07:46.330Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-19T18:07:46.333Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T18:07:46.333Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T18:07:46.338Z - Time taken for 'total for creating and serializing project graph' 0.3440819978713989ms
+[NX Daemon Server] - 2024-04-19T18:07:46.353Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T18:07:46.353Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 20.
+[NX Daemon Server] - 2024-04-19T18:07:46.748Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-19T18:07:46.748Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-19T18:07:46.748Z - Handled HASH_TASKS. Handling time: 38. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:07:49.172Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-19T18:07:49.173Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-19T18:07:49.174Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-19T18:07:49.177Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T18:07:49.177Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T18:07:49.180Z - Time taken for 'total for creating and serializing project graph' 0.23705700039863586ms
+[NX Daemon Server] - 2024-04-19T18:07:49.187Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T18:07:49.187Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 10.
+[NX Daemon Server] - 2024-04-19T18:07:50.998Z - Established a connection. Number of open connections: 4
+[NX Daemon Server] - 2024-04-19T18:07:51.000Z - Closed a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-19T18:07:51.001Z - Established a connection. Number of open connections: 4
+[NX Daemon Server] - 2024-04-19T18:07:51.005Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T18:07:51.005Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T18:07:51.008Z - Time taken for 'total for creating and serializing project graph' 0.3742069900035858ms
+[NX Daemon Server] - 2024-04-19T18:07:51.014Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T18:07:51.014Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 9.
+[NX Daemon Server] - 2024-04-19T18:07:51.143Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T18:07:51.144Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T18:07:51.148Z - Time taken for 'total for creating and serializing project graph' 0.3389510065317154ms
+[NX Daemon Server] - 2024-04-19T18:07:51.153Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T18:07:51.153Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 9.
+[NX Daemon Server] - 2024-04-19T18:07:53.046Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:07:53.715Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:07:53.767Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:07:54.000Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:07:54.073Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T18:07:54.073Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T18:07:54.077Z - Time taken for 'total for creating and serializing project graph' 0.16802899539470673ms
+[NX Daemon Server] - 2024-04-19T18:07:54.098Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T18:07:54.098Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 25.
+[NX Daemon Server] - 2024-04-19T18:07:54.135Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:07:56.297Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:07:56.298Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:07:56.400Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:07:56.401Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T18:07:56.401Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:07:56.748Z - Time taken for 'hash changed files from watcher' 1.6265040040016174ms
+[NX Daemon Server] - 2024-04-19T18:07:59.221Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:07:59.221Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:07:59.424Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:07:59.424Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T18:07:59.424Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:07:59.676Z - Time taken for 'hash changed files from watcher' 2.211550995707512ms
+[NX Daemon Server] - 2024-04-19T18:08:08.549Z - [WATCHER]: apps/swapi-cards/components/background/Sky.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:08:08.550Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:08:08.972Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:08:08.972Z - [REQUEST]: apps/swapi-cards/components/background/Sky.tsx
+[NX Daemon Server] - 2024-04-19T18:08:08.972Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:08:09.331Z - Time taken for 'hash changed files from watcher' 2.0153339952230453ms
+[NX Daemon Server] - 2024-04-19T18:08:14.210Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:08:14.211Z - [WATCHER]: apps/swapi-cards/components/background/Sky.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:08:15.014Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:08:15.014Z - [REQUEST]: apps/swapi-cards/components/background/Sky.tsx
+[NX Daemon Server] - 2024-04-19T18:08:15.014Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:08:15.231Z - Time taken for 'hash changed files from watcher' 1.4918430000543594ms
+[NX Daemon Server] - 2024-04-19T18:08:54.796Z - [WATCHER]: apps/swapi-cards/components/background/MountainTwo.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:08:54.797Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:08:56.399Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:08:56.399Z - [REQUEST]: apps/swapi-cards/components/background/MountainTwo.tsx
+[NX Daemon Server] - 2024-04-19T18:08:56.399Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:08:56.658Z - Time taken for 'hash changed files from watcher' 1.879148006439209ms
+[NX Daemon Server] - 2024-04-19T18:09:05.364Z - [WATCHER]: apps/swapi-cards/components/background/MountainTwo.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:09:05.364Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:09:08.567Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:09:08.567Z - [REQUEST]: apps/swapi-cards/components/background/MountainTwo.tsx
+[NX Daemon Server] - 2024-04-19T18:09:08.567Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:09:08.841Z - Time taken for 'hash changed files from watcher' 1.7841439992189407ms
+[NX Daemon Server] - 2024-04-19T18:09:13.102Z - [WATCHER]: apps/swapi-cards/components/background/MountainTwo.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:09:13.103Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:09:16.107Z - [WATCHER]: apps/swapi-cards/components/background/MountainTwo.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:09:16.107Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:09:17.329Z - [WATCHER]: apps/swapi-cards/components/background/MountainTwo.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:09:17.330Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:09:19.505Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:09:19.505Z - [REQUEST]: apps/swapi-cards/components/background/MountainTwo.tsx
+[NX Daemon Server] - 2024-04-19T18:09:19.505Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:09:19.769Z - Time taken for 'hash changed files from watcher' 1.5899019986391068ms
+[NX Daemon Server] - 2024-04-19T18:09:43.723Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:09:43.724Z - [WATCHER]: 0 file(s) created or restored, 1 file(s) modified, 1 file(s) deleted
+[NX Daemon Server] - 2024-04-19T18:09:49.140Z - [WATCHER]: 0 file(s) created or restored, 1 file(s) modified, 1 file(s) deleted
+[NX Daemon Server] - 2024-04-19T18:09:49.140Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:09:50.127Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:09:50.127Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsBush.tsx,apps/swapi-cards/components/background/SwapiCardsBushOne.tsx
+[NX Daemon Server] - 2024-04-19T18:09:50.127Z - [REQUEST]: apps/swapi-cards/components/background/Bush.tsx,apps/swapi-cards/components/background/BushOne.tsx
+[NX Daemon Server] - 2024-04-19T18:09:50.446Z - Time taken for 'hash changed files from watcher' 1.9787729978561401ms
+[NX Daemon Server] - 2024-04-19T18:09:54.898Z - [WATCHER]: 0 file(s) created or restored, 1 file(s) modified, 1 file(s) deleted
+[NX Daemon Server] - 2024-04-19T18:09:54.900Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:10:00.225Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:10:00.226Z - [WATCHER]: 0 file(s) created or restored, 1 file(s) modified, 1 file(s) deleted
+[NX Daemon Server] - 2024-04-19T18:10:01.302Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:10:01.302Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsBushTwo.tsx,apps/swapi-cards/components/background/SwapiCardsDirt.tsx
+[NX Daemon Server] - 2024-04-19T18:10:01.302Z - [REQUEST]: apps/swapi-cards/components/background/BushTwo.tsx,apps/swapi-cards/components/background/Dirt.tsx
+[NX Daemon Server] - 2024-04-19T18:10:01.598Z - Time taken for 'hash changed files from watcher' 1.8786659985780716ms
+[NX Daemon Server] - 2024-04-19T18:10:07.146Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:10:07.146Z - [WATCHER]: 0 file(s) created or restored, 1 file(s) modified, 1 file(s) deleted
+[NX Daemon Server] - 2024-04-19T18:10:13.347Z - [WATCHER]: 0 file(s) created or restored, 1 file(s) modified, 1 file(s) deleted
+[NX Daemon Server] - 2024-04-19T18:10:13.347Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:10:13.555Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:10:13.556Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsForeground.tsx,apps/swapi-cards/components/background/SwapiCardsMountainOne.tsx
+[NX Daemon Server] - 2024-04-19T18:10:13.556Z - [REQUEST]: apps/swapi-cards/components/background/Foreground.tsx,apps/swapi-cards/components/background/MountainOne.tsx
+[NX Daemon Server] - 2024-04-19T18:10:13.991Z - Time taken for 'hash changed files from watcher' 3.1004679948091507ms
+[NX Daemon Server] - 2024-04-19T18:10:19.997Z - [WATCHER]: 0 file(s) created or restored, 1 file(s) modified, 1 file(s) deleted
+[NX Daemon Server] - 2024-04-19T18:10:19.997Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:10:26.400Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:10:26.400Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsMountainThree.tsx
+[NX Daemon Server] - 2024-04-19T18:10:26.400Z - [REQUEST]: apps/swapi-cards/components/background/MountainThree.tsx
+[NX Daemon Server] - 2024-04-19T18:10:26.595Z - Error detected when creating a project graph: Failed to create dependencies. See above for errors
+[NX Daemon Server] - 2024-04-19T18:10:26.596Z - Time taken for 'hash changed files from watcher' 1.5214210003614426ms
+[NX Daemon Server] - 2024-04-19T18:10:26.619Z - [WATCHER]: 0 file(s) created or restored, 1 file(s) modified, 1 file(s) deleted
+[NX Daemon Server] - 2024-04-19T18:10:26.619Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:10:33.023Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:10:33.023Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsMountainTwo.tsx
+[NX Daemon Server] - 2024-04-19T18:10:33.023Z - [REQUEST]: apps/swapi-cards/components/background/MountainTwo.tsx
+[NX Daemon Server] - 2024-04-19T18:10:33.356Z - Error detected when creating a project graph: Failed to create dependencies. See above for errors
+[NX Daemon Server] - 2024-04-19T18:10:33.357Z - [WATCHER]: 0 file(s) created or restored, 1 file(s) modified, 1 file(s) deleted
+[NX Daemon Server] - 2024-04-19T18:10:33.358Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:10:33.359Z - Time taken for 'hash changed files from watcher' 2.395901992917061ms
+[NX Daemon Server] - 2024-04-19T18:10:39.760Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:10:39.761Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsSky.tsx
+[NX Daemon Server] - 2024-04-19T18:10:39.761Z - [REQUEST]: apps/swapi-cards/components/background/Sky.tsx
+[NX Daemon Server] - 2024-04-19T18:10:40.053Z - Time taken for 'hash changed files from watcher' 1.600059986114502ms
+[NX Daemon Server] - 2024-04-19T18:11:01.138Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsMountainThree.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:11:01.140Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:11:05.527Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsMountainThree.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:11:05.527Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:11:07.542Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:11:07.542Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsMountainThree.tsx
+[NX Daemon Server] - 2024-04-19T18:11:07.543Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:11:07.875Z - Time taken for 'hash changed files from watcher' 2.266616001725197ms
+[NX Daemon Server] - 2024-04-19T18:11:08.957Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsMountainThree.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:11:08.962Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:11:11.136Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsMountainThree.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:11:11.136Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:11:15.361Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:11:15.361Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsMountainThree.tsx
+[NX Daemon Server] - 2024-04-19T18:11:15.361Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:11:15.557Z - Time taken for 'hash changed files from watcher' 1.4821650087833405ms
+[NX Daemon Server] - 2024-04-19T18:11:24.817Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsMountainOne.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:11:24.819Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:11:28.973Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsMountainOne.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:11:28.973Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:11:31.221Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:11:31.221Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsMountainOne.tsx
+[NX Daemon Server] - 2024-04-19T18:11:31.221Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:11:31.520Z - Time taken for 'hash changed files from watcher' 1.6786039918661118ms
+[NX Daemon Server] - 2024-04-19T18:11:31.991Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsMountainOne.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:11:31.991Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:11:38.395Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:11:38.395Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsMountainOne.tsx
+[NX Daemon Server] - 2024-04-19T18:11:38.395Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:11:38.877Z - Time taken for 'hash changed files from watcher' 2.3768530040979385ms
+[NX Daemon Server] - 2024-04-19T18:11:49.995Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsForeground.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:11:49.996Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:11:56.399Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:11:56.399Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsForeground.tsx
+[NX Daemon Server] - 2024-04-19T18:11:56.399Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:11:56.657Z - Time taken for 'hash changed files from watcher' 1.8791670054197311ms
+[NX Daemon Server] - 2024-04-19T18:11:58.768Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsForeground.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:11:58.768Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:12:00.147Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsForeground.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:12:00.147Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:12:05.170Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:12:05.170Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsForeground.tsx
+[NX Daemon Server] - 2024-04-19T18:12:05.170Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:12:05.618Z - Time taken for 'hash changed files from watcher' 1.4383720010519028ms
+[NX Daemon Server] - 2024-04-19T18:12:13.636Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsDirt.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:12:13.636Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:12:16.690Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsDirt.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:12:16.690Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:12:20.038Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:12:20.038Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsDirt.tsx
+[NX Daemon Server] - 2024-04-19T18:12:20.038Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:12:20.332Z - Time taken for 'hash changed files from watcher' 1.7926660031080246ms
+[NX Daemon Server] - 2024-04-19T18:12:20.714Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsDirt.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:12:20.714Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:12:27.116Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:12:27.117Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsDirt.tsx
+[NX Daemon Server] - 2024-04-19T18:12:27.117Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:12:27.367Z - Time taken for 'hash changed files from watcher' 1.8844659924507141ms
+[NX Daemon Server] - 2024-04-19T18:12:39.357Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsBushTwo.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:12:39.358Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:12:42.897Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsBushTwo.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:12:42.898Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:12:45.760Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:12:45.760Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsBushTwo.tsx
+[NX Daemon Server] - 2024-04-19T18:12:45.760Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:12:46.061Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsBushTwo.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:12:46.061Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:12:46.062Z - Time taken for 'hash changed files from watcher' 1.5331559926271439ms
+[NX Daemon Server] - 2024-04-19T18:12:52.462Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:12:52.463Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsBushTwo.tsx
+[NX Daemon Server] - 2024-04-19T18:12:52.463Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:12:52.733Z - Time taken for 'hash changed files from watcher' 1.574875995516777ms
+[NX Daemon Server] - 2024-04-19T18:14:18.889Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsBushOne.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:14:18.889Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:14:22.244Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsBushOne.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:14:22.244Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:14:24.949Z - [WATCHER]: apps/swapi-cards/components/background/SwapiCardsBushOne.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:14:24.949Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:14:25.291Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:14:25.291Z - [REQUEST]: apps/swapi-cards/components/background/SwapiCardsBushOne.tsx
+[NX Daemon Server] - 2024-04-19T18:14:25.291Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:14:25.580Z - Time taken for 'hash changed files from watcher' 1.5116079896688461ms
+[NX Daemon Server] - 2024-04-19T18:14:42.427Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:14:42.428Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:14:48.830Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:14:48.831Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T18:14:48.831Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:14:49.119Z - Time taken for 'hash changed files from watcher' 2.0081430077552795ms
+[NX Daemon Server] - 2024-04-19T18:14:58.440Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:14:58.440Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:00.154Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:15:00.154Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:02.653Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:04.843Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:15:04.843Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T18:15:04.843Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:15:05.173Z - Time taken for 'hash changed files from watcher' 2.0666179955005646ms
+[NX Daemon Server] - 2024-04-19T18:15:06.050Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:06.281Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:06.377Z - [WATCHER]: apps/swapi-cards/components/SwapiCardsScrublands.tsx was modified
+[NX Daemon Server] - 2024-04-19T18:15:06.377Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:07.099Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:07.166Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:07.627Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:07.774Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:08.170Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:08.270Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:09.316Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:09.385Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:09.452Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:15:12.779Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-19T18:15:12.779Z - [REQUEST]: apps/swapi-cards/components/SwapiCardsScrublands.tsx
+[NX Daemon Server] - 2024-04-19T18:15:12.779Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-19T18:15:12.942Z - Time taken for 'hash changed files from watcher' 1.7584619969129562ms
+[NX Daemon Server] - 2024-04-19T18:16:08.312Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:16:08.435Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:16:08.502Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:16:08.626Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:16:50.522Z - Established a connection. Number of open connections: 5
+[NX Daemon Server] - 2024-04-19T18:16:50.523Z - Closed a connection. Number of open connections: 4
+[NX Daemon Server] - 2024-04-19T18:16:50.524Z - Established a connection. Number of open connections: 5
+[NX Daemon Server] - 2024-04-19T18:16:50.528Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T18:16:50.528Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T18:16:50.531Z - Time taken for 'total for creating and serializing project graph' 0.37031498551368713ms
+[NX Daemon Server] - 2024-04-19T18:16:50.542Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T18:16:50.543Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 15.
+[NX Daemon Server] - 2024-04-19T18:16:50.929Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-19T18:16:50.933Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-19T18:16:50.933Z - Handled HASH_TASKS. Handling time: 82. Response time: 4.
+[NX Daemon Server] - 2024-04-19T18:16:51.104Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.105Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.105Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 7. Response time: 1.
+[NX Daemon Server] - 2024-04-19T18:16:51.111Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.111Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.111Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 5. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.114Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.114Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.114Z - Handled RECORD_OUTPUTS_HASH. Handling time: 2. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.117Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.117Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.117Z - Handled RECORD_OUTPUTS_HASH. Handling time: 2. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.135Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.135Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.135Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 9. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.141Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.141Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.141Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 5. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.151Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.151Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.151Z - Handled RECORD_OUTPUTS_HASH. Handling time: 5. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.154Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.155Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.155Z - Handled RECORD_OUTPUTS_HASH. Handling time: 2. Response time: 1.
+[NX Daemon Server] - 2024-04-19T18:16:51.162Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.163Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.163Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 5. Response time: 1.
+[NX Daemon Server] - 2024-04-19T18:16:51.169Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.169Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.169Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 5. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.171Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.171Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.171Z - Handled RECORD_OUTPUTS_HASH. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.174Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.174Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.174Z - Handled RECORD_OUTPUTS_HASH. Handling time: 2. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.190Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.190Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.190Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 13. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.202Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.203Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.203Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 11. Response time: 1.
+[NX Daemon Server] - 2024-04-19T18:16:51.206Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.206Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.206Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.210Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.210Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.210Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.211Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.211Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.211Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.214Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.214Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.214Z - Handled RECORD_OUTPUTS_HASH. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.229Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.229Z - Done responding to the client outputsHashesMatch
+[NX Daemon Server] - 2024-04-19T18:16:51.229Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 10. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:16:51.233Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.234Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:16:51.234Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 1.
+[NX Daemon Server] - 2024-04-19T18:16:54.496Z - Established a connection. Number of open connections: 6
+[NX Daemon Server] - 2024-04-19T18:16:54.517Z - Closed a connection. Number of open connections: 5
+[NX Daemon Server] - 2024-04-19T18:16:54.517Z - Established a connection. Number of open connections: 6
+[NX Daemon Server] - 2024-04-19T18:16:54.519Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T18:16:54.520Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T18:16:54.523Z - Time taken for 'total for creating and serializing project graph' 0.20456300675868988ms
+[NX Daemon Server] - 2024-04-19T18:16:54.528Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T18:16:54.528Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 8.
+[NX Daemon Server] - 2024-04-19T18:16:54.781Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-19T18:16:54.782Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-19T18:16:54.785Z - Time taken for 'total for creating and serializing project graph' 0.2698560059070587ms
+[NX Daemon Server] - 2024-04-19T18:16:54.787Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-19T18:16:54.787Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 5.
+[NX Daemon Server] - 2024-04-19T18:16:54.966Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:16:56.368Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:16:56.583Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:16:56.813Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:16:56.909Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:00.284Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:00.413Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:00.470Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:06.056Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:06.120Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:07.241Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:07.322Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:08.468Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:08.659Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:08.731Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:08.809Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:09.025Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:09.204Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:09.434Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:09.539Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:19.519Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:19.601Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:19.681Z - Closed a connection. Number of open connections: 5
+[NX Daemon Server] - 2024-04-19T18:17:19.886Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:19.964Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:17:19.964Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-04-19T18:17:19.964Z - Handled RECORD_OUTPUTS_HASH. Handling time: 6. Response time: 0.
+[NX Daemon Server] - 2024-04-19T18:17:19.988Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:20.041Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-19T18:17:31.338Z - Closed a connection. Number of open connections: 4

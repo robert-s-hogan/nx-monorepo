@@ -12,7 +12,7 @@ import SwapiCardsOcean from '../SwapiCardsOcean';
 import Plains from './plains/Plains';
 import Rocky from './rocky/Rocky';
 import RockyIslands from './rockyIslands/RockyIslands';
-import Scrublands from './scrublands/Scrublands';
+import SwapiCardsScrublands from '../SwapiCardsScrublands';
 import SwapiCardsToxicCloudsea from '../SwapiCardsToxicCloudsea';
 import SwapiCardsUnknown from '../SwapiCardsUnknown';
 
@@ -109,7 +109,9 @@ const HomeworldBackground: React.FC<HomeworldBackgroundProps> = (props) => {
         case 'rock':
           return <Rocky homeworld={homeworldName} terrain={terrain} />;
         case 'scrublands':
-          return <Scrublands homeworld={homeworldName} terrain={terrain} />;
+          return (
+            <SwapiCardsScrublands homeworld={homeworldName} terrain={terrain} />
+          );
         default:
           return (
             <div
