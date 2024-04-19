@@ -5,15 +5,15 @@ import SwapiCardsDesert from '../SwapiCardsDesert';
 import SwapiCardsForest from '../SwapiCardsForest';
 import GasGiant from '../SwapiCardsGasGiant';
 import Grasslands from '../SwapiCardsGrasslands';
-import Jungles from './jungle/Jungle';
+import Jungles from '../SwapiCardsJungle';
 import Lakes from './lakes/Lakes';
 import Mountains from './mountain/Mountains';
-import Ocean from './ocean/Ocean';
+import SwapiCardsOcean from '../SwapiCardsOcean';
 import Plains from './plains/Plains';
 import Rocky from './rocky/Rocky';
 import RockyIslands from './rockyIslands/RockyIslands';
 import Scrublands from './scrublands/Scrublands';
-import ToxicCloudsea from './toxicCloudsea/ToxicCloudsea';
+import SwapiCardsToxicCloudsea from '../SwapiCardsToxicCloudsea';
 import SwapiCardsUnknown from '../SwapiCardsUnknown';
 
 interface HomeworldBackgroundProps {
@@ -50,7 +50,12 @@ const HomeworldBackground: React.FC<HomeworldBackgroundProps> = (props) => {
             <SwapiCardsBarren homeworld={homeworldName} terrain={terrain} />
           );
         case 'toxic cloudsea':
-          return <ToxicCloudsea homeworld={homeworldName} terrain={terrain} />;
+          return (
+            <SwapiCardsToxicCloudsea
+              homeworld={homeworldName}
+              terrain={terrain}
+            />
+          );
         case 'desert':
         case 'deserts':
           return (
@@ -94,7 +99,9 @@ const HomeworldBackground: React.FC<HomeworldBackgroundProps> = (props) => {
           );
         case 'ocean':
         case 'oceans':
-          return <Ocean homeworld={homeworldName} terrain={terrain} />;
+          return (
+            <SwapiCardsOcean homeworld={homeworldName} terrain={terrain} />
+          );
         case 'rocky islands':
           return <RockyIslands homeworld={homeworldName} terrain={terrain} />;
         case 'rocky':

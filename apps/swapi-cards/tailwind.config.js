@@ -43,6 +43,8 @@ module.exports = {
           'linear-gradient(0deg, #2883ff -25%, #24266b 40%, #0b0b2b 75%, #000 100%)',
         starfield: 'var(--background-starfield)',
         'gas-giant': "url('/swapi/swapi-gas-giant.png')",
+        'thunder-cloud':
+          "url('https://www.seekpng.com/png/full/1-18983_thunder-cloud-png-clip-art-transparent-library-thunder.png')",
       }),
       clipPath: {
         hill: 'polygon(50% 0%, 100% 100%, 0 100%)', // A simple hill shape
@@ -54,13 +56,23 @@ module.exports = {
         star: 'var(--star-color)',
       },
       keyframes: {
+        bubble: {
+          '0%': { transform: 'translateY(100%)', opacity: 0 },
+          '100%': { transform: 'translateY(0%)', opacity: 1 },
+        },
         rotatePlanet: {
           '0%': { backgroundPosition: '0% 0%' },
           '100%': { backgroundPosition: '200% 0%' },
         },
+        waves: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '50%': { transform: 'translateX(-25%)' },
+        },
       },
       animation: {
+        bubble: 'bubble 10s ease-in-out infinite',
         rotatePlanet: 'rotatePlanet 85s linear infinite',
+        waves: 'waves 10s ease infinite',
       },
       spacing: {
         18: '4.5rem',
