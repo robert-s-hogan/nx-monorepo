@@ -37,7 +37,7 @@ const Lakes: React.FC<Props> = (props) => {
         <div className="light light-2"></div>
         <div className="light light-3"></div>
         <div className="light light-4"></div>
-        <div className="light light-5"></div>
+        <div className="light light-5"></div>d
         <div className="light light-6"></div>
         <div className="light light-7"></div>
         <div className="water"></div>

@@ -94,7 +94,7 @@ export function RSHModal({
                     name="name"
                     placeholder="Full Name"
                     required
-                    className="w-100"
+                    className="w-full"
                   />
                 </Flex>
 
@@ -108,7 +108,7 @@ export function RSHModal({
                     name="email"
                     placeholder="Email"
                     required
-                    className="w-100 mt-2"
+                    className="w-full mt-2"
                   />
                 </Flex>
 
@@ -121,7 +121,7 @@ export function RSHModal({
                     name="message"
                     required
                     placeholder="What would you like to start building?"
-                    className="w-100"
+                    className="w-full"
                   />
                 </Flex>
 

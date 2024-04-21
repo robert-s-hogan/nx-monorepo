@@ -22,7 +22,7 @@ const SwapiCardsDesert: React.FC<SwapiCardDesertProps> = (props) => {
       <div className="row-two bg-yellow absolute w-full h-14 top-14"></div>
       <div className="row-three bg-orange absolute w-full h-14 top-28"></div>
       <div className="row-four bg-red absolute w-full h-14 top-40"></div>
-      <div className="row-five bg-brown absolute w-full h-41 z-10 top-52"></div>
+      <div className="row-five bg-brown absolute w-full h-44 z-10 top-52"></div>
       <div className="details">
         <div className="big-circle bg-red absolute -left-8 top-24 w-36 h-36 rounded-full"></div>
         <div className="small-circle bg-red absolute rounded-full top-36 left-36 w-20 h-20"></div>

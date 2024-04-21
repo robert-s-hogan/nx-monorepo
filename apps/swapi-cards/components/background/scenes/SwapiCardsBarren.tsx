@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import SwapiCardsCactus from './SwapiCardsCactus';
-import SwapiCardsMountain from './SwapiCardsMountain';
-import SwapiCardsSky from './SwapiCardsSky';
-import SwapiCardsSun from './SwapiCardsSun';
+import Cactus from '../partials/SwapiCardsCactus';
+import Mountain from '../partials/SwapiCardsMountainOne';
+import Sky from '../partials/SwapiCardsSky';
+import Sun from '../partials/SwapiCardsSun';
 
 interface SwapiCardsBarrenProps {
   homeworld: string;
@@ -23,10 +23,10 @@ const SwapiCardsBarren: React.FC<SwapiCardsBarrenProps> = (props) => {
         {homeworldName}
       </h3>
       <div className="content-wrapper w-96 h-96 relative lg:w-80 xl:w-72 ">
-        <SwapiCardsSky count={50} />
-        <SwapiCardsSun />
-        <SwapiCardsMountain />
-        <SwapiCardsCactus />
+        <Sky className="fill-sky" color="var(--sky)" />
+        <Sun className="fill-sun" color="var(--sun)" />
+        <Mountain className="fill-mountain" color="var(--mountain)" />
+        <Cactus className="fill-cactus" color="var(--cactus)" />
       </div>
     </div>
   );

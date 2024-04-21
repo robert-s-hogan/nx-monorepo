@@ -1,90 +1,95 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface SwapiCardsFaceProps {
   name: string;
   hairColor: string;
   eyeColor: string;
-  gender: string;
   skinColor: string;
+  gender: string;
   homeworld: string;
   styles: string;
   updateColors?: (url: string) => void;
 }
 
 const SwapiCardsFace: React.FC<SwapiCardsFaceProps> = (props) => {
-  const { hairColor, eyeColor, skinColor, gender, styles } = props;
+  const { eyeColor, skinColor, gender, styles } = props;
 
-  const [cleanHair, setCleanHair] = useState('');
-  const [cleanEye, setCleanEye] = useState('');
-  const [cleanSkin, setCleanSkin] = useState('');
-  const [female, setFemale] = useState('');
+  const [skinGradientId, setSkinGradientId] = useState('');
+  const [eyeGradientId, setEyeGradientId] = useState('');
+  const [useSkinGradient, setUseSkinGradient] = useState(false);
+  const [useEyeGradient, setUseEyeGradient] = useState(false);
 
-  async function selectGender(gender: string) {
-    let tempFemale = gender.search('female');
-    if (tempFemale === 0) {
-      setFemale('female');
-    }
-  }
-
-  async function updateHairColors(hairColor: string) {
-    let temp = hairColor.replace(/, /g, '-');
-    setCleanHair(temp);
-  }
-
-  async function updateEyeColors(eyeColor: string) {
-    let temp = eyeColor.replace(/, /g, '-');
-    setCleanEye(temp);
-  }
-  async function updateSkinColors(skinColor: string) {
-    let temp = skinColor.replace(/, /g, '-');
-    setCleanSkin(temp);
-  }
+  const skinColors = skinColor.split(',').map((color) => color.trim());
+  const eyeColors = eyeColor.split(',').map((color) => color.trim());
 
   useEffect(() => {
-    updateHairColors(hairColor);
-    updateEyeColors(eyeColor);
-    updateSkinColors(skinColor);
-    selectGender(gender);
-  }, [hairColor, skinColor, eyeColor, gender]);
+    setUseSkinGradient(skinColors.length > 1);
+    setUseEyeGradient(eyeColors.length > 1);
+
+    setSkinGradientId(
+      `skinGradient-${Math.random().toString(36).substr(2, 9)}`
+    );
+    setEyeGradientId(`eyeGradient-${Math.random().toString(36).substr(2, 9)}`);
+  }, [skinColor, eyeColor]);
 
   return (
-    <div className={styles}>
-      <div
-        className={
-          !female
-            ? `hair absolute top-2 right-34 w-40 h-40 mx-auto rounded-full rounded-tr-3xl bg-${cleanHair} text-white`
-            : `hair absolute top-2 right-34 w-40 h-48 mx-auto bg-black rounded-t-full rounded-3xl`
-        }
-      >
-        {female && (
-          <div className="bangs relative w-32 h-16 mx-auto bg-black rounded-full rounded-b-3xl z-10"></div>
+    <svg
+      viewBox="0 0 1024 1024"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`h-full w-full absolute -inset-1 ${styles}`}
+    >
+      <defs>
+        {useSkinGradient && (
+          <linearGradient
+            id={skinGradientId}
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
+            {skinColors.map((color, index) => (
+              <stop
+                key={index}
+                offset={`${(index / (skinColors.length - 1)) * 100}%`}
+                style={{ stopColor: color }}
+              />
+            ))}
+          </linearGradient>
         )}
-      </div>
-      <div
-        className={`face shadow-2xl top-4 right-32 absolute w-40 h-40 rounded-full bg-${cleanSkin}`}
-      >
-        <div className="smile1 top-24 left-8 bg-white h-12 w-12 absolute rounded-bl-full"></div>
-        <div className="smile2 top-24 left-20 bg-white h-12 w-12 absolute rounded-br-full"></div>
-        <div
-          className={`eye w-2 h-4 md:w-3 md:h-5 eye-left top-14 left-12 absolute rounded-md bg-${cleanEye}`}
-        ></div>
-        <div
-          className={`eye w-2 h-4 md:w-3 md:h-5 eye-right top-14 right-12 absolute rounded-md bg-${cleanEye}`}
-        ></div>
-        <div
-          className={`ear rounded-full h-9 w-7 md:h-11 md:w-9 ear-left top-14 -left-4 absolute -z-10 bg-${cleanSkin}`}
-        ></div>
-        <div
-          className={`ear rounded-full h-9 w-7 md:h-11 md:w-9 ear-right top-14 -right-4 absolute bg-${cleanSkin}`}
-        ></div>
-        <div
-          className={`eyebrow-left h-2 w-5 md:h-2.5 md:w-7 top-10 left-8 absolute rounded-md bg-${hairColor}`}
-        ></div>
-        <div
-          className={`eyebrow-right h-2 w-5 md:h-2.5 md:w-7 top-10 right-12 absolute bg-${hairColor} rounded-md`}
-        ></div>
-      </div>
-    </div>
+        {useEyeGradient && (
+          <linearGradient
+            id={eyeGradientId}
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
+            {eyeColors.map((color, index) => (
+              <stop
+                key={index}
+                offset={`${(index / (eyeColors.length - 1)) * 100}%`}
+                style={{ stopColor: color }}
+              />
+            ))}
+          </linearGradient>
+        )}
+      </defs>
+      <circle
+        cx="764" // Adjusted for bottom right
+        cy="944" // Adjusted for bottom right
+        r="240"
+        fill={
+          useSkinGradient
+            ? `url(#${skinGradientId})`
+            : `var(--${skinColors[0]})`
+        }
+      />
+      <circle cx="694" cy="904" r="100" fill="white" />
+      <circle cx="834" cy="904" r="100" fill="white" />
+      <circle cx="694" cy="904" r="20" fill="black" />
+      <circle cx="844" cy="904" r="20" fill="black" />
+      <ellipse rx="20" ry="40" cx="769" cy="1054" fill="crimson" />
+    </svg>
   );
 };
 

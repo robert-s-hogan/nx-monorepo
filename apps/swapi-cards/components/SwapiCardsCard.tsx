@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 
-import CardTitle from './SwapiCardsCardTitle';
 import CardFace from './SwapiCardsFace';
 // import CardHomeworld from '../cardHomeworld/CardHomeworld';
 import HomeworldBackground from './homeworldBackground/HomeworldBackground';
@@ -46,7 +45,7 @@ const SwapiCardsCard = React.memo<SwapiCardsCardProps>(
 
     return (
       <div
-        className={`card bg-${homeworldName} rounded-lg relative h-96 overflow-hidden w-100 md:w-84 lg:w-80 xl:w-72 ${
+        className={`card bg-${homeworldName} rounded-lg relative h-96 overflow-hidden w-full md:w-84 lg:w-80 xl:w-72 ${
           isShown ? `` : 'opacity-70'
         }`}
         key={name}
@@ -65,11 +64,11 @@ const SwapiCardsCard = React.memo<SwapiCardsCardProps>(
         <HomeworldBackground
           homeworld={homeworldName}
           planet={homeworld}
-          styles="card-background absolute overflow-hidden inner-box absolute h-96 w-100 md:w-96 lg:w-80 xl:w-72 -z-10"
+          styles="card-background absolute overflow-hidden inner-box absolute h-96 w-full md:w-96 lg:w-80 xl:w-72 -z-10"
         />
-        {!isShown && (
+        {/* {!isShown && (
           <>
-            <CardTitle name={name} eyeColor={eye_color} />
+            <p>{name}</p>
             <div
               className={
                 !isShown
@@ -79,7 +78,6 @@ const SwapiCardsCard = React.memo<SwapiCardsCardProps>(
             >
               <div className="card-inner h-full flex flex-col">
                 <ul className="px-4">
-                  {/* <CardHomeworld homeworld={homeworldName} /> */}
                   <li className="mx-0">Mass: {mass}</li>
                   <li className="mx-0">Height: {height}</li>
                   <li className="mx-0">DOB: {birth_year}</li>
@@ -91,7 +89,7 @@ const SwapiCardsCard = React.memo<SwapiCardsCardProps>(
               </div>
             </div>
           </>
-        )}
+        )} */}
       </div>
     );
   }

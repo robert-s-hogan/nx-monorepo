@@ -29,7 +29,11 @@ const SwapiCardsSearchBar: React.FC = () => {
             onChange={(e) => setCharacter(e.target.value)}
           />
         </label>
-        <button className="rotate-1" type="submit" disabled={!character.trim()}>
+        <button
+          className="uppercase"
+          type="submit"
+          disabled={!character.trim()}
+        >
           Search
         </button>
       </form>

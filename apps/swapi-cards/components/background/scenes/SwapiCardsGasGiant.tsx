@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import SwapiCardsSky from './SwapiCardsSky';
+import SwapiCardsSky from '../partials/SwapiCardsSky';
 
 interface SwapiCardsGasGiantProps {
   homeworld: string;
@@ -20,7 +20,7 @@ const SwapiCardsGasGiant: React.FC<SwapiCardsGasGiantProps> = (props) => {
         {homeworldName}
       </h3>
       <div className="content-wrapper w-96 h-96 relative lg:w-80 xl:w-72 ">
-        <SwapiCardsSky count={100} />
+        <SwapiCardsSky className="fill-sky" color="var(--sky)" />
         <pre className="bg-white text-black">Gas Giant</pre>
         <div className="gas-giant absolute top-0 left-0 w-96 h-96 z-[-1] shadow-inner rounded-full animate-rotatePlanet"></div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SwapiCardsTree from './SwapiCardsTree';
+import SwapiCardsTree from '../partials/SwapiCardsTree';
 
 const forestsAnimationStyles = `
   @keyframes rain {
@@ -71,13 +71,13 @@ function renderTrees(
 ) {
   return (
     <div className={`${positionClass} h-full w-full absolute`} style={position}>
-      {treeConfigurations.map((tree) => (
+      {/* {treeConfigurations.map((tree) => (
         <SwapiCardsTree
           key={tree.positionClass}
           style={tree.position}
           {...tree}
         />
-      ))}
+      ))} */}
     </div>
   );
 }

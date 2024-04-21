@@ -106,10 +106,10 @@ function App() {
         <Header />
         <div className="flex justify-center max-w-4xl xl:max-w-7xl container mx-auto mt-8">
           <form
-            className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full md:mx-2"
+            className="w-full flex space-between space-x-8"
             onSubmit={getSearchData}
           >
-            <label htmlFor="character" className="w-full md:col-span-3">
+            <label htmlFor="character" className="w-full">
               <input
                 id="character"
                 className="w-full"
@@ -118,7 +118,11 @@ function App() {
                 onChange={(e) => setCharacter(e.target.value)}
               />
             </label>
-            <button className="rotate-1" type="submit" disabled={!character}>
+            <button
+              className="letter-box uppercase"
+              type="submit"
+              disabled={!character}
+            >
               Search
             </button>
           </form>
