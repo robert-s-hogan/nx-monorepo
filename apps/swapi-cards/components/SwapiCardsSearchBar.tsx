@@ -3,20 +3,20 @@ import useSWAPIFetch from '../hooks/useSWAPIFetch';
 import { StarWarsCharacter } from '../types';
 
 const SwapiCardsSearchBar: React.FC = () => {
-  const { data, fetchPage } = useSWAPIFetch<StarWarsCharacter[]>(
-    'https://swapi.dev/api/people/'
-  );
+  // const { data, fetchPage } = useSWAPIFetch<StarWarsCharacter[]>(
+  //   'https://swapi.dev/api/people/'
+  // );
   const [character, setCharacter] = useState('');
 
-  const handleSearch = (event: React.FormEvent) => {
-    event.preventDefault();
-    const searchUrl = `https://swapi.dev/api/people/?search=${character}`;
-    fetchPage(searchUrl);
-  };
+  // const handleSearch = (event: React.FormEvent) => {
+  //   event.preventDefault();
+  //   const searchUrl = `https://swapi.dev/api/people/?search=${character}`;
+  //   fetchPage(searchUrl);
+  // };
 
   return (
     <div className="flex justify-center max-w-4xl container mx-auto my-8">
-      <form
+      {/* <form
         className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full mx-2"
         onSubmit={handleSearch}
       >
@@ -36,17 +36,17 @@ const SwapiCardsSearchBar: React.FC = () => {
         >
           Search
         </button>
-      </form>
-      {data && data.length > 0 && (
+      </form> */}
+      {/* {data && data.length > 0 && (
         <p className="text-white block text-center search-results">
           {data.length} results found
         </p>
-      )}
-      {data && data.length === 0 && (
+      )} */}
+      {/* {data && data.length === 0 && (
         <p className="text-white block text-center search-results">
           No results found
         </p>
-      )}
+      )} */}
     </div>
   );
 };

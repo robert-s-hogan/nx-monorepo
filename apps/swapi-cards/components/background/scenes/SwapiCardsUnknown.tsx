@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 interface SwapiCardsUnknownProps {
   homeworld: string;
-  terrain: string | null;
+  terrain: string;
 }
 
 // Star component for a single star
@@ -18,18 +18,16 @@ function SwapiCardsStar() {
   );
 }
 
-const SwapiCardsUnknown: React.FC<SwapiCardsUnknownProps> = ({ homeworld }) => {
-  const [homeworldName, setHomeworldName] = useState('');
-  useEffect(() => {
-    setHomeworldName(homeworld);
-  }, [homeworld]);
-
+const SwapiCardsUnknown: React.FC<SwapiCardsUnknownProps> = ({
+  homeworld,
+  terrain,
+}) => {
   const starCount = 100; // Number of stars to display
 
   return (
     <div className="relative w-96 h-96 lg:w-80 xl:w-72 bg-black z-0">
       <h3 className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-white">
-        {homeworldName}
+        {homeworld}{' '}
       </h3>
       {/* Generating multiple stars dynamically */}
       {Array.from({ length: starCount }).map((_, index) => (

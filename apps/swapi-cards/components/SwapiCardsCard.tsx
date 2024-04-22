@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 
 import CardFace from './SwapiCardsFace';
-// import CardHomeworld from '../cardHomeworld/CardHomeworld';
-import HomeworldBackground from './homeworldBackground/HomeworldBackground';
+import HomeworldBackground from './background/HomeworldBackground';
 import useSWAPIFetch from '../hooks/useSWAPIFetch';
 
 interface SwapiCardsCardProps {
@@ -23,8 +22,8 @@ const SwapiCardsCard = React.memo<SwapiCardsCardProps>(
     mass,
     height,
     hair_color,
-    skin_color,
     eye_color,
+    skin_color,
     birth_year,
     gender,
     homeworld,
@@ -38,14 +37,14 @@ const SwapiCardsCard = React.memo<SwapiCardsCardProps>(
 
     useEffect(() => {
       // Assuming 'data' contains the name of the homeworld directly
-      if (data && !loading && !error) {
+      if (data) {
         setHomeworldName(data[0]);
       }
     }, [data, loading, error]);
 
     return (
       <div
-        className={`card bg-${homeworldName} rounded-lg relative h-96 overflow-hidden w-full md:w-84 lg:w-80 xl:w-72 ${
+        className={`card rounded-lg relative h-96 overflow-hidden w-full md:w-84 lg:w-80 xl:w-72 ${
           isShown ? `` : 'opacity-70'
         }`}
         key={name}
@@ -54,10 +53,13 @@ const SwapiCardsCard = React.memo<SwapiCardsCardProps>(
       >
         <CardFace
           name={name}
-          hairColor={hair_color}
-          eyeColor={eye_color}
+          mass={mass}
+          height={height}
+          hair_color={hair_color}
+          skin_color={skin_color}
+          eye_color={eye_color}
+          birth_year={birth_year}
           gender={gender}
-          skinColor={skin_color}
           homeworld={homeworldName}
           styles="card-face container absolute bottom-36 -right-28 mr-1 mb-9 z-10"
         />
@@ -66,6 +68,7 @@ const SwapiCardsCard = React.memo<SwapiCardsCardProps>(
           planet={homeworld}
           styles="card-background absolute overflow-hidden inner-box absolute h-96 w-full md:w-96 lg:w-80 xl:w-72 -z-10"
         />
+
         {/* {!isShown && (
           <>
             <p>{name}</p>

@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 interface SwapiCardsFaceProps {
   name: string;
-  hairColor: string;
-  eyeColor: string;
-  skinColor: string;
+  height: string;
+  mass: string;
+  hair_color: string;
+  eye_color: string;
+  skin_color: string;
+  birth_year: string;
   gender: string;
   homeworld: string;
   styles: string;
@@ -12,15 +15,19 @@ interface SwapiCardsFaceProps {
 }
 
 const SwapiCardsFace: React.FC<SwapiCardsFaceProps> = (props) => {
-  const { eyeColor, skinColor, gender, styles } = props;
+  const { eye_color, skin_color, gender, styles } = props;
 
   const [skinGradientId, setSkinGradientId] = useState('');
   const [eyeGradientId, setEyeGradientId] = useState('');
   const [useSkinGradient, setUseSkinGradient] = useState(false);
   const [useEyeGradient, setUseEyeGradient] = useState(false);
 
-  const skinColors = skinColor.split(',').map((color) => color.trim());
-  const eyeColors = eyeColor.split(',').map((color) => color.trim());
+  const skinColors = skin_color
+    .split(',')
+    .map((color) => color.trim().replace(/ /g, '-'));
+  const eyeColors = eye_color
+    .split(',')
+    .map((color) => color.trim().replace(/ /g, '-'));
 
   useEffect(() => {
     setUseSkinGradient(skinColors.length > 1);
@@ -30,7 +37,7 @@ const SwapiCardsFace: React.FC<SwapiCardsFaceProps> = (props) => {
       `skinGradient-${Math.random().toString(36).substr(2, 9)}`
     );
     setEyeGradientId(`eyeGradient-${Math.random().toString(36).substr(2, 9)}`);
-  }, [skinColor, eyeColor]);
+  }, [skin_color, eye_color]);
 
   return (
     <svg
@@ -83,11 +90,26 @@ const SwapiCardsFace: React.FC<SwapiCardsFaceProps> = (props) => {
             ? `url(#${skinGradientId})`
             : `var(--${skinColors[0]})`
         }
+        className={skinColors[0] === 'metal' ? 'metal-background' : ''}
       />
       <circle cx="694" cy="904" r="100" fill="white" />
       <circle cx="834" cy="904" r="100" fill="white" />
-      <circle cx="694" cy="904" r="20" fill="black" />
-      <circle cx="844" cy="904" r="20" fill="black" />
+      <circle
+        cx="694"
+        cy="904"
+        r="20"
+        fill={
+          useEyeGradient ? `url(#${eyeGradientId})` : `var(--${eyeColors[0]})`
+        }
+      />
+      <circle
+        cx="844"
+        cy="904"
+        r="20"
+        fill={
+          useEyeGradient ? `url(#${eyeGradientId})` : `var(--${eyeColors[0]})`
+        }
+      />
       <ellipse rx="20" ry="40" cx="769" cy="1054" fill="crimson" />
     </svg>
   );

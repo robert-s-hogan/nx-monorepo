@@ -10,6 +10,7 @@
   --blond: #faf0be;
   --blue: #0c0cdb;
   --brown: #622c22;
+  --brown-mottle: #8b4513;
   --bush: #024c10; /* cls-10 */
   --bush-one: #0d7637; /* cls-6 */
   --bush-two: #88ba7b; /* cls-11 */
@@ -26,7 +27,8 @@
   --hazel: #637f19;
   --light: #fbe5ba;
   --lime-green: #b9da10;
-  --metal: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
+  --metal: linear-gradient(#5b6467 0%, #8b939a 74%);
+  --mottled-green: #3b6f3b;
   --mountain-one: #194759; /* cls-2 */
   --mountain-two: #669970; /* cls-3 */
   --mountain-three: #417656; /* cls-4 */
@@ -57,12 +59,9 @@
   --tree-five-top: #babc5a;
   --tree-five-trunk: #537335;
   --trunk: #374544;
+  --unknown: #000;
   --white: #f3f0f8;
-  --white-blue: linear-gradient(
-    white,
-    blue
-  ); /* Assuming a gradient for illustrative purposes */
-
+  --white-blue: linear-gradient(white, blue);
   --yellow: #fed064;
 }
 
@@ -246,4 +245,8 @@ button[disabled] {
   100% {
     opacity: 0.2;
   }
+}
+
+.metal-background {
+  background: var(--metal);
 }

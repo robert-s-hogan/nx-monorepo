@@ -1,120 +1,140 @@
-import React, { useState, useEffect } from 'react';
-import SwapiCardsTree from '../partials/SwapiCardsTree';
-
-const forestsAnimationStyles = `
-  @keyframes rain {
-    from {
-      background-position: 0 0;
-    }
-    to {
-      background-position: 20% 100%;
-    }
-  }
-`;
+const Scene = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 400 500" // Adjusted to the aspect ratio of the container
+      preserveAspectRatio="xMidYMid meet" // This will center the SVG in the viewbox
+      style={{
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+        left: 0,
+        top: 0,
+      }}
+    >
+      <g>
+        <rect
+          x="357.275"
+          y="346.022"
+          style={{ fill: '#875B51' }}
+          width="16.879"
+          height="84.396"
+        />
+        <rect
+          x="137.846"
+          y="346.022"
+          style={{ fill: '#875B51' }}
+          width="16.879"
+          height="84.396"
+        />
+      </g>
+      <polygon
+        style={{ fill: '#AAC36D' }}
+        points="512,421.978 512,512 478.242,512 444.484,466.989 478.242,421.978 "
+      />
+      <rect
+        y="421.978"
+        style={{ fill: '#CAED73' }}
+        width="478.242"
+        height="90.022"
+      />
+      <polygon
+        style={{ fill: '#AAC36D' }}
+        points="446.554,240.764 475.429,240.764 415.834,137.232 438.857,127.066 365.714,0 
+	320.703,207.006 365.714,354.462 512,354.462 "
+      />
+      <polygon
+        style={{ fill: '#CAED73' }}
+        points="365.714,354.462 219.429,354.462 284.875,240.764 256,240.764 321.446,127.066 
+	292.571,127.066 365.714,0 "
+      />
+      <polygon
+        style={{ fill: '#7F9058' }}
+        points="227.125,240.764 256,240.764 196.405,137.232 219.429,127.066 146.286,0 112.527,207.006 
+	146.286,354.462 292.571,354.462 "
+      />
+      <polygon
+        style={{ fill: '#95AC66' }}
+        points="146.286,354.462 0,354.462 65.446,240.764 36.571,240.764 102.017,127.066 73.143,127.066 
+	146.286,0 "
+      />
+      <path
+        style={{ fill: '#7F9058' }}
+        d="M112.527,282.964c-4.661,0-8.44-3.779-8.44-8.44v-11.253c0-4.661,3.779-8.44,8.44-8.44
+	c4.661,0,8.44,3.779,8.44,8.44v11.253C120.967,279.185,117.188,282.964,112.527,282.964z"
+      />
+      <path
+        style={{ fill: '#95AC66' }}
+        d="M180.044,249.206c-4.661,0-8.44-3.779-8.44-8.44v-11.253c0-4.661,3.779-8.44,8.44-8.44
+	s8.44,3.779,8.44,8.44v11.253C188.484,245.427,184.705,249.206,180.044,249.206z"
+      />
+      <path
+        style={{ fill: '#AAC36D' }}
+        d="M331.956,210.989c-4.661,0-8.44-3.779-8.44-8.44v-11.253c0-4.661,3.779-8.44,8.44-8.44
+	s8.44,3.779,8.44,8.44v11.253C340.396,207.21,336.617,210.989,331.956,210.989z"
+      />
+      <path
+        style={{ fill: '#7F9058' }}
+        d="M399.473,301.011c-4.661,0-8.44-3.779-8.44-8.44v-11.253c0-4.661,3.779-8.44,8.44-8.44
+	s8.44,3.779,8.44,8.44v11.253C407.912,297.232,404.133,301.011,399.473,301.011z"
+      />
+      <g>
+        <path
+          style={{ fill: '#AAC36D' }}
+          d="M33.758,469.802c-4.661,0-8.44-3.779-8.44-8.44V450.11c0-4.661,3.779-8.44,8.44-8.44
+		s8.44,3.779,8.44,8.44v11.253C42.198,466.024,38.419,469.802,33.758,469.802z"
+        />
+        <path
+          style={{ fill: '#AAC36D' }}
+          d="M67.516,492.308c-4.661,0-8.44-3.779-8.44-8.44v-11.253c0-4.661,3.779-8.44,8.44-8.44
+		s8.44,3.779,8.44,8.44v11.253C75.956,488.529,72.177,492.308,67.516,492.308z"
+        />
+      </g>
+      <g>
+        <path
+          style={{ fill: '#95AC66' }}
+          d="M101.275,481.055c-4.661,0-8.44-3.779-8.44-8.44v-11.253c0-4.661,3.779-8.44,8.44-8.44
+		c4.661,0,8.44,3.779,8.44,8.44v11.253C109.714,477.276,105.936,481.055,101.275,481.055z"
+        />
+        <path
+          style={{ fill: '#95AC66' }}
+          d="M447.297,469.802c-4.661,0-8.44-3.779-8.44-8.44V450.11c0-4.661,3.779-8.44,8.44-8.44
+		s8.44,3.779,8.44,8.44v11.253C455.736,466.024,451.958,469.802,447.297,469.802z"
+        />
+      </g>
+      <g>
+        <path
+          style={{ fill: '#AAC36D' }}
+          d="M320.703,492.308c-4.661,0-8.44-3.779-8.44-8.44v-11.253c0-4.661,3.779-8.44,8.44-8.44
+		s8.44,3.779,8.44,8.44v11.253C329.143,488.529,325.364,492.308,320.703,492.308z"
+        />
+        <path
+          style={{ fill: '#AAC36D' }}
+          d="M354.462,492.308c-4.661,0-8.44-3.779-8.44-8.44v-11.253c0-4.661,3.779-8.44,8.44-8.44
+		s8.44,3.779,8.44,8.44v11.253C362.901,488.529,359.122,492.308,354.462,492.308z"
+        />
+        <path
+          style={{ fill: '#AAC36D' }}
+          d="M196.923,492.308c-4.661,0-8.44-3.779-8.44-8.44v-11.253c0-4.661,3.779-8.44,8.44-8.44
+		c4.661,0,8.44,3.779,8.44,8.44v11.253C205.363,488.529,201.584,492.308,196.923,492.308z"
+        />
+      </g>
+    </svg>
+  );
+};
 
 interface SwapiCardsForestProps {
   homeworld: string;
   terrain: string;
 }
-const treeConfigurations = [
-  {
-    backgroundColor: 'var(--tree-one-top)',
-    trunkColor: 'var(--tree-one-trunk)',
-    topRounded:
-      'rounded-tl-[37%] rounded-tr-[51%] rounded-br-[34%] rounded-bl-[43%] rounded-t-[57%] rounded-b-[27%]',
-    bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
-    rotateDeg: '45deg',
-    position: { right: '-20%', top: '7%' },
-    positionClass: 'forest-row-one',
-  },
-  {
-    backgroundColor: 'var(--tree-two-top)',
-    trunkColor: 'var(--tree-two-trunk)',
-    topRounded: 'rounded-[100%_36%_51%_42%/100%_100%_33%_21%]',
-    bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
-    rotateDeg: '45deg',
-    position: { left: '20%', top: '5%' },
-    positionClass: 'forest-row-two',
-  },
-  {
-    backgroundColor: 'var(--tree-three-top)',
-    trunkColor: 'var(--tree-three-trunk)',
-    topRounded: 'rounded-[100%_79%_63%_54%/100%_82%_46%_53%]',
-    bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
-    rotateDeg: '49deg',
-    position: { left: '40%', top: '8%' },
-    positionClass: 'forest-row-three',
-  },
-  {
-    backgroundColor: 'var(--tree-four-top)',
-    trunkColor: 'var(--tree-four-trunk)',
-    topRounded: 'rounded-[100%_79%_63%_54%/100%_89%_60%_53%]',
-    bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
-    rotateDeg: '45deg',
-    position: { left: '60%', top: '3%' },
-    positionClass: 'forest-row-four',
-  },
-  {
-    backgroundColor: 'var(--tree-five-top)',
-    trunkColor: 'var(--tree-five-trunk)',
-    topRounded: 'rounded-[46%_100%_63%_47%/100%_89%_46%_39%]',
-    bottomRounded: 'rounded-[30%_70%_53%_47%/76%_69%_31%_24%]',
-    rotateDeg: '49deg',
-    position: { left: '80%', top: '10%' },
-    positionClass: 'forest-row-five',
-  },
-];
-
-function renderTrees(
-  positionClass: string,
-  position: { left: string; top: string; zIndex?: number }
-) {
-  return (
-    <div className={`${positionClass} h-full w-full absolute`} style={position}>
-      {/* {treeConfigurations.map((tree) => (
-        <SwapiCardsTree
-          key={tree.positionClass}
-          style={tree.position}
-          {...tree}
-        />
-      ))} */}
-    </div>
-  );
-}
 
 function SwapiCardsForest({ homeworld, terrain }: SwapiCardsForestProps) {
-  const [findTerrain, setFindTerrain] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (terrain?.startsWith('rainforest')) {
-      setFindTerrain('rainforest');
-    }
-  }, [homeworld, terrain]);
-
   return (
     <>
-      <style>{forestsAnimationStyles}</style>
-      <div className={`w-96 h-96 relative bg-white -z-10`}>
-        {findTerrain && (
-          <div className="absolute inset-0 bg-[url('https://i.postimg.cc/XvR6CjbY/rain.png')] animate-rain"></div>
-        )}
-        <h3 className="absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-black z-20">
-          {homeworld}
-        </h3>
-        {renderTrees('forest-row-one', { left: '-30%', top: '0%', zIndex: 2 })}
-        {renderTrees('forest-row-two', { left: '-20%', top: '20%', zIndex: 3 })}
-        {renderTrees('forest-row-three', {
-          left: '-25%',
-          top: '35%',
-          zIndex: 4,
-        })}
-        {renderTrees('forest-row-four', { left: '-5%', top: '28%', zIndex: 5 })}
-        {renderTrees('forest-row-five', {
-          left: '-15%',
-          top: '13%',
-          zIndex: 6,
-        })}
-      </div>
+      <h3 className="absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-black z-20">
+        {homeworld}{' '}
+      </h3>
+      <Scene />
     </>
   );
 }
