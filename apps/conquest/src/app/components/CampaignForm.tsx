@@ -66,7 +66,7 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
       onSubmit={formik.handleSubmit}
       className="flex flex-col space-y-4 pt-4"
     >
-      <pre>campaign: {JSON.stringify(campaign, null, 2)}</pre>
+      {/* <pre>campaign: {JSON.stringify(campaign, null, 2)}</pre> */}
 
       {/* Name input */}
       <div className="space-y-1">
