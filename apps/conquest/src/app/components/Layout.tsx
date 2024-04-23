@@ -17,14 +17,11 @@ const Layout = ({ children, title, loading }: LayoutProps) => {
           <nav className="w-full flex items-center justify-between max-w-4xl 2xl:max-w-7xl container mx-auto lg:mx-auto">
             <div className="animate-pulse flex items-center py-3 px-4 w-full justify-between">
               <div className="rounded-lg bg-gray-200 h-10 w-10"></div>
-              {/* Logo placeholder */}
               <div className="">
                 <div className="h-4 bg-gray-200 rounded w-32"></div>
-                {/* Title placeholder */}
               </div>
               <div className="flex items-center space-x-4">
                 <div className="h-6 w-6 bg-gray-200 rounded"></div>
-                {/* Button or user greeting placeholder */}
               </div>
             </div>
           </nav>

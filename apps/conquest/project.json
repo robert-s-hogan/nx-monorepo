@@ -9,7 +9,14 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/conquest"
+        "outputPath": "dist/apps/conquest",
+        "assets": [
+          {
+            "input": "./apps/conquest/public",
+            "glob": "**/*.*",
+            "output": "./public"
+          }
+        ]
       },
       "configurations": {
         "development": {

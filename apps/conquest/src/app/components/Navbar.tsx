@@ -26,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ title }) => {
           <Link href="/">
             <Image
               src={LOGO}
-              alt="The Hogans Logo"
+              alt="Conquest Logo"
               width={64}
               height={64}
               priority
