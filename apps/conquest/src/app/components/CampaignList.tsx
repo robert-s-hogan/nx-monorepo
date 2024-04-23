@@ -89,7 +89,7 @@ const CampaignList: React.FC<CampaignListProps> = ({
                     </div>
                     <div className="grid grid-cols-1 gap-8">
                       <div>
-                        <h2 className="font-bold">XP Calculations</h2>
+                        <h2>XP Calculations</h2>
                         <p>
                           Player Experience Start:{' '}
                           {campaign.playerExperienceStart}
@@ -142,12 +142,10 @@ const CampaignList: React.FC<CampaignListProps> = ({
                       </div>
                       <p>{campaign.description}</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 bg-gray-300">
-                      <h2 className="py-1 px-6 bg-white border-t border-b border-t-2 border-b-2 border-t-black border-b-black">
-                        XP Calculations
-                      </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                       <div />
                       <div className="p-3 col-span-2 space-y-2 text-lg">
+                        <h2 className="py-1 bg-white">XP Calculations</h2>
                         <p>XP Progress Bar</p>
                         <ProgressBar
                           xpStart={campaign.levelDetails?.xpStart}

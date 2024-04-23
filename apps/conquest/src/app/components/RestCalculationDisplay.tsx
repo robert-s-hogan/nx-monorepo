@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const RestCalculationDisplay: React.FC<{
   playerExperienceStart: number;
@@ -22,21 +22,24 @@ const RestCalculationDisplay: React.FC<{
   // Calculate the percentage for the dynamic long rest threshold
   const longRestThresholdPercentage =
     (xpThresholdEasy / adventuringDayXPLimit) * 100;
+  const [showTooltip, setShowTooltip] = useState(false);
 
   return (
     <div className="space-y-2">
       <div className="w-full flex items-center">
-        <h2 className="py-1 px-6 bg-white border-t border-b border-t-2 border-b-2 border-t-black border-b-black">
-          Rest Calculations
-        </h2>
+        <h2 className="py-1 bg-white">Rest Calculations</h2>
         <div />
       </div>
       <div className="w-full flex items-center justify-between">
         <p>Rest Progress Bar</p>
       </div>
-      <div className="relative mt-4 mb-4 w-full bg-gray-200 rounded h-5">
+      <div
+        className="relative mt-4 mb-4 w-full bg-gray-200 rounded h-6"
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+      >
         <div
-          className="bg-blue-500 h-full"
+          className="bg-blue-500 h-full rounded"
           style={{ width: `${xpPercentage}%` }}
         ></div>
         {/* Markers for short rests and dynamic long rest thresholds */}
@@ -73,7 +76,14 @@ const RestCalculationDisplay: React.FC<{
           }}
           title="Long Rest Threshold"
         ></div>
-
+        {showTooltip && (
+          <div
+            className="absolute top-[-20px] px-1 py-0.5 rounded bg-black text-white text-xs"
+            style={{ left: `calc(${xpPercentage}% - 12px)` }}
+          >
+            {xpGained} XP ({xpPercentage.toFixed(2)}%)
+          </div>
+        )}
         {/* {shortRestsAvailable[0] ? (
           <p>First short rest taken at {xpPercentage.toFixed(2)}%.</p>
         ) : (

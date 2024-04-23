@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import LoginButton from '../components/LoginButton';
-import LogoutButton from '../components/LogoutButton';
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 import Image from 'next/image';
 import Link from 'next/link';
 

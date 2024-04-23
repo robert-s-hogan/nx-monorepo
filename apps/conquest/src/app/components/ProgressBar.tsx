@@ -30,7 +30,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       onMouseLeave={() => setShowTooltip(false)}
     >
       <div
-        className="bg-blue-600 h-full rounded"
+        className="bg-blue-500 h-full rounded"
         style={{ width: `${progressPercentage}%` }}
       ></div>
 

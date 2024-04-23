@@ -2,7 +2,7 @@
 import React from 'react';
 import useSWR from 'swr';
 
-import Layout from '../../../components/Layout'; // Adjust if you have a different layout
+import Layout from '../../../components/ConquestLayout'; // Adjust if you have a different layout
 import { Encounter } from '../../../types'; // Adjust if you have a different type
 import { fetchEncounters as fetchEncountersService } from '../../../services/encounterService'; // Adjust if you have a different service
 import EncounterListWithModal from '../../../components/EncounterListWithModal'; // Adjust if you have a different component

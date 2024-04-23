@@ -4,7 +4,7 @@ import React from 'react';
 import { NextPage } from 'next';
 import useSWR from 'swr';
 
-import Layout from '../components/Layout';
+import Layout from '../components/ConquestLayout';
 import withAuth from '../utils/withAuth';
 import { Campaign } from '../types';
 import { fetchCampaigns as fetchCampaignsService } from '../services/campaignService';

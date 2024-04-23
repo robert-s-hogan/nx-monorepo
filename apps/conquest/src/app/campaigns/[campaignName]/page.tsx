@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { NextPage } from 'next';
-import Layout from '../../components/Layout';
+import Layout from '../../components/ConquestLayout';
 import EncounterListWithModal from '../../components/EncounterListWithModal';
 import { EncounterProvider } from '../../contexts/EncounterContext';
 import { useEncounters } from '../../hooks/useEncounters';
