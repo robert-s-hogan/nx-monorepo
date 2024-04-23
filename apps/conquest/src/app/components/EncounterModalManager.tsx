@@ -41,7 +41,7 @@ const EncounterModalManager = ({
         return (
           <EncounterForm
             encounter={encounter}
-            campaignId={selectedCampaign?.id ?? ''} // Pass the id of selectedCampaign, with fallback
+            campaignId={selectedCampaign?.id || ''}
             campaigns={campaigns} // Pass campaigns data to the form
             onSubmit={(formData) => handleSave(formData, operation)}
             operation={operation}

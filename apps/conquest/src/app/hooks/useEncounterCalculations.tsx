@@ -4,8 +4,7 @@ import {
   getLevelDetailsFromExperience,
   getXPThresholds,
 } from '../constants/experienceConstants';
-import { Campaign } from '../types';
-import { Difficulty } from '../types';
+import { Campaign, Difficulty } from '../types';
 
 interface LevelDetails {
   level: number;
@@ -70,11 +69,11 @@ export function useEncounterCalculations(
           details.level,
           campaign.numberOfPlayers
         );
-        setAdventuringDayXp(adventuringDayXP);
-        setAdventuringDayXPLimit(adventuringDayXP * campaign.numberOfPlayers);
+        setAdventuringDayXPLimit(adventuringDayXP);
+        setAdventuringDayXp(adventuringDayXP * campaign.numberOfPlayers); // Corrected to reflect total XP for the day based on number of players
       }
     }
-  }, [campaign, difficulty]);
+  }, [campaign, difficulty]); // Effect dependency on difficulty to trigger updates when difficulty changes
 
   return {
     levelDetails,

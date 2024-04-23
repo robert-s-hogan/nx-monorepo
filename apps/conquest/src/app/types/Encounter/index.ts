@@ -16,7 +16,7 @@ export type Encounter = {
   adventuringDayXPFinish: number;
   playerExperienceEarnedFromEncounter: number;
   playerExperienceFinish: number;
-  encounterDifficultyOptions: Difficulty; // not string!
+  encounterDifficultyOptions: Difficulty;
   levelOfPlayersCharactersFinish: number;
   longRestNeeded: boolean;
   timeSpentBetweenResting: number;
@@ -43,20 +43,18 @@ export interface EncounterDeleteConfirmationProps {
   onCancel: () => void;
 }
 
-// Your existing EncounterFormProps definition might look something like this
-export interface EncounterFormProps {
+interface EncounterFormProps {
   encounter: Encounter | null;
-  onSubmit: (values: Partial<Encounter>) => void;
-  operation: 'add' | 'edit';
-  // Add the 'campaigns' prop to the type definition
+  onSubmit: (encounter: Encounter) => void;
+  operation: 'add' | 'edit' | 'delete';
+  campaignId: string;
   campaigns?: FirestoreDocument<Campaign>[];
-  campaignId: string; // Assuming campaignId is of type string
 }
 
 export interface EncounterListProps {
   encounters?: Encounter[];
   onEdit?: (encounter: Encounter) => void;
-  onDelete?: (encounterId: string) => void; // Change from number to string
+  onDelete?: (encounterId: string) => void;
   hideEdit?: boolean;
 }
 
@@ -71,7 +69,7 @@ export interface EncounterModalProps {
   isOpen: boolean;
   onClose: () => void;
   operation?: ModalOperation;
-  encounter?: Encounter | null; // Optional encounter for context, might not be needed depending on your modal's use cases
+  encounter?: Encounter | null;
   fullScreen?: boolean;
 }
 

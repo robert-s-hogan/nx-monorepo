@@ -1,25 +1,23 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
-import { Difficulty, Encounter, EncounterFormProps } from '../types';
 import { useCampaigns } from '../hooks/useCampaigns';
 import { useRestOperations } from '../hooks/useRestOperations';
-import {
-  getAdventuringDayXpLimit,
-  getLevelDetailsFromExperience,
-  getRandomEncounterDifficulty,
-  xpThresholdsByCharLvl,
-  getXPThresholds,
-} from '../constants/experienceConstants';
+import { useEncounterCalculations } from '../hooks/useEncounterCalculations';
+import { Encounter, Campaign, Difficulty } from '../types';
+import { FirestoreDocument } from '@with-nx/firebase';
+
+interface EncounterFormProps {
+  encounter: Encounter | null;
+  onSubmit: (encounter: Encounter) => void;
+  operation: 'add' | 'edit' | 'delete';
+  campaignId: string;
+  campaigns?: FirestoreDocument<Campaign>[];
+}
 
 function formatFieldValue(value: any, inputType: string) {
   if (inputType === 'checkbox') {
-    return value;
-  }
-
-  if (typeof value === 'boolean') {
     return value ? 'Yes' : 'No';
   }
-
   return value;
 }
 
@@ -27,139 +25,77 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
   encounter,
   onSubmit,
   operation,
+  campaignId,
+  campaigns,
 }) => {
   const { selectedCampaign } = useCampaigns();
-  if (!selectedCampaign) {
-    return <p>No campaign selected</p>;
-  }
+
   const {
     longRestNeeded,
     shortRestsAvailable,
-    takeShortRest,
-    takeLongRest,
     timeSpentResting,
     timeBetweenEncounters,
-  } = useRestOperations(selectedCampaign);
+  } = useRestOperations(selectedCampaign as Campaign);
 
-  const playerStartingExperience =
-    encounter?.playerExperienceStart ||
-    selectedCampaign?.playerExperienceStart ||
-    0;
-  const levelDetails = getLevelDetailsFromExperience(playerStartingExperience);
-  const adventuringDayXP = getAdventuringDayXpLimit(
-    levelDetails.level,
-    selectedCampaign?.numberOfPlayers || 1
-  );
+  if (!selectedCampaign) {
+    return <p>No campaign selected</p>;
+  }
 
-  const [randomDifficulty, setRandomDifficulty] = useState<Difficulty>(() =>
-    getRandomEncounterDifficulty()
-  );
+  const { levelDetails, xpThresholds, adventuringDayXPLimit } =
+    useEncounterCalculations(
+      selectedCampaign,
+      encounter?.encounterDifficultyOptions || 'Medium'
+    );
 
-  const [xpThreshold, setXpThreshold] = useState(0);
+  console.log(`adventuringDayXPLimit: ${adventuringDayXPLimit}`);
 
   const formik = useFormik({
     initialValues: {
       id: encounter?.id || '',
-      campaignId: selectedCampaign?.id || '',
-      mapId: encounter?.mapId || 0,
-      playerExperienceStart: playerStartingExperience,
-      levelOfPlayersCharactersStart: levelDetails.level,
+      campaignId: campaignId || '',
+      playerExperienceStart: selectedCampaign?.playerExperienceStart || 0,
+      levelOfPlayersCharactersStart: levelDetails?.level || 1,
       adventuringDayXPLimit:
-        encounter?.adventuringDayXPLimit || adventuringDayXP,
-      adventuringDayXPStart:
-        encounter?.adventuringDayXPStart || levelDetails.xpStart || 0,
-      // adventuringDayXPFinish: encounter?.adventuringDayXPFinish || 0,
-      // playerExperienceFinish:
-      //   encounter?.playerExperienceFinish || playerStartingExperience,
-      // levelOfPlayersCharactersFinish:
-      //   encounter?.levelOfPlayersCharactersFinish || levelDetails.level || 0,
+        encounter?.adventuringDayXPLimit || adventuringDayXPLimit,
       encounterDifficultyOptions:
-        encounter?.encounterDifficultyOptions || randomDifficulty,
-      xpThreshold: encounter?.xpThreshold || xpThreshold,
+        encounter?.encounterDifficultyOptions || 'Medium',
+      xpThreshold: encounter?.xpThreshold || xpThresholds['Medium'],
       longRestNeeded: encounter?.longRestNeeded || false,
-      timeSpentBetweenResting: encounter?.timeSpentBetweenResting || 0,
-      mapShape: encounter?.mapShape || '',
-      mapTerrainType: encounter?.mapTerrainType || '',
-      startingQuadrantOfOpposition:
-        encounter?.startingQuadrantOfOpposition || '',
-      objective: encounter?.objective || '',
-      timeOfDay: encounter?.timeOfDay || '',
-      weather: encounter?.weather || false,
       timeSpentResting: timeSpentResting || 0,
       timeBetweenEncounters: timeBetweenEncounters || 0,
       shortRestsAvailable: shortRestsAvailable || [false, false],
-      // cumulativeGoldEarnedStart: encounter?.cumulativeGoldEarnedStart || 0,
-      // goldEarnedPerPlayer: encounter?.goldEarnedPerPlayer || 0,
-      // cumulativeGoldEarnedFinish: encounter?.cumulativeGoldEarnedFinish || 0,
-      // doesCaravanAppear: encounter?.doesCaravanAppear || false,
     },
     onSubmit: (values) => {
-      const startingQuadrantOfOpposition =
-        values.startingQuadrantOfOpposition === 'true' ||
-        values.startingQuadrantOfOpposition === true;
-
-      let encounterData: Partial<Encounter> = {
+      let encounterData = {
         ...values,
-        startingQuadrantOfOpposition,
+        // startingQuadrantOfOpposition:
+        //   values.startingQuadrantOfOpposition === 'true',
       };
-
-      if (operation === 'add') {
-        delete encounterData.id;
+      if (operation !== 'add') {
+        encounterData.id = values.id;
       }
 
-      onSubmit(encounterData);
+      // Casting onSubmit to the correct type signature
+      onSubmit(encounterData as unknown as Encounter);
     },
   });
 
-  //check that selectedCampaign is not undefined
-  if (!selectedCampaign) {
-    return <p>No campaign selected</p>;
-  }
+  useEffect(() => {
+    // Update formik initialValues when adventuringDayXPLimit updates
+    if (adventuringDayXPLimit !== formik.values.adventuringDayXPLimit) {
+      formik.setFieldValue('adventuringDayXPLimit', adventuringDayXPLimit);
+    }
+  }, [adventuringDayXPLimit]);
 
   useEffect(() => {
-    // Assuming `selectedCampaign.numberOfPlayers` and `selectedCampaign.levelOfPlayersCharactersStart` are defined
-    const numberOfPlayers = selectedCampaign.numberOfPlayers;
-    const characterLevel = selectedCampaign.levelOfPlayersCharactersStart;
-    const difficulty = formik.values.encounterDifficultyOptions;
-
-    const thresholds = xpThresholdsByCharLvl[characterLevel];
-    if (!thresholds) {
-      console.error('Level details not found for the given level.');
-      return;
-    }
-
-    const xpThresholdValue = getXPThresholds(
-      formik.values.levelOfPlayersCharactersStart,
-      selectedCampaign.numberOfPlayers, // Assuming selectedCampaign is a valid Campaign object
-      formik.values.encounterDifficultyOptions
+    formik.setFieldValue(
+      'xpThreshold',
+      xpThresholds[formik.values.encounterDifficultyOptions]
     );
-  }, [
-    formik.values.levelOfPlayersCharactersStart,
-    selectedCampaign.numberOfPlayers,
-    formik.values.encounterDifficultyOptions,
-    shortRestsAvailable,
-    longRestNeeded,
-  ]);
-
-  const getInputType = (value: any) => {
-    switch (typeof value) {
-      case 'boolean':
-        return 'checkbox';
-      case 'number':
-        return 'number';
-      default:
-        return 'text';
-    }
-  };
-
-  console.log(`selectedCampaign`, selectedCampaign);
+  }, [formik.values.encounterDifficultyOptions, xpThresholds]);
 
   return (
     <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-4">
-      <pre>encounter: {JSON.stringify(encounter, null, 2)}</pre>
-
-      <pre>selectedCampaign: {JSON.stringify(selectedCampaign, null, 2)}</pre>
-
       <div className="space-y-1">
         <label htmlFor="encounterDifficultyOptions">Encounter Difficulty</label>
         <select
@@ -169,7 +105,7 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
           value={formik.values.encounterDifficultyOptions}
           className="form-select"
         >
-          {Object.keys(xpThresholdsByCharLvl[1]).map((difficulty) => (
+          {Object.keys(xpThresholds).map((difficulty) => (
             <option key={difficulty} value={difficulty}>
               {difficulty}
             </option>
@@ -182,7 +118,6 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
           [
             'id',
             'campaignId',
-            'mapId',
             'levelOfPlayersCharactersStart',
             'playerExperienceStart',
             'encounterDifficultyOptions',
@@ -191,10 +126,9 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
         ) {
           return null;
         }
-
-        const inputType = getInputType(value);
+        const inputType =
+          typeof value === 'boolean' ? 'checkbox' : typeof value;
         const fieldValue = formatFieldValue(value, inputType);
-
         return (
           <div key={key} className="space-y-1">
             <label htmlFor={key}>{key}</label>

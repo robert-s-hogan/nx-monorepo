@@ -11,7 +11,6 @@ import {
 import { editCampaign } from '../services/campaignService';
 
 export const useRestOperations = (campaign: Campaign) => {
-  console.log(`Campaign: ${JSON.stringify(campaign)}`);
   const defaultResponse = {
     longRestNeeded: false,
     shortRestCounter: 0,
