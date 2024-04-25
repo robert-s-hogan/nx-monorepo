@@ -24,7 +24,11 @@ const SwapiCardsFace: React.FC<SwapiCardsFaceProps> = (props) => {
 
   const skinColors = skin_color
     .split(',')
-    .map((color) => color.trim().replace(/ /g, '-'));
+    .map((color) => color.trim().replace(/ /g, '-'))
+    .map((color) => (color === 'metal' ? ['silver', 'black'] : color))
+    .flat();
+  if (skinColors.length > 1) console.log(skinColors);
+
   const eyeColors = eye_color
     .split(',')
     .map((color) => color.trim().replace(/ /g, '-'));
@@ -90,7 +94,6 @@ const SwapiCardsFace: React.FC<SwapiCardsFaceProps> = (props) => {
             ? `url(#${skinGradientId})`
             : `var(--${skinColors[0]})`
         }
-        className={skinColors[0] === 'metal' ? 'metal-background' : ''}
       />
       <circle cx="694" cy="904" r="100" fill="white" />
       <circle cx="834" cy="904" r="100" fill="white" />
