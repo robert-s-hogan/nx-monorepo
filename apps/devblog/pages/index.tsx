@@ -96,6 +96,25 @@ export function Index({ allPostsData }) {
             ></Script>
           </dialog> */}
         </Grid>
+        <DevBlogSection className="">
+          <Flex className="flex-col justify-start flex-shrink-0 transform-none">
+            <Heading level={2} className="text-left">
+              Highlighted Projects
+            </Heading>
+            <Grid className="grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 relative gap-12">
+              {projectsData.map((project, index) => {
+                if (index < 3)
+                  return (
+                    <DevBlogHighlightedProject
+                      key={`project ${index}`}
+                      project={project}
+                    />
+                  );
+              })}
+            </Grid>
+          </Flex>
+        </DevBlogSection>
+
         <div
           id="left-circle"
           className="absolute border border-secondary rounded-100  h-155 w-295 top-[-128px] lg:top-[-64px] left-[-169px] transform rotate-[62deg] overflow-hidden z-0"

@@ -86,8 +86,8 @@ const SwapiCardsFace: React.FC<SwapiCardsFaceProps> = (props) => {
         )}
       </defs>
       <circle
-        cx="764" // Adjusted for bottom right
-        cy="944" // Adjusted for bottom right
+        cx="764"
+        cy="944"
         r="240"
         fill={
           useSkinGradient
