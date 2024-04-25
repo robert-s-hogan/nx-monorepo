@@ -21,6 +21,8 @@ export type Encounter = {
   longRestNeeded: boolean;
   timeSpentBetweenResting: number;
   timeBetweenEncounters: number;
+  adjustedExperience: number;
+  encounterXP: number;
   mapShape: string;
   mapTerrainType: string;
   startingQuadrantOfOpposition: boolean;

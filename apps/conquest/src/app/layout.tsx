@@ -1,5 +1,6 @@
 import './styles/global.css';
 import { AuthProvider } from './contexts/AuthContext';
+import Head from 'next/head';
 
 export const metadata = {
   title: 'Home | Conquest',
@@ -13,6 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <AuthProvider>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <link rel="icon" href="/conquest_favicon.ico" />
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <html lang="en">
         <body>{children}</body>
       </html>

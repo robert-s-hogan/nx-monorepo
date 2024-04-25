@@ -1,14 +1,7 @@
 import { Campaign } from '../types';
-import {
-  calculateRestsNeeded,
-  getAdventuringDayXpLimit,
-  xpThresholdsByCharLvl,
-} from '../constants/experienceConstants';
-import {
-  calculateRestTime,
-  calculateRandomTimeBetweenEncounters,
-} from '../utils/timeUtils';
+import { calculateRestsNeeded } from '../constants/experienceConstants';
 import { editCampaign } from '../services/campaignService';
+import { useRestCalculations } from './useRestCalculations'; // Import the new hook
 
 export const useRestOperations = (campaign: Campaign) => {
   const defaultResponse = {
@@ -26,33 +19,22 @@ export const useRestOperations = (campaign: Campaign) => {
     return defaultResponse;
   }
 
-  const {
-    id,
-    levelDetails,
-    playerExperienceStart,
-    numberOfPlayers,
-    shortRests = [],
-  } = campaign;
+  const { id, shortRests = [] } = campaign;
 
-  const adventuringDayXP = getAdventuringDayXpLimit(
-    levelDetails.level,
-    numberOfPlayers
-  );
+  const { timeSpentResting, timeBetweenEncounters } =
+    useRestCalculations(campaign);
+
   const rests = calculateRestsNeeded(
-    levelDetails.xpStart,
-    levelDetails.xpEnd,
-    playerExperienceStart,
-    numberOfPlayers,
-    levelDetails.level,
+    campaign.levelDetails.xpStart,
+    campaign.levelDetails.xpEnd,
+    campaign.playerExperienceStart,
+    campaign.numberOfPlayers,
+    campaign.levelDetails.level,
     shortRests
   );
 
-  // Calculate the time spent resting and time between encounters
-  const timeSpentResting = calculateRestTime(shortRests, rests.longRestNeeded);
-  const timeBetweenEncounters = calculateRandomTimeBetweenEncounters();
-
   return {
-    ...rests,
+    // ...rests,
     timeSpentResting,
     timeBetweenEncounters,
     shortRestsAvailable: shortRests.map((rest) => rest || false),

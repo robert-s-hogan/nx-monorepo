@@ -75,7 +75,7 @@ const EncounterModalManager = ({
       encounter={encounter}
       fullScreen={true}
     >
-      <div className="grid grid-cols-2 gap-4 w-full">{renderContent()}</div>
+      {renderContent()}
     </EncounterModal>
   );
 };

@@ -17,3 +17,16 @@ export const calculateRestTime = (
 export const calculateRandomTimeBetweenEncounters = () => {
   return Math.floor(Math.random() * 100) + 1; // Random number between 1 and 100
 };
+
+export function calculateTimeSpentResting(
+  longRestNeeded: boolean,
+  shortRestsAvailable: boolean[]
+) {
+  if (longRestNeeded) {
+    return 480; // 8 hours for a long rest, in minutes
+  } else if (shortRestsAvailable.includes(true)) {
+    return 60; // 60 minutes for a short rest
+  } else {
+    return 0; // No rest needed
+  }
+}

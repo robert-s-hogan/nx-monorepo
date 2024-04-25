@@ -31,10 +31,10 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
   const { selectedCampaign } = useCampaigns();
 
   const {
-    longRestNeeded,
     shortRestsAvailable,
     timeSpentResting,
     timeBetweenEncounters,
+    takeLongRest,
   } = useRestOperations(selectedCampaign as Campaign);
 
   if (!selectedCampaign) {
@@ -47,7 +47,11 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
       encounter?.encounterDifficultyOptions || 'Medium'
     );
 
-  console.log(`adventuringDayXPLimit: ${adventuringDayXPLimit}`);
+  useEffect(() => {
+    if (adventuringDayXPLimit > 0) {
+      console.log(`adventuringDayXPLimit: ${adventuringDayXPLimit}`);
+    }
+  }, [adventuringDayXPLimit]);
 
   const formik = useFormik({
     initialValues: {
@@ -64,6 +68,8 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
       timeSpentResting: timeSpentResting || 0,
       timeBetweenEncounters: timeBetweenEncounters || 0,
       shortRestsAvailable: shortRestsAvailable || [false, false],
+      adjustedExperience: encounter?.adjustedExperience || 0,
+      encounterXP: encounter?.encounterXP || 0,
     },
     onSubmit: (values) => {
       let encounterData = {
@@ -81,7 +87,6 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
   });
 
   useEffect(() => {
-    // Update formik initialValues when adventuringDayXPLimit updates
     if (adventuringDayXPLimit !== formik.values.adventuringDayXPLimit) {
       formik.setFieldValue('adventuringDayXPLimit', adventuringDayXPLimit);
     }
@@ -95,61 +100,70 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
   }, [formik.values.encounterDifficultyOptions, xpThresholds]);
 
   return (
-    <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-4">
-      <div className="space-y-1">
-        <label htmlFor="encounterDifficultyOptions">Encounter Difficulty</label>
-        <select
-          id="encounterDifficultyOptions"
-          name="encounterDifficultyOptions"
-          onChange={formik.handleChange}
-          value={formik.values.encounterDifficultyOptions}
-          className="form-select"
-        >
-          {Object.keys(xpThresholds).map((difficulty) => (
-            <option key={difficulty} value={difficulty}>
-              {difficulty}
-            </option>
-          ))}
-        </select>
+    <div className="grid grid-cols-2">
+      <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-4">
+        <div className="space-y-1">
+          <label htmlFor="encounterDifficultyOptions">
+            Encounter Difficulty
+          </label>
+          <select
+            id="encounterDifficultyOptions"
+            name="encounterDifficultyOptions"
+            onChange={formik.handleChange}
+            value={formik.values.encounterDifficultyOptions}
+            className="form-select"
+          >
+            {Object.keys(xpThresholds).map((difficulty) => (
+              <option key={difficulty} value={difficulty}>
+                {difficulty}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {Object.entries(formik.values).map(([key, value]) => {
+          if (
+            [
+              'id',
+              'campaignId',
+              'levelOfPlayersCharactersStart',
+              'playerExperienceStart',
+              'encounterDifficultyOptions',
+              'longRestNeeded',
+              'timeSpentResting',
+              'shortRestsAvailable',
+            ].includes(key)
+          ) {
+            return null;
+          }
+          const inputType =
+            typeof value === 'boolean' ? 'checkbox' : typeof value;
+          const fieldValue = formatFieldValue(value, inputType);
+          return (
+            <div key={key} className="space-y-1">
+              <label htmlFor={key}>{key}</label>
+              <input
+                id={key}
+                name={key}
+                type={inputType}
+                onChange={formik.handleChange}
+                value={fieldValue}
+                className={
+                  inputType === 'checkbox' ? 'form-checkbox' : 'form-input'
+                }
+              />
+            </div>
+          );
+        })}
+
+        <button type="submit" className="btn-primary col-span-2">
+          {operation === 'edit' ? 'Update Encounter' : 'Add Encounter'}
+        </button>
+      </form>
+      <div className="">
+        <h2>Preview</h2>
       </div>
-
-      {Object.entries(formik.values).map(([key, value]) => {
-        if (
-          [
-            'id',
-            'campaignId',
-            'levelOfPlayersCharactersStart',
-            'playerExperienceStart',
-            'encounterDifficultyOptions',
-            'longRestNeeded',
-          ].includes(key)
-        ) {
-          return null;
-        }
-        const inputType =
-          typeof value === 'boolean' ? 'checkbox' : typeof value;
-        const fieldValue = formatFieldValue(value, inputType);
-        return (
-          <div key={key} className="space-y-1">
-            <label htmlFor={key}>{key}</label>
-            <input
-              id={key}
-              name={key}
-              type={inputType}
-              onChange={formik.handleChange}
-              value={fieldValue}
-              className={
-                inputType === 'checkbox' ? 'form-checkbox' : 'form-input'
-              }
-            />
-          </div>
-        );
-      })}
-
-      <button type="submit" className="btn-primary col-span-2">
-        {operation === 'edit' ? 'Update Encounter' : 'Add Encounter'}
-      </button>
-    </form>
+    </div>
   );
 };
 
