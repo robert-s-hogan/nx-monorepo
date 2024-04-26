@@ -20485,6 +20485,15 @@
         "hash": "sha512-u15BlUIjc7f4d2o62cxix0WlgbBPN+I2gScFu4+090Qj3AS08iQytIsLsLhiY9xXAT+VHoQtKVspL0XAuv0I2A=="
       }
     },
+    "npm:react-swipeable": {
+      "type": "npm",
+      "name": "npm:react-swipeable",
+      "data": {
+        "version": "7.0.1",
+        "packageName": "react-swipeable",
+        "hash": "sha512-RKB17JdQzvECfnVj9yDZsiYn3vH0eyva/ZbrCZXZR0qp66PBRhtg4F9yJcJTWYT5Adadi+x4NoG53BxKHwIYLQ=="
+      }
+    },
     "npm:react-test-renderer": {
       "type": "npm",
       "name": "npm:react-test-renderer",
@@ -24794,22 +24803,22 @@
     "neuro-fit": [
       {
         "source": "neuro-fit",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "neuro-fit",
+        "target": "npm:react-swipeable",
+        "type": "static"
+      },
+      {
+        "source": "neuro-fit",
         "target": "npm:@nrwl/next",
         "type": "static"
       },
       {
         "source": "neuro-fit",
         "target": "npm:next",
-        "type": "static"
-      },
-      {
-        "source": "neuro-fit",
-        "target": "npm:react-icons",
-        "type": "static"
-      },
-      {
-        "source": "neuro-fit",
-        "target": "npm:react",
         "type": "static"
       },
       {
@@ -56267,6 +56276,13 @@
       {
         "source": "npm:react-svg",
         "target": "npm:react-dom",
+        "type": "static"
+      }
+    ],
+    "npm:react-swipeable": [
+      {
+        "source": "npm:react-swipeable",
+        "target": "npm:react",
         "type": "static"
       }
     ],
