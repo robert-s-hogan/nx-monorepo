@@ -5,15 +5,14 @@ import {
 } from '../constants/timeConstants';
 
 export const calculateRestTime = (
-  shortRestNeeded: boolean[] | undefined,
+  shortRestNeeded: boolean,
   longRestNeeded: boolean
 ): number => {
-  if (longRestNeeded) return 480;
-
-  if (Array.isArray(shortRestNeeded) && shortRestNeeded.includes(true)) {
+  if (longRestNeeded) {
+    return 480;
+  } else if (shortRestNeeded) {
     return 60;
   }
-
   return 0;
 };
 

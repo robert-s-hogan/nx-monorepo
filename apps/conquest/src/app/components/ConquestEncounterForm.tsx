@@ -4,6 +4,9 @@ import { useCampaigns } from '../hooks/useCampaigns';
 import { useRestOperations } from '../hooks/useRestOperations';
 import { useEncounterCalculations } from '../hooks/useEncounterCalculations';
 import { Encounter, EncounterFormProps, Campaign, Difficulty } from '../types';
+import { getRandomQuadrant } from '../utils/mapUtils';
+import { useRandomMapSelection } from '../hooks/useRandomMapSelection'; // adjust the path as needed
+import { mapConstants } from '../constants/mapConstants'; // adjust the path as needed
 
 function formatFieldValue(value: any, inputType: string) {
   if (inputType === 'checkbox') {
@@ -27,6 +30,17 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
     timeBetweenEncounters,
     takeLongRest,
   } = useRestOperations(selectedCampaign as Campaign);
+
+  const {
+    objective,
+    size,
+    terrain,
+    timeOfDay,
+    weather,
+    weatherChange,
+    weatherSeverity,
+    weatherType,
+  } = useRandomMapSelection(mapConstants);
 
   if (!selectedCampaign) {
     return <p>No campaign selected</p>;
@@ -86,6 +100,23 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
       xpThresholds[formik.values.encounterDifficultyOptions]
     );
   }, [formik.values.encounterDifficultyOptions, xpThresholds]);
+
+  // Usage:
+  // First roll, any quadrant is possible
+  let firstQuadrant = getRandomQuadrant();
+  // Second roll, firstQuadrant cannot be chosen
+  let secondQuadrant = getRandomQuadrant(firstQuadrant);
+
+  const mapSelection = {
+    objective,
+    size,
+    terrain,
+    timeOfDay,
+    weather,
+    weatherChange,
+    weatherSeverity,
+    weatherType,
+  };
 
   return (
     <div className="grid grid-cols-2">
@@ -148,8 +179,37 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
           {operation === 'edit' ? 'Update Encounter' : 'Add Encounter'}
         </button>
       </form>
-      <div className="border border-black p-4 mx-6">
+      <div className="border border-black p-4 mx-6 rounded-md">
         <h2 className="text-center">Preview</h2>
+        <p>Team Quadrant: {firstQuadrant}</p>
+        <p>Enemy Quadrant: {secondQuadrant}</p>
+        <div>
+          <h3>Random Selection</h3>
+          <p>
+            <strong>Objective:</strong> {mapSelection.objective}
+          </p>
+          <p>
+            <strong>Size:</strong> {mapSelection.size}
+          </p>
+          <p>
+            <strong>Terrain:</strong> {mapSelection.terrain}
+          </p>
+          <p>
+            <strong>Time of Day:</strong> {mapSelection.timeOfDay}
+          </p>
+          <p>
+            <strong>Weather:</strong> {mapSelection.weather}
+          </p>
+          <p>
+            <strong>Weather Change:</strong> {mapSelection.weatherChange}
+          </p>
+          <p>
+            <strong>Weather Severity:</strong> {mapSelection.weatherSeverity}
+          </p>
+          <p>
+            <strong>Weather Type:</strong> {mapSelection.weatherType}
+          </p>
+        </div>
       </div>
     </div>
   );

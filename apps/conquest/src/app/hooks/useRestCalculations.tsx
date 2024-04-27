@@ -1,4 +1,3 @@
-import { getAdventuringDayXpLimit } from '../constants/experienceConstants';
 import {
   calculateRestTime,
   calculateRandomTimeBetweenEncounters,
@@ -20,12 +19,8 @@ export const useRestCalculations = (campaign: Campaign | null) => {
     shortRests = [],
   } = campaign;
 
-  const adventuringDayXP = getAdventuringDayXpLimit(
-    levelDetails.level,
-    numberOfPlayers
-  );
   const timeSpentResting = calculateRestTime(
-    shortRests,
+    shortRests.length > 0,
     campaign.longRestNeeded || false
   );
   const timeBetweenEncounters = calculateRandomTimeBetweenEncounters();
