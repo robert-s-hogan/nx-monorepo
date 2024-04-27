@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation';
 const AdminPage: NextPage = () => {
   const router = useRouter();
 
-  // Function to navigate to the specific CRUD page
   const handleNavigate = (path: string) => {
     router.push(`/admin/${path}`);
   };

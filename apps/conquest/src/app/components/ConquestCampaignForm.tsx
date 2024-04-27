@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import { CampaignFormProps, CampaignSubmissionData } from '../types';
 import { getLevelDetailsFromExperience } from '../constants/experienceConstants';
 
-const CampaignForm: React.FC<CampaignFormProps> = ({
+const ConquestCampaignForm: React.FC<CampaignFormProps> = ({
   campaign,
   onSubmit,
   operation,
@@ -20,7 +20,7 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
       description: campaign?.description || '',
       numberOfPlayers: campaign?.numberOfPlayers || 1,
       playerExperienceStart: campaign?.playerExperienceStart || 100,
-      levelDetails: initialLevelDetails, // Store the entire levelDetails object
+      levelDetails: initialLevelDetails,
       groupDead: campaign?.groupDead ?? false,
       longRestNeeded: campaign?.longRestNeeded ?? false,
       shortRests: campaign?.shortRests || [],
@@ -28,20 +28,19 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
     onSubmit: (values) => {
       const submissionData: CampaignSubmissionData = {
         ...values,
-        levelDetails: values.levelDetails, // Make sure this line is correctly including levelDetails
+        levelDetails: values.levelDetails,
       };
       console.log(`submissionData: ${JSON.stringify(submissionData, null, 2)}`);
-      onSubmit(submissionData); // Ensure this onSubmit is correctly handling the data
+      onSubmit(submissionData);
     },
   });
 
-  // Effect to update levelDetails as playerExperienceStart changes
   useEffect(() => {
     const newLevelDetails = getLevelDetailsFromExperience(
       formik.values.playerExperienceStart
     );
     formik.setFieldValue('levelDetails', newLevelDetails);
-    console.log(formik.values); // Log to verify levelDetails is updated
+    console.log(formik.values);
   }, [formik.values.playerExperienceStart]);
 
   const handleNumberOfPlayersChange = (
@@ -53,7 +52,7 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
 
   const handleShortRestsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const count = Number(e.target.value);
-    formik.setFieldValue('shortRests', Array(count).fill(true)); // This should correctly create an array of booleans
+    formik.setFieldValue('shortRests', Array(count).fill(true));
   };
 
   const longRestOptions = [
@@ -177,4 +176,4 @@ const CampaignForm: React.FC<CampaignFormProps> = ({
   );
 };
 
-export default CampaignForm;
+export default ConquestCampaignForm;

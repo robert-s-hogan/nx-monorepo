@@ -1,17 +1,10 @@
 import React from 'react';
-import EncounterList from '../components/EncounterList';
-import EncounterModalManager from '../components/EncounterModalManager';
+import EncounterList from './ConquestEncounterList';
+import EncounterModalManager from './ConquestEncounterModalManager';
 import useModalManager from '../hooks/useModalManager';
-import { Campaign, Encounter } from '../types';
-import { FirestoreDocument } from '@with-nx/firebase';
+import { EncounterListWithModalProps, Encounter } from '../types';
 
-interface EncounterListWithModalProps {
-  encounters: Encounter[];
-  hideEdit?: boolean;
-  campaigns?: FirestoreDocument<Campaign>[];
-}
-
-const EncounterListWithModal = ({
+const ConquestEncounterListWithModal = ({
   encounters,
   hideEdit = false,
 }: EncounterListWithModalProps) => {
@@ -19,7 +12,7 @@ const EncounterListWithModal = ({
   const { isOpen, operation, data } = modalState;
 
   const handleAdd = () => {
-    openModal('add', {} as Encounter); // Pass an empty object for the add operation
+    openModal('add', {} as Encounter);
   };
 
   const handleEdit = (encounter: Encounter) => {
@@ -29,7 +22,7 @@ const EncounterListWithModal = ({
   const handleDelete = (encounterId: string) => {
     const encounterToDelete = encounters.find((e) => e.id === encounterId);
     if (encounterToDelete) {
-      openModal('delete', encounterToDelete); // Pass the encounter object for the delete operation
+      openModal('delete', encounterToDelete);
     }
   };
 
@@ -63,4 +56,4 @@ const EncounterListWithModal = ({
   );
 };
 
-export default EncounterListWithModal;
+export default ConquestEncounterListWithModal;

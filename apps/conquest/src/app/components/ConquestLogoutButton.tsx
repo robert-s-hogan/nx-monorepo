@@ -4,7 +4,7 @@ import { auth } from '@with-nx/firebase';
 import { IonIcon } from '@ionic/react';
 import { logOut } from 'ionicons/icons';
 
-const LogoutButton: React.FC = () => {
+const ConquestLogoutButton: React.FC = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
@@ -20,4 +20,4 @@ const LogoutButton: React.FC = () => {
   );
 };
 
-export default LogoutButton;
+export default ConquestLogoutButton;

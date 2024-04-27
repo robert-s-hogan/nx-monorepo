@@ -27,6 +27,7 @@
       "@with-nx/analytics": ["libs/analytics/src/index.ts"],
       "@with-nx/constants": ["libs/constants/src/index.ts"],
       "@with-nx/firebase": ["libs/firebase/src/index.ts"],
+      "@with-nx/generic-ui": ["libs/generic-ui/src/index.ts"],
       "@with-nx/headless-ui": ["libs/headless-ui/src/index.ts"],
       "@with-nx/icons": ["libs/icons/src/index.ts"],
       "@with-nx/icons/feather": ["libs/icons/feather/src/index.ts"],
@@ -46,8 +47,7 @@
       "@with-nx/theme": ["libs/theme/src/index.ts"],
       "@with-nx/types": ["libs/types/src/index.ts"],
       "@with-nx/ui": ["libs/ui/src/index.ts"],
-      "@with-nx/utils": ["libs/utils/src/index.ts"],
-      "generic-ui": ["libs/generic-ui/src/index.ts"]
+      "@with-nx/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

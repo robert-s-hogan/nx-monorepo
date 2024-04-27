@@ -1,4 +1,3 @@
-// pages/admin/maps/index.tsx
 'use client';
 import React from 'react';
 import { useFirestoreCollection } from '@with-nx/firebase';
@@ -9,7 +8,7 @@ const AdminMapsPage: React.FC = () => {
     documents: maps,
     loading,
     error,
-  } = useFirestoreCollection<Map>('formFields'); // Adjust the collection name
+  } = useFirestoreCollection<Map>('formFields');
 
   if (loading) return <div>Loading maps...</div>;
   if (error) return <div>Error loading maps: {error.message}</div>;

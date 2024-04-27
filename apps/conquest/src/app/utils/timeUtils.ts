@@ -1,21 +1,27 @@
+import {
+  createRandomizationPool,
+  encounterFrequencies,
+  randomSelect,
+} from '../constants/timeConstants';
+
 export const calculateRestTime = (
   shortRestNeeded: boolean[] | undefined,
   longRestNeeded: boolean
 ): number => {
-  // Long rest takes precedence
-  if (longRestNeeded) return 480; // Long rest is 8 hours
+  if (longRestNeeded) return 480;
 
-  // Safely check if 'shortRestNeeded' is an array and contains 'true'
   if (Array.isArray(shortRestNeeded) && shortRestNeeded.includes(true)) {
-    return 60; // Short rest is 60 minutes if any 'true'
+    return 60;
   }
 
-  // Default return if no conditions are met
-  return 0; // No rest needed
+  return 0;
 };
 
-export const calculateRandomTimeBetweenEncounters = () => {
-  return Math.floor(Math.random() * 100) + 1; // Random number between 1 and 100
+export const calculateRandomTimeBetweenEncounters = (): string => {
+  const randomizationPool: string[] =
+    createRandomizationPool(encounterFrequencies);
+  const randomEncounterTime: string = randomSelect(randomizationPool);
+  return randomEncounterTime;
 };
 
 export function calculateTimeSpentResting(
@@ -23,10 +29,10 @@ export function calculateTimeSpentResting(
   shortRestsAvailable: boolean[]
 ) {
   if (longRestNeeded) {
-    return 480; // 8 hours for a long rest, in minutes
+    return 480;
   } else if (shortRestsAvailable.includes(true)) {
-    return 60; // 60 minutes for a short rest
+    return 60;
   } else {
-    return 0; // No rest needed
+    return 0;
   }
 }

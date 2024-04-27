@@ -65,6 +65,12 @@ export interface CampaignListProps {
   selectedCampaignSlug?: string;
 }
 
+export interface CampaignListWithModalProps {
+  campaigns: Campaign[];
+  hideEdit?: boolean;
+  selectedCampaignSlug?: string;
+}
+
 export interface CampaignModalManagerProps {
   isOpen: boolean;
   onClose: () => void;
@@ -83,7 +89,7 @@ export interface CampaignModalProps {
   onDelete?: (campaign: Campaign) => void;
 }
 
-export interface CampaignDeleteConfirmationProps {
+export interface ConquestCampaignDeleteConfirmationProps {
   campaign: Campaign | undefined;
   onConfirm: () => void;
   onCancel: () => void;

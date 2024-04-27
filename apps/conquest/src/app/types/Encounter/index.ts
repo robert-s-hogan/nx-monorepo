@@ -45,7 +45,7 @@ export interface EncounterDeleteConfirmationProps {
   onCancel: () => void;
 }
 
-interface EncounterFormProps {
+export interface EncounterFormProps {
   encounter: Encounter | null;
   onSubmit: (encounter: Encounter) => void;
   operation: 'add' | 'edit' | 'delete';
@@ -63,6 +63,7 @@ export interface EncounterListProps {
 export interface EncounterListWithModalProps {
   encounters: Encounter[];
   hideEdit?: boolean;
+  campaigns?: FirestoreDocument<Campaign>[];
 }
 
 export interface EncounterModalProps {
@@ -78,8 +79,8 @@ export interface EncounterModalProps {
 export interface EncounterModalManagerProps {
   isOpen: boolean;
   onClose: () => void;
-  operation: ModalOperation;
-  encounter?: Encounter | null;
+  operation: 'add' | 'edit' | 'delete';
+  encounter: Encounter | null;
 }
 
 export interface EncounterOperations {

@@ -1,5 +1,3 @@
-// useRestCalculations.js
-
 import { getAdventuringDayXpLimit } from '../constants/experienceConstants';
 import {
   calculateRestTime,

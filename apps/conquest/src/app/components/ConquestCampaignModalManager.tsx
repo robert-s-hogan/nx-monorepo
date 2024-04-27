@@ -1,14 +1,14 @@
 import React from 'react';
 
-import CampaignDeleteConfirmation from '../components/CampaignDeleteConfirmation';
-import CampaignForm from '../components/CampaignForm';
-import CampaignModal from '../components/CampaignModal';
+import ConquestCampaignDeleteConfirmation from './ConquestCampaignDeleteConfirmation';
+import CampaignForm from './ConquestCampaignForm';
+import CampaignModal from './ConquestCampaignModal';
 
 import { useCampaignOperations } from '../hooks/useCampaignOperations';
 
 import { Campaign } from '../types';
 
-const CampaignModalManager = ({
+const ConquestCampaignModalManager = ({
   isOpen,
   onClose,
   operation,
@@ -40,8 +40,8 @@ const CampaignModalManager = ({
         );
       case 'delete':
         return (
-          <CampaignDeleteConfirmation
-            campaignId={campaign ? campaign.id : undefined} // Handle potential null campaign
+          <ConquestCampaignDeleteConfirmation
+            campaignId={campaign ? campaign.id : undefined}
             campaign={campaign}
             onConfirm={() => {
               if (campaign.id) {
@@ -71,4 +71,4 @@ const CampaignModalManager = ({
   );
 };
 
-export default CampaignModalManager;
+export default ConquestCampaignModalManager;

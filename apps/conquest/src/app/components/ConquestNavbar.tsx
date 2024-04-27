@@ -1,20 +1,15 @@
 'use client';
 import React from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
-import Image from 'next/image';
+import LoginButton from './ConquestLoginButton';
+import LogoutButton from './ConquestLogoutButton';
+import { LiaDragonSolid } from 'react-icons/lia';
 import Link from 'next/link';
+import { ConquestNavbarProps } from '../types';
 
 const LOGO = '/conquest_logo.jpg';
 
-interface NavbarProps {
-  isAdmin?: boolean;
-  loading?: boolean;
-  title?: string;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ title }) => {
+const Navbar: React.FC<ConquestNavbarProps> = ({ title }) => {
   const { currentUser, loading } = useAuth();
 
   if (loading) return null;
@@ -24,13 +19,10 @@ const Navbar: React.FC<NavbarProps> = ({ title }) => {
       <nav className="w-full flex items-center justify-between max-w-4xl 2xl:max-w-7xl container mx-auto lg:mx-auto px-4">
         <div>
           <Link href="/">
-            <Image
-              src={LOGO}
-              alt="Conquest Logo"
-              width={64}
-              height={64}
-              priority
-            />
+            <div className="flex items-center">
+              <LiaDragonSolid size={48} />
+              <span className="text-lg">onquest</span>
+            </div>
           </Link>
         </div>
 

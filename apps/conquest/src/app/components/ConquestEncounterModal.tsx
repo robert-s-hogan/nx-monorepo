@@ -2,7 +2,7 @@ import React from 'react';
 import ConquestModal from './ConquestModal';
 import { EncounterModalProps } from '../types';
 
-const EncounterModal: React.FC<EncounterModalProps> = ({
+const ConquestEncounterModal: React.FC<EncounterModalProps> = ({
   isOpen,
   onClose,
   title,
@@ -21,4 +21,4 @@ const EncounterModal: React.FC<EncounterModalProps> = ({
   );
 };
 
-export default EncounterModal;
+export default ConquestEncounterModal;

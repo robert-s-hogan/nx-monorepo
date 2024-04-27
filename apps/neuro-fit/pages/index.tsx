@@ -1,8 +1,8 @@
-import styles from './index.module.css'; // Ensure you import your CSS module
+import React from 'react';
 import Image from 'next/image';
 import Carousel from '../components/Carousel';
 
-export function Index() {
+function Index() {
   const slides = [
     {
       src: 'https://placekitten.com/200/300',
@@ -14,7 +14,7 @@ export function Index() {
       src: 'https://placekitten.com/200/300',
       alt: 'Kitten 2',
       title: 'Kitten Two',
-      description: 'This is another cute kitten.',
+      description: 'Another cute kitten.',
     },
     {
       src: 'https://placekitten.com/200/300',
@@ -25,20 +25,24 @@ export function Index() {
   ];
 
   return (
-    <div className="container mx-auto my-32">
-      <div className={styles.wrapper}>
-        <Carousel>
-          {slides.map((slide, index) => (
-            <div key={index} className={styles.slide}>
-              <Image src={slide.src} alt={slide.alt} width={200} height={300} />
-              <div className={styles.textBlock}>
-                <h2>{slide.title}</h2>
-                <p>{slide.description}</p>
-              </div>
-            </div>
-          ))}
-        </Carousel>
-      </div>
+    <div className="max-w-lg mx-auto my-32">
+      <Carousel>
+        {slides.map((slide, index) => (
+          <div key={index} className="text-center p-4">
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              width={200}
+              height={300}
+              className="mx-auto"
+            />
+            <h2 className="text-lg font-semibold text-gray-800">
+              {slide.title}
+            </h2>
+            <p className="text-gray-600">{slide.description}</p>
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 }

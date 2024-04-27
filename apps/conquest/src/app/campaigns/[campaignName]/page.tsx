@@ -3,11 +3,11 @@
 import { useEffect } from 'react';
 import { NextPage } from 'next';
 import Layout from '../../components/ConquestLayout';
-import EncounterListWithModal from '../../components/EncounterListWithModal';
+import EncounterListWithModal from '../../components/ConquestEncounterListWithModal';
 import { EncounterProvider } from '../../contexts/EncounterContext';
 import { useEncounters } from '../../hooks/useEncounters';
-import CampaignListWithModal from '../../components/CampaignListWithModal';
-import { useCampaigns } from '../../hooks/useCampaigns'; // Assuming useCampaigns is in the hooks directory
+import CampaignListWithModal from '../../components/ConquestCampaignListWithModal';
+import { useCampaigns } from '../../hooks/useCampaigns';
 
 const DynamicCampaignsPage: NextPage = () => {
   const {

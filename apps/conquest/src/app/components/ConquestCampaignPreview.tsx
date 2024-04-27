@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { Campaign } from '../types';
-import { Difficulty } from '../types';
-
+import { Campaign, Difficulty } from '../types';
 import { getLevelDetailsFromExperience } from '../constants/experienceConstants';
 import { useEncounterCalculations } from '../hooks/useEncounterCalculations';
 
@@ -19,7 +17,7 @@ interface CampaignPreviewProps {
   xpPerPlayerDay: number;
 }
 
-const CampaignPreview: React.FC<CampaignPreviewProps> = ({
+const ConquestCampaignPreview: React.FC<CampaignPreviewProps> = ({
   campaign,
   difficulty,
 }) => {
@@ -52,4 +50,4 @@ const CampaignPreview: React.FC<CampaignPreviewProps> = ({
   );
 };
 
-export default CampaignPreview;
+export default ConquestCampaignPreview;

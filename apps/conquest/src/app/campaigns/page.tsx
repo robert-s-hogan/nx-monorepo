@@ -8,7 +8,7 @@ import Layout from '../components/ConquestLayout';
 import withAuth from '../utils/withAuth';
 import { Campaign } from '../types';
 import { fetchCampaigns as fetchCampaignsService } from '../services/campaignService';
-import CampaignListWithModal from '../components/CampaignListWithModal';
+import CampaignListWithModal from '../components/ConquestCampaignListWithModal';
 
 const CampaignsPage: NextPage = () => {
   const {

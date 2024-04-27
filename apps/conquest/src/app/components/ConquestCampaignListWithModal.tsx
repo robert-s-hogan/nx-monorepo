@@ -1,21 +1,14 @@
 import React from 'react';
-import CampaignList from '../components/CampaignList';
-import CampaignModalManager from '../components/CampaignModalManager';
+import CampaignList from './ConquestCampaignList';
+import CampaignModalManager from './ConquestCampaignModalManager';
 import useModalManager from '../hooks/useModalManager';
-import { Campaign } from '../types';
+import { Campaign, CampaignListWithModalProps } from '../types';
 
-interface CampaignListWithModalProps {
-  campaigns: Campaign[];
-  hideEdit?: boolean;
-  selectedCampaignSlug?: string;
-}
-
-const CampaignListWithModal = ({
+const ConquestCampaignListWithModal = ({
   campaigns,
   hideEdit = false,
   selectedCampaignSlug,
 }: CampaignListWithModalProps) => {
-  // Destructure the `modalState` from the hook and then use its properties.
   const { modalState, openModal, closeModal } = useModalManager<Campaign>();
   const {
     isOpen: isModalOpen,
@@ -65,4 +58,4 @@ const CampaignListWithModal = ({
   );
 };
 
-export default CampaignListWithModal;
+export default ConquestCampaignListWithModal;

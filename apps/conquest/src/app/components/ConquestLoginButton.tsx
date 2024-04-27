@@ -5,7 +5,7 @@ import { signInWithGoogle } from '../data/signInWithGoogle';
 import { IonIcon } from '@ionic/react';
 import { logoGoogle } from 'ionicons/icons';
 
-const LoginButton: React.FC = () => {
+const ConquestLoginButton: React.FC = () => {
   return (
     <div className="flex space-between pr-2">
       <button onClick={signInWithGoogle} className="flex items-center">
@@ -16,4 +16,4 @@ const LoginButton: React.FC = () => {
   );
 };
 
-export default LoginButton;
+export default ConquestLoginButton;

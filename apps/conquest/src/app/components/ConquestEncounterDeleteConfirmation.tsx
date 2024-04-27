@@ -1,19 +1,18 @@
-import { CampaignDeleteConfirmationProps } from '../types';
+import { EncounterDeleteConfirmationProps } from '../types';
 
-const CampaignDeleteConfirmation = ({
+const ConquestEncounterDeleteConfirmation = ({
   onConfirm,
   onCancel,
-  campaignId,
-  campaign,
-}: CampaignDeleteConfirmationProps) => {
-  const campaignName = campaign ? campaign.name : '';
+  encounter,
+}: EncounterDeleteConfirmationProps) => {
+  const encounterName = encounter ? encounter.objective : '';
   return (
     <div className="p-4">
       <h3 className="text-lg font-semibold">Confirm Deletion</h3>
       <p className="my-2">
-        Are you sure you want to delete{' '}
-        <span className="font-bold text-lg">{campaignName}</span>? cannot be
-        undone.
+        Are you sure you want to delete the encounter{' '}
+        <span className="font-bold text-lg">{encounterName}</span>? This action
+        cannot be undone.
       </p>
       <div className="flex justify-end space-x-2">
         <button
@@ -33,4 +32,4 @@ const CampaignDeleteConfirmation = ({
   );
 };
 
-export default CampaignDeleteConfirmation;
+export default ConquestEncounterDeleteConfirmation;

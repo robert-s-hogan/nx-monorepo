@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
+import { ConquestRestCalculationDisplayProps } from '../types';
 
-const RestCalculationDisplay: React.FC<{
-  playerExperienceStart: number;
-  adventuringDayXPLimit: number;
-  xpStart: number;
-  xpThresholdEasy: number; // New prop for dynamic XP threshold for a long rest
-  shortRestsAvailable: boolean[];
-  longRestNeeded: boolean; // New prop to determine if a long rest is needed
-}> = ({
+const ConquestRestCalculationDisplay: React.FC<
+  ConquestRestCalculationDisplayProps
+> = ({
   playerExperienceStart,
   adventuringDayXPLimit,
   xpStart,
@@ -95,4 +91,4 @@ const RestCalculationDisplay: React.FC<{
   );
 };
 
-export default RestCalculationDisplay;
+export default ConquestRestCalculationDisplay;

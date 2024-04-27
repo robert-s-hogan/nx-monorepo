@@ -3,16 +3,7 @@ import { useFormik } from 'formik';
 import { useCampaigns } from '../hooks/useCampaigns';
 import { useRestOperations } from '../hooks/useRestOperations';
 import { useEncounterCalculations } from '../hooks/useEncounterCalculations';
-import { Encounter, Campaign, Difficulty } from '../types';
-import { FirestoreDocument } from '@with-nx/firebase';
-
-interface EncounterFormProps {
-  encounter: Encounter | null;
-  onSubmit: (encounter: Encounter) => void;
-  operation: 'add' | 'edit' | 'delete';
-  campaignId: string;
-  campaigns?: FirestoreDocument<Campaign>[];
-}
+import { Encounter, EncounterFormProps, Campaign, Difficulty } from '../types';
 
 function formatFieldValue(value: any, inputType: string) {
   if (inputType === 'checkbox') {
@@ -21,7 +12,7 @@ function formatFieldValue(value: any, inputType: string) {
   return value;
 }
 
-const EncounterForm: React.FC<EncounterFormProps> = ({
+const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
   encounter,
   onSubmit,
   operation,
@@ -74,14 +65,11 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
     onSubmit: (values) => {
       let encounterData = {
         ...values,
-        // startingQuadrantOfOpposition:
-        //   values.startingQuadrantOfOpposition === 'true',
       };
       if (operation !== 'add') {
         encounterData.id = values.id;
       }
 
-      // Casting onSubmit to the correct type signature
       onSubmit(encounterData as unknown as Encounter);
     },
   });
@@ -160,11 +148,11 @@ const EncounterForm: React.FC<EncounterFormProps> = ({
           {operation === 'edit' ? 'Update Encounter' : 'Add Encounter'}
         </button>
       </form>
-      <div className="">
-        <h2>Preview</h2>
+      <div className="border border-black p-4 mx-6">
+        <h2 className="text-center">Preview</h2>
       </div>
     </div>
   );
 };
 
-export default EncounterForm;
+export default ConquestEncounterForm;

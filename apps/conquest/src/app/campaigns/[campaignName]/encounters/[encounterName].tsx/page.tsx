@@ -2,10 +2,10 @@
 import React from 'react';
 import useSWR from 'swr';
 
-import Layout from '../../../../components/ConquestLayout'; // Adjust if you have a different layout
-import { Encounter } from '../../../../types'; // Adjust if you have a different type
-import { fetchEncounters as fetchEncountersService } from '../../../../services/encounterService'; // Adjust if you have a different service
-import EncounterListWithModal from '../../../../components/EncounterListWithModal'; // Adjust if you have a different component
+import Layout from '../../../../components/ConquestLayout';
+import { Encounter } from '../../../../types';
+import { fetchEncounters as fetchEncountersService } from '../../../../services/encounterService';
+import EncounterListWithModal from '../../../../components/ConquestEncounterListWithModal';
 
 const DynamicEncounterPage = () => {
   const { data: encounters, error } = useSWR<Encounter[]>(
@@ -27,4 +27,4 @@ const DynamicEncounterPage = () => {
   );
 };
 
-export default DynamicEncounterPage; // Adjust if you have a higher-order component for auth or other purposes
+export default DynamicEncounterPage;

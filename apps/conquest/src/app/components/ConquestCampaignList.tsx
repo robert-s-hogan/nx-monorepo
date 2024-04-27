@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { IonIcon } from '@ionic/react';
 import { create, trash } from 'ionicons/icons';
 
@@ -9,12 +8,12 @@ import {
   getAdventuringDayXpLimit,
   xpThresholdsByCharLvl,
 } from '../constants/experienceConstants';
-import ProgressBar from './ProgressBar';
-import RestCalculationDisplay from './RestCalculationDisplay';
+import ProgressBar from './ConquestProgressBar';
+import RestCalculationDisplay from './ConquestRestCalculationDisplay';
 import { useRestOperations } from '../hooks/useRestOperations';
 import { useCampaigns } from '../hooks/useCampaigns';
 
-const CampaignList: React.FC<CampaignListProps> = ({
+const ConquestCampaignList: React.FC<CampaignListProps> = ({
   campaigns,
   onEdit,
   onDelete,
@@ -63,7 +62,7 @@ const CampaignList: React.FC<CampaignListProps> = ({
               campaign?.playerExperienceStart || 100,
               campaign?.numberOfPlayers,
               levelDetails?.level || 1,
-              shortRestsTaken // pass the shortRestsTaken array
+              shortRestsTaken
             );
 
             return (
@@ -102,7 +101,6 @@ const CampaignList: React.FC<CampaignListProps> = ({
                         onTakeFirstShortRest={() => handleTakeShortRest(1)}
                         onTakeSecondShortRest={() => handleTakeShortRest(2)}
                         isShortRestAvailable={shortRestsAvailable}
-                        // onTakeLongRest={handleTakeLongRest}
                       />
                       <div className="w-full flex items-center justify-between">
                         <p>Player Experience Start:</p>
@@ -124,8 +122,6 @@ const CampaignList: React.FC<CampaignListProps> = ({
                         xpThresholdEasy={xpThresholdEasy}
                         shortRestsAvailable={shortRestsAvailable}
                         longRestNeeded={rests.longRestNeeded}
-                        // onTakeShortRest={handleTakeShortRest}
-                        // onTakeLongRest={handleTakeLongRest}
                       />
                     </div>
                   </div>
@@ -138,4 +134,4 @@ const CampaignList: React.FC<CampaignListProps> = ({
   );
 };
 
-export default CampaignList;
+export default ConquestCampaignList;

@@ -1,29 +1,21 @@
 import React from 'react';
-import { usePathname } from 'next/navigation';
 
-import EncounterDeleteConfirmation from '../components/EncounterDeleteConfirmation'; // A delete confirmation component you'll need to create
-import EncounterForm from '../components/EncounterForm'; // A form component you'll need to create
-import EncounterModal from '../components/EncounterModal'; // A modal component you'll need to create
-import { useEncounterOperations } from '../hooks/useEncounterOperations'; // A hook you'll need to create
-import { Encounter } from '../types'; // A type you'll need to create
-import { useCampaigns } from '../hooks/useCampaigns'; // A hook you'll need to create
-import EncounterList from './EncounterList';
+import EncounterDeleteConfirmation from './ConquestEncounterDeleteConfirmation';
+import EncounterForm from './ConquestEncounterForm';
+import EncounterModal from './ConquestEncounterModal';
+import { useEncounterOperations } from '../hooks/useEncounterOperations';
+import { EncounterModalManagerProps } from '../types';
+import { useCampaigns } from '../hooks/useCampaigns';
 
-const EncounterModalManager = ({
+const ConquestEncounterModalManager: React.FC<EncounterModalManagerProps> = ({
   isOpen,
   onClose,
   operation,
   encounter,
-}: {
-  isOpen: boolean;
-  onClose: () => void;
-  operation: 'add' | 'edit' | 'delete';
-  encounter: Encounter | null; // Ensure encounter can be null for 'add' operation
 }) => {
   const { handleSave, handleDelete } = useEncounterOperations(onClose);
   const { campaigns, isLoading, isError, selectedCampaign } = useCampaigns();
 
-  // Conditional rendering based on loading or error state
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading campaigns.</div>;
 
@@ -42,7 +34,7 @@ const EncounterModalManager = ({
           <EncounterForm
             encounter={encounter}
             campaignId={selectedCampaign?.id || ''}
-            campaigns={campaigns} // Pass campaigns data to the form
+            campaigns={campaigns}
             onSubmit={(formData) => handleSave(formData, operation)}
             operation={operation}
           />
@@ -50,7 +42,7 @@ const EncounterModalManager = ({
       case 'delete':
         return (
           <EncounterDeleteConfirmation
-            encounter={encounter} // Pass the entire encounter object
+            encounter={encounter}
             onConfirm={() => {
               if (encounter && encounter.id) {
                 handleDelete(encounter.id);
@@ -80,4 +72,4 @@ const EncounterModalManager = ({
   );
 };
 
-export default EncounterModalManager;
+export default ConquestEncounterModalManager;

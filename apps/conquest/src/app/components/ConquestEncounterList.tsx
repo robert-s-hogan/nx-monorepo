@@ -1,7 +1,9 @@
 import React from 'react';
 import { EncounterListProps } from '../types/Encounter';
 
-const EncounterList: React.FC<EncounterListProps> = ({ encounters = [] }) => {
+const ConquestEncounterList: React.FC<EncounterListProps> = ({
+  encounters = [],
+}) => {
   return (
     <div className="space-y-4">
       {encounters.length === 0 && <p>No encounters found</p>}
@@ -15,4 +17,4 @@ const EncounterList: React.FC<EncounterListProps> = ({ encounters = [] }) => {
   );
 };
 
-export default EncounterList;
+export default ConquestEncounterList;
