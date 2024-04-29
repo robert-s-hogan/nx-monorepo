@@ -57,7 +57,6 @@ interface HomeworldBackgroundProps {
 const HomeworldBackground: React.FC<HomeworldBackgroundProps> = (props) => {
   const { homeworld, styles, planet } = props;
 
-  const [homeworldName, setHomeworldName] = useState('');
   const [terrain, setTerrain] = useState('');
 
   async function fetchPlanetInfo(url: string) {
@@ -70,95 +69,76 @@ const HomeworldBackground: React.FC<HomeworldBackgroundProps> = (props) => {
     return json.name;
   }
 
-  useEffect(() => {
-    async function updateInfo() {
-      const fetchedHomeworldName = await fetchPlanetInfo(planet); // Assuming this should return the name
-      setHomeworldName(fetchedHomeworldName); // Use the fetched name instead
-    }
-
-    updateInfo();
-  }, [homeworld, planet]); // Include planet in the dependency array
-
   let findHomeworld = (terrain: string) => {
     try {
       switch (terrain) {
         case 'airless asteroid':
-          return (
-            <AirlessAsteroid homeworld={homeworldName} terrain={terrain} />
-          );
+          return <AirlessAsteroid />;
         case 'barren':
         case 'desert':
         case 'deserts':
         case 'rock':
-          return <Desert homeworld={homeworldName} terrain={terrain} />;
+          return <Desert />;
         case 'grasslands':
         case 'grass':
         case 'verdant':
-          return <Prairie homeworld={homeworldName} terrain={terrain} />;
+          return <Prairie />;
         case 'grassy hills':
-          return <Hill homeworld={homeworldName} terrain={terrain} />;
+          return <Hill />;
         case 'jungle':
         case 'jungles':
-          return <Bog homeworld={homeworldName} terrain={terrain} />;
+          return <Bog />;
         case 'gas giant':
-          return <GasGiant homeworld={homeworldName} terrain={terrain} />;
+          return <GasGiant />;
         case 'glacier':
         case 'glaciers':
-          return <Glacier homeworld={homeworldName} terrain={terrain} />;
+          return <Glacier />;
         case 'forest':
         case 'forests':
         case 'fungus forests':
-          return <Forest homeworld={homeworldName} terrain={terrain} />;
+          return <Forest />;
         case 'rain forest':
         case 'rainforests':
-          return <Rainforest homeworld={homeworldName} terrain={terrain} />;
+          return <Rainforest />;
         case 'caves':
-          return <Cave homeworld={homeworldName} terrain={terrain} />;
+          return <Cave />;
         case 'cityscape':
         case 'cities':
-          return <Cityscape homeworld={homeworldName} terrain={terrain} />;
+          return <Cityscape />;
         case 'city':
         case 'urban':
         case 'urban areas':
-          return <Village homeworld={homeworldName} terrain={terrain} />;
+          return <Village />;
 
         case 'plains':
-          return <Plains homeworld={homeworldName} terrain={terrain} />;
+          return <Plains />;
         case 'lakes':
         case 'lake':
-          return <Lake homeworld={homeworldName} terrain={terrain} />;
+          return <Lake />;
         case 'swamps':
-          return <Bog homeworld={homeworldName} terrain={terrain} />;
+          return <Bog />;
         case 'mountains':
-          return <Mountains homeworld={homeworldName} terrain={terrain} />;
+          return <Mountains />;
         case 'unknown':
-          return <Unknown homeworld={homeworldName} terrain={terrain} />;
+          return <Unknown />;
         case 'ocean':
         case 'oceans':
-          return <Ocean homeworld={homeworldName} terrain={terrain} />;
+          return <Ocean />;
         case 'rocky islands':
-          return <RockyIsland homeworld={homeworldName} terrain={terrain} />;
+          return <RockyIsland />;
         case 'rocky':
         case 'rocky canyons':
-          return <Canyon homeworld={homeworldName} terrain={terrain} />;
+          return <Canyon />;
         case 'scrublands':
-          return <Shrubland homeworld={homeworldName} terrain={terrain} />;
+          return <Shrubland />;
         case 'tundra':
-          return <Tundra homeworld={homeworldName} terrain={terrain} />;
+          return <Tundra />;
         case 'volcanoes':
-          return <Volcano homeworld={homeworldName} terrain={terrain} />;
+          return <Volcano />;
         case 'toxic cloudsea':
-          return (
-            <SeaBottomAquarium homeworld={homeworldName} terrain={terrain} />
-          );
+          return <SeaBottomAquarium />;
         default:
-          return (
-            <div
-              className={`container absolute bottom-40 -right-24 mt-4 mb-8 z-10`}
-            >
-              {homeworldName} {terrain}
-            </div>
-          );
+          return null;
       }
     } catch (error) {
       console.log(error);

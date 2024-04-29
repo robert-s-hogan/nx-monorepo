@@ -6,8 +6,8 @@ export interface PrivacyPolicyProps {}
 
 export function PrivacyPolicy(props: PrivacyPolicyProps) {
   return (
-    <div className={`${privacyPolicyStyles.container}`}>
-      <div className={`${privacyPolicyStyles.stack}`}>
+    <div className={`${privacyPolicyStyles['container']}`}>
+      <div className={`${privacyPolicyStyles['stack']}`}>
         <Heading level={1}>Privacy Policy</Heading>
         <Text>
           <strong>1. Introduction</strong>

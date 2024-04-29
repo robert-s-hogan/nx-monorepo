@@ -4,6 +4,8 @@ import React from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/navigation';
 
+import { Button, Heading, Text } from '@with-nx/generic-ui';
+
 const AdminPage: NextPage = () => {
   const router = useRouter();
 
@@ -12,20 +14,17 @@ const AdminPage: NextPage = () => {
   };
   return (
     <div>
-      <h1>Admin Dashboard</h1>
+      <Heading level={1} text="Admin Dashboard" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {/* Example of dashboard widgets */}
         <div className="bg-white p-4 shadow rounded-lg">
-          <h2 className="text-lg font-medium">Maps</h2>
-          <p>Manage all the maps in your campaign</p>
-          <button
+          <Heading level={2} text="Maps" />
+          <Text text="Manage all the maps in your campaign." />
+          <Button
             onClick={() => handleNavigate('maps')}
-            className="text-indigo-600 hover:text-indigo-900"
-          >
-            Go to Maps
-          </button>
+            theme="primary"
+            text="Go to Maps"
+          />
         </div>
-        {/* Repeat for other sections like Items, Entities, etc. */}
       </div>
     </div>
   );

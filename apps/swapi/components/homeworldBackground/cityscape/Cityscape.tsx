@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import css from './cityscape.module.css';
+import { Heading } from '@with-nx/generic-ui';
+
 interface Props {
   homeworld: string;
   terrain: string | null;
@@ -15,9 +17,11 @@ const Cityscape = (props: Props) => {
 
   return (
     <div className={`w-96 h-96 md:w-full ${css.bgCityscape}`}>
-      <h3 className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-white">
-        {homeworldName}
-      </h3>
+      <Heading
+        level={3}
+        className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-white"
+        text={homeworldName}
+      />
       <div className={css.skylight}></div>
       <div className={css.road}></div>
 

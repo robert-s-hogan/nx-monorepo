@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import Image from 'next/image';
-
+import { Heading } from '@with-nx/generic-ui';
 const customStyles = {
   content: {
     width: '500px',
@@ -16,7 +16,7 @@ const CharacterPopover = ({ item, onClose }) => {
       contentLabel="Item Details"
       style={customStyles}
     >
-      <h2>{item?.type} Details</h2>
+      <Heading level={2} text={`${item?.type} Details`} />
       {item && (
         <div>
           <Image height={300} width={300} src={item.src} alt={item.type} />

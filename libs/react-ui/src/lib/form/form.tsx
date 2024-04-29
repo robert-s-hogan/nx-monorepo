@@ -6,7 +6,7 @@ export const Form = ({ fields, onSubmit, action }: FormProps): JSX.Element => {
     fields.reduce((obj, field) => {
       obj[field.name] = '';
       return obj;
-    }, {})
+    }, {} as { [name: string]: string }) // Add index signature to the type of obj
   );
   const [errors, setErrors] = useState<{ [name: string]: string }>({});
 

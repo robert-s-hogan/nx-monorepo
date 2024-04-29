@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { ConquestRestCalculationDisplayProps } from '../types';
+
+import { Heading } from '@with-nx/generic-ui';
+
+export interface ConquestRestCalculationDisplayProps {
+  playerExperienceStart: number;
+  adventuringDayXPLimit: number;
+  xpStart: number;
+  xpThresholdEasy: number;
+  shortRestsAvailable: boolean[];
+  longRestNeeded: boolean;
+}
 
 const ConquestRestCalculationDisplay: React.FC<
   ConquestRestCalculationDisplayProps
@@ -23,7 +33,7 @@ const ConquestRestCalculationDisplay: React.FC<
   return (
     <div className="space-y-2">
       <div className="w-full flex items-center">
-        <h2 className="py-1 bg-white">Rest Calculations</h2>
+        <Heading level={2} className="py-1 bg-white" text="Rest Calculations" />
         <div />
       </div>
       <div className="w-full flex items-center justify-between">

@@ -83,23 +83,6 @@ const Scene = () => {
     </svg>
   );
 };
-interface SwapiCardsOceanProps {
-  homeworld: string;
-  terrain: string;
+export default function SwapiCardsOcean() {
+  return <Scene />;
 }
-
-const SwapiCardsOcean: React.FC<SwapiCardsOceanProps> = ({
-  homeworld,
-  terrain,
-}) => {
-  return (
-    <div className="w-96 h-96 relative lg:w-80 xl:w-72 bg-gradient-to-t from-darkBlue to-skyBlue overflow-hidden">
-      <h3 className="absolute right-0 top-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-white z-10">
-        {homeworld}{' '}
-      </h3>
-      <Scene />
-    </div>
-  );
-};
-
-export default SwapiCardsOcean;

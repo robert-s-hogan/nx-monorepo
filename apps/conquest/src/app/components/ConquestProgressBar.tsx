@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { ConquestProgressBarProps } from '../types';
+
+export interface ConquestProgressBarProps {
+  xpStart: number;
+  xpEnd: number;
+  playerExperience: number;
+  onTakeFirstShortRest: () => void;
+  onTakeSecondShortRest: () => void;
+  isShortRestAvailable: boolean[];
+}
 
 const ConquestProgressBar: React.FC<ConquestProgressBarProps> = ({
   xpStart,

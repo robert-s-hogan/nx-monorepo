@@ -8,7 +8,7 @@ interface UseFileTypeSelection {
 export const useFileTypeSelection = (): UseFileTypeSelection => {
   const [selectedFileType, setSelectedFileType] = useState('');
 
-  const handleFileTypeChange = (e) => {
+  const handleFileTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedFileType(e.target.name);
   };
 

@@ -5,7 +5,7 @@ export const Spinner = ({ size = 'medium' }: SpinnerProps) => {
   return (
     <div
       data-testid="spinner"
-      className={`${spinnerStyles.spinner} ${spinnerStyles[size]}`}
+      className={`${spinnerStyles['spinner']} ${spinnerStyles[size]}`}
     ></div>
   );
 };

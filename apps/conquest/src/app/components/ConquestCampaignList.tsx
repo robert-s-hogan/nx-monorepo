@@ -1,6 +1,8 @@
 import React from 'react';
 import { IonIcon } from '@ionic/react';
 import { create, trash } from 'ionicons/icons';
+import { Heading } from '@with-nx/generic-ui';
+import Link from 'next/link';
 
 import { Campaign, CampaignListProps } from '../types';
 import {
@@ -82,17 +84,19 @@ const ConquestCampaignList: React.FC<CampaignListProps> = ({
                   </div>
                   <div className="pb-3">
                     <div className="flex space-x-2 items-center">
-                      <h2 className="">{campaign.name}</h2>{' '}
-                      <span className="text-gray-400 text-sm">
-                        /{campaign.slug}
-                      </span>
+                      <Link href={`/campaign/${campaign.slug}`}>
+                        <Heading level={2} text={campaign.name} />
+                        <span className="text-gray-400 text-sm">
+                          /{campaign.slug}
+                        </span>
+                      </Link>
                     </div>
                     <p>{campaign.description}</p>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     <div />
                     <div className="p-3 col-span-2 space-y-2 text-lg">
-                      <h2 className="py-1 bg-white">XP Calculations</h2>
+                      <Heading level={2} text="XP Calculations" />
                       <p>XP Progress Bar</p>
                       <ProgressBar
                         xpStart={campaign.levelDetails?.xpStart}

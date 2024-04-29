@@ -1,3 +1,5 @@
+import { Heading } from '@with-nx/generic-ui';
+
 const SwapiCardsLoading = () => {
   return (
     <div className="card rounded-lg relative h-96 overflow-hidden w-full md:w-84 lg:w-80 xl:w-72">
@@ -26,7 +28,11 @@ const SwapiCardsLoading = () => {
       `}</style>
       <div className="flex flex-col justify-center items-center h-full">
         <div className="spinner"></div>
-        {/* <h2 className="text-center font-sans text-white mt-8">Loading...</h2> */}
+        <Heading
+          level={2}
+          className="text-center font-sans text-white mt-8"
+          text="Loading..."
+        />
       </div>
     </div>
   );

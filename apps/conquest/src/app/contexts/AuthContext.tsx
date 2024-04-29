@@ -9,9 +9,17 @@ import React, {
   ReactNode,
 } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
-
 import { auth } from '@with-nx/firebase';
-import { AuthContextType, AuthProviderProps } from '../types';
+
+export type AuthContextType = {
+  currentUser: User | null;
+  loading: boolean;
+  isAdmin: boolean;
+};
+
+export type AuthProviderProps = {
+  children: ReactNode;
+};
 
 export const AuthContext = createContext<AuthContextType | undefined>(
   undefined

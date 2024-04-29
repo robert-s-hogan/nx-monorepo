@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
+import Router from 'next/router'; // Import the Router from 'next/router', not 'useRouter'
 import { Provider } from 'react-redux';
 
 import { ThemeProvider } from '@with-nx/theme';
@@ -10,15 +10,22 @@ import { themes } from '../styles/themes';
 import '../styles/styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
   useEffect(() => {
-    router.events.on('routeChangeComplete', () => {
-      if (window.fbq) {
-        window.fbq('track', 'PageView');
+    const handleRouteChange = (url: string) => {
+      if (url === '/') {
+        // Clear localStorage when navigating back to the home page
+        localStorage.clear();
       }
-    });
-  }, [router.events]);
+    };
+
+    // Listen to route change complete events
+    Router.events.on('routeChangeComplete', handleRouteChange);
+
+    // Cleanup subscription on unmount
+    return () => {
+      Router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, []);
 
   return (
     <Provider store={store}>

@@ -22,7 +22,7 @@ export const Skeleton = ({
 
   return (
     <div
-      className={`${skeletonStyles.skeleton} ${className}`}
+      className={`${skeletonStyles['skeleton']} ${className}`}
       style={customStyles}
     />
   );

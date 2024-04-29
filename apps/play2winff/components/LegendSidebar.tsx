@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
-import { Button } from '@with-nx/react-ui';
 import { FiX } from 'react-icons/fi';
-import { Box, Flex } from '@with-nx/react-ui';
+
+import { Box, Button, Flex } from '@with-nx/react-ui';
+import { Heading } from '@with-nx/generic-ui';
 
 import {
   BreakoutIcon,
@@ -143,7 +144,7 @@ const LegendSidebar = ({ isOpen, onClose }) => {
       className="bg-gunmetal text-white border-l border-viridian border-[.5px] h-auto mr-3"
     >
       <Flex className="justify-between items-center p-4 border-viridian border-b">
-        <h2 className="text-lg font-bold">Icon Legend</h2>
+        <Heading level={2} className="text-lg font-bold" text="Icon Legend" />
         <Button className="p-4" onClick={onClose}>
           <FiX className="cursor-pointer" />
         </Button>

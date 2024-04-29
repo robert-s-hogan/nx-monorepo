@@ -1,10 +1,12 @@
+import { Heading } from '@with-nx/generic-ui';
+
 interface Props {
   name: string;
   className?: string;
 }
 
 const CardTitle = ({ name, className }: Props) => {
-  return <h3 className={className}>{name}</h3>;
+  return <Heading level={3} className={className} text={name} />;
 };
 
 export default CardTitle;

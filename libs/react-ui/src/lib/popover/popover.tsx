@@ -8,11 +8,12 @@ export function Popover({ trigger, content, className = '' }: PopoverProps) {
   const popoverRef = useRef(null);
   const triggerRef = useRef(null);
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = (event: MouseEvent) => {
     if (
       popoverRef.current &&
-      !popoverRef.current.contains(event.target) &&
-      !triggerRef.current.contains(event.target)
+      (popoverRef.current as HTMLElement).contains(event.target as Node) &&
+      triggerRef.current &&
+      (triggerRef.current as HTMLElement).contains(event.target as Node)
     ) {
       setIsOpen(false);
     }
@@ -42,21 +43,21 @@ export function Popover({ trigger, content, className = '' }: PopoverProps) {
 
   return (
     <div
-      className={`popover-container ${popoverStyles.popoverContainer}  ${className}`}
+      className={`popover-container ${popoverStyles['popoverContainer']}  ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <div
         ref={triggerRef}
         onClick={handleClick}
-        className={`popover-trigger ${popoverStyles.popoverTrigger}`}
+        className={`popover-trigger ${popoverStyles['popoverTrigger']}`}
       >
         {trigger}
       </div>
       {showPopover && (
         <div
           ref={popoverRef}
-          className={`popover-content ${popoverStyles.popoverContent}`}
+          className={`popover-content ${popoverStyles['popoverContent']}`}
         >
           {content}
         </div>

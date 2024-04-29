@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
+
+import { Heading, Text } from '@with-nx/generic-ui';
 import Carousel from '../components/Carousel';
 
 function Index() {
@@ -36,10 +38,12 @@ function Index() {
               height={300}
               className="mx-auto"
             />
-            <h2 className="text-lg font-semibold text-gray-800">
-              {slide.title}
-            </h2>
-            <p className="text-gray-600">{slide.description}</p>
+            <Heading
+              level={2}
+              className="text-lg font-semibold text-gray-800"
+              text={slide.title}
+            />
+            <Text className="text-gray-600" text={slide.description} />
           </div>
         ))}
       </Carousel>

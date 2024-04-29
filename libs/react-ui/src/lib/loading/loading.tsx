@@ -20,7 +20,7 @@ export function Loading({ timeout = 2000 }: LoadingProps) {
 
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40 z-50">
-      <div className={loadingStyles.loader}></div>
+      <div className={loadingStyles['loader']}></div>
     </div>
   );
 }

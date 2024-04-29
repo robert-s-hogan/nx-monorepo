@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import DevBlogLayout from '../../components/DevBlogLayout';
 import DevBlogSection from '../../components/DevBlogSection';
-
+import { Heading, Text } from '@with-nx/generic-ui';
 // Define the base URL for your WordPress API
 const WP_API_BASE_URL =
   'https://public-api.wordpress.com/wp/v2/sites/robertshogandev.wordpress.com';
@@ -48,20 +48,20 @@ export default function Home({ allPostsData }) {
   return (
     <DevBlogLayout>
       <DevBlogSection className="space-y-6">
-        <h1 className="font-bold">Digital Garden</h1>
-        <p className="text-center">
-          A collection of topics, notes, and half-baked explorations I'm always
-          tending to.
-        </p>
+        <Heading level={1} className="font-bold" text="Digital Garden" />
+        <Text
+          className="text-center"
+          text="A collection of topics, notes, and half-baked explorations I'm always tending to."
+        />
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 space-y-2 md:space-y-0">
           {allPostsData.map(({ id, date, title, categories }) => (
             <div key={id} className="p-4 rounded-md">
               <Link href={`/blog/${id}`}>
-                <p className="">{title}</p>
+                <Text className="" text={title} />
               </Link>
               <div className="flex items-center space-x-4 mt-4 md:mt-0">
-                <p className="text-sm">{categories.join(', ')}</p>
-                <p className="text-xs">{date}</p>
+                <Text className="text-sm" text={categories.join(', ')} />
+                <Text className="text-xs" text={date} />
               </div>
             </div>
           ))}

@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
+
+import { Button } from '@with-nx/generic-ui';
 import { CampaignFormProps, CampaignSubmissionData } from '../types';
 import { getLevelDetailsFromExperience } from '../constants/experienceConstants';
 
@@ -169,9 +171,11 @@ const ConquestCampaignForm: React.FC<CampaignFormProps> = ({
       )}
 
       {/* Submit button */}
-      <button type="submit" className="btn-primary">
-        {operation === 'edit' ? 'Update Campaign' : 'Add Campaign'}
-      </button>
+      <Button
+        type="submit"
+        theme="primary"
+        text={operation === 'edit' ? 'Update Campaign' : 'Add Campaign'}
+      />
     </form>
   );
 };

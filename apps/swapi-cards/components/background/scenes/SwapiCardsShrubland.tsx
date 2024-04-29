@@ -197,20 +197,6 @@ const Scene = () => {
   );
 };
 
-interface SwapiCardsShrublandProps {
-  homeworld: string;
-  terrain: string;
+export default function SwapiCardsShrubland() {
+  return <Scene />;
 }
-
-function SwapiCardsShrubland({ homeworld, terrain }: SwapiCardsShrublandProps) {
-  return (
-    <>
-      <h3 className="absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-black z-20">
-        {homeworld}{' '}
-      </h3>
-      <Scene />
-    </>
-  );
-}
-
-export default SwapiCardsShrubland;

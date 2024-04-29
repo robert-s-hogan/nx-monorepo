@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useSWR from 'swr';
 import { Section } from '@with-nx/react-ui';
+import { Heading, Text } from '@with-nx/generic-ui';
 
 import { Person } from '../types/people';
 import CharacterAvatar from './CharacterAvatar';
@@ -26,7 +27,11 @@ export default function Characters() {
 
   return (
     <Section className="px-6 py-4">
-      <h1 className="text-4xl mb-4">Star Wars Characters</h1>
+      <Heading
+        level={1}
+        className="text-4xl mb-4"
+        text="Star Wars Characters"
+      />
       <div className="grid grid-cols-1 gap-4">
         {data.slice(0, visibleCount).map((character) => (
           <div
@@ -35,10 +40,15 @@ export default function Characters() {
           >
             <div className="grid grid-cols-2">
               <div className="pr-3">
-                <h2 className="text-xl font-bold">{character.name}</h2>
-                <p className="mt-2 text-sm text-gray-600">
-                  {character.main_story_arc}
-                </p>
+                <Heading
+                  level={2}
+                  className="text-xl font-bold"
+                  text="{character.name}"
+                />
+                <Text
+                  className="mt-2 text-sm text-gray-600"
+                  text={character.main_story_arc}
+                />
               </div>
               <CharacterAvatar data={character} />
             </div>

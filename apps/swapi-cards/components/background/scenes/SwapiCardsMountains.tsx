@@ -140,20 +140,6 @@ const Scene = () => {
   );
 };
 
-interface SwapiCardsMountainsProps {
-  homeworld: string;
-  terrain: string;
+export default function SwapiCardsMountains() {
+  return <Scene />;
 }
-
-function SwapiCardsMountains({ homeworld, terrain }: SwapiCardsMountainsProps) {
-  return (
-    <>
-      <h3 className="absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-black z-20">
-        {homeworld}{' '}
-      </h3>
-      <Scene />
-    </>
-  );
-}
-
-export default SwapiCardsMountains;

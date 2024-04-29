@@ -6,8 +6,8 @@ export interface PaymentSuccessfulProps {}
 
 export function PaymentSuccessful(props: PaymentSuccessfulProps) {
   return (
-    <div className={`${paymentSuccessfulStyles.container}`}>
-      <div className={`${paymentSuccessfulStyles.stack}`}>
+    <div className={`${paymentSuccessfulStyles['container']}`}>
+      <div className={`${paymentSuccessfulStyles['stack']}`}>
         <Heading level={1}>Thank you, your payment was successful!</Heading>
         <Text>
           Your transaction has been completed, and a receipt for your purchase

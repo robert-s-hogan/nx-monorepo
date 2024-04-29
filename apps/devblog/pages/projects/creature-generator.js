@@ -4,15 +4,8 @@ import Image from 'next/image';
 import { GiDoubleDragon } from 'react-icons/gi';
 import { BiCopy, BiCheck } from 'react-icons/bi';
 
-import {
-  Button,
-  Flex,
-  Grid,
-  Heading,
-  Input,
-  Text,
-  Section,
-} from '@with-nx/react-ui';
+import { Button, Flex, Grid, Input, Text, Section } from '@with-nx/react-ui';
+import { Heading } from '@with-nx/generic-ui';
 import { loadingMessages } from '@with-nx/constants';
 
 import DevblogLayout from '../../components/DevBlogLayout';
@@ -21,7 +14,7 @@ import DevblogLayout from '../../components/DevBlogLayout';
 export default function CreatureGenerator() {
   return (
     <DevblogLayout>
-      <h1>Creature Generator</h1>
+      <Heading level={1} text="Creature Generator" />
     </DevblogLayout>
   );
   // const [challengeRating, setChallengeRating] = useState('');
@@ -299,9 +292,7 @@ export default function CreatureGenerator() {
   //                 )
   //               )}
   //               {/* {creature.imagePrompt && (
-  //                 <p className='text-gray-300 mt-4 italic'>
-  //                   {creature.imagePrompt}
-  //                 </p>
+  //                 <Text className='text-gray-300 mt-4 italic' text={creature.imagePrompt} />
   //               )} */}
   //             </div>
 

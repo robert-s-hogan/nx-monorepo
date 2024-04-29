@@ -1,6 +1,7 @@
 import Button from '../button/button';
 import modalStyles from './modal.module.css';
 import { ModalProps } from '@with-nx/types';
+import { Heading, Text } from '@with-nx/generic-ui';
 
 export const Modal = ({
   isShowing,
@@ -15,15 +16,19 @@ export const Modal = ({
   return isShowing ? (
     <div
       onClick={toggle}
-      className={`modal-overlay ${modalStyles.overlay}`}
+      className={`modal-overlay ${modalStyles['overlay']}`}
       id="overlay"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`modal ${modalStyles.modal}`}
+        className={`modal ${modalStyles['modal']}`}
       >
-        <div className={`modal-header ${modalStyles.modalHeader}`}>
-          <h2 className={`modal-title ${modalStyles.modalTitle}`}>{title}</h2>
+        <div className={`modal-header ${modalStyles['modalHeader']}`}>
+          <Heading
+            level={2}
+            className={`modal-title ${modalStyles['modalTitle']}`}
+            text={title || 'Modal Title'}
+          />
           {icon ? (
             <div onClick={toggle} className={`modal-icon`}>
               {icon}
@@ -35,16 +40,17 @@ export const Modal = ({
           )}
         </div>
         {description && (
-          <p className={`modal-description ${modalStyles.modalDescription}`}>
-            {description}
-          </p>
+          <Text
+            className={`modal-description ${modalStyles['modalDescription']}`}
+            text={description}
+          />
         )}
-        <div className={`modal-content ${modalStyles.modalContent}`}>
+        <div className={`modal-content ${modalStyles['modalContent']}`}>
           {children}
         </div>
         {onClick && (
           <div
-            className={`modal-actions ${modalStyles.modalActions} ${modalStyles[buttonLocation]}`}
+            className={`modal-actions ${modalStyles['modalActions']} ${modalStyles[buttonLocation]}`}
           >
             <Button onClick={onClick}>Confirm</Button>
           </div>

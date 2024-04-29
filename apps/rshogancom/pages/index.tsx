@@ -81,9 +81,7 @@ export function Index() {
   //       <Heading level={3} className="font-semibold">
   //         {title}
   //       </Heading>
-  //       <p className="text-md text-center leading-relaxed block lg:text-sm">
-  //         {description}
-  //       </p>
+  //       <Text className="text-md text-center leading-relaxed block lg:text-sm" text={description} />
   //     </div>
   //   </div>
   // );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Flex, Grid } from '@with-nx/react-ui';
+import { Text } from '@with-nx/generic-ui';
 
 import useDraftedPlayers from '../hooks/useDraftedPlayers';
 import DraftTableEntry from './DraftTableEntry';
@@ -91,11 +92,9 @@ const DraftTable = ({
       <div
         className={`bg-viridian grid grid-cols-9 gap-2 h-16 items-center border-sm`}
       >
-        <p className="col-span-2 text-center">ADP</p>
-        <p className="col-span-4">NAME</p>
-        <p className="col-span-3">
-          <span className="hidden lg:inline-flex">TAGS</span>
-        </p>
+        <Text className="col-span-2 text-center" text="ADP" />
+        <Text className="col-span-4" text="NAME" />
+        <Text className="col-span" text="TAGS " />
       </div>
       {sortedPlayers.map((player, index) => {
         const isHidden = hiddenIds.includes(player.player_id);

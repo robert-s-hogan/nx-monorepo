@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { BiCheck, BiCopy } from 'react-icons/bi';
+import { Heading } from '@with-nx/generic-ui';
 
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogSection from '../components/DevBlogSection';
-import DevBlogSubTitle from '../components/DevBlogSubTitle';
 
 import { Button, Flex, Grid } from '@with-nx/react-ui';
 import { copyToClipboard } from '@with-nx/utils';
@@ -50,7 +49,7 @@ const PaypalDonationsExample = () => {
   return (
     <DevBlogLayout className="relative">
       <DevBlogSection>
-        <DevBlogSubTitle>Paypal Donation Options</DevBlogSubTitle>
+        <Heading level={3} text="Paypal Donation Options" />
         <Grid className="grid-cols-1 lg:grid-cols-3 px-2">
           <Flex className="flex-col space-y-6">
             <iframe

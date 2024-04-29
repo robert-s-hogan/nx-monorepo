@@ -22,14 +22,14 @@ const pageNotFoundItems = [
 
 export function PageNotFound(props: PageNotFoundProps) {
   return (
-    <div className={`${pageNotFoundStyles.container}`}>
-      <div className={`${pageNotFoundStyles.stack}`}>
+    <div className={`${pageNotFoundStyles['container']}`}>
+      <div className={`${pageNotFoundStyles['stack']}`}>
         <Heading level={1}>We're sorry...</Heading>
         <Text>
           The page you&rsquo;re looking for is not available for one of the
           following reasons:
         </Text>
-        <List items={pageNotFoundItems} />
+        <List items={pageNotFoundItems || []} />
         <Text>
           <Link href="/">
             <Button>Go Home</Button>

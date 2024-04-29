@@ -1,20 +1,10 @@
-import {
-  Button,
-  Flex,
-  Grid,
-  Heading,
-  Link,
-  Section,
-  Text,
-} from '@with-nx/react-ui';
-import { FiX } from 'react-icons/fi';
-import Image from 'next/image';
+import { Button, Flex, Grid, Link } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
 import { useTheme } from '@with-nx/theme';
+import { Heading, Text } from '@with-nx/generic-ui';
 
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogSection from '../components/DevBlogSection';
-import DevBlogSubTitle from '../components/DevBlogSubTitle';
 import DevBlogHighlightedProject from '../components/DevBlogHighlightedProject';
 import { projectsData } from '../data/projects';
 
@@ -25,7 +15,7 @@ export async function getSortedPostsData() {
   const categoriesRes = await fetch(`${WP_API_BASE_URL}/categories`);
   const categories = await categoriesRes.json();
 
-  const categoryMap = categories.reduce((acc, category) => {
+  const categoryMaText = categories.reduce((acc, category) => {
     acc[category.id] = category.name;
     return acc;
   }, {});
@@ -37,9 +27,7 @@ export async function getSortedPostsData() {
     id: post.slug,
     title: post.title.rendered,
     date: new Date(post.date).toLocaleDateString(),
-    categories: post.categories.map(
-      (categoryId) => categoryMap[categoryId] || 'Uncategorized'
-    ),
+    categories: post.categories.map((categoryId) => categoryMaText[categoryId]),
   }));
 }
 
@@ -61,17 +49,15 @@ export function Index({ allPostsData }) {
         <Grid className="grid-cols-1 px-2">
           <Flex className="justify-center items-center w-full mx-auto">
             <div className="space-y-4 max-w-4xl">
-              <Heading level={1} className="text-center">
-                Portfolio
-              </Heading>
+              <Heading level={1} className="text-center" text="Portfolio" />
 
-              <DevBlogSubTitle className="pt-8 mx-4">
-                👋 I'm Robert Hogan:{' '}
+              <h2 className="pt-8 mx-4">
+                👋 I'm Robert Hogan:
                 <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block my-2 mr-1">
                   <span className="relative px-2 font-semibold">Front End</span>
                 </span>{' '}
                 Mastery to AI-Integrated Web Development
-              </DevBlogSubTitle>
+              </h2>
 
               {/* <Flex className="space-x-4 items-center mx-4">
                 <Button className="btn-primary" onClick={toggle}>
@@ -98,9 +84,11 @@ export function Index({ allPostsData }) {
         </Grid>
         <DevBlogSection className="">
           <Flex className="flex-col justify-start flex-shrink-0 transform-none">
-            <Heading level={2} className="text-left">
-              Highlighted Projects
-            </Heading>
+            <Heading
+              level={2}
+              className="text-left"
+              text="Highlighted Projects"
+            />
             <Grid className="grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 relative gap-12">
               {projectsData.map((project, index) => {
                 if (index < 3)
@@ -134,18 +122,19 @@ export function Index({ allPostsData }) {
       </DevBlogSection>
 
       <section className="container mx-auto max-w-7xl space-y-4 px-4">
-        <h2 className="text-2xl font-bold">Latest Posts</h2>
+        <Heading level={2} className="text-2xl font-bold" text="Latest Posts" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 space-y-2">
           {allPostsData.map(({ id, date, title, categories }) => (
             <div key={id}>
               <Link href={`/blog/${id}`}>
-                <p className="text-lg font-semibold mb-0">
-                  {title.replace(/&nbsp;/g, ' ')}
-                </p>
+                <Text
+                  className="text-lg font-semibold mb-0"
+                  text={title.replace(/&nbsp;/g, ' ')}
+                />
               </Link>
               <div className="flex items-center space-x-4 mt-0">
-                <p className="text-sm">{categories.join(', ')}</p>
-                <p className="text-sm">{date}</p>
+                <Text className="text-sm" text={categories.join(', ')} />
+                <Text className="text-sm" text={date} />
               </div>
             </div>
           ))}

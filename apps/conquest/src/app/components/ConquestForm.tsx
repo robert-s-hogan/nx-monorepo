@@ -2,7 +2,14 @@ import React from 'react';
 import { useFormik } from 'formik';
 
 import GenericField from './ConquestField';
-import { ConquestFormProps } from '../types/Utility';
+import { FieldConfig } from '../types';
+
+export interface ConquestFormProps {
+  fields: FieldConfig[];
+  onSubmit: (values: any) => void; // Replace 'any' with a more specific type if needed
+  operation: 'add' | 'edit';
+  initialValues?: { [key: string]: any }; // Replace 'any' with a more specific type if needed
+}
 
 const ConquestForm: React.FC<ConquestFormProps> = ({
   fields,

@@ -1,9 +1,9 @@
+import { Heading } from '@with-nx/generic-ui';
+
 const EntityPage: React.FC = () => {
   return (
     <div>
-      <h1>[Entity] Page</h1>
-
-      {/* Render entity data */}
+      <Heading level={1} text="[Entity] Page" />
     </div>
   );
 };

@@ -43,7 +43,7 @@ export const useSearchQuery = (
   useEffect(() => {
     if (state.searchTerm !== '') {
       const selectedFileTypes = Object.keys(state.fileTypes).filter(
-        (fileType) => state.fileTypes[fileType]
+        (fileType) => state.fileTypes[fileType as keyof typeof state.fileTypes]
       );
       const formattedParams = Object.entries(restParams)
         .map(([key, value]) => {
@@ -63,12 +63,12 @@ export const useSearchQuery = (
         q += ' -' + excludeTerms.join(' -');
       }
       let url = `${baseUrl}?${formattedParams}&q=${encodeURIComponent(q)}`;
-      setUrl(url);
+      setUrl(url as any);
       setFetchData(true); // trigger network request
     }
   }, [state]);
 
-  const handleSearch = (searchTerm, years) => {
+  const handleSearch = (searchTerm: string, years: number) => {
     setState({
       ...state,
       searchTerm: searchTerm,

@@ -24,11 +24,13 @@ export const SkeletonText = ({
   const Tag = (level ? `h${level}` : 'p') as keyof JSX.IntrinsicElements;
 
   return (
-    <div className={`${skeletonTextStyles.skeletonTextContainer} ${className}`}>
+    <div
+      className={`${skeletonTextStyles['skeletonTextContainer']} ${className}`}
+    >
       {Array.from({ length: rows }, (_, index) => (
         <Tag
           key={index}
-          className={`skeleton-text ${skeletonTextStyles.skeletonText}`}
+          className={`skeleton-text ${skeletonTextStyles['skeletonText']}`}
           style={{
             width: typeof width === 'number' ? `${width}px` : width || '100%',
             minHeight:

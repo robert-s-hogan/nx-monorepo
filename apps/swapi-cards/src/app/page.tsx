@@ -126,9 +126,7 @@ function App() {
           </form>
         </div> */}
         {/* {searchResults && (
-          <p className="text-center text-white my-8">
-            {characters?.length} results found
-          </p>
+          <Text  className="text-center text-white my-8" text={`${characters?.length} results found`} />
         )} */}
         <div className="max-w-4xl lg:max-w-6xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto my-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 w-full">

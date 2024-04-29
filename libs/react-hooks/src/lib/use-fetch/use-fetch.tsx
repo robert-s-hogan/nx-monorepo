@@ -1,7 +1,6 @@
-//libs/react-hooks/src/lib/use-fetch/use-fetch.tsx
 import { useState, useEffect } from 'react';
 
-function useFetch(url) {
+export function useFetch(url: string) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,7 +13,7 @@ function useFetch(url) {
         setData(result);
         setLoading(false);
       } catch (err) {
-        setError(err);
+        setError(null);
         setLoading(false);
       }
     };
@@ -22,20 +21,4 @@ function useFetch(url) {
   }, [url]);
 
   return { data, loading, error };
-}
-
-// Usage
-function App() {
-  const { data, loading, error } = useFetch('https://api.example.com/data');
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-
-  return (
-    <div>
-      {data.map((item) => (
-        <div key={item.id}>{item.name}</div>
-      ))}
-    </div>
-  );
 }

@@ -21,7 +21,7 @@ export function ListItem({
     <li
       id={id?.toString()}
       className={`list-item ${selected ? 'selected' : ''} ${
-        listItemStyles.listItem
+        listItemStyles['listItem']
       }`}
       onClick={onChange}
     >

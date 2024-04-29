@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useSWRApi } from '../api/useSWRApi';
 import { Person } from '../types/api/types';
+import { Text } from '@with-nx/generic-ui';
 
 const Loading = () => {
   const [search, setSearch] = useState('');
@@ -42,14 +43,16 @@ const Loading = () => {
         </button>
       </form>
       {searchResults && (
-        <p className="text-white block text-center search-results">
-          {searchResults}
-        </p>
+        <Text
+          className="text-white block text-center search-results"
+          text={searchResults}
+        />
       )}
       {isError && (
-        <p className="text-white block text-center search-results">
-          Oops! Something went wrong. Please click the button below
-        </p>
+        <Text
+          className="text-white block text-center search-results"
+          text="Oops! Something went wrong. Please click the button below"
+        />
       )}
     </div>
   );

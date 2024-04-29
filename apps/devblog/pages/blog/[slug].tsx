@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import DevBlogLayout from '../../components/DevBlogLayout';
 import DevBlogSection from '../../components/DevBlogSection';
-import Image from 'next/image';
+import { Heading } from '@with-nx/generic-ui';
 
 const WP_API_BASE_URL =
   'https://public-api.wordpress.com/wp/v2/sites/robertshogandev.wordpress.com';
@@ -69,7 +69,7 @@ export default function Post({ post }) {
     <DevBlogLayout>
       <DevBlogSection className="space-y-6">
         <article className="space-y-8 px-4">
-          <h1>{post.title}</h1>
+          <Heading level={1} text={post.title} />
           <div
             className="space-y-6"
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}

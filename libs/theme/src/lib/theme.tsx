@@ -2,37 +2,24 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Howl } from 'howler';
 
 type ThemeColors = {
-  // Core palette
-  'primary-color': string; // Primary branding color.
-  'secondary-color': string; // Secondary branding color.
-  'accent-color': string; // Highlight color for UI purposes.
-
-  // Backgrounds
-  'bg-color': string; // Main background color.
-  'surface-color': string; // Background for cards, modals, popups etc.
-
-  // Text colors
-  'text-color': string; // Main text color.
-  'text-on-primary-color': string; // Text color on primary colored backgrounds.
-  'text-on-secondary-color': string; // Text color on secondary colored backgrounds.
-
+  'primary-color': string;
+  'secondary-color': string;
+  'accent-color': string;
+  'bg-color': string;
+  'surface-color': string;
+  'text-color': string;
+  'text-on-primary-color': string;
+  'text-on-secondary-color': string;
   'primary-icon-color': string;
   'secondary-icon-color': string;
-
-  // Functional colors
-  'success-color': string; // For success messages or icons.
-  'error-color': string; // For error messages or icons.
-  'warning-color': string; // For warning messages or icons.
-  'info-color': string; // For informational messages or icons.
-
-  // Borders and dividers
-  'border-color': string; // Color for borders or dividers.
-
-  // Interactive states
-  'hover-color': string; // Hover state color.
-  'active-color': string; // Active state color.
-  'disabled-color': string; // Disabled state color.
-
+  'success-color': string;
+  'error-color': string;
+  'warning-color': string;
+  'info-color': string;
+  'border-color': string;
+  'hover-color': string;
+  'active-color': string;
+  'disabled-color': string;
   sound: string;
 };
 
@@ -77,7 +64,7 @@ export const ThemeProvider = ({
     const sound = new Howl({
       src: [soundPath],
       onend: () => {
-        setIsToggleLocked(false); // Unlock the toggle after the sound finishes
+        setIsToggleLocked(false);
       },
       onerror: (err) => {
         console.error('Howler Error:', err);
@@ -88,12 +75,11 @@ export const ThemeProvider = ({
 
   const toggleTheme = () => {
     setFadeClass('fade-out');
-    setIsToggleLocked(true); // Lock the toggle as the sound starts
+    setIsToggleLocked(true);
     setTimeout(() => {
       setThemeName((prevThemeName) => {
         const newThemeName = prevThemeName === 'light' ? 'dark' : 'light';
 
-        // Play the sound for the new theme
         playSound(themes[newThemeName].sound);
 
         return newThemeName;
@@ -109,11 +95,11 @@ export const ThemeProvider = ({
     if (savedTheme) {
       setThemeName(savedTheme);
     }
-  }, []); // Empty dependency array ensures this useEffect runs only once
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
-    const themeColors = themes[themeName]; // Now it uses the passed themes prop
+    const themeColors = themes[themeName];
 
     Object.keys(themeColors).forEach((colorKey) => {
       root.style.setProperty(`--${colorKey}`, themeColors[colorKey]);

@@ -98,20 +98,6 @@ const Scene = () => {
   );
 };
 
-interface SwapiCardsCliffProps {
-  homeworld: string;
-  terrain: string;
+export default function SwapiCardsCliff() {
+  return <Scene />;
 }
-
-function SwapiCardsCliff({ homeworld, terrain }: SwapiCardsCliffProps) {
-  return (
-    <>
-      <h3 className="absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-black z-20">
-        {homeworld}{' '}
-      </h3>
-      <Scene />
-    </>
-  );
-}
-
-export default SwapiCardsCliff;

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Heading } from '@with-nx/generic-ui';
+
 import CampaignList from './ConquestCampaignList';
 import CampaignModalManager from './ConquestCampaignModalManager';
 import useModalManager from '../hooks/useModalManager';
@@ -22,7 +24,7 @@ const ConquestCampaignListWithModal = ({
 
   return (
     <div className="w-full lg:w-1/2 p-4 flex flex-col space-y-8">
-      <h2 className="mb-4">Campaigns</h2>
+      <Heading text="Campaigns" level={2} />
       {hideEdit && (
         <div className="flex w-auto">
           <button

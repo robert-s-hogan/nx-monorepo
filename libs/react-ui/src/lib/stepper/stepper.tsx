@@ -24,24 +24,24 @@ export const Stepper = ({
   return (
     <div
       className={`stepper ${className ? className : ''} ${
-        stepperStyles.stepper
+        stepperStyles['stepper']
       }`}
       style={style}
     >
       <Button
-        className={stepperStyles.btn}
+        className={stepperStyles['btn']}
         onClick={handleDecrement}
         disabled={value < 2}
         icon={minusIcon}
       />
-      <span className={stepperStyles.value}>{value}</span>
+      <span className={stepperStyles['value']}>{value}</span>
       <Button
-        className={stepperStyles.btn}
+        className={stepperStyles['btn']}
         onClick={handleIncrement}
         icon={plusIcon}
       />
       {value < 1 && (
-        <div className={stepperStyles.error}>
+        <div className={stepperStyles['error']}>
           {errorMessage || 'Minimum value is 1'}
         </div>
       )}

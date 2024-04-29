@@ -1,10 +1,9 @@
 import listStyles from './list.module.css';
-// import { ListProps } from '@with-nx/types';
 import ListItem from '../list-item/list-item';
 
 interface ListProps {
   className?: string;
-  items: {
+  items?: {
     href: string;
     children: React.ReactNode;
     className?: string;
@@ -29,19 +28,19 @@ export const List = ({
 }: ListProps): JSX.Element => {
   return (
     <ul
-      className={`list ${className ? className : listStyles.list}`}
+      className={`list ${className ? className : listStyles['list']}`}
       id={id}
       style={style}
       onClick={onClick}
       data-testid={testId}
     >
-      {items.map((item, index) => (
+      {items?.map((item, index) => (
         <ListItem
           key={index.toString()} // convert index to a string
           selected={value === item.children}
           onChange={() => {
             if (typeof item.children === 'string') {
-              onChange(item.children);
+              onChange && onChange(item.children);
             }
           }}
         >

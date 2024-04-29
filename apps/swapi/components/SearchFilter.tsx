@@ -1,6 +1,7 @@
 // components/SearchFilter.tsx
 import React from 'react';
 import { Grid } from '@with-nx/react-ui';
+import { Heading } from '@with-nx/generic-ui';
 
 interface SearchFilterProps {
   categories: string[];
@@ -18,7 +19,7 @@ const SearchFilter = ({ categories, onCategoryChange }: SearchFilterProps) => {
 
   return (
     <div className="space-y-4 mt-8">
-      <h3>Filter by Category</h3>
+      <Heading level={3} text="Filter by Category" />
       <Grid className="grid-cols-2 md:grid-cols-3">
         {categories.map((category) => (
           <label key={category}>

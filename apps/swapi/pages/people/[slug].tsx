@@ -1,18 +1,13 @@
 import { useState, useEffect } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { Box, Flex, Grid, Heading, Slider } from '@with-nx/react-ui';
+import { Flex, Heading } from '@with-nx/react-ui';
+import { Text } from '@with-nx/generic-ui';
 import { useRouter } from 'next/router';
 
-import {
-  getColorSchemeForPersona,
-  Persona,
-  GradientColorScheme,
-} from '../../utils/themeMap';
-import { minHeightMap } from '../../utils/stylesMap';
+import { getColorSchemeForPersona } from '../../utils/themeMap';
 import SwapiLayout from '../../components/SwapiLayout';
 import SwapiSection from '../../components/SwapiSection';
 import SwapiSunSVG from '../../icons/SwapiSunSVG';
-import SwapiThemeColorPallete from '../../components/SwapiThemeColorPallete';
 import { people } from '../../data/peopleData';
 import { useTheme } from '../../context/ThemeProvider';
 
@@ -225,9 +220,10 @@ const PersonPage = ({ person }) => {
         backgroundColor={currentColorScheme?.background?.secondary}
         headingTextColor={currentColorScheme?.text?.accent}
       >
-        <p className={currentColorScheme?.text?.background}>
-          {currentCharacter.main_story_arc}
-        </p>
+        <Text
+          className={currentColorScheme?.text?.background}
+          text={currentCharacter.main_story_arc}
+        />
       </SwapiSection>
       <SwapiSection
         minHeight="400"
@@ -240,7 +236,10 @@ const PersonPage = ({ person }) => {
         <ol>
           {currentCharacter.achievements.map((achievement, index) => (
             <li key={`achievement-${index}`}>
-              <p className={currentColorScheme?.text?.accent}>{achievement}</p>
+              <Text
+                className={currentColorScheme?.text?.accent}
+                text={achievement}
+              />
             </li>
           ))}
         </ol>
@@ -253,16 +252,20 @@ const PersonPage = ({ person }) => {
         backgroundColor={currentColorScheme?.background?.secondary}
         headingTextColor={currentColorScheme?.text?.accent}
       >
-        <p className={currentColorScheme?.text?.background}>
-          {currentCharacter.backstory}
-        </p>
+        <Text
+          className={currentColorScheme?.text?.background}
+          text={currentCharacter.backstory}
+        />
       </SwapiSection>
 
       <SwapiSection
         minHeight="400"
         className={`bg-no-repeat bg-cover bg-center bg-gradient-to-br ${colorScheme?.gradient?.background?.from} from-10% ${colorScheme?.gradient?.tertiary?.via} via-30 ${colorScheme?.gradient?.tertiary?.to} to-90%`}
       >
-        <p className="text-white text-center">{currentCharacter.quote}</p>
+        <Text
+          className="text-white text-center"
+          text={currentCharacter.quote}
+        />
       </SwapiSection>
 
       <SwapiSection
@@ -276,9 +279,10 @@ const PersonPage = ({ person }) => {
         <ul>
           {currentCharacter.factions.map((faction) => (
             <li key="faction">
-              <p className={`text-shadow ${currentColorScheme?.text?.accent}`}>
-                {faction}
-              </p>
+              <Text
+                className={`text-shadow ${currentColorScheme?.text?.accent}`}
+                text={faction}
+              />
             </li>
           ))}
         </ul>

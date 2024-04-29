@@ -46,7 +46,7 @@ export const Navbar = ({
       </div>
 
       <div className="hidden lg:block">
-        <List items={links} className="flex" />
+        <List items={links || []} className="flex" />
       </div>
     </nav>
   );

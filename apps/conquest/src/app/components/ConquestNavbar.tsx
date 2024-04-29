@@ -5,9 +5,12 @@ import LoginButton from './ConquestLoginButton';
 import LogoutButton from './ConquestLogoutButton';
 import { LiaDragonSolid } from 'react-icons/lia';
 import Link from 'next/link';
-import { ConquestNavbarProps } from '../types';
 
-const LOGO = '/conquest_logo.jpg';
+export interface ConquestNavbarProps {
+  isAdmin?: boolean;
+  loading?: boolean;
+  title?: string;
+}
 
 const Navbar: React.FC<ConquestNavbarProps> = ({ title }) => {
   const { currentUser, loading } = useAuth();

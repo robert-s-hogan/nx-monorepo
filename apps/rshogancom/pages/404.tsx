@@ -1,6 +1,6 @@
 import RSHLayout from '../components/RSHLayout';
 import { Heading, Link } from '@with-nx/react-ui';
-
+import { Text } from '@with-nx/generic-ui';
 export default function Custom404() {
   return (
     <RSHLayout>
@@ -9,25 +9,24 @@ export default function Custom404() {
           <Heading level={1} className="text-5xl">
             We&rsquo;re sorry...
           </Heading>
-          <p>
-            The page you&rsquo;re looking for is not available for one of the
-            following reasons:
-          </p>
+          <Text
+            text="The page you&rsquo;re looking for is not available for one of the
+            following reasons:"
+          />
           <ul className="ml-4 list-disc">
             <li>The link to this page may be incorrect or out-of-date.</li>
             <li>You may have bookmarked a page that has been moved.</li>
           </ul>
-          <p className="pb-4 md:pb-8">
-            You can also{' '}
-            <Link
-              href="mailto:robert@robertshogan.com?subject=404%20Error%20on%20robertshogan.com"
-              className="text-catalog-primary underline"
-              target="_blank"
-            >
-              contact us
-            </Link>{' '}
-            for help.
-          </p>
+          <Link
+            href="mailto:robert@robertshogan.com?subject=404%20Error%20on%20robertshogan.com"
+            className="text-catalog-primary underline"
+            target="_blank"
+          >
+            <Text
+              className="pb-4 md:pb-8"
+              text="You can also contact us for help."
+            />
+          </Link>
           <Link href="/" className="btn-primary mt-4 text-lg">
             Go Home
           </Link>

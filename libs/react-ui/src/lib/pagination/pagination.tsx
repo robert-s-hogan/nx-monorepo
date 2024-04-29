@@ -12,11 +12,11 @@ export function Pagination({
   }
 
   return (
-    <div className={`pagination ${paginationStyles.pagination}`}>
+    <div className={`pagination ${paginationStyles['pagination']}`}>
       {pageNumbers.map((page) => (
         <button
           key={page}
-          className={`page-number  ${paginationStyles.pageNumber} ${
+          className={`page-number  ${paginationStyles['pageNumber']} ${
             page === currentPage ? 'current-page' : ''
           }`}
           onClick={() => onPageChange(page)}

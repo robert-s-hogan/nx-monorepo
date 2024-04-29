@@ -1,10 +1,9 @@
-import React from 'react';
+import { Heading } from '@with-nx/generic-ui';
 
 const EntitiesPage: React.FC = () => {
   return (
     <div>
-      <h1>Entities Page</h1>
-      {/* Add your map component or content here */}
+      <Heading level={1} text="Entities Page" />
     </div>
   );
 };

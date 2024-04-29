@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SelectProps } from '@with-nx/types';
 
 export const Select = ({

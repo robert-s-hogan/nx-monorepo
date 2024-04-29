@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
+import { Heading } from '@with-nx/generic-ui';
+
 import { useCampaigns } from '../hooks/useCampaigns';
 import { useRestOperations } from '../hooks/useRestOperations';
 import { useEncounterCalculations } from '../hooks/useEncounterCalculations';
 import { Encounter, EncounterFormProps, Campaign, Difficulty } from '../types';
 import { getRandomQuadrant } from '../utils/mapUtils';
-import { useRandomMapSelection } from '../hooks/useRandomMapSelection'; // adjust the path as needed
-import { mapConstants } from '../constants/mapConstants'; // adjust the path as needed
+import { useRandomMapSelection } from '../hooks/useRandomMapSelection';
+import { mapConstants } from '../constants/mapConstants';
 
 function formatFieldValue(value: any, inputType: string) {
   if (inputType === 'checkbox') {
@@ -101,10 +103,8 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
     );
   }, [formik.values.encounterDifficultyOptions, xpThresholds]);
 
-  // Usage:
-  // First roll, any quadrant is possible
   let firstQuadrant = getRandomQuadrant();
-  // Second roll, firstQuadrant cannot be chosen
+
   let secondQuadrant = getRandomQuadrant(firstQuadrant);
 
   const mapSelection = {
@@ -180,11 +180,11 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
         </button>
       </form>
       <div className="border border-black p-4 mx-6 rounded-md">
-        <h2 className="text-center">Preview</h2>
+        <Heading level={2} text="Preview" className="text-center" />
         <p>Team Quadrant: {firstQuadrant}</p>
         <p>Enemy Quadrant: {secondQuadrant}</p>
         <div>
-          <h3>Random Selection</h3>
+          <Heading level={3} text="Random Selection" />
           <p>
             <strong>Objective:</strong> {mapSelection.objective}
           </p>

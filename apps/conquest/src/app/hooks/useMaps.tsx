@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@with-nx/firebase';
-import { Map } from '../types/Maps';
 
 export const useMaps = () => {
   const [maps, setMaps] = useState([]);

@@ -5,15 +5,8 @@ import {
   dndXpThresholdsByCharacterLevel,
   dndEncounterMultipliers,
 } from '@with-nx/constants';
-import {
-  Button,
-  Flex,
-  Grid,
-  Heading,
-  Input,
-  Text,
-  Section,
-} from '@with-nx/react-ui';
+import { Button, Flex, Grid, Input, Text, Section } from '@with-nx/react-ui';
+import { Heading } from '@with-nx/generic-ui';
 import DevblogLayout from '../../components/DevBlogLayout';
 
 export default function EntityGenerator() {
@@ -196,7 +189,7 @@ export default function EntityGenerator() {
         </form>
         {levelInfo && (
           <Flex className="flex-col max-w-lg mx-auto space-y-0">
-            <h2>Level Info:</h2>
+            <Heading level={2} text="Level Info:" />
             <p>Number of Players: {playerCount}</p>
             <p>Player Experience Start: {levelInfo.xpStart}</p>
             <p>Level: {levelInfo.level}</p>

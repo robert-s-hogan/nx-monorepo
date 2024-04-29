@@ -1,13 +1,11 @@
-import { useRouter } from 'next/router';
-
+import { useRouter } from 'next/navigation';
+import { Heading } from '@with-nx/generic-ui';
 const MapsIdPage = () => {
   const router = useRouter();
-  const { mapsId } = router.query;
 
   return (
     <div>
-      <h1>Dynamic Route: {mapsId}</h1>
-      {/* Your JSX content here */}
+      <Heading level={1} text={`Dynamic Route: `} />
     </div>
   );
 };

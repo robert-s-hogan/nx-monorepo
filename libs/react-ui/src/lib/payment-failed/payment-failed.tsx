@@ -21,13 +21,13 @@ const paymentFailedItems = [
 
 export function PaymentFailed(props: PaymentFailedProps) {
   return (
-    <div className={`${paymentFailedStyles.container}`}>
-      <div className={`${paymentFailedStyles.stack}`}>
+    <div className={`${paymentFailedStyles['container']}`}>
+      <div className={`${paymentFailedStyles['stack']}`}>
         <Heading level={1}>
           We're sorry, but your payment couldn't be processed...
         </Heading>
         <Text>This could be for one of the following reasons:</Text>
-        <List items={paymentFailedItems} />
+        <List items={paymentFailedItems || []} />
         <Text>
           <Link href="/retry-payment">
             <Button>Retry Payment</Button>

@@ -3,7 +3,17 @@ import { Heading, Text } from '@with-nx/react-ui';
 import faqStyles from './faq.module.css';
 
 /* eslint-disable-next-line */
-export interface FAQProps {}
+export interface FAQProps {
+  item: {
+    question: string;
+    answer: string;
+  };
+}
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
 
 const faqItems = [
   {
@@ -18,22 +28,22 @@ const faqItems = [
   // Add more items here
 ];
 
-function AccordionItem({ item }) {
+const AccordionItem = ({ item }: FAQProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={`${faqStyles.accordionItem}`}>
+    <div className={`${faqStyles['accordionItem']}`}>
       <Heading level={3} onClick={() => setIsOpen(!isOpen)}>
         {item.question}
       </Heading>
       {isOpen && <Text>{item.answer}</Text>}
     </div>
   );
-}
+};
 
 export function FAQ(props: FAQProps) {
   return (
-    <div className={`${faqStyles.container}`}>
+    <div className={`${faqStyles['container']}`}>
       <Heading level={1}>Frequently Asked Questions</Heading>
       {faqItems.map((item, index) => (
         <AccordionItem key={index} item={item} />

@@ -22,7 +22,7 @@ export default function RootLayout({
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <html lang="en">
-        <body>{children}</body>
+        <main>{children}</main>
       </html>
     </AuthProvider>
   );

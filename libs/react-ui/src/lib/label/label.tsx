@@ -10,7 +10,7 @@ export const Label = ({
   return (
     <label
       htmlFor={htmlFor}
-      className={`label ${labelStyles.label} ${className}`}
+      className={`label ${labelStyles['label']} ${className}`}
       style={style}
     >
       {children}

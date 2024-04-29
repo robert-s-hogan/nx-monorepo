@@ -1,9 +1,12 @@
 // hooks/useHandleBackdropClick.js
 import { useEffect } from 'react';
 
-export const useHandleBackdropClick = (ref, onBackdropClick) => {
+export const useHandleBackdropClick = (
+  ref: React.RefObject<HTMLElement>,
+  onBackdropClick: () => void
+) => {
   useEffect(() => {
-    const handleBackdropClick = (event) => {
+    const handleBackdropClick = (event: MouseEvent) => {
       if (event.target === ref.current) {
         onBackdropClick();
       }

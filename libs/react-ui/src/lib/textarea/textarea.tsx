@@ -20,10 +20,12 @@ export const Textarea = ({
   maxLength,
 }: TextareaProps): JSX.Element => {
   return (
-    <div className={`${textareaStyles.textareaContainer} textarea-container`}>
+    <div
+      className={`${textareaStyles['textareaContainer']} textarea-container`}
+    >
       <Label htmlFor={name}>{label}</Label>
       <textarea
-        className={`textarea ${textareaStyles.textarea} ${className}`}
+        className={`textarea ${textareaStyles['textarea']} ${className}`}
         name={name}
         id={id}
         value={value}

@@ -1,24 +1,34 @@
 import React, { ButtonHTMLAttributes } from 'react';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
-  className?: string;
-  ariaLabel?: string;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  text: string;
+  theme:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'danger'
+    | 'warning'
+    | 'success'
+    | 'info';
 }
 
-export const Button: React.FC<ButtonProps> = ({
-  children,
-  className = '',
-  ariaLabel,
-  ...props
-}) => {
+const themeClassNames = {
+  primary: 'btn-primary',
+  secondary: 'btn-secondary',
+  tertiary: 'btn-tertiary',
+  danger: 'btn-danger',
+  warning: 'btn-warning',
+  success: 'btn-success',
+  info: 'btn-info',
+};
+
+export const Button = ({ text, theme, ...props }: ButtonProps) => {
+  const className = `${themeClassNames[theme] || 'btn-primary'} ${
+    props.className || ''
+  }`;
   return (
-    <button
-      {...props}
-      className={className}
-      aria-label={ariaLabel || undefined}
-    >
-      {children}
+    <button {...props} className={className}>
+      {text}
     </button>
   );
 };

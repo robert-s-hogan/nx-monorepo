@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { Button, Heading } from '@with-nx/react-ui';
+import { Text } from '@with-nx/generic-ui';
 import {
   GiDiceEightFacesEight,
   GiFist,
@@ -52,7 +53,7 @@ const DiceRoller: React.FC<DiceRollerProps> = ({ defense, onRoll }) => {
             {attackIcons[outcome.result]}
           </div>
           <div className="text-center">
-            <p className="text-lg font-bold">{outcome.result}</p>
+            <Text className="text-lg font-bold" text={outcome.result} />
           </div>
         </div>
       ) : (

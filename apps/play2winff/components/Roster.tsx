@@ -1,3 +1,5 @@
+import { Heading } from '@with-nx/generic-ui';
+
 const Roster = ({ draftedPlayers = [] }) => {
   const positions = [
     'RB',
@@ -55,7 +57,7 @@ const Roster = ({ draftedPlayers = [] }) => {
 
   return (
     <div className="roster">
-      <h2>Roster</h2>
+      <Heading level={2} text="Roster" />
       <div className="roster-positions">
         {positions.map((position, index) => (
           <div key={`${position}-${index}`} className="roster-position">

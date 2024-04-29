@@ -38,14 +38,10 @@ const SwapiCardsSearchBar: React.FC = () => {
         </button>
       </form> */}
       {/* {data && data.length > 0 && (
-        <p className="text-white block text-center search-results">
-          {data.length} results found
-        </p>
+        <Text className="text-white block text-center search-results" text="{`{data.length} results found`}" />
       )} */}
       {/* {data && data.length === 0 && (
-        <p className="text-white block text-center search-results">
-          No results found
-        </p>
+        <Text className="text-white block text-center search-results" text="No results found" />
       )} */}
     </div>
   );

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Flex, Grid, Section } from '@with-nx/react-ui';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 import { useEntity } from '../context/EntityContext';
 import { SPECIES_IMAGES, CLASS_INDICATORS } from '../data';
 import { ClassName, SpeciesName } from '../types';
+import { Heading } from '@with-nx/generic-ui';
 
 import TheosDndLayout from '../components/TheosDndLayout';
 import TheosDndCharacterCard from '../components/TheosDndCharacterCard';
@@ -71,7 +72,7 @@ export function Index() {
     <TheosDndLayout className="mb-8">
       <Section className="text-center space-y-6">
         <div className="mb-16">
-          <h1>Character Creation</h1>
+          <Heading level={1} text="Character Creation" />
           <p>
             Welcome to Theos DnD! Create your character and battle your way
             through the world of monsters!
@@ -79,7 +80,7 @@ export function Index() {
         </div>
         <Grid className="grid-cols-1 lg:grid-cols-2">
           <div className="h-full w-full container mx-auto max-w-7xl">
-            <h2>Character Customization</h2>
+            <Heading level={2} text="Character Customization" />
             <Grid className="grid-cols-1 gap-12">
               <form
                 onSubmit={handleFight}

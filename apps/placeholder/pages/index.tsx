@@ -12,7 +12,7 @@ import { Card } from '@with-nx/react-ui';
 import { FiActivity, FiX, FiMinus, FiPlus } from 'react-icons/fi';
 
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 import rshLogo from '../assets/images/rsh_logo_Crop.jpg';

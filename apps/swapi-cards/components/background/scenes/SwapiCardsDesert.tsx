@@ -73,25 +73,6 @@ const Scene = () => {
   );
 };
 
-interface SwapiCardDesertProps {
-  homeworld: string;
-  terrain: string;
+export default function SwapiCardsDesert() {
+  return <Scene />;
 }
-
-const SwapiCardsDesert: React.FC<SwapiCardDesertProps> = ({
-  homeworld,
-  terrain,
-}) => {
-  return (
-    <div className="aspect-ratio-box">
-      <h3 className="z-10 absolute right-2 m-0 uppercase p-4 text-2xl font-light pr-6 text-brown">
-        {homeworld}{' '}
-      </h3>
-      <div className="aspect-ratio-svg">
-        <Scene />
-      </div>
-    </div>
-  );
-};
-
-export default SwapiCardsDesert;

@@ -1,8 +1,7 @@
 import Image from 'next/image';
 
-import { Box, Button, Flex, Heading, Link } from '@with-nx/react-ui';
-import { FiGithub } from 'react-icons/fi';
-import { BiWrench } from 'react-icons/bi';
+import { Heading, Link } from '@with-nx/react-ui';
+import { Text } from '@with-nx/generic-ui';
 
 const DevBlogHighlightedProject = ({ project }) => {
   return (
@@ -26,7 +25,7 @@ const DevBlogHighlightedProject = ({ project }) => {
             <span className="hidden md:inline-block">{project.title}</span>
             <span className="md:hidden">{project.mobileTitle}</span>
           </Heading>
-          <p className="text-center w-full">{project.description}</p>
+          <Text className="text-center w-full" text={project.description} />
         </div>
       </Link>
     </div>

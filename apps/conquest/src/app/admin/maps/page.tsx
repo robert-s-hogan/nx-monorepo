@@ -1,14 +1,16 @@
 'use client';
 import React from 'react';
 import { useFirestoreCollection } from '@with-nx/firebase';
-import { Map } from '../../types';
+
+import { Heading } from '@with-nx/generic-ui';
+import { MapProps } from '../../types';
 
 const AdminMapsPage: React.FC = () => {
   const {
     documents: maps,
     loading,
     error,
-  } = useFirestoreCollection<Map>('formFields');
+  } = useFirestoreCollection<MapProps>('formFields');
 
   if (loading) return <div>Loading maps...</div>;
   if (error) return <div>Error loading maps: {error.message}</div>;
@@ -17,12 +19,12 @@ const AdminMapsPage: React.FC = () => {
 
   return (
     <div className="w-full space-y-8">
-      <h1 className="text-center">Maps Admin Page</h1>
+      <Heading level={1} className="text-center" text="Maps Admin Page" />
       <div className="flex flex-grow w-full">
         <div className="w-1/2 flex flex-col">Maps Form</div>
 
         <div className="w-1/2 flex flex-col">
-          <h1>Maps Review</h1>
+          <Heading level={2} text="Maps Review" />
           {maps.length > 0 ? (
             <ul>
               {maps.map((map) => (

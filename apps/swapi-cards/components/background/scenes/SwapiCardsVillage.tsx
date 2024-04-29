@@ -183,20 +183,6 @@ const Scene = () => {
   );
 };
 
-interface SwapiCardsTundraProps {
-  homeworld: string;
-  terrain: string;
+export default function SwapiCardsVillage() {
+  return <Scene />;
 }
-
-function SwapiCardsTundra({ homeworld, terrain }: SwapiCardsTundraProps) {
-  return (
-    <>
-      <h3 className="absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-black z-20">
-        {homeworld}{' '}
-      </h3>
-      <Scene />
-    </>
-  );
-}
-
-export default SwapiCardsTundra;

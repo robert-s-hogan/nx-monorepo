@@ -85,23 +85,6 @@ const Scene = () => {
   );
 };
 
-interface SwapiCardsMountainHillsProps {
-  homeworld: string;
-  terrain: string;
+export default function SwapiCardsMountainHills() {
+  return <Scene />;
 }
-
-const SwapiCardsMountainHills: React.FC<SwapiCardsMountainHillsProps> = ({
-  homeworld,
-  terrain,
-}) => {
-  return (
-    <div className="w-96 h-96 lg:w-80 xl:w-72 bg-mountains">
-      <h3 className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-white">
-        {homeworld}: {terrain}
-      </h3>
-      <Scene />
-    </div>
-  );
-};
-
-export default SwapiCardsMountainHills;

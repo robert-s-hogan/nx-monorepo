@@ -7,14 +7,14 @@ import { TabsProps } from '@with-nx/types';
 export function Tabs({ data }: TabsProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleTabClick = (index) => {
+  const handleTabClick = (index: number) => {
     setActiveIndex(index);
   };
 
   console.log(`index: ${activeIndex}`);
 
   return (
-    <div className={`tabs ${tabsStyles.tabContainer}`}>
+    <div className={`tabs ${tabsStyles['tabContainer']}`}>
       <TabList
         tabs={data}
         activeIndex={activeIndex}

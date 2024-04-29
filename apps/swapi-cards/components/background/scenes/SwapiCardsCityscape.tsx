@@ -280,23 +280,6 @@ const Scene = () => {
   );
 };
 
-interface SwapiCardsCityscapeProps {
-  homeworld: string;
-  terrain: string;
+export default function SwapiCardsCityscape() {
+  return <Scene />;
 }
-
-const SwapiCardsCityscape = ({
-  homeworld,
-  terrain,
-}: SwapiCardsCityscapeProps) => {
-  return (
-    <div className="w-96 h-96 lg:w-80 xl:w-72 bg-cityscape">
-      <h3 className="z-10 absolute right-0 m-0 uppercase p-4 text-2xl font-light pr-6 text-white">
-        {homeworld}{' '}
-      </h3>
-      <Scene />
-    </div>
-  );
-};
-
-export default SwapiCardsCityscape;

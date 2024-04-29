@@ -55,8 +55,8 @@
   --backdrop-color: #f0f0f0;
   --gradient-color: #a8d5c0;
   --shadow-color: var(--light-shadow-color);
-  --skeleton-base-color': #ededed;
-  --skeleton-shine-color': '255, 255, 255';
+  --skeleton-base-color: #ededed;
+  --skeleton-shine-color: '255, 255, 255';
 }
 
 @layer base {

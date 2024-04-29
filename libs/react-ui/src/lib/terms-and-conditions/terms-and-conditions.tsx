@@ -6,8 +6,8 @@ export interface TermsAndConditionsProps {}
 
 export function TermsAndConditions(props: TermsAndConditionsProps) {
   return (
-    <div className={`${termsStyles.container}`}>
-      <div className={`${termsStyles.stack}`}>
+    <div className={`${termsStyles['container']}`}>
+      <div className={`${termsStyles['stack']}`}>
         <Heading level={1}>Terms and Conditions</Heading>
         <Text>
           <strong>1. Introduction</strong>

@@ -11,7 +11,7 @@ export interface TabListProps {
 
 export function TabList({ tabs, activeIndex, onTabClick }: TabListProps) {
   return (
-    <div className={`tab-list ${tabsLisStyles.tabList}`}>
+    <div className={`tab-list ${tabsLisStyles['tabList']}`}>
       {tabs.map((tab, index) => (
         <Tab
           key={index}

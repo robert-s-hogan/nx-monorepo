@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Button, Flex, Heading, Skeleton, Text } from '@with-nx/react-ui';
+import { Button, Flex, Heading, Skeleton } from '@with-nx/react-ui';
 import { ArrowCurvedDownRight } from '@with-nx/icons';
 import useSWR from 'swr';
+import { Text } from '@with-nx/generic-ui';
 
 import { people } from '../data/peopleData';
 import Characters from '../components/Characters';
@@ -89,10 +90,11 @@ export default function Home() {
         backgroundColor={defaultColorScheme?.background?.primary}
         headingTextColor={defaultColorScheme?.text?.accent}
       >
-        <p className="text-default-background">
-          Dive into our extensive Character Bank—a curated selection of iconic
-          Star Wars figures—and let them guide your imagination.
-        </p>
+        <Text
+          className="text-default-background"
+          text="Dive into our extensive Character Bank—a curated selection of iconic
+          Star Wars figures—and let them guide your imagination."
+        />
       </SwapiSection>
       {/* Powerful API For Seamless Character Creation */}
       <SwapiSection
@@ -104,10 +106,7 @@ export default function Home() {
         backgroundColor={defaultColorScheme?.background?.background}
         headingTextColor={defaultColorScheme?.text?.tertiary}
       >
-        <p>
-          Harness our state-of-the-art API. Crafting characters is now as
-          intuitive as it gets.
-        </p>
+        <Text text="Harness our state-of-the-art API. Crafting characters is now as intuitive as it gets." />
       </SwapiSection>
       {/* Character Bank Spotlight */}
       <SwapiSection
@@ -127,14 +126,13 @@ export default function Home() {
               <Flex className="space-x-4">
                 <Text
                   className={`${defaultColorScheme?.text?.background}  font-medium text-xl whitespace-nowrap`}
-                >
-                  {person.birth_year}
-                </Text>
+                  text={person.birth_year}
+                />
+
                 <Text
                   className={`${defaultColorScheme?.text?.background} whitespace-nowrap text-xl`}
-                >
-                  {person.name}
-                </Text>
+                  text={person.name}
+                />
               </Flex>
               <div
                 className={`hidden md:block ${defaultColorScheme?.background?.background} opacity-10 w-full h-[.5px] overflow-hidden relative mx-4`}
@@ -222,10 +220,11 @@ export default function Home() {
         headingTextColor={defaultColorScheme?.text?.tertiary}
       >
         <SwapiRightArrow className="w-48 h-48 text-primary mx-auto opacity-80" />
-        <p className="text-black">
-          Embark on your Star Wars character creation odyssey. Expand your
-          universe, craft new stories, and embark on unforgettable adventures.
-        </p>
+        <Text
+          className="text-black"
+          text="Embark on your Star Wars character creation odyssey. Expand your
+          universe, craft new stories, and embark on unforgettable adventures."
+        />
 
         <Flex className="justify-center py-6">
           <Button
@@ -241,11 +240,10 @@ export default function Home() {
       </div> */}
 
       {searchResults && (
-        <p className="text-center text-white my-8 px-2">
-          <span className="letter-box font-light text-center bg-red search-results mr-2 text-lg">
-            {searchResults}
-          </span>
-        </p>
+        <Text
+          className="letter-box font-light text-center bg-red search-results mr-2 text-lg"
+          text={`Search results for "${character}"`}
+        />
       )}
     </SwapiLayout>
   );

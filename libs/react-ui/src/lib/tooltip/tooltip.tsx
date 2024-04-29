@@ -16,24 +16,24 @@ export const Tooltip = ({
   const getLocationClass = (location: string | undefined) => {
     switch (location) {
       case 'top':
-        return tooltipStyles.tooltipTop;
+        return tooltipStyles['tooltipTop'];
       case 'right':
-        return tooltipStyles.tooltipRight;
+        return tooltipStyles['tooltipRight'];
       case 'left':
-        return tooltipStyles.tooltipLeft;
+        return tooltipStyles['tooltipLeft'];
       case 'bottom':
       default:
-        return tooltipStyles.tooltipBottom;
+        return tooltipStyles['tooltipBottom'];
     }
   };
   return (
     <span
-      className={`tooltip ${tooltipStyles.tooltip}`}
+      className={`tooltip ${tooltipStyles['tooltip']}`}
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >
       <span
-        className={`tooltip-icon ${tooltipStyles.icon} ${
+        className={`tooltip-icon ${tooltipStyles['icon']} ${
           iconClassName ? iconClassName : ''
         }`}
         style={iconStyle}
@@ -42,7 +42,7 @@ export const Tooltip = ({
       </span>
       {showTooltip && (
         <span
-          className={`tooltip-text ${tooltipStyles.tooltipText} ${
+          className={`tooltip-text ${tooltipStyles['tooltipText']} ${
             className ? className : ''
           } ${bgClassName ? bgClassName : ''}`}
           style={style}

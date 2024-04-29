@@ -1,1 +1,9 @@
-export * from './lib/button/button';
+export { Button } from './lib/button/button';
+export { Heading } from './lib/heading/heading';
+export { Input } from './lib/input/input';
+export { Link } from './lib/link/link';
+export { List } from './lib/list/list';
+export { Select } from './lib/select/select';
+export { Table } from './lib/table/table';
+export { Text } from './lib/text/text';
+export { Textarea } from './lib/textarea/textarea';

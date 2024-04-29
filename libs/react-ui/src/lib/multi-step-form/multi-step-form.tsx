@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import multiStepFormStyles from './multi-step-form.module.css';
 import { useMultiStepForm } from '@with-nx/react-hooks';
 import { MultiStepFormProps } from '@with-nx/types';
 

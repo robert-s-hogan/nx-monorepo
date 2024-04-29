@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: #3b82f6;
+  --secondary: #6b7280;
+  --danger: #ef4444;
+  --warning: #facc15;
+  --success: #10b981;
+  --info: #3b82f6;
+  --btn-primary-text: #1e40af;
+  --btn-primary-hover-bg: #bfdbfe;
+  --btn-secondary-text: #374151;
+  --btn-secondary-hover-bg: #e5e7eb;
+  --btn-danger-text: #ffffff;
+  --btn-danger-hover-bg: #fecaca;
+  --btn-warning-text: #92400e;
+  --btn-warning-hover-bg: #fde68a;
+  --btn-success-text: #064e3b;
+  --btn-success-hover-bg: #a7f3d0;
+  --btn-info-text: #1e40af;
+  --btn-info-hover-bg: #bfdbfe;
+}
+
 @layer base {
   html {
     font-family: 'Inter', sans-serif;
@@ -22,6 +43,7 @@
   }
   h3 {
     font-size: 1.5rem;
+    font-weight: 600;
   }
   h4 {
     font-size: 1.25rem;
@@ -45,21 +67,56 @@
     @apply appearance-none block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm;
   }
   .btn-primary {
-    @apply inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+    @apply inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+  }
+  .btn-primary:hover {
+    background-color: var(--btn-primary-hover-bg);
+  }
+  .btn-secondary {
+    @apply inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    background-color: var(--secondary);
+    color: var(--btn-secondary-text);
+  }
+  .btn-secondary:hover {
+    background-color: var(--btn-secondary-hover-bg);
   }
   .btn-danger {
-    @apply inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2;
+    @apply inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    background-color: var(--danger);
+    color: var(--btn-danger-text);
+  }
+  .btn-danger:hover {
+    background-color: var(--btn-danger-hover-bg);
   }
   .btn-warning {
-    @apply inline-flex justify-center rounded-md border border-transparent bg-yellow-100 px-4 py-2 text-sm font-medium text-yellow-900 hover:bg-yellow-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2;
+    @apply inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    background-color: var(--warning);
+    color: var(--btn-warning-text);
   }
-  .btn-cancel {
-    @apply inline-flex justify-center rounded-md border border-transparent bg-gray-100 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2;
+  .btn-warning:hover {
+    background-color: var(--btn-warning-hover-bg);
   }
-  .btn-edit {
-    @apply inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2;
+  .btn-success {
+    @apply inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    background-color: var(--success);
+    color: var(--btn-success-text);
   }
-
+  .btn-success:hover {
+    background-color: var(--btn-success-hover-bg);
+  }
+  .btn-info {
+    @apply inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    background-color: var(--info);
+    color: var(--btn-info-text);
+  }
+  .btn-info:hover {
+    background-color: var(--btn-info-hover-bg);
+  }
+  .form-input {
+    @apply appearance-none block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm;
+  }
   .form-select {
     @apply appearance-none block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm;
   }

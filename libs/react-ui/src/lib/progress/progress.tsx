@@ -11,10 +11,10 @@ export function Progress({
   if (type === 'horizontal') {
     return (
       <div
-        className={`progress-horizontal-container w-${progressValue} ${progressStyles.horizontalContainer}`}
+        className={`progress-horizontal-container w-${progressValue} ${progressStyles['horizontalContainer']}`}
       >
         <div
-          className={`progress-horizontal-value ${progressStyles.horizontalValue}`}
+          className={`progress-horizontal-value ${progressStyles['horizontalValue']}`}
           style={{ width: `${progressValue}%` }}
         />
       </div>
@@ -23,10 +23,10 @@ export function Progress({
 
   return (
     <div
-      className={`progress-circular-container ${progressStyles.circularContainer}`}
+      className={`progress-circular-container ${progressStyles['circularContainer']}`}
     >
       <span
-        className={`progress-circular-value ${progressStyles.circularValue}`}
+        className={`progress-circular-value ${progressStyles['circularValue']}`}
       >
         {progressValue}%
       </span>

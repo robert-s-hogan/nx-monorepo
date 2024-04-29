@@ -1,12 +1,11 @@
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-// import { BiWrench } from 'react-icons/bi';
-import { Box, Button, Flex, Heading, Section } from '@with-nx/react-ui';
+import { Box, Flex, Heading } from '@with-nx/react-ui';
 import { ButtonLink } from '@with-nx/nextjs-react-ui';
 import { FiGithub } from 'react-icons/fi';
 import { GiMonkeyWrench } from 'react-icons/gi';
+import { Text } from '@with-nx/generic-ui';
+
 import DevBlogLayout from '../../components/DevBlogLayout';
-import DevBlogSubTitle from '../../components/DevBlogSubTitle';
 import DevBlogSection from '../../components/DevBlogSection';
 import DevBlogProjectsThemeSection from '../../components/DevBlogProjectsThemeSection';
 import { projectsData } from '../../data/projects';
@@ -41,9 +40,10 @@ function ProjectPage({ project }) {
           <span className="text-5xl md:hidden">{project.mobileTitle}</span>
         </Heading>
 
-        <DevBlogSubTitle className="text-center relative z-10">
-          {project.description}
-        </DevBlogSubTitle>
+        <Text
+          className="text-center relative z-10"
+          text={project.description}
+        />
 
         <div className={`w-full relative z-10 flex justify-center  mt-8 pb-32`}>
           <ButtonLink
@@ -136,7 +136,7 @@ function ProjectPage({ project }) {
         <Heading level={2} className="text-xl md:text-5xl">
           {project.purpose.title}
         </Heading>
-        <p className="leading-relaxed">{project.purpose.description}</p>
+        <Text className="leading-relaxed" text={project.purpose.description} />
       </DevBlogSection>
 
       {/* {project.resources && (

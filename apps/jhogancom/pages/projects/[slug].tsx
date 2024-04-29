@@ -3,6 +3,7 @@ import { projectStaticData } from '../../data/projects';
 import JHoganComLayout from '../../components/JHoganComLayout';
 import JHLogo from '../../public/images/jh_logo_white.webp';
 import { Flex } from '@with-nx/react-ui';
+import { Heading, Text } from '@with-nx/generic-ui';
 
 export async function getStaticPaths() {
   const paths = projectStaticData.map((project) => ({
@@ -49,18 +50,26 @@ export default function Projects({ project }) {
             <div className="absolute inset-0 bg-black opacity-50"></div>
           </Flex>
           <div className="relative z-10 flex flex-col items-center justify-center text-center h-screen">
-            <h1 className="text-5xl sm:text-6xl lg:text-9xl mb-4">
-              {project.name}
-            </h1>
-            <h2 className="font-light text-2xl sm:text-3xl lg:text-4xl">
-              {project.description}
-            </h2>
+            <Heading
+              level={1}
+              className="text-5xl sm:text-6xl lg:text-9xl mb-4"
+              text={project.name}
+            />
+            <Heading
+              level={2}
+              className="font-light text-2xl sm:text-3xl lg:text-4xl"
+              text="{project.description}"
+            />
           </div>
         </section>
         <section className="flex items-center justify-between my-32 tracking-wider relative">
           <div className="flex flex-col w-full md:w-1/3 space-y-12 text-center md:text-left px-4">
             <div className="flex flex-col">
-              <h3 className="text-xl font-bold">Technologies used:</h3>
+              <Heading
+                level={3}
+                className="text-xl font-bold"
+                text="Technologies used:"
+              />
               <br />
 
               <span className="text-lg">
@@ -68,17 +77,18 @@ export default function Projects({ project }) {
               </span>
             </div>
             <div className="px-2">
-              <h3 className="text-xl font-bold">Summary</h3>
+              <Heading level={3} className="text-xl font-bold" text="Summary" />
               <br />
-              <p className="w-full md:w-2/3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+              <Text
+                className="w-full md:w-2/3"
+                text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
                 eaque delectus consequuntur harum doloremque assumenda omnis
-                quibusdam quia neque, adipisci iste laborum sed nostrum.
-              </p>
+                quibusdam quia neque, adipisci iste laborum sed nostrum"
+              />
             </div>
             <div className="px-2">
               <br />
-              <h3 className="text-xl font-bold">Contact</h3>
+              <Heading level={3} className="text-xl font-bold" text="Contact" />
               <a className="text-xl" href="mailto:test@nomail.com">
                 test@email.com
               </a>
@@ -94,19 +104,27 @@ export default function Projects({ project }) {
 
           <div className="hidden md:flex flex-col w-1/3 space-y-12 text-right">
             <div className="px-20">
-              <h4 className="text-xl font-bold">Experience</h4>
+              <Heading
+                level={4}
+                className="text-xl font-bold"
+                text="Experience"
+              />
               <br />
-              <p className="text-6xl">+2</p>
+              <Text className="text-6xl" text="+2" />
             </div>
             <div className="px-20">
-              <h4 className="text-xl font-bold">Projects</h4>
+              <Heading
+                level={4}
+                className="text-xl font-bold"
+                text="Projects"
+              />
               <br />
-              <p className="text-6xl">+25</p>
+              <Text className="text-6xl" text="25" />
             </div>
             <div className="px-20">
-              <h4 className="text-xl font-bold">Clients</h4>
+              <Heading level={4} className="text-xl font-bold" text="Clients" />
               <br />
-              <p className="text-6xl">+14</p>
+              <Text className="text-6xl" text="14" />
             </div>
           </div>
         </section>
@@ -114,15 +132,24 @@ export default function Projects({ project }) {
         <hr className="border-gray-400 mx-44" />
 
         <section className="px-4 mt-10">
-          <h4 className="mb-8 text-3xl font-bold text-center md:text-left">
-            Experience
-          </h4>
+          <Heading
+            level={4}
+            className="mb-8 text-3xl font-bold text-center md:text-left"
+            text="Experience"
+          />
           <div className="grid grid-cols-1 md:grid-cols-6 my-10">
             <div className="flex flex-col col-span-2 mb-4 md:mb-0">
-              <h5 className="text-xl md:text-2xl font-bold">
-                Full Stack Developer
-              </h5>
-              <h6 className="text-lg font-bold">Facebook</h6>
+              <Heading
+                level={5}
+                className="text-xl md:text-2xl font-bold"
+                text="Full Stack Developer"
+              />
+
+              <Heading
+                level={6}
+                className="text-lg font-bold"
+                text="Facebook"
+              />
               <p>Jan 2015 - present</p>
             </div>
             <div className="flex flex-col col-span-4">
@@ -140,10 +167,12 @@ export default function Projects({ project }) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-6 my-10">
             <div className="flex flex-col col-span-2 mb-4 md:mb-0">
-              <h5 className="text-xl md:text-2xl  font-bold">
-                Software Developer
-              </h5>
-              <h6 className="text-lg font-bold">Google</h6>
+              <Heading
+                level={5}
+                className="text-xl md:text-2xl  font-bold"
+                text="Software Developer"
+              />
+              <Heading level={6} className="text-lg font-bold" text="Google" />
               <p>Feb 2010 - Jan 2015</p>
             </div>
             <div className="flex flex-col col-span-4">
@@ -161,8 +190,12 @@ export default function Projects({ project }) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-6 my-10">
             <div className="flex flex-col col-span-2 mb-4 md:mb-0">
-              <h5 className="text-xl md:text-2xl  font-bold">Web Developer</h5>
-              <h6 className="text-lg font-bold">IBM</h6>
+              <Heading
+                level={5}
+                className="text-xl md:text-2xl  font-bold"
+                text="Web Developer"
+              />
+              <Heading level={6} className="text-lg font-bold" text="IBM" />
               <p>Apr 2008 - Feb 2010</p>
             </div>
             <div className="flex flex-col col-span-4">
@@ -182,15 +215,23 @@ export default function Projects({ project }) {
         <hr className="border-gray-400 mx-44" />
 
         <section className="px-4 mt-10">
-          <h4 className="mb-8 text-3xl font-bold text-center md:text-left">
-            Education
-          </h4>
+          <Heading
+            level={4}
+            className="mb-8 text-3xl font-bold text-center md:text-left"
+            text="Education"
+          />
           <div className="grid grid-cols-1 md:grid-cols-6 my-10">
             <div className="flex flex-col col-span-2 mb-4 md:mb-0">
-              <h5 className="text-xl md:text-2xl  font-bold">
-                B.S. Computer Science
-              </h5>
-              <h6 className="text-lg font-bold">Harward University</h6>
+              <Heading
+                level={5}
+                className="text-xl md:text-2xl  font-bold"
+                text="B.S. Computer Science"
+              />
+              <Heading
+                level={6}
+                className="text-lg font-bold"
+                text="Harward University"
+              />
               <p>Jan 2015 - present</p>
             </div>
             <div className="flex flex-col col-span-4 ">

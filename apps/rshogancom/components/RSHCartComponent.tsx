@@ -1,7 +1,7 @@
 import React from 'react';
 import { selectCartItems, selectCartError } from '../features/cart/cartSlice';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store'; // Make sure this path is correct
+import { Text } from '@with-nx/generic-ui';
 
 const CartComponent = () => {
   const error = useSelector(selectCartError);
@@ -9,7 +9,7 @@ const CartComponent = () => {
 
   return (
     <div>
-      {error && <p className="error-message">{error}</p>}
+      {error && <Text className="error-message" text={error} />}
       {cartItems.map((item) => (
         <div key={item.id}>
           {item.name} - Quantity: {item.quantity}

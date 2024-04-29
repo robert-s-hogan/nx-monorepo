@@ -44,7 +44,7 @@ export interface InputProps {
 }
 
 export interface LabelProps {
-  htmlFor: string;
+  htmlFor: string | undefined;
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;

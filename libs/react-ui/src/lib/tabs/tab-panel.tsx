@@ -9,8 +9,8 @@ export interface TabPanelProps {
 export function TabPanel({ children, isActive }: TabPanelProps) {
   return (
     <div
-      className={`tab-panel ${tabPanelStyles.tabPanel} ${
-        isActive ? tabPanelStyles.active : ''
+      className={`tab-panel ${tabPanelStyles['tabPanel']} ${
+        isActive ? tabPanelStyles['active'] : ''
       }`}
     >
       {children}
