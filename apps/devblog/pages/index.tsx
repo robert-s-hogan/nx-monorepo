@@ -1,4 +1,4 @@
-import { Button, Flex, Grid, Link } from '@with-nx/react-ui';
+import { Flex, Grid, Link } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
 import { useTheme } from '@with-nx/theme';
 import { Heading, Text } from '@with-nx/generic-ui';
@@ -48,13 +48,15 @@ export function Index({ allPostsData }) {
       <DevBlogSection className="relative">
         <Grid className="grid-cols-1 px-2">
           <Flex className="justify-center items-center w-full mx-auto">
-            <div className="space-y-4 max-w-4xl">
+            <div className="space-y-4 max-w-5xl">
               <Heading level={1} className="text-center" text="Portfolio" />
 
               <h2 className="pt-8 mx-4">
-                👋 I'm Robert Hogan:
+                I'm Robert Hogan{' '}
                 <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block my-2 mr-1">
-                  <span className="relative px-2 font-semibold">Front End</span>
+                  <span className="relative px-2 lg:px-3 text-5xl font-semibold">
+                    Front End
+                  </span>
                 </span>{' '}
                 Mastery to AI-Integrated Web Development
               </h2>
@@ -121,9 +123,9 @@ export function Index({ allPostsData }) {
         ></div>
       </DevBlogSection>
 
-      <section className="container mx-auto max-w-7xl space-y-4 px-4">
+      <DevBlogSection>
         <Heading level={2} className="text-2xl font-bold" text="Latest Posts" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 space-y-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 space-y-2">
           {allPostsData.map(({ id, date, title, categories }) => (
             <div key={id}>
               <Link href={`/blog/${id}`}>
@@ -139,7 +141,7 @@ export function Index({ allPostsData }) {
             </div>
           ))}
         </div>
-      </section>
+      </DevBlogSection>
     </DevBlogLayout>
   );
 }

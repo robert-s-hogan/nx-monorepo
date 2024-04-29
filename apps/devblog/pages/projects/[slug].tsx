@@ -100,7 +100,7 @@ function ProjectPage({ project }) {
         </Flex>
       </div>
 
-      <DevBlogSection maxWidth={true} className="bg-secondary-color">
+      <DevBlogSection className="bg-secondary-color">
         <div className="container max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 gap-12">
             <DevBlogProjectsThemeSection
@@ -122,7 +122,7 @@ function ProjectPage({ project }) {
         <p>{project.media.description}</p>
       </DevBlogSection>
 
-      <DevBlogSection maxWidth={true} className="bg-secondary-color">
+      <DevBlogSection className="bg-secondary-color">
         <div className="container max-w-7xl mx-auto px-4">
           <DevBlogProjectsThemeSection
             title={project.technologyReason.title}

@@ -13,7 +13,7 @@ const nextConfig = {
     svgr: false,
   },
   images: {
-    domains: ['rshogan.imgix.net'],
+    disableStaticImages: false,
   },
 };
 

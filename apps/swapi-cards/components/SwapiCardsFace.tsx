@@ -27,7 +27,6 @@ const SwapiCardsFace: React.FC<SwapiCardsFaceProps> = (props) => {
     .map((color) => color.trim().replace(/ /g, '-'))
     .map((color) => (color === 'metal' ? ['silver', 'black'] : color))
     .flat();
-  if (skinColors.length > 1) console.log(skinColors);
 
   const eyeColors = eye_color
     .split(',')

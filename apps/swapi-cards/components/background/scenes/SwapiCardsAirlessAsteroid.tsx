@@ -307,6 +307,6 @@ const Scene = () => {
   );
 };
 
-export default function SwapiCardsAirlessAsteroid() {
+export const AirlessAsteroid = () => {
   return <Scene />;
-}
+};

@@ -1,7 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { Button, Flex } from '@with-nx/react-ui';
-import { ButtonProps, LinkProps } from '@with-nx/types';
 import { useTheme } from '@with-nx/theme';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { CustomJHLogo } from '@with-nx/icons';
