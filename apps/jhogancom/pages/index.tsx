@@ -107,7 +107,7 @@ export function Index() {
               <Image
                 width={355}
                 height={384}
-                src="https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/jhogancom/jessica_portrait.webp?token=GHSAT0AAAAAACMVWOEHWTL4BY44FLLL4DB4ZRSKFTQ"
+                src="https://app-assets.vercel.app/apps/jhogancom/jessica_portrait.webp"
                 alt="Jessica Hogan's Portrait"
                 loading="lazy"
                 className="object-contain h-96 w-auto"

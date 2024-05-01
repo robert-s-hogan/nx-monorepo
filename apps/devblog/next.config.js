@@ -15,7 +15,6 @@ const nextConfig = {
   images: {
     domains: [
       'localhost',
-      'raw.githubusercontent.com',
       'app-assets.vercel.app',
       'github.com',
       'images.pexels.com',

@@ -1,6 +1,3 @@
-import RobotHeartbeat from '@assets/sounds/robot-heartbeat.mp3';
-import ScaryBackground from '@assets/sounds/scary-background.mp3';
-
 export const themes = {
   light: {
     name: 'light',
@@ -27,7 +24,7 @@ export const themes = {
     'sun-icon-color': '#FFD700',
     'moon-icon-color': '#808080',
     'bg-opacity-color': 'rgba(255, 255, 255, 0.6)',
-    sound: RobotHeartbeat,
+    sound: 'https://app-assets.vercel.app/sounds/robot-heartbeat.wav',
     'dialog-bg-color': '#FFFFFF',
     'backdrop-color': '#F0F0F0',
     'gradient-color': '#A8D5C0',
@@ -58,7 +55,7 @@ export const themes = {
     'moon-icon-color': '#808080',
     'bg-opacity-color': 'rgba(41, 41, 41, 0.8)',
     'gradient-color': '#A8D5C0',
-    sound: ScaryBackground,
+    sound: 'https://app-assets.vercel.app/sounds/scary-background.wav',
     'dialog-bg-color': '#FFFFFF',
     'backdrop-color': '#1E1E1E',
   },

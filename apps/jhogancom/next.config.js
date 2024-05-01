@@ -13,7 +13,7 @@ const nextConfig = {
     svgr: false,
   },
   images: {
-    disableStaticImages: false,
+    domains: ['app-assets.vercel.app'],
   },
 };
 

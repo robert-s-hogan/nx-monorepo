@@ -97,7 +97,7 @@ export default function Projects({ project }) {
 
           <Image
             className="hidden md:block object-cover w-1/4 h-screen rounded-full ring-2 ring-gray-500/50 ring-offset-[30px]"
-            src="https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/jhogancom/jh_logo_white.webp?token=GHSAT0AAAAAACMVWOEH4G2OYHD76RXS6XCEZRSKHEQ"
+            src="https://app-assets.vercel.app/apps/jhogancom/jessica_portrait.webp"
             alt="Your Name Here"
           />
 
