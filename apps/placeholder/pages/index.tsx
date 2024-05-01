@@ -12,10 +12,8 @@ import { Card } from '@with-nx/react-ui';
 import { FiActivity, FiX, FiMinus, FiPlus } from 'react-icons/fi';
 
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-import rshLogo from '../assets/images/rsh_logo_Crop.jpg';
 import PlaceholderImage from '../public/images/1500.png';
 
 function Index() {
@@ -382,7 +380,7 @@ function Index() {
     return (
       <div className="w-48 h-32 relative">
         <Image
-          src={rshLogo}
+          src="https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/rshogancom/rsh_logo.png?token=GHSAT0AAAAAACMVWOEHD5FLAR67NK3CFXLMZRSKINQ"
           alt="rsh logo"
           layout="fill"
           objectFit="cover"

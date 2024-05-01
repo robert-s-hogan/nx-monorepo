@@ -203,7 +203,7 @@ export default function CreatureGenerator() {
   //     <Section className="space-y-4">
   //       <Flex className="items-center justify-center">
   //         <Image
-  //           src="https://cloudflare-assets-nx-monorepo.vercel.app/conquest/conquest_logo.svg"
+  //           src=""
   //           height={100}
   //           width={100}
   //         />
@@ -270,7 +270,7 @@ export default function CreatureGenerator() {
   //                     </Button>
   //                   </Flex>
   //                   <Image
-  //                     src={image}
+  //                     src=''
   //                     alt="pic"
   //                     className="h-72 w-full rounded-md rounded-t-none transform shadow-lg mb-3"
   //                     width={512}

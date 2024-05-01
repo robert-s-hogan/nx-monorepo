@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+
 import { Box, Flex, Heading } from '@with-nx/react-ui';
 import { ButtonLink } from '@with-nx/nextjs-react-ui';
 import { FiGithub } from 'react-icons/fi';
@@ -26,8 +28,8 @@ function ProjectPage({ project }) {
       description={project.description}
     >
       <DevBlogSection
-        className="bg-cover bg-center relative my-0"
-        style={{ backgroundImage: `url(${project.media.image})` }}
+        className={`bg-cover bg-center relative my-0`}
+        style={{ backgroundImage: `url(${project.image})` }} // Adjusted to use project.image
       >
         <div className="absolute inset-0 bg-image-overlay opacity-50"></div>
         <Heading
@@ -184,6 +186,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const project = projectsData.find((p) => p.slug === params.slug);
+
+  if (!project) {
+    return { notFound: true };
+  }
+
   return {
     props: { project },
   };

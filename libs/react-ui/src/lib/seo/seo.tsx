@@ -1,4 +1,5 @@
 import Head from 'next/head';
+
 import { SeoProps } from '@with-nx/types';
 
 export function Seo(props: SeoProps) {

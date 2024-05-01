@@ -1,4 +1,5 @@
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
+
 import { useCampaignForm } from './useCampaignForm';
 import { Campaign } from '../types';
 import { ModalOperation } from '../types';

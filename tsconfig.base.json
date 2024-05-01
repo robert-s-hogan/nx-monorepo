@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@assets/*": ["libs/assets/*"],
       "@conquest": ["apps/conquest/src/index.ts"],
       "@devblog": ["apps/devblog/src/index.ts"],
       "@jhoganman": ["apps/jhoganman/src/index.ts"],
@@ -25,6 +26,8 @@
       "@swapi": ["apps/swapi/src/index.ts"],
       "@theos-dnd": ["apps/theos-dnd/src/index.ts"],
       "@with-nx/analytics": ["libs/analytics/src/index.ts"],
+      "@with-nx/app-assets": ["libs/app-assets/src/index.ts"],
+      "@with-nx/assets": ["libs/assets/images/index.ts"],
       "@with-nx/constants": ["libs/constants/src/index.ts"],
       "@with-nx/firebase": ["libs/firebase/src/index.ts"],
       "@with-nx/generic-ui": ["libs/generic-ui/src/index.ts"],

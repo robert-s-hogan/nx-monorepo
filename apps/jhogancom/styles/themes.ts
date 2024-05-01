@@ -1,3 +1,6 @@
+import RobotHeartbeat from '@assets/sounds/robot-heartbeat.mp3';
+import ScaryBackground from '@assets/sounds/scary-background.mp3';
+
 export const themes = {
   light: {
     name: 'light',
@@ -24,8 +27,7 @@ export const themes = {
     'sun-icon-color': '#FFD700',
     'moon-icon-color': '#808080',
     'bg-opacity-color': 'rgba(255, 255, 255, 0.6)',
-    sound:
-      'http://rshogan.imgix.net/projects/jhogancom/sounds/jhogan_light_sound.mp3',
+    sound: RobotHeartbeat,
     'dialog-bg-color': '#FFFFFF',
     'backdrop-color': '#F0F0F0',
     'gradient-color': '#A8D5C0',
@@ -56,8 +58,7 @@ export const themes = {
     'moon-icon-color': '#808080',
     'bg-opacity-color': 'rgba(41, 41, 41, 0.8)',
     'gradient-color': '#A8D5C0',
-    sound:
-      'http://rshogan.imgix.net/projects/jhogancom/sounds/jhogan_dark_sound.mp3',
+    sound: ScaryBackground,
     'dialog-bg-color': '#FFFFFF',
     'backdrop-color': '#1E1E1E',
   },

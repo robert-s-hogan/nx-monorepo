@@ -24,7 +24,7 @@ export const themes = {
     'sun-icon-color': '#FFD700',
     'moon-icon-color': '#C0C0C0',
     'bg-opacity-color': 'rgba(255, 255, 255, 0.6)',
-    sound: 'https://rshogan.imgix.net/projects/devblog/sounds/air-woosh.wav',
+    sound: 'https://app-assets.vercel.app/sounds/air-swoosh.wav',
   },
   dark: {
     name: 'dark',
@@ -51,6 +51,6 @@ export const themes = {
     'sun-icon-color': '#FFA700',
     'moon-icon-color': '#D3D3D3',
     'bg-opacity-color': 'rgba(26, 32, 44, 0.6)',
-    sound: 'https://rshogan.imgix.net/projects/devblog/sounds/air-woosh.wav',
+    sound: 'https://app-assets.vercel.app/sounds/air-swoosh.wav',
   },
 };

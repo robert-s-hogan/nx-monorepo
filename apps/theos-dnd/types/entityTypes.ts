@@ -1,4 +1,5 @@
-// types/entityTypes.ts
+import { StaticImageData } from 'next/image';
+
 export type ClassName = 'Barbarian' | 'Mage' | 'Ranger';
 
 export type SpeciesName =
@@ -28,7 +29,7 @@ export type Entity = {
   stats: Stats;
   classType?: ClassName;
   species?: SpeciesName;
-  image?: string | string[];
+  image: ImageData;
   previewImage?: string;
 };
 
@@ -38,7 +39,7 @@ export type BaseEntity = {
   hitDamage: number;
   criticalDamage: number;
   defense: number;
-  image: string | string[];
+  image: ImageData;
   description: string;
   slug: string;
 };
@@ -51,7 +52,7 @@ export interface Character extends BaseEntity {
   hitDamage: number;
   criticalDamage: number;
   defense: number;
-  image: string | string[];
+  image: ImageData;
   description: string;
   slug: string;
 }
@@ -73,7 +74,7 @@ export type CreatureType = BaseEntity & {
 };
 
 export type ImageData = {
-  image: string | string[];
+  image: string | StaticImageData | string[];
 };
 
 export type SpeciesImages = Record<SpeciesName, ImageData>;

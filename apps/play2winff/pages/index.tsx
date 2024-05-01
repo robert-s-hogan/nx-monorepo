@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import DraftConfigModal from '../components/DraftConfigModal';
-import styles from './index.module.css';
-import PlayersWithHighVariability from '../components/PlayersWithHighVariability';
 import { useADPData } from '../hooks/useADPData';
 import {
   Button,
@@ -12,12 +10,12 @@ import {
   Section,
   Text,
 } from '@with-nx/react-ui';
-import Image from 'next/image';
 import Link from 'next/link';
 import { FiBarChart, FiClock, FiTag } from 'react-icons/fi';
 
 import PlayToWinFFLayout from '../components/PlayToWinFFLayout';
-import EspnNewsFeed from '../components/EspnNewsFeed';
+import Play2WinFFHero from '@assets/images/play2winff/p2w_hero.png';
+import Play2WinFFLogo from '@assets/images/play2winff/play2winff_logo.png';
 import useMergedData from '../hooks/useMergedData';
 
 export function Index() {
@@ -45,8 +43,7 @@ export function Index() {
           <Section
             className="relative text-center space-y-6 h-[500px] flex justify-center items-center flex-col"
             style={{
-              backgroundImage:
-                "url('https://rshogan.imgix.net/projects/play2winff/p2w_hero.png')",
+              backgroundImage: `url('${Play2WinFFHero.src}')` ?? 'none',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
@@ -119,7 +116,7 @@ export function Index() {
         </Heading>
         <Grid className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Image
-            src="https://rshogan.imgix.net/projects/play2winff/play2winff_logo_nobg.png"
+            src=""
             height={100}
             width={100}
             alt="Play2Win Fantasy Football Logo"
@@ -154,7 +151,7 @@ export function Index() {
         <div className="flex flex-wrap -mx-4">
           <div className="w-full md:w-1/2 px-4 mb-8">
             <Image
-              src="https://rshogan.imgix.net/projects/play2winff/play2winff_logo_nobg.png"
+              src=""
               height={100}
               width={100}
               alt="Play2Win Fantasy Football Logo"

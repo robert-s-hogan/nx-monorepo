@@ -3,6 +3,8 @@ import { Seo } from '@with-nx/nextjs-react-ui';
 import { PageLayout } from '@with-nx/react-ui';
 import { PageLayoutProps } from '@with-nx/types';
 
+import JHoganComFavicon from '@assets/images/jhogancom/favicon.ico';
+import JHoganComSeoImage from '@assets/images/jhogancom/jessica_portrait.webp';
 import JHoganComHeader from './JHoganComHeader';
 
 const JHoganComFooter = dynamic(() => import('./JHoganComFooter'), {
@@ -29,8 +31,8 @@ const JHoganComLayout = ({
             : 'Discover Jessica Hogan, a Data Scientist and Data Analyst specializing in Python, machine learning, SQL, and statistics. With a diverse background and a focus on delivering actionable insights, Jessica is ready to help you make data-driven decisions.'
         }
         url="https://www.jessicahoganma.com/"
-        faviconPath="https://rshogan.imgix.net/projects/jhogancom/favicon.ico"
-        image="https://rshogan.imgix.net/projects/jhogancom/jessica_portrait.webp"
+        faviconPath={JHoganComFavicon}
+        image={JHoganComSeoImage}
         twitterHandle="@jessicahoganma"
         siteName="Jessica Hogan's Portfolio"
         appleTouchIconPath="/apple-touch-icon.png"

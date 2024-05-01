@@ -15,7 +15,6 @@ const nextConfig = {
   images: {
     domains: [
       'localhost',
-      'rshogan.imgix.net',
       'images.pexels.com',
       'images.unsplash.com',
       'img.icons8.com',

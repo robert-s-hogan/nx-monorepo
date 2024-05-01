@@ -1,5 +1,3 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 
@@ -39,7 +37,6 @@ const DynamicAsSeenInSection = dynamic(
     loading: () => <RSHAsSeenInSection isLoading={true} />,
   }
 );
-
 const DynamicRSHWhatOurCustomersSaySection = dynamic(
   () => import('../components/RSHWhatOurCustomersSaySection'),
   {
@@ -109,7 +106,7 @@ export function Index() {
             <div className="card">
               <Image
                 className="w-full object-cover rounded-tr-lg rounded-tl-lg"
-                src="https://rshogan.imgix.net/projects/rshogancom/images/Comic_book_swap_day_preview.jpg"
+                
                 loading="lazy"
                 width={250}
                 height={250}

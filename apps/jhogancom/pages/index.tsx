@@ -1,19 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
-// import { useModal } from '@with-nx/react-hooks';
-import {
-  Button,
-  // Dialog,
-  Flex,
-  // Form,
-  Heading,
-  Link,
-  Section,
-  Text,
-} from '@with-nx/react-ui';
-import { FiMail, FiMapPin } from 'react-icons/fi';
+import { Flex, Heading, Section, Text } from '@with-nx/react-ui';
 import { useTheme } from '@with-nx/theme';
-// import { useHandleBackdropClick } from '@with-nx/react-hooks';
 
 import dynamic from 'next/dynamic';
 
@@ -23,7 +11,6 @@ const JHSocialMediaIcons = dynamic(
 );
 
 import JHoganComLayout from '../components/JHoganComLayout';
-import JHPortrait from '../public/images/jessica_portrait.webp';
 
 export function Index() {
   const { theme } = useTheme();
@@ -120,7 +107,7 @@ export function Index() {
               <Image
                 width={355}
                 height={384}
-                src={JHPortrait}
+                src="https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/jhogancom/jessica_portrait.webp?token=GHSAT0AAAAAACMVWOEHWTL4BY44FLLL4DB4ZRSKFTQ"
                 alt="Jessica Hogan's Portrait"
                 loading="lazy"
                 className="object-contain h-96 w-auto"

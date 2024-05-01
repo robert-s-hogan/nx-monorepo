@@ -38,7 +38,7 @@ const RSHWhatOurCustomersSaySection = ({
                   width={48}
                   height={48}
                   className="h-12 w-12 rounded-full"
-                  src="https://rshogan.imgix.net/projects/rshogancom/images/rshhogan_testimonials_ellen_2.jpeg"
+                  src="https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/rshogancom/rshhogan_testimonials_ellen_2.jpeg?token=GHSAT0AAAAAACMVWOEGZAQ4R75S2ZAA4WXWZRSKKSA"
                   alt="customer"
                 />
               )}

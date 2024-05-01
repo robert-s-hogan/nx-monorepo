@@ -1,7 +1,8 @@
 import { PageLayout } from '@with-nx/react-ui';
 import { Seo } from '@with-nx/nextjs-react-ui';
 
-import SwapiFooter from './SwapiFooter';
+import SwapiFavicon from '@assets/images/swapi/favicon.ico';
+import SwapiImage from '@assets/images/swapi/devblog_swapi-plus.jpg';
 
 interface SwapiLayoutProps {
   children: React.ReactNode;
@@ -28,8 +29,8 @@ function SwapiLayout({
             : 'Explore an engaging site that consumes the https://swapi.dev/ API, showcasing data from the Star Wars universe in a visually appealing and interactive way. Learn how React and react-query are used to fetch data and implement pagination for a seamless user experience.'
         }
         url="https://swapi-nx.vercel.app/"
-        faviconPath="https://rshogan.imgix.net/projects/swapi/favicon.ico"
-        image="/images/portrait.jpg"
+        faviconPath={SwapiFavicon}
+        image={SwapiImage}
         twitterHandle="@robert_s_hogan"
         siteName="Robert Hogan's SWAPI Project"
         appleTouchIconPath="/apple-touch-icon.png"

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+
 import Image from 'next/image';
 import { Button, Flex, Grid, Heading, Section } from '@with-nx/react-ui';
 import { Text } from '@with-nx/generic-ui';

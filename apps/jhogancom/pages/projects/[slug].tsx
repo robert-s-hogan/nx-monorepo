@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { projectStaticData } from '../../data/projects';
 import JHoganComLayout from '../../components/JHoganComLayout';
-import JHLogo from '../../public/images/jh_logo_white.webp';
 import { Flex } from '@with-nx/react-ui';
 import { Heading, Text } from '@with-nx/generic-ui';
 
@@ -98,7 +97,7 @@ export default function Projects({ project }) {
 
           <Image
             className="hidden md:block object-cover w-1/4 h-screen rounded-full ring-2 ring-gray-500/50 ring-offset-[30px]"
-            src={JHLogo}
+            src="https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/jhogancom/jh_logo_white.webp?token=GHSAT0AAAAAACMVWOEH4G2OYHD76RXS6XCEZRSKHEQ"
             alt="Your Name Here"
           />
 

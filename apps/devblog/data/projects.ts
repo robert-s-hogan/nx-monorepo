@@ -1,17 +1,19 @@
+import type { StaticImageData } from 'next/image';
+
 type Resources = string[];
 
 type Entry = {
   title: string;
   subtitle: string;
   description: string;
-  image: string;
+  image: string | StaticImageData;
 };
 
 export type Project = {
   slug: string;
   title: string;
   mobileTitle: string;
-  image: string;
+  image: string | StaticImageData;
   description: string;
   process: Entry;
   management: Entry;
@@ -30,8 +32,7 @@ export const projectsData: Project[] = [
     slug: 'play-2-win-ff',
     title: 'p2w Draft Tool',
     mobileTitle: 'p2w Draft Tool',
-    image:
-      'https://raw.githubusercontent.com/robert-s-hogan/nx-monorepo/main/apps/devblog/assets/images/projects/devblog_p2w_hero.jpg',
+    image: 'https://app-assets.vercel.app/apps/play2winff/p2w_hero.jpg',
     description:
       'Crafted for Yahoo fantasy football leagues, this tool is indispensable for tracking NFL updates.',
     process: {
@@ -53,7 +54,7 @@ export const projectsData: Project[] = [
       subtitle: 'Visually Pleasing and Intuitive Design',
       description:
         'With an eye-catching design powered by TailwindCSS, the user interface was crafted to be not just aesthetically pleasing, but also user-friendly. The vivid imagery and intuitive design elements guide users effortlessly through the drafting process.',
-      image: '',
+      image: 'https://app-assets.vercel.app/apps/play2winff/p2w_hero.jpg',
     },
     technologyReason: {
       title: 'Choice of Tech Stack',
@@ -80,7 +81,7 @@ export const projectsData: Project[] = [
     title: 'React UI Library',
     mobileTitle: 'React UI Library',
     image:
-      'https://raw.githubusercontent.com/robert-s-hogan/nx-monorepo/main/apps/devblog/assets/images/projects/dev_blog_react-ui-library.jpg',
+      'https://app-assets.vercel.app/apps/devblog/dev_blog_react-ui-library.jpg',
     description:
       'A comprehensive UI library tailored for React, constructed with precision, adaptability, and efficiency in mind.',
     process: {
@@ -129,7 +130,7 @@ export const projectsData: Project[] = [
     title: 'Concentration',
     mobileTitle: 'Game of Memory',
     image:
-      'https://raw.githubusercontent.com/robert-s-hogan/nx-monorepo/main/apps/devblog/assets/images/projects/dev_blog-concentration.jpg',
+      'https://app-assets.vercel.app/apps/devblog/dev_blog-concentration.jpg',
     description:
       'Delve into a nostalgic journey with "Concentration", an emblem of my foundational foray into web dev.',
     process: {
@@ -178,7 +179,7 @@ export const projectsData: Project[] = [
     title: 'SWAPI+: A New Canon Begins',
     mobileTitle: 'SWAPI+: A New Canon Begins',
     image:
-      'https://raw.githubusercontent.com/robert-s-hogan/nx-monorepo/main/apps/devblog/assets/images/projects/devblog-swapi-plus.jpg',
+      'https://app-assets.vercel.app/apps/swapi-cards/devblog_swapi-plus.jpg',
     description:
       'Redefining the galaxy: An enhanced, interactive showcase of Star Wars characters, centered around the new Disney Canon, built using cutting-edge technologies.',
     process: {
@@ -228,8 +229,7 @@ export const projectsData: Project[] = [
     mobileTitle: 'DnD Campaign MapArt',
     description:
       'Crafted exclusively for Dungeons and Dragons enthusiasts, this map tool facilitates Dungeon Masters in charting their adventures, enabling a cohesive and engaging narrative experience for all players.',
-    image:
-      'https://raw.githubusercontent.com/robert-s-hogan/nx-monorepo/main/apps/devblog/assets/images/projects/dev_blog-map.jpg',
+    image: 'https://app-assets.vercel.app/apps/devblog/dev_blog-map.jpg',
     process: {
       title: 'The Art of Cartography in DnD',
       subtitle: 'A Digital Realm for Your Tales',
@@ -276,7 +276,7 @@ export const projectsData: Project[] = [
     title: 'Freelance Web Scout',
     mobileTitle: 'Solo Web Scout',
     image:
-      'https://raw.githubusercontent.com/robert-s-hogan/nx-monorepo/main/apps/devblog/assets/images/projects/devblog_custom_search_new.jpg',
+      'https://app-assets.vercel.app/apps/devblog/devblog_custom_search_new.jpg',
     description:
       'Empowering freelance web developers with the toolset to discover potential clientele through aging websites in need of a facelift.',
     process: {
@@ -305,16 +305,14 @@ export const projectsData: Project[] = [
       subtitle: 'The Power of Advanced Search',
       description:
         "I opted for Google's Custom Search API due to its robustness and adaptability. Tailoring search parameters allowed me to achieve a higher degree of accuracy, ensuring users find exactly what they're looking for, and in this case, websites needing a refresh.",
-      image:
-        'https://rshogan.imgix.net/projects/devblog/images/p2w_technology_reason.jpg',
+      image: '',
     },
     purpose: {
       title: 'Empowering the Freelance Community',
       subtitle: 'Generating Valuable Leads',
       description:
         'This tool serves more than just a technical exercise. It embodies a solution for freelancers, aiding them in the hunt for potential clients and opportunities. The ability to identify aging websites presents a niche yet valuable market for web developers.',
-      image:
-        'https://rshogan.imgix.net/projects/devblog/images/p2w_purpose.jpg',
+      image: '',
     },
     resources: ['#1', '#2', '#3'],
     link: '',

@@ -17,7 +17,6 @@ const nextConfig = {
       'images.pexels.com',
       'images.unsplash.com',
       'img.icons8.com',
-      'rshogan.imgix.net',
       'res.cloudinary.com',
       'cloudflare-assets-nx-monorepo.vercel.app',
     ],

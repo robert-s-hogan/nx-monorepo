@@ -4,7 +4,8 @@ import { PageLayout } from '@with-nx/react-ui';
 import { PageLayoutProps } from '@with-nx/types';
 
 import RSHHeader from './RSHHeader';
-
+import RSHFavicon from '@assets/images/rshogancom/favicon.ico';
+import RSHLogo from '@assets/images/rshogancom/rsh_logo.png';
 const RSHFooter = dynamic(() => import('./RSHFooter'), {
   ssr: false,
 });
@@ -29,8 +30,8 @@ const RSHLayout = ({
             : 'Meet Robert, a talented Web Developer and UI/UX Engineer with a passion for designing and coding beautifully simple digital products. Explore his impressive portfolio of projects and discover how he can help enhance your digital presence.'
         }
         url="https://www.robertshogan.com"
-        faviconPath="https://rshogan.imgix.net/projects/devblog/favicon.ico"
-        image="https://rshogan.imgix.net/projects/devblog/portrait.jpg"
+        faviconPath={RSHFavicon}
+        image={RSHLogo}
         twitterHandle="@robert_s_hogan"
         siteName="Robert Hogans Blog"
         appleTouchIconPath="/apple-touch-icon.png"

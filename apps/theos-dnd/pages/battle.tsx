@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { Grid, Section } from '@with-nx/react-ui';
 
 import TheosDndLayout from '../components/TheosDndLayout';

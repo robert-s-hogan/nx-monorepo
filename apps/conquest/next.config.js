@@ -4,7 +4,7 @@
 const { composePlugins, withNx } = require('@nx/next');
 
 /**
- * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
+ * @type {import('next').NextConfig}
  **/
 const nextConfig = {
   nx: {

@@ -1,8 +1,17 @@
+import BMDLogo from '@assets/images/rshogancom/bmd_logo.jpg';
+import ThomasHenryWinesLogo from '@assets/images/rshogancom/thomas_henry_logo.webp';
+import ItalianDishLogo from '@assets/images/rshogancom/an_italian_dish.jpeg';
+import OneDemocracyLogo from '@assets/images/rshogancom/one_democracy_logo.png';
+import MGISolutionsLogo from '@assets/images/rshogancom/mgi_solutions.svg';
+import KRealtyLogo from '@assets/images/rshogancom/krealty_logo.webp';
+import TicketSaverLogo from '@assets/images/rshogancom/ticket-saver-logo.svg';
+import JessicaHoganMALogo from '@assets/images/rshogancom/jh_logo_white.webp';
+
 export const collaborators = [
   {
     name: 'Broadway Media Distribution',
     href: 'https://www.broadwaymedia.com/',
-    src: 'https://rshogan.imgix.net/projects/rshogancom/images/bmd_logo.webp',
+    src: BMDLogo,
     width: 88,
     height: 65,
     alt: 'Broadway Media Distribution',
@@ -10,7 +19,7 @@ export const collaborators = [
   {
     name: 'Thomas Henry Wines',
     href: 'https://www.thomashenrywines.com/',
-    src: 'https://rshogan.imgix.net/projects/rshogancom/images/thomas_henry_wines.png',
+    src: ThomasHenryWinesLogo,
     width: 89,
     height: 50,
     alt: 'Thomas Henry Wines Logo',
@@ -18,7 +27,7 @@ export const collaborators = [
   {
     name: 'An Italian Dish',
     href: 'https://anitaliandish.com/',
-    src: 'https://rshogan.imgix.net/projects/rshogancom/images/an_italian_dish.png',
+    src: ItalianDishLogo,
     width: 200,
     height: 50,
     alt: 'An Italian Dish Logo',
@@ -26,7 +35,7 @@ export const collaborators = [
   {
     name: 'One Democracy',
     href: 'https://www.onedemocracy.org/',
-    src: 'https://rshogan.imgix.net/projects/rshogancom/images/one_democracy.webp',
+    src: OneDemocracyLogo,
     width: 87,
     height: 50,
     alt: 'One Democracy Logo',
@@ -34,7 +43,7 @@ export const collaborators = [
   {
     name: 'MGI Solutions',
     href: 'https://www.mgisolutions.com/',
-    src: 'https://rshogan.imgix.net/projects/rshogancom/images/mgi_solutions.svg',
+    src: MGISolutionsLogo,
     width: 190,
     height: 50,
     alt: 'MGI Solutions Logo',
@@ -42,7 +51,7 @@ export const collaborators = [
   {
     name: 'K Realty',
     href: 'https://www.thekrealty.com/',
-    src: 'https://rshogan.imgix.net/projects/rshogancom/images/k_realty.webp',
+    src: KRealtyLogo,
     width: 100,
     height: 100,
     alt: 'K Realty Logo',
@@ -50,7 +59,7 @@ export const collaborators = [
   {
     name: 'Ticket Saver',
     href: 'https://ticketsaver.net/',
-    src: 'https://rshogan.imgix.net/projects/rshogancom/images/ticket_saver.jpeg',
+    src: TicketSaverLogo,
     width: 193,
     height: 75,
     alt: 'Ticket Saver Logo',
@@ -58,7 +67,7 @@ export const collaborators = [
   {
     name: 'Jessica Hogan MA',
     href: 'https://www.jessicahoganma.com/',
-    src: 'https://rshogan.imgix.net/projects/rshogancom/images/jhogan.webp',
+    src: JessicaHoganMALogo,
     width: 89,
     height: 50,
     alt: 'Jessica Hogan MA Logo',

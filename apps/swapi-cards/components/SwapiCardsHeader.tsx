@@ -9,7 +9,7 @@ const SwapiCardsHeader: React.FC = () => {
         rel="noopener noreferrer"
       >
         <Image
-          src="/github-icon.png"
+          src=""
           alt="Github Logo"
           width={50}
           height={50}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Flex, Grid, Section } from '@with-nx/react-ui';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 import { useEntity } from '../context/EntityContext';
 import { SPECIES_IMAGES, CLASS_INDICATORS } from '../data';

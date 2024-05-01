@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import { PageLayout } from '@with-nx/react-ui';
 import { useRouter } from 'next/router';
+
 import { Seo } from '@with-nx/nextjs-react-ui';
 import { PageLayoutProps } from '@with-nx/types';
 
@@ -34,8 +35,8 @@ const DevBlogLayout = ({
             : 'Robert Hogan, a seasoned Front-End UI Engineer crafting efficient and user-centric digital experiences. Explore highlighted projects such as the p2w Draft Tool, React UI Library, and Concentration game.'
         }
         url="https://www.roberthogan.dev/"
-        faviconPath="http://robertshogan.dreamhosters.com/projects/devblog/favicon.ico"
-        image="http://robertshogan.dreamhosters.com/projects/rshogancom/final-logo.jpg"
+        faviconPath="https://app-assets.vercel.app/apps/devblog/favicon.ico"
+        image="https://app-assets.vercel.app/apps/devblog/rsh_logo.png"
         twitterHandle="@robert_s_hogan"
         siteName="Robert Hogans Portfolio"
         appleTouchIconPath="/apple-touch-icon.png"
@@ -44,7 +45,7 @@ const DevBlogLayout = ({
       <div
         className={`mx-auto ${
           hideMaxWidth7xl ? 'max-w-full' : ''
-        } selection:bg-primary ${className}`}
+        } selection:bg-primary ${className ? className : ''}`}
       >
         {children}
       </div>

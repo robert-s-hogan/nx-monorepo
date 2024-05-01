@@ -13,17 +13,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <AuthProvider>
+    <>
+      {/* <AuthProvider> */}
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
-        <link rel="icon" href="/conquest_favicon.ico" />
+        <link
+          rel="icon"
+          href="https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/conquest/conquest_favicon.ico?token=GHSAT0AAAAAACMVWOEG6QWIKQAARA7D5N7CZRSIQKA"
+          type="image/x-icon"
+        />
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <html lang="en">
         <main>{children}</main>
       </html>
-    </AuthProvider>
+      {/* </AuthProvider> */}
+    </>
   );
 }

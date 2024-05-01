@@ -2,7 +2,6 @@ import { Campaign } from '../types';
 import { useCollection } from '@with-nx/firebase';
 import { FirestoreDocument } from '@with-nx/firebase';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { getLevelDetailsFromExperience } from '../constants/experienceConstants';
 
 export const useCampaigns = (): {
   campaigns: FirestoreDocument<Campaign>[] | undefined;

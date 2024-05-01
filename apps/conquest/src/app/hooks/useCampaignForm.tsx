@@ -1,4 +1,4 @@
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 import { Campaign } from '../types';
 import { useAuth } from '../contexts/AuthContext';

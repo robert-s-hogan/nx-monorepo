@@ -48,6 +48,20 @@ module.exports = {
       backgroundColor: {
         'secondary-color': 'var(--secondary-color)',
       },
+      backgroundImage: {
+        'p2w-hero':
+          "url('https://app-assets.vercel.app/apps/play2winff/p2w_hero.jpg')",
+        'react-ui-library':
+          "url('https://app-assets.vercel.app/apps/devblog/dev_blog_react-ui-library.jpg')",
+        concentration:
+          "url('https://app-assets.vercel.app/apps/devblog/dev_blog-concentration.jpg')",
+        'dnd-interactive-map':
+          "url('https://app-assets.vercel.app/apps/devblog/dev_blog-map.jpg')",
+        'custom-google-search':
+          "url('https://app-assets.vercel.app/apps/devblog/devblog_custom_search_new.jpg')",
+        'swapi-plus':
+          "url('https://app-assets.vercel.app/apps/swapi-cards/devblog_swapi-plus.jpg')",
+      },
       spacing: {
         215: '215px',
         '-169': '-169px',

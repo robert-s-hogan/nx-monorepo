@@ -8,19 +8,17 @@ function Index() {
   const slides = [
     {
       src: 'https://placekitten.com/200/300',
-      alt: 'Kitten 1',
       title: 'Kitten One',
       description: 'This is a cute kitten.',
     },
     {
       src: 'https://placekitten.com/200/300',
-      alt: 'Kitten 2',
       title: 'Kitten Two',
       description: 'Another cute kitten.',
     },
     {
       src: 'https://placekitten.com/200/300',
-      alt: 'Kitten 3',
+
       title: 'Kitten Three',
       description: 'Yet another cute kitten.',
     },
@@ -33,7 +31,7 @@ function Index() {
           <div key={index} className="text-center p-4">
             <Image
               src={slide.src}
-              alt={slide.alt}
+              alt={slide.title}
               width={200}
               height={300}
               className="mx-auto"

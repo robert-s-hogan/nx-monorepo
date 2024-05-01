@@ -1,5 +1,4 @@
 import { Button, Navbar, Text } from '@with-nx/react-ui';
-import { ButtonProps, LinkProps } from '@with-nx/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
@@ -9,7 +8,7 @@ import { useRouter } from 'next/router';
 
 const logo = (
   <Image
-    src="https://rshogan.imgix.net/projects/play2winff/play2winff_logo.png"
+    src="https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/play2winff/play2winff_logo.jpg?token=GHSAT0AAAAAACMVWOEGNTVLJHXO7YPYBUW4ZRSKI5A"
     alt="Play2Win Fantasy Football Logo"
     height="32"
     width="82"
@@ -68,16 +67,9 @@ const PlayToWinFFHeader = () => {
           toggleButton={toggleButton}
         /> */}
         <nav className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black ">
-          {/* <div className="flex justify-center">
-            <Link href="/">
-              <Image
-                src="https://rshogan.imgix.net/projects/play2winff/play2winff_logo_nobg.png"
-                height={100}
-                width={100}
-                alt="Play2Win Fantasy Football Logo"
-              />
-            </Link>
-          </div> */}
+          <div className="flex justify-center">
+            <Link href="/">{logo}</Link>
+          </div>
 
           <Text className="text-2xl font-bold">
             <Link href="/" className="whitespace-nowrap">

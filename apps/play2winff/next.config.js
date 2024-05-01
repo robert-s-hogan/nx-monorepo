@@ -12,9 +12,7 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
-  images: {
-    domains: ['rshogan.imgix.net'],
-  },
+  images: {},
 };
 
 module.exports = withNx(nextConfig);

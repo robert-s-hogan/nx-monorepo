@@ -1,18 +1,18 @@
 import React from 'react';
 import '../styles/global.css';
 
-import Navbar from './ConquestNavbar';
+import ConquestNavbar from './ConquestNavbar';
 
-interface LayoutProps {
+interface ConquestLayoutProps {
   children: React.ReactNode;
   title?: string;
   loading?: boolean;
 }
 
-const Layout = ({ children, title, loading }: LayoutProps) => {
+const ConquestLayout = ({ children, title, loading }: ConquestLayoutProps) => {
   return (
     <div className="w-full">
-      {loading ? (
+      {/* {loading ? (
         <header className="w-full text-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 py-1 md:py-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:relative lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           <nav className="w-full flex items-center justify-between max-w-4xl 2xl:max-w-7xl container mx-auto lg:mx-auto">
             <div className="animate-pulse flex items-center py-3 px-4 w-full justify-between">
@@ -26,9 +26,9 @@ const Layout = ({ children, title, loading }: LayoutProps) => {
             </div>
           </nav>
         </header>
-      ) : (
-        <Navbar title={title} />
-      )}
+      ) : ( */}
+      {/* <ConquestNavbar title={title} /> */}
+      {/* )} */}
 
       <main className="max-w-4xl 2xl:max-w-7xl container mx-auto flex items-center justify-center flex-col">
         {children}
@@ -37,4 +37,4 @@ const Layout = ({ children, title, loading }: LayoutProps) => {
   );
 };
 
-export default Layout;
+export default ConquestLayout;

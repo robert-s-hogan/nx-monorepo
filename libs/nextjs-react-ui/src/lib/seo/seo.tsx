@@ -1,13 +1,13 @@
 import Head from 'next/head';
-import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 
 /* eslint-disable-next-line */
 export interface SeoProps {
   title: string;
   description: string;
   url: string;
-  faviconPath: string;
-  image: string;
+  faviconPath: string | StaticImageData;
+  image: string | StaticImageData;
   twitterHandle?: string;
   siteName?: string;
   appleTouchIconPath?: string;
@@ -27,7 +27,6 @@ export function Seo(props: SeoProps) {
     keywords,
   } = props;
 
-  const defaultImage = '/default-image.jpg';
   return (
     <Head>
       <title>{title}</title>
@@ -45,14 +44,14 @@ export function Seo(props: SeoProps) {
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
-      <meta property="og:image" content={image || defaultImage} />
+      <meta property="og:image" content={image as string} />
       <meta property="og:site_name" content={siteName} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:url" content={url} />
-      <meta name="twitter:image" content={image || defaultImage} />
+      <meta name="twitter:image" content={image as string} />
       {twitterHandle && (
         <meta name="twitter:creator" content={`@${twitterHandle}`} />
       )}
