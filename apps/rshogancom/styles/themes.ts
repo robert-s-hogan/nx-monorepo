@@ -1,6 +1,3 @@
-import LightSwitch from '@assets/sounds/light-switch.wav';
-import RobotHearbeat from '@assets/sounds/robot-heartbeat.wav';
-
 export const themes = {
   light: {
     name: 'light',
@@ -33,7 +30,7 @@ export const themes = {
     'dialog-bg-color': '#FFFFFF', // White for dialog backgrounds
     'backdrop-color': '#F0F0F0', // Light grey for backdrop
     'gradient-color': '#EFEFEF', // Light grey gradient
-    sound: LightSwitch,
+    sound: 'https://app-assets.vercel.app/sounds/light_switch.wav',
     'shadow-color': 'rgba(0, 0, 0, 0.2)', // Dark shadow for light mode
     'skeleton-base-color': '#d0d0d0',
     'skeleton-shine-color': '255, 255, 255',
@@ -67,7 +64,7 @@ export const themes = {
     'moon-icon-color': '#8E8E93', // Light grey for moon icon
     'bg-opacity-color': 'rgba(0, 0, 0, 0.8)', // Semi-transparent black
     'gradient-color': '#545b6c', // Gradient color (can be adjusted)
-    sound: RobotHearbeat,
+    sound: 'https://app-assets.vercel.app/sounds/robot-heartbeat.wav',
     'dialog-bg-color': '#1C1C1E', // Very dark grey dialog background
     'backdrop-color': '#2C2C2E', // Dark grey backdrop
     'shadow-color': 'rgba(255, 255, 255, 0.1)', // Light shadow for dark mode

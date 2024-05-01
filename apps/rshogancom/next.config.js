@@ -18,6 +18,7 @@ const nextConfig = {
       'images.unsplash.com',
       'img.icons8.com',
       'res.cloudinary.com',
+      'app-assets.vercel.app',
       'cloudflare-assets-nx-monorepo.vercel.app',
     ],
     formats: ['image/avif', 'image/webp'],
