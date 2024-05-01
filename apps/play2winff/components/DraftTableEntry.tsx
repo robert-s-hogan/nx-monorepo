@@ -25,13 +25,14 @@ import {
 import { adpToInt, intToAdpString } from '../utils/draftTableUtils';
 
 const DraftTableEntry = ({
+  key,
   player,
   hidden,
   togglePlayerVisibility,
-  draftedPlayers, // add this prop
-  togglePlayerDraftStatus, // add this prop
+  draftedPlayers,
+  togglePlayerDraftStatus,
   yahooADP,
-  playerRank, // Include this here
+  playerRank,
 }) => {
   const [show, toggleShow] = useState(true);
 
@@ -48,10 +49,8 @@ const DraftTableEntry = ({
   const harrisInt = latestRank;
   const yahooInt = yahooADP?.xrank || null;
 
-  // Ensure both ADP values are valid before calculating the difference.
   const difference = yahooInt && harrisInt ? yahooInt - harrisInt : null;
 
-  // Base the checks on the difference value.
   const isValuePick = difference !== null && difference >= 12;
   const isOverPriced = difference !== null && difference <= -12;
 
@@ -95,7 +94,7 @@ const DraftTableEntry = ({
     : '';
 
   return (
-    <div>
+    <div key={key}>
       {show && (
         <div
           className={`grid grid-cols-9 gap-2 h-16 items-center cursor-pointer border-gunmetal border-b border-opacity-10

@@ -123,6 +123,7 @@ const DraftTable = ({
             )}
 
             <DraftTableEntry
+              key={player.player_id}
               player={player}
               hidden={isHidden}
               togglePlayerVisibility={handleToggleVisibility}

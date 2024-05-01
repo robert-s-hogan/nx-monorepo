@@ -67,9 +67,9 @@ const PlayToWinFFHeader = () => {
           toggleButton={toggleButton}
         /> */}
         <nav className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black ">
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <Link href="/">{logo}</Link>
-          </div>
+          </div> */}
 
           <Text className="text-2xl font-bold">
             <Link href="/" className="whitespace-nowrap">

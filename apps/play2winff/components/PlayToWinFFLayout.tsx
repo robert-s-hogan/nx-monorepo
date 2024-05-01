@@ -3,8 +3,6 @@ import { PageLayout } from '@with-nx/react-ui';
 import { PageLayoutProps } from '@with-nx/types';
 
 import PlayToWinFFHeader from './PlayToWinFFHeader';
-import Play2WinFFFavicon from '@assets/images/play2winff/favicon.ico';
-import PlayWinFFLogo from '@assets/images/play2winff/play2winff_logo.png';
 
 const PlayToWinFFLayout = ({
   children,
@@ -29,8 +27,8 @@ const PlayToWinFFLayout = ({
             : 'Play 2 Win Fantasy Football brings you the latest news, strategies, and tools for success. Explore the mock draft wizard and stay ahead of the competition.'
         }
         url="https://play2winff-nx.vercel.app"
-        faviconPath={Play2WinFFFavicon}
-        image={PlayWinFFLogo}
+        faviconPath="https://app-assets.vercel.app/apps/play2winff/play2winff_logo.jpg"
+        image="https://app-assets.vercel.app/apps/play2winff/play2winff_logo.jpg"
         twitterHandle="@Play2WinFF"
         siteName="Play 2 Win Fantasy Football"
         appleTouchIconPath="/apple-touch-icon.png"

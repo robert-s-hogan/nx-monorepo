@@ -14,8 +14,6 @@ import Link from 'next/link';
 import { FiBarChart, FiClock, FiTag } from 'react-icons/fi';
 
 import PlayToWinFFLayout from '../components/PlayToWinFFLayout';
-import Play2WinFFHero from '@assets/images/play2winff/p2w_hero.png';
-import Play2WinFFLogo from '@assets/images/play2winff/play2winff_logo.png';
 import useMergedData from '../hooks/useMergedData';
 
 export function Index() {
@@ -43,7 +41,9 @@ export function Index() {
           <Section
             className="relative text-center space-y-6 h-[500px] flex justify-center items-center flex-col"
             style={{
-              backgroundImage: `url('${Play2WinFFHero.src}')` ?? 'none',
+              backgroundImage:
+                `url('https://app-assets.vercel.app/apps/play2winff/p2w_hero.jpg')` ??
+                'none',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
