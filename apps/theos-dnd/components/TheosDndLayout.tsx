@@ -31,8 +31,8 @@ const DevBlogLayout = ({
             : 'Robert Hogan, a seasoned Front-End UI Engineer crafting efficient and user-centric digital experiences. Explore highlighted projects such as the p2w Draft Tool, React UI Library, and Concentration game.'
         }
         url="https://www.roberthogan.dev/"
-        faviconPath="http://robertshogan.dreamhosters.com/projects/devblog/favicon.ico"
-        image="http://robertshogan.dreamhosters.com/projects/rshogancom/final-logo.jpg"
+        faviconPath="https://app-assets.vercel.app/apps/theos-dnd/favicon.ico"
+        image="https://app-assets.vercel.app/apps/theos-dnd/favicon.ico"
         twitterHandle="@robert_s_hogan"
         siteName="Robert Hogans Portfolio"
         appleTouchIconPath="/apple-touch-icon.png"

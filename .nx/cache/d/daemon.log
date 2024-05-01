@@ -4463,3 +4463,763 @@ fatal runtime error: failed to initiate panic, error 5
 [NX Daemon Server] - 2024-05-01T20:21:34.371Z - Closed a connection. Number of open connections: 1
 [NX Daemon Server] - 2024-05-01T20:21:34.439Z - Closed a connection. Number of open connections: 0
 [NX Daemon Server] - 2024-05-01T20:21:34.502Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:01.431Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:22:01.431Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-01T20:22:01.432Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:22:01.434Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:22:01.434Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:22:01.437Z - Time taken for 'total for creating and serializing project graph' 0.15695200860500336ms
+[NX Daemon Server] - 2024-05-01T20:22:01.442Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:22:01.442Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 8.
+[NX Daemon Server] - 2024-05-01T20:22:01.611Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-05-01T20:22:01.611Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-05-01T20:22:01.611Z - Handled HASH_TASKS. Handling time: 24. Response time: 0.
+[NX Daemon Server] - 2024-05-01T20:22:03.283Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:22:03.284Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:22:03.285Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:22:03.287Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:22:03.287Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:22:03.292Z - Time taken for 'total for creating and serializing project graph' 0.17791900038719177ms
+[NX Daemon Server] - 2024-05-01T20:22:03.297Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:22:03.297Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 10.
+[NX Daemon Server] - 2024-05-01T20:22:04.703Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-05-01T20:22:04.703Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:22:04.704Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-05-01T20:22:04.706Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:22:04.707Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:22:04.711Z - Time taken for 'total for creating and serializing project graph' 0.33958400785923004ms
+[NX Daemon Server] - 2024-05-01T20:22:04.720Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:22:04.720Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 13.
+[NX Daemon Server] - 2024-05-01T20:22:04.883Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:22:04.883Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:22:04.886Z - Time taken for 'total for creating and serializing project graph' 0.24554000794887543ms
+[NX Daemon Server] - 2024-05-01T20:22:04.892Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:22:04.892Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 9.
+[NX Daemon Server] - 2024-05-01T20:22:06.190Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:06.483Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:06.543Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:06.773Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:06.823Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:22:06.824Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:22:06.827Z - Time taken for 'total for creating and serializing project graph' 0.3657570034265518ms
+[NX Daemon Server] - 2024-05-01T20:22:06.842Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:22:06.842Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 18.
+[NX Daemon Server] - 2024-05-01T20:22:06.885Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:08.948Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:10.344Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:11.459Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:12.857Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:13.369Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:15.169Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:15.266Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:15.671Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:15.941Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:16.068Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:16.198Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:16.256Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:36.381Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:36.792Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:44.345Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:22:44.346Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:22:44.381Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-01T20:22:44.442Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:49.099Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:22:49.100Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-01T20:22:49.101Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:22:49.104Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:22:49.105Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:22:49.108Z - Time taken for 'total for creating and serializing project graph' 0.18679100275039673ms
+[NX Daemon Server] - 2024-05-01T20:22:49.118Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:22:49.118Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 13.
+[NX Daemon Server] - 2024-05-01T20:22:49.380Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-05-01T20:22:49.381Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-05-01T20:22:49.381Z - Handled HASH_TASKS. Handling time: 11. Response time: 1.
+[NX Daemon Server] - 2024-05-01T20:22:51.649Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:22:51.666Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:22:51.667Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:22:51.668Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:22:51.668Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:22:51.671Z - Time taken for 'total for creating and serializing project graph' 0.12489300966262817ms
+[NX Daemon Server] - 2024-05-01T20:22:51.676Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:22:51.676Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 8.
+[NX Daemon Server] - 2024-05-01T20:22:51.870Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:22:51.870Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:22:51.873Z - Time taken for 'total for creating and serializing project graph' 0.16671399772167206ms
+[NX Daemon Server] - 2024-05-01T20:22:51.876Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:22:51.876Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 6.
+[NX Daemon Server] - 2024-05-01T20:22:52.050Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:52.704Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:53.934Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:54.158Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:55.497Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:58.002Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:22:59.277Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:04.589Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:05.062Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:05.383Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:05.496Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:05.573Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:05.649Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:05.706Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:11.977Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:12.117Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:12.162Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:23:12.283Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-05-01T20:23:12.283Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-05-01T20:23:12.283Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 0.
+[NX Daemon Server] - 2024-05-01T20:23:12.284Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:12.339Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:19.127Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-01T20:23:31.242Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:23:31.243Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-01T20:23:31.244Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:23:31.246Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:23:31.246Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:23:31.249Z - Time taken for 'total for creating and serializing project graph' 0.16232800483703613ms
+[NX Daemon Server] - 2024-05-01T20:23:31.259Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:23:31.259Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 13.
+[NX Daemon Server] - 2024-05-01T20:23:31.528Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-05-01T20:23:31.529Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-05-01T20:23:31.529Z - Handled HASH_TASKS. Handling time: 12. Response time: 1.
+[NX Daemon Server] - 2024-05-01T20:23:32.446Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:23:32.446Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:23:32.447Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:23:32.448Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:23:32.449Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:23:32.452Z - Time taken for 'total for creating and serializing project graph' 0.12672899663448334ms
+[NX Daemon Server] - 2024-05-01T20:23:32.457Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:23:32.457Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 8.
+[NX Daemon Server] - 2024-05-01T20:23:33.488Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-05-01T20:23:33.488Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:23:33.489Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-05-01T20:23:33.490Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:23:33.491Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:23:33.493Z - Time taken for 'total for creating and serializing project graph' 0.11607800424098969ms
+[NX Daemon Server] - 2024-05-01T20:23:33.497Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:23:33.497Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 6.
+[NX Daemon Server] - 2024-05-01T20:23:33.838Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:23:33.838Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:23:33.841Z - Time taken for 'total for creating and serializing project graph' 0.14942200481891632ms
+[NX Daemon Server] - 2024-05-01T20:23:33.845Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:23:33.846Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 8.
+[NX Daemon Server] - 2024-05-01T20:23:35.216Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:35.389Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:35.667Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:35.712Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:23:35.712Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:23:35.714Z - Time taken for 'total for creating and serializing project graph' 0.14886800944805145ms
+[NX Daemon Server] - 2024-05-01T20:23:35.728Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:23:35.728Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 16.
+[NX Daemon Server] - 2024-05-01T20:23:35.776Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:37.752Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:37.934Z - [WATCHER]: apps/swapi/components/SwapiLayout.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:23:37.934Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:38.037Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:23:38.038Z - [REQUEST]: apps/swapi/components/SwapiLayout.tsx
+[NX Daemon Server] - 2024-05-01T20:23:38.038Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:23:38.243Z - Time taken for 'hash changed files from watcher' 2.288653999567032ms
+[NX Daemon Server] - 2024-05-01T20:23:40.145Z - [WATCHER]: apps/swapi/components/SwapiLayout.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:23:40.146Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:40.352Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:23:40.352Z - [REQUEST]: apps/swapi/components/SwapiLayout.tsx
+[NX Daemon Server] - 2024-05-01T20:23:40.352Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:23:40.507Z - Time taken for 'hash changed files from watcher' 4.966358989477158ms
+[NX Daemon Server] - 2024-05-01T20:23:54.459Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:55.239Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:55.302Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:57.670Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:57.814Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:58.105Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:58.448Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:23:58.607Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:24:58.244Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:24:58.797Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:24:58.892Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:24:59.587Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:26:00.401Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:26:00.404Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:26:00.807Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:26:00.807Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:26:00.807Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:26:01.212Z - Time taken for 'hash changed files from watcher' 2.008340001106262ms
+[NX Daemon Server] - 2024-05-01T20:27:00.847Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:27:00.908Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:27:01.076Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:27:01.611Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:27:01.907Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:27:02.160Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:27:02.299Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:27:02.587Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:27:02.666Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:28:05.944Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:28:05.945Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:28:06.748Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:28:06.748Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:28:06.748Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:28:07.094Z - Time taken for 'hash changed files from watcher' 1.6211090087890625ms
+[NX Daemon Server] - 2024-05-01T20:28:40.640Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:28:40.640Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:28:42.243Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:28:42.243Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:28:42.243Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:28:42.506Z - Time taken for 'hash changed files from watcher' 3.3524100035429ms
+[NX Daemon Server] - 2024-05-01T20:28:59.819Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:28:59.829Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:29:03.030Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:29:03.030Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:29:03.030Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:29:03.301Z - Time taken for 'hash changed files from watcher' 2.1285559982061386ms
+[NX Daemon Server] - 2024-05-01T20:29:25.023Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:29:25.024Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:29:31.427Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:29:31.428Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:29:31.428Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:29:31.682Z - Time taken for 'hash changed files from watcher' 3.5387479960918427ms
+[NX Daemon Server] - 2024-05-01T20:29:41.752Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:29:41.753Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:29:48.158Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:29:48.159Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:29:48.159Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:29:48.406Z - Time taken for 'hash changed files from watcher' 4.215888008475304ms
+[NX Daemon Server] - 2024-05-01T20:30:00.653Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:30:00.654Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:30:07.056Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:30:07.056Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:30:07.057Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:30:07.345Z - Time taken for 'hash changed files from watcher' 1.6774410009384155ms
+[NX Daemon Server] - 2024-05-01T20:31:00.921Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:31:01.026Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:31:01.237Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:31:01.396Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:31:42.907Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:31:42.907Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:31:49.313Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:31:49.315Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:31:49.315Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:31:49.560Z - Time taken for 'hash changed files from watcher' 5.364225000143051ms
+[NX Daemon Server] - 2024-05-01T20:32:42.871Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:32:42.872Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:32:49.276Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:32:49.276Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:32:49.276Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:32:49.542Z - Time taken for 'hash changed files from watcher' 3.9383369982242584ms
+[NX Daemon Server] - 2024-05-01T20:32:54.468Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:32:54.468Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:33:00.873Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:33:00.874Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:33:00.874Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:33:01.097Z - Time taken for 'hash changed files from watcher' 3.5099180042743683ms
+[NX Daemon Server] - 2024-05-01T20:33:27.290Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:33:27.291Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:33:33.697Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:33:33.697Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:33:33.697Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:33:33.921Z - Time taken for 'hash changed files from watcher' 4.956496000289917ms
+[NX Daemon Server] - 2024-05-01T20:34:27.567Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:34:27.672Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:34:27.850Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:34:28.008Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:35:39.327Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:35:39.328Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:35:41.382Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:35:41.383Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:35:45.731Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:35:45.731Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:35:45.732Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:35:46.015Z - Time taken for 'hash changed files from watcher' 3.506407991051674ms
+[NX Daemon Server] - 2024-05-01T20:36:01.504Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:36:01.504Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:36:06.780Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:36:06.780Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:36:07.912Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:36:07.912Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:36:07.912Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:36:08.173Z - Time taken for 'hash changed files from watcher' 2.0467199981212616ms
+[NX Daemon Server] - 2024-05-01T20:36:10.452Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:36:10.453Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:36:16.858Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:36:16.858Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:36:16.858Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:36:17.096Z - Time taken for 'hash changed files from watcher' 4.402287006378174ms
+[NX Daemon Server] - 2024-05-01T20:36:43.126Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:36:43.126Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:36:49.212Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:36:49.213Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:36:49.529Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:36:49.529Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:36:49.529Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:36:49.787Z - Time taken for 'hash changed files from watcher' 1.5065439939498901ms
+[NX Daemon Server] - 2024-05-01T20:37:02.947Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:37:02.947Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:37:06.349Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:37:06.362Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:37:07.510Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:37:07.511Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:37:09.350Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:37:09.350Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:37:09.350Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:37:09.602Z - Time taken for 'hash changed files from watcher' 1.5457760095596313ms
+[NX Daemon Server] - 2024-05-01T20:37:13.266Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:37:13.267Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:37:13.308Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:37:13.308Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:37:19.376Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:37:19.377Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:37:19.673Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:37:19.674Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:37:19.674Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:37:19.902Z - Time taken for 'hash changed files from watcher' 4.918453007936478ms
+[NX Daemon Server] - 2024-05-01T20:37:20.644Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:37:20.644Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:37:27.048Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:37:27.048Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:37:27.048Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:37:27.209Z - Time taken for 'hash changed files from watcher' 4.161295995116234ms
+[NX Daemon Server] - 2024-05-01T20:37:40.076Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:37:40.077Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:37:44.626Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:37:44.627Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:37:46.480Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:37:46.480Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:37:46.480Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:37:46.692Z - Time taken for 'hash changed files from watcher' 2.348706007003784ms
+[NX Daemon Server] - 2024-05-01T20:38:02.872Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:02.873Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:07.445Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:07.446Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:09.274Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:38:09.274Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:38:09.274Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:38:09.497Z - Time taken for 'hash changed files from watcher' 1.503830999135971ms
+[NX Daemon Server] - 2024-05-01T20:38:11.411Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:11.412Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:13.793Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:13.793Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:17.817Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:38:17.818Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:38:17.819Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:38:18.027Z - Time taken for 'hash changed files from watcher' 4.517526000738144ms
+[NX Daemon Server] - 2024-05-01T20:38:27.895Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:27.895Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:34.301Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:38:34.301Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:38:34.301Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:38:34.542Z - Time taken for 'hash changed files from watcher' 5.260175004601479ms
+[NX Daemon Server] - 2024-05-01T20:38:34.677Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:34.677Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:35.087Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:35.087Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:36.152Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:36.153Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:41.079Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:38:41.080Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:38:41.080Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:38:41.368Z - Time taken for 'hash changed files from watcher' 1.5976420044898987ms
+[NX Daemon Server] - 2024-05-01T20:38:42.872Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:42.872Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:46.979Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:46.980Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:48.200Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:48.201Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:49.284Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:38:49.284Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:38:49.284Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:38:49.501Z - Time taken for 'hash changed files from watcher' 3.0364720076322556ms
+[NX Daemon Server] - 2024-05-01T20:38:51.525Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:51.525Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:52.337Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:52.340Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:52.390Z - [WATCHER]: apps/theos-dnd/data/entityData.ts was modified
+[NX Daemon Server] - 2024-05-01T20:38:52.390Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:38:57.932Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:38:57.933Z - [REQUEST]: apps/theos-dnd/data/entityData.ts
+[NX Daemon Server] - 2024-05-01T20:38:57.933Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:38:58.099Z - Time taken for 'hash changed files from watcher' 1.719190999865532ms
+[NX Daemon Server] - 2024-05-01T20:39:06.009Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:06.010Z - [WATCHER]: apps/theos-dnd/styles/themes.ts was modified
+[NX Daemon Server] - 2024-05-01T20:39:06.074Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:06.137Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:06.216Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:06.269Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:06.384Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:06.444Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:12.419Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:39:12.420Z - [REQUEST]: apps/theos-dnd/styles/themes.ts
+[NX Daemon Server] - 2024-05-01T20:39:12.420Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:39:12.657Z - Time taken for 'hash changed files from watcher' 4.383244007825851ms
+[NX Daemon Server] - 2024-05-01T20:39:41.461Z - [WATCHER]: apps/theos-dnd/styles/themes.ts was modified
+[NX Daemon Server] - 2024-05-01T20:39:41.462Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:41.543Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:41.681Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:41.751Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:43.224Z - [WATCHER]: apps/theos-dnd/styles/themes.ts was modified
+[NX Daemon Server] - 2024-05-01T20:39:43.224Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:43.305Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:43.358Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:43.450Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:39:47.864Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:39:47.864Z - [REQUEST]: apps/theos-dnd/styles/themes.ts
+[NX Daemon Server] - 2024-05-01T20:39:47.864Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:39:48.089Z - Time taken for 'hash changed files from watcher' 1.4721670001745224ms
+[NX Daemon Server] - 2024-05-01T20:39:59.029Z - [WATCHER]: apps/theos-dnd/styles/themes.ts was modified
+[NX Daemon Server] - 2024-05-01T20:39:59.029Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:40:00.578Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:40:00.579Z - [WATCHER]: apps/theos-dnd/styles/themes.ts was modified
+[NX Daemon Server] - 2024-05-01T20:40:00.679Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:40:00.737Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:40:02.755Z - [WATCHER]: apps/theos-dnd/styles/themes.ts was modified
+[NX Daemon Server] - 2024-05-01T20:40:02.755Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:40:02.850Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:40:02.963Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:40:04.815Z - [WATCHER]: apps/theos-dnd/styles/themes.ts was modified
+[NX Daemon Server] - 2024-05-01T20:40:04.815Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:40:04.904Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:40:04.904Z - [WATCHER]: apps/theos-dnd/styles/themes.ts was modified
+[NX Daemon Server] - 2024-05-01T20:40:04.980Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:40:05.090Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:40:05.163Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:40:05.437Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:40:05.440Z - [REQUEST]: apps/theos-dnd/styles/themes.ts
+[NX Daemon Server] - 2024-05-01T20:40:05.440Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:40:05.815Z - Time taken for 'hash changed files from watcher' 7.67807100713253ms
+[NX Daemon Server] - 2024-05-01T20:41:05.320Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:41:05.413Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:41:05.822Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:41:06.129Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:41:06.393Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:41:06.832Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:41:06.908Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:41:07.005Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:46:59.752Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:46:59.757Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:46:59.862Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-01T20:46:59.918Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:48:09.060Z - [WATCHER]: apps/theos-dnd/components/TheosDndLayout.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:48:09.061Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:48:10.637Z - [WATCHER]: apps/theos-dnd/components/TheosDndLayout.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:48:10.638Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:48:15.466Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:48:15.467Z - [REQUEST]: apps/theos-dnd/components/TheosDndLayout.tsx
+[NX Daemon Server] - 2024-05-01T20:48:15.467Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:48:15.714Z - Time taken for 'hash changed files from watcher' 4.61395500600338ms
+[NX Daemon Server] - 2024-05-01T20:48:21.793Z - [WATCHER]: apps/theos-dnd/components/TheosDndLayout.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:48:21.793Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:48:22.867Z - [WATCHER]: apps/theos-dnd/components/TheosDndLayout.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:48:22.868Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:48:26.624Z - [WATCHER]: apps/theos-dnd/components/TheosDndLayout.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:48:26.625Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:48:28.197Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:48:28.197Z - [REQUEST]: apps/theos-dnd/components/TheosDndLayout.tsx
+[NX Daemon Server] - 2024-05-01T20:48:28.197Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:48:28.374Z - Time taken for 'hash changed files from watcher' 2.902869999408722ms
+[NX Daemon Server] - 2024-05-01T20:48:36.085Z - [WATCHER]: apps/theos-dnd/components/TheosDndLayout.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:48:36.085Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:48:37.244Z - [WATCHER]: apps/theos-dnd/components/TheosDndLayout.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:48:37.244Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:48:42.490Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:48:42.491Z - [REQUEST]: apps/theos-dnd/components/TheosDndLayout.tsx
+[NX Daemon Server] - 2024-05-01T20:48:42.491Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:48:42.693Z - Time taken for 'hash changed files from watcher' 4.62016199529171ms
+[NX Daemon Server] - 2024-05-01T20:48:47.457Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:48:47.458Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-01T20:48:47.459Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:48:47.461Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:48:47.461Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:48:47.464Z - Time taken for 'total for creating and serializing project graph' 0.25467999279499054ms
+[NX Daemon Server] - 2024-05-01T20:48:47.469Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:48:47.469Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 8.
+[NX Daemon Server] - 2024-05-01T20:48:47.919Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-05-01T20:48:47.919Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-05-01T20:48:47.920Z - Handled HASH_TASKS. Handling time: 25. Response time: 1.
+[NX Daemon Server] - 2024-05-01T20:48:50.698Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:48:50.700Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:48:50.701Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:48:50.703Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:48:50.704Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:48:50.706Z - Time taken for 'total for creating and serializing project graph' 0.15838700532913208ms
+[NX Daemon Server] - 2024-05-01T20:48:50.713Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:48:50.713Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 9.
+[NX Daemon Server] - 2024-05-01T20:48:55.155Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:48:55.189Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:48:55.210Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-05-01T20:48:55.210Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-05-01T20:48:55.210Z - Handled RECORD_OUTPUTS_HASH. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-05-01T20:48:55.223Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-01T20:49:57.501Z - [WATCHER]: apps/theos-dnd/components/TheosDndCharacterCard.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:49:57.501Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:49:57.603Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:49:57.603Z - [REQUEST]: apps/theos-dnd/components/TheosDndCharacterCard.tsx
+[NX Daemon Server] - 2024-05-01T20:49:57.603Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:49:57.864Z - Time taken for 'hash changed files from watcher' 1.803168997168541ms
+[NX Daemon Server] - 2024-05-01T20:50:02.936Z - [WATCHER]: apps/theos-dnd/components/TheosDndCharacterCard.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:50:02.937Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:50:03.143Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:50:03.143Z - [REQUEST]: apps/theos-dnd/components/TheosDndCharacterCard.tsx
+[NX Daemon Server] - 2024-05-01T20:50:03.143Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:50:03.321Z - Time taken for 'hash changed files from watcher' 5.5043399930000305ms
+[NX Daemon Server] - 2024-05-01T20:50:29.560Z - [WATCHER]: apps/theos-dnd/components/TheosDndCharacterCard.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:50:29.560Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:50:29.964Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:50:29.964Z - [REQUEST]: apps/theos-dnd/components/TheosDndCharacterCard.tsx
+[NX Daemon Server] - 2024-05-01T20:50:29.965Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:50:30.190Z - Time taken for 'hash changed files from watcher' 4.350317999720573ms
+[NX Daemon Server] - 2024-05-01T20:50:31.950Z - [WATCHER]: apps/theos-dnd/components/TheosDndCharacterCard.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:50:31.951Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:50:32.755Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:50:32.755Z - [REQUEST]: apps/theos-dnd/components/TheosDndCharacterCard.tsx
+[NX Daemon Server] - 2024-05-01T20:50:32.755Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:50:32.895Z - Time taken for 'hash changed files from watcher' 2.8754130005836487ms
+[NX Daemon Server] - 2024-05-01T20:50:33.858Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:50:33.858Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-01T20:50:33.860Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:50:33.862Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:50:33.862Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:50:33.865Z - Time taken for 'total for creating and serializing project graph' 0.18882900476455688ms
+[NX Daemon Server] - 2024-05-01T20:50:33.873Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:50:33.873Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 11.
+[NX Daemon Server] - 2024-05-01T20:50:34.079Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-05-01T20:50:34.080Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-05-01T20:50:34.080Z - Handled HASH_TASKS. Handling time: 26. Response time: 1.
+[NX Daemon Server] - 2024-05-01T20:50:36.233Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:50:36.233Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:50:36.234Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:50:36.235Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:50:36.235Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:50:36.237Z - Time taken for 'total for creating and serializing project graph' 0.10619398951530457ms
+[NX Daemon Server] - 2024-05-01T20:50:36.243Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:50:36.243Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 8.
+[NX Daemon Server] - 2024-05-01T20:50:39.588Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:50:39.625Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:50:39.644Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-05-01T20:50:39.644Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-05-01T20:50:39.644Z - Handled RECORD_OUTPUTS_HASH. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-05-01T20:50:39.656Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-01T20:51:51.355Z - [WATCHER]: apps/theos-dnd/components/TheosDndCharacterCard.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:51:51.368Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:51:51.471Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:51:51.471Z - [REQUEST]: apps/theos-dnd/components/TheosDndCharacterCard.tsx
+[NX Daemon Server] - 2024-05-01T20:51:51.471Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:51:51.781Z - Time taken for 'hash changed files from watcher' 2.310479998588562ms
+[NX Daemon Server] - 2024-05-01T20:51:53.108Z - [WATCHER]: apps/theos-dnd/components/TheosDndCharacterCard.tsx was modified
+[NX Daemon Server] - 2024-05-01T20:51:53.109Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:51:53.313Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T20:51:53.313Z - [REQUEST]: apps/theos-dnd/components/TheosDndCharacterCard.tsx
+[NX Daemon Server] - 2024-05-01T20:51:53.313Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T20:51:53.478Z - Time taken for 'hash changed files from watcher' 4.838421985507011ms
+[NX Daemon Server] - 2024-05-01T20:51:55.782Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:51:55.784Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-01T20:51:55.785Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:51:55.788Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:51:55.788Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:51:55.791Z - Time taken for 'total for creating and serializing project graph' 0.1554819941520691ms
+[NX Daemon Server] - 2024-05-01T20:51:55.795Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:51:55.795Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 7.
+[NX Daemon Server] - 2024-05-01T20:51:56.006Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-05-01T20:51:56.007Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-05-01T20:51:56.007Z - Handled HASH_TASKS. Handling time: 28. Response time: 1.
+[NX Daemon Server] - 2024-05-01T20:51:57.552Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:51:57.552Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:51:57.553Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T20:51:57.554Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T20:51:57.555Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T20:51:57.557Z - Time taken for 'total for creating and serializing project graph' 0.11910399794578552ms
+[NX Daemon Server] - 2024-05-01T20:51:57.563Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T20:51:57.563Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 8.
+[NX Daemon Server] - 2024-05-01T20:52:00.634Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T20:52:00.668Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T20:52:00.689Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-05-01T20:52:00.689Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-05-01T20:52:00.689Z - Handled RECORD_OUTPUTS_HASH. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2024-05-01T20:52:00.701Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-01T21:02:24.129Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:02:24.130Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:02:24.232Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:02:24.232Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:02:24.232Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:02:24.775Z - Time taken for 'hash changed files from watcher' 1.9095320105552673ms
+[NX Daemon Server] - 2024-05-01T21:04:24.917Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:04:24.918Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:04:25.119Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:04:25.119Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:04:25.119Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:04:25.380Z - Time taken for 'hash changed files from watcher' 1.3476029932498932ms
+[NX Daemon Server] - 2024-05-01T21:04:28.079Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:04:28.081Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:04:28.483Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:04:28.483Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:04:28.483Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:04:28.683Z - Time taken for 'hash changed files from watcher' 1.908137008547783ms
+[NX Daemon Server] - 2024-05-01T21:04:37.384Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:04:37.384Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:04:38.186Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:04:38.186Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:04:38.186Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:04:38.422Z - Time taken for 'hash changed files from watcher' 1.468078002333641ms
+[NX Daemon Server] - 2024-05-01T21:04:49.182Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:04:49.183Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:04:50.357Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:04:50.358Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:04:50.784Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:04:50.784Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:04:50.785Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:04:51.038Z - Time taken for 'hash changed files from watcher' 1.4611519873142242ms
+[NX Daemon Server] - 2024-05-01T21:05:02.212Z - [WATCHER]: apps/theos-dnd/types/entityTypes.ts was modified
+[NX Daemon Server] - 2024-05-01T21:05:02.212Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:05:04.234Z - [WATCHER]: apps/theos-dnd/types/entityTypes.ts was modified
+[NX Daemon Server] - 2024-05-01T21:05:04.235Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:05:05.415Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:05:05.415Z - [REQUEST]: apps/theos-dnd/types/entityTypes.ts
+[NX Daemon Server] - 2024-05-01T21:05:05.416Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:05:05.685Z - Time taken for 'hash changed files from watcher' 1.4462040066719055ms
+[NX Daemon Server] - 2024-05-01T21:05:05.742Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:05:05.742Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:05:12.145Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:05:12.146Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:05:12.146Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:05:12.297Z - Time taken for 'hash changed files from watcher' 2.9838600009679794ms
+[NX Daemon Server] - 2024-05-01T21:06:24.566Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:06:24.573Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:06:30.975Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:06:30.975Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:06:30.975Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:06:31.197Z - Time taken for 'hash changed files from watcher' 2.1076239943504333ms
+[NX Daemon Server] - 2024-05-01T21:06:42.748Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:06:42.749Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:06:49.149Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:06:49.149Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:06:49.150Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:06:49.412Z - Time taken for 'hash changed files from watcher' 1.4032899886369705ms
+[NX Daemon Server] - 2024-05-01T21:06:52.176Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:06:52.176Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:06:58.578Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:06:58.578Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:06:58.578Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:06:58.717Z - Time taken for 'hash changed files from watcher' 1.7061670124530792ms
+[NX Daemon Server] - 2024-05-01T21:07:04.736Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:07:04.736Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:07:11.140Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:07:11.140Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:07:11.140Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:07:11.376Z - Time taken for 'hash changed files from watcher' 1.9137099981307983ms
+[NX Daemon Server] - 2024-05-01T21:07:15.726Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:07:15.727Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:07:22.128Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:07:22.129Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:07:22.129Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:07:22.388Z - Time taken for 'hash changed files from watcher' 1.618499994277954ms
+[NX Daemon Server] - 2024-05-01T21:07:25.914Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:07:25.914Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:07:27.548Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:07:27.563Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:07:30.594Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:07:30.595Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:07:32.317Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:07:32.317Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:07:32.317Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:07:32.521Z - Time taken for 'hash changed files from watcher' 2.0245729982852936ms
+[NX Daemon Server] - 2024-05-01T21:10:53.598Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:10:53.600Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:11:00.002Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:11:00.003Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:11:00.003Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:11:00.272Z - Time taken for 'hash changed files from watcher' 1.6448609977960587ms
+[NX Daemon Server] - 2024-05-01T21:11:03.188Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:11:03.189Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:11:09.592Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:11:09.593Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:11:09.593Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:11:10.117Z - Time taken for 'hash changed files from watcher' 1.4996249973773956ms
+[NX Daemon Server] - 2024-05-01T21:11:21.136Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:11:21.136Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:11:23.945Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:11:23.945Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:11:27.539Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:11:27.539Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:11:27.539Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:11:27.879Z - Time taken for 'hash changed files from watcher' 1.4218100011348724ms
+[NX Daemon Server] - 2024-05-01T21:12:14.052Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T21:12:14.054Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T21:12:20.456Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T21:12:20.456Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T21:12:20.456Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T21:12:20.647Z - Time taken for 'hash changed files from watcher' 1.6940630078315735ms
+[NX Daemon Server] - 2024-05-01T23:35:06.376Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T23:35:06.381Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:35:07.915Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T23:35:07.915Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:35:11.276Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T23:35:11.277Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:35:12.783Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T23:35:12.784Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T23:35:12.784Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T23:35:13.202Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T23:35:13.203Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:35:13.204Z - Time taken for 'hash changed files from watcher' 2.2498289942741394ms
+[NX Daemon Server] - 2024-05-01T23:35:19.603Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T23:35:19.604Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T23:35:19.604Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T23:35:19.783Z - Time taken for 'hash changed files from watcher' 1.4329729974269867ms
+[NX Daemon Server] - 2024-05-01T23:35:27.147Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T23:35:27.147Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:35:30.137Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T23:35:30.138Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:35:32.945Z - [WATCHER]: apps/theos-dnd/context/EntityContext.tsx was modified
+[NX Daemon Server] - 2024-05-01T23:35:32.945Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:35:33.549Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-01T23:35:33.550Z - [REQUEST]: apps/theos-dnd/context/EntityContext.tsx
+[NX Daemon Server] - 2024-05-01T23:35:33.550Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-01T23:35:33.945Z - Time taken for 'hash changed files from watcher' 1.6319870054721832ms
+[NX Daemon Server] - 2024-05-01T23:35:40.941Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T23:35:40.942Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-01T23:35:40.943Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T23:35:40.946Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T23:35:40.947Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T23:35:40.950Z - Time taken for 'total for creating and serializing project graph' 0.31290699541568756ms
+[NX Daemon Server] - 2024-05-01T23:35:40.955Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T23:35:40.955Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 8.
+[NX Daemon Server] - 2024-05-01T23:35:41.668Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-05-01T23:35:41.669Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-05-01T23:35:41.669Z - Handled HASH_TASKS. Handling time: 36. Response time: 1.
+[NX Daemon Server] - 2024-05-01T23:35:45.512Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T23:35:45.513Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T23:35:45.513Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-01T23:35:45.515Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T23:35:45.515Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T23:35:45.522Z - Time taken for 'total for creating and serializing project graph' 0.16126400232315063ms
+[NX Daemon Server] - 2024-05-01T23:35:45.528Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T23:35:45.528Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 13.
+[NX Daemon Server] - 2024-05-01T23:35:50.536Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-01T23:35:50.537Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-01T23:35:50.540Z - Time taken for 'total for creating and serializing project graph' 0.7492460012435913ms
+[NX Daemon Server] - 2024-05-01T23:35:50.547Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-01T23:35:50.547Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 10.
+[NX Daemon Server] - 2024-05-01T23:35:50.585Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:35:50.809Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:35:54.394Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:35:59.648Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:00.585Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:03.428Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:03.553Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:03.632Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:08.096Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:10.438Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:10.539Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:11.544Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:11.643Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:12.015Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:12.662Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:12.749Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:12.802Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:12.857Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:12.925Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:13.036Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:21.185Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:21.237Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:21.253Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-01T23:36:21.485Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:21.512Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-05-01T23:36:21.513Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-05-01T23:36:21.513Z - Handled RECORD_OUTPUTS_HASH. Handling time: 1. Response time: 1.
+[NX Daemon Server] - 2024-05-01T23:36:21.540Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:21.593Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-01T23:36:42.942Z - Closed a connection. Number of open connections: 0

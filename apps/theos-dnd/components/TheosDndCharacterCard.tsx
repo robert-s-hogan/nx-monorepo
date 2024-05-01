@@ -47,27 +47,36 @@ const CharacterCard = ({ entity, preview }) => {
   const image = indicator && indicator.image;
 
   const [currentIndex, setCurrentIndex] = useState(0); // To track the current image
+  function isStringArray(image: any): image is string[] {
+    return (
+      Array.isArray(image) && image.every((item) => typeof item === 'string')
+    );
+  }
 
   const nextImage = () => {
-    setCurrentIndex((prevIndex) => {
-      const newIndex = (prevIndex + 1) % image.length;
-      if (preview) {
-        // Only update entity image if not in preview
-        updateEntityImage(image[newIndex]);
-      }
-      return newIndex;
-    });
+    if (isStringArray(image)) {
+      // Only proceed if image is an array of strings
+      setCurrentIndex((prevIndex) => {
+        const newIndex = (prevIndex + 1) % image.length;
+        if (preview) {
+          updateEntityImage(image[newIndex]);
+        }
+        return newIndex;
+      });
+    }
   };
 
   const prevImage = () => {
-    setCurrentIndex((prevIndex) => {
-      const newIndex = (prevIndex - 1 + image.length) % image.length;
-      if (preview) {
-        // Only update entity image if not in preview
-        updateEntityImage(image[newIndex]);
-      }
-      return newIndex;
-    });
+    if (isStringArray(image)) {
+      // Only proceed if image is an array of strings
+      setCurrentIndex((prevIndex) => {
+        const newIndex = (prevIndex - 1 + image.length) % image.length;
+        if (preview) {
+          updateEntityImage(image[newIndex]);
+        }
+        return newIndex;
+      });
+    }
   };
 
   const classIcon = classType ? classIconMap[classType] : null;
@@ -148,7 +157,7 @@ const CharacterCard = ({ entity, preview }) => {
         {!preview && attackIcons}
 
         <div className="col-span-3 relative border rounded-lg overflow-hidden shadow-md w-full border-white">
-          {preview && image.length > 1 && (
+          {isStringArray(image) && image.length > 1 && (
             <>
               <button
                 onClick={prevImage}

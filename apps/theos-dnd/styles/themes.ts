@@ -1,6 +1,3 @@
-import { Flute } from '@assets/sounds';
-import { Roar } from '@assets/sounds';
-
 export const themes = {
   light: {
     name: 'light',
@@ -27,7 +24,7 @@ export const themes = {
     'sun-icon-color': '#FFD700',
     'moon-icon-color': '#C0C0C0',
     'bg-opacity-color': 'rgba(232, 245, 233, 0.6)',
-    sound: Flute,
+    sound: 'https://app-assets.vercel.app/sounds/flute.wav',
   },
   dark: {
     name: 'dark',
@@ -54,6 +51,6 @@ export const themes = {
     'sun-icon-color': '#FFB640',
     'moon-icon-color': '#B0B0B0',
     'bg-opacity-color': 'rgba(0, 0, 0, 0.8)',
-    sound: Roar,
+    sound: 'https://app-assets.vercel.app/sounds/roar.wav',
   },
 };

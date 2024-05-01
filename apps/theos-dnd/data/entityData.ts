@@ -1,72 +1,4 @@
 import { ClassIndicator, ImageData, SpeciesName, Stats } from '../types';
-import {
-  Artificer,
-  Barbarian,
-  BarbDragonOne,
-  BarbDragonTwo,
-  BarbDragonThree,
-  BarbDragonDead,
-  BarbGargoyle,
-  BarbGargoyleDead,
-  BarbHuman,
-  BarbHumanDead,
-  BarbSkeleton,
-  BarbSkeletonDead,
-  BarbZombie,
-  BarbZombieDead,
-  Bard,
-  BloodHunter,
-  Cleric,
-  Druid,
-  Fighter,
-  Mage,
-  MageDragon,
-  MageDragonDead,
-  MageDragonOne,
-  MageDragonTwo,
-  MageDragonThree,
-  MageDragonFour,
-  MageDragonFive,
-  MageGargoyle,
-  MageGargoyleDead,
-  MageGargoyleOne,
-  MageGargoyleTwo,
-  MageGargoyleThree,
-  MageHuman,
-  MageHumanDead,
-  MageSkeleton,
-  MageSkeletonDead,
-  MageZombie,
-  MageZombieDead,
-  MageZombieThree,
-  MageZombieFour,
-  MageZombieFive,
-  Monk,
-  Paladin,
-  Ranger,
-  RangerDragon,
-  RangerDragonDead,
-  RangerDragonOne,
-  RangerDragonTwo,
-  RangerDragonThree,
-  RangerDragonFour,
-  RangerGargoyle,
-  RangerGargoyleDead,
-  RangerHuman,
-  RangerHumanDead,
-  RangerHumanTwo,
-  RangerHumanThree,
-  RangerHumanFour,
-  RangerHumanFive,
-  RangerHumanSix,
-  RangerSkeleton,
-  RangerSkeletonDead,
-  RangerZombie,
-  RangerZombieDead,
-  Sorcerer,
-  Warlock,
-  Wizard,
-} from '@assets/images/theos-dnd';
 
 export const BASE_STATS: Stats = {
   STR: 10,
@@ -85,83 +17,105 @@ export const BASE_STATS: Stats = {
 export const CLASS_INDICATORS: ClassIndicator = {
   Barbarian: {
     Dragon: {
-      image: [BarbDragonOne.src, BarbDragonTwo.src, BarbDragonThree.src],
+      image: [
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-barb-species-dragon',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-barb-species-dragon-2',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-barb-species-dragon-3',
+      ],
     },
     Gargoyle: {
-      image: [BarbGargoyle.src],
+      image: [
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-barb-species-gargoyle',
+      ],
     },
     Human: {
-      image: [BarbHuman.src],
+      image: [
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-barb-species-human',
+      ],
     },
     Skeleton: {
-      image: [BarbSkeleton.src],
+      image: [
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-barb-species-skeleton',
+      ],
     },
     Zombie: {
-      image: [BarbZombie.src],
+      image: [
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-barb-species-zombie',
+      ],
     },
   },
   Mage: {
     Dragon: {
       image: [
-        MageDragon.src,
-        MageDragonOne.src,
-        MageDragonTwo.src,
-        MageDragonThree.src,
-        MageDragonFour.src,
-        MageDragonFive.src,
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-dragon',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-dragon-2',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-dragon-3',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-dragon-4',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-dragon-5',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-dragon-6',
       ],
     },
     Gargoyle: {
       image: [
-        MageGargoyle.src,
-        MageGargoyleOne.src,
-        MageGargoyleTwo.src,
-        MageGargoyleThree.src,
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-gargoyle',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-gargoyle-2',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-gargoyle-3',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-gargoyle-4',
       ],
     },
     Human: {
-      image: [MageHuman.src],
+      image: [
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-human',
+      ],
     },
     Skeleton: {
-      image: [MageSkeleton.src],
+      image: [
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-skeleton',
+      ],
     },
     Zombie: {
       image: [
-        MageZombie.src,
-        MageZombieThree.src,
-        MageZombieFour.src,
-        MageZombieFive.src,
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-zombie',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-zombie-2',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-zombie-3',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-mage-species-zombie-4',
       ],
     },
   },
   Ranger: {
     Dragon: {
       image: [
-        RangerDragon.src,
-        RangerDragonOne.src,
-        RangerDragonTwo.src,
-        RangerDragonThree.src,
-        RangerDragonFour.src,
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-dragon',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-dragon-2',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-dragon-3',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-dragon-4',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-dragon-5',
       ],
     },
     Gargoyle: {
-      image: [RangerGargoyle.src],
+      image: [
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-gargoyle',
+      ],
     },
     Human: {
       image: [
-        RangerHuman.src,
-        RangerHumanTwo.src,
-        RangerHumanThree.src,
-        RangerHumanFour.src,
-        RangerHumanFive.src,
-        RangerHumanSix.src,
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-human',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-human-2',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-human-3',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-human-4',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-human-5',
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-human-6',
       ],
     },
     Skeleton: {
-      image: [RangerSkeleton.src],
+      image: [
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-skeleton',
+      ],
     },
     Zombie: {
-      image: [RangerZombie.src],
+      image: [
+        'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-class-ranger-species-zombie',
+      ],
     },
   },
 };
@@ -211,23 +165,23 @@ export const CLASS_MODIFIERS = {
 export const SPECIES_IMAGES: Record<SpeciesName, ImageData> = {
   Dragon: {
     image:
-      'https://rshogan.imgix.net/projects/theos-dnd/species/theos-dnd-species-dragon.png',
+      'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-species-dragon.webp',
   },
   Gargoyle: {
     image:
-      'https://rshogan.imgix.net/projects/theos-dnd/species/theos-dnd-species-gargoyle.png',
+      'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-species-gargoyle.webp',
   },
   Human: {
     image:
-      'https://rshogan.imgix.net/projects/theos-dnd/species/theos-dnd-species-human.png',
+      'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-species-human.webp',
   },
   Skeleton: {
     image:
-      'https://rshogan.imgix.net/projects/theos-dnd/species/theos-dnd-species-skeleton.png',
+      'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-species-skeleton.webp',
   },
   Zombie: {
     image:
-      'https://rshogan.imgix.net/projects/theos-dnd/species/theos-dnd-species-zombie.png',
+      'https://app-assets.vercel.app/apps/theos-dnd/theos-dnd-species-zombie.webp',
   },
 };
 

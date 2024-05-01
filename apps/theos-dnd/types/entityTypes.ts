@@ -30,7 +30,7 @@ export type Entity = {
   classType?: ClassName;
   species?: SpeciesName;
   image: ImageData;
-  previewImage?: string;
+  previewImage?: string | StaticImageData;
 };
 
 export type BaseEntity = {
