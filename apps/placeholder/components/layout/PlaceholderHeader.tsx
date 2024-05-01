@@ -4,9 +4,15 @@ import { ButtonProps, LinkProps } from '@with-nx/types';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon, FiSearch } from 'react-icons/fi';
-import PlaceholderImage from '../../public/images/1500.png';
 
-const logo = <Image src={PlaceholderImage} height={50} width={50} alt="Logo" />;
+const logo = (
+  <Image
+    src="https://app-assets.vercel.app/apps/conquest/conquest_favicon.ico"
+    height={50}
+    width={50}
+    alt="Logo"
+  />
+);
 
 const searchIcon = <FiSearch />;
 

@@ -20,7 +20,7 @@ export default function RootLayout({
         <meta name="description" content={metadata.description} />
         <link
           rel="icon"
-          href="https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/conquest/conquest_favicon.ico?token=GHSAT0AAAAAACMVWOEG6QWIKQAARA7D5N7CZRSIQKA"
+          href="https://app-assets.vercel.app/apps/conquest/conquest_favicon.ico"
           type="image/x-icon"
         />
         <meta charSet="utf-8" />

@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 
 const logo = (
   <Image
-    src="https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/play2winff/play2winff_logo.jpg?token=GHSAT0AAAAAACMVWOEGNTVLJHXO7YPYBUW4ZRSKI5A"
+    src="https://app-assets.vercel.app/apps/play2winff/play2winff_logo.jpg"
     alt="Play2Win Fantasy Football Logo"
     height="32"
     width="82"

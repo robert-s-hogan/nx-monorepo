@@ -12,18 +12,15 @@ import { Card } from '@with-nx/react-ui';
 import { FiActivity, FiX, FiMinus, FiPlus } from 'react-icons/fi';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-
-import PlaceholderImage from '../public/images/1500.png';
 
 function Index() {
   const [quantity, setQuantity] = useState(1);
   const [page, setPage] = useState(0);
 
   const images = [
-    '../public/images/1500.png',
-    '../public/images/1500.png',
-    '../public/images/1500.png',
+    'https://app-assets.vercel.app/apps/conquest/conquest_favicon.ico',
+    'https://app-assets.vercel.app/apps/conquest/conquest_favicon.ico',
+    'https://app-assets.vercel.app/apps/conquest/conquest_favicon.ico',
   ];
 
   const onSubmit = (data: any) => {
@@ -34,17 +31,17 @@ function Index() {
     {
       name: 'Projector 1',
       price: 100,
-      image: PlaceholderImage,
+      image: 'https://app-assets.vercel.app/apps/conquest/conquest_favicon.ico',
     },
     {
       name: 'Projector 2',
       price: 200,
-      image: PlaceholderImage,
+      image: 'https://app-assets.vercel.app/apps/conquest/conquest_favicon.ico',
     },
     {
       name: 'Projector 3',
       price: 300,
-      image: PlaceholderImage,
+      image: 'https://app-assets.vercel.app/apps/conquest/conquest_favicon.ico',
     },
   ];
 
@@ -379,13 +376,13 @@ function Index() {
   const AnimatedCard = () => {
     return (
       <div className="w-48 h-32 relative">
-        <Image
-          src="https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/rshogancom/rsh_logo.png?token=GHSAT0AAAAAACMVWOEHD5FLAR67NK3CFXLMZRSKINQ"
+        {/* <Image
+          src=""
           alt="rsh logo"
           layout="fill"
           objectFit="cover"
           className="rounded-lg"
-        />
+        /> */}
       </div>
     );
   };
@@ -508,9 +505,9 @@ function Index() {
           <p>import ImageCarousel @with-nx/react-tailwind-ui</p>
           {/* <ImageCarousel
             images={[
-              '../public/images/1500.png',
-              '../public/images/1500.png',
-              '../public/images/1500.png',
+              'https://app-assets.vercel.app/apps/conquest/conquest_favicon.ico',
+              'https://app-assets.vercel.app/apps/conquest/conquest_favicon.ico',
+              'https://app-assets.vercel.app/apps/conquest/conquest_favicon.ico',
             ]}
           /> */}
         </div>
