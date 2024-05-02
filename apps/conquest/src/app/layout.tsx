@@ -14,22 +14,25 @@ export default function RootLayout({
 }) {
   return (
     <>
-      {/* <AuthProvider> */}
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <link
-          rel="icon"
-          href="https://app-assets.vercel.app/apps/conquest/conquest_favicon.ico"
-          type="image/x-icon"
-        />
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <html lang="en">
-        <main>{children}</main>
-      </html>
-      {/* </AuthProvider> */}
+      <AuthProvider>
+        {/* <Head>
+          <title>{metadata.title}</title>
+          <meta name="description" content={metadata.description} />
+          <link
+            rel="icon"
+            href="https://app-assets.vercel.app/apps/conquest/conquest_favicon.ico"
+            type="image/x-icon"
+          />
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+        </Head> */}
+        <html lang="en">
+          <main>{children}</main>
+        </html>
+      </AuthProvider>
     </>
   );
 }

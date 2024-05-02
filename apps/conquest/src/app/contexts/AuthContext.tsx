@@ -39,15 +39,24 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (currentUser && user) {
-        console.log(`currrentUSer`, currentUser);
-      }
+      console.log('Auth state changed: ', user);
       setCurrentUser(user);
-      setLoading(false);
+      setLoading(false); // Always set loading to false when the auth state is determined
     });
 
-    return unsubscribe;
+    return () => unsubscribe(); // Cleanup subscription on unmount
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCurrentUser(null); // Simulate no user signed in
+      setLoading(false);
+    }, 1000); // Delay to simulate async loading
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   const value = {
     currentUser,

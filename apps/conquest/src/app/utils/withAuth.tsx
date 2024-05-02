@@ -1,6 +1,5 @@
 import React, { ComponentType, useEffect } from 'react';
 import { useRouter } from 'next/router';
-
 import { useAuth } from '../contexts/AuthContext';
 
 interface WithAuthOptions {
@@ -16,9 +15,8 @@ const withAuth = <P extends object>(
     const { currentUser, loading } = useAuth();
 
     useEffect(() => {
-      if (loading) return;
-
-      if (authenticationRequired && !currentUser) {
+      // Ensure this code only runs on the client side
+      if (!loading && authenticationRequired && !currentUser) {
         router.push('/');
       }
     }, [currentUser, loading, authenticationRequired, router]);
