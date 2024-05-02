@@ -8,24 +8,6 @@
 
 /* :root variables that do not change with theme */
 :root {
-  /* --primary-color: #3b82f6;
-  --secondary-color: #6b7280;
-  --danger-color: #ef4444;
-  --warning-color: #facc15;
-  --success-color: #10b981;
-  --info-color: #3b82f6;
-  --btn-primary-text: #1e40af;
-  --btn-primary-hover-bg: #bfdbfe;
-  --btn-secondary-text: #374151;
-  --btn-secondary-hover-bg: #e5e7eb;
-  --btn-danger-text: #ffffff;
-  --btn-danger-hover-bg: #fecaca;
-  --btn-warning-text: #92400e;
-  --btn-warning-hover-bg: #fde68a;
-  --btn-success-text: #064e3b;
-  --btn-success-hover-bg: #a7f3d0;
-  --btn-info-text: #1e40af;
-  --btn-info-hover-bg: #bfdbfe; */
   --loader-size: 1rem;
   --loader-border: 0.125rem;
   --border-width: 0.063rem;
@@ -36,44 +18,12 @@
   --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
   --font-mono: Fira Mono, monospace;
   --pure-white: #ffffff;
-  --secondary-color: #d0dde9;
   --tertiary-color: #edf0f8;
-  --accent-color: #ff3e00;
   --heading-color: rgba(0, 0, 0, 0.7);
   --text-color: #444444;
   --background-without-opacity: rgba(255, 255, 255, 0.7);
   --column-width: 42rem;
   --column-margin-top: 4rem;
-  --primary-color: #e47461;
-  --secondary-color: #545b6c;
-  --accent-color: #292929;
-  --bg-color: #ffffff;
-  --surface-color: #f0f0f0;
-  --text-color: #000000;
-  --text-on-primary-color: #000000;
-  --text-on-secondary-color: #ffffff;
-  --text-on-surface-color: #000000;
-  --primary-icon-color: #545b6c;
-  --secondary-icon-color: #e47461;
-  --success-color: #008000;
-  --error-color: #ff0000;
-  --warning-color: #ffa500;
-  --info-color: #0000ff;
-  --border-color: #d0d0d0;
-  --hover-color: #ddd;
-  --active-color: #ccc;
-  --hover-secondary-color: #4c5261;
-  --active-secondary-color: #43485c;
-  --disabled-color: #e0e0e0;
-  --sun-icon-color: #ffd700;
-  --moon-icon-color: #808080;
-  --bg-opacity-color: rgba(255, 255, 255, 0.6);
-  --dialog-bg-color: #ffffff;
-  --backdrop-color: #f0f0f0;
-  --gradient-color: #a8d5c0;
-  --shadow-color: var(--light-shadow-color);
-  --skeleton-base-color: #ededed;
-  --skeleton-shine-color: '255, 255, 255';
 }
 
 @layer base {

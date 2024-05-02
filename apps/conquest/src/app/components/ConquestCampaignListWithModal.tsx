@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading } from '@with-nx/generic-ui';
+import { Button, Heading } from '@with-nx/generic-ui';
 
 import CampaignList from './ConquestCampaignList';
 import CampaignModalManager from './ConquestCampaignModalManager';
@@ -27,12 +27,11 @@ const ConquestCampaignListWithModal = ({
       <Heading text="Campaigns" level={2} />
       {hideEdit && (
         <div className="flex w-auto">
-          <button
+          <Button
             onClick={() => openModal('add', {} as Campaign)}
-            className="btn btn-primary"
-          >
-            Add Campaign
-          </button>
+            theme="primary"
+            text="Add Campaign"
+          />
         </div>
       )}
 

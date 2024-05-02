@@ -2,26 +2,19 @@
 @tailwind base;
 @tailwind utilities;
 
-/* :root {
-  --primary-color: #3b82f6;
-  --secondary-color: #6b7280;
-  --danger-color: #ef4444;
-  --warning-color: #facc15;
-  --success-color: #10b981;
-  --info-color: #3b82f6;
-  --btn-primary-text: #1e40af;
-  --btn-primary-hover-bg: #bfdbfe;
-  --btn-secondary-text: #374151;
-  --btn-secondary-hover-bg: #e5e7eb;
-  --btn-danger-text: #ffffff;
-  --btn-danger-hover-bg: #fecaca;
-  --btn-warning-text: #92400e;
-  --btn-warning-hover-bg: #fde68a;
-  --btn-success-text: #064e3b;
-  --btn-success-hover-bg: #a7f3d0;
-  --btn-info-text: #1e40af;
-  --btn-info-hover-bg: #bfdbfe;
-} */
+/* theme colors can be found in /styles/themes.ts */
+
+/* :root variables that do not change with theme */
+:root {
+  --loader-size: 1rem;
+  --loader-border: 0.125rem;
+  --border-width: 0.063rem;
+  --transition-speed: 0.3s;
+  --animation-speed: 1s;
+  --hover-scale: 1.05;
+  --text-underline-offset: 0.25rem;
+  --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
+}
 
 @layer base {
   h1 {

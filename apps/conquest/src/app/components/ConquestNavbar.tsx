@@ -20,17 +20,15 @@ const Navbar: React.FC<ConquestNavbarProps> = ({ title }) => {
   return (
     <header className="w-full text-center pt-8">
       <nav className="w-full flex items-center justify-between max-w-4xl 2xl:max-w-7xl container mx-auto lg:mx-auto px-4">
-        <div>
-          <Link href="/">
-            <div className="flex items-center">
-              <LiaDragonSolid size={48} />
-              <span className="text-lg">onquest</span>
-            </div>
-          </Link>
-        </div>
+        <Link href="/">
+          <div className="flex items-center">
+            <LiaDragonSolid size={48} />
+            <span className="text-lg">onquest</span>
+          </div>
+        </Link>
 
         <div className="flex space-between space-x-4 text-xl">
-          <Link href="/campaigns">Campaigns</Link>
+          {currentUser && <Link href="/campaigns">Campaigns</Link>}
           {/* <Link href="/admin">Admin</Link> */}
         </div>
 

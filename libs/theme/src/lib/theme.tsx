@@ -66,7 +66,7 @@ export const ThemeProvider = ({
       onend: () => {
         setIsToggleLocked(false);
       },
-      onerror: (err) => {
+      onloaderror: (err) => {
         console.error('Howler Error:', err);
       },
     });
@@ -102,7 +102,10 @@ export const ThemeProvider = ({
     const themeColors = themes[themeName];
 
     Object.keys(themeColors).forEach((colorKey) => {
-      root.style.setProperty(`--${colorKey}`, themeColors[colorKey]);
+      root.style.setProperty(
+        `--${colorKey}`,
+        themeColors[colorKey as keyof ThemeColors]
+      );
     });
     window.localStorage.setItem('theme-name', themeName);
   }, [themeName, themes]);
