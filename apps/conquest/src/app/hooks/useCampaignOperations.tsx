@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 import { useCampaignForm } from './useCampaignForm';
 import { Campaign } from '../types';

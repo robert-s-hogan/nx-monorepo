@@ -1,5 +1,7 @@
+'use client';
+
 import React, { ComponentType, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
 
 interface WithAuthOptions {
@@ -13,6 +15,10 @@ const withAuth = <P extends object>(
   const WithAuthComponent = (props: P) => {
     const router = useRouter();
     const { currentUser, loading } = useAuth();
+
+    if (loading || (authenticationRequired && !currentUser)) {
+      return <div>Loading authentication status...</div>; // or a spinner/loader component
+    }
 
     useEffect(() => {
       // Ensure this code only runs on the client side

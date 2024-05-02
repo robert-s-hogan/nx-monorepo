@@ -1,7 +1,6 @@
 import React from 'react';
-import '../styles/global.css';
-
 import dynamic from 'next/dynamic';
+import '../styles/global.css';
 
 const ConquestNavbar = dynamic(() => import('./ConquestNavbar'), {
   ssr: false,

@@ -47,17 +47,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     return () => unsubscribe(); // Cleanup subscription on unmount
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setCurrentUser(null); // Simulate no user signed in
-      setLoading(false);
-    }, 1000); // Delay to simulate async loading
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   const value = {
     currentUser,
     loading,

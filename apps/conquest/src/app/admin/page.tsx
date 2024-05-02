@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { NextPage } from 'next';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 import { Button, Heading, Text } from '@with-nx/generic-ui';
 

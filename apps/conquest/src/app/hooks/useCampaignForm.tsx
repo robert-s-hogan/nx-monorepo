@@ -1,4 +1,6 @@
-import { useRouter } from 'next/router';
+'use client';
+
+import { useRouter } from 'next/navigation';
 
 import { Campaign } from '../types';
 import { useAuth } from '../contexts/AuthContext';
