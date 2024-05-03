@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button, Flex } from '@with-nx/react-ui';
-import { useTheme } from '@with-nx/theme';
+import { useTheme, ThemeType } from '@with-nx/theme';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { CustomJHLogo } from '@with-nx/icons';
 import { useState, useEffect } from 'react';
@@ -48,12 +48,12 @@ const JHoganComHeader = () => {
       onClick={toggleTheme}
       className={`button-icon p-0`}
       aria-label={
-        theme && theme.name === 'light'
+        theme && (theme as ThemeType).name === 'light'
           ? 'Toggle dark mode'
           : 'Toggle light mode'
       }
     >
-      {theme && theme.name === 'light' ? (
+      {theme && (theme as ThemeType).name === 'light' ? (
         <FiMoon className={`moon h-5 w-5 ${fadeClass}`} />
       ) : (
         <FiSun className={`sun h-5 w-5 ${fadeClass}`} />

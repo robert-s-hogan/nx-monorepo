@@ -7,7 +7,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 const RootPage: React.FC = () => {
   return (
     <ConquestLayout title="Home | Conquest">
-      <ErrorBoundary fallback={<h1>Something went wrong.</h1>}>
+      <ErrorBoundary fallback={<div>Something went wrong.</div>}>
         <div className="container mx-auto my-16">
           <Heading level={1} text="Master Your Dungeons with Ease!" />
           <Text

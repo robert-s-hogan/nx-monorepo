@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700;900&family=Silkscreen&display=swap');
-
-@tailwind components;
 @tailwind base;
+@tailwind components;
 @tailwind utilities;
 
 /* theme colors can be found in /styles/themes.ts */
@@ -19,105 +17,58 @@
 }
 
 @layer base {
-  html,
-  .text-golos {
-    font-family: 'Golos Text', sans-serif;
-    font-size: 1.25rem;
-  }
-
   h1,
   h2,
   h3,
   h4,
   h5,
-  h6,
-  .text-silkscreen {
-    font-family: 'Silkscreen', cursive;
+  h6 {
+    /* font-family: '', cursive; */
     color: var(--text-color);
     text-decoration: uppercase;
   }
-
-  h1 {
-    @apply text-5xl md:text-8xl text-center pb-10;
-  }
-
-  h2 {
-    @apply text-3xl md:text-5xl pb-8;
-  }
-
-  h3 {
-    @apply text-2xl;
-  }
-
-  h4 {
-    @apply text-xl;
-  }
-
-  h5,
-  span {
-    @apply text-lg;
-  }
-
-  h6 {
-    @apply text-base;
-  }
-  a p,
-  .link {
+  a p {
     color: var(--text-color);
   }
-  button {
-    @apply px-3 py-2 transition-all duration-300;
-    outline: none;
+  body {
+    @apply bg-gradient-custom h-full p-0 m-0;
   }
-  img,
-  button,
-  .input,
-  .card {
-    @apply rounded;
+  section {
+    @apply container mx-auto p-4;
+  }
+  h1 {
+    @apply text-3xl font-bold mb-3;
+  }
+  h2 {
+    @apply text-xl font-bold mb-3;
+  }
+  h3 {
+    @apply text-xl font-bold;
   }
 }
 
-@layer components {
-  .full-width-section {
-    @apply max-w-full py-8 px-4 mx-auto;
+@layer utilities {
+  .tab-panel {
+    @apply p-2;
   }
-
-  .btn-success {
-    @apply bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded;
+  .tab {
+    @apply !bg-secondary;
   }
-
-  .btn-primary,
+  .tab-active {
+    @apply !bg-accent-color;
+  }
+  .btn-accent {
+    @apply bg-accent-color px-3 py-2 rounded-sm;
+  }
   .btn-secondary {
-    @apply px-3 py-2;
-  }
-
-  .card {
-    @apply bg-gray-200 shadow-lg p-6;
-  }
-
-  .card-body {
-    @apply flex flex-col space-y-6;
-  }
-
-  .card-title {
-    @apply text-2xl font-semibold;
-  }
-
-  .card-text {
-    @apply text-lg font-light;
-  }
-
-  .sub-title {
-    @apply text-lg lg:text-xl;
-  }
-
-  .input {
-    @apply px-3 py-2;
+    @apply bg-accent-color px-3 py-2 rounded-sm;
   }
 }
+
 html,
 body {
   background: var(--bg-color);
+  color: var(--text-color);
 }
 
 body {
@@ -129,39 +80,23 @@ body {
   padding-right: env(safe-area-inset-right);
 }
 
+/* TEXT */
+p {
+  color: var(--text-color);
+}
+
 /* LINKS */
 a {
-  position: relative;
   text-decoration: none;
   color: var(--accent-color);
-}
-
-a:before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 100%;
-  border-bottom: 1px solid var(--primary-color);
-  transition: right var(--transition-speed) ease;
-  text-underline-offset: var(--text-underline-offset);
-}
-
-a:hover:before {
-  right: 0;
-}
-
-a:hover {
-  opacity: 0.9;
-}
-
-.no-underline-on-hover:hover:before {
-  display: none;
 }
 
 /* ICONS */
 svg {
   stroke: var(--primary-fill);
+}
+svg text {
+  font-size: 0.85rem;
 }
 
 /* DEBUG STYLING */
@@ -172,23 +107,8 @@ pre {
   overflow-x: auto;
 }
 
-code {
-  color: var(--text-secondary);
-  font-family: monospace;
-}
-
-/* FORM ELEMENTS */
-input {
-  border-color: var(--border-color);
-  border-width: var(--border-width);
-}
-
-/* BUTTON & BUTTON STATE CLASSES */
-a button {
-  text-decoration: none;
-}
-.button-link:hover:before {
-  right: 100%;
+button {
+  @apply px-3 py-2 rounded-sm;
 }
 
 .btn-primary {
@@ -268,11 +188,11 @@ a button {
 .sun {
   transition: opacity 0.3s, transform 0.3s;
 }
-.sun {
-  color: var(--sun-icon-color);
+svg.sun {
+  stroke: var(--sun-icon-color);
 }
-.moon {
-  color: var(--moon-icon-color);
+svg.moon {
+  stroke: var(--moon-icon-color);
 }
 .moon.fade-out,
 .sun.fade-out {
@@ -280,6 +200,6 @@ a button {
   transform: scale(0.9); /* Slight shrink */
 }
 
-.nav-logo {
-  transition: opacity 0.3s;
+.icon-white svg {
+  stroke: #ffffff;
 }

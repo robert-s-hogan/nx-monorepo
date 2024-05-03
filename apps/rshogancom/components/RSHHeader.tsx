@@ -7,7 +7,7 @@ import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 import { Button, Flex, Text } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
 import { CustomRSHLogo } from '@with-nx/icons';
-import { useTheme } from '@with-nx/theme';
+import { useTheme, ThemeType } from '@with-nx/theme';
 
 import RSHModal from './RSHModal';
 
@@ -30,12 +30,12 @@ const RSHoganComHeader = () => {
       onClick={toggleTheme}
       className={`button-icon p-0`}
       aria-label={
-        theme && theme.name === 'light'
+        theme && (theme as ThemeType).name === 'light'
           ? 'Toggle dark mode'
           : 'Toggle light mode'
       }
     >
-      {theme && theme.name === 'light' ? (
+      {theme && (theme as ThemeType).name === 'light' ? (
         <FiMoon className={`moon-icon h-5 w-5 ${fadeClass}`} />
       ) : (
         <FiSun className={`sun-icon h-5 w-5 ${fadeClass}`} />

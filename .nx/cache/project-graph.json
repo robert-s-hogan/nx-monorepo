@@ -24694,52 +24694,12 @@
     "play2winff": [
       {
         "source": "play2winff",
-        "target": "npm:react",
-        "type": "static"
-      },
-      {
-        "source": "play2winff",
-        "target": "npm:react-icons",
-        "type": "static"
-      },
-      {
-        "source": "play2winff",
-        "target": "npm:next",
-        "type": "static"
-      },
-      {
-        "source": "play2winff",
-        "target": "react-ui",
-        "type": "static"
-      },
-      {
-        "source": "play2winff",
-        "target": "generic-ui",
-        "type": "static"
-      },
-      {
-        "source": "play2winff",
-        "target": "npm:next-themes",
-        "type": "static"
-      },
-      {
-        "source": "play2winff",
-        "target": "nextjs-react-ui",
-        "type": "static"
-      },
-      {
-        "source": "play2winff",
-        "target": "types",
-        "type": "static"
-      },
-      {
-        "source": "play2winff",
-        "target": "npm:d3",
-        "type": "static"
-      },
-      {
-        "source": "play2winff",
         "target": "npm:swr",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "npm:react",
         "type": "static"
       },
       {
@@ -24749,7 +24709,32 @@
       },
       {
         "source": "play2winff",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "theme",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "react-ui",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
         "target": "npm:axios",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "generic-ui",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "npm:react-icons",
         "type": "static"
       },
       {
@@ -24760,6 +24745,21 @@
       {
         "source": "play2winff",
         "target": "npm:@nrwl/react",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "npm:d3",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "nextjs-react-ui",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "types",
         "type": "static"
       }
     ],

@@ -3,7 +3,7 @@ import { ButtonProps, LinkProps } from '@with-nx/types';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTheme } from '@with-nx/theme';
+import { useTheme, ThemeType } from '@with-nx/theme';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import {
   GiDoubleDragon,
@@ -41,7 +41,9 @@ const DevBlogHeader = () => {
     ? 'fade-in-out hidden-icon hidden'
     : 'fade-in-out visible-icon';
   const musicNoteClass =
-    theme.name === 'light' ? 'light-bounce' : 'dark-bounce';
+    theme && (theme as ThemeType).name === 'light'
+      ? 'light-bounce'
+      : 'dark-bounce';
 
   const musicNote = isToggleLocked ? (
     <GiMusicalNotes className={`w-6 h-6 ${musicNoteClass}`} />
@@ -53,7 +55,7 @@ const DevBlogHeader = () => {
 
   const toggleButton = isMounted ? (
     <Button onClick={toggleTheme} className={`${iconClass} button-icon p-0`}>
-      {theme && theme.name === 'light' ? (
+      {theme && (theme as ThemeType).name === 'light' ? (
         <GiHolyHandGrenade className={`moon h-6 w-6 ${fadeClass}`} />
       ) : (
         <GiSkeletonKey className={`sun h-6 w-6 ${fadeClass}`} />

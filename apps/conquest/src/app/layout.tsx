@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AuthProvider>
-          <ErrorBoundary fallback={<h1>Something went wrong.</h1>}>
+          <ErrorBoundary fallback={<div>Something went wrong.</div>}>
             <main>{children}</main>
           </ErrorBoundary>
         </AuthProvider>

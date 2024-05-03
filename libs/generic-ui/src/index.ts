@@ -1,5 +1,6 @@
 export { Button } from './lib/button/button';
 export { Heading } from './lib/heading/heading';
+export { IconButton } from './lib/icon-button/icon-button';
 export { Input } from './lib/input/input';
 export { Link } from './lib/link/link';
 export { List } from './lib/list/list';

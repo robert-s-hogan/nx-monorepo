@@ -20,7 +20,7 @@ export function EspnNewsFeed() {
         {news.articles.slice(0, 10).map((item, index) => (
           <div
             key={index}
-            className="text-center border bg-gunmetal border-white"
+            className="text-center border bg-secondary border-white"
           >
             <a
               href={item.links.web.href}

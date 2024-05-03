@@ -2,20 +2,20 @@ import React from 'react';
 import { Heading, Tabs } from '@with-nx/react-ui';
 
 import { useADPData } from '../hooks/useADPData';
-import PlayToWinFFLayout from '../components/PlayToWinFFLayout';
+import PlayToWinFFLayout from '../components/P2WFFLayout';
 
 const Adp = () => {
   const scoringSystem = 'ppr';
   const teamSizes = [8, 10, 12];
 
   const positionColors = {
-    WR: 'bg-green-500',
-    RB: 'bg-blue-500',
-    QB: 'bg-yellow-500',
-    TE: 'bg-purple-500',
-    PK: 'bg-red-500',
-    K: 'bg-red-500',
-    DEF: 'bg-gray-500',
+    WR: 'bg-wr-color',
+    RB: 'bg-rb-color',
+    QB: 'bg-qb-color',
+    TE: 'bg-te-color',
+    PK: 'bg-pk-color',
+    K: 'bg-pk-color',
+    DEF: 'bg-def-color',
   };
 
   const tabsData = teamSizes.map((teamSize) => {
@@ -32,7 +32,7 @@ const Adp = () => {
           {isADPError && <p>Error loading data</p>}
           {adpPlayers ? (
             <table className="w-full table-auto">
-              <thead className="bg-gunmetal">
+              <thead className="bg-secondary">
                 <tr>
                   <th className="px-2 py-2 text-left">Player</th>
                   <th className="px-2 py-2 text-left">Position</th>
@@ -49,6 +49,9 @@ const Adp = () => {
                       className={`border-t border-gray-300 ${
                         positionColors[player.position]
                       }`}
+                      style={{
+                        backgroundColor: positionColors[player.position],
+                      }}
                     >
                       <td className="px-2 py-2">{player.name}</td>
                       <td className="px-2 py-2">{player.position}</td>

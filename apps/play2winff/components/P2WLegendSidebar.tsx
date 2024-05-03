@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { FiX } from 'react-icons/fi';
 
 import { Box, Button, Flex } from '@with-nx/react-ui';
-import { Heading } from '@with-nx/generic-ui';
+import { Heading, Text } from '@with-nx/generic-ui';
 
 import {
   BreakoutIcon,
@@ -24,7 +24,7 @@ import {
   TargetIcon,
   ValuePickIcon,
   WorriedIcon,
-} from './CustomP2WTagIcons';
+} from './P2WCustomTagIcons';
 
 const LegendSidebar = ({ isOpen, onClose }) => {
   const ref = useRef(null);
@@ -141,9 +141,9 @@ const LegendSidebar = ({ isOpen, onClose }) => {
   return (
     <div
       ref={ref}
-      className="bg-gunmetal text-white border-l border-viridian border-[.5px] h-auto mr-3"
+      className="bg-secondary text-white border-l border-primary border-[.5px] h-auto mr-3"
     >
-      <Flex className="justify-between items-center p-4 border-viridian border-b">
+      <Flex className="justify-between items-center p-4 border-primary border-b">
         <Heading level={2} className="text-lg font-bold" text="Icon Legend" />
         <Button className="p-4" onClick={onClose}>
           <FiX className="cursor-pointer" />
@@ -154,9 +154,9 @@ const LegendSidebar = ({ isOpen, onClose }) => {
           <Box key={index} className="">
             <Flex className="flex space-x-2 items-center">
               <span>{legend.icon}</span>
-              <span className="font-bold text-xl">{legend.title}</span>
+              <Text className="font-bold text-xl" text={legend.title} />
             </Flex>
-            <span className="text-xs">{legend.description}</span>
+            <Text className="text-xs" text={legend.description} />
           </Box>
         ))}
       </div>

@@ -183,23 +183,9 @@ form > * + * {
 }
 
 /* BUTTON & BUTTON STATE CLASSES */
+
 button {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.bg-primary {
-  background-color: var(--primary-color);
-  color: var(--text-on-primary-color);
-}
-
-.bg-secondary {
-  background-color: var(--secondary-color);
-  color: var(--text-on-secondary-color);
-}
-
-.bg-surface {
-  background-color: var(--surface-color);
-  color: var(--text-color);
+  @apply px-3 py-2 rounded-sm;
 }
 
 .btn-primary {
@@ -217,39 +203,7 @@ button {
 
 .btn-primary:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--accent-color);
-}
-
-.btn-success {
-  background-color: var(--success-color);
-  color: var(--text-color);
-}
-
-.btn-success:hover {
-  background-color: var(--hover-color);
-}
-
-.btn-disabled {
-  background-color: var(--disabled-color);
-  color: var(--text-color);
-}
-
-.btn-warning {
-  background-color: var(--warning-color);
-  color: var(--text-color);
-}
-
-.btn-warning:hover {
-  background-color: var(--hover-color);
-}
-
-.btn-accent {
-  background-color: var(--accent-color);
-  color: var(--text-on-accent-color);
-}
-
-.btn-accent:hover {
-  background-color: var(--hover-color);
+  box-shadow: var(--box-shadow);
 }
 
 .disabled,
@@ -258,18 +212,9 @@ button {
   cursor: not-allowed;
 }
 
-.btn-danger {
-  background-color: var(--error-color);
-  color: var(--text-color);
-}
-
-.btn-danger:hover {
-  background-color: var(--hover-color);
-}
-
 .btn-secondary {
   background-color: var(--secondary-color);
-  color: var(--text-on-secondary-color);
+  color: var(--text-on-primary-color);
 }
 
 .btn-secondary:hover {
@@ -282,40 +227,12 @@ button {
 
 .btn-secondary:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--accent-color);
+  box-shadow: var(--box-shadow);
 }
 
 .btn-secondary:disabled {
-  background-color: var(--disabled-color);
+  background-color: var(--disabled-secondary-color);
   cursor: not-allowed;
-}
-.contact-button {
-  background-color: var(--contact-button-color);
-  color: var(--text-on-primary-color);
-}
-
-/* MODAL CLASSES */
-dialog::backdrop {
-  background-color: var(--backdrop-color, rgba(0, 0, 0, 0.5));
-  position: fixed;
-  inset: 0;
-  opacity: 0.5;
-}
-
-/* GRADIENTS */
-.light-gradient {
-  background-image: linear-gradient(
-    to bottom left,
-    var(--secondary-icon-color),
-    var(--gradient-color)
-  );
-}
-.dark-gradient {
-  background-image: linear-gradient(
-    to bottom right,
-    var(--secondary-icon-color),
-    var(--gradient-color)
-  );
 }
 
 /* TYPOGRAPHY CLASSES */
@@ -325,17 +242,43 @@ dialog::backdrop {
 .text-on-secondary {
   color: var(--text-on-secondary-color);
 }
-.text-on-accent {
-  color: var(--text-on-accent-color);
+.text-github {
+  color: var(--github-icon-color);
 }
-.text-shadow {
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+
+/* BACKGROUND CLASSES */
+.bg-image-overlay {
+  background-color: var(--bg-opacity-color);
+  transition: background-color 0.3s;
 }
-.sun-icon {
-  stroke: var(--sun-icon-color);
+@media (min-width: 1024px) {
+  .image-overlay:hover {
+    background-color: transparent;
+  }
 }
-.moon-icon {
-  stroke: var(--moon-icon-color);
+.bg-opposite-theming {
+  background-color: var(--text-color);
+}
+
+/* DARK LIGHT STYLES */
+.moon,
+.sun {
+  transition: opacity 0.3s, transform 0.3s;
+}
+.sun {
+  color: var(--sun-icon-color);
+}
+.moon {
+  color: var(--moon-icon-color);
+}
+.moon.fade-out,
+.sun.fade-out {
+  opacity: 0;
+  transform: scale(0.9); /* Slight shrink */
+}
+
+.icon-white svg {
+  stroke: #ffffff;
 }
 
 /* CARD CLASSES */

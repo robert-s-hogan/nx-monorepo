@@ -1,11 +1,11 @@
 import { Button, Flex, Heading, Section, Text } from '@with-nx/react-ui';
 
-import PlayToWinFFLayout from '../components/PlayToWinFFLayout';
+import PlayToWinFFLayout from '../components/P2WFFLayout';
 import useDraftedPlayers from '../hooks/useDraftedPlayers';
-import DraftTable from '../components/DraftTable';
+import P2WDraftTable from '../components/P2WDraftTable';
 import { useState, useEffect } from 'react';
-import LegendSidebar from '../components/LegendSidebar';
-import Roster from '../components/Roster';
+import LegendSidebar from '../components/P2WLegendSidebar';
+import Roster from '../components/P2WRoster';
 
 // Import the new hook
 import useMergedData from '../hooks/useMergedData';
@@ -31,10 +31,7 @@ const Draft = () => {
   if (isError) return <p>Error loading data!</p>;
 
   return (
-    <PlayToWinFFLayout
-      className="text-white"
-      title="Play2WinFF Draft Dominator"
-    >
+    <PlayToWinFFLayout title="Play2WinFF Draft Dominator">
       <Section className="container mx-auto">
         <Flex
           className={`flex-col flex-grow ${isSidebarOpen ? 'w-3/4' : 'w-full'}`}
@@ -76,7 +73,7 @@ const Draft = () => {
             isSidebarOpen ? 'w-3/4' : 'w-full'
           }`}
         >
-          <DraftTable
+          <P2WDraftTable
             players={mergedData}
             hiddenPlayers={draftedPlayers}
             togglePlayerVisibility={togglePlayerDraftStatus}

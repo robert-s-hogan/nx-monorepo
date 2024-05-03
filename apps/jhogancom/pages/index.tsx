@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Flex, Heading, Section, Text } from '@with-nx/react-ui';
-import { useTheme } from '@with-nx/theme';
+import { useTheme, ThemeType } from '@with-nx/theme';
 
 import dynamic from 'next/dynamic';
 
@@ -57,7 +57,9 @@ export function Index() {
       <Section
         style={{ minHeight: '620px' }}
         className={`${
-          theme.name === 'light' ? 'light-gradient' : 'dark-gradient'
+          theme && (theme as ThemeType).name === 'light'
+            ? 'light-gradient'
+            : 'dark-gradient'
         } scroll-smooth w-full h-full flex justify-center items-center`}
       >
         <Flex className="justify-center flex-col items-center h-full text-center space-y-6">

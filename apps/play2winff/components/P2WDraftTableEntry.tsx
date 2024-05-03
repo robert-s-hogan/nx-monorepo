@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Box, Button, Flex } from '@with-nx/react-ui';
+import { Box, Flex } from '@with-nx/react-ui';
+import { Button, Text } from '@with-nx/generic-ui';
 
 import {
   BreakoutIcon,
@@ -21,10 +22,10 @@ import {
   TargetIcon,
   ValuePickIcon,
   WorriedIcon,
-} from './CustomP2WTagIcons';
+} from './P2WCustomTagIcons';
 import { adpToInt, intToAdpString } from '../utils/draftTableUtils';
 
-const DraftTableEntry = ({
+const P2WDraftTableEntry = ({
   key,
   player,
   hidden,
@@ -97,7 +98,7 @@ const DraftTableEntry = ({
     <div key={key}>
       {show && (
         <div
-          className={`grid grid-cols-9 gap-2 h-16 items-center cursor-pointer border-gunmetal border-b border-opacity-10
+          className={`grid grid-cols-9 gap-2 h-16 items-center cursor-pointer border-secondary border-b border-opacity-10
           ${player.position === 'QB' && 'bg-qb'}
           ${player.position === 'RB' && 'bg-rb'}
           ${player.position === 'WR' && 'bg-wr'}
@@ -107,12 +108,13 @@ const DraftTableEntry = ({
           ${playerStyles}
           `}
         >
-          <p
+          <Text
+            text={playerRank}
             className={`${
               playerStyles ? 'text-black-custom' : ''
             }  col-span-2 text-center space-x-3`}
-          >
-            {/* {!draftedPlayers[player.player_id] && !hidden && (
+          />
+          {/* {!draftedPlayers[player.player_id] && !hidden && (
               <Button
                 className="btn-primary hover:border-night hover:bg-night"
                 onClick={handleDraft}
@@ -120,15 +122,13 @@ const DraftTableEntry = ({
                 DRAFT
               </Button>
             )}{' '} */}
-            <span>{playerRank}</span>
-          </p>
-          <p
+
+          <Text
             className={`${
               playerStyles ? 'text-black-custom line-through' : ''
             } col-span-4`}
-          >
-            {player.name}{' '}
-          </p>
+            text={player.name}
+          />
           <Box
             className={`hidden lg:flex md:col-span-2  
          `}
@@ -139,12 +139,7 @@ const DraftTableEntry = ({
           </Box>
           <div className="col-span-2 md:col-span-1">
             {!draftedPlayers[player.player_id] && !hidden && (
-              <Button
-                className="btn-secondary hover:bg-viridian"
-                onClick={handleDelete}
-              >
-                Taken
-              </Button>
+              <Button theme="primary" onClick={handleDelete} text="Taken" />
             )}
           </div>
         </div>
@@ -153,4 +148,4 @@ const DraftTableEntry = ({
   );
 };
 
-export default DraftTableEntry;
+export default P2WDraftTableEntry;

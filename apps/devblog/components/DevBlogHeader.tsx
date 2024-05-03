@@ -3,7 +3,7 @@ import { ButtonProps, LinkProps } from '@with-nx/types';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTheme } from '@with-nx/theme';
+import { useTheme, ThemeType } from '@with-nx/theme';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { CustomRSHLogo } from '@with-nx/icons';
 import { useState, useEffect } from 'react';
@@ -44,7 +44,7 @@ const DevBlogHeader = () => {
       className="button-icon p-0"
       aria-label="Toggle Theme"
     >
-      {theme && theme.name === 'light' ? (
+      {theme && (theme as ThemeType).name === 'light' ? (
         <FiMoon className={`moon h-6 w-6 ${fadeClass}`} />
       ) : (
         <FiSun className={`sun h-6 w-6 ${fadeClass}`} />

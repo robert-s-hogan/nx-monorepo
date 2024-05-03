@@ -9,7 +9,7 @@ interface CampaignsLayoutProps {
 const CampaignsLayout = ({ children }: CampaignsLayoutProps) => {
   return (
     <AuthProvider>
-      <ErrorBoundary fallback={<h1>Something went wrong.</h1>}>
+      <ErrorBoundary fallback={<div>Something went wrong.</div>}>
         <CampaignProvider>{children}</CampaignProvider>
       </ErrorBoundary>
     </AuthProvider>

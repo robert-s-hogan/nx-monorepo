@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Section } from '@with-nx/react-ui';
 import { Heading } from '@with-nx/generic-ui';
 
-import PlayToWinFFLayout from '../../components/PlayToWinFFLayout';
+import PlayToWinFFLayout from '../../components/P2WFFLayout';
 
 export async function getServerSideProps() {
   const res = await axios.get(

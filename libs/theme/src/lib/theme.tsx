@@ -10,8 +10,10 @@ type ThemeColors = {
   'text-color': string;
   'text-on-primary-color': string;
   'text-on-secondary-color': string;
-  'primary-icon-color': string;
-  'secondary-icon-color': string;
+  'primary-fill': string;
+  'primary-stroke': string;
+  'secondary-fill': string;
+  'secondary-stroke': string;
   'success-color': string;
   'error-color': string;
   'warning-color': string;
@@ -19,18 +21,23 @@ type ThemeColors = {
   'border-color': string;
   'hover-color': string;
   'active-color': string;
+  'hover-secondary-color': string;
+  'active-secondary-color': string;
   'disabled-color': string;
+  'sun-icon-color': string;
+  'moon-icon-color': string;
+  'bg-opacity-color': string;
   sound: string;
 };
 
-type ThemeType = {
+export type ThemeType = {
   name: 'light' | 'dark';
   colors: ThemeColors;
   fadeClass?: string;
 };
 
 interface ThemeContextType {
-  theme: ThemeType;
+  theme: ThemeType | string;
   toggleTheme: () => void;
   fadeClass?: string;
   isToggleLocked: boolean;
@@ -79,6 +86,7 @@ export const ThemeProvider = ({
     setTimeout(() => {
       setThemeName((prevThemeName) => {
         const newThemeName = prevThemeName === 'light' ? 'dark' : 'light';
+        console.log(`@with-nx/theme: Toggled theme to: ${newThemeName}`);
 
         playSound(themes[newThemeName].sound);
 

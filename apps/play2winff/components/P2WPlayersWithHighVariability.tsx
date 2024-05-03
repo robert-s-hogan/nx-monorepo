@@ -102,7 +102,7 @@ const RisersAndFallers: React.FC<RisersAndFallersProps> = ({ players }) => {
   }, [players, ref.current, numberOfTeams]);
 
   return (
-    <div className="bg-viridian text-white pt-4">
+    <div className="bg-primary text-white pt-4">
       <Heading level={2} className="uppercase">
         Players with High Variability
       </Heading>

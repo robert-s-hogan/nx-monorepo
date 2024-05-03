@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Flex, Grid } from '@with-nx/react-ui';
-import { Text } from '@with-nx/generic-ui';
+import { Flex, Grid } from '@with-nx/react-ui';
+import { Button, Text } from '@with-nx/generic-ui';
 
 import useDraftedPlayers from '../hooks/useDraftedPlayers';
-import DraftTableEntry from './DraftTableEntry';
+import DraftTableEntry from './P2WDraftTableEntry';
 
-const DraftTable = ({
+const P2WDraftTable = ({
   players,
   hiddenPlayers,
   togglePlayerVisibility,
@@ -65,14 +65,15 @@ const DraftTable = ({
   };
 
   return (
-    <Flex className="flex-col w-full text-white">
-      <Grid className="grid-cols-2 lg:grid-cols-3 bg-night py-2 gap-6 justify-between">
+    <Flex className="flex-col w-full border-accent border-2">
+      <Grid className="grid-cols-2 lg:grid-cols-3 bg-secondary py-2 gap-6 justify-between">
         <Button
-          className="hidden lg:block btn-secondary ml-2 w-24 md:w-48 "
+          className="hidden lg:block w-24 md:w-48 "
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-        >
-          <span className="hidden md:inline-flex">Icon </span>&nbsp;Legend
-        </Button>
+          theme="primary"
+          text="Icon Legend"
+        />
+
         <label className="py-2 text-center flex">
           <input
             type="checkbox"
@@ -80,17 +81,17 @@ const DraftTable = ({
             className="ml-4"
             onChange={() => setShowDraftedPlayers(!showDraftedPlayers)}
           />
-          <span className="ml-1">Show&nbsp;Drafted&nbsp;</span>
-          <span className="hidden md:flex"> Players</span>
+          <Text className="ml-1" text="Show&nbsp;Drafted&nbsp;" />
+          <Text className="hidden md:flex" text="Players" />
         </label>
         <div className="py-2 mr-2 md:mr-2 text-right md:text-center">
-          <span className="hidden md:inline-flex">Total Drafted&nbsp;</span>
-          <span className="inline-flex md:hidden">Taken&nbsp;</span>(
+          <Text className="hidden md:inline-flex" text="Total Drafted&nbsp;" />
+          <Text className="inline-flex md:hidden" text="Taken&nbsp;" />
           {pickedCount})
         </div>
       </Grid>
       <div
-        className={`bg-viridian grid grid-cols-9 gap-2 h-16 items-center border-sm`}
+        className={`bg-primary grid grid-cols-9 gap-2 h-16 items-center border-sm`}
       >
         <Text className="col-span-2 text-center" text="ADP" />
         <Text className="col-span-4" text="NAME" />
@@ -117,8 +118,8 @@ const DraftTable = ({
         return (
           <React.Fragment key={index}>
             {shouldShowRoundMarker(index) && (
-              <div className="bg-white text-black pl-24 uppercase font-bold">
-                Round {Math.floor(index / ROUND_SIZE) + 1}
+              <div className="pl-24 uppercase font-bold">
+                <Text text={`Round ${Math.floor(index / ROUND_SIZE) + 1}`} />
               </div>
             )}
 
@@ -139,4 +140,4 @@ const DraftTable = ({
   );
 };
 
-export default DraftTable;
+export default P2WDraftTable;

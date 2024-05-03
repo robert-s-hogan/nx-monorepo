@@ -1,19 +1,13 @@
-import { useState, useEffect } from 'react';
-import DraftConfigModal from '../components/DraftConfigModal';
+import { useState } from 'react';
+import P2WDraftConfigModal from '../components/P2WDraftConfigModal';
 import { useADPData } from '../hooks/useADPData';
-import {
-  Button,
-  Error,
-  Grid,
-  Heading,
-  Loading,
-  Section,
-  Text,
-} from '@with-nx/react-ui';
+import { Error, Grid, Loading, Section } from '@with-nx/react-ui';
+import { Heading, Text } from '@with-nx/generic-ui';
+import { Button } from '@with-nx/generic-ui';
 import Link from 'next/link';
 import { FiBarChart, FiClock, FiTag } from 'react-icons/fi';
 
-import PlayToWinFFLayout from '../components/PlayToWinFFLayout';
+import PlayToWinFFLayout from '../components/P2WFFLayout';
 import useMergedData from '../hooks/useMergedData';
 
 export function Index() {
@@ -36,10 +30,13 @@ export function Index() {
         )
       ) : (
         <>
-          <DraftConfigModal isOpen={isModalOpen} onClose={handleModalClose} />
+          <P2WDraftConfigModal
+            isOpen={isModalOpen}
+            onClose={handleModalClose}
+          />
 
           <Section
-            className="relative text-center space-y-6 h-[500px] flex justify-center items-center flex-col"
+            className="relative text-center space-y-8 h-[500px] flex justify-center items-center flex-col"
             style={{
               backgroundImage:
                 `url('https://app-assets.vercel.app/apps/play2winff/p2w_hero.jpg')` ??
@@ -48,20 +45,22 @@ export function Index() {
               backgroundPosition: 'center',
             }}
           >
-            {/* Optional: Add a dark overlay to increase text contrast */}
-            <div className="absolute inset-0 bg-black opacity-50"></div>
+            <div className="absolute inset-0 bg-bg-opacity-color opacity-50"></div>
 
-            {/* Ensure this container is relative so content stacks over the overlay */}
             <div className="relative z-10">
-              <Heading level={1} className="text-white">
-                Play2Win Fantasy Football
-              </Heading>
-              <Text className="text-lg text-white max-w-xl mx-auto px-6">
-                The ultimate platform for fantasy football insights, strategies,
-                and real-time drafting tools.
-              </Text>
+              <Heading level={1} text="Play2Win Fantasy Football" />
+
+              <Text
+                className="text-2xl max-w-xl mx-auto"
+                text="The ultimate platform for fantasy football insights, strategies,
+                and real-time drafting tools."
+              />
               <Link href="/draft">
-                <Button className="btn-primary mt-4">Start Draft</Button>
+                <Button
+                  className="mt-6"
+                  theme="primary"
+                  text="Start Drafting"
+                />
               </Link>
             </div>
           </Section>
@@ -72,40 +71,43 @@ export function Index() {
           <PlayersWithHighVariability players={adpPlayers!} />
         </Section> */}
 
-          <Section className="py-12 bg-gray-600">
-            <Heading level={2} className="text-center mb-8">
-              Key Features
-            </Heading>
+          <Section className="py-12 bg-secondary">
+            <Heading
+              level={2}
+              className="text-center mb-8"
+              text="Key Features"
+            />
+
             <Grid className="grid grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="feature-item flex flex-col items-center text-center">
                 <div className="text-white">
-                  <FiBarChart className="h-12" />
+                  <FiBarChart size={48} />
                 </div>
-                <Text className="text-xl mt-4">Custom Rankings</Text>
-                <p>
-                  Discover hidden gems and value players tailored to your
-                  league.
-                </p>
+                <Text className="text-xl mt-4" text="Custom Rankings" />
+                <Text
+                  text="Discover hidden gems and value players tailored to your
+                  league."
+                />
               </div>
               <div className="feature-item flex flex-col items-center text-center">
                 <div className="text-white">
-                  <FiClock className="h-12" />
+                  <FiClock size={48} />
                 </div>
-                <Text className="text-xl mt-4">Real-Time Draft Tool</Text>
-                <p>
-                  Stay updated on which players are taken, and adapt your
-                  strategy on the fly.
-                </p>
+                <Text className="text-xl mt-4" text="Real-Time Draft Tools" />
+                <Text
+                  text="Stay updated on which players are taken, and adapt your
+                  strategy on the fly."
+                />
               </div>
               <div className="feature-item flex flex-col items-center text-center">
                 <div className="text-white">
-                  <FiTag className="h-12" />
+                  <FiTag size={48} />
                 </div>
-                <Text className="text-xl mt-4">Custom Player Tags</Text>
-                <p>
-                  Track injuries, falling values, rising stars, and your
-                  personal targets all in one place.
-                </p>
+                <Text className="text-xl mt-4" text="Custom Player Tags" />
+                <Text
+                  text="Track injuries, falling values, rising stars, and your
+                  personal targets all in one place."
+                />
               </div>
             </Grid>
           </Section>
@@ -162,13 +164,14 @@ export function Index() {
         </div>
       </Section> */}
 
-          <Section className="py-12 bg-gradient-to-b from-rich-black to-black-custom">
-            <Text className="text-xl text-center mb-4">
-              Ready to dominate your fantasy football draft?
-            </Text>
+          <Section className="py-12 bg-gradient-to-b from-surface-color to-accent-color">
+            <Text
+              className="text-xl text-center mb-4"
+              text="Ready to dominate your fantasy football draft?"
+            />
             <div className="text-center">
               <Link href="/draft">
-                <Button className="btn-primary">Start Now</Button>
+                <Button theme="primary" text="Start Now" />
               </Link>
             </div>
           </Section>

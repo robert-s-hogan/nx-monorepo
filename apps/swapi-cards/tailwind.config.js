@@ -95,7 +95,7 @@ module.exports = {
         'surface-color': 'var(--surface-color)',
         'text-color': 'var(--text-color)',
         'text-color-secondary': 'var(--text-color-secondary)',
-        'primary-icon-color': 'var(--primary-icon-color)',
+        'primary-fill': 'var(--primary-fill)',
         'secondary-icon-color': 'var(--secondary-icon-color)',
         'success-color': 'var(--success-color)',
         'error-color': 'var(--error-color)',

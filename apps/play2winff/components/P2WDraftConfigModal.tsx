@@ -4,12 +4,12 @@ import { useRouter } from 'next/router';
 import { Button, Flex, Heading } from '@with-nx/react-ui';
 import { FiX } from 'react-icons/fi';
 
-type DraftConfigModalProps = {
+type P2WDraftConfigModalProps = {
   isOpen: boolean;
   onClose: () => void;
 };
 
-const DraftConfigModal: React.FC<DraftConfigModalProps> = ({
+const P2WDraftConfigModal: React.FC<P2WDraftConfigModalProps> = ({
   isOpen,
   onClose,
 }) => {
@@ -134,4 +134,4 @@ const DraftConfigModal: React.FC<DraftConfigModalProps> = ({
   );
 };
 
-export default DraftConfigModal;
+export default P2WDraftConfigModal;
