@@ -68,7 +68,7 @@ const P2WDraftTable = ({
     <Flex className="flex-col w-full border-accent border-2">
       <Grid className="grid-cols-2 lg:grid-cols-3 bg-secondary py-2 gap-6 justify-between">
         <Button
-          className="hidden lg:block w-24 md:w-48 "
+          className="hidden lg:block w-24 md:w-48 ml-2"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           theme="primary"
           text="Icon Legend"

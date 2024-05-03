@@ -24,12 +24,12 @@ const links: {
   className?: string;
   type: 'link' | 'button';
 }[] = [
-  {
-    href: '/adp',
-    text: 'ADP',
-    className: 'text-primary',
-    type: 'link',
-  },
+  // {
+  //   href: '/adp',
+  //   text: 'ADP',
+  //   className: 'text-primary',
+  //   type: 'link',
+  // },
   {
     href: '/draft',
     text: 'Draft',

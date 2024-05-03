@@ -16912,3 +16912,134 @@ fatal runtime error: failed to initiate panic, error 5
 [NX Daemon Server] - 2024-05-03T02:24:31.424Z - Handled RECORD_OUTPUTS_HASH. Handling time: 2. Response time: 1.
 [NX Daemon Server] - 2024-05-03T02:24:31.479Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2024-05-03T02:26:04.597Z - Closed a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-05-03T02:26:41.846Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-03T02:26:41.922Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-03T02:26:41.984Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:56:38.074Z - Started listening on: /var/folders/sc/hn4x06p16vl_0bk6tg6vc98w0000gn/T/e4f03fb3c6b272fb3319/d.sock
+[NX Daemon Server] - 2024-05-03T12:56:38.081Z - [WATCHER]: Subscribed to changes within: /Users/roberthogan/github/nx-monorepo (native)
+[NX Daemon Server] - 2024-05-03T12:56:38.085Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-03T12:56:38.087Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-03T12:56:38.091Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-03T12:56:38.093Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-03T12:56:38.268Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-03T12:56:38.269Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-03T12:56:38.269Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-03T12:56:38.661Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-03T12:56:38.665Z - Time taken for 'total for creating and serializing project graph' 568.1043070000014ms
+[NX Daemon Server] - 2024-05-03T12:56:38.678Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-03T12:56:38.678Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 569. Response time: 17.
+[NX Daemon Server] - 2024-05-03T12:56:39.413Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-05-03T12:56:39.414Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-05-03T12:56:39.414Z - Handled HASH_TASKS. Handling time: 42. Response time: 1.
+[NX Daemon Server] - 2024-05-03T12:56:40.852Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-03T12:56:40.852Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-03T12:56:40.853Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-03T12:56:40.854Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-03T12:56:40.854Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-03T12:56:40.857Z - Time taken for 'total for creating and serializing project graph' 0.1707649999880232ms
+[NX Daemon Server] - 2024-05-03T12:56:40.861Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-03T12:56:40.861Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 7.
+[NX Daemon Server] - 2024-05-03T12:56:42.676Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-05-03T12:56:42.677Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-03T12:56:42.678Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-05-03T12:56:42.681Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-03T12:56:42.681Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-03T12:56:42.686Z - Time taken for 'total for creating and serializing project graph' 0.5484059999871533ms
+[NX Daemon Server] - 2024-05-03T12:56:42.694Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-03T12:56:42.695Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 14.
+[NX Daemon Server] - 2024-05-03T12:56:43.328Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-03T12:56:43.328Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-03T12:56:43.332Z - Time taken for 'total for creating and serializing project graph' 0.6486319999967236ms
+[NX Daemon Server] - 2024-05-03T12:56:43.342Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-03T12:56:43.343Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 15.
+[NX Daemon Server] - 2024-05-03T12:56:45.585Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:56:47.899Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:56:47.964Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:56:48.197Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:56:48.281Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-03T12:56:48.281Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-03T12:56:48.284Z - Time taken for 'total for creating and serializing project graph' 0.3566150000260677ms
+[NX Daemon Server] - 2024-05-03T12:56:48.303Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-03T12:56:48.304Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 23.
+[NX Daemon Server] - 2024-05-03T12:56:48.342Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:56:54.060Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:56:54.120Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:56:55.732Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:56:56.127Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:56:56.206Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:56:56.293Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:56:58.536Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:57:01.296Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:57:01.371Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:57:01.749Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:57:02.192Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:57:02.478Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:57:02.679Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:57:02.930Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:57:02.994Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:57:03.443Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:57:04.081Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:57:08.474Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:57:08.648Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:08.401Z - [WATCHER]: apps/play2winff/components/P2WLegendSidebar.tsx was modified
+[NX Daemon Server] - 2024-05-03T12:58:08.403Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:08.506Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-03T12:58:08.507Z - [REQUEST]: apps/play2winff/components/P2WLegendSidebar.tsx
+[NX Daemon Server] - 2024-05-03T12:58:08.507Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-03T12:58:09.892Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:09.893Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:09.893Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:09.893Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:09.893Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:09.894Z - Time taken for 'hash changed files from watcher' 2.0609260000055656ms
+[NX Daemon Server] - 2024-05-03T12:58:10.118Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:10.257Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:12.609Z - [WATCHER]: apps/play2winff/components/P2WLegendSidebar.tsx was modified
+[NX Daemon Server] - 2024-05-03T12:58:12.609Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:12.813Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-03T12:58:12.816Z - [REQUEST]: apps/play2winff/components/P2WLegendSidebar.tsx
+[NX Daemon Server] - 2024-05-03T12:58:12.816Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-03T12:58:13.366Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:13.375Z - Time taken for 'hash changed files from watcher' 2.115929999999935ms
+[NX Daemon Server] - 2024-05-03T12:58:13.469Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:13.657Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:15.310Z - [WATCHER]: apps/play2winff/components/P2WLegendSidebar.tsx was modified
+[NX Daemon Server] - 2024-05-03T12:58:15.310Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:15.459Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:15.713Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-03T12:58:15.714Z - [REQUEST]: apps/play2winff/components/P2WLegendSidebar.tsx
+[NX Daemon Server] - 2024-05-03T12:58:15.714Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-03T12:58:16.000Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:16.000Z - Time taken for 'hash changed files from watcher' 2.2517700000025798ms
+[NX Daemon Server] - 2024-05-03T12:58:19.017Z - [WATCHER]: apps/play2winff/components/P2WLegendSidebar.tsx was modified
+[NX Daemon Server] - 2024-05-03T12:58:19.018Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:19.267Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:19.374Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:19.596Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:58:19.820Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-03T12:58:19.820Z - [REQUEST]: apps/play2winff/components/P2WLegendSidebar.tsx
+[NX Daemon Server] - 2024-05-03T12:58:19.820Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-03T12:58:20.065Z - Time taken for 'hash changed files from watcher' 1.5506160000222735ms
+[NX Daemon Server] - 2024-05-03T12:59:18.234Z - [WATCHER]: apps/play2winff/components/P2WDraftTable.tsx was modified
+[NX Daemon Server] - 2024-05-03T12:59:18.235Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:59:18.746Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:59:19.136Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:59:19.700Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:59:19.838Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-03T12:59:19.839Z - [REQUEST]: apps/play2winff/components/P2WDraftTable.tsx
+[NX Daemon Server] - 2024-05-03T12:59:19.839Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-03T12:59:20.487Z - Time taken for 'hash changed files from watcher' 2.0278690000413917ms
+[NX Daemon Server] - 2024-05-03T12:59:24.293Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:59:24.460Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:59:24.967Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:59:25.154Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T12:59:30.426Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-03T12:59:30.427Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-03T12:59:30.470Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-03T12:59:30.527Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T13:00:04.746Z - [WATCHER]: apps/play2winff/components/P2WFFHeader.tsx was modified
+[NX Daemon Server] - 2024-05-03T13:00:04.746Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-03T13:00:07.949Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-03T13:00:07.950Z - [REQUEST]: apps/play2winff/components/P2WFFHeader.tsx
+[NX Daemon Server] - 2024-05-03T13:00:07.950Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-03T13:00:08.207Z - Time taken for 'hash changed files from watcher' 1.404852999956347ms
