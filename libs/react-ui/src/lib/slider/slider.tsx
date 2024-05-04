@@ -23,5 +23,3 @@ export const Slider = ({
     />
   );
 };
-
-export default Slider;

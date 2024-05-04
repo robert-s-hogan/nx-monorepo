@@ -21,5 +21,3 @@ export const Footer = ({ className }: FooterProps): JSX.Element => {
     </footer>
   );
 };
-
-export default Footer;

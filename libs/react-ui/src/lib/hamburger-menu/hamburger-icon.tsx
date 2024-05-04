@@ -1,5 +1,5 @@
 import { FiMenu, FiX } from 'react-icons/fi';
-import Button from '../button/button';
+import { Button } from '../button/button';
 import hamburgerIconStyles from './hamburger-icon.module.css';
 
 interface HamburgerMenuProps {
@@ -19,17 +19,17 @@ const HamburgerIcon = ({
 }): JSX.Element => {
   return open ? (
     <div
-      className={className ? className : hamburgerIconStyles.iconContainer}
+      className={className ? className : hamburgerIconStyles['iconContainer']}
       onClick={onClick}
     >
-      <FiX className={hamburgerIconStyles.icon} />
+      <FiX className={hamburgerIconStyles['icon']} />
     </div>
   ) : (
     <div
-      className={className ? className : hamburgerIconStyles.iconContainer}
+      className={className ? className : hamburgerIconStyles['iconContainer']}
       onClick={onClick}
     >
-      <FiMenu className={hamburgerIconStyles.icon} />
+      <FiMenu className={hamburgerIconStyles['icon']} />
     </div>
   );
 };

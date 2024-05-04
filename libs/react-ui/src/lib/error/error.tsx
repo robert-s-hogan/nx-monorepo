@@ -8,8 +8,6 @@ export interface ErrorProps {
   message?: string;
 }
 
-export function Error({ message = 'An error occurred.' }: ErrorProps) {
-  return <div className={errorStyles.errorContainer}>{message}</div>;
-}
-
-export default Error;
+export const Error = ({ message }: ErrorProps) => {
+  return <div className={errorStyles['errorContainer']}>{message}</div>;
+};

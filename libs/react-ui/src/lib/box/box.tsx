@@ -1,9 +1,9 @@
 import React from 'react';
 import reactUIBoxStyles from './box.module.css';
 import { BoxProps } from '@with-nx/types';
-import Skeleton from '../skeleton/skeleton';
+import { Skeleton } from '../skeleton/skeleton';
 
-export function Box({
+export const Box = function ({
   id,
   children,
   className,
@@ -16,7 +16,7 @@ export function Box({
   if (isLoading) {
     return (
       <div
-        className={`box ${reactUIBoxStyles.box} ${className}`}
+        className={`box ${reactUIBoxStyles['box']} ${className}`}
         id={id}
         role={role}
         onClick={onClick}
@@ -30,7 +30,7 @@ export function Box({
   // Render normal content if not loading
   return (
     <div
-      className={`box ${reactUIBoxStyles.box} ${className}`}
+      className={`box ${reactUIBoxStyles['box']} ${className}`}
       id={id}
       role={role}
       onClick={onClick}
@@ -39,6 +39,4 @@ export function Box({
       {children}
     </div>
   );
-}
-
-export default Box;
+};

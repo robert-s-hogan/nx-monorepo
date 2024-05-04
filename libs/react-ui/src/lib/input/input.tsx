@@ -1,5 +1,5 @@
 import { InputProps } from '@with-nx/types';
-import Label from '../label/label';
+import { Label } from '../label/label';
 import inputStyles from './input.module.css';
 
 export const Input = ({
@@ -44,5 +44,3 @@ export const Input = ({
     </div>
   );
 };
-
-export default Input;

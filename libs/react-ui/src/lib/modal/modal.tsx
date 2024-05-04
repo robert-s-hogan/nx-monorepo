@@ -1,4 +1,4 @@
-import Button from '../button/button';
+import { Button } from '../button/button';
 import modalStyles from './modal.module.css';
 import { ModalProps } from '@with-nx/types';
 import { Heading, Text } from '@with-nx/generic-ui';
@@ -59,5 +59,3 @@ export const Modal = ({
     </div>
   ) : null;
 };
-
-export default Modal;

@@ -1,7 +1,7 @@
 import sectionStyles from './section.module.css';
 import { SectionProps } from '@with-nx/types';
 
-export function Section({
+export const Section = function ({
   id,
   children,
   className,
@@ -18,6 +18,4 @@ export function Section({
       {children}
     </section>
   );
-}
-
-export default Section;
+};

@@ -1,7 +1,7 @@
 import paginationStyles from './pagination.module.css';
 import { PaginationProps } from '@with-nx/types';
 
-export function Pagination({
+export const Pagination = function ({
   currentPage,
   totalPages,
   onPageChange,
@@ -26,6 +26,4 @@ export function Pagination({
       ))}
     </div>
   );
-}
-
-export default Pagination;
+};

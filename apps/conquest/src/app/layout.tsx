@@ -1,6 +1,8 @@
 import './styles/global.css';
+import { ThemeProvider } from '@with-nx/theme';
 import { AuthProvider } from './contexts/AuthContext';
 import ErrorBoundary from './components/ErrorBoundary';
+import { themes } from './styles/themes';
 
 export const metadata = {
   title: 'Home | Conquest',
@@ -16,11 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AuthProvider>
-          <ErrorBoundary fallback={<div>Something went wrong.</div>}>
-            <main>{children}</main>
-          </ErrorBoundary>
-        </AuthProvider>
+        <ThemeProvider themes={themes} initialThemeName="dark">
+          <AuthProvider>
+            <ErrorBoundary fallback={<div>Something went wrong.</div>}>
+              <main>{children}</main>
+            </ErrorBoundary>
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

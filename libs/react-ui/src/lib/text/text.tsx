@@ -1,4 +1,4 @@
-import SkeletonText from '../skeleton-text/skeleton-text';
+import { SkeletonText } from '../skeleton-text/skeleton-text';
 import { TextProps } from '@with-nx/types';
 
 export const Text = ({
@@ -40,5 +40,3 @@ export const Text = ({
     </div>
   );
 };
-
-export default Text;

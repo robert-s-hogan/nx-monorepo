@@ -1,7 +1,7 @@
 import progressStyles from './progress.module.css';
 import { ProgressProps } from '@with-nx/types';
 
-export function Progress({
+export const Progress = function ({
   value,
   maxValue,
   type = 'horizontal',
@@ -32,6 +32,4 @@ export function Progress({
       </span>
     </div>
   );
-}
-
-export default Progress;
+};

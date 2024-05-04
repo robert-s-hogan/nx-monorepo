@@ -1,6 +1,8 @@
+'use client';
+
 import { useState } from 'react';
 
-export function useModal() {
+export const useModal = () => {
   const [isShowing, setIsShowing] = useState(false);
   function toggle() {
     setIsShowing(!isShowing);
@@ -9,6 +11,4 @@ export function useModal() {
     isShowing,
     toggle,
   };
-}
-
-export default useModal;
+};

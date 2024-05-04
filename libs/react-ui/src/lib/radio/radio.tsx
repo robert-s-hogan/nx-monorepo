@@ -26,5 +26,3 @@ export const Radio = ({
     </div>
   );
 };
-
-export default Radio;

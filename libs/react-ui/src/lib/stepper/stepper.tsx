@@ -1,4 +1,4 @@
-import Button from '../button/button';
+import { Button } from '../button/button';
 import stepperStyles from './stepper.module.css';
 import { StepperProps } from '@with-nx/types';
 
@@ -48,5 +48,3 @@ export const Stepper = ({
     </div>
   );
 };
-
-export default Stepper;

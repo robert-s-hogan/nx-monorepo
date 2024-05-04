@@ -27,5 +27,3 @@ export const Skeleton = ({
     />
   );
 };
-
-export default Skeleton;

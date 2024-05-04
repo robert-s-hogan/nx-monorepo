@@ -19,7 +19,7 @@ const paymentFailedItems = [
   },
 ];
 
-export function PaymentFailed(props: PaymentFailedProps) {
+export const PaymentFailed = (props: PaymentFailedProps) => {
   return (
     <div className={`${paymentFailedStyles['container']}`}>
       <div className={`${paymentFailedStyles['stack']}`}>
@@ -36,6 +36,4 @@ export function PaymentFailed(props: PaymentFailedProps) {
       </div>
     </div>
   );
-}
-
-export default PaymentFailed;
+};

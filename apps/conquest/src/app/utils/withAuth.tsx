@@ -16,19 +16,14 @@ const withAuth = <P extends object>(
     const router = useRouter();
     const { currentUser, loading } = useAuth();
 
-    if (loading || (authenticationRequired && !currentUser)) {
-      return <div>Loading authentication status...</div>; // or a spinner/loader component
-    }
-
     useEffect(() => {
-      // Ensure this code only runs on the client side
       if (!loading && authenticationRequired && !currentUser) {
         router.push('/');
       }
     }, [currentUser, loading, authenticationRequired, router]);
 
     if (loading || (authenticationRequired && !currentUser)) {
-      return null;
+      return <div>Loading authentication status...</div>; // or a spinner/loader component
     }
 
     return <WrappedComponent {...props} />;

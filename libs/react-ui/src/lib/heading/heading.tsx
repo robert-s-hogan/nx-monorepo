@@ -64,5 +64,3 @@ export const Heading = ({
     </DynamicHeading>
   );
 };
-
-export default Heading;

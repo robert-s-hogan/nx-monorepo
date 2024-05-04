@@ -4,10 +4,10 @@ import contactStyles from './contact.module.css';
 /* eslint-disable-next-line */
 export interface ContactProps {}
 
-export function Contact(props: ContactProps) {
+export const Contact = (props: ContactProps) => {
   return (
-    <div className={`${contactStyles.container}`}>
-      <div className={`${contactStyles.stack}`}>
+    <div className={`${contactStyles['container']}`}>
+      <div className={`${contactStyles['stack']}`}>
         <Heading level={1}>Contact Us</Heading>
         <Text>
           Fill out the form below and we'll get back to you as soon as possible.
@@ -30,6 +30,4 @@ export function Contact(props: ContactProps) {
       </div>
     </div>
   );
-}
-
-export default Contact;
+};

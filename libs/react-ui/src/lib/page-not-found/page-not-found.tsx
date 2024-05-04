@@ -20,7 +20,7 @@ const pageNotFoundItems = [
   },
 ];
 
-export function PageNotFound(props: PageNotFoundProps) {
+export const PageNotFound = (props: PageNotFoundProps) => {
   return (
     <div className={`${pageNotFoundStyles['container']}`}>
       <div className={`${pageNotFoundStyles['stack']}`}>
@@ -38,5 +38,4 @@ export function PageNotFound(props: PageNotFoundProps) {
       </div>
     </div>
   );
-}
-export default PageNotFound;
+};

@@ -1,5 +1,5 @@
 import listStyles from './list.module.css';
-import ListItem from '../list-item/list-item';
+import { ListItem } from '../list-item/list-item';
 
 interface ListProps {
   className?: string;
@@ -52,5 +52,3 @@ export const List = ({
     </ul>
   );
 };
-
-export default List;

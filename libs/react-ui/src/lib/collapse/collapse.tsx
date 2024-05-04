@@ -1,3 +1,5 @@
+'use client';
+
 //libs/react-ui/src/lib/collapse.tsx
 import React, { useState } from 'react';
 import collapseStyles from './collapse.module.css';
@@ -8,7 +10,7 @@ interface CollapseProps {
   className?: string;
 }
 
-const Collapse: React.FC<CollapseProps> = ({
+export const Collapse: React.FC<CollapseProps> = ({
   children,
   title,
   className = '',
@@ -16,16 +18,14 @@ const Collapse: React.FC<CollapseProps> = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={`${collapseStyles.collapse} ${className}`}>
+    <div className={`${collapseStyles['collapse']} ${className}`}>
       <button
-        className={collapseStyles.button}
+        className={collapseStyles['button']}
         onClick={() => setIsOpen(!isOpen)}
       >
         {title}
       </button>
-      {isOpen && <div className={collapseStyles.content}>{children}</div>}
+      {isOpen && <div className={collapseStyles['content']}>{children}</div>}
     </div>
   );
 };
-
-export default Collapse;

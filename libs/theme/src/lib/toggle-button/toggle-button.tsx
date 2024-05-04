@@ -12,7 +12,7 @@ interface ToggleButtonProps {
   toggleIcon?: React.ComponentType<ToggleIconProps>;
 }
 
-const ToggleButton = ({ toggleIcon: ToggleIcon }: ToggleButtonProps) => {
+export const ToggleButton = ({ toggleIcon: ToggleIcon }: ToggleButtonProps) => {
   const { toggleTheme, theme, fadeClass } = useTheme();
   return (
     <Button
@@ -30,5 +30,3 @@ const ToggleButton = ({ toggleIcon: ToggleIcon }: ToggleButtonProps) => {
     </Button>
   );
 };
-
-export default ToggleButton;

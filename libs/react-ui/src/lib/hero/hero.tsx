@@ -1,6 +1,6 @@
 import { HeroProps } from '@with-nx/types';
-import Heading from '../heading/heading';
-import Button from '../button/button';
+import { Heading } from '../heading/heading';
+import { Button } from '../button/button';
 
 export const Hero = ({
   title,
@@ -54,5 +54,3 @@ export const Hero = ({
     </section>
   );
 };
-
-export default Hero;

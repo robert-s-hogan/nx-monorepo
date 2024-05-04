@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { useMultiStepForm } from '@with-nx/react-hooks';
 import { MultiStepFormProps } from '@with-nx/types';
 
-export function MultiStepForm({
+export const MultiStepForm = function ({
   steps,
   onSubmit,
   className,
@@ -84,4 +84,4 @@ export function MultiStepForm({
       </div>
     </form>
   );
-}
+};

@@ -4,7 +4,7 @@ import privacyPolicyStyles from './privacy-policy.module.css';
 /* eslint-disable-next-line */
 export interface PrivacyPolicyProps {}
 
-export function PrivacyPolicy(props: PrivacyPolicyProps) {
+export const PrivacyPolicy = (props: PrivacyPolicyProps) => {
   return (
     <div className={`${privacyPolicyStyles['container']}`}>
       <div className={`${privacyPolicyStyles['stack']}`}>
@@ -31,6 +31,4 @@ export function PrivacyPolicy(props: PrivacyPolicyProps) {
       </div>
     </div>
   );
-}
-
-export default PrivacyPolicy;
+};

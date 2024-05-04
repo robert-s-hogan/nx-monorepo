@@ -1,3 +1,5 @@
+'use client';
+
 import { FormProps } from '@with-nx/types';
 import React, { useState } from 'react';
 
@@ -74,5 +76,3 @@ export const Form = ({ fields, onSubmit, action }: FormProps): JSX.Element => {
     </form>
   );
 };
-
-export default Form;

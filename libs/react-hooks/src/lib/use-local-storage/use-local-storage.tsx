@@ -1,6 +1,8 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 
-function useLocalStorage(key: string, initialValue: any) {
+export const useLocalStorage = (key: string, initialValue: any) => {
   const [storedValue, setStoredValue] = useState(() => {
     try {
       const item = window.localStorage.getItem(key);
@@ -20,13 +22,4 @@ function useLocalStorage(key: string, initialValue: any) {
   };
 
   return [storedValue, setValue];
-}
-
-// Usage
-function App() {
-  const [name, setName] = useLocalStorage('name', '');
-
-  return (
-    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-  );
-}
+};

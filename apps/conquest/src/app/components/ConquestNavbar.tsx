@@ -35,7 +35,7 @@ const Navbar: React.FC<ConquestNavbarProps> = ({ title }) => {
         <div className="flex items-center space-x-4">
           {currentUser ? (
             <>
-              <div className="w-10 h-10 rounded-full flex items-center justify-center bg-blue-500 text-white text-xl">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center bg-secondary text-on-secondary-color text-xl">
                 {currentUser.displayName
                   ? currentUser.displayName[0].toUpperCase()
                   : 'U'}

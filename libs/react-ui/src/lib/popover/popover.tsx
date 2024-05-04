@@ -1,8 +1,14 @@
+'use client';
+
 import React, { useState, useRef, useEffect } from 'react';
 import popoverStyles from './popover.module.css';
 import { PopoverProps } from '@with-nx/types';
 
-export function Popover({ trigger, content, className = '' }: PopoverProps) {
+export const Popover = function ({
+  trigger,
+  content,
+  className,
+}: PopoverProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const popoverRef = useRef(null);
@@ -64,6 +70,4 @@ export function Popover({ trigger, content, className = '' }: PopoverProps) {
       )}
     </div>
   );
-}
-
-export default Popover;
+};

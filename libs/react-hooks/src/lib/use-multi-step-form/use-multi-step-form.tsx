@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 
 export type FormStep = {
@@ -14,7 +16,7 @@ export type UseMultiStepFormProps = {
   onSubmit: (data: Record<string, any>) => void;
 };
 
-export default function useMultiStepForm({
+export const useMultiStepForm = function ({
   steps,
   onSubmit,
 }: UseMultiStepFormProps) {
@@ -64,4 +66,4 @@ export default function useMultiStepForm({
     handleStepSubmit,
     handleStepBack,
   };
-}
+};

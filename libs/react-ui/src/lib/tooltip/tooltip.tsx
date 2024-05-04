@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import tooltipStyles from './tooltip.module.css';
 import { TooltipProps } from '@with-nx/types';
@@ -53,5 +55,3 @@ export const Tooltip = ({
     </span>
   );
 };
-
-export default Tooltip;

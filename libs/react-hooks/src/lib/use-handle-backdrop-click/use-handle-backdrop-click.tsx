@@ -1,3 +1,5 @@
+'use client';
+
 // hooks/useHandleBackdropClick.js
 import { useEffect } from 'react';
 

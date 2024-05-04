@@ -1,6 +1,6 @@
 import { SearchBarProps } from '@with-nx/types';
 
-const SearchBar = ({ placeholder = 'Search', icon }: SearchBarProps) => {
+export const SearchBar = ({ placeholder = 'Search', icon }: SearchBarProps) => {
   return (
     <div className="search-bar flex items-center">
       {icon && <span className="search-icon">{icon}</span>}
@@ -8,5 +8,3 @@ const SearchBar = ({ placeholder = 'Search', icon }: SearchBarProps) => {
     </div>
   );
 };
-
-export default SearchBar;

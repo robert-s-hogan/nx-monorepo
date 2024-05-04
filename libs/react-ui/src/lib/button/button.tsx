@@ -1,7 +1,7 @@
 import React from 'react';
 import buttonStyles from './button.module.css';
 import { ButtonProps } from '@with-nx/types';
-import Skeleton from '../skeleton/skeleton'; // Import Skeleton component
+import { Skeleton } from '../skeleton/skeleton'; // Import Skeleton component
 
 export const Button = ({
   icon,
@@ -27,9 +27,9 @@ export const Button = ({
     />
   ) : (
     <button
-      className={`${className ? className : `${buttonStyles.button} button`} ${
-        icon ? `${buttonStyles.buttonRow} button-group` : ''
-      }`}
+      className={`${
+        className ? className : `${buttonStyles['button']} button`
+      } ${icon ? `${buttonStyles['buttonRow']} button-group` : ''}`}
       disabled={disabled || loading}
       style={style}
       type={type}
@@ -39,12 +39,10 @@ export const Button = ({
       {loading ? (
         <div
           className={
-            className ? className : `${buttonStyles.loader} button-loader`
+            className ? className : `${buttonStyles['loader']} button-loader`
           }
         ></div>
       ) : null}
     </button>
   );
 };
-
-export default Button;

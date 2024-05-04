@@ -1,39 +1,39 @@
 import cardStyles from './card.module.css';
-import Skeleton from '../skeleton/skeleton';
-import Text from '../text/text';
-import Button from '../button/button';
+import { Skeleton } from '../skeleton/skeleton';
+import { Text } from '../text/text';
+import { Button } from '../button/button';
 import { CardProps } from '@with-nx/types';
 
-export function Card({
+export const Card = ({
   title,
-  key,
   description,
   image,
-  onClick,
-  isLoading = false,
   button,
+  isLoading = false,
+  onClick,
   onMouseEnter,
   onMouseLeave,
+  key,
   className,
-}: CardProps) {
+}: CardProps) => {
   const renderImage = () => {
     if (isLoading) {
       return (
         <Skeleton
-          className={`card-image ${cardStyles.image}`}
+          className={`card-image ${cardStyles['image']}`}
           height={200}
           width={300}
         />
       );
     } else if (image) {
-      return <div className={`card-image ${cardStyles.image}`}>{image}</div>;
+      return <div className={`card-image ${cardStyles['image']}`}>{image}</div>;
     }
     return null;
   };
 
   return (
     <div
-      className={`card ${cardStyles.card} ${className}`}
+      className={`card ${cardStyles['card']} ${className}`}
       onClick={onClick}
       key={key}
       onMouseEnter={onMouseEnter}
@@ -41,10 +41,10 @@ export function Card({
     >
       {renderImage()}
       {description && (
-        <div className={`card-body ${cardStyles.body}`}>
+        <div className={`card-body ${cardStyles['body']}`}>
           {title && (
             <Text
-              className={`card-title ${cardStyles.title}`}
+              className={`card-title ${cardStyles['title']}`}
               isLoading={isLoading}
               rowWidth={100}
               height={24}
@@ -54,7 +54,7 @@ export function Card({
           )}
           {description && (
             <Text
-              className={`card-description ${cardStyles.description}`}
+              className={`card-description ${cardStyles['description']}`}
               isLoading={isLoading}
               rowWidth={100}
               height={16}
@@ -63,10 +63,12 @@ export function Card({
             </Text>
           )}
           {button && (
-            <div className={`card-button ${cardStyles.button}`}>{button}</div>
+            <div className={`card-button ${cardStyles['button']}`}>
+              {button}
+            </div>
           )}
         </div>
       )}
     </div>
   );
-}
+};

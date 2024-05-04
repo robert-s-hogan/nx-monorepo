@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useState } from 'react';
 import HamburgerIcon from './hamburger-icon';
-import List from '../list/list';
+import { List } from '../list/list';
 
 interface HamburgerMenuProps {
   links?: {
@@ -12,7 +14,7 @@ interface HamburgerMenuProps {
   setIsOpen?: (isOpen: boolean) => void;
 }
 
-const HamburgerMenu = ({ links }: HamburgerMenuProps): JSX.Element => {
+export const HamburgerMenu = ({ links }: HamburgerMenuProps): JSX.Element => {
   const [open, setOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
 
@@ -39,5 +41,3 @@ const HamburgerMenu = ({ links }: HamburgerMenuProps): JSX.Element => {
     </div>
   );
 };
-
-export default HamburgerMenu;

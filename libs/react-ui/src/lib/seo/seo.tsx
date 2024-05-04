@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import { SeoProps } from '@with-nx/types';
 
-export function Seo(props: SeoProps) {
+export const Seo = function (props: SeoProps) {
   const { title, description, faviconPath } = props;
   return (
     <Head>
@@ -15,6 +15,4 @@ export function Seo(props: SeoProps) {
       <link rel="icon" type="image/png" href={`${faviconPath}`} sizes="16x16" />
     </Head>
   );
-}
-
-export default Seo;
+};

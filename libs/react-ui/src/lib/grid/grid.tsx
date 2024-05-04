@@ -1,7 +1,12 @@
 import { GridProps } from '@with-nx/types';
 import reactUIGridStyles from './grid.module.css';
 
-export function Grid({ id, children, className, ariaLabel }: GridProps) {
+export const Grid: React.FC<GridProps> = ({
+  children,
+  className,
+  id,
+  ariaLabel,
+}: GridProps) => {
   return (
     <div
       className={`grid ${reactUIGridStyles['grid']} ${className}`}
@@ -11,6 +16,4 @@ export function Grid({ id, children, className, ariaLabel }: GridProps) {
       {children}
     </div>
   );
-}
-
-export default Grid;
+};

@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { Heading, Text } from '@with-nx/react-ui';
 import faqStyles from './faq.module.css';
@@ -28,7 +30,7 @@ const faqItems = [
   // Add more items here
 ];
 
-const AccordionItem = ({ item }: FAQProps) => {
+export const AccordionItem = ({ item }: FAQProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -51,5 +53,3 @@ export function FAQ(props: FAQProps) {
     </div>
   );
 }
-
-export default FAQ;

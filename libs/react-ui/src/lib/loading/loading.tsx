@@ -1,11 +1,12 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import loadingStyles from './loading.module.css';
 
 export interface LoadingProps {
-  timeout?: number; // optional timeout prop in milliseconds
+  timeout?: number;
 }
-
-export function Loading({ timeout = 2000 }: LoadingProps) {
+export const Loading = ({ timeout = 2000 }: LoadingProps) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -13,7 +14,7 @@ export function Loading({ timeout = 2000 }: LoadingProps) {
       setIsVisible(false);
     }, timeout);
 
-    return () => clearTimeout(timer); // Cleanup on unmount
+    return () => clearTimeout(timer);
   }, [timeout]);
 
   if (!isVisible) return null;
@@ -23,6 +24,4 @@ export function Loading({ timeout = 2000 }: LoadingProps) {
       <div className={loadingStyles['loader']}></div>
     </div>
   );
-}
-
-export default Loading;
+};

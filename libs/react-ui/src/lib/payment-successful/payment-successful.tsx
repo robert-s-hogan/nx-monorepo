@@ -4,7 +4,7 @@ import paymentSuccessfulStyles from './payment-successful.module.css';
 /* eslint-disable-next-line */
 export interface PaymentSuccessfulProps {}
 
-export function PaymentSuccessful(props: PaymentSuccessfulProps) {
+export const PaymentSuccessful = (props: PaymentSuccessfulProps) => {
   return (
     <div className={`${paymentSuccessfulStyles['container']}`}>
       <div className={`${paymentSuccessfulStyles['stack']}`}>
@@ -21,6 +21,4 @@ export function PaymentSuccessful(props: PaymentSuccessfulProps) {
       </div>
     </div>
   );
-}
-
-export default PaymentSuccessful;
+};

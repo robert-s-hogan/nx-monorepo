@@ -29,5 +29,3 @@ export function ListItem({
     </li>
   );
 }
-
-export default ListItem;

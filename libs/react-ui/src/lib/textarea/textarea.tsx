@@ -1,6 +1,6 @@
 import { TextareaProps } from '@with-nx/types';
 import textareaStyles from './textarea.module.css';
-import Label from '../label/label';
+import { Label } from '../label/label';
 
 export const Textarea = ({
   name,
@@ -43,5 +43,3 @@ export const Textarea = ({
     </div>
   );
 };
-
-export default Textarea;

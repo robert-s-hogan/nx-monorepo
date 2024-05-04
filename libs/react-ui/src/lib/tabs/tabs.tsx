@@ -1,10 +1,12 @@
+'use client';
+
 import React, { useState } from 'react';
 import TabList from './tab-list';
 import TabPanel from './tab-panel';
 import tabsStyles from './tabs.module.css';
 import { TabsProps } from '@with-nx/types';
 
-export function Tabs({ data }: TabsProps) {
+export const Tabs = ({ data }: TabsProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleTabClick = (index: number) => {
@@ -27,6 +29,4 @@ export function Tabs({ data }: TabsProps) {
       ))}
     </div>
   );
-}
-
-export default Tabs;
+};

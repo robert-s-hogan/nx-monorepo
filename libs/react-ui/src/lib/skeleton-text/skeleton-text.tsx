@@ -41,5 +41,3 @@ export const SkeletonText = ({
     </div>
   );
 };
-
-export default SkeletonText;

@@ -4,9 +4,9 @@ import aboutStyles from './about.module.css';
 /* eslint-disable-next-line */
 export interface AboutProps {}
 
-export function About(props: AboutProps) {
+export const About = (props: AboutProps) => {
   return (
-    <div className={`${aboutStyles.container}`}>
+    <div className={`${aboutStyles['container']}`}>
       <Heading level={1}>About Us</Heading>
       <Text>
         We are a company dedicated to delivering the highest quality products
@@ -27,6 +27,4 @@ export function About(props: AboutProps) {
       </Text>
     </div>
   );
-}
-
-export default About;
+};

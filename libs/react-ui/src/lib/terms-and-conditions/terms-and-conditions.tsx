@@ -4,7 +4,7 @@ import termsStyles from './terms-and-conditions.module.css';
 /* eslint-disable-next-line */
 export interface TermsAndConditionsProps {}
 
-export function TermsAndConditions(props: TermsAndConditionsProps) {
+export const TermsAndConditions = (props: TermsAndConditionsProps) => {
   return (
     <div className={`${termsStyles['container']}`}>
       <div className={`${termsStyles['stack']}`}>
@@ -32,6 +32,4 @@ export function TermsAndConditions(props: TermsAndConditionsProps) {
       </div>
     </div>
   );
-}
-
-export default TermsAndConditions;
+};

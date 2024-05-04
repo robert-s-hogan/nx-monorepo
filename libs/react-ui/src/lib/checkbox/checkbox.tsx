@@ -21,10 +21,8 @@ export const Checkbox = ({
           checked={checked}
           onChange={handleChange}
         />
-        <span className={checkboxStyles.labelText}>{label}</span>
+        <span className={checkboxStyles['labelText']}>{label}</span>
       </label>
     </div>
   );
 };
-
-export default Checkbox;

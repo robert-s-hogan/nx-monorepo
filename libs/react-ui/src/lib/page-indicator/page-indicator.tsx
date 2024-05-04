@@ -1,7 +1,7 @@
 import pageIndicatorStyles from './page-indicator.module.css';
 import { PageIndicatorProps } from '@with-nx/types';
 
-export function PageIndicator(props: PageIndicatorProps) {
+export const PageIndicator = (props: PageIndicatorProps) => {
   const { page, total, className } = props;
 
   const indicators = [];
@@ -18,6 +18,4 @@ export function PageIndicator(props: PageIndicatorProps) {
   }
 
   return <div className="flex items-center space-x-1 p-2">{indicators}</div>;
-}
-
-export default PageIndicator;
+};

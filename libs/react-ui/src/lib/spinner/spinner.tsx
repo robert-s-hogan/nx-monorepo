@@ -9,5 +9,3 @@ export const Spinner = ({ size = 'medium' }: SpinnerProps) => {
     ></div>
   );
 };
-
-export default Spinner;

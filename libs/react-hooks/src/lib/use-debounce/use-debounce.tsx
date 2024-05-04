@@ -1,6 +1,8 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 
-function useDebounce(value: string, delay: number) {
+export const useDebounce = (value: string, delay: number): string => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
@@ -14,24 +16,4 @@ function useDebounce(value: string, delay: number) {
   }, [value, delay]);
 
   return debouncedValue;
-}
-
-// Usage
-function App() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
-
-  useEffect(() => {
-    if (debouncedSearchTerm) {
-      // Perform search here
-    }
-  }, [debouncedSearchTerm]);
-
-  return (
-    <input
-      type="text"
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-    />
-  );
-}
+};
