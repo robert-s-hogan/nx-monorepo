@@ -14,7 +14,10 @@ const ConquestLogoutButton: React.FC = () => {
   };
 
   return (
-    <button onClick={handleLogout} className="flex items-center pr-2">
+    <button
+      onClick={handleLogout}
+      className="flex items-center pr-2 border-none"
+    >
       <IonIcon icon={logOut} size="large" />
     </button>
   );

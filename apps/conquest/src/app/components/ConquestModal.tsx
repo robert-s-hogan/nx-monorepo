@@ -50,16 +50,16 @@ const ConquestModal: React.FC<ConquestModalProps> = ({
                 <Dialog.Panel
                   className={`${
                     screenSize && screenSize
-                  } w-full  transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all sm:my-8 sm:align-middle sm:w-full sm:p-6'`}
+                  } w-full  transform overflow-hidden rounded-2xl bg-surface-color p-6 text-left align-middle shadow-xl transition-all sm:my-8 sm:align-middle sm:w-full sm:p-6'`}
                 >
                   <div className="flex justify-between items-center">
                     <Dialog.Title
                       as="h2"
-                      className="font-medium leading-6 text-gray-900"
+                      className="font-medium leading-6 text-on-primary-color"
                     >
                       {title}
                     </Dialog.Title>
-                    <button type="button" onClick={onClose}>
+                    <button type="button" onClick={onClose} className="py-2">
                       <IonIcon icon={close} size="large" />
                     </button>
                   </div>

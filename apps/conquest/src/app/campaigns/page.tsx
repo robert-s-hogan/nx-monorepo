@@ -24,21 +24,19 @@ const Campaigns: NextPage = () => {
 
   return (
     <Layout title="Campaigns | Conquest">
-      <div className="max-w-4xl xl:max-w-7xl container mx-auto space-y-8 mt-8 px-4">
-        <Heading level={1} text="Campaigns" />
-        {campaigns.map((campaign) => (
-          <div key={campaign.id}>
-            <Link href={`/campaigns/${campaign.slug}`}>
-              <Heading level={2} text={campaign.name} />
-            </Link>
-            <ul className="ml-5">
-              <Text
-                text={`# of players: ${campaign.numberOfPlayers.toString()} `}
-              />
-            </ul>
-          </div>
-        ))}
-      </div>
+      <Heading level={1} text="Campaigns" />
+      {campaigns.map((campaign) => (
+        <div key={campaign.id}>
+          <Link href={`/campaigns/${campaign.slug}`}>
+            <Heading level={2} text={campaign.name} />
+          </Link>
+          <ul className="ml-5">
+            <Text
+              text={`# of players: ${campaign.numberOfPlayers.toString()} `}
+            />
+          </ul>
+        </div>
+      ))}
     </Layout>
   );
 };

@@ -77,6 +77,20 @@ a h2 {
   color: var(--accent-color);
 }
 
+html,
+body {
+  background: var(--bg-color);
+}
+
+body {
+  color: var(--text-color);
+  transition: background-color 0.5s, color 0.5s;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
 input[type='number'],
 input[type='text'],
 input[type='string'] {
@@ -153,6 +167,11 @@ button {
   cursor: not-allowed;
 }
 
+.btn-danger {
+  background-color: var(--error-color);
+  color: var(--text-on-primary-color);
+}
+
 /* TYPOGRAPHY CLASSES */
 .text-on-primary {
   color: var(--text-on-primary-color);
@@ -179,6 +198,11 @@ button {
 }
 
 /* DARK LIGHT STYLES */
+/* ICONS */
+svg {
+  stroke: var(--primary-fill);
+  fill: var(--primary-fill);
+}
 .moon,
 .sun {
   transition: opacity 0.3s, transform 0.3s;
@@ -195,9 +219,6 @@ button {
   transform: scale(0.9); /* Slight shrink */
 }
 
-.icon-white svg {
-  stroke: #ffffff;
-}
 .form-input {
   border: 1px solid #e2e8f0;
   border-radius: 0.25rem;

@@ -1,5 +1,5 @@
 import { Button, Heading, Text } from '@with-nx/generic-ui';
-
+import Link from 'next/link';
 import { ConquestCampaignDeleteConfirmationProps } from '../types';
 
 const ConquestCampaignDeleteConfirmation = ({
@@ -17,7 +17,9 @@ const ConquestCampaignDeleteConfirmation = ({
         />
       </div>
       <div className="flex justify-end space-x-2">
-        <Button theme="secondary" onClick={onCancel} text="Cancel" />
+        <button className="border-none underline" onClick={onCancel}>
+          Cancel
+        </button>
         <Button theme="danger" onClick={onConfirm} text="Delete" />
       </div>
     </div>

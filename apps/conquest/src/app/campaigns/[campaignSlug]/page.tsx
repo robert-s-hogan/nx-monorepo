@@ -50,13 +50,13 @@ const DynamicCampaignsPage: NextPage = () => {
   return (
     <EncounterProvider>
       <Layout title={selectedCampaign.name}>
-        <div className="flex flex-col lg:flex-row w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full pt-8 px-4">
           {selectedCampaign && selectedCampaign ? (
             <CampaignListWithModal campaigns={campaigns} hideEdit={true} />
           ) : (
             <div>No campaign found</div>
           )}
-          <div className="w-full lg:w-1/2 p-4 flex flex-col">
+          <div className="flex flex-col">
             {isEncountersLoading ? (
               <div>Loading encounters...</div>
             ) : isEncountersError ? (

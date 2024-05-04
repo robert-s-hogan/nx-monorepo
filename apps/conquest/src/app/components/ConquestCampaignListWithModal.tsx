@@ -23,39 +23,43 @@ const ConquestCampaignListWithModal = ({
   };
 
   return (
-    <div className="w-full lg:w-1/2 p-4 flex flex-col space-y-8">
-      {hideEdit && (
-        <div className="flex w-auto">
-          <Button
-            onClick={() => openModal('add', {} as Campaign)}
-            theme="primary"
-            text="Start New Campaign"
-          />
-        </div>
-      )}
-      <Heading text="Campaigns" level={2} />
+    <>
+      <div className="col-span-2">
+        {hideEdit && (
+          <div className="flex w-auto w-full">
+            <Button
+              onClick={() => openModal('add', {} as Campaign)}
+              theme="primary"
+              text="Start New Campaign"
+            />
+          </div>
+        )}
+      </div>
+      <div className="w-full flex flex-col col-span-2 lg:col-span-1">
+        <Heading text="Campaigns" level={2} />
 
-      <CampaignList
-        campaigns={campaigns}
-        hideEdit={hideEdit}
-        onEdit={handleEdit}
-        onDelete={(campaignId) => {
-          const campaignToDelete = campaigns.find((c) => c.id === campaignId);
-          if (campaignToDelete) {
-            openModal('delete', campaignToDelete);
-          }
-        }}
-        selectedCampaignSlug={selectedCampaignSlug}
-      />
-      {isModalOpen && (
-        <CampaignModalManager
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          operation={modalOperation || 'add'}
-          campaign={modalData as Campaign}
+        <CampaignList
+          campaigns={campaigns}
+          hideEdit={hideEdit}
+          onEdit={handleEdit}
+          onDelete={(campaignId) => {
+            const campaignToDelete = campaigns.find((c) => c.id === campaignId);
+            if (campaignToDelete) {
+              openModal('delete', campaignToDelete);
+            }
+          }}
+          selectedCampaignSlug={selectedCampaignSlug}
         />
-      )}
-    </div>
+        {isModalOpen && (
+          <CampaignModalManager
+            isOpen={isModalOpen}
+            onClose={closeModal}
+            operation={modalOperation || 'add'}
+            campaign={modalData as Campaign}
+          />
+        )}
+      </div>
+    </>
   );
 };
 

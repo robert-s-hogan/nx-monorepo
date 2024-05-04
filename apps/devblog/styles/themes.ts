@@ -1,27 +1,27 @@
 export const themes = {
   light: {
     name: 'light',
-    'primary-color': '#FFB3A2',
-    'secondary-color': '#4a5568',
-    'accent-color': '#575c67',
+    'primary-color': '#A8D5BA', // A light, pastel green for freshness and positivity
+    'secondary-color': '#6A8D7F', // A muted teal for a noble look
+    'accent-color': '#B3E2C7', // A light sage to complement the primary and secondary colors
     'bg-color': '#ffffff',
     'surface-color': '#F5F5F5',
     'text-color': '#000000',
     'text-on-primary-color': '#ffffff',
     'text-on-secondary-color': '#ffffff',
-    'primary-fill': '#4a5568',
-    'primary-stroke': '#4a5568',
-    'secondary-fill': '#a0aec0',
-    'secondary-stroke': '#a0aec0',
+    'primary-fill': '#6A8D7F',
+    'primary-stroke': '#6A8D7F',
+    'secondary-fill': '#A0AEC0', // Softened to a cooler gray to balance the teals and greens
+    'secondary-stroke': '#A0AEC0',
     'success-color': '#28A745',
     'error-color': '#DC3545',
     'warning-color': '#FFC107',
-    'info-color': '#17A2B8',
+    'info-color': '#64B6AC', // Adjusted to a green-blue to sync with the theme
     'border-color': '#EDEDED',
     'hover-color': '#E8E8E8',
     'active-color': '#C5C5C5',
-    'hover-secondary-color': '#3b4352',
-    'active-secondary-color': '#2a2f40',
+    'hover-secondary-color': '#567970',
+    'active-secondary-color': '#405D60',
     'disabled-color': '#EDEDED',
     'sun-icon-color': '#FFD700',
     'moon-icon-color': '#C0C0C0',

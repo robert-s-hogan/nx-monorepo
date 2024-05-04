@@ -33,7 +33,7 @@ const ConquestRestCalculationDisplay: React.FC<
   return (
     <div className="space-y-2">
       <div className="w-full flex items-center">
-        <Heading level={2} className="py-1 bg-white" text="Rest Calculations" />
+        <Heading level={2} className="py-1" text="Rest Calculations" />
         <div />
       </div>
       <div className="w-full flex items-center justify-between">

@@ -2,7 +2,6 @@ import { Button, Flex, Navbar } from '@with-nx/react-ui';
 import { ButtonProps, LinkProps } from '@with-nx/types';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useTheme, ThemeType } from '@with-nx/theme';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { CustomRSHLogo } from '@with-nx/icons';

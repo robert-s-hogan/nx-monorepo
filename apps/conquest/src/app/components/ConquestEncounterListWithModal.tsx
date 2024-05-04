@@ -28,7 +28,7 @@ const ConquestEncounterListWithModal = ({
   };
 
   return (
-    <div className="w-full lg:w-1/2 p-4 flex flex-col space-y-4">
+    <div className="w-full p-4 flex flex-col space-y-4">
       <Heading className="mb-4" text="Encounters" level={2} />
       {!hideEdit && (
         <div className="flex w-auto">

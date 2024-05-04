@@ -70,18 +70,24 @@ const ConquestCampaignList: React.FC<CampaignListProps> = ({
             return (
               <div
                 key={campaign.id}
-                className="border border-black rounded p-4"
+                className="border border-primary-color rounded p-0 md:p-4"
               >
-                <div className="p-4">
+                <div className="p-2 md:p-4">
                   <div className="flex items-center justify-between">
                     <Heading level={2} text={campaign.name} />
 
                     <div className="flex justify-end pr-2 pt-2">
-                      <button onClick={() => onEdit && onEdit(campaign)}>
+                      <button
+                        className="border-none"
+                        onClick={() => onEdit && onEdit(campaign)}
+                      >
                         <IonIcon icon={create} size="large" />
                       </button>
 
-                      <button onClick={() => onDelete(campaign.id as string)}>
+                      <button
+                        className="border-none"
+                        onClick={() => onDelete(campaign.id as string)}
+                      >
                         <IonIcon icon={trash} size="large" />
                       </button>
                     </div>

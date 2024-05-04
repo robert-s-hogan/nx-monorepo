@@ -29,7 +29,7 @@ const ConquestCampaignPreview: React.FC<CampaignPreviewProps> = ({
     useEncounterCalculations(campaign, difficulty);
 
   return (
-    <div className="w-full lg:w-1/2 p-4 flex flex-col">
+    <div className="w-full p-4 flex flex-col">
       <div className="p-4">
         <Heading level={2} text="Next Encounter Information" />
         <div className="space-y-2">

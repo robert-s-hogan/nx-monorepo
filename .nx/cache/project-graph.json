@@ -25116,6 +25116,11 @@
       },
       {
         "source": "conquest",
+        "target": "react-ui",
+        "type": "static"
+      },
+      {
+        "source": "conquest",
         "target": "npm:@nx/react",
         "type": "static"
       }

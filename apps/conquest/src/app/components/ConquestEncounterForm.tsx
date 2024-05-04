@@ -113,7 +113,7 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
   };
 
   return (
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-2 gap-6">
       <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-4">
         <div className="space-y-1">
           <label htmlFor="encounterDifficultyOptions">
@@ -172,7 +172,7 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
           {operation === 'edit' ? 'Update Encounter' : 'Add Encounter'}
         </button>
       </form>
-      <div className="border border-black p-4 mx-6 rounded-md">
+      <div className="border border-text-on-primary-color p-4 mt-4 rounded-md">
         <Heading level={2} text="Preview" className="text-center" />
         <p>Team Quadrant: {firstQuadrant}</p>
         <p>Enemy Quadrant: {secondQuadrant}</p>
