@@ -60,21 +60,25 @@ export const fetchCampaigns = async (): Promise<Campaign[]> => {
 };
 
 export const fetchCampaignBySlug = async (
-  slug: string
-): Promise<Campaign | null> => {
+  slug?: string
+): Promise<Campaign[] | null> => {
   try {
     const campaignsRef = collection(db, 'campaigns');
-    const q = query(campaignsRef, where('slug', '==', slug));
+    const q = slug
+      ? query(campaignsRef, where('slug', '==', slug))
+      : query(campaignsRef);
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.empty) {
       return null;
     }
 
-    const doc = querySnapshot.docs[0];
-    return { id: doc.id, ...(doc.data() as Campaign) };
+    return querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...(doc.data() as Campaign),
+    }));
   } catch (error) {
-    console.error('Error fetching campaign by slug:', error);
-    throw new Error('Failed to fetch campaign by slug');
+    console.error('Error fetching campaigns:', error);
+    throw new Error('Failed to fetch campaigns');
   }
 };

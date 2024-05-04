@@ -4,30 +4,44 @@ import { useEffect } from 'react';
 import { NextPage } from 'next';
 import Layout from '../../components/ConquestLayout';
 import EncounterListWithModal from '../../components/ConquestEncounterListWithModal';
+import CampaignListWithModal from '../../components/ConquestCampaignListWithModal';
 import { EncounterProvider } from '../../contexts/EncounterContext';
 import { useEncounters } from '../../hooks/useEncounters';
-import CampaignListWithModal from '../../components/ConquestCampaignListWithModal';
 import { useCampaigns } from '../../hooks/useCampaigns';
 
 const DynamicCampaignsPage: NextPage = () => {
   const {
-    campaigns,
+    campaigns: firestoreCampaigns,
     selectedCampaign,
     isLoading: isCampaignsLoading,
     isError: isCampaignsError,
   } = useCampaigns();
+
+  const campaigns = firestoreCampaigns
+    ? firestoreCampaigns.map((doc) => ({
+        id: doc.id,
+        name: doc.name,
+        slug: doc.slug,
+        description: doc.description,
+        numberOfPlayers: doc.numberOfPlayers,
+        playerExperienceStart: doc.playerExperienceStart,
+        levelDetails: doc.levelDetails,
+        levelOfPlayersCharactersStart: doc.levelOfPlayersCharactersStart,
+        adventuringDayXPLimit: doc.adventuringDayXPLimit,
+        groupDead: doc.groupDead,
+        shortRests: doc.shortRests,
+        longRestNeeded: doc.longRestNeeded,
+        accountId: doc.accountId,
+        createdAt: doc.createdAt,
+        updatedAt: doc.updatedAt,
+      }))
+    : [];
 
   const {
     encounters,
     isLoading: isEncountersLoading,
     isError: isEncountersError,
   } = useEncounters(selectedCampaign?.id as string);
-
-  useEffect(() => {
-    if (!selectedCampaign) {
-      console.log('No campaign selected or campaign data is still loading.');
-    }
-  }, [selectedCampaign]);
 
   if (isCampaignsLoading) return <div>Loading campaigns...</div>;
   if (isCampaignsError) return <div>Error loading campaigns.</div>;
@@ -37,12 +51,11 @@ const DynamicCampaignsPage: NextPage = () => {
     <EncounterProvider>
       <Layout title={selectedCampaign.name}>
         <div className="flex flex-col lg:flex-row w-full">
-          <CampaignListWithModal
-            campaigns={campaigns || []}
-            hideEdit={false}
-            selectedCampaignSlug={selectedCampaign.slug}
-          />
-
+          {selectedCampaign && selectedCampaign ? (
+            <CampaignListWithModal campaigns={campaigns} hideEdit={true} />
+          ) : (
+            <div>No campaign found</div>
+          )}
           <div className="w-full lg:w-1/2 p-4 flex flex-col">
             {isEncountersLoading ? (
               <div>Loading encounters...</div>

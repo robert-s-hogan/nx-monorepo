@@ -52,7 +52,7 @@ const ConquestModal: React.FC<ConquestModalProps> = ({
                     screenSize && screenSize
                   } w-full  transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all sm:my-8 sm:align-middle sm:w-full sm:p-6'`}
                 >
-                  <div className="flex justify-between">
+                  <div className="flex justify-between items-center">
                     <Dialog.Title
                       as="h2"
                       className="font-medium leading-6 text-gray-900"

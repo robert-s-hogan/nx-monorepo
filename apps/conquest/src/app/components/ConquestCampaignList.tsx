@@ -73,30 +73,29 @@ const ConquestCampaignList: React.FC<CampaignListProps> = ({
                 className="border border-black rounded p-4"
               >
                 <div className="p-4">
-                  <div className="flex justify-end pr-2 pt-2">
-                    <button onClick={() => onEdit && onEdit(campaign)}>
-                      <IonIcon icon={create} size="large" />
-                    </button>
+                  <div className="flex items-center justify-between">
+                    <Heading level={2} text={campaign.name} />
 
-                    <button onClick={() => onDelete(campaign.id as string)}>
-                      <IonIcon icon={trash} size="large" />
-                    </button>
-                  </div>
-                  <div className="pb-3">
-                    <div className="flex space-x-2 items-center">
-                      <Link href={`/campaign/${campaign.slug}`}>
-                        <Heading level={2} text={campaign.name} />
-                        <span className="text-gray-400 text-sm">
-                          /{campaign.slug}
-                        </span>
-                      </Link>
+                    <div className="flex justify-end pr-2 pt-2">
+                      <button onClick={() => onEdit && onEdit(campaign)}>
+                        <IonIcon icon={create} size="large" />
+                      </button>
+
+                      <button onClick={() => onDelete(campaign.id as string)}>
+                        <IonIcon icon={trash} size="large" />
+                      </button>
                     </div>
-                    <p>{campaign.description}</p>
+                  </div>
+                  <div className="pt-3">
+                    <div className="flex space-x-2 items-center">
+                      <p>{campaign.description}</p>
+                    </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     <div />
                     <div className="p-3 col-span-2 space-y-2 text-lg">
                       <Heading level={2} text="XP Calculations" />
+
                       <p>XP Progress Bar</p>
                       <ProgressBar
                         xpStart={campaign.levelDetails?.xpStart}

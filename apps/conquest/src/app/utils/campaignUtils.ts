@@ -6,6 +6,8 @@ import {
   deleteDoc,
   getDocs,
   updateDoc,
+  query,
+  where,
 } from 'firebase/firestore';
 import { Campaign } from '../types';
 
@@ -57,4 +59,18 @@ export const fetchCampaigns = async (): Promise<Campaign[]> => {
     console.error('Error fetching campaigns:', error);
     throw new Error('Failed to fetch campaigns');
   }
+};
+
+export const fetchCampaignBySlug = async (
+  slug: string
+): Promise<Campaign | null> => {
+  const campaignsCollectionRef = collection(db, 'campaigns');
+  const q = query(campaignsCollectionRef, where('slug', '==', slug));
+  const querySnapshot = await getDocs(q);
+  const campaigns = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  })) as Campaign[];
+
+  return campaigns.length > 0 ? campaigns[0] : null;
 };

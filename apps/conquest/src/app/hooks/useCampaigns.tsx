@@ -1,9 +1,7 @@
-'use client';
-
+import { Campaign } from '../types';
 import { useCollection } from '@with-nx/firebase';
 import { FirestoreDocument } from '@with-nx/firebase';
-import { useSearchParams } from 'next/navigation';
-import { Campaign } from '../types';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 export const useCampaigns = (): {
   campaigns: FirestoreDocument<Campaign>[] | undefined;
@@ -19,12 +17,12 @@ export const useCampaigns = (): {
     mutate,
   } = useCollection<Campaign>('campaigns');
 
-  const searchParams = useSearchParams();
+  const pathname = usePathname();
 
-  // Extract campaignSlug using URLSearchParams.get()
-  const campaignSlug = searchParams ? searchParams.get('campaignSlug') : null;
+  // Extracting the campaignSlug from the URL or query parameters
+  const campaignSlug = pathname.split('/').pop();
+  // const campaignSlug = searchParams.get('slug'); // Or this, depending on your URL structure
 
-  // Finding the selected campaign based on the extracted slug
   const selectedCampaign = campaigns?.find(
     (campaign) => campaign.slug === campaignSlug
   );

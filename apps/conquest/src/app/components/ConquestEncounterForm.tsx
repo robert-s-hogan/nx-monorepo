@@ -54,12 +54,6 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
       encounter?.encounterDifficultyOptions || 'Medium'
     );
 
-  useEffect(() => {
-    if (adventuringDayXPLimit > 0) {
-      console.log(`adventuringDayXPLimit: ${adventuringDayXPLimit}`);
-    }
-  }, [adventuringDayXPLimit]);
-
   const formik = useFormik({
     initialValues: {
       id: encounter?.id || '',
@@ -130,7 +124,6 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
             name="encounterDifficultyOptions"
             onChange={formik.handleChange}
             value={formik.values.encounterDifficultyOptions}
-            className="form-select"
           >
             {Object.keys(xpThresholds).map((difficulty) => (
               <option key={difficulty} value={difficulty}>

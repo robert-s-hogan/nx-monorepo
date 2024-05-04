@@ -24,16 +24,16 @@ const ConquestCampaignListWithModal = ({
 
   return (
     <div className="w-full lg:w-1/2 p-4 flex flex-col space-y-8">
-      <Heading text="Campaigns" level={2} />
       {hideEdit && (
         <div className="flex w-auto">
           <Button
             onClick={() => openModal('add', {} as Campaign)}
             theme="primary"
-            text="Add Campaign"
+            text="Start New Campaign"
           />
         </div>
       )}
+      <Heading text="Campaigns" level={2} />
 
       <CampaignList
         campaigns={campaigns}

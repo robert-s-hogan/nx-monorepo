@@ -2,15 +2,17 @@
 
 import React from 'react';
 import { NextPage } from 'next';
+import Link from 'next/link';
 import useSWR from 'swr';
 
 import Layout from '../components/ConquestLayout';
+import { Heading, Text } from '@with-nx/generic-ui';
 import withAuth from '../utils/withAuth';
 import { Campaign } from '../types';
 import { fetchCampaigns as fetchCampaignsService } from '../services/campaignService';
 import CampaignListWithModal from '../components/ConquestCampaignListWithModal';
 
-const CampaignsPage: NextPage = () => {
+const Campaigns: NextPage = () => {
   const {
     data: campaigns,
     error,
@@ -23,10 +25,22 @@ const CampaignsPage: NextPage = () => {
   return (
     <Layout title="Campaigns | Conquest">
       <div className="max-w-4xl xl:max-w-7xl container mx-auto space-y-8 mt-8 px-4">
-        <CampaignListWithModal campaigns={campaigns} hideEdit={true} />
+        <Heading level={1} text="Campaigns" />
+        {campaigns.map((campaign) => (
+          <div key={campaign.id}>
+            <Link href={`/campaigns/${campaign.slug}`}>
+              <Heading level={2} text={campaign.name} />
+            </Link>
+            <ul className="ml-5">
+              <Text
+                text={`# of players: ${campaign.numberOfPlayers.toString()} `}
+              />
+            </ul>
+          </div>
+        ))}
       </div>
     </Layout>
   );
 };
 
-export default withAuth(CampaignsPage, { authenticationRequired: true });
+export default withAuth(Campaigns, { authenticationRequired: true });

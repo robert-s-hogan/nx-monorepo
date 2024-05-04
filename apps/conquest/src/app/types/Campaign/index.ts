@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import { ModalOperation } from '../../types';
+import { FirestoreDocument, ModalOperation } from '../../types';
+import { mutate } from 'swr';
 
 export interface LevelDetails {
   xpStart: number;
@@ -55,6 +56,14 @@ export interface CampaignFormProps {
   campaign: Campaign | null;
   onSubmit: (campaignData: Partial<Campaign>) => void;
   operation: 'add' | 'edit';
+}
+
+export interface CampaignsHookReturnType {
+  campaigns: FirestoreDocument<Campaign>[] | undefined;
+  isLoading: boolean;
+  isError: Error | null;
+  mutate: typeof mutate;
+  selectedCampaign: FirestoreDocument<Campaign> | undefined;
 }
 
 export interface CampaignListProps {

@@ -42,7 +42,6 @@ const ConquestCampaignForm: React.FC<CampaignFormProps> = ({
       formik.values.playerExperienceStart
     );
     formik.setFieldValue('levelDetails', newLevelDetails);
-    console.log(formik.values);
   }, [formik.values.playerExperienceStart]);
 
   const handleNumberOfPlayersChange = (
@@ -63,10 +62,7 @@ const ConquestCampaignForm: React.FC<CampaignFormProps> = ({
   ];
 
   return (
-    <form
-      onSubmit={formik.handleSubmit}
-      className="flex flex-col space-y-4 pt-4"
-    >
+    <form onSubmit={formik.handleSubmit} className="flex flex-col space-y-4">
       {/* <pre>campaign: {JSON.stringify(campaign, null, 2)}</pre> */}
 
       {/* Name input */}
