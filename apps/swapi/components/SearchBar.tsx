@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSWRApi } from '../api/useSWRApi';
 import { Person } from '../types/api/types';
-import { Text } from '@with-nx/generic-ui';
+import { Button, Text } from '@with-nx/generic-ui';
 
 const Loading = () => {
   const [search, setSearch] = useState('');
@@ -38,9 +38,12 @@ const Loading = () => {
             onChange={handleSearch}
           />
         </label>
-        <button className="rotate-1" type="submit">
-          Search
-        </button>
+        <Button
+          className="rotate-1"
+          theme="primary"
+          type="submit"
+          text="Search"
+        />
       </form>
       {searchResults && (
         <Text

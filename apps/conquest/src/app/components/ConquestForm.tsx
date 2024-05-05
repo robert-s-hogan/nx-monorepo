@@ -1,6 +1,8 @@
 import React from 'react';
 import { useFormik } from 'formik';
 
+import { Button } from '@with-nx/generic-ui';
+
 import GenericField from './ConquestField';
 import { FieldConfig } from '../types';
 
@@ -40,9 +42,11 @@ const ConquestForm: React.FC<ConquestFormProps> = ({
           {...formik.getFieldProps(field.name)}
         />
       ))}
-      <button type="submit" className="btn-primary">
-        {operation === 'edit' ? 'Update' : 'Add'}
-      </button>
+      <Button
+        type="submit"
+        theme="primary"
+        text="{operation === 'edit' ? 'Update' : 'Add'}"
+      />
     </form>
   );
 };

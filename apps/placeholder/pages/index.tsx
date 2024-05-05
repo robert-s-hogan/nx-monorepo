@@ -2,13 +2,14 @@ import PlaceholderLayout from '../components/layout/PlaceholderLayout';
 import { useState } from 'react';
 import {
   Box,
-  Hero,
-  Stepper,
-  PageIndicator,
-  MultiStepForm,
+  Card,
   Form,
+  Hero,
+  MultiStepForm,
+  PageIndicator,
+  Stepper,
 } from '@with-nx/react-ui';
-import { Card } from '@with-nx/react-ui';
+import { Button } from '@with-nx/generic-ui';
 import { FiActivity, FiX, FiMinus, FiPlus } from 'react-icons/fi';
 
 import { motion } from 'framer-motion';
@@ -305,14 +306,13 @@ function Index() {
             </div>
           </div>
           <div className="flex space-x-4">
-            <button className="btn-primary">Pay With Card </button>
+            <Button theme="primary" text="Pay With Card" />
             or
-            <button
-              className="btn-primary"
+            <Button
+              theme="primary"
               onClick={() => onChange('paymentMethod', 'purchaseOrder')}
-            >
-              Pay With Purchase Order
-            </button>
+              text="Pay With Purchase Order"
+            />
           </div>
         </div>
       ),
@@ -333,7 +333,7 @@ function Index() {
             onChange={(event) => onChange('documents', event.target.value)}
           />
           <div className="flex space-x-4">
-            <button className="btn-success">Complete Order</button>
+            <Button theme="success" text="Complete Order" />
           </div>
         </div>
       ),

@@ -59,11 +59,15 @@ const ConquestModal: React.FC<ConquestModalProps> = ({
                     >
                       {title}
                     </Dialog.Title>
-                    <button type="button" onClick={onClose} className="py-2">
+                    <button
+                      type="button"
+                      onClick={onClose}
+                      className="py-2 border-none"
+                    >
                       <IonIcon icon={close} size="large" />
                     </button>
                   </div>
-                  {children} {/* Render children here */}
+                  {children}
                 </Dialog.Panel>
               </Transition.Child>
             </div>

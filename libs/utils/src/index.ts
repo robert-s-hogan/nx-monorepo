@@ -1,5 +1,6 @@
 // libs/utils/src/index.ts
 export * from './lib/array-utils';
+export * from './lib/class-utils';
 export * from './lib/format-utils';
 export * from './lib/function-utils';
 export * from './lib/math-utils';

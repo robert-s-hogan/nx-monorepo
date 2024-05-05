@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSWRApi } from '../api/useSWRApi';
 import { Grid, Section } from '@with-nx/react-ui';
+import { Button } from '@with-nx/generic-ui';
 
 import Loading from './Loading';
 import SwapiCard from './SwapiCard';
@@ -41,12 +42,7 @@ const SwapiSearch = () => {
             onChange={(e) => setSearchText(e.target.value)}
             placeholder="Search..."
           />
-          <button
-            className="rotate-1 uppercase text-sm text-black"
-            type="submit"
-          >
-            Search
-          </button>
+          <Button theme="primary" type="submit" text="Search" />
         </div>
       </form>
 

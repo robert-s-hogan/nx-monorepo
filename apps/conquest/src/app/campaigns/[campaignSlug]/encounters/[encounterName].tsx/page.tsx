@@ -7,6 +7,7 @@ import Layout from '../../../../components/ConquestLayout';
 import { Encounter } from '../../../../types';
 import { fetchEncounters as fetchEncountersService } from '../../../../services/encounterService';
 import EncounterListWithModal from '../../../../components/ConquestEncounterListWithModal';
+import ConquestSection from '../../../../components/ConquestSection';
 
 const DynamicEncounterPage = () => {
   const { data: encounters, error } = useSWR<Encounter[]>(
@@ -19,11 +20,10 @@ const DynamicEncounterPage = () => {
 
   return (
     <Layout title="Encounters | Conquest">
-      {/* Adjust if you have a different layout or title */}
-      <div className="max-w-4xl xl:max-w-7xl container mx-auto space-y-8 mt-8 px-4">
+      <ConquestSection>
         <Heading level={1} text="Encounter Management" />
         {/* <EncounterListWithModal encounters={encounters} /> */}
-      </div>
+      </ConquestSection>
     </Layout>
   );
 };

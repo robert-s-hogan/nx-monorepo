@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useSWR from 'swr';
 import { Section } from '@with-nx/react-ui';
-import { Heading, Text } from '@with-nx/generic-ui';
+import { Button, Heading, Text } from '@with-nx/generic-ui';
 
 import { Person } from '../types/people';
 import CharacterAvatar from './CharacterAvatar';
@@ -56,12 +56,11 @@ export default function Characters() {
         ))}
       </div>
       {visibleCount < data.length && (
-        <button
+        <Button
           onClick={() => setVisibleCount(visibleCount + 10)}
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-        >
-          Load More
-        </button>
+          theme="primary"
+          text="Load More"
+        />
       )}
     </Section>
   );

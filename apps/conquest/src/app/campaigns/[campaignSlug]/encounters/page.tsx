@@ -4,6 +4,7 @@ import useSWR from 'swr';
 
 import { Heading } from '@with-nx/generic-ui';
 import Layout from '../../../components/ConquestLayout';
+import ConquestSection from '../../../components/ConquestSection';
 import { Encounter } from '../../../types';
 import { fetchEncounters as fetchEncountersService } from '../../../services/encounterService';
 import EncounterListWithModal from '../../../components/ConquestEncounterListWithModal';
@@ -19,11 +20,10 @@ const EncounterPage = () => {
 
   return (
     <Layout title="Encounters | Conquest">
-      {/* Adjust if you have a different layout or title */}
-      <div className="max-w-4xl xl:max-w-7xl container mx-auto space-y-8 mt-8 px-4">
+      <ConquestSection className="space-y-8">
         <Heading level={1} text="Encounter Management" />
         <EncounterListWithModal encounters={encounters} />
-      </div>
+      </ConquestSection>
     </Layout>
   );
 };

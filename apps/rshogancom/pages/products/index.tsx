@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Grid } from '@with-nx/react-ui';
-import { Heading } from '@with-nx/generic-ui';
+import { Button, Heading } from '@with-nx/generic-ui';
 // Import the correct action from cartSlice
 import { addProductToCart } from '../../features/cart/cartSlice';
 import { RootState } from '../../store';
@@ -24,9 +24,11 @@ const ProductComponent = () => {
         {sampleProducts.map((sampleProduct) => (
           <div key={sampleProduct.id}>
             {sampleProduct.name}
-            <button onClick={() => handleAddProduct(sampleProduct)}>
-              Add to Cart
-            </button>
+            <Button
+              theme="primary"
+              onClick={() => handleAddProduct(sampleProduct)}
+              text="Add to Cart"
+            />
           </div>
         ))}
       </div>

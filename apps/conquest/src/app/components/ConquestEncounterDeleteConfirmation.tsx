@@ -1,5 +1,5 @@
 import { EncounterDeleteConfirmationProps } from '../types';
-import { Heading, Text } from '@with-nx/generic-ui';
+import { Button, Heading, Text } from '@with-nx/generic-ui';
 
 const ConquestEncounterDeleteConfirmation = ({
   onConfirm,
@@ -20,18 +20,8 @@ const ConquestEncounterDeleteConfirmation = ({
       />
 
       <div className="flex justify-end space-x-2">
-        <button
-          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
-          onClick={onCancel}
-        >
-          Cancel
-        </button>
-        <button
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
-          onClick={onConfirm}
-        >
-          Delete
-        </button>
+        <Button theme="secondary" onClick={onCancel} text="Cancel" />
+        <Button theme="danger" onClick={onConfirm} text="Delete" />
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import CampaignListWithModal from '../../components/ConquestCampaignListWithModa
 import { EncounterProvider } from '../../contexts/EncounterContext';
 import { useEncounters } from '../../hooks/useEncounters';
 import { useCampaigns } from '../../hooks/useCampaigns';
+import { Text } from '@with-nx/generic-ui';
 
 const DynamicCampaignsPage: NextPage = () => {
   const {
@@ -54,13 +55,13 @@ const DynamicCampaignsPage: NextPage = () => {
           {selectedCampaign && selectedCampaign ? (
             <CampaignListWithModal campaigns={campaigns} hideEdit={true} />
           ) : (
-            <div>No campaign found</div>
+            <Text text="No campaign found" />
           )}
           <div className="flex flex-col">
             {isEncountersLoading ? (
-              <div>Loading encounters...</div>
+              <Text text="Loading encounters..." />
             ) : isEncountersError ? (
-              <div>Error loading encounters.</div>
+              <Text text="Error loading encounters." />
             ) : (
               <EncounterListWithModal
                 encounters={encounters || []}

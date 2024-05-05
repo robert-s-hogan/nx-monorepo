@@ -17,9 +17,12 @@ const ConquestCampaignDeleteConfirmation = ({
         />
       </div>
       <div className="flex justify-end space-x-2">
-        <button className="border-none underline" onClick={onCancel}>
-          Cancel
-        </button>
+        <Button
+          theme="secondary"
+          className="border-none underline"
+          onClick={onCancel}
+          text="Cancel"
+        />
         <Button theme="danger" onClick={onConfirm} text="Delete" />
       </div>
     </div>

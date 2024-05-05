@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import Image from 'next/image';
-import { Heading } from '@with-nx/generic-ui';
+import { Button, Heading } from '@with-nx/generic-ui';
 const customStyles = {
   content: {
     width: '500px',
@@ -25,7 +25,7 @@ const CharacterPopover = ({ item, onClose }) => {
           </p>
         </div>
       )}
-      <button onClick={onClose}>Close</button>
+      <Button theme="secondary" onClick={onClose} text="Close" />
     </Modal>
   );
 };

@@ -4,6 +4,7 @@ import { ApiResponse, Planet } from '../../types/api/types';
 import { endpoints } from '../../api/endpoints';
 import Swapi3DPlanet from '../../components/Planets/Swapi3DPlanet'; // Ensure this path is correct
 import Earth from '../../components/Planets/Planet'; // Ensure this path is correct
+import { Button } from '@with-nx/generic-ui';
 
 interface AdminProps {
   // Additional props can be added here
@@ -69,10 +70,13 @@ const AdminPage: React.FC<AdminProps> = (props) => {
           </div>
         ))}
       </div>
-      <button disabled={page <= 1} onClick={() => setPage(page - 1)}>
-        Previous
-      </button>
-      <button onClick={() => setPage(page + 1)}>Next</button>
+      <Button
+        disabled={page <= 1}
+        theme="primary"
+        onClick={() => setPage(page - 1)}
+        text="Previous"
+      />
+      <Button onClick={() => setPage(page + 1)} theme="primary" text="Next" />
     </div>
   );
 };

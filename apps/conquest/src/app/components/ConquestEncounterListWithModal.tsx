@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading } from '@with-nx/generic-ui';
+import { Button, Heading } from '@with-nx/generic-ui';
 import EncounterList from './ConquestEncounterList';
 import EncounterModalManager from './ConquestEncounterModalManager';
 import useModalManager from '../hooks/useModalManager';
@@ -32,9 +32,7 @@ const ConquestEncounterListWithModal = ({
       <Heading className="mb-4" text="Encounters" level={2} />
       {!hideEdit && (
         <div className="flex w-auto">
-          <button onClick={handleAdd} className="btn btn-primary">
-            Add Encounter
-          </button>
+          <Button theme="primary" onClick={handleAdd} text="Add Encounter" />
         </div>
       )}
 

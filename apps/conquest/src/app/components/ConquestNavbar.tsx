@@ -8,6 +8,7 @@ import { FiMoon, FiSun } from 'react-icons/fi';
 import { useTheme, ThemeType } from '@with-nx/theme';
 import { Button } from '@with-nx/react-ui';
 import Link from 'next/link';
+import ConquestSection from './ConquestSection';
 
 const links: {
   href: string;
@@ -54,24 +55,26 @@ const Navbar: React.FC<ConquestNavbarProps> = ({ title }) => {
   if (loading) return null;
 
   return (
-    <header className="w-full text-center pt-8">
-      <nav className="w-full flex items-center justify-between max-w-4xl 2xl:max-w-7xl container mx-auto lg:mx-auto px-4 lg:px-0">
-        <Link href="/">
-          <div className="flex items-center">
-            <LiaDragonSolid size={48} color="--primary-fill" />
-            <span className="text-lg">onquest</span>
-          </div>
-        </Link>
+    <header>
+      <nav>
+        <ConquestSection className="w-full flex items-center justify-between text-xl">
+          <Link href="/">
+            <div className="flex items-center">
+              <LiaDragonSolid size={48} color="--primary-fill" />
+              <span className="text-lg">onquest</span>
+            </div>
+          </Link>
 
-        <div className="flex items-center space-between space-x-4 text-xl">
-          {links.map((link) => (
-            <Link key={link.href} href={link.href} className="">
-              <span>{link.children}</span>
-            </Link>
-          ))}
-          {currentUser ? <LogoutButton /> : <LoginButton />}
-          {toggleButton}
-        </div>
+          <div className="flex items-center space-x-4 text-xl">
+            {links.map((link) => (
+              <Link key={link.href} href={link.href} className="">
+                <span>{link.children}</span>
+              </Link>
+            ))}
+            {currentUser ? <LogoutButton /> : <LoginButton />}
+            {toggleButton}
+          </div>
+        </ConquestSection>
       </nav>
     </header>
   );

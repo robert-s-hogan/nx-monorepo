@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
-import { Heading } from '@with-nx/generic-ui';
+import { Button, Heading } from '@with-nx/generic-ui';
 
 import { useCampaigns } from '../hooks/useCampaigns';
 import { useRestOperations } from '../hooks/useRestOperations';
@@ -168,9 +168,12 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
           );
         })}
 
-        <button type="submit" className="btn-primary col-span-2">
-          {operation === 'edit' ? 'Update Encounter' : 'Add Encounter'}
-        </button>
+        <Button
+          type="submit"
+          theme="primary"
+          className="col-span-2"
+          text={operation === 'edit' ? 'Update Encounter' : 'Add Encounter'}
+        />
       </form>
       <div className="border border-text-on-primary-color p-4 mt-4 rounded-md">
         <Heading level={2} text="Preview" className="text-center" />

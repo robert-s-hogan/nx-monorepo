@@ -116,13 +116,7 @@ function App() {
                 onChange={(e) => setCharacter(e.target.value)}
               />
             </label>
-            <button
-              className="letter-box uppercase"
-              type="submit"
-              disabled={!character}
-            >
-              Search
-            </button>
+        
           </form>
         </div> */}
         {/* {searchResults && (
@@ -149,25 +143,6 @@ function App() {
                   />
                 ))}
           </div>
-          {/* <div className="mt-4 flex justify-between">
-            <button
-              className={`letter-box bg-orange uppercase ${
-                !previousPage ? 'disabled' : ''
-              }`}
-              onClick={() => handlePageChange(previousPage)}
-            >
-              Previous
-            </button>
-            <button
-              className={`letter-box bg-orange uppercase ${
-                !nextPage ? 'disabled' : ''
-              }`}
-              onClick={() => handlePageChange(nextPage)}
-              onMouseEnter={() => nextPage && prefetchData(nextPage)}
-            >
-              Next
-            </button>
-          </div> */}
         </div>
       </div>
     </SWRConfig>

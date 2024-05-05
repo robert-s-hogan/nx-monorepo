@@ -24576,6 +24576,11 @@
       },
       {
         "source": "placeholder",
+        "target": "generic-ui",
+        "type": "static"
+      },
+      {
+        "source": "placeholder",
         "target": "npm:framer-motion",
         "type": "static"
       },
@@ -25122,6 +25127,11 @@
       {
         "source": "conquest",
         "target": "npm:@nx/react",
+        "type": "static"
+      },
+      {
+        "source": "conquest",
+        "target": "utils",
         "type": "static"
       }
     ],

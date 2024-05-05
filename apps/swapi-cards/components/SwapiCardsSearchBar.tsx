@@ -29,13 +29,7 @@ const SwapiCardsSearchBar: React.FC = () => {
             onChange={(e) => setCharacter(e.target.value)}
           />
         </label>
-        <button
-          className="uppercase"
-          type="submit"
-          disabled={!character.trim()}
-        >
-          Search
-        </button>
+
       </form> */}
       {/* {data && data.length > 0 && (
         <Text className="text-white block text-center search-results" text="{`{data.length} results found`}" />

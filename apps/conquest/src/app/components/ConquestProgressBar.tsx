@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from '@with-nx/generic-ui';
 
 export interface ConquestProgressBarProps {
   xpStart: number;
@@ -36,22 +37,22 @@ const ConquestProgressBar: React.FC<ConquestProgressBarProps> = ({
 
       {/* Buttons for taking rests */}
       {isShortRestAvailable[0] && (
-        <button
+        <Button
+          theme="primary"
           className="absolute bottom-[-20px] transform -translate-x-1/2 text-white bg-red-600 px-2 py-1 rounded text-xs"
           style={{ left: '35%' }}
           onClick={onTakeFirstShortRest}
-        >
-          Take 1st Short Rest
-        </button>
+          text="Take 1st Short Rest"
+        />
       )}
       {isShortRestAvailable[1] && (
-        <button
+        <Button
+          theme="primary"
           className="absolute bottom-[-20px] transform -translate-x-1/2 text-white bg-red-600 px-2 py-1 rounded text-xs"
           style={{ left: '68%' }}
           onClick={onTakeSecondShortRest}
-        >
-          Take 2nd Short Rest
-        </button>
+          text="Take 2nd Short Rest"
+        />
       )}
 
       {/* Tooltip */}
