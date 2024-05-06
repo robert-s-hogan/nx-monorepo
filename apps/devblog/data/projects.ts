@@ -123,7 +123,7 @@ export const projectsData: Project[] = [
     link: 'https://roberthogan-dev-react-ui.vercel.app/',
     github: '', // You can provide the github link here if available.
     category: ['React', 'Typescript', 'CSS', 'Storybook', 'Jest', 'NX'],
-    isUnderConstruction: false,
+    isUnderConstruction: true,
   },
   {
     slug: 'memory-game',
@@ -218,10 +218,10 @@ export const projectsData: Project[] = [
       image: '',
     },
     resources: ['#1', '#2', '#3'],
-    link: 'https://swapi-nx.vercel.app/',
+    link: 'https://swapi-cards-nx-monorepo.vercel.app/',
     github: '', // If you do decide to add a GitHub link in the future, you can update this.
     category: ['React', 'Next', 'Typescript', 'API', 'NX', 'TailwindCSS'],
-    isUnderConstruction: true,
+    isUnderConstruction: false,
   },
   {
     slug: 'interactive-map',

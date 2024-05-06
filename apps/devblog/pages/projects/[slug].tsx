@@ -27,69 +27,66 @@ function ProjectPage({ project }) {
       title={`${project.title} | Robert Hogan's Projects`}
       description={project.description}
     >
-      <DevBlogSection
-        className={`bg-cover bg-center relative my-0`}
-        style={{ backgroundImage: `url(${project.image})` }} // Adjusted to use project.image
+      <div
+        className="bg-cover bg-center relative my-0"
+        style={{ backgroundImage: `url(${project.image})` }}
       >
         <div className="absolute inset-0 bg-image-overlay opacity-50"></div>
-        <Heading
-          level={1}
-          className="h-full w-auto my-auto relative z-10 text-center pt-32 break-normal"
-        >
-          <span className="hidden md:inline-block text-5xl">
-            {project.title}
-          </span>
-          <span className="text-5xl md:hidden">{project.mobileTitle}</span>
-        </Heading>
 
-        <Text
-          className="text-center relative z-10"
-          text={project.description}
-        />
-
-        <div className={`w-full relative z-10 flex justify-center  mt-8 pb-32`}>
-          <ButtonLink
-            href={project.link}
-            target="_blank"
-            disabled={project.isUnderConstruction}
-            className={` ${
-              project.isUnderConstruction
-                ? 'disabled no-underline'
-                : 'btn-primary'
-            }`}
+        <DevBlogSection>
+          <Heading
+            level={1}
+            className="h-full w-auto my-auto relative z-10 text-center pt-32 break-normal [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]"
           >
-            {project.isUnderConstruction ? (
-              <Flex className="space-x-4 items-center cursor-not-allowed">
-                <GiMonkeyWrench className="w-6 h-6" />
-                Under Construction
-              </Flex>
-            ) : (
-              'Live Project'
-            )}
-          </ButtonLink>
-          {project.github && (
-            <Box className="mx-3 text-3xl font-extralight">|</Box>
-          )}
-          {project.github && (
-            <ButtonLink
-              href={project.github}
-              target="_blank"
-              className={`btn-secondary icon-white`}
-            >
-              <FiGithub className="h-12 w-12" />
-            </ButtonLink>
-          )}
-        </div>
-      </DevBlogSection>
+            <span className="hidden md:inline-block text-5xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
+              {project.title}
+            </span>
+            <span className="text-5xl md:hidden">{project.mobileTitle}</span>
+          </Heading>
 
-      <div className="relative flex space-x-2">
-        <div className="absolute inset-0 bg-" />
-        <Flex className="w-full justify-center items-center h-10 py-2">
-          {project.category.map((cat) => {
-            return (
+          <Text
+            className="text-center relative z-10"
+            text={project.description}
+          />
+
+          <div className="w-full relative z-10 flex justify-center mt-8 pb-32">
+            <ButtonLink
+              href={project.link}
+              target="_blank"
+              disabled={project.isUnderConstruction}
+              className={`${
+                project.isUnderConstruction
+                  ? 'disabled no-underline'
+                  : 'btn-primary'
+              }`}
+            >
+              {project.isUnderConstruction ? (
+                <Flex className="space-x-4 items-center cursor-not-allowed">
+                  Under Construction
+                </Flex>
+              ) : (
+                'Live Project'
+              )}
+            </ButtonLink>
+            {project.github && (
+              <Box className="mx-3 text-3xl font-extralight">|</Box>
+            )}
+            {project.github && (
+              <ButtonLink
+                href={project.github}
+                target="_blank"
+                className="btn-secondary icon-white"
+              >
+                <FiGithub className="h-12 w-12" />
+              </ButtonLink>
+            )}
+          </div>
+
+          <Flex className="max-w-fit shadow-lg mx-auto justify-center items-center h-10 py-2 ">
+            {project.category.map((cat) => (
               <span
                 key={cat}
-                className={`relative z-10 text-2xl rounded-full overflow-hidden p-1 ${
+                className={`relative z-10 text-2xl rounded-full overflow-hidden p-2 bg-bg-color shadow-lg ${
                   cat === 'GithubPages'
                     ? 'flex items-center justify-center'
                     : ''
@@ -97,49 +94,57 @@ function ProjectPage({ project }) {
               >
                 {getIconForCategory(cat)}
               </span>
-            );
-          })}
-        </Flex>
+            ))}
+          </Flex>
+        </DevBlogSection>
       </div>
 
-      <DevBlogSection className="bg-secondary-color">
-        <div className="container max-w-7xl mx-auto px-4">
+      <div className="w-full bg-secondary-color">
+        <DevBlogSection>
           <div className="grid grid-cols-1 gap-12">
             <DevBlogProjectsThemeSection
               title={project.process.title}
               description={project.process.description}
             />
-            <DevBlogProjectsThemeSection
-              title={project.management.title}
-              description={project.management.description}
-            />
           </div>
-        </div>
-      </DevBlogSection>
+        </DevBlogSection>
+      </div>
 
       <DevBlogSection className="">
-        <Heading level={2} className="text-xl md:text-5xl">
-          {project.media.title}
-        </Heading>
-        <p>{project.media.description}</p>
+        <DevBlogProjectsThemeSection
+          title={project.management.title}
+          description={project.management.description}
+        />
       </DevBlogSection>
 
-      <DevBlogSection className="bg-secondary-color">
-        <div className="container max-w-7xl mx-auto px-4">
-          <DevBlogProjectsThemeSection
-            title={project.technologyReason.title}
-            description={project.technologyReason.description}
-          />
-        </div>
+      <div className="w-full bg-secondary-color">
+        <DevBlogSection>
+          <Heading level={2} className="text-xl md:text-5xl">
+            {project.media.title}
+          </Heading>
+          <p>{project.media.description}</p>
+        </DevBlogSection>
+      </div>
+
+      <DevBlogSection className="">
+        <DevBlogProjectsThemeSection
+          title={project.technologyReason.title}
+          description={project.technologyReason.description}
+        />
         {/* If you have a list of tech used, map over them here and display as tiles or cards */}
       </DevBlogSection>
 
-      <DevBlogSection className="">
-        <Heading level={2} className="text-xl md:text-5xl">
-          {project.purpose.title}
-        </Heading>
-        <Text className="leading-relaxed" text={project.purpose.description} />
-      </DevBlogSection>
+      <div className="w-full bg-secondary-color">
+        <DevBlogSection>
+          <Heading level={2} className="text-xl md:text-5xl">
+            {project.purpose.title}
+          </Heading>
+          <Text
+            className="leading-relaxed"
+            text={project.purpose.description}
+          />
+        </DevBlogSection>
+      </div>
 
       {/* {project.resources && (
         <DevBlogSection maxWidth={true} className="bg-secondary-color">

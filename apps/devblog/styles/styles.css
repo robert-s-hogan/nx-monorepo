@@ -8,14 +8,19 @@
 
 /* :root variables that do not change with theme */
 :root {
-  --loader-size: 1rem;
-  --loader-border: 0.125rem;
-  --border-width: 0.063rem;
-  --transition-speed: 0.3s;
-  --animation-speed: 1s;
-  --hover-scale: 1.05;
-  --text-underline-offset: 0.25rem;
+  /* Animation Timings */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+  /* Aspect Ratios */
+  --aspect-ratio-wide: 16 / 9;
+  --aspect-ratio-square: 1;
+
+  /* Box Shadow */
   --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
+
+  /* Button */
   --button-padding-x: 0.75rem;
   --button-padding-y: 0.5rem;
   --button-border-width: 0.063rem;
@@ -25,7 +30,14 @@
   --button-border-radius: 0.25rem;
   --transition-all: all;
   --duration-300: 0.3s;
+
+  /* Font Settings */
+  --font-family: 'Inter', sans-serif;
+
+  /* Form Elements */
   --rounded: rounded;
+
+  /* Input */
   --input-padding-y: 0.5rem;
   --input-padding-x: 0.75rem;
   --input-border-width: 0.063rem;
@@ -36,6 +48,31 @@
   --input-focus-outline-color: #4299e1;
   --input-focus-outline-width: 0.125rem;
   --input-focus-outline-offset: 0.125rem;
+
+  /* Hover */
+  --hover-scale: 1.05;
+  --text-underline-offset: 0.25rem;
+
+  /* Loader */
+  --loader-size: 1rem;
+  --loader-border: 0.125rem;
+  --transition-speed: 0.3s;
+  --animation-speed: 1s;
+
+  /* Maximum Container Width */
+  --max-width-container: 1200px;
+
+  /* Opacity Levels */
+  --opacity-disabled: 0.5;
+  --opacity-hover: 0.8;
+  --opacity-active: 1;
+
+  /* Radius Sizes */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Select */
   --select-appearance: none;
   --select-width: 100%;
   --select-padding-y: 0.5rem;
@@ -45,6 +82,29 @@
   --select-font-size: 1rem;
   --select-height: 2.5rem;
   --select-border-color: #e2e8f0;
+
+  /* Shadow Depths */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+  /* Spacing Scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+
+  /* Typography */
+  --heading-font-size: 24px;
+  --text-font-size: 16px;
+  --small-font-size: 12px;
+  --line-height: 1.5;
+
+  /* Z-Index Levels */
+  --z-index-dropdown: 1000;
+  --z-index-modal: 1050;
+  --z-index-overlay: 1100;
 }
 
 @layer base {
@@ -84,44 +144,6 @@
   }
 }
 
-@layer components {
-  .full-width-section {
-    @apply max-w-full py-8 px-4 mx-auto;
-  }
-
-  .btn-success {
-    @apply bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    @apply px-3 py-2;
-  }
-
-  .card {
-    @apply bg-gray-200 shadow-lg p-6;
-  }
-
-  .card-body {
-    @apply flex flex-col space-y-6;
-  }
-
-  .card-title {
-    @apply text-2xl font-semibold;
-  }
-
-  .card-text {
-    @apply text-lg font-light;
-  }
-
-  .sub-title {
-    @apply text-lg lg:text-xl;
-  }
-
-  .input {
-    @apply px-3 py-2;
-  }
-}
 html,
 body {
   background: var(--bg-color);
@@ -136,101 +158,50 @@ body {
   padding-right: env(safe-area-inset-right);
 }
 
-/* TYPOGRAPHY */
-a p,
-.link {
-  color: var(--text-color);
-}
-button {
-  padding: var(--button-padding-y) var(--button-padding-x);
-  border-width: var(--button-border-width);
-  border-radius: var(--button-border-radius);
-}
-img,
-button,
-.input,
-.card {
-  --rounded: rounded;
+/* ANIMATIONS */
+.transition-fast {
+  transition: all var(--fast-transition-speed) ease;
 }
 
-/* LINKS */
-a {
-  position: relative;
-  text-decoration: none;
-  color: var(--accent-color);
+/* BACKGROUND CLASSES */
+.bg-image-overlay {
+  background-color: var(--bg-opacity-color);
+  transition: background-color 0.3s;
 }
-a:before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 100%;
-  border-bottom: 1px solid var(--primary-color);
-  transition: right var(--transition-speed) ease;
-  text-underline-offset: var(--text-underline-offset);
+@media (min-width: 1024px) {
+  .image-overlay:hover {
+    background-color: transparent;
+  }
 }
-a:hover:before {
-  right: 0;
+.bg-opposite-theming {
+  background-color: var(--text-color);
 }
-a:hover {
-  opacity: 0.9;
+.bg-image-overlay {
+  background-color: var(--bg-opacity-color);
+  transition: background-color 0.3s;
 }
-.no-underline-on-hover:hover:before {
-  display: none;
+@media (min-width: 1024px) {
+  .image-overlay:hover {
+    background-color: transparent;
+  }
 }
-
-/* ICONS */
-svg {
-  stroke: var(--primary-fill);
-}
-.moon,
-.sun {
-  transition: opacity 0.3s, transform 0.3s;
-}
-.sun {
-  color: var(--sun-icon-color);
-}
-.moon {
-  color: var(--moon-icon-color);
-}
-.moon.fade-out,
-.sun.fade-out {
-  opacity: 0;
-  transform: scale(0.9);
+.bg-opposite-theming {
+  background-color: var(--text-color);
 }
 
-/* DEBUG STYLING */
-pre {
-  background-color: var(--surface-color);
-  border-radius: 1rem;
-  padding: 1rem;
-  overflow-x: auto;
-}
-code {
-  color: var(--text-secondary);
-  font-family: monospace;
-}
-
-/* FORM ELEMENTS */
-input {
-  border-color: var(--border-color);
-  border-width: var(--border-width);
-}
-
-/* BUTTON & BUTTON STATE CLASSES */
+/* BUTTON CLASSES */
 a button {
   text-decoration: none;
 }
 .button-link:hover:before {
   right: 100%;
 }
-
-/* BUTTON CLASSES */
 button {
   padding: var(--button-padding-y) var(--button-padding-x);
   border-width: var(--button-border-width);
   border-radius: var(--button-border-radius);
 }
+
 .btn-primary {
   background-color: var(--primary-color);
   color: var(--text-on-primary-color);
@@ -281,31 +252,6 @@ button {
   margin-left: 8px;
 }
 
-/* TYPOGRAPHY CLASSES */
-.text-on-primary {
-  color: var(--text-on-primary-color);
-}
-.text-on-secondary {
-  color: var(--text-on-secondary-color);
-}
-.text-github {
-  color: var(--github-icon-color);
-}
-
-/* BACKGROUND CLASSES */
-.bg-image-overlay {
-  background-color: var(--bg-opacity-color);
-  transition: background-color 0.3s;
-}
-@media (min-width: 1024px) {
-  .image-overlay:hover {
-    background-color: transparent;
-  }
-}
-.bg-opposite-theming {
-  background-color: var(--text-color);
-}
-
 /* DARK LIGHT STYLES */
 .moon,
 .sun {
@@ -324,6 +270,44 @@ button {
 }
 .nav-logo {
   transition: opacity 0.3s;
+}
+
+/* DEBUG STYLING */
+pre {
+  background-color: var(--surface-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+code {
+  color: var(--text-secondary);
+  font-family: monospace;
+}
+
+/* FORM ELEMENTS */
+input {
+  border-color: var(--border-color);
+  border-width: var(--border-width);
+}
+
+/* ICONS */
+svg {
+  stroke: var(--primary-fill);
+}
+.moon,
+.sun {
+  transition: opacity 0.3s, transform 0.3s;
+}
+.sun {
+  color: var(--sun-icon-color);
+}
+.moon {
+  color: var(--moon-icon-color);
+}
+.moon.fade-out,
+.sun.fade-out {
+  opacity: 0;
+  transform: scale(0.9);
 }
 
 /* INPUT CLASSES */
@@ -369,6 +353,32 @@ textarea:focus {
   border-offset: var(--input-focus-outline-offset);
 }
 
+/* LINKS */
+a {
+  position: relative;
+  text-decoration: none;
+  color: var(--accent-color);
+}
+a:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  border-bottom: 1px solid var(--primary-color);
+  transition: right var(--transition-speed) ease;
+  text-underline-offset: var(--text-underline-offset);
+}
+a:hover:before {
+  right: 0;
+}
+a:hover {
+  opacity: 0.9;
+}
+.no-underline-on-hover:hover:before {
+  display: none;
+}
+
 /* SELECT CLASSES */
 select {
   appearance: var(--select-appearance);
@@ -381,16 +391,40 @@ select {
   height: var(--select-height);
 }
 
-/* BACKGROUND CLASSES */
-.bg-image-overlay {
-  background-color: var(--bg-opacity-color);
-  transition: background-color 0.3s;
+/* SHADOW CLASSES */
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
 }
-@media (min-width: 1024px) {
-  .image-overlay:hover {
-    background-color: transparent;
-  }
+.shadow-md {
+  box-shadow: var(--shadow-md);
 }
-.bg-opposite-theming {
-  background-color: var(--text-color);
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+/* TYPOGRAPHY CLASSES */
+a p,
+.link {
+  color: var(--text-color);
+}
+.text-on-primary {
+  color: var(--text-on-primary-color);
+}
+.text-on-secondary {
+  color: var(--text-on-secondary-color);
+}
+.text-github {
+  color: var(--github-icon-color);
+}
+.bg-secondary-color h2,
+.bg-secondary-color p {
+  color: var(--text-on-secondary-color);
+}
+
+/* Z-INDEX CLASSES */
+.z-dropdown {
+  z-index: var(--z-index-dropdown);
+}
+.z-modal {
+  z-index: var(--z-index-modal);
 }

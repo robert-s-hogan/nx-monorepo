@@ -1,5 +1,5 @@
 import { Button, Flex } from '@with-nx/react-ui';
-
+import { IconButton } from '@with-nx/generic-ui';
 import Link from 'next/link';
 import { useTheme, ThemeType } from '@with-nx/theme';
 import { FiMoon, FiSun } from 'react-icons/fi';
@@ -37,17 +37,19 @@ const DevBlogHeader = () => {
   }, []);
 
   const toggleButton = isMounted ? (
-    <Button
+    <IconButton
       onClick={toggleTheme}
-      className="button-icon p-0"
-      aria-label="Toggle Theme"
-    >
-      {theme && (theme as ThemeType).name === 'light' ? (
-        <FiMoon className={`moon h-6 w-6 ${fadeClass}`} />
-      ) : (
-        <FiSun className={`sun h-6 w-6 ${fadeClass}`} />
-      )}
-    </Button>
+      theme="transparent"
+      className="border-0"
+      label="Toggle Theme"
+      icon={
+        theme && (theme as ThemeType).name === 'light' ? (
+          <FiMoon className={`moon h-6 w-6 ${fadeClass}`} />
+        ) : (
+          <FiSun className={`sun h-6 w-6 ${fadeClass}`} />
+        )
+      }
+    />
   ) : null;
 
   return (

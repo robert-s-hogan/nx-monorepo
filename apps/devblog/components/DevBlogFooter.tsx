@@ -11,9 +11,7 @@ const DevBlogFooter = () => {
       <DevBlogSection>
         <Flex className="flex-row justify-between py-4 items-center mx-0 space-y-2 md:space-y-0 md:px-4 pb-2 md:pb-0">
           <Link href="/" className="button-link" passHref>
-            <Button aria-label="Robert Hogans Home">
-              <CustomRSHLogo className="h-12 w-12 text-primary nav-logo ml-[-45px]" />
-            </Button>
+            <CustomRSHLogo className="h-24 w-24 text-primary nav-logo ml-[-45px]" />
           </Link>
 
           <Flex className="sm:mt-0 pt-4 justify-center pb-4 lg:pb-0 space-x-4  mr-2 md:mr-0 ">
