@@ -1,12 +1,13 @@
-import JHoganComLayout from '../../components/JHoganComLayout';
+import JHLayout from '../../components/JHLayout';
 import ProjectSection from '../../components/JHProjectSection';
-import { Section } from '@with-nx/react-ui';
+import JHSection from '../../components/JHSection';
+
 export default function Projects() {
   return (
-    <JHoganComLayout>
-      <Section>
+    <JHLayout>
+      <JHSection>
         <ProjectSection />
-      </Section>
-    </JHoganComLayout>
+      </JHSection>
+    </JHLayout>
   );
 }

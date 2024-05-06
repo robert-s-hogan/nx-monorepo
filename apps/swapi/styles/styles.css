@@ -4,27 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --primary-color: #3b82f6;
-  --secondary-color: #6b7280;
-  --danger-color: #ef4444;
-  --warning-color: #facc15;
-  --success-color: #10b981;
-  --info-color: #3b82f6;
-  --btn-primary-text: #1e40af;
-  --btn-primary-hover-bg: #bfdbfe;
-  --btn-secondary-text: #374151;
-  --btn-secondary-hover-bg: #e5e7eb;
-  --btn-danger-text: #ffffff;
-  --btn-danger-hover-bg: #fecaca;
-  --btn-warning-text: #92400e;
-  --btn-warning-hover-bg: #fde68a;
-  --btn-success-text: #064e3b;
-  --btn-success-hover-bg: #a7f3d0;
-  --btn-info-text: #1e40af;
-  --btn-info-hover-bg: #bfdbfe;
-} */
-
 @layer base {
   h1 {
     @apply text-7xl font-serif font-semibold pb-8;
@@ -252,6 +231,15 @@ button {
   background-color: var(--disabled-secondary-color);
   cursor: not-allowed;
 }
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button span {
+  margin-left: 8px;
+}
 
 /* TYPOGRAPHY CLASSES */
 .text-on-primary {
@@ -284,10 +272,10 @@ button {
   transition: opacity 0.3s, transform 0.3s;
 }
 .sun {
-  color: var(--sun-icon-color);
+  stroke: var(--sun-icon-color);
 }
 .moon {
-  color: var(--moon-icon-color);
+  stroke: var(--moon-icon-color);
 }
 .moon.fade-out,
 .sun.fade-out {

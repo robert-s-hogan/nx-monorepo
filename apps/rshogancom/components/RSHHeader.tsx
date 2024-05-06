@@ -3,6 +3,7 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 import Script from 'next/script';
 import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
+import { IconButton } from '@with-nx/generic-ui';
 
 import { Button, Flex, Text } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
@@ -61,13 +62,13 @@ const RSHoganComHeader = () => {
           {/* Dark/Light Toggle and Hamburger Menu for Mobile */}
           <div className="flex items-center md:hidden">
             {toggleButton}
-            <button onClick={toggleMobileMenu} className="ml-3">
-              {isMobileMenuOpen ? (
-                <FiX size={24} className="icon-menu" />
-              ) : (
-                <FiMenu size={24} className="icon-menu" />
-              )}
-            </button>
+            <IconButton
+              onClick={toggleMobileMenu}
+              icon={isMobileMenuOpen ? <FiX /> : <FiMenu />}
+              label="Toggle Mobile Menu"
+              theme="transparent"
+              className="button-icon"
+            />
           </div>
 
           {/* Links and Buttons for Desktop */}

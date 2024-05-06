@@ -14,7 +14,7 @@ const PlayToWinFFLayout = ({
   return (
     <PageLayout
       header={hideNavBarProp ? '' : <PlayToWinFFHeader />}
-      //   footer={<JHoganComFooter />}
+      //   footer={<JHFooter />}
       className="md:m-4 lg:mx-6  shadow-lg pb-16"
     >
       <Seo

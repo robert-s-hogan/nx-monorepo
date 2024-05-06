@@ -53,7 +53,7 @@ export default function Home({ allPostsData }) {
           className="text-center"
           text="A collection of topics, notes, and half-baked explorations I'm always tending to."
         />
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 space-y-2 md:space-y-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 space-y-2 md:space-y-0">
           {allPostsData.map(({ id, date, title, categories }) => (
             <div key={id} className="p-4 rounded-md">
               <Link href={`/blog/${id}`}>
@@ -65,7 +65,7 @@ export default function Home({ allPostsData }) {
               </div>
             </div>
           ))}
-        </section>
+        </div>
       </DevBlogSection>
     </DevBlogLayout>
   );

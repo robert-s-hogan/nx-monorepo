@@ -33,8 +33,8 @@ const links: {
   {
     href: '/draft',
     text: 'Draft',
-    className: 'btn-primary',
-    type: 'button',
+    // className: 'btn-primary',
+    type: 'link',
   },
 ];
 
@@ -55,7 +55,8 @@ const PlayToWinFFHeader = () => {
   const toggleButton = isMounted ? (
     <IconButton
       onClick={toggleTheme}
-      className="my-auto h-6"
+      className="border-0"
+      theme="transparent"
       label="Toggle Theme"
       icon={icon}
     />

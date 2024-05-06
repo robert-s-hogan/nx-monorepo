@@ -9,7 +9,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     | 'danger'
     | 'warning'
     | 'success'
-    | 'info';
+    | 'info'
+    | 'disabled';
+  size?: 'sm' | 'md' | 'lg';
 }
 
 const themeClassNames = {
@@ -20,14 +22,28 @@ const themeClassNames = {
   warning: 'btn-warning',
   success: 'btn-success',
   info: 'btn-info',
+  disabled: 'btn-disabled',
 };
 
-export const Button = ({ text, theme, ...props }: ButtonProps) => {
-  const className = `${themeClassNames[theme] || 'btn-primary'} ${
-    props.className || ''
-  }`;
+const sizeClassNames = {
+  sm: 'btn-sm',
+  md: 'btn-md',
+  lg: 'btn-lg',
+};
+
+export const Button = ({
+  className,
+  size,
+  text,
+  theme,
+  ...props
+}: ButtonProps) => {
+  const themeClassName = `${themeClassNames[theme] || 'btn-primary'} ${
+    sizeClassNames[size || 'md']
+  } ${className || ''}`;
+
   return (
-    <button {...props} className={className}>
+    <button {...props} className={themeClassName} aria-label={text}>
       {text}
     </button>
   );

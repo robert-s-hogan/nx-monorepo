@@ -1,8 +1,9 @@
 import React from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from '@with-nx/firebase';
-import { IonIcon } from '@ionic/react';
-import { logOut } from 'ionicons/icons';
+
+import { FiLogOut } from 'react-icons/fi';
+import { IconButton } from '@with-nx/generic-ui';
 
 const ConquestLogoutButton: React.FC = () => {
   const handleLogout = async () => {
@@ -14,12 +15,13 @@ const ConquestLogoutButton: React.FC = () => {
   };
 
   return (
-    <button
+    <IconButton
+      icon={<FiLogOut size="2rem" />}
+      label="Icon with Logout Button"
+      theme="info"
+      className="border-0"
       onClick={handleLogout}
-      className="flex items-center pr-2 border-none"
-    >
-      <IonIcon icon={logOut} size="large" />
-    </button>
+    />
   );
 };
 

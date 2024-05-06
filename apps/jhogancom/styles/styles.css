@@ -16,6 +16,35 @@
   --hover-scale: 1.05;
   --text-underline-offset: 0.25rem;
   --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
+  --button-padding-x: 0.75rem;
+  --button-padding-y: 0.5rem;
+  --button-border-width: 0.063rem;
+  --button-border-radius: 0.25rem;
+  --button-padding-y: 0.5rem;
+  --button-border-width: 0.063rem;
+  --button-border-radius: 0.25rem;
+  --transition-all: all;
+  --duration-300: 0.3s;
+  --rounded: rounded;
+  --input-padding-y: 0.5rem;
+  --input-padding-x: 0.75rem;
+  --input-border-width: 0.063rem;
+  --input-border-radius: 0.25rem;
+  --input-font-size: 1rem;
+  --input-height: 2.5rem;
+  --input-border-color: #e2e8f0;
+  --input-focus-outline-color: #4299e1;
+  --input-focus-outline-width: 0.125rem;
+  --input-focus-outline-offset: 0.125rem;
+  --select-appearance: none;
+  --select-width: 100%;
+  --select-padding-y: 0.5rem;
+  --select-padding-x: 0.75rem;
+  --select-border-width: 0.063rem;
+  --select-border-radius: 0.25rem;
+  --select-font-size: 1rem;
+  --select-height: 2.5rem;
+  --select-border-color: #e2e8f0;
 }
 
 @layer base {
@@ -28,7 +57,7 @@
     @apply text-4xl font-bold;
   }
   h2 {
-    @apply text-2xl font-semibold;
+    @apply text-3xl font-semibold;
   }
 
   h3 {
@@ -64,9 +93,6 @@
 @layer components {
   .section {
     @apply container max-w-7xl mx-auto py-8 px-4;
-  }
-  .btn-primary {
-    @apply hover:opacity-80 px-8 py-2 rounded-lg text-lg text-white;
   }
   .text-primary {
     @apply text-white;
@@ -122,7 +148,24 @@ a {
 
 /* ICONS */
 svg {
-  stroke: var(--primary-fill) !important;
+  stroke: var(--primary-fill);
+}
+
+/* DARK LIGHT STYLES */
+.moon,
+.sun {
+  transition: opacity 0.3s, transform 0.3s;
+}
+.sun {
+  stroke: var(--sun-icon-color);
+}
+.moon {
+  stroke: var(--moon-icon-color);
+}
+.moon.fade-out,
+.sun.fade-out {
+  opacity: 0;
+  transform: scale(0.9); /* Slight shrink */
 }
 
 /* DEBUG STYLING */
@@ -138,19 +181,59 @@ code {
   font-family: monospace;
 }
 
-/* FORM ELEMENTS */
-input,
+/* INPUT CLASSES */
+input[type='number'],
+input[type='text'],
+input[type='string'] {
+  padding: var(--input-padding-y) var(--input-padding-x);
+  border-width: var(--input-border-width);
+  border-color: var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  font-size: var(--input-font-size);
+  height: var(--input-height);
+  width: 100%;
+}
+input[type='number']:focus,
+input[type='text']:focus,
+input[type='string']:focus {
+  outline: none;
+  border-color: var(--input-focus-outline-color);
+  border-width: var(--input-focus-outline-width);
+  border-offset: var(--input-focus-outline-offset);
+}
+input[type='checkbox'] {
+  display: block;
+  margin: auto;
+}
+input[type='checkbox']:focus {
+  outline: none;
+}
 textarea {
-  border-color: var(--border-color);
-  border-width: var(--border-width);
+  padding: var(--input-padding-y) var(--input-padding-x);
+  border-width: var(--input-border-width);
+  border-color: var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  font-size: var(--input-font-size);
+  height: 6rem;
+  width: 100%;
+}
+textarea:focus {
+  outline: none;
+  border-color: var(--input-focus-outline-color);
+  border-width: var(--input-focus-outline-width);
+  border-offset: var(--input-focus-outline-offset);
 }
 
+/* SELECT CLASSES */
 select {
-  border-color: var(--border-color);
-  border-width: var(--border-width);
-  background-color: var(--surface-color);
-  color: var(--text-color);
-  padding: 0.5rem;
+  appearance: var(--select-appearance);
+  width: var(--select-width);
+  padding: var(--select-padding-y) var(--select-padding-x);
+  border-width: var(--select-border-width);
+  border-color: var(--select-border-color);
+  border-radius: var(--select-border-radius);
+  font-size: var(--select-font-size);
+  height: var(--select-height);
 }
 
 form > div {
@@ -163,79 +246,130 @@ form > * + * {
 }
 
 /* BUTTON & BUTTON STATE CLASSES */
-.bg-primary {
-  background: var(--primary-color);
+button,
+.btn {
+  padding: var(--button-padding-y) var(--button-padding-x);
+  border-width: var(--button-border-width);
+  border-radius: var(--button-border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-all) var(--duration-300);
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
 }
 .btn-primary {
   background-color: var(--primary-color);
   color: var(--text-on-primary-color);
   transition: background-color 0.3s ease, color 0.3s ease; /* Add transition */
 }
-
 .btn-primary:hover {
   background-color: var(--hover-color);
   color: var(--text-on-hover-color); /* Optional: Change text color on hover */
 }
-
 .btn-primary:active {
   background-color: var(--active-color);
 }
-
 .btn-primary:focus {
   outline: none;
   box-shadow: var(--box-shadow);
 }
-
 .disabled,
 .btn-primary:disabled {
   background-color: var(--disabled-color);
   cursor: not-allowed;
 }
-
 .btn-secondary {
   background-color: var(--secondary-color);
   color: var(--text-on-primary-color);
 }
-
 .btn-secondary:hover {
   background-color: var(--hover-secondary-color);
 }
-
 .btn-secondary:active {
   background-color: var(--active-secondary-color);
 }
-
 .btn-secondary:focus {
   outline: none;
   box-shadow: var(--box-shadow);
 }
-
 .btn-secondary:disabled {
   background-color: var(--disabled-secondary-color);
   cursor: not-allowed;
 }
+.btn-danger {
+  background-color: var(--error-color);
+  color: var(--text-on-primary-color);
+}
+.btn-danger:hover {
+  background-color: var(--hover-color);
+}
+.btn-danger:active {
+  background-color: var(--active-color);
+}
+.btn-danger:focus {
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+.btn-success {
+  background-color: var(--success-color);
+  color: var(--text-on-primary-color);
+}
+.btn-success:hover {
+  background-color: var(--hover-color);
+}
+.btn-success:active {
+  background-color: var(--active-color);
+}
+.btn-success:focus {
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+.btn-warning {
+  background-color: var(--warning-color);
+  color: var(--text-on-primary-color);
+}
+.btn-warning:hover {
+  background-color: var(--hover-color);
+}
+.btn-warning:active {
+  background-color: var(--active-color);
+}
+.btn-warning:focus {
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+.btn-info {
+  background-color: var(--info-color);
+  color: var(--text-on-primary-color);
+}
+.btn-info:hover {
+  background-color: var(--hover-color);
+}
+.btn-info:active {
+  background-color: var(--active-color);
+}
+.btn-info:focus {
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-button span {
+  margin-left: 8px;
+}
 
+/* DIALOG CLASSES */
 dialog::backdrop {
   background-color: var(--backdrop-color, black);
   position: fixed;
   inset: 0;
   opacity: 0.5;
-}
-
-.light-gradient {
-  background-image: linear-gradient(
-    to bottom left,
-    var(--secondary-icon-color),
-    var(--gradient-color)
-  );
-}
-
-.dark-gradient {
-  background-image: linear-gradient(
-    to bottom right,
-    var(--secondary-icon-color),
-    var(--gradient-color)
-  );
 }
 
 /* TYPOGRAPHY CLASSES */
@@ -253,4 +387,20 @@ dialog::backdrop {
 .card {
   border: var(--border-width) solid var(--border-color);
   background: var(--bg-color);
+}
+
+/* BACKGROUND CLASSES */
+.light-gradient {
+  background-image: linear-gradient(
+    to bottom left,
+    var(--secondary-fill),
+    var(--gradient-color)
+  );
+}
+.dark-gradient {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--secondary-fill),
+    var(--gradient-color)
+  );
 }

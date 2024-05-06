@@ -7,6 +7,8 @@ import {
   FiHeart,
   FiShield,
 } from 'react-icons/fi';
+import { IconButton } from '@with-nx/generic-ui';
+
 import { GiBootKick, GiFist, GiInfinity } from 'react-icons/gi';
 import {
   classAbilityIconMap,
@@ -159,18 +161,18 @@ const CharacterCard = ({ entity, preview }) => {
         <div className="col-span-3 relative border rounded-lg overflow-hidden shadow-md w-full border-white">
           {isStringArray(image) && image.length > 1 && (
             <>
-              <button
+              <IconButton
                 onClick={prevImage}
+                label="Previous Image"
                 className="absolute left-0 z-30 top-1/2 transform -translate-y-1/2"
-              >
-                <FiChevronLeft className="text-on-primary w-10 h-10" />
-              </button>
-              <button
+                icon={<FiChevronLeft className="text-on-primary w-10 h-10" />}
+              />
+              <IconButton
                 onClick={nextImage}
-                className="absolute -right-3 z-30 top-1/2 transform -translate-y-1/2"
-              >
-                <FiChevronRight className="text-on-primary w-10 h-10" />
-              </button>
+                label="Next Image"
+                className="absolute right-0 z-30 top-1/2 transform -translate-y-1/2"
+                icon={<FiChevronRight className="text-on-primary w-10 h-10" />}
+              />
             </>
           )}
 

@@ -1,9 +1,9 @@
 import { Navbar } from '@with-nx/react-ui';
-import { ButtonProps, LinkProps } from '@with-nx/types';
-
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon, FiSearch } from 'react-icons/fi';
+
+import { IconButton } from '@with-nx/generic-ui';
 
 const logo = (
   <Image
@@ -75,12 +75,13 @@ const PlaceholderHeader = () => {
   const { theme, setTheme } = useTheme();
 
   const toggleButton = (
-    <button
+    <IconButton
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      className="btn-primary text-sm"
-    >
-      {theme === 'light' ? <FiMoon /> : <FiSun />}
-    </button>
+      icon={theme === 'light' ? <FiMoon /> : <FiSun />}
+      label="Toggle Theme"
+      theme="transparent"
+      className="button-icon border-none p-0"
+    />
   );
 
   return (

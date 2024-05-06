@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { Flex, Heading } from '@with-nx/react-ui';
 import { Text } from '@with-nx/generic-ui';
 import { useRouter } from 'next/router';
+import { IconButton } from '@with-nx/generic-ui';
 
 import { getColorSchemeForPersona } from '../../utils/themeMap';
 import SwapiLayout from '../../components/SwapiLayout';

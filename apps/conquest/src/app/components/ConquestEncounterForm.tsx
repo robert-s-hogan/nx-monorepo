@@ -114,7 +114,7 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
 
   return (
     <div className="grid grid-cols-2 gap-6">
-      <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-4">
+      <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-x-4">
         <div className="space-y-1">
           <label htmlFor="encounterDifficultyOptions">
             Encounter Difficulty
@@ -171,7 +171,7 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
         <Button
           type="submit"
           theme="primary"
-          className="col-span-2"
+          // className="col-span-2"
           text={operation === 'edit' ? 'Update Encounter' : 'Add Encounter'}
         />
       </form>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { IonIcon } from '@ionic/react';
-import { create, trash } from 'ionicons/icons';
-import { Heading } from '@with-nx/generic-ui';
+import { FiEdit, FiTrash } from 'react-icons/fi';
+
+import { Heading, IconButton } from '@with-nx/generic-ui';
 import Link from 'next/link';
 
 import { Campaign, CampaignListProps } from '../types';
@@ -77,19 +77,23 @@ const ConquestCampaignList: React.FC<CampaignListProps> = ({
                     <Heading level={2} text={campaign.name} />
 
                     <div className="flex justify-end pr-2 pt-2">
-                      <button
-                        className="border-none"
+                      <IconButton
+                        icon={<FiEdit size="2rem" />}
+                        label="Edit Campaign"
+                        theme="transparent"
+                        className="border-0"
                         onClick={() => onEdit && onEdit(campaign)}
-                      >
-                        <IonIcon icon={create} size="large" />
-                      </button>
+                      />
 
-                      <button
-                        className="border-none"
-                        onClick={() => onDelete(campaign.id as string)}
-                      >
-                        <IonIcon icon={trash} size="large" />
-                      </button>
+                      <IconButton
+                        icon={<FiTrash size="2rem" />}
+                        label="Delete Campaign"
+                        theme="transparent"
+                        className="border-0"
+                        onClick={() =>
+                          onDelete && onDelete(campaign.id as string)
+                        }
+                      />
                     </div>
                   </div>
                   <div className="pt-3">

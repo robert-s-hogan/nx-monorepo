@@ -187,6 +187,15 @@ body {
 .bg-grey-blue {
   @apply bg-gradient-to-r from-grey to-blue;
 }
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button span {
+  margin-left: 8px;
+}
 
 /* LANDSCAPES */
 .bg-naboo {

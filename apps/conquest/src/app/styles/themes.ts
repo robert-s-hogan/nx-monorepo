@@ -56,6 +56,6 @@ export const themes = {
     'sun-icon-color': '#FFA700',
     'moon-icon-color': '#D3D3D3',
     'bg-opacity-color': 'rgba(26, 32, 44, 0.85)',
-    sound: 'https://app-assets.vercel.app/sounds/air-swoosh.wav',
+    sound: 'https://app-assets.vercel.app/sounds/roar.wav',
   },
 };

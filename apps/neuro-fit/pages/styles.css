@@ -449,3 +449,13 @@ p {
   font-size: 1rem;
   color: #666;
 }
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button span {
+  margin-left: 8px;
+}

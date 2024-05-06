@@ -157,6 +157,15 @@ button {
   background-color: var(--disabled-secondary-color);
   cursor: not-allowed;
 }
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button span {
+  margin-left: 8px;
+}
 
 /* TYPOGRAPHY CLASSES */
 .text-on-primary {

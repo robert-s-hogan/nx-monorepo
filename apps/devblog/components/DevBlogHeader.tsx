@@ -1,5 +1,4 @@
-import { Button, Flex, Navbar } from '@with-nx/react-ui';
-import { ButtonProps, LinkProps } from '@with-nx/types';
+import { Button, Flex } from '@with-nx/react-ui';
 
 import Link from 'next/link';
 import { useTheme, ThemeType } from '@with-nx/theme';
@@ -75,14 +74,6 @@ const DevBlogHeader = () => {
           {toggleButton}
         </Flex>
       </Flex>
-      {/* <Navbar
-        className="flex justify-between w-full mx-auto space-x-4 py-4 items-center"
-        links={links}
-        logo={logo}
-        isOpen={true}
-        logoText="Robert Hogan's Portfolio"
-        toggleButton={toggleButton}
-      /> */}
     </header>
   );
 };

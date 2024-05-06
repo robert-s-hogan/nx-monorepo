@@ -5,15 +5,13 @@ import { CustomJHLogo } from '@with-nx/icons';
 
 import JHSocialMediaIcons from './JHSocialMediaIcons';
 
-const JHoganComFooter = () => {
+const JHFooter = () => {
   const copyright = new Date().getFullYear();
   return (
     <footer>
       <div className="container mx-auto max-w-7xl w-full flex flex-col justify-center items-center px-4 sm:flex-row py-8 space-y-6 md:space-y-0">
         <Link href="/" passHref>
-          <Button aria-label="Jessica Hogan's Homepage.">
-            <CustomJHLogo className="w-24 h-24" />
-          </Button>
+          <CustomJHLogo className="w-24 h-24" />
         </Link>
         <Text className="text-sm text-center sm:border-l-2 md:pl-2 md:ml-2">
           © {copyright} Jessica Hogan
@@ -24,4 +22,4 @@ const JHoganComFooter = () => {
   );
 };
 
-export default JHoganComFooter;
+export default JHFooter;

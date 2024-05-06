@@ -7,6 +7,7 @@ import { LiaDragonSolid } from 'react-icons/lia';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { useTheme, ThemeType } from '@with-nx/theme';
 import { Button } from '@with-nx/react-ui';
+import { IconButton } from '@with-nx/generic-ui';
 import Link from 'next/link';
 import ConquestSection from './ConquestSection';
 
@@ -39,17 +40,19 @@ const Navbar: React.FC<ConquestNavbarProps> = ({ title }) => {
   }, []);
 
   const toggleButton = isMounted ? (
-    <Button
+    <IconButton
       onClick={toggleTheme}
       className="button-icon border-none p-0"
-      aria-label="Toggle Theme"
-    >
-      {theme && (theme as ThemeType).name === 'light' ? (
-        <FiMoon className={`moon h-6 w-6 ${fadeClass}`} />
-      ) : (
-        <FiSun className={`sun h-6 w-6 ${fadeClass}`} />
-      )}
-    </Button>
+      icon={
+        theme && (theme as ThemeType).name === 'light' ? (
+          <FiMoon className={`moon h-6 w-6 ${fadeClass}`} />
+        ) : (
+          <FiSun className={`sun h-6 w-6 ${fadeClass}`} />
+        )
+      }
+      theme="transparent"
+      label="Toggle theme"
+    />
   ) : null;
 
   if (loading) return null;
@@ -57,20 +60,28 @@ const Navbar: React.FC<ConquestNavbarProps> = ({ title }) => {
   return (
     <header>
       <nav>
-        <ConquestSection className="w-full flex items-center justify-between text-xl">
+        <ConquestSection className="w-full flex items-center justify-between text-xl pt-8 mt-0">
           <Link href="/">
             <div className="flex items-center">
-              <LiaDragonSolid size={48} color="--primary-fill" />
+              <LiaDragonSolid
+                size={48}
+                style={{ fill: 'var(--primary-fill)' }}
+              />
               <span className="text-lg">onquest</span>
             </div>
           </Link>
 
           <div className="flex items-center space-x-4 text-xl">
-            {links.map((link) => (
-              <Link key={link.href} href={link.href} className="">
-                <span>{link.children}</span>
-              </Link>
-            ))}
+            {currentUser && (
+              <>
+                {links.map((link) => (
+                  <Link key={link.href} href={link.href} className="underline">
+                    <span>{link.children}</span>
+                  </Link>
+                ))}
+              </>
+            )}
+
             {currentUser ? <LogoutButton /> : <LoginButton />}
             {toggleButton}
           </div>

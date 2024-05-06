@@ -1,8 +1,8 @@
 import { Fragment } from 'react';
-
 import { Dialog, Transition } from '@headlessui/react';
-import { IonIcon } from '@ionic/react';
-import { close } from 'ionicons/icons';
+import { FiX } from 'react-icons/fi';
+
+import { IconButton } from '@with-nx/generic-ui';
 
 interface ConquestModalProps {
   isOpen: boolean;
@@ -52,20 +52,18 @@ const ConquestModal: React.FC<ConquestModalProps> = ({
                     screenSize && screenSize
                   } w-full  transform overflow-hidden rounded-2xl bg-surface-color p-6 text-left align-middle shadow-xl transition-all sm:my-8 sm:align-middle sm:w-full sm:p-6'`}
                 >
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center mb-6">
                     <Dialog.Title
                       as="h2"
                       className="font-medium leading-6 text-on-primary-color"
                     >
                       {title}
                     </Dialog.Title>
-                    <button
-                      type="button"
+                    <IconButton
+                      icon={<FiX size="2rem" />}
+                      label="Close Modal"
                       onClick={onClose}
-                      className="py-2 border-none"
-                    >
-                      <IonIcon icon={close} size="large" />
-                    </button>
+                    />
                   </div>
                   {children}
                 </Dialog.Panel>

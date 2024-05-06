@@ -2,19 +2,20 @@
 
 import React from 'react';
 import { signInWithGoogle } from '../data/signInWithGoogle';
-import { IonIcon } from '@ionic/react';
-import { logoGoogle } from 'ionicons/icons';
+
+import { FaGoogle } from 'react-icons/fa';
+
+import { IconButton } from '@with-nx/generic-ui';
 
 const ConquestLoginButton: React.FC = () => {
   return (
     <div className="flex space-between pr-2">
-      <button
+      <IconButton
+        icon={<FaGoogle size="2rem" />}
+        label="Icon Only Button"
+        theme="primary"
         onClick={signInWithGoogle}
-        className="flex items-center border-none"
-      >
-        <span className="hidden md:inline-flex md:mr-2">Login with</span>
-        <IonIcon icon={logoGoogle} size="large" />
-      </button>
+      />
     </div>
   );
 };

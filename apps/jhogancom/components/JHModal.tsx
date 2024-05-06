@@ -1,65 +1,81 @@
-import { Button, Modal } from '@with-nx/react-ui';
-import { ModalProps } from '@with-nx/types';
+import { Fragment } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
 import { FiX } from 'react-icons/fi';
 
-export function JHModal({
-  isShowing,
-  toggle,
+import { IconButton } from '@with-nx/generic-ui';
+
+interface JHModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title?: string;
+  children: React.ReactNode;
+  fullScreen?: boolean;
+}
+
+const JHModal: React.FC<JHModalProps> = ({
+  isOpen,
+  onClose,
   title,
-  description,
-  icon,
   children,
-  onClick,
-  buttonLocation = 'right',
-}: ModalProps) {
+  fullScreen,
+}) => {
+  const screenSize = fullScreen ? 'max-w-7xl' : 'max-w-xl';
   return (
     <>
-      {isShowing && (
-        <Modal isShowing={isShowing} toggle={toggle}>
-          <div
-            className="modal overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center justify-items-center "
-            id="sampleModal"
-            tabIndex={-1}
-            role="dialog"
-            onClick={toggle}
-            aria-labelledby="sampleModalLabel"
-            aria-hidden={false}
-            style={{ background: 'rgba(0, 0, 0, 0.5)' }}
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={onClose}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
-            <div
-              className="modal-dialog relative w-auto my-6 mx-auto max-w-5xl"
-              role="document"
-              onClick={toggle}
-            >
-              <div
-                className="bg-white border-2 rounded-lg shadow-lg relative flex flex-col outline-none focus:outline-none w-5/6 mx-auto"
-                onClick={(e) => {
-                  e.stopPropagation();
-                }}
+            <div className="fixed inset-0 bg-black/25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
               >
-                <div className="relative bg-white rounded-lg shadow">
-                  <Button
-                    className="icon border-0 close absolute top-1 right-2 my-0"
-                    onClick={toggle}
-                    icon={
-                      <button
-                        type="button"
-                        className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center  "
-                      >
-                        <FiX className="w-6 h-6" />
-                        <span className="sr-only">Close modal</span>
-                      </button>
-                    }
-                  />
-                  <div className="p-6 lg:px-8">{children}</div>
-                </div>
-              </div>
+                <Dialog.Panel
+                  className={`${
+                    screenSize && screenSize
+                  } w-full  transform overflow-hidden rounded-2xl bg-surface-color p-6 text-left align-middle shadow-xl transition-all sm:my-8 sm:align-middle sm:w-full sm:p-6'`}
+                >
+                  <div className="flex justify-between items-center mb-6">
+                    <Dialog.Title
+                      as="h2"
+                      className="font-medium leading-6 text-on-primary-color"
+                    >
+                      {title}
+                    </Dialog.Title>
+                    <IconButton
+                      type="button"
+                      onClick={onClose}
+                      label="Close Modal"
+                      icon={<FiX size="1.5rem" />}
+                      className="p-0 border-none"
+                    />
+                  </div>
+                  {children}
+                </Dialog.Panel>
+              </Transition.Child>
             </div>
           </div>
-        </Modal>
-      )}
+        </Dialog>
+      </Transition>
     </>
   );
-}
+};
 
 export default JHModal;

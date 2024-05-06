@@ -259,6 +259,15 @@ a button {
   background-color: var(--disabled-secondary-color);
   cursor: not-allowed;
 }
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button span {
+  margin-left: 8px;
+}
 
 /* TYPOGRAPHY CLASSES */
 .text-on-primary {
@@ -291,10 +300,10 @@ a button {
   transition: opacity 0.3s, transform 0.3s;
 }
 .sun {
-  color: var(--sun-icon-color);
+  stroke: var(--sun-icon-color);
 }
 .moon {
-  color: var(--moon-icon-color);
+  stroke: var(--moon-icon-color);
 }
 .moon.fade-out,
 .sun.fade-out {

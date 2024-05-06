@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { projectStaticData } from '../../data/projects';
-import JHoganComLayout from '../../components/JHoganComLayout';
+import JHLayout from '../../components/JHLayout';
 import { Flex } from '@with-nx/react-ui';
 import { Heading, Text } from '@with-nx/generic-ui';
 
@@ -35,7 +35,7 @@ export async function getStaticProps({ params }) {
 
 export default function Projects({ project }) {
   return (
-    <JHoganComLayout>
+    <JHLayout>
       <div className="relative">
         <section className="relative min-h-screen px-4">
           <Flex className="absolute inset-0 items-center justify-center">
@@ -97,7 +97,7 @@ export default function Projects({ project }) {
 
           <Image
             className="hidden md:block object-cover w-1/4 h-screen rounded-full ring-2 ring-gray-500/50 ring-offset-[30px]"
-            src="https://app-assets.vercel.app/apps/jhogancom/jessica_portrait.webp"
+            src="https://app-assets.vercel.app/apps/JH/jessica_portrait.webp"
             alt="Your Name Here"
           />
 
@@ -248,6 +248,6 @@ export default function Projects({ project }) {
           </div>
         </section>
       </div>
-    </JHoganComLayout>
+    </JHLayout>
   );
 }

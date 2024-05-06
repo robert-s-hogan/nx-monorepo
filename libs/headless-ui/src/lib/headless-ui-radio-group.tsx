@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { RadioGroup } from '@headlessui/react';
-import { IonIcon } from '@ionic/react';
-import { checkmarkCircleOutline } from 'ionicons/icons';
+
+import { FiCheckCircle } from 'react-icons/fi';
 
 const defaultPeople = [
   { id: 1, name: 'Durward Reynolds', unavailable: false },
@@ -61,7 +61,7 @@ const HeadlessUiRadioGroup: React.FC<HeadlessUiRadioGroupProps> = ({
                   </div>
                   {checked && (
                     <div className="flex-shrink-0 text-light-blue-600">
-                      <IonIcon icon={checkmarkCircleOutline} />
+                      <FiCheckCircle size="2rem" />
                     </div>
                   )}
                 </div>

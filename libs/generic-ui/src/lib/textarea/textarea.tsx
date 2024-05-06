@@ -1,47 +1,36 @@
-'use client';
+import React, { ChangeEvent } from 'react';
 
-import { useState } from 'react';
-
-interface TextareaProps {
-  label: string;
+type TextareaProps = {
+  className?: string;
+  id: string;
+  label?: string;
+  placeholder?: string;
   value: string;
   onChange: (value: string) => void;
-}
+};
 
 export const Textarea: React.FC<TextareaProps> = ({
+  className,
+  id,
   label,
   value,
   onChange,
+  placeholder,
 }) => {
-  const [isFocused, setIsFocused] = useState(false);
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     onChange(event.target.value);
-  };
-
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
   };
 
   return (
     <div>
-      <label>{label}</label>
+      {label && <label htmlFor={id}>{label}</label>}
       <textarea
+        className={className}
+        id={id}
         value={value}
-        onChange={handleInputChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        aria-label={label}
-        aria-invalid={!value}
-        aria-describedby={`${label}-error`}
+        onChange={handleChange}
+        placeholder={placeholder}
       />
-      {!value && isFocused && (
-        <div id={`${label}-error`}>This field is required.</div>
-      )}
     </div>
   );
 };
