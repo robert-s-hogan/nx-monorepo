@@ -242,6 +242,9 @@
     "@with-nx/markdown": [
       "libs/markdown/src/index.ts"
     ],
+    "@with-nx/openai-integration": [
+      "libs/openai-integration/src/index.ts"
+    ],
     "@with-nx/nextjs-react-ui": [
       "libs/nextjs-react-ui/src/index.ts"
     ],
@@ -286,6 +289,9 @@
     ],
     "@with-nx/utils": [
       "libs/utils/src/index.ts"
+    ],
+    "openai-integration": [
+      "libs/openai-integration/src/index.ts"
     ]
   },
   "nxJsonPlugins": [
@@ -1564,609 +1570,10 @@
       },
       {
         "file": "tsconfig.base.json",
-        "hash": "3092559789027379150"
+        "hash": "3136493150025496748"
       }
     ],
     "projectFileMap": {
-      "play2winff": [
-        {
-          "file": "apps/play2winff/.eslintrc.json",
-          "hash": "13198375007899171200"
-        },
-        {
-          "file": "apps/play2winff/components/P2WCustomTagIcons.tsx",
-          "hash": "16933261937530054477",
-          "deps": [
-            "npm:react",
-            "npm:react-icons",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/play2winff/components/P2WDraftConfigModal.tsx",
-          "hash": "9033374237364805933",
-          "deps": [
-            "npm:react",
-            "npm:next",
-            "react-ui",
-            "npm:react-icons"
-          ]
-        },
-        {
-          "file": "apps/play2winff/components/P2WDraftTable.tsx",
-          "hash": "4673900504606152687",
-          "deps": [
-            "npm:react",
-            "react-ui",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/play2winff/components/P2WDraftTableEntry.tsx",
-          "hash": "8863453096425507448",
-          "deps": [
-            "npm:react",
-            "react-ui",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/play2winff/components/P2WEspnNewsFeed.tsx",
-          "hash": "2355747322215737876",
-          "deps": [
-            "react-ui"
-          ]
-        },
-        {
-          "file": "apps/play2winff/components/P2WFFHeader.tsx",
-          "hash": "6077444147067458683",
-          "deps": [
-            "npm:react",
-            "generic-ui",
-            "npm:next",
-            "theme",
-            "npm:react-icons"
-          ]
-        },
-        {
-          "file": "apps/play2winff/components/P2WFFLayout.tsx",
-          "hash": "1556146233924069829",
-          "deps": [
-            "nextjs-react-ui",
-            "react-ui",
-            "types"
-          ]
-        },
-        {
-          "file": "apps/play2winff/components/P2WLegendSidebar.tsx",
-          "hash": "2282183483947566745",
-          "deps": [
-            "npm:react",
-            "npm:react-icons",
-            "react-ui",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/play2winff/components/P2WPlayersWithHighVariability.tsx",
-          "hash": "10239821898500524612",
-          "deps": [
-            "npm:react",
-            "npm:d3",
-            "react-ui"
-          ]
-        },
-        {
-          "file": "apps/play2winff/components/P2WRoster.tsx",
-          "hash": "18224029877559393586",
-          "deps": [
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/play2winff/components/P2WSection.tsx",
-          "hash": "12716880846949634445",
-          "deps": [
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/harrisFootball/081623.txt",
-          "hash": "6019636583514278578"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/harrisFootball/082123.txt",
-          "hash": "149000329389807773"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/harrisFootball/082323.txt",
-          "hash": "8984154845132979398"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/harrisFootball/082423.txt",
-          "hash": "9110394292799886499"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/harrisFootball/082923.txt",
-          "hash": "11980723725578205556"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/harrisFootball/083123.txt",
-          "hash": "14099789667384436690"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/harrisFootball/090123.txt",
-          "hash": "17370954572843613204"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/harrisFootball/index.ts",
-          "hash": "17866228834225978956"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/harrisFootball/tags.ts",
-          "hash": "1572620908698307148"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/ppr/10.ts",
-          "hash": "14162943818750521347"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/ppr/12.ts",
-          "hash": "12512779762673363074"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/ppr/8.ts",
-          "hash": "9157452355414822539"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/yahoo/index.ts",
-          "hash": "12462245089171254184"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/yahoo/xrank_yahoo.ts",
-          "hash": "4453637869643562425"
-        },
-        {
-          "file": "apps/play2winff/data/adp/2023/yahoo/yahoo_0821023.txt",
-          "hash": "4613832458837663707"
-        },
-        {
-          "file": "apps/play2winff/hooks/useADPData.ts",
-          "hash": "1598514563173428153",
-          "deps": [
-            "npm:swr"
-          ]
-        },
-        {
-          "file": "apps/play2winff/hooks/useDraftedPlayers.ts",
-          "hash": "17515738723196564084",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/play2winff/hooks/useEspnNews.ts",
-          "hash": "14097070568516103893",
-          "deps": [
-            "npm:swr"
-          ]
-        },
-        {
-          "file": "apps/play2winff/hooks/useHarrisRankings.ts",
-          "hash": "15389264931804182488",
-          "deps": [
-            "npm:swr"
-          ]
-        },
-        {
-          "file": "apps/play2winff/hooks/useMergedData.ts",
-          "hash": "16793188655683749055",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/play2winff/hooks/useYahooAdp.ts",
-          "hash": "16669951250554629389",
-          "deps": [
-            "npm:swr"
-          ]
-        },
-        {
-          "file": "apps/play2winff/index.d.ts",
-          "hash": "5498222895072842432"
-        },
-        {
-          "file": "apps/play2winff/jest.config.ts",
-          "hash": "3344361354120741956"
-        },
-        {
-          "file": "apps/play2winff/next-env.d.ts",
-          "hash": "5909181270615354023"
-        },
-        {
-          "file": "apps/play2winff/next.config.js",
-          "hash": "5577416239345505200",
-          "deps": [
-            "npm:@nrwl/next"
-          ]
-        },
-        {
-          "file": "apps/play2winff/pages/_app.tsx",
-          "hash": "13427504509427764428",
-          "deps": [
-            "npm:next",
-            "theme"
-          ]
-        },
-        {
-          "file": "apps/play2winff/pages/adp.tsx",
-          "hash": "12768751330421074008",
-          "deps": [
-            "npm:react",
-            "react-ui"
-          ]
-        },
-        {
-          "file": "apps/play2winff/pages/api/fetchFFCalcAdp.ts",
-          "hash": "16082419467849863165"
-        },
-        {
-          "file": "apps/play2winff/pages/api/harrisRankings.ts",
-          "hash": "16682942281756729000"
-        },
-        {
-          "file": "apps/play2winff/pages/api/mergeDatasets.ts",
-          "hash": "8493672831103523768",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/play2winff/pages/api/yahooAdp.ts",
-          "hash": "8135974888818429619",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/play2winff/pages/articles/[slug].tsx",
-          "hash": "17235878983040573664",
-          "deps": [
-            "npm:axios",
-            "react-ui"
-          ]
-        },
-        {
-          "file": "apps/play2winff/pages/articles/index.tsx",
-          "hash": "5457339281876186706",
-          "deps": [
-            "npm:axios",
-            "npm:next",
-            "react-ui",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/play2winff/pages/draft.tsx",
-          "hash": "11104849797241347538",
-          "deps": [
-            "react-ui",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/play2winff/pages/index.tsx",
-          "hash": "17533060307092357808",
-          "deps": [
-            "npm:react",
-            "react-ui",
-            "generic-ui",
-            "npm:next",
-            "npm:react-icons"
-          ]
-        },
-        {
-          "file": "apps/play2winff/postcss.config.js",
-          "hash": "2759402739052110475",
-          "deps": [
-            "npm:path"
-          ]
-        },
-        {
-          "file": "apps/play2winff/project.json",
-          "hash": "7003224970006973013"
-        },
-        {
-          "file": "apps/play2winff/public/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/play2winff/specs/index.spec.tsx",
-          "hash": "11056183168799669859",
-          "deps": [
-            "npm:react",
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "apps/play2winff/styles/styles.css",
-          "hash": "12191519380457607809"
-        },
-        {
-          "file": "apps/play2winff/styles/themes.ts",
-          "hash": "17152389838707343074"
-        },
-        {
-          "file": "apps/play2winff/tailwind.config.js",
-          "hash": "891333917439540086",
-          "deps": [
-            "npm:@nrwl/react",
-            "npm:path"
-          ]
-        },
-        {
-          "file": "apps/play2winff/tsconfig.json",
-          "hash": "10622235928137887514"
-        },
-        {
-          "file": "apps/play2winff/tsconfig.spec.json",
-          "hash": "6922413205408300107"
-        },
-        {
-          "file": "apps/play2winff/utils/draftTableUtils.ts",
-          "hash": "7423749064211084911"
-        },
-        {
-          "file": "apps/play2winff/utils/fetchNews.ts",
-          "hash": "14355293306226757889",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "apps/play2winff/utils/helper.ts",
-          "hash": "14917750568745167717"
-        }
-      ],
-      "store-form-form": [
-        {
-          "file": "libs/store/form/.babelrc",
-          "hash": "11855890993922274285"
-        },
-        {
-          "file": "libs/store/form/.eslintrc.json",
-          "hash": "2253930940963648246"
-        },
-        {
-          "file": "libs/store/form/README.md",
-          "hash": "7194608432204897293"
-        },
-        {
-          "file": "libs/store/form/project.json",
-          "hash": "14896188918752204768"
-        },
-        {
-          "file": "libs/store/form/src/index.ts",
-          "hash": "3214388171426379740"
-        },
-        {
-          "file": "libs/store/form/src/lib/formSlice.test.ts",
-          "hash": "15121924959445761665"
-        },
-        {
-          "file": "libs/store/form/src/lib/formSlice.ts",
-          "hash": "5020416182166698691",
-          "deps": [
-            "npm:@reduxjs/toolkit"
-          ]
-        },
-        {
-          "file": "libs/store/form/tsconfig.json",
-          "hash": "13090035453275662468"
-        },
-        {
-          "file": "libs/store/form/tsconfig.lib.json",
-          "hash": "15780310509971588018"
-        }
-      ],
-      "jhogancom": [
-        {
-          "file": "apps/jhogancom/.eslintrc.json",
-          "hash": "13553100301457832368"
-        },
-        {
-          "file": "apps/jhogancom/components/JHFooter.tsx",
-          "hash": "3406578060491022097",
-          "deps": [
-            "npm:next",
-            "react-ui",
-            "icons"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/components/JHHeader.tsx",
-          "hash": "19272813044505243",
-          "deps": [
-            "npm:next",
-            "react-ui",
-            "generic-ui",
-            "theme",
-            "npm:react-icons",
-            "icons",
-            "npm:react",
-            "react-hooks"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/components/JHLayout.tsx",
-          "hash": "5678423249715363213",
-          "deps": [
-            "npm:next",
-            "nextjs-react-ui",
-            "react-ui",
-            "types"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/components/JHModal.tsx",
-          "hash": "11434578310947869427",
-          "deps": [
-            "npm:react",
-            "npm:@headlessui/react",
-            "npm:react-icons",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/components/JHProjectSection.tsx",
-          "hash": "6538677630654067444",
-          "deps": [
-            "npm:react",
-            "npm:next",
-            "react-ui",
-            "npm:react-icons"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/components/JHSection.tsx",
-          "hash": "17168549625364384033",
-          "deps": [
-            "utils"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/components/JHSocialMediaIcons.tsx",
-          "hash": "11412981423352721102",
-          "deps": [
-            "npm:next",
-            "react-ui",
-            "npm:react-icons"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/data/projects.ts",
-          "hash": "953483986262042906"
-        },
-        {
-          "file": "apps/jhogancom/index.d.ts",
-          "hash": "5498222895072842432"
-        },
-        {
-          "file": "apps/jhogancom/jest.config.ts",
-          "hash": "6573888779509513737"
-        },
-        {
-          "file": "apps/jhogancom/next-env.d.ts",
-          "hash": "5909181270615354023"
-        },
-        {
-          "file": "apps/jhogancom/next.config.js",
-          "hash": "17473819663172187398",
-          "deps": [
-            "npm:@nrwl/next"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/pages/_app.tsx",
-          "hash": "5433977724752637095",
-          "deps": [
-            "npm:react",
-            "theme",
-            "analytics",
-            "npm:react-hotjar",
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/pages/_document.tsx",
-          "hash": "3437722727498505106",
-          "deps": [
-            "npm:next",
-            "theme"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/pages/api/projects/index.tsx",
-          "hash": "12002647064945287700"
-        },
-        {
-          "file": "apps/jhogancom/pages/index.tsx",
-          "hash": "7524216529101909510",
-          "deps": [
-            "npm:react",
-            "npm:next",
-            "react-ui",
-            "generic-ui",
-            "theme"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/pages/projects/[slug].tsx",
-          "hash": "2422918223312615992",
-          "deps": [
-            "npm:next",
-            "react-ui",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/pages/projects/index.tsx",
-          "hash": "17753699321069228530"
-        },
-        {
-          "file": "apps/jhogancom/postcss.config.js",
-          "hash": "2759402739052110475",
-          "deps": [
-            "npm:path"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/project.json",
-          "hash": "853118835753746268"
-        },
-        {
-          "file": "apps/jhogancom/public/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/jhogancom/public/site.webmanifest",
-          "hash": "11205980641497128048"
-        },
-        {
-          "file": "apps/jhogancom/styles/styles.css",
-          "hash": "17386549988504536459"
-        },
-        {
-          "file": "apps/jhogancom/styles/themes.ts",
-          "hash": "1330276553448551898"
-        },
-        {
-          "file": "apps/jhogancom/tailwind.config.js",
-          "hash": "11070597259003322828",
-          "deps": [
-            "npm:@nrwl/react",
-            "npm:path",
-            "npm:../../tailwind-workspace-preset.js"
-          ]
-        },
-        {
-          "file": "apps/jhogancom/tsconfig.json",
-          "hash": "15982959116379451949"
-        },
-        {
-          "file": "apps/jhogancom/tsconfig.spec.json",
-          "hash": "6932660931697717727"
-        },
-        {
-          "file": "apps/jhogancom/types/custom.d.ts",
-          "hash": "13450934908612670159"
-        },
-        {
-          "file": "apps/jhogancom/types/declarations.d.ts",
-          "hash": "3045620673670422794"
-        }
-      ],
       "theme": [
         {
           "file": "libs/theme/.babelrc",
@@ -2247,402 +1654,126 @@
           "hash": "8252693981156152688"
         }
       ],
-      "swapi-cards": [
+      "headless-ui": [
         {
-          "file": "apps/swapi-cards/.eslintrc.json",
-          "hash": "3145274370845342592"
+          "file": "libs/headless-ui/.babelrc",
+          "hash": "2946678488919325452"
         },
         {
-          "file": "apps/swapi-cards/components/SWRConfigWapper.server.tsx",
-          "hash": "12900143559586948538",
-          "deps": [
-            "npm:react",
-            "npm:swr"
-          ]
+          "file": "libs/headless-ui/.eslintrc.json",
+          "hash": "11012487992710232822"
         },
         {
-          "file": "apps/swapi-cards/components/SwapiCardsCard.tsx",
-          "hash": "10093778567447853018",
-          "deps": [
-            "npm:react"
-          ]
+          "file": "libs/headless-ui/README.md",
+          "hash": "11836171052717475577"
         },
         {
-          "file": "apps/swapi-cards/components/SwapiCardsFace.tsx",
-          "hash": "14129865096810467575",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi-cards/components/SwapiCardsFooter.tsx",
-          "hash": "16292266632218702120",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/swapi-cards/components/SwapiCardsHeader.tsx",
-          "hash": "3053594446273461545"
-        },
-        {
-          "file": "apps/swapi-cards/components/SwapiCardsHero.tsx",
-          "hash": "1316727791556197629"
-        },
-        {
-          "file": "apps/swapi-cards/components/SwapiCardsLoading.tsx",
-          "hash": "8900873705235497074",
-          "deps": [
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi-cards/components/SwapiCardsLoadingCard.tsx",
-          "hash": "8015735042917025743"
-        },
-        {
-          "file": "apps/swapi-cards/components/SwapiCardsPagination.tsx",
-          "hash": "2967727882019229178",
-          "deps": [
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi-cards/components/SwapiCardsSearchBar.tsx",
-          "hash": "9213009188849819547",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi-cards/components/background/HomeworldBackground.tsx",
-          "hash": "9086824706610670410",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi-cards/components/background/SwapiCardsTerrain.tsx",
-          "hash": "16617673611308516683"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsAirlessAsteroid.tsx",
-          "hash": "2157174144903747697"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsBamboo.tsx",
-          "hash": "6099521306209085468"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsBeach.tsx",
-          "hash": "731860645371834044"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsBog.tsx",
-          "hash": "15040209912723785076"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsCanyon.tsx",
-          "hash": "16840970831373226738"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsCave.tsx",
-          "hash": "1119033966212577780"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsCityscape.tsx",
-          "hash": "15440290263790694399"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsCliff.tsx",
-          "hash": "8985995570514430009"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsDesert.tsx",
-          "hash": "6648883998764073195"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsDesertCactus.tsx",
-          "hash": "4268447992946897744"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsFarmland.tsx",
-          "hash": "980537595332813134"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsFiord.tsx",
-          "hash": "11985910284694242115"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsForest.tsx",
-          "hash": "16595123289835702586"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsForestNight.tsx",
-          "hash": "5106560697060604137"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsForestPines.tsx",
-          "hash": "10392281686195145437"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsGasGiant.tsx",
-          "hash": "5215769545610057195"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsGlacier.tsx",
-          "hash": "545458185280323163"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsGlacierWithSun.tsx",
-          "hash": "10502300632498540412"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsHill.tsx",
-          "hash": "17646114962777119950"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsIceberg.tsx",
-          "hash": "10894988314202385922"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsIsland.tsx",
-          "hash": "14361558733995871128"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsLake.tsx",
-          "hash": "15031399214070519135"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsMachair.tsx",
-          "hash": "17908205041538494445"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsMarsh.tsx",
-          "hash": "1941573104174450760"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsMegalith.tsx",
-          "hash": "14053450055221293180"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsMountainHills.tsx",
-          "hash": "20351490141040625"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsMountains.tsx",
-          "hash": "8153885276851633665"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsMountainsLake.tsx",
-          "hash": "12484141880230955973"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsOcean.tsx",
-          "hash": "11179043205862279743"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsPlains.tsx",
-          "hash": "11097037712554008793"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsPrairie.tsx",
-          "hash": "605289164720760075"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsRainforest.tsx",
-          "hash": "6279857367977841616"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsRainforestTwo.tsx",
-          "hash": "9316128914587187733"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsRockyIsland.tsx",
-          "hash": "5422416000861764167"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsRuins.tsx",
-          "hash": "3757512516756240496"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsSandstone.tsx",
-          "hash": "10833556075859140599"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsSavannah.tsx",
-          "hash": "7943485082509798788"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsSeaBottomAquarium.tsx",
-          "hash": "17025178959407280644"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsSeaCave.tsx",
-          "hash": "3942562763725032439"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsShrubland.tsx",
-          "hash": "9445373513616400941"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsSunset.tsx",
-          "hash": "17992276504978073167"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsTaiga.tsx",
-          "hash": "16989986424847689308"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsTundra.tsx",
-          "hash": "11867515879891639223"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsUnknown.tsx",
-          "hash": "10187559495846200747"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsVillage.tsx",
-          "hash": "7049272581895287102"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsVolcano.tsx",
-          "hash": "9292025430101008241"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsWaterfalls.tsx",
-          "hash": "2387468804509118271"
-        },
-        {
-          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsWoodland.tsx",
-          "hash": "3073967557201720035"
-        },
-        {
-          "file": "apps/swapi-cards/data/backup-all-films.ts",
-          "hash": "3575434926226447793"
-        },
-        {
-          "file": "apps/swapi-cards/data/backup-all-people.ts",
-          "hash": "5203415440155124484"
-        },
-        {
-          "file": "apps/swapi-cards/data/backup-all-planets.ts",
-          "hash": "17901385507350755674"
-        },
-        {
-          "file": "apps/swapi-cards/data/backup-all-species.ts",
-          "hash": "2552188097280364263"
-        },
-        {
-          "file": "apps/swapi-cards/data/backup-all-starships.ts",
-          "hash": "8759818335343459704"
-        },
-        {
-          "file": "apps/swapi-cards/data/backup-all-vehicles.ts",
-          "hash": "43006132509218431"
-        },
-        {
-          "file": "apps/swapi-cards/hooks/useSWAPIFetch.ts",
-          "hash": "4707877102482822569",
-          "deps": [
-            "npm:react",
-            "npm:swr",
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "apps/swapi-cards/index.d.ts",
-          "hash": "5498222895072842432"
-        },
-        {
-          "file": "apps/swapi-cards/jest.config.ts",
-          "hash": "3651352540747371347"
-        },
-        {
-          "file": "apps/swapi-cards/next-env.d.ts",
-          "hash": "5909181270615354023"
-        },
-        {
-          "file": "apps/swapi-cards/next.config.js",
-          "hash": "17252635002163063865",
-          "deps": [
-            "npm:@nx/next"
-          ]
-        },
-        {
-          "file": "apps/swapi-cards/postcss.config.js",
+          "file": "libs/headless-ui/postcss.config.js",
           "hash": "2759402739052110475",
           "deps": [
             "npm:path"
           ]
         },
         {
-          "file": "apps/swapi-cards/project.json",
-          "hash": "7853900832080853916"
+          "file": "libs/headless-ui/project.json",
+          "hash": "6452419542085328560"
         },
         {
-          "file": "apps/swapi-cards/public/.gitkeep",
-          "hash": "3244421341483603138"
+          "file": "libs/headless-ui/src/index.ts",
+          "hash": "2816683852290695041"
         },
         {
-          "file": "apps/swapi-cards/specs/index.spec.tsx",
-          "hash": "1288872939091782814",
+          "file": "libs/headless-ui/src/lib/headless-ui-combobox.tsx",
+          "hash": "15504638226965671285",
           "deps": [
             "npm:react",
-            "npm:@testing-library/react"
+            "npm:@headlessui/react"
           ]
         },
         {
-          "file": "apps/swapi-cards/src/app/Icon.tsx",
-          "hash": "7912933126318179253",
-          "deps": [
-            "npm:next",
-            "npm:https://app-assets.vercel.app/apps/swapi-cards/favicon.ico"
-          ]
-        },
-        {
-          "file": "apps/swapi-cards/src/app/api/hello/route.ts",
-          "hash": "495073956729887886"
-        },
-        {
-          "file": "apps/swapi-cards/src/app/global.css",
-          "hash": "9280719285547040115"
-        },
-        {
-          "file": "apps/swapi-cards/src/app/layout.tsx",
-          "hash": "13424330015824689320",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/swapi-cards/src/app/page.tsx",
-          "hash": "556689199465909997",
+          "file": "libs/headless-ui/src/lib/headless-ui-dialog.tsx",
+          "hash": "986264915405895688",
           "deps": [
             "npm:react",
-            "npm:swr",
-            "npm:axios"
+            "npm:@headlessui/react"
           ]
         },
         {
-          "file": "apps/swapi-cards/tailwind.config.js",
-          "hash": "10736774636560410393",
+          "file": "libs/headless-ui/src/lib/headless-ui-disclosure.tsx",
+          "hash": "18247210751457149537",
+          "deps": [
+            "npm:@headlessui/react"
+          ]
+        },
+        {
+          "file": "libs/headless-ui/src/lib/headless-ui-listbox.tsx",
+          "hash": "3070098500853798854",
+          "deps": [
+            "npm:react",
+            "npm:@headlessui/react"
+          ]
+        },
+        {
+          "file": "libs/headless-ui/src/lib/headless-ui-menu.tsx",
+          "hash": "17478665397052062108",
+          "deps": [
+            "npm:@headlessui/react"
+          ]
+        },
+        {
+          "file": "libs/headless-ui/src/lib/headless-ui-popover.tsx",
+          "hash": "2217829449903165260",
+          "deps": [
+            "npm:@headlessui/react"
+          ]
+        },
+        {
+          "file": "libs/headless-ui/src/lib/headless-ui-radio-group.tsx",
+          "hash": "14854804362069648384",
+          "deps": [
+            "npm:react",
+            "npm:@headlessui/react",
+            "npm:react-icons"
+          ]
+        },
+        {
+          "file": "libs/headless-ui/src/lib/headless-ui-switch.tsx",
+          "hash": "17778849127561926596",
+          "deps": [
+            "npm:react",
+            "npm:@headlessui/react"
+          ]
+        },
+        {
+          "file": "libs/headless-ui/src/lib/headless-ui-tabs.tsx",
+          "hash": "4896409525975458264",
+          "deps": [
+            "npm:@headlessui/react"
+          ]
+        },
+        {
+          "file": "libs/headless-ui/src/lib/headless-ui-transition.tsx",
+          "hash": "13963228374952411345",
+          "deps": [
+            "npm:@headlessui/react",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/headless-ui/tailwind.config.js",
+          "hash": "13090734457927965885",
           "deps": [
             "npm:@nx/react",
             "npm:path"
           ]
         },
         {
-          "file": "apps/swapi-cards/tsconfig.json",
-          "hash": "10592203887283964004"
+          "file": "libs/headless-ui/tsconfig.json",
+          "hash": "14088618039610991405"
         },
         {
-          "file": "apps/swapi-cards/tsconfig.spec.json",
-          "hash": "6922413205408300107"
-        },
-        {
-          "file": "apps/swapi-cards/types/index.ts",
-          "hash": "16920553371878086847"
+          "file": "libs/headless-ui/tsconfig.lib.json",
+          "hash": "15147195313780277677"
         }
       ],
       "devblog": [
@@ -2703,6 +1834,13 @@
           "hash": "7550430349620033116"
         },
         {
+          "file": "apps/devblog/components/DevBlogChatBot.tsx",
+          "hash": "12839063780159592740",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
           "file": "apps/devblog/components/DevBlogFooter.tsx",
           "hash": "1110055434790507289",
           "deps": [
@@ -2742,6 +1880,13 @@
             "react-ui",
             "nextjs-react-ui",
             "types"
+          ]
+        },
+        {
+          "file": "apps/devblog/components/DevBlogOpenai.tsx",
+          "hash": "18221704648403486831",
+          "deps": [
+            "npm:openai"
           ]
         },
         {
@@ -2949,6 +2094,20 @@
           ]
         },
         {
+          "file": "apps/devblog/pages/api/assistant.ts",
+          "hash": "13266630010873672814",
+          "deps": [
+            "npm:openai"
+          ]
+        },
+        {
+          "file": "apps/devblog/pages/api/chat.ts",
+          "hash": "8642819663117537211",
+          "deps": [
+            "npm:openai"
+          ]
+        },
+        {
           "file": "apps/devblog/pages/api/pagespeed.ts",
           "hash": "15676132459745298530",
           "deps": [
@@ -2978,12 +2137,14 @@
         },
         {
           "file": "apps/devblog/pages/index.tsx",
-          "hash": "16810723101643266651",
+          "hash": "16147875413616762275",
           "deps": [
+            "npm:react",
             "react-ui",
             "react-hooks",
             "theme",
-            "generic-ui"
+            "generic-ui",
+            "npm:axios"
           ]
         },
         {
@@ -3081,7 +2242,7 @@
         },
         {
           "file": "apps/devblog/tsconfig.json",
-          "hash": "4549117079513823106"
+          "hash": "4940325336183799239"
         },
         {
           "file": "apps/devblog/tsconfig.spec.json",
@@ -3097,412 +2258,6 @@
           "deps": [
             "npm:react-icons"
           ]
-        }
-      ],
-      "analytics": [
-        {
-          "file": "libs/analytics/.babelrc",
-          "hash": "11855890993922274285"
-        },
-        {
-          "file": "libs/analytics/.eslintrc.json",
-          "hash": "10075191527724852300"
-        },
-        {
-          "file": "libs/analytics/README.md",
-          "hash": "6636439242546888407"
-        },
-        {
-          "file": "libs/analytics/project.json",
-          "hash": "705847369081990761"
-        },
-        {
-          "file": "libs/analytics/src/index.ts",
-          "hash": "11003544666517432086"
-        },
-        {
-          "file": "libs/analytics/src/lib/google-tag-manager/google-tag-manager.spec.tsx",
-          "hash": "15233126083404143345",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/analytics/src/lib/google-tag-manager/google-tag-manager.tsx",
-          "hash": "8472705710116840744",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "libs/analytics/src/lib/web-vitals/web-vitals.spec.tsx",
-          "hash": "152800648995265708",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/analytics/src/lib/web-vitals/web-vitals.tsx",
-          "hash": "15009293281355248848",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "libs/analytics/tsconfig.json",
-          "hash": "14088618039610991405"
-        },
-        {
-          "file": "libs/analytics/tsconfig.lib.json",
-          "hash": "8252693981156152688"
-        }
-      ],
-      "headless-ui": [
-        {
-          "file": "libs/headless-ui/.babelrc",
-          "hash": "2946678488919325452"
-        },
-        {
-          "file": "libs/headless-ui/.eslintrc.json",
-          "hash": "11012487992710232822"
-        },
-        {
-          "file": "libs/headless-ui/README.md",
-          "hash": "11836171052717475577"
-        },
-        {
-          "file": "libs/headless-ui/postcss.config.js",
-          "hash": "2759402739052110475",
-          "deps": [
-            "npm:path"
-          ]
-        },
-        {
-          "file": "libs/headless-ui/project.json",
-          "hash": "6452419542085328560"
-        },
-        {
-          "file": "libs/headless-ui/src/index.ts",
-          "hash": "2816683852290695041"
-        },
-        {
-          "file": "libs/headless-ui/src/lib/headless-ui-combobox.tsx",
-          "hash": "15504638226965671285",
-          "deps": [
-            "npm:react",
-            "npm:@headlessui/react"
-          ]
-        },
-        {
-          "file": "libs/headless-ui/src/lib/headless-ui-dialog.tsx",
-          "hash": "986264915405895688",
-          "deps": [
-            "npm:react",
-            "npm:@headlessui/react"
-          ]
-        },
-        {
-          "file": "libs/headless-ui/src/lib/headless-ui-disclosure.tsx",
-          "hash": "18247210751457149537",
-          "deps": [
-            "npm:@headlessui/react"
-          ]
-        },
-        {
-          "file": "libs/headless-ui/src/lib/headless-ui-listbox.tsx",
-          "hash": "3070098500853798854",
-          "deps": [
-            "npm:react",
-            "npm:@headlessui/react"
-          ]
-        },
-        {
-          "file": "libs/headless-ui/src/lib/headless-ui-menu.tsx",
-          "hash": "17478665397052062108",
-          "deps": [
-            "npm:@headlessui/react"
-          ]
-        },
-        {
-          "file": "libs/headless-ui/src/lib/headless-ui-popover.tsx",
-          "hash": "2217829449903165260",
-          "deps": [
-            "npm:@headlessui/react"
-          ]
-        },
-        {
-          "file": "libs/headless-ui/src/lib/headless-ui-radio-group.tsx",
-          "hash": "14854804362069648384",
-          "deps": [
-            "npm:react",
-            "npm:@headlessui/react",
-            "npm:react-icons"
-          ]
-        },
-        {
-          "file": "libs/headless-ui/src/lib/headless-ui-switch.tsx",
-          "hash": "17778849127561926596",
-          "deps": [
-            "npm:react",
-            "npm:@headlessui/react"
-          ]
-        },
-        {
-          "file": "libs/headless-ui/src/lib/headless-ui-tabs.tsx",
-          "hash": "4896409525975458264",
-          "deps": [
-            "npm:@headlessui/react"
-          ]
-        },
-        {
-          "file": "libs/headless-ui/src/lib/headless-ui-transition.tsx",
-          "hash": "13963228374952411345",
-          "deps": [
-            "npm:@headlessui/react",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/headless-ui/tailwind.config.js",
-          "hash": "13090734457927965885",
-          "deps": [
-            "npm:@nx/react",
-            "npm:path"
-          ]
-        },
-        {
-          "file": "libs/headless-ui/tsconfig.json",
-          "hash": "14088618039610991405"
-        },
-        {
-          "file": "libs/headless-ui/tsconfig.lib.json",
-          "hash": "15147195313780277677"
-        }
-      ],
-      "stripe": [
-        {
-          "file": "libs/stripe/.eslintrc.json",
-          "hash": "13365499647183331872"
-        },
-        {
-          "file": "libs/stripe/README.md",
-          "hash": "4231824447805043936"
-        },
-        {
-          "file": "libs/stripe/package.json",
-          "hash": "1985596651746129799",
-          "deps": [
-            "npm:tslib"
-          ]
-        },
-        {
-          "file": "libs/stripe/project.json",
-          "hash": "15781591001086859419"
-        },
-        {
-          "file": "libs/stripe/src/index.ts",
-          "hash": "9819817095137236510"
-        },
-        {
-          "file": "libs/stripe/src/lib/stripe-service.spec.ts",
-          "hash": "12471481273418144859"
-        },
-        {
-          "file": "libs/stripe/src/lib/stripe-service.ts",
-          "hash": "842764081677954672",
-          "deps": [
-            "npm:stripe"
-          ]
-        },
-        {
-          "file": "libs/stripe/tsconfig.json",
-          "hash": "634795086719220447"
-        },
-        {
-          "file": "libs/stripe/tsconfig.lib.json",
-          "hash": "12638394678519115349"
-        }
-      ],
-      "generic-ui": [
-        {
-          "file": "libs/generic-ui/.babelrc",
-          "hash": "9248190419338858614"
-        },
-        {
-          "file": "libs/generic-ui/.eslintrc.json",
-          "hash": "14556524733145915277"
-        },
-        {
-          "file": "libs/generic-ui/.storybook/main.ts",
-          "hash": "16962419683925808421",
-          "deps": [
-            "npm:@storybook/react-vite",
-            "npm:@nx/vite",
-            "npm:vite"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/.storybook/preview.ts",
-          "hash": "13438753209813017957"
-        },
-        {
-          "file": "libs/generic-ui/README.md",
-          "hash": "10840256641724752537"
-        },
-        {
-          "file": "libs/generic-ui/postcss.config.js",
-          "hash": "2759402739052110475",
-          "deps": [
-            "npm:path"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/project.json",
-          "hash": "15364322031254197054"
-        },
-        {
-          "file": "libs/generic-ui/src/index.ts",
-          "hash": "3138619265439261909"
-        },
-        {
-          "file": "libs/generic-ui/src/lib/button/ButtonOverview.stories.tsx",
-          "hash": "9567232776191698882",
-          "deps": [
-            "npm:react",
-            "npm:@storybook/react"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/src/lib/button/button.stories.tsx",
-          "hash": "7595498478645878923",
-          "deps": [
-            "npm:@storybook/react"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/src/lib/button/button.tsx",
-          "hash": "16868742551096871661",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/src/lib/checkbox/checkbox.tsx",
-          "hash": "4273812295367671055",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/src/lib/heading/HeadingOverview.stories.tsx",
-          "hash": "8525750440593659125",
-          "deps": [
-            "npm:react",
-            "npm:@storybook/react"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/src/lib/heading/heading.stories.tsx",
-          "hash": "4675033351295531549",
-          "deps": [
-            "npm:react",
-            "npm:@storybook/react"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/src/lib/heading/heading.tsx",
-          "hash": "377166984207495874"
-        },
-        {
-          "file": "libs/generic-ui/src/lib/icon-button/icon-button.tsx",
-          "hash": "13712975128687880698",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/src/lib/input/input.tsx",
-          "hash": "5175283609328134878",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/src/lib/link/link.tsx",
-          "hash": "8878584036246445945"
-        },
-        {
-          "file": "libs/generic-ui/src/lib/list/list.tsx",
-          "hash": "8001232093908370261"
-        },
-        {
-          "file": "libs/generic-ui/src/lib/section/section.tsx",
-          "hash": "9045582485003340126",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/src/lib/select/select.tsx",
-          "hash": "16715221800121653418",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/src/lib/table/table.tsx",
-          "hash": "8414714111014377283"
-        },
-        {
-          "file": "libs/generic-ui/src/lib/text/TextOverview.stories.tsx",
-          "hash": "14832154254295412749",
-          "deps": [
-            "npm:react",
-            "npm:@storybook/react"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/src/lib/text/text.stories.tsx",
-          "hash": "922263407598345191",
-          "deps": [
-            "npm:react",
-            "npm:@storybook/react"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/src/lib/text/text.tsx",
-          "hash": "8522492717995423969"
-        },
-        {
-          "file": "libs/generic-ui/src/lib/textarea/textarea.tsx",
-          "hash": "12720613052455387345",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/src/styles.css",
-          "hash": "2866083945719690482"
-        },
-        {
-          "file": "libs/generic-ui/tailwind.config.js",
-          "hash": "13090734457927965885",
-          "deps": [
-            "npm:@nx/react",
-            "npm:path"
-          ]
-        },
-        {
-          "file": "libs/generic-ui/tsconfig.json",
-          "hash": "4317979821831494925"
-        },
-        {
-          "file": "libs/generic-ui/tsconfig.lib.json",
-          "hash": "4580231268695066544"
-        },
-        {
-          "file": "libs/generic-ui/tsconfig.storybook.json",
-          "hash": "9877693811502968150"
         }
       ],
       "conquest": [
@@ -4101,1743 +2856,402 @@
           "hash": "11028776313263289362"
         }
       ],
-      "store": [
+      "swapi-cards": [
         {
-          "file": "libs/store/.babelrc",
-          "hash": "11855890993922274285"
+          "file": "apps/swapi-cards/.eslintrc.json",
+          "hash": "3145274370845342592"
         },
         {
-          "file": "libs/store/.eslintrc.json",
-          "hash": "10075191527724852300"
-        },
-        {
-          "file": "libs/store/README.md",
-          "hash": "14268224184050075617"
-        },
-        {
-          "file": "libs/store/project.json",
-          "hash": "15867125618561707610"
-        },
-        {
-          "file": "libs/store/src/index.ts",
-          "hash": "12507249071764241272",
-          "deps": [
-            "store-products",
-            "store-cart",
-            "store-checkout",
-            "store-form-form"
-          ]
-        },
-        {
-          "file": "libs/store/src/lib/store.test.ts",
-          "hash": "5370512323318097846",
-          "deps": [
-            "npm:@reduxjs/toolkit",
-            "store-products",
-            "store-cart",
-            "store-checkout",
-            "store-form-form"
-          ]
-        },
-        {
-          "file": "libs/store/src/lib/store.ts",
-          "hash": "5828056714421747917",
-          "deps": [
-            "npm:@reduxjs/toolkit",
-            "store-products"
-          ]
-        },
-        {
-          "file": "libs/store/tsconfig.json",
-          "hash": "14088618039610991405"
-        },
-        {
-          "file": "libs/store/tsconfig.lib.json",
-          "hash": "8252693981156152688"
-        }
-      ],
-      "utils": [
-        {
-          "file": "libs/utils/.babelrc",
-          "hash": "14637968239574891430"
-        },
-        {
-          "file": "libs/utils/.eslintrc.json",
-          "hash": "13800677001662881425"
-        },
-        {
-          "file": "libs/utils/README.md",
-          "hash": "10282993753073018259"
-        },
-        {
-          "file": "libs/utils/jest.config.ts",
-          "hash": "11641990694557527412"
-        },
-        {
-          "file": "libs/utils/project.json",
-          "hash": "541840731613776322"
-        },
-        {
-          "file": "libs/utils/src/index.ts",
-          "hash": "15229644069444018825"
-        },
-        {
-          "file": "libs/utils/src/lib/array-utils.ts",
-          "hash": "13746136419518576973"
-        },
-        {
-          "file": "libs/utils/src/lib/class-utils.ts",
-          "hash": "18373348738859304808"
-        },
-        {
-          "file": "libs/utils/src/lib/format-utils.ts",
-          "hash": "14121992085572987479"
-        },
-        {
-          "file": "libs/utils/src/lib/function-utils.ts",
-          "hash": "18178309074210125317"
-        },
-        {
-          "file": "libs/utils/src/lib/id-utils.ts",
-          "hash": "10478553703035902707"
-        },
-        {
-          "file": "libs/utils/src/lib/math-utils.ts",
-          "hash": "2378001861957132755"
-        },
-        {
-          "file": "libs/utils/src/lib/number-utils.ts",
-          "hash": "10116015359589521898"
-        },
-        {
-          "file": "libs/utils/src/lib/object-utils.ts",
-          "hash": "6888309748082788212"
-        },
-        {
-          "file": "libs/utils/src/lib/string-utils.ts",
-          "hash": "4699038961524267795"
-        },
-        {
-          "file": "libs/utils/src/lib/validation-utils.ts",
-          "hash": "7735935070756764627"
-        },
-        {
-          "file": "libs/utils/tsconfig.json",
-          "hash": "17079550796797979564"
-        },
-        {
-          "file": "libs/utils/tsconfig.lib.json",
-          "hash": "1398023143379268451"
-        },
-        {
-          "file": "libs/utils/tsconfig.spec.json",
-          "hash": "6514620907549802163"
-        }
-      ],
-      "icons": [
-        {
-          "file": "libs/icons/.babelrc",
-          "hash": "11855890993922274285"
-        },
-        {
-          "file": "libs/icons/.eslintrc.json",
-          "hash": "10075191527724852300"
-        },
-        {
-          "file": "libs/icons/.storybook/main.js",
-          "hash": "2390471499960484535",
-          "deps": [
-            "npm:../../../.storybook/main"
-          ]
-        },
-        {
-          "file": "libs/icons/.storybook/tsconfig.json",
-          "hash": "3354255873466980870"
-        },
-        {
-          "file": "libs/icons/README.md",
-          "hash": "4566149850319672493"
-        },
-        {
-          "file": "libs/icons/project.json",
-          "hash": "10678233911565100645"
-        },
-        {
-          "file": "libs/icons/src/index.ts",
-          "hash": "7152361818486043707"
-        },
-        {
-          "file": "libs/icons/src/lib/Custom100.tsx",
-          "hash": "6411288645703843332",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/CustomArrowCurvedDownRight.tsx",
-          "hash": "12800022818201217885",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/CustomArrowTrendingUp.tsx",
-          "hash": "13812402955305804543",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/CustomChickenScratch.tsx",
-          "hash": "5349460957378835754",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/CustomCursiveSquiggles.tsx",
-          "hash": "11375511597047776724",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/CustomFireworks.tsx",
-          "hash": "16472468283378341088",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/CustomHeart.tsx",
-          "hash": "6277745376434915016",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/CustomJHLogo.tsx",
-          "hash": "8175777207668533406",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/CustomPencilDrawing.tsx",
-          "hash": "17959329411917693558",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/CustomRSHLogo.tsx",
-          "hash": "1670586043513917627",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/CustomReflection.tsx",
-          "hash": "8557260803287941624",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/CustomSmileyFace.tsx",
-          "hash": "17917572602672778798",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/CustomZap.tsx",
-          "hash": "12948405295277764212",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/DynamicIconWrapper.tsx",
-          "hash": "8235786206212006248",
+          "file": "apps/swapi-cards/components/SWRConfigWapper.server.tsx",
+          "hash": "12900143559586948538",
           "deps": [
             "npm:react",
-            "npm:next",
-            "types"
+            "npm:swr"
           ]
         },
         {
-          "file": "libs/icons/src/lib/arrow-curved-down-right.tsx",
-          "hash": "18102429010290332737",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "libs/icons/src/lib/icons.txt",
-          "hash": "7562224562660439273"
-        },
-        {
-          "file": "libs/icons/tsconfig.json",
-          "hash": "604079830671975718"
-        },
-        {
-          "file": "libs/icons/tsconfig.lib.json",
-          "hash": "14482671276356339215"
-        }
-      ],
-      "react-hooks": [
-        {
-          "file": "libs/react-hooks/.babelrc",
-          "hash": "11855890993922274285"
-        },
-        {
-          "file": "libs/react-hooks/.eslintrc.json",
-          "hash": "16770148760052722796"
-        },
-        {
-          "file": "libs/react-hooks/.storybook/main.js",
-          "hash": "14229570845267347664",
-          "deps": [
-            "npm:../../../.storybook/main"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/.storybook/preview.js",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "libs/react-hooks/.storybook/tsconfig.json",
-          "hash": "3354255873466980870"
-        },
-        {
-          "file": "libs/react-hooks/README.md",
-          "hash": "15013026264580810698"
-        },
-        {
-          "file": "libs/react-hooks/project.json",
-          "hash": "7021703464110298716"
-        },
-        {
-          "file": "libs/react-hooks/src/index.ts",
-          "hash": "16775988737090894592"
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-debounce/use-debounce.spec.tsx",
-          "hash": "12109755377311903071",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-debounce/use-debounce.tsx",
-          "hash": "14775632775173782730",
+          "file": "apps/swapi-cards/components/SwapiCardsCard.tsx",
+          "hash": "10093778567447853018",
           "deps": [
             "npm:react"
           ]
         },
         {
-          "file": "libs/react-hooks/src/lib/use-exclude-terms/use-exclude-terms.module.css",
-          "hash": "125145030238681982"
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-exclude-terms/use-exclude-terms.spec.tsx",
-          "hash": "13854663103151503370",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-exclude-terms/use-exclude-terms.tsx",
-          "hash": "3477655041744707362",
+          "file": "apps/swapi-cards/components/SwapiCardsFace.tsx",
+          "hash": "14129865096810467575",
           "deps": [
             "npm:react"
           ]
         },
         {
-          "file": "libs/react-hooks/src/lib/use-fetch/use-fetch.spec.tsx",
-          "hash": "8755956831159986377",
+          "file": "apps/swapi-cards/components/SwapiCardsFooter.tsx",
+          "hash": "16292266632218702120",
           "deps": [
-            "npm:@testing-library/react"
+            "npm:next"
           ]
         },
         {
-          "file": "libs/react-hooks/src/lib/use-fetch/use-fetch.tsx",
-          "hash": "11542123629313390061",
+          "file": "apps/swapi-cards/components/SwapiCardsHeader.tsx",
+          "hash": "3053594446273461545"
+        },
+        {
+          "file": "apps/swapi-cards/components/SwapiCardsHero.tsx",
+          "hash": "1316727791556197629"
+        },
+        {
+          "file": "apps/swapi-cards/components/SwapiCardsLoading.tsx",
+          "hash": "8900873705235497074",
+          "deps": [
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi-cards/components/SwapiCardsLoadingCard.tsx",
+          "hash": "8015735042917025743"
+        },
+        {
+          "file": "apps/swapi-cards/components/SwapiCardsPagination.tsx",
+          "hash": "2967727882019229178",
+          "deps": [
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi-cards/components/SwapiCardsSearchBar.tsx",
+          "hash": "9213009188849819547",
           "deps": [
             "npm:react"
           ]
         },
         {
-          "file": "libs/react-hooks/src/lib/use-file-type-selection/use-file-type-selection.module.css",
-          "hash": "125145030238681982"
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-file-type-selection/use-file-type-selection.spec.tsx",
-          "hash": "14705850381361806624",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-file-type-selection/use-file-type-selection.tsx",
-          "hash": "870747777918655205",
+          "file": "apps/swapi-cards/components/background/HomeworldBackground.tsx",
+          "hash": "9086824706610670410",
           "deps": [
             "npm:react"
           ]
         },
         {
-          "file": "libs/react-hooks/src/lib/use-handle-backdrop-click/use-handle-backdrop-click.module.css",
-          "hash": "125145030238681982"
+          "file": "apps/swapi-cards/components/background/SwapiCardsTerrain.tsx",
+          "hash": "16617673611308516683"
         },
         {
-          "file": "libs/react-hooks/src/lib/use-handle-backdrop-click/use-handle-backdrop-click.spec.tsx",
-          "hash": "16423142260211999273",
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsAirlessAsteroid.tsx",
+          "hash": "2157174144903747697"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsBamboo.tsx",
+          "hash": "6099521306209085468"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsBeach.tsx",
+          "hash": "731860645371834044"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsBog.tsx",
+          "hash": "15040209912723785076"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsCanyon.tsx",
+          "hash": "16840970831373226738"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsCave.tsx",
+          "hash": "1119033966212577780"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsCityscape.tsx",
+          "hash": "15440290263790694399"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsCliff.tsx",
+          "hash": "8985995570514430009"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsDesert.tsx",
+          "hash": "6648883998764073195"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsDesertCactus.tsx",
+          "hash": "4268447992946897744"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsFarmland.tsx",
+          "hash": "980537595332813134"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsFiord.tsx",
+          "hash": "11985910284694242115"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsForest.tsx",
+          "hash": "16595123289835702586"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsForestNight.tsx",
+          "hash": "5106560697060604137"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsForestPines.tsx",
+          "hash": "10392281686195145437"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsGasGiant.tsx",
+          "hash": "5215769545610057195"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsGlacier.tsx",
+          "hash": "545458185280323163"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsGlacierWithSun.tsx",
+          "hash": "10502300632498540412"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsHill.tsx",
+          "hash": "17646114962777119950"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsIceberg.tsx",
+          "hash": "10894988314202385922"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsIsland.tsx",
+          "hash": "14361558733995871128"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsLake.tsx",
+          "hash": "15031399214070519135"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsMachair.tsx",
+          "hash": "17908205041538494445"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsMarsh.tsx",
+          "hash": "1941573104174450760"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsMegalith.tsx",
+          "hash": "14053450055221293180"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsMountainHills.tsx",
+          "hash": "20351490141040625"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsMountains.tsx",
+          "hash": "8153885276851633665"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsMountainsLake.tsx",
+          "hash": "12484141880230955973"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsOcean.tsx",
+          "hash": "11179043205862279743"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsPlains.tsx",
+          "hash": "11097037712554008793"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsPrairie.tsx",
+          "hash": "605289164720760075"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsRainforest.tsx",
+          "hash": "6279857367977841616"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsRainforestTwo.tsx",
+          "hash": "9316128914587187733"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsRockyIsland.tsx",
+          "hash": "5422416000861764167"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsRuins.tsx",
+          "hash": "3757512516756240496"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsSandstone.tsx",
+          "hash": "10833556075859140599"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsSavannah.tsx",
+          "hash": "7943485082509798788"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsSeaBottomAquarium.tsx",
+          "hash": "17025178959407280644"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsSeaCave.tsx",
+          "hash": "3942562763725032439"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsShrubland.tsx",
+          "hash": "9445373513616400941"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsSunset.tsx",
+          "hash": "17992276504978073167"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsTaiga.tsx",
+          "hash": "16989986424847689308"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsTundra.tsx",
+          "hash": "11867515879891639223"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsUnknown.tsx",
+          "hash": "10187559495846200747"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsVillage.tsx",
+          "hash": "7049272581895287102"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsVolcano.tsx",
+          "hash": "9292025430101008241"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsWaterfalls.tsx",
+          "hash": "2387468804509118271"
+        },
+        {
+          "file": "apps/swapi-cards/components/background/scenes/SwapiCardsWoodland.tsx",
+          "hash": "3073967557201720035"
+        },
+        {
+          "file": "apps/swapi-cards/data/backup-all-films.ts",
+          "hash": "3575434926226447793"
+        },
+        {
+          "file": "apps/swapi-cards/data/backup-all-people.ts",
+          "hash": "5203415440155124484"
+        },
+        {
+          "file": "apps/swapi-cards/data/backup-all-planets.ts",
+          "hash": "17901385507350755674"
+        },
+        {
+          "file": "apps/swapi-cards/data/backup-all-species.ts",
+          "hash": "2552188097280364263"
+        },
+        {
+          "file": "apps/swapi-cards/data/backup-all-starships.ts",
+          "hash": "8759818335343459704"
+        },
+        {
+          "file": "apps/swapi-cards/data/backup-all-vehicles.ts",
+          "hash": "43006132509218431"
+        },
+        {
+          "file": "apps/swapi-cards/hooks/useSWAPIFetch.ts",
+          "hash": "4707877102482822569",
           "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-handle-backdrop-click/use-handle-backdrop-click.tsx",
-          "hash": "239899479632839502",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-local-storage/use-local-storage.spec.tsx",
-          "hash": "15435943450782242850",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-local-storage/use-local-storage.tsx",
-          "hash": "1783946739332718879",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-modal-manager/use-modal-manager.ts",
-          "hash": "5202168801371896928",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-modal/custom-modal.stories.mdx",
-          "hash": "6563621494131387692"
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-modal/custom-modal.stories.tsx",
-          "hash": "14428506012286977150",
-          "deps": [
-            "npm:@storybook/react",
-            "react-ui"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-modal/use-modal.spec.tsx",
-          "hash": "6302941275576128362",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-modal/use-modal.stories.mdx",
-          "hash": "1816851668979381020"
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-modal/use-modal.stories.tsx",
-          "hash": "16474904130937096748",
-          "deps": [
-            "npm:@storybook/react",
-            "react-ui"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-modal/use-modal.test.tsx",
-          "hash": "9763624427120268506",
-          "deps": [
-            "npm:@testing-library/react",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-modal/use-modal.ts",
-          "hash": "4520704869195432928",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-multi-step-form/use-multi-step-form.module.css",
-          "hash": "125145030238681982"
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-multi-step-form/use-multi-step-form.spec.tsx",
-          "hash": "3550751049829293701",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-multi-step-form/use-multi-step-form.tsx",
-          "hash": "11543235723102671525",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-search-query/use-search-query.module.css",
-          "hash": "125145030238681982"
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-search-query/use-search-query.spec.tsx",
-          "hash": "11410236832262771272",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/src/lib/use-search-query/use-search-query.ts",
-          "hash": "13481354154690938535",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/react-hooks/tsconfig.json",
-          "hash": "604079830671975718"
-        },
-        {
-          "file": "libs/react-hooks/tsconfig.lib.json",
-          "hash": "6187066142768384327"
-        }
-      ],
-      "store-products": [
-        {
-          "file": "libs/store/products/.babelrc",
-          "hash": "11855890993922274285"
-        },
-        {
-          "file": "libs/store/products/.eslintrc.json",
-          "hash": "18250621763427026584"
-        },
-        {
-          "file": "libs/store/products/README.md",
-          "hash": "2144506583532989340"
-        },
-        {
-          "file": "libs/store/products/project.json",
-          "hash": "17613447229156280681"
-        },
-        {
-          "file": "libs/store/products/src/index.ts",
-          "hash": "3587159585258225869"
-        },
-        {
-          "file": "libs/store/products/src/lib/productsSlice.test.ts",
-          "hash": "11879430342641508013",
-          "deps": [
-            "npm:@reduxjs/toolkit",
-            "npm:axios",
-            "types"
-          ]
-        },
-        {
-          "file": "libs/store/products/src/lib/productsSlice.ts",
-          "hash": "13266967836127258598",
-          "deps": [
-            "npm:@reduxjs/toolkit",
-            "npm:axios",
-            "types"
-          ]
-        },
-        {
-          "file": "libs/store/products/tsconfig.json",
-          "hash": "9466653708934095578"
-        },
-        {
-          "file": "libs/store/products/tsconfig.lib.json",
-          "hash": "8922698259705927128"
-        }
-      ],
-      "firebase": [
-        {
-          "file": "libs/firebase/.eslintrc.json",
-          "hash": "13800677001662881425"
-        },
-        {
-          "file": "libs/firebase/README.md",
-          "hash": "16407784855722291576"
-        },
-        {
-          "file": "libs/firebase/project.json",
-          "hash": "8903381348191217900"
-        },
-        {
-          "file": "libs/firebase/src/index.ts",
-          "hash": "6327093228363833463"
-        },
-        {
-          "file": "libs/firebase/src/lib/firebase-config.ts",
-          "hash": "14202874094397416332",
-          "deps": [
-            "npm:firebase"
-          ]
-        },
-        {
-          "file": "libs/firebase/src/lib/firebase-crud.ts",
-          "hash": "3794639490967552054",
-          "deps": [
-            "npm:firebase"
-          ]
-        },
-        {
-          "file": "libs/firebase/src/lib/types.ts",
-          "hash": "17004575654063341782"
-        },
-        {
-          "file": "libs/firebase/src/lib/useCollection.ts",
-          "hash": "12774692707742141258",
-          "deps": [
+            "npm:react",
             "npm:swr",
-            "npm:firebase"
-          ]
-        },
-        {
-          "file": "libs/firebase/src/lib/useFirestoreCollections.ts",
-          "hash": "17803997253395663136",
-          "deps": [
-            "npm:react",
-            "npm:firebase"
-          ]
-        },
-        {
-          "file": "libs/firebase/tsconfig.json",
-          "hash": "634795086719220447"
-        },
-        {
-          "file": "libs/firebase/tsconfig.lib.json",
-          "hash": "18155349116525859334"
-        }
-      ],
-      "swapi": [
-        {
-          "file": "apps/swapi/.eslintrc.json",
-          "hash": "17145576443519843445"
-        },
-        {
-          "file": "apps/swapi/api/endpoints.ts",
-          "hash": "14513034181606455384"
-        },
-        {
-          "file": "apps/swapi/api/fetcher.ts",
-          "hash": "12429310472243117154",
-          "deps": [
             "npm:axios"
           ]
         },
         {
-          "file": "apps/swapi/api/useSWRApi.ts",
-          "hash": "7824915761893410954",
-          "deps": [
-            "npm:swr"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/CardBack.tsx",
-          "hash": "5581000606512354209",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/CardFilms.tsx",
-          "hash": "4807599704205915629"
-        },
-        {
-          "file": "apps/swapi/components/CardHomeworld.tsx",
-          "hash": "6473394122367735059",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/CardTitle.tsx",
-          "hash": "15652027929824857880",
-          "deps": [
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/CharacterAvatar/index.tsx",
-          "hash": "13098244543196615771",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/CharacterList.tsx",
-          "hash": "3356650013718039011",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/Characters.tsx",
-          "hash": "8345037175677650757",
-          "deps": [
-            "npm:react",
-            "npm:swr",
-            "react-ui",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/Header.tsx",
-          "hash": "5493062755623351583",
-          "deps": [
-            "npm:react-icons"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/Hero.tsx",
-          "hash": "17089017365917685863"
-        },
-        {
-          "file": "apps/swapi/components/Loading.tsx",
-          "hash": "17295757625174212544",
-          "deps": [
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/Pagination.tsx",
-          "hash": "16973705725538449653",
-          "deps": [
-            "react-ui",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/Planets/Planet.tsx",
-          "hash": "14662437479553929091",
-          "deps": [
-            "npm:react",
-            "npm:three"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/Planets/Swapi3DPlanet.tsx",
-          "hash": "191030910263875499",
-          "deps": [
-            "npm:react",
-            "npm:three"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/Planets/textures/swapi_earth.jpg",
-          "hash": "18006222554115595288"
-        },
-        {
-          "file": "apps/swapi/components/Planets/textures/swapi_earth_bump.jpg",
-          "hash": "8250029914168842859"
-        },
-        {
-          "file": "apps/swapi/components/PlanetsCard.tsx",
-          "hash": "14316567976302571469",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/SearchBar.tsx",
-          "hash": "15817068001421375368",
-          "deps": [
-            "npm:react",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/SearchFilter.tsx",
-          "hash": "16913721682394851862",
-          "deps": [
-            "npm:react",
-            "react-ui",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/SwapiCard.tsx",
-          "hash": "16724975381128214556",
-          "deps": [
-            "npm:react",
-            "react-ui",
-            "npm:swr"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/SwapiFooter.tsx",
-          "hash": "1319829324230254472",
-          "deps": [
-            "react-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/SwapiLayout.tsx",
-          "hash": "4726867193918119652",
-          "deps": [
-            "react-ui",
-            "nextjs-react-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/SwapiSearch.tsx",
-          "hash": "11618630342762634903",
-          "deps": [
-            "npm:react",
-            "react-ui",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/SwapiSection.tsx",
-          "hash": "12450177090525354202",
-          "deps": [
-            "react-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/SwapiThemeColorPallete.tsx",
-          "hash": "9664652423471682824",
-          "deps": [
-            "react-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/avatar-components/Ear.tsx",
-          "hash": "12420865354645411625"
-        },
-        {
-          "file": "apps/swapi/components/avatar-components/Eyebrow.tsx",
-          "hash": "3160761326115178407"
-        },
-        {
-          "file": "apps/swapi/components/avatar-components/Eyes.tsx",
-          "hash": "12336293162821989429"
-        },
-        {
-          "file": "apps/swapi/components/avatar-components/Face.tsx",
-          "hash": "13279317730038689569"
-        },
-        {
-          "file": "apps/swapi/components/avatar-components/Hair.tsx",
-          "hash": "13115275144539332878",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/avatar-components/Smile.tsx",
-          "hash": "16086628803154577545"
-        },
-        {
-          "file": "apps/swapi/components/avatar-components/hair.module.css",
-          "hash": "5027622932683948580"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/HomeworldBackground.tsx",
-          "hash": "11642089472026020329",
-          "deps": [
-            "npm:react",
-            "npm:swr",
-            "react-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/barren/Barren.tsx",
-          "hash": "17436507343728124426",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/barren/barren.module.css",
-          "hash": "467678638483796278"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/cityscape/Cityscape.tsx",
-          "hash": "14132739930832712872",
-          "deps": [
-            "npm:react",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/cityscape/cityscape.module.css",
-          "hash": "135237255552994657"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/desert/Desert.tsx",
-          "hash": "824307899648854477",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/forests/Forests.tsx",
-          "hash": "11973272705533077332",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/forests/forests.module.css",
-          "hash": "14036953449813717528"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/gasGiant/GasGiant.tsx",
-          "hash": "7431545944836156261",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/gasGiant/gasGiant.module.css",
-          "hash": "5900034283202796599"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/grasslands/Grasslands.tsx",
-          "hash": "5527009381376149215",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/grasslands/grasslands.module.css",
-          "hash": "6911992994239126065"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/jungle/Jungle.tsx",
-          "hash": "1682444562422665990",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/jungle/jungles.module.css",
-          "hash": "16958889232632169837"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/lakes/Lakes.tsx",
-          "hash": "6540037657749814542",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/lakes/lakes.module.css",
-          "hash": "13946881231980829289"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/mountain/Mountains.tsx",
-          "hash": "14394761798812182166",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/mountain/mountains.module.css",
-          "hash": "5796308620283054360"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/ocean/Ocean.tsx",
-          "hash": "4430998284384184941",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/ocean/ocean.module.css",
-          "hash": "4986747453736970964"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/plains/Plains.tsx",
-          "hash": "14140857301849886308",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/plains/plains.module.css",
-          "hash": "5983345821413370219"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/rocky/Rocky.tsx",
-          "hash": "3664990362008665744",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/rocky/rocky.css",
-          "hash": "6700603864793571561"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/rocky/rocky.scss",
-          "hash": "15835076304512484668"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/rockyIslands/RockyIslands.tsx",
-          "hash": "12889864459523754448",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/rockyIslands/rockyIslands.module.css",
-          "hash": "17708985804359750494"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/scrublands/Scrublands.tsx",
-          "hash": "17340654811958296980",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/scrublands/scrublands.scss",
-          "hash": "12114856730849711241"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/stars/index.tsx",
-          "hash": "8102536637857805607"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/stars/stars.module.css",
-          "hash": "8487557369197218191"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/toxicCloudsea/ToxicCloudsea.tsx",
-          "hash": "18282098741812782941",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/toxicCloudsea/toxicCloudsea.module.css",
-          "hash": "14304112212906848384"
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/unknown/Unknown.tsx",
-          "hash": "4253381216378417239",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/components/homeworldBackground/unknown/unknown.module.css",
-          "hash": "18280562402119896910"
-        },
-        {
-          "file": "apps/swapi/components/species/Droid.tsx",
-          "hash": "1014985473766720609"
-        },
-        {
-          "file": "apps/swapi/components/species/Human.tsx",
-          "hash": "14213016092981139517",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/context/AvatarSizeProvider.tsx",
-          "hash": "9540084429413745912",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/context/ThemeProvider.tsx",
-          "hash": "1604351718644854653",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/data/peopleData.ts",
-          "hash": "5650631952992919486"
-        },
-        {
-          "file": "apps/swapi/hooks/useAvatarSize.ts",
-          "hash": "2590011409354602270",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/hooks/useCharacterProps.ts",
-          "hash": "3033135722991190953",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/icons/SwapiCursiveSVG.tsx",
-          "hash": "5128581909142846454",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/icons/SwapiRightArrow.tsx",
-          "hash": "7637987802923137033",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/icons/SwapiSmileySVG.tsx",
-          "hash": "1837696188949200291",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/swapi/icons/SwapiSunSVG.tsx",
-          "hash": "17307197582779550337"
-        },
-        {
-          "file": "apps/swapi/index.d.ts",
+          "file": "apps/swapi-cards/index.d.ts",
           "hash": "5498222895072842432"
         },
         {
-          "file": "apps/swapi/jest.config.ts",
-          "hash": "3014360465409286065"
+          "file": "apps/swapi-cards/jest.config.ts",
+          "hash": "3651352540747371347"
         },
         {
-          "file": "apps/swapi/next-env.d.ts",
+          "file": "apps/swapi-cards/next-env.d.ts",
           "hash": "5909181270615354023"
         },
         {
-          "file": "apps/swapi/next.config.js",
-          "hash": "14533850306915826133",
+          "file": "apps/swapi-cards/next.config.js",
+          "hash": "17252635002163063865",
           "deps": [
-            "npm:@nrwl/next"
+            "npm:@nx/next"
           ]
         },
         {
-          "file": "apps/swapi/pages/_app.tsx",
-          "hash": "17818178717556653909",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/swapi/pages/admin/index.tsx",
-          "hash": "17647662493959681780",
-          "deps": [
-            "npm:react",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/pages/api/people.ts",
-          "hash": "12315782956955010796",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/swapi/pages/index.tsx",
-          "hash": "16540141069849372183",
-          "deps": [
-            "npm:react",
-            "npm:next",
-            "react-ui",
-            "icons",
-            "npm:swr",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/pages/people/[slug].tsx",
-          "hash": "9058384260763073165",
-          "deps": [
-            "npm:react",
-            "npm:next",
-            "react-ui",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/swapi/postcss.config.js",
+          "file": "apps/swapi-cards/postcss.config.js",
           "hash": "2759402739052110475",
           "deps": [
             "npm:path"
           ]
         },
         {
-          "file": "apps/swapi/project.json",
-          "hash": "2566889282528190482"
+          "file": "apps/swapi-cards/project.json",
+          "hash": "7853900832080853916"
         },
         {
-          "file": "apps/swapi/public/robots.txt",
-          "hash": "2790380794362165217"
-        },
-        {
-          "file": "apps/swapi/public/site.webmanifest",
-          "hash": "11205980641497128048"
-        },
-        {
-          "file": "apps/swapi/styles/character-avatar.module.css",
-          "hash": "10354088551581086704"
-        },
-        {
-          "file": "apps/swapi/styles/styles.css",
-          "hash": "8759043031447054265"
-        },
-        {
-          "file": "apps/swapi/tailwind-safelist.js",
-          "hash": "17599424860212381528"
-        },
-        {
-          "file": "apps/swapi/tailwind.config.js",
-          "hash": "902596358600713446",
-          "deps": [
-            "npm:@nrwl/react",
-            "npm:path",
-            "npm:../../tailwind-workspace-preset.js"
-          ]
-        },
-        {
-          "file": "apps/swapi/tsconfig.json",
-          "hash": "10622235928137887514"
-        },
-        {
-          "file": "apps/swapi/tsconfig.spec.json",
-          "hash": "6922413205408300107"
-        },
-        {
-          "file": "apps/swapi/types/api/types.d.ts",
-          "hash": "9336139334790940384"
-        },
-        {
-          "file": "apps/swapi/types/people.ts",
-          "hash": "17967341869643828721"
-        },
-        {
-          "file": "apps/swapi/utils/avatarSizes.ts",
-          "hash": "18003583028812235885"
-        },
-        {
-          "file": "apps/swapi/utils/findMatchingUrl.ts",
-          "hash": "18223059282567344735"
-        },
-        {
-          "file": "apps/swapi/utils/mapCharacterProps.ts",
-          "hash": "14722753672709431753"
-        },
-        {
-          "file": "apps/swapi/utils/stylesMap.ts",
-          "hash": "8665656070015862530"
-        },
-        {
-          "file": "apps/swapi/utils/themeMap.ts",
-          "hash": "11274211528451527109"
-        }
-      ],
-      "rshogancom": [
-        {
-          "file": "apps/rshogancom/.eslintrc.json",
-          "hash": "4379153011724366946"
-        },
-        {
-          "file": "apps/rshogancom/components/RSHAsSeenInSection.tsx",
-          "hash": "13076593658143965747",
-          "deps": [
-            "react-ui",
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/components/RSHCartComponent.tsx",
-          "hash": "1435692969359421212",
-          "deps": [
-            "npm:react",
-            "npm:react-redux",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/components/RSHCustomImage.tsx",
-          "hash": "16688094023742404091",
-          "deps": [
-            "npm:react",
-            "npm:next",
-            "react-ui"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/components/RSHFooter.tsx",
-          "hash": "16469292097761823829",
-          "deps": [
-            "npm:react-icons",
-            "react-ui",
-            "icons"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/components/RSHHeader.tsx",
-          "hash": "2566204161626549329",
-          "deps": [
-            "npm:react",
-            "npm:next",
-            "npm:react-icons",
-            "generic-ui",
-            "react-ui",
-            "react-hooks",
-            "icons",
-            "theme"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/components/RSHHeroSection.tsx",
-          "hash": "13041335451150455087",
-          "deps": [
-            "react-ui"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/components/RSHLayout.tsx",
-          "hash": "2553088622558910441",
-          "deps": [
-            "npm:next",
-            "nextjs-react-ui",
-            "react-ui",
-            "types"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/components/RSHModal.tsx",
-          "hash": "1718273843983975119",
-          "deps": [
-            "npm:react",
-            "npm:next",
-            "react-ui",
-            "npm:react-icons",
-            "types"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/components/RSHOurStorySection.tsx",
-          "hash": "2322742452247528812",
-          "deps": [
-            "react-ui"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/components/RSHProductsComponent.tsx",
-          "hash": "1196852160307109781",
-          "deps": [
-            "npm:react-redux"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/components/RSHSection.tsx",
-          "hash": "13450864336000439774"
-        },
-        {
-          "file": "apps/rshogancom/components/RSHWebServicesSection.tsx",
-          "hash": "15969836107197666505",
-          "deps": [
-            "react-ui",
-            "npm:react-icons",
-            "npm:framer-motion"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/components/RSHWhatOurCustomersSaySection.tsx",
-          "hash": "1465062840238450064",
-          "deps": [
-            "react-ui",
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/data/collaborators.ts",
-          "hash": "11042293767914549388"
-        },
-        {
-          "file": "apps/rshogancom/data/featureCards.ts",
-          "hash": "14140157019732455441"
-        },
-        {
-          "file": "apps/rshogancom/data/footerLinks.ts",
-          "hash": "16726907126909420443",
-          "deps": [
-            "npm:react-icons"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/data/products.ts",
-          "hash": "9903919428511689151"
-        },
-        {
-          "file": "apps/rshogancom/features/cart/cartSlice.ts",
-          "hash": "7322276577567376244",
-          "deps": [
-            "npm:@reduxjs/toolkit",
-            "types"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/features/products/productsSlice.ts",
-          "hash": "13352549215339946837",
-          "deps": [
-            "npm:@reduxjs/toolkit",
-            "npm:axios",
-            "types"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/index.d.ts",
-          "hash": "5498222895072842432"
-        },
-        {
-          "file": "apps/rshogancom/jest.config.ts",
-          "hash": "10795463350157996496"
-        },
-        {
-          "file": "apps/rshogancom/next-env.d.ts",
-          "hash": "5909181270615354023"
-        },
-        {
-          "file": "apps/rshogancom/next.config.js",
-          "hash": "11407211008008060960",
-          "deps": [
-            "npm:@nrwl/next"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/pages/404.tsx",
-          "hash": "5004443559536501805",
-          "deps": [
-            "react-ui",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/pages/_app.tsx",
-          "hash": "1083601260550896900",
-          "deps": [
-            "npm:react",
-            "npm:next",
-            "npm:react-redux",
-            "theme"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/pages/_document.tsx",
-          "hash": "6299310958885586265",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/pages/api/contact/index.ts",
-          "hash": "3490074289799611887",
-          "deps": [
-            "npm:@sendgrid/mail"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/pages/index.tsx",
-          "hash": "12078338304283075206",
-          "deps": [
-            "npm:next",
-            "npm:react",
-            "react-ui",
-            "react-hooks"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/pages/products/index.tsx",
-          "hash": "17185039575004415250",
-          "deps": [
-            "npm:react",
-            "npm:react-redux",
-            "react-ui",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/postcss.config.js",
-          "hash": "2759402739052110475",
-          "deps": [
-            "npm:path"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/project.json",
-          "hash": "854104978003323566"
-        },
-        {
-          "file": "apps/rshogancom/public/.gitkeep",
+          "file": "apps/swapi-cards/public/.gitkeep",
           "hash": "3244421341483603138"
         },
         {
-          "file": "apps/rshogancom/public/site.webmanifest",
-          "hash": "11205980641497128048"
-        },
-        {
-          "file": "apps/rshogancom/store.ts",
-          "hash": "3860656567002803742",
-          "deps": [
-            "npm:@reduxjs/toolkit",
-            "npm:redux"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/styles/styles.css",
-          "hash": "12818996065668837438"
-        },
-        {
-          "file": "apps/rshogancom/styles/themes.ts",
-          "hash": "17424079073963339806"
-        },
-        {
-          "file": "apps/rshogancom/tailwind.config.js",
-          "hash": "13831148913357752112",
-          "deps": [
-            "npm:@nrwl/react",
-            "npm:path",
-            "npm:../../tailwind-workspace-preset.js"
-          ]
-        },
-        {
-          "file": "apps/rshogancom/tsconfig.json",
-          "hash": "4549117079513823106"
-        },
-        {
-          "file": "apps/rshogancom/tsconfig.spec.json",
-          "hash": "6932660931697717727"
-        },
-        {
-          "file": "apps/rshogancom/types/declaration.d.ts",
-          "hash": "1309237624490275193"
-        },
-        {
-          "file": "apps/rshogancom/types/global.d.ts",
-          "hash": "830405819442966727"
-        }
-      ],
-      "nextjs-react-ui": [
-        {
-          "file": "libs/nextjs-react-ui/.babelrc",
-          "hash": "11993747757603257640"
-        },
-        {
-          "file": "libs/nextjs-react-ui/.eslintrc.json",
-          "hash": "10075191527724852300"
-        },
-        {
-          "file": "libs/nextjs-react-ui/README.md",
-          "hash": "8576597072013090364"
-        },
-        {
-          "file": "libs/nextjs-react-ui/jest.config.ts",
-          "hash": "11680385762662574944"
-        },
-        {
-          "file": "libs/nextjs-react-ui/project.json",
-          "hash": "11514000460114551235"
-        },
-        {
-          "file": "libs/nextjs-react-ui/src/index.ts",
-          "hash": "3310780578326232485"
-        },
-        {
-          "file": "libs/nextjs-react-ui/src/lib/button-link/button-link.module.css",
-          "hash": "9645402845086451152"
-        },
-        {
-          "file": "libs/nextjs-react-ui/src/lib/button-link/button-link.spec.tsx",
-          "hash": "6523846404298433712",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/nextjs-react-ui/src/lib/button-link/button-link.tsx",
-          "hash": "11122241176310269348",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "libs/nextjs-react-ui/src/lib/nextjs-image/nextjs-image.module.css",
-          "hash": "12932459545147846997"
-        },
-        {
-          "file": "libs/nextjs-react-ui/src/lib/nextjs-image/nextjs-image.spec.tsx",
-          "hash": "3493895682365545818",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/nextjs-react-ui/src/lib/nextjs-image/nextjs-image.tsx",
-          "hash": "10675527389036346772",
+          "file": "apps/swapi-cards/specs/index.spec.tsx",
+          "hash": "1288872939091782814",
           "deps": [
             "npm:react",
-            "npm:next"
-          ]
-        },
-        {
-          "file": "libs/nextjs-react-ui/src/lib/seo/seo.module.css",
-          "hash": "125145030238681982"
-        },
-        {
-          "file": "libs/nextjs-react-ui/src/lib/seo/seo.spec.tsx",
-          "hash": "12388780298952402102",
-          "deps": [
             "npm:@testing-library/react"
           ]
         },
         {
-          "file": "libs/nextjs-react-ui/src/lib/seo/seo.tsx",
-          "hash": "15715012021692686342",
+          "file": "apps/swapi-cards/src/app/Icon.tsx",
+          "hash": "7912933126318179253",
+          "deps": [
+            "npm:next",
+            "npm:https://app-assets.vercel.app/apps/swapi-cards/favicon.ico"
+          ]
+        },
+        {
+          "file": "apps/swapi-cards/src/app/api/hello/route.ts",
+          "hash": "495073956729887886"
+        },
+        {
+          "file": "apps/swapi-cards/src/app/global.css",
+          "hash": "9280719285547040115"
+        },
+        {
+          "file": "apps/swapi-cards/src/app/layout.tsx",
+          "hash": "13424330015824689320",
           "deps": [
             "npm:next"
           ]
         },
         {
-          "file": "libs/nextjs-react-ui/tsconfig.json",
-          "hash": "12937361759397702261"
-        },
-        {
-          "file": "libs/nextjs-react-ui/tsconfig.lib.json",
-          "hash": "5047993456068296026"
-        },
-        {
-          "file": "libs/nextjs-react-ui/tsconfig.spec.json",
-          "hash": "6514620907549802163"
-        }
-      ],
-      "placeholder": [
-        {
-          "file": "apps/placeholder/.eslintrc.json",
-          "hash": "10598386186039180890"
-        },
-        {
-          "file": "apps/placeholder/components/layout/PlaceholderFooter.tsx",
-          "hash": "5850750441380886522"
-        },
-        {
-          "file": "apps/placeholder/components/layout/PlaceholderHeader.tsx",
-          "hash": "16046126865150402444",
-          "deps": [
-            "react-ui",
-            "npm:next",
-            "npm:next-themes",
-            "npm:react-icons",
-            "generic-ui"
-          ]
-        },
-        {
-          "file": "apps/placeholder/components/layout/PlaceholderLayout.tsx",
-          "hash": "8958766204015458692",
-          "deps": [
-            "npm:next",
-            "react-ui",
-            "nextjs-react-ui",
-            "types"
-          ]
-        },
-        {
-          "file": "apps/placeholder/index.d.ts",
-          "hash": "5498222895072842432"
-        },
-        {
-          "file": "apps/placeholder/jest.config.ts",
-          "hash": "6005249069515824178"
-        },
-        {
-          "file": "apps/placeholder/next-env.d.ts",
-          "hash": "5909181270615354023"
-        },
-        {
-          "file": "apps/placeholder/next.config.js",
-          "hash": "5392035188302125578",
-          "deps": [
-            "npm:@nrwl/next"
-          ]
-        },
-        {
-          "file": "apps/placeholder/pages/_app.tsx",
-          "hash": "3981913394553479617",
-          "deps": [
-            "npm:next",
-            "npm:next-themes"
-          ]
-        },
-        {
-          "file": "apps/placeholder/pages/index.tsx",
-          "hash": "11514911315780882279",
+          "file": "apps/swapi-cards/src/app/page.tsx",
+          "hash": "556689199465909997",
           "deps": [
             "npm:react",
-            "react-ui",
-            "generic-ui",
-            "npm:react-icons",
-            "npm:framer-motion"
+            "npm:swr",
+            "npm:axios"
           ]
         },
         {
-          "file": "apps/placeholder/postcss.config.js",
-          "hash": "2759402739052110475",
+          "file": "apps/swapi-cards/tailwind.config.js",
+          "hash": "10736774636560410393",
           "deps": [
+            "npm:@nx/react",
             "npm:path"
           ]
         },
         {
-          "file": "apps/placeholder/project.json",
-          "hash": "14014718033613462199"
+          "file": "apps/swapi-cards/tsconfig.json",
+          "hash": "10592203887283964004"
         },
         {
-          "file": "apps/placeholder/public/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/placeholder/specs/index.spec.tsx",
-          "hash": "2471112685028338837",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "apps/placeholder/styles/styles.css",
-          "hash": "12478926121933534831"
-        },
-        {
-          "file": "apps/placeholder/tailwind.config.js",
-          "hash": "12868821651254605555",
-          "deps": [
-            "npm:@nrwl/react",
-            "npm:path",
-            "npm:../../tailwind-workspace-preset.js"
-          ]
-        },
-        {
-          "file": "apps/placeholder/tsconfig.json",
-          "hash": "10622235928137887514"
-        },
-        {
-          "file": "apps/placeholder/tsconfig.spec.json",
+          "file": "apps/swapi-cards/tsconfig.spec.json",
           "hash": "6922413205408300107"
+        },
+        {
+          "file": "apps/swapi-cards/types/index.ts",
+          "hash": "16920553371878086847"
         }
       ],
       "react-ui": [
@@ -7259,6 +4673,461 @@
           "hash": "2406015174838385060"
         }
       ],
+      "placeholder": [
+        {
+          "file": "apps/placeholder/.eslintrc.json",
+          "hash": "10598386186039180890"
+        },
+        {
+          "file": "apps/placeholder/components/layout/PlaceholderFooter.tsx",
+          "hash": "5850750441380886522"
+        },
+        {
+          "file": "apps/placeholder/components/layout/PlaceholderHeader.tsx",
+          "hash": "16046126865150402444",
+          "deps": [
+            "react-ui",
+            "npm:next",
+            "npm:next-themes",
+            "npm:react-icons",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/placeholder/components/layout/PlaceholderLayout.tsx",
+          "hash": "8958766204015458692",
+          "deps": [
+            "npm:next",
+            "react-ui",
+            "nextjs-react-ui",
+            "types"
+          ]
+        },
+        {
+          "file": "apps/placeholder/index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "apps/placeholder/jest.config.ts",
+          "hash": "6005249069515824178"
+        },
+        {
+          "file": "apps/placeholder/next-env.d.ts",
+          "hash": "5909181270615354023"
+        },
+        {
+          "file": "apps/placeholder/next.config.js",
+          "hash": "5392035188302125578",
+          "deps": [
+            "npm:@nrwl/next"
+          ]
+        },
+        {
+          "file": "apps/placeholder/pages/_app.tsx",
+          "hash": "3981913394553479617",
+          "deps": [
+            "npm:next",
+            "npm:next-themes"
+          ]
+        },
+        {
+          "file": "apps/placeholder/pages/index.tsx",
+          "hash": "11514911315780882279",
+          "deps": [
+            "npm:react",
+            "react-ui",
+            "generic-ui",
+            "npm:react-icons",
+            "npm:framer-motion"
+          ]
+        },
+        {
+          "file": "apps/placeholder/postcss.config.js",
+          "hash": "2759402739052110475",
+          "deps": [
+            "npm:path"
+          ]
+        },
+        {
+          "file": "apps/placeholder/project.json",
+          "hash": "14014718033613462199"
+        },
+        {
+          "file": "apps/placeholder/public/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/placeholder/specs/index.spec.tsx",
+          "hash": "2471112685028338837",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "apps/placeholder/styles/styles.css",
+          "hash": "12478926121933534831"
+        },
+        {
+          "file": "apps/placeholder/tailwind.config.js",
+          "hash": "12868821651254605555",
+          "deps": [
+            "npm:@nrwl/react",
+            "npm:path",
+            "npm:../../tailwind-workspace-preset.js"
+          ]
+        },
+        {
+          "file": "apps/placeholder/tsconfig.json",
+          "hash": "10622235928137887514"
+        },
+        {
+          "file": "apps/placeholder/tsconfig.spec.json",
+          "hash": "6922413205408300107"
+        }
+      ],
+      "rshogancom": [
+        {
+          "file": "apps/rshogancom/.eslintrc.json",
+          "hash": "4379153011724366946"
+        },
+        {
+          "file": "apps/rshogancom/components/RSHAsSeenInSection.tsx",
+          "hash": "13076593658143965747",
+          "deps": [
+            "react-ui",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/components/RSHCartComponent.tsx",
+          "hash": "1435692969359421212",
+          "deps": [
+            "npm:react",
+            "npm:react-redux",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/components/RSHCustomImage.tsx",
+          "hash": "16688094023742404091",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "react-ui"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/components/RSHFooter.tsx",
+          "hash": "16469292097761823829",
+          "deps": [
+            "npm:react-icons",
+            "react-ui",
+            "icons"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/components/RSHHeader.tsx",
+          "hash": "2566204161626549329",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "npm:react-icons",
+            "generic-ui",
+            "react-ui",
+            "react-hooks",
+            "icons",
+            "theme"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/components/RSHHeroSection.tsx",
+          "hash": "13041335451150455087",
+          "deps": [
+            "react-ui"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/components/RSHLayout.tsx",
+          "hash": "2553088622558910441",
+          "deps": [
+            "npm:next",
+            "nextjs-react-ui",
+            "react-ui",
+            "types"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/components/RSHModal.tsx",
+          "hash": "1718273843983975119",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "react-ui",
+            "npm:react-icons",
+            "types"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/components/RSHOurStorySection.tsx",
+          "hash": "2322742452247528812",
+          "deps": [
+            "react-ui"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/components/RSHProductsComponent.tsx",
+          "hash": "1196852160307109781",
+          "deps": [
+            "npm:react-redux"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/components/RSHSection.tsx",
+          "hash": "13450864336000439774"
+        },
+        {
+          "file": "apps/rshogancom/components/RSHWebServicesSection.tsx",
+          "hash": "15969836107197666505",
+          "deps": [
+            "react-ui",
+            "npm:react-icons",
+            "npm:framer-motion"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/components/RSHWhatOurCustomersSaySection.tsx",
+          "hash": "1465062840238450064",
+          "deps": [
+            "react-ui",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/data/collaborators.ts",
+          "hash": "11042293767914549388"
+        },
+        {
+          "file": "apps/rshogancom/data/featureCards.ts",
+          "hash": "14140157019732455441"
+        },
+        {
+          "file": "apps/rshogancom/data/footerLinks.ts",
+          "hash": "16726907126909420443",
+          "deps": [
+            "npm:react-icons"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/data/products.ts",
+          "hash": "9903919428511689151"
+        },
+        {
+          "file": "apps/rshogancom/features/cart/cartSlice.ts",
+          "hash": "7322276577567376244",
+          "deps": [
+            "npm:@reduxjs/toolkit",
+            "types"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/features/products/productsSlice.ts",
+          "hash": "13352549215339946837",
+          "deps": [
+            "npm:@reduxjs/toolkit",
+            "npm:axios",
+            "types"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "apps/rshogancom/jest.config.ts",
+          "hash": "10795463350157996496"
+        },
+        {
+          "file": "apps/rshogancom/next-env.d.ts",
+          "hash": "5909181270615354023"
+        },
+        {
+          "file": "apps/rshogancom/next.config.js",
+          "hash": "11407211008008060960",
+          "deps": [
+            "npm:@nrwl/next"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/pages/404.tsx",
+          "hash": "5004443559536501805",
+          "deps": [
+            "react-ui",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/pages/_app.tsx",
+          "hash": "1083601260550896900",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "npm:react-redux",
+            "theme"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/pages/_document.tsx",
+          "hash": "6299310958885586265",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/pages/api/contact/index.ts",
+          "hash": "3490074289799611887",
+          "deps": [
+            "npm:@sendgrid/mail"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/pages/index.tsx",
+          "hash": "12078338304283075206",
+          "deps": [
+            "npm:next",
+            "npm:react",
+            "react-ui",
+            "react-hooks"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/pages/products/index.tsx",
+          "hash": "17185039575004415250",
+          "deps": [
+            "npm:react",
+            "npm:react-redux",
+            "react-ui",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/postcss.config.js",
+          "hash": "2759402739052110475",
+          "deps": [
+            "npm:path"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/project.json",
+          "hash": "854104978003323566"
+        },
+        {
+          "file": "apps/rshogancom/public/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/rshogancom/public/site.webmanifest",
+          "hash": "11205980641497128048"
+        },
+        {
+          "file": "apps/rshogancom/store.ts",
+          "hash": "3860656567002803742",
+          "deps": [
+            "npm:@reduxjs/toolkit",
+            "npm:redux"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/styles/styles.css",
+          "hash": "12818996065668837438"
+        },
+        {
+          "file": "apps/rshogancom/styles/themes.ts",
+          "hash": "17424079073963339806"
+        },
+        {
+          "file": "apps/rshogancom/tailwind.config.js",
+          "hash": "13831148913357752112",
+          "deps": [
+            "npm:@nrwl/react",
+            "npm:path",
+            "npm:../../tailwind-workspace-preset.js"
+          ]
+        },
+        {
+          "file": "apps/rshogancom/tsconfig.json",
+          "hash": "4549117079513823106"
+        },
+        {
+          "file": "apps/rshogancom/tsconfig.spec.json",
+          "hash": "6932660931697717727"
+        },
+        {
+          "file": "apps/rshogancom/types/declaration.d.ts",
+          "hash": "1309237624490275193"
+        },
+        {
+          "file": "apps/rshogancom/types/global.d.ts",
+          "hash": "830405819442966727"
+        }
+      ],
+      "analytics": [
+        {
+          "file": "libs/analytics/.babelrc",
+          "hash": "11855890993922274285"
+        },
+        {
+          "file": "libs/analytics/.eslintrc.json",
+          "hash": "10075191527724852300"
+        },
+        {
+          "file": "libs/analytics/README.md",
+          "hash": "6636439242546888407"
+        },
+        {
+          "file": "libs/analytics/project.json",
+          "hash": "705847369081990761"
+        },
+        {
+          "file": "libs/analytics/src/index.ts",
+          "hash": "11003544666517432086"
+        },
+        {
+          "file": "libs/analytics/src/lib/google-tag-manager/google-tag-manager.spec.tsx",
+          "hash": "15233126083404143345",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/analytics/src/lib/google-tag-manager/google-tag-manager.tsx",
+          "hash": "8472705710116840744",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "libs/analytics/src/lib/web-vitals/web-vitals.spec.tsx",
+          "hash": "152800648995265708",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/analytics/src/lib/web-vitals/web-vitals.tsx",
+          "hash": "15009293281355248848",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "libs/analytics/tsconfig.json",
+          "hash": "14088618039610991405"
+        },
+        {
+          "file": "libs/analytics/tsconfig.lib.json",
+          "hash": "8252693981156152688"
+        }
+      ],
       "theos-dnd": [
         {
           "file": "apps/theos-dnd/.eslintrc.json",
@@ -7466,6 +5335,1402 @@
           "hash": "14754545058935290686"
         }
       ],
+      "play2winff": [
+        {
+          "file": "apps/play2winff/.eslintrc.json",
+          "hash": "13198375007899171200"
+        },
+        {
+          "file": "apps/play2winff/components/P2WCustomTagIcons.tsx",
+          "hash": "16933261937530054477",
+          "deps": [
+            "npm:react",
+            "npm:react-icons",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/play2winff/components/P2WDraftConfigModal.tsx",
+          "hash": "9033374237364805933",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "react-ui",
+            "npm:react-icons"
+          ]
+        },
+        {
+          "file": "apps/play2winff/components/P2WDraftTable.tsx",
+          "hash": "4673900504606152687",
+          "deps": [
+            "npm:react",
+            "react-ui",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/play2winff/components/P2WDraftTableEntry.tsx",
+          "hash": "8863453096425507448",
+          "deps": [
+            "npm:react",
+            "react-ui",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/play2winff/components/P2WEspnNewsFeed.tsx",
+          "hash": "2355747322215737876",
+          "deps": [
+            "react-ui"
+          ]
+        },
+        {
+          "file": "apps/play2winff/components/P2WFFHeader.tsx",
+          "hash": "6077444147067458683",
+          "deps": [
+            "npm:react",
+            "generic-ui",
+            "npm:next",
+            "theme",
+            "npm:react-icons"
+          ]
+        },
+        {
+          "file": "apps/play2winff/components/P2WFFLayout.tsx",
+          "hash": "1556146233924069829",
+          "deps": [
+            "nextjs-react-ui",
+            "react-ui",
+            "types"
+          ]
+        },
+        {
+          "file": "apps/play2winff/components/P2WLegendSidebar.tsx",
+          "hash": "2282183483947566745",
+          "deps": [
+            "npm:react",
+            "npm:react-icons",
+            "react-ui",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/play2winff/components/P2WPlayersWithHighVariability.tsx",
+          "hash": "10239821898500524612",
+          "deps": [
+            "npm:react",
+            "npm:d3",
+            "react-ui"
+          ]
+        },
+        {
+          "file": "apps/play2winff/components/P2WRoster.tsx",
+          "hash": "18224029877559393586",
+          "deps": [
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/play2winff/components/P2WSection.tsx",
+          "hash": "12716880846949634445",
+          "deps": [
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/harrisFootball/081623.txt",
+          "hash": "6019636583514278578"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/harrisFootball/082123.txt",
+          "hash": "149000329389807773"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/harrisFootball/082323.txt",
+          "hash": "8984154845132979398"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/harrisFootball/082423.txt",
+          "hash": "9110394292799886499"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/harrisFootball/082923.txt",
+          "hash": "11980723725578205556"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/harrisFootball/083123.txt",
+          "hash": "14099789667384436690"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/harrisFootball/090123.txt",
+          "hash": "17370954572843613204"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/harrisFootball/index.ts",
+          "hash": "17866228834225978956"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/harrisFootball/tags.ts",
+          "hash": "1572620908698307148"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/ppr/10.ts",
+          "hash": "14162943818750521347"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/ppr/12.ts",
+          "hash": "12512779762673363074"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/ppr/8.ts",
+          "hash": "9157452355414822539"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/yahoo/index.ts",
+          "hash": "12462245089171254184"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/yahoo/xrank_yahoo.ts",
+          "hash": "4453637869643562425"
+        },
+        {
+          "file": "apps/play2winff/data/adp/2023/yahoo/yahoo_0821023.txt",
+          "hash": "4613832458837663707"
+        },
+        {
+          "file": "apps/play2winff/hooks/useADPData.ts",
+          "hash": "1598514563173428153",
+          "deps": [
+            "npm:swr"
+          ]
+        },
+        {
+          "file": "apps/play2winff/hooks/useDraftedPlayers.ts",
+          "hash": "17515738723196564084",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/play2winff/hooks/useEspnNews.ts",
+          "hash": "14097070568516103893",
+          "deps": [
+            "npm:swr"
+          ]
+        },
+        {
+          "file": "apps/play2winff/hooks/useHarrisRankings.ts",
+          "hash": "15389264931804182488",
+          "deps": [
+            "npm:swr"
+          ]
+        },
+        {
+          "file": "apps/play2winff/hooks/useMergedData.ts",
+          "hash": "16793188655683749055",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/play2winff/hooks/useYahooAdp.ts",
+          "hash": "16669951250554629389",
+          "deps": [
+            "npm:swr"
+          ]
+        },
+        {
+          "file": "apps/play2winff/index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "apps/play2winff/jest.config.ts",
+          "hash": "3344361354120741956"
+        },
+        {
+          "file": "apps/play2winff/next-env.d.ts",
+          "hash": "5909181270615354023"
+        },
+        {
+          "file": "apps/play2winff/next.config.js",
+          "hash": "5577416239345505200",
+          "deps": [
+            "npm:@nrwl/next"
+          ]
+        },
+        {
+          "file": "apps/play2winff/pages/_app.tsx",
+          "hash": "13427504509427764428",
+          "deps": [
+            "npm:next",
+            "theme"
+          ]
+        },
+        {
+          "file": "apps/play2winff/pages/adp.tsx",
+          "hash": "12768751330421074008",
+          "deps": [
+            "npm:react",
+            "react-ui"
+          ]
+        },
+        {
+          "file": "apps/play2winff/pages/api/fetchFFCalcAdp.ts",
+          "hash": "16082419467849863165"
+        },
+        {
+          "file": "apps/play2winff/pages/api/harrisRankings.ts",
+          "hash": "16682942281756729000"
+        },
+        {
+          "file": "apps/play2winff/pages/api/mergeDatasets.ts",
+          "hash": "8493672831103523768",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/play2winff/pages/api/yahooAdp.ts",
+          "hash": "8135974888818429619",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/play2winff/pages/articles/[slug].tsx",
+          "hash": "17235878983040573664",
+          "deps": [
+            "npm:axios",
+            "react-ui"
+          ]
+        },
+        {
+          "file": "apps/play2winff/pages/articles/index.tsx",
+          "hash": "5457339281876186706",
+          "deps": [
+            "npm:axios",
+            "npm:next",
+            "react-ui",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/play2winff/pages/draft.tsx",
+          "hash": "11104849797241347538",
+          "deps": [
+            "react-ui",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/play2winff/pages/index.tsx",
+          "hash": "17533060307092357808",
+          "deps": [
+            "npm:react",
+            "react-ui",
+            "generic-ui",
+            "npm:next",
+            "npm:react-icons"
+          ]
+        },
+        {
+          "file": "apps/play2winff/postcss.config.js",
+          "hash": "2759402739052110475",
+          "deps": [
+            "npm:path"
+          ]
+        },
+        {
+          "file": "apps/play2winff/project.json",
+          "hash": "7003224970006973013"
+        },
+        {
+          "file": "apps/play2winff/public/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/play2winff/specs/index.spec.tsx",
+          "hash": "11056183168799669859",
+          "deps": [
+            "npm:react",
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "apps/play2winff/styles/styles.css",
+          "hash": "12191519380457607809"
+        },
+        {
+          "file": "apps/play2winff/styles/themes.ts",
+          "hash": "17152389838707343074"
+        },
+        {
+          "file": "apps/play2winff/tailwind.config.js",
+          "hash": "891333917439540086",
+          "deps": [
+            "npm:@nrwl/react",
+            "npm:path"
+          ]
+        },
+        {
+          "file": "apps/play2winff/tsconfig.json",
+          "hash": "10622235928137887514"
+        },
+        {
+          "file": "apps/play2winff/tsconfig.spec.json",
+          "hash": "6922413205408300107"
+        },
+        {
+          "file": "apps/play2winff/utils/draftTableUtils.ts",
+          "hash": "7423749064211084911"
+        },
+        {
+          "file": "apps/play2winff/utils/fetchNews.ts",
+          "hash": "14355293306226757889",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/play2winff/utils/helper.ts",
+          "hash": "14917750568745167717"
+        }
+      ],
+      "openai-integration": [
+        {
+          "file": "libs/openai-integration/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "libs/openai-integration/README.md",
+          "hash": "12696965865333977863"
+        },
+        {
+          "file": "libs/openai-integration/project.json",
+          "hash": "16771070463811560857"
+        },
+        {
+          "file": "libs/openai-integration/src/index.ts",
+          "hash": "3558768126387075783"
+        },
+        {
+          "file": "libs/openai-integration/src/lib/gpt.ts",
+          "hash": "12747504432151789610",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "libs/openai-integration/tsconfig.json",
+          "hash": "634795086719220447"
+        },
+        {
+          "file": "libs/openai-integration/tsconfig.lib.json",
+          "hash": "18155349116525859334"
+        }
+      ],
+      "store-products": [
+        {
+          "file": "libs/store/products/.babelrc",
+          "hash": "11855890993922274285"
+        },
+        {
+          "file": "libs/store/products/.eslintrc.json",
+          "hash": "18250621763427026584"
+        },
+        {
+          "file": "libs/store/products/README.md",
+          "hash": "2144506583532989340"
+        },
+        {
+          "file": "libs/store/products/project.json",
+          "hash": "17613447229156280681"
+        },
+        {
+          "file": "libs/store/products/src/index.ts",
+          "hash": "3587159585258225869"
+        },
+        {
+          "file": "libs/store/products/src/lib/productsSlice.test.ts",
+          "hash": "11879430342641508013",
+          "deps": [
+            "npm:@reduxjs/toolkit",
+            "npm:axios",
+            "types"
+          ]
+        },
+        {
+          "file": "libs/store/products/src/lib/productsSlice.ts",
+          "hash": "13266967836127258598",
+          "deps": [
+            "npm:@reduxjs/toolkit",
+            "npm:axios",
+            "types"
+          ]
+        },
+        {
+          "file": "libs/store/products/tsconfig.json",
+          "hash": "9466653708934095578"
+        },
+        {
+          "file": "libs/store/products/tsconfig.lib.json",
+          "hash": "8922698259705927128"
+        }
+      ],
+      "types": [
+        {
+          "file": "libs/types/.babelrc",
+          "hash": "14637968239574891430"
+        },
+        {
+          "file": "libs/types/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "libs/types/README.md",
+          "hash": "10825246303961700588"
+        },
+        {
+          "file": "libs/types/jest.config.ts",
+          "hash": "11675744905629633321"
+        },
+        {
+          "file": "libs/types/project.json",
+          "hash": "8405779427121348504"
+        },
+        {
+          "file": "libs/types/src/index.ts",
+          "hash": "4590363054966894635"
+        },
+        {
+          "file": "libs/types/src/lib/control-types.ts",
+          "hash": "16592522803569633660",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/types/src/lib/display-types.ts",
+          "hash": "6972590695707300222"
+        },
+        {
+          "file": "libs/types/src/lib/feedback-types.ts",
+          "hash": "250413064695996286"
+        },
+        {
+          "file": "libs/types/src/lib/form-types.ts",
+          "hash": "14048568288785392461"
+        },
+        {
+          "file": "libs/types/src/lib/layout-types.ts",
+          "hash": "15151231734955701150"
+        },
+        {
+          "file": "libs/types/src/lib/media-types.ts",
+          "hash": "14572913820925521936"
+        },
+        {
+          "file": "libs/types/src/lib/navigation-types.ts",
+          "hash": "18042091160566990853",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/types/src/lib/redux-toolkit-types.ts",
+          "hash": "9921371221808264433"
+        },
+        {
+          "file": "libs/types/src/lib/serverless-function-types.ts",
+          "hash": "6944659763850871487"
+        },
+        {
+          "file": "libs/types/src/lib/typography-types.ts",
+          "hash": "14575615434279578383"
+        },
+        {
+          "file": "libs/types/src/lib/utility-types.ts",
+          "hash": "11797083457356410274"
+        },
+        {
+          "file": "libs/types/tsconfig.json",
+          "hash": "17079550796797979564"
+        },
+        {
+          "file": "libs/types/tsconfig.lib.json",
+          "hash": "1398023143379268451"
+        },
+        {
+          "file": "libs/types/tsconfig.spec.json",
+          "hash": "6514620907549802163"
+        }
+      ],
+      "react-hooks": [
+        {
+          "file": "libs/react-hooks/.babelrc",
+          "hash": "11855890993922274285"
+        },
+        {
+          "file": "libs/react-hooks/.eslintrc.json",
+          "hash": "16770148760052722796"
+        },
+        {
+          "file": "libs/react-hooks/.storybook/main.js",
+          "hash": "14229570845267347664",
+          "deps": [
+            "npm:../../../.storybook/main"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/.storybook/preview.js",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/react-hooks/.storybook/tsconfig.json",
+          "hash": "3354255873466980870"
+        },
+        {
+          "file": "libs/react-hooks/README.md",
+          "hash": "15013026264580810698"
+        },
+        {
+          "file": "libs/react-hooks/project.json",
+          "hash": "7021703464110298716"
+        },
+        {
+          "file": "libs/react-hooks/src/index.ts",
+          "hash": "16775988737090894592"
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-debounce/use-debounce.spec.tsx",
+          "hash": "12109755377311903071",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-debounce/use-debounce.tsx",
+          "hash": "14775632775173782730",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-exclude-terms/use-exclude-terms.module.css",
+          "hash": "125145030238681982"
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-exclude-terms/use-exclude-terms.spec.tsx",
+          "hash": "13854663103151503370",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-exclude-terms/use-exclude-terms.tsx",
+          "hash": "3477655041744707362",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-fetch/use-fetch.spec.tsx",
+          "hash": "8755956831159986377",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-fetch/use-fetch.tsx",
+          "hash": "11542123629313390061",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-file-type-selection/use-file-type-selection.module.css",
+          "hash": "125145030238681982"
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-file-type-selection/use-file-type-selection.spec.tsx",
+          "hash": "14705850381361806624",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-file-type-selection/use-file-type-selection.tsx",
+          "hash": "870747777918655205",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-handle-backdrop-click/use-handle-backdrop-click.module.css",
+          "hash": "125145030238681982"
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-handle-backdrop-click/use-handle-backdrop-click.spec.tsx",
+          "hash": "16423142260211999273",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-handle-backdrop-click/use-handle-backdrop-click.tsx",
+          "hash": "239899479632839502",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-local-storage/use-local-storage.spec.tsx",
+          "hash": "15435943450782242850",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-local-storage/use-local-storage.tsx",
+          "hash": "1783946739332718879",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-modal-manager/use-modal-manager.ts",
+          "hash": "5202168801371896928",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-modal/custom-modal.stories.mdx",
+          "hash": "6563621494131387692"
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-modal/custom-modal.stories.tsx",
+          "hash": "14428506012286977150",
+          "deps": [
+            "npm:@storybook/react",
+            "react-ui"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-modal/use-modal.spec.tsx",
+          "hash": "6302941275576128362",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-modal/use-modal.stories.mdx",
+          "hash": "1816851668979381020"
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-modal/use-modal.stories.tsx",
+          "hash": "16474904130937096748",
+          "deps": [
+            "npm:@storybook/react",
+            "react-ui"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-modal/use-modal.test.tsx",
+          "hash": "9763624427120268506",
+          "deps": [
+            "npm:@testing-library/react",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-modal/use-modal.ts",
+          "hash": "4520704869195432928",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-multi-step-form/use-multi-step-form.module.css",
+          "hash": "125145030238681982"
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-multi-step-form/use-multi-step-form.spec.tsx",
+          "hash": "3550751049829293701",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-multi-step-form/use-multi-step-form.tsx",
+          "hash": "11543235723102671525",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-search-query/use-search-query.module.css",
+          "hash": "125145030238681982"
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-search-query/use-search-query.spec.tsx",
+          "hash": "11410236832262771272",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/src/lib/use-search-query/use-search-query.ts",
+          "hash": "13481354154690938535",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/react-hooks/tsconfig.json",
+          "hash": "604079830671975718"
+        },
+        {
+          "file": "libs/react-hooks/tsconfig.lib.json",
+          "hash": "6187066142768384327"
+        }
+      ],
+      "firebase": [
+        {
+          "file": "libs/firebase/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "libs/firebase/README.md",
+          "hash": "16407784855722291576"
+        },
+        {
+          "file": "libs/firebase/project.json",
+          "hash": "8903381348191217900"
+        },
+        {
+          "file": "libs/firebase/src/index.ts",
+          "hash": "6327093228363833463"
+        },
+        {
+          "file": "libs/firebase/src/lib/firebase-config.ts",
+          "hash": "14202874094397416332",
+          "deps": [
+            "npm:firebase"
+          ]
+        },
+        {
+          "file": "libs/firebase/src/lib/firebase-crud.ts",
+          "hash": "3794639490967552054",
+          "deps": [
+            "npm:firebase"
+          ]
+        },
+        {
+          "file": "libs/firebase/src/lib/types.ts",
+          "hash": "17004575654063341782"
+        },
+        {
+          "file": "libs/firebase/src/lib/useCollection.ts",
+          "hash": "12774692707742141258",
+          "deps": [
+            "npm:swr",
+            "npm:firebase"
+          ]
+        },
+        {
+          "file": "libs/firebase/src/lib/useFirestoreCollections.ts",
+          "hash": "17803997253395663136",
+          "deps": [
+            "npm:react",
+            "npm:firebase"
+          ]
+        },
+        {
+          "file": "libs/firebase/tsconfig.json",
+          "hash": "634795086719220447"
+        },
+        {
+          "file": "libs/firebase/tsconfig.lib.json",
+          "hash": "18155349116525859334"
+        }
+      ],
+      "store-checkout": [
+        {
+          "file": "libs/store/checkout/.babelrc",
+          "hash": "11855890993922274285"
+        },
+        {
+          "file": "libs/store/checkout/.eslintrc.json",
+          "hash": "18250621763427026584"
+        },
+        {
+          "file": "libs/store/checkout/README.md",
+          "hash": "5492250576199128396"
+        },
+        {
+          "file": "libs/store/checkout/project.json",
+          "hash": "16987442380101286072"
+        },
+        {
+          "file": "libs/store/checkout/src/index.ts",
+          "hash": "6871124277644867166"
+        },
+        {
+          "file": "libs/store/checkout/src/lib/checkoutSlice.test.ts",
+          "hash": "12816155267112583878"
+        },
+        {
+          "file": "libs/store/checkout/src/lib/checkoutSlice.tsx",
+          "hash": "18401096347473931842",
+          "deps": [
+            "npm:@reduxjs/toolkit"
+          ]
+        },
+        {
+          "file": "libs/store/checkout/tsconfig.json",
+          "hash": "9466653708934095578"
+        },
+        {
+          "file": "libs/store/checkout/tsconfig.lib.json",
+          "hash": "8922698259705927128"
+        }
+      ],
+      "store-form-form": [
+        {
+          "file": "libs/store/form/.babelrc",
+          "hash": "11855890993922274285"
+        },
+        {
+          "file": "libs/store/form/.eslintrc.json",
+          "hash": "2253930940963648246"
+        },
+        {
+          "file": "libs/store/form/README.md",
+          "hash": "7194608432204897293"
+        },
+        {
+          "file": "libs/store/form/project.json",
+          "hash": "14896188918752204768"
+        },
+        {
+          "file": "libs/store/form/src/index.ts",
+          "hash": "3214388171426379740"
+        },
+        {
+          "file": "libs/store/form/src/lib/formSlice.test.ts",
+          "hash": "15121924959445761665"
+        },
+        {
+          "file": "libs/store/form/src/lib/formSlice.ts",
+          "hash": "5020416182166698691",
+          "deps": [
+            "npm:@reduxjs/toolkit"
+          ]
+        },
+        {
+          "file": "libs/store/form/tsconfig.json",
+          "hash": "13090035453275662468"
+        },
+        {
+          "file": "libs/store/form/tsconfig.lib.json",
+          "hash": "15780310509971588018"
+        }
+      ],
+      "store-cart": [
+        {
+          "file": "libs/store/cart/.babelrc",
+          "hash": "11855890993922274285"
+        },
+        {
+          "file": "libs/store/cart/.eslintrc.json",
+          "hash": "18250621763427026584"
+        },
+        {
+          "file": "libs/store/cart/README.md",
+          "hash": "15023278883362705541"
+        },
+        {
+          "file": "libs/store/cart/project.json",
+          "hash": "11865085376564057911"
+        },
+        {
+          "file": "libs/store/cart/src/index.ts",
+          "hash": "1216848252732496563"
+        },
+        {
+          "file": "libs/store/cart/src/lib/cartSlice.test.ts",
+          "hash": "3696313723581497705",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/store/cart/src/lib/cartSlice.ts",
+          "hash": "12115268407041779659",
+          "deps": [
+            "npm:@reduxjs/toolkit",
+            "types",
+            "store"
+          ]
+        },
+        {
+          "file": "libs/store/cart/tsconfig.json",
+          "hash": "9466653708934095578"
+        },
+        {
+          "file": "libs/store/cart/tsconfig.lib.json",
+          "hash": "8922698259705927128"
+        }
+      ],
+      "stripe": [
+        {
+          "file": "libs/stripe/.eslintrc.json",
+          "hash": "13365499647183331872"
+        },
+        {
+          "file": "libs/stripe/README.md",
+          "hash": "4231824447805043936"
+        },
+        {
+          "file": "libs/stripe/package.json",
+          "hash": "1985596651746129799",
+          "deps": [
+            "npm:tslib"
+          ]
+        },
+        {
+          "file": "libs/stripe/project.json",
+          "hash": "15781591001086859419"
+        },
+        {
+          "file": "libs/stripe/src/index.ts",
+          "hash": "9819817095137236510"
+        },
+        {
+          "file": "libs/stripe/src/lib/stripe-service.spec.ts",
+          "hash": "12471481273418144859"
+        },
+        {
+          "file": "libs/stripe/src/lib/stripe-service.ts",
+          "hash": "842764081677954672",
+          "deps": [
+            "npm:stripe"
+          ]
+        },
+        {
+          "file": "libs/stripe/tsconfig.json",
+          "hash": "634795086719220447"
+        },
+        {
+          "file": "libs/stripe/tsconfig.lib.json",
+          "hash": "12638394678519115349"
+        }
+      ],
+      "icons": [
+        {
+          "file": "libs/icons/.babelrc",
+          "hash": "11855890993922274285"
+        },
+        {
+          "file": "libs/icons/.eslintrc.json",
+          "hash": "10075191527724852300"
+        },
+        {
+          "file": "libs/icons/.storybook/main.js",
+          "hash": "2390471499960484535",
+          "deps": [
+            "npm:../../../.storybook/main"
+          ]
+        },
+        {
+          "file": "libs/icons/.storybook/tsconfig.json",
+          "hash": "3354255873466980870"
+        },
+        {
+          "file": "libs/icons/README.md",
+          "hash": "4566149850319672493"
+        },
+        {
+          "file": "libs/icons/project.json",
+          "hash": "10678233911565100645"
+        },
+        {
+          "file": "libs/icons/src/index.ts",
+          "hash": "7152361818486043707"
+        },
+        {
+          "file": "libs/icons/src/lib/Custom100.tsx",
+          "hash": "6411288645703843332",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/CustomArrowCurvedDownRight.tsx",
+          "hash": "12800022818201217885",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/CustomArrowTrendingUp.tsx",
+          "hash": "13812402955305804543",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/CustomChickenScratch.tsx",
+          "hash": "5349460957378835754",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/CustomCursiveSquiggles.tsx",
+          "hash": "11375511597047776724",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/CustomFireworks.tsx",
+          "hash": "16472468283378341088",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/CustomHeart.tsx",
+          "hash": "6277745376434915016",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/CustomJHLogo.tsx",
+          "hash": "8175777207668533406",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/CustomPencilDrawing.tsx",
+          "hash": "17959329411917693558",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/CustomRSHLogo.tsx",
+          "hash": "1670586043513917627",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/CustomReflection.tsx",
+          "hash": "8557260803287941624",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/CustomSmileyFace.tsx",
+          "hash": "17917572602672778798",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/CustomZap.tsx",
+          "hash": "12948405295277764212",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/DynamicIconWrapper.tsx",
+          "hash": "8235786206212006248",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/arrow-curved-down-right.tsx",
+          "hash": "18102429010290332737",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "libs/icons/src/lib/icons.txt",
+          "hash": "7562224562660439273"
+        },
+        {
+          "file": "libs/icons/tsconfig.json",
+          "hash": "604079830671975718"
+        },
+        {
+          "file": "libs/icons/tsconfig.lib.json",
+          "hash": "14482671276356339215"
+        }
+      ],
+      "jhogancom": [
+        {
+          "file": "apps/jhogancom/.eslintrc.json",
+          "hash": "13553100301457832368"
+        },
+        {
+          "file": "apps/jhogancom/components/JHFooter.tsx",
+          "hash": "3406578060491022097",
+          "deps": [
+            "npm:next",
+            "react-ui",
+            "icons"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/components/JHHeader.tsx",
+          "hash": "19272813044505243",
+          "deps": [
+            "npm:next",
+            "react-ui",
+            "generic-ui",
+            "theme",
+            "npm:react-icons",
+            "icons",
+            "npm:react",
+            "react-hooks"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/components/JHLayout.tsx",
+          "hash": "5678423249715363213",
+          "deps": [
+            "npm:next",
+            "nextjs-react-ui",
+            "react-ui",
+            "types"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/components/JHModal.tsx",
+          "hash": "11434578310947869427",
+          "deps": [
+            "npm:react",
+            "npm:@headlessui/react",
+            "npm:react-icons",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/components/JHProjectSection.tsx",
+          "hash": "6538677630654067444",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "react-ui",
+            "npm:react-icons"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/components/JHSection.tsx",
+          "hash": "17168549625364384033",
+          "deps": [
+            "utils"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/components/JHSocialMediaIcons.tsx",
+          "hash": "11412981423352721102",
+          "deps": [
+            "npm:next",
+            "react-ui",
+            "npm:react-icons"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/data/projects.ts",
+          "hash": "953483986262042906"
+        },
+        {
+          "file": "apps/jhogancom/index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "apps/jhogancom/jest.config.ts",
+          "hash": "6573888779509513737"
+        },
+        {
+          "file": "apps/jhogancom/next-env.d.ts",
+          "hash": "5909181270615354023"
+        },
+        {
+          "file": "apps/jhogancom/next.config.js",
+          "hash": "17473819663172187398",
+          "deps": [
+            "npm:@nrwl/next"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/pages/_app.tsx",
+          "hash": "5433977724752637095",
+          "deps": [
+            "npm:react",
+            "theme",
+            "analytics",
+            "npm:react-hotjar",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/pages/_document.tsx",
+          "hash": "3437722727498505106",
+          "deps": [
+            "npm:next",
+            "theme"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/pages/api/projects/index.tsx",
+          "hash": "12002647064945287700"
+        },
+        {
+          "file": "apps/jhogancom/pages/index.tsx",
+          "hash": "7524216529101909510",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "react-ui",
+            "generic-ui",
+            "theme"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/pages/projects/[slug].tsx",
+          "hash": "2422918223312615992",
+          "deps": [
+            "npm:next",
+            "react-ui",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/pages/projects/index.tsx",
+          "hash": "17753699321069228530"
+        },
+        {
+          "file": "apps/jhogancom/postcss.config.js",
+          "hash": "2759402739052110475",
+          "deps": [
+            "npm:path"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/project.json",
+          "hash": "853118835753746268"
+        },
+        {
+          "file": "apps/jhogancom/public/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/jhogancom/public/site.webmanifest",
+          "hash": "11205980641497128048"
+        },
+        {
+          "file": "apps/jhogancom/styles/styles.css",
+          "hash": "17386549988504536459"
+        },
+        {
+          "file": "apps/jhogancom/styles/themes.ts",
+          "hash": "1330276553448551898"
+        },
+        {
+          "file": "apps/jhogancom/tailwind.config.js",
+          "hash": "11070597259003322828",
+          "deps": [
+            "npm:@nrwl/react",
+            "npm:path",
+            "npm:../../tailwind-workspace-preset.js"
+          ]
+        },
+        {
+          "file": "apps/jhogancom/tsconfig.json",
+          "hash": "15982959116379451949"
+        },
+        {
+          "file": "apps/jhogancom/tsconfig.spec.json",
+          "hash": "6932660931697717727"
+        },
+        {
+          "file": "apps/jhogancom/types/custom.d.ts",
+          "hash": "13450934908612670159"
+        },
+        {
+          "file": "apps/jhogancom/types/declarations.d.ts",
+          "hash": "3045620673670422794"
+        }
+      ],
+      "store": [
+        {
+          "file": "libs/store/.babelrc",
+          "hash": "11855890993922274285"
+        },
+        {
+          "file": "libs/store/.eslintrc.json",
+          "hash": "10075191527724852300"
+        },
+        {
+          "file": "libs/store/README.md",
+          "hash": "14268224184050075617"
+        },
+        {
+          "file": "libs/store/project.json",
+          "hash": "15867125618561707610"
+        },
+        {
+          "file": "libs/store/src/index.ts",
+          "hash": "12507249071764241272",
+          "deps": [
+            "store-products",
+            "store-cart",
+            "store-checkout",
+            "store-form-form"
+          ]
+        },
+        {
+          "file": "libs/store/src/lib/store.test.ts",
+          "hash": "5370512323318097846",
+          "deps": [
+            "npm:@reduxjs/toolkit",
+            "store-products",
+            "store-cart",
+            "store-checkout",
+            "store-form-form"
+          ]
+        },
+        {
+          "file": "libs/store/src/lib/store.ts",
+          "hash": "5828056714421747917",
+          "deps": [
+            "npm:@reduxjs/toolkit",
+            "store-products"
+          ]
+        },
+        {
+          "file": "libs/store/tsconfig.json",
+          "hash": "14088618039610991405"
+        },
+        {
+          "file": "libs/store/tsconfig.lib.json",
+          "hash": "8252693981156152688"
+        }
+      ],
       "neuro-fit": [
         {
           "file": "apps/neuro-fit/.eslintrc.json",
@@ -7558,179 +6823,186 @@
           "hash": "6922413205408300107"
         }
       ],
-      "store-cart": [
+      "generic-ui": [
         {
-          "file": "libs/store/cart/.babelrc",
-          "hash": "11855890993922274285"
+          "file": "libs/generic-ui/.babelrc",
+          "hash": "9248190419338858614"
         },
         {
-          "file": "libs/store/cart/.eslintrc.json",
-          "hash": "18250621763427026584"
+          "file": "libs/generic-ui/.eslintrc.json",
+          "hash": "14556524733145915277"
         },
         {
-          "file": "libs/store/cart/README.md",
-          "hash": "15023278883362705541"
-        },
-        {
-          "file": "libs/store/cart/project.json",
-          "hash": "11865085376564057911"
-        },
-        {
-          "file": "libs/store/cart/src/index.ts",
-          "hash": "1216848252732496563"
-        },
-        {
-          "file": "libs/store/cart/src/lib/cartSlice.test.ts",
-          "hash": "3696313723581497705",
+          "file": "libs/generic-ui/.storybook/main.ts",
+          "hash": "16962419683925808421",
           "deps": [
-            "types"
+            "npm:@storybook/react-vite",
+            "npm:@nx/vite",
+            "npm:vite"
           ]
         },
         {
-          "file": "libs/store/cart/src/lib/cartSlice.ts",
-          "hash": "12115268407041779659",
+          "file": "libs/generic-ui/.storybook/preview.ts",
+          "hash": "13438753209813017957"
+        },
+        {
+          "file": "libs/generic-ui/README.md",
+          "hash": "10840256641724752537"
+        },
+        {
+          "file": "libs/generic-ui/postcss.config.js",
+          "hash": "2759402739052110475",
           "deps": [
-            "npm:@reduxjs/toolkit",
-            "types",
-            "store"
+            "npm:path"
           ]
         },
         {
-          "file": "libs/store/cart/tsconfig.json",
-          "hash": "9466653708934095578"
+          "file": "libs/generic-ui/project.json",
+          "hash": "15364322031254197054"
         },
         {
-          "file": "libs/store/cart/tsconfig.lib.json",
-          "hash": "8922698259705927128"
-        }
-      ],
-      "store-checkout": [
-        {
-          "file": "libs/store/checkout/.babelrc",
-          "hash": "11855890993922274285"
+          "file": "libs/generic-ui/src/index.ts",
+          "hash": "3138619265439261909"
         },
         {
-          "file": "libs/store/checkout/.eslintrc.json",
-          "hash": "18250621763427026584"
-        },
-        {
-          "file": "libs/store/checkout/README.md",
-          "hash": "5492250576199128396"
-        },
-        {
-          "file": "libs/store/checkout/project.json",
-          "hash": "16987442380101286072"
-        },
-        {
-          "file": "libs/store/checkout/src/index.ts",
-          "hash": "6871124277644867166"
-        },
-        {
-          "file": "libs/store/checkout/src/lib/checkoutSlice.test.ts",
-          "hash": "12816155267112583878"
-        },
-        {
-          "file": "libs/store/checkout/src/lib/checkoutSlice.tsx",
-          "hash": "18401096347473931842",
+          "file": "libs/generic-ui/src/lib/button/ButtonOverview.stories.tsx",
+          "hash": "9567232776191698882",
           "deps": [
-            "npm:@reduxjs/toolkit"
+            "npm:react",
+            "npm:@storybook/react"
           ]
         },
         {
-          "file": "libs/store/checkout/tsconfig.json",
-          "hash": "9466653708934095578"
+          "file": "libs/generic-ui/src/lib/button/button.stories.tsx",
+          "hash": "7595498478645878923",
+          "deps": [
+            "npm:@storybook/react"
+          ]
         },
         {
-          "file": "libs/store/checkout/tsconfig.lib.json",
-          "hash": "8922698259705927128"
-        }
-      ],
-      "types": [
-        {
-          "file": "libs/types/.babelrc",
-          "hash": "14637968239574891430"
-        },
-        {
-          "file": "libs/types/.eslintrc.json",
-          "hash": "13800677001662881425"
-        },
-        {
-          "file": "libs/types/README.md",
-          "hash": "10825246303961700588"
-        },
-        {
-          "file": "libs/types/jest.config.ts",
-          "hash": "11675744905629633321"
-        },
-        {
-          "file": "libs/types/project.json",
-          "hash": "8405779427121348504"
-        },
-        {
-          "file": "libs/types/src/index.ts",
-          "hash": "4590363054966894635"
-        },
-        {
-          "file": "libs/types/src/lib/control-types.ts",
-          "hash": "16592522803569633660",
+          "file": "libs/generic-ui/src/lib/button/button.tsx",
+          "hash": "16868742551096871661",
           "deps": [
             "npm:react"
           ]
         },
         {
-          "file": "libs/types/src/lib/display-types.ts",
-          "hash": "6972590695707300222"
-        },
-        {
-          "file": "libs/types/src/lib/feedback-types.ts",
-          "hash": "250413064695996286"
-        },
-        {
-          "file": "libs/types/src/lib/form-types.ts",
-          "hash": "14048568288785392461"
-        },
-        {
-          "file": "libs/types/src/lib/layout-types.ts",
-          "hash": "15151231734955701150"
-        },
-        {
-          "file": "libs/types/src/lib/media-types.ts",
-          "hash": "14572913820925521936"
-        },
-        {
-          "file": "libs/types/src/lib/navigation-types.ts",
-          "hash": "18042091160566990853",
+          "file": "libs/generic-ui/src/lib/checkbox/checkbox.tsx",
+          "hash": "4273812295367671055",
           "deps": [
             "npm:react"
           ]
         },
         {
-          "file": "libs/types/src/lib/redux-toolkit-types.ts",
-          "hash": "9921371221808264433"
+          "file": "libs/generic-ui/src/lib/heading/HeadingOverview.stories.tsx",
+          "hash": "8525750440593659125",
+          "deps": [
+            "npm:react",
+            "npm:@storybook/react"
+          ]
         },
         {
-          "file": "libs/types/src/lib/serverless-function-types.ts",
-          "hash": "6944659763850871487"
+          "file": "libs/generic-ui/src/lib/heading/heading.stories.tsx",
+          "hash": "4675033351295531549",
+          "deps": [
+            "npm:react",
+            "npm:@storybook/react"
+          ]
         },
         {
-          "file": "libs/types/src/lib/typography-types.ts",
-          "hash": "14575615434279578383"
+          "file": "libs/generic-ui/src/lib/heading/heading.tsx",
+          "hash": "377166984207495874"
         },
         {
-          "file": "libs/types/src/lib/utility-types.ts",
-          "hash": "11797083457356410274"
+          "file": "libs/generic-ui/src/lib/icon-button/icon-button.tsx",
+          "hash": "13712975128687880698",
+          "deps": [
+            "npm:react"
+          ]
         },
         {
-          "file": "libs/types/tsconfig.json",
-          "hash": "17079550796797979564"
+          "file": "libs/generic-ui/src/lib/input/input.tsx",
+          "hash": "5175283609328134878",
+          "deps": [
+            "npm:react"
+          ]
         },
         {
-          "file": "libs/types/tsconfig.lib.json",
-          "hash": "1398023143379268451"
+          "file": "libs/generic-ui/src/lib/link/link.tsx",
+          "hash": "8878584036246445945"
         },
         {
-          "file": "libs/types/tsconfig.spec.json",
-          "hash": "6514620907549802163"
+          "file": "libs/generic-ui/src/lib/list/list.tsx",
+          "hash": "8001232093908370261"
+        },
+        {
+          "file": "libs/generic-ui/src/lib/section/section.tsx",
+          "hash": "9045582485003340126",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/generic-ui/src/lib/select/select.tsx",
+          "hash": "16715221800121653418",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/generic-ui/src/lib/table/table.tsx",
+          "hash": "8414714111014377283"
+        },
+        {
+          "file": "libs/generic-ui/src/lib/text/TextOverview.stories.tsx",
+          "hash": "14832154254295412749",
+          "deps": [
+            "npm:react",
+            "npm:@storybook/react"
+          ]
+        },
+        {
+          "file": "libs/generic-ui/src/lib/text/text.stories.tsx",
+          "hash": "922263407598345191",
+          "deps": [
+            "npm:react",
+            "npm:@storybook/react"
+          ]
+        },
+        {
+          "file": "libs/generic-ui/src/lib/text/text.tsx",
+          "hash": "8522492717995423969"
+        },
+        {
+          "file": "libs/generic-ui/src/lib/textarea/textarea.tsx",
+          "hash": "12720613052455387345",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/generic-ui/src/styles.css",
+          "hash": "2866083945719690482"
+        },
+        {
+          "file": "libs/generic-ui/tailwind.config.js",
+          "hash": "13090734457927965885",
+          "deps": [
+            "npm:@nx/react",
+            "npm:path"
+          ]
+        },
+        {
+          "file": "libs/generic-ui/tsconfig.json",
+          "hash": "4317979821831494925"
+        },
+        {
+          "file": "libs/generic-ui/tsconfig.lib.json",
+          "hash": "4580231268695066544"
+        },
+        {
+          "file": "libs/generic-ui/tsconfig.storybook.json",
+          "hash": "9877693811502968150"
         }
       ],
       "constants": [
@@ -7817,6 +7089,803 @@
         {
           "file": "libs/constants/tsconfig.spec.json",
           "hash": "6514620907549802163"
+        }
+      ],
+      "nextjs-react-ui": [
+        {
+          "file": "libs/nextjs-react-ui/.babelrc",
+          "hash": "11993747757603257640"
+        },
+        {
+          "file": "libs/nextjs-react-ui/.eslintrc.json",
+          "hash": "10075191527724852300"
+        },
+        {
+          "file": "libs/nextjs-react-ui/README.md",
+          "hash": "8576597072013090364"
+        },
+        {
+          "file": "libs/nextjs-react-ui/jest.config.ts",
+          "hash": "11680385762662574944"
+        },
+        {
+          "file": "libs/nextjs-react-ui/project.json",
+          "hash": "11514000460114551235"
+        },
+        {
+          "file": "libs/nextjs-react-ui/src/index.ts",
+          "hash": "3310780578326232485"
+        },
+        {
+          "file": "libs/nextjs-react-ui/src/lib/button-link/button-link.module.css",
+          "hash": "9645402845086451152"
+        },
+        {
+          "file": "libs/nextjs-react-ui/src/lib/button-link/button-link.spec.tsx",
+          "hash": "6523846404298433712",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/nextjs-react-ui/src/lib/button-link/button-link.tsx",
+          "hash": "11122241176310269348",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "libs/nextjs-react-ui/src/lib/nextjs-image/nextjs-image.module.css",
+          "hash": "12932459545147846997"
+        },
+        {
+          "file": "libs/nextjs-react-ui/src/lib/nextjs-image/nextjs-image.spec.tsx",
+          "hash": "3493895682365545818",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/nextjs-react-ui/src/lib/nextjs-image/nextjs-image.tsx",
+          "hash": "10675527389036346772",
+          "deps": [
+            "npm:react",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "libs/nextjs-react-ui/src/lib/seo/seo.module.css",
+          "hash": "125145030238681982"
+        },
+        {
+          "file": "libs/nextjs-react-ui/src/lib/seo/seo.spec.tsx",
+          "hash": "12388780298952402102",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/nextjs-react-ui/src/lib/seo/seo.tsx",
+          "hash": "15715012021692686342",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "libs/nextjs-react-ui/tsconfig.json",
+          "hash": "12937361759397702261"
+        },
+        {
+          "file": "libs/nextjs-react-ui/tsconfig.lib.json",
+          "hash": "5047993456068296026"
+        },
+        {
+          "file": "libs/nextjs-react-ui/tsconfig.spec.json",
+          "hash": "6514620907549802163"
+        }
+      ],
+      "utils": [
+        {
+          "file": "libs/utils/.babelrc",
+          "hash": "14637968239574891430"
+        },
+        {
+          "file": "libs/utils/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "libs/utils/README.md",
+          "hash": "10282993753073018259"
+        },
+        {
+          "file": "libs/utils/jest.config.ts",
+          "hash": "11641990694557527412"
+        },
+        {
+          "file": "libs/utils/project.json",
+          "hash": "541840731613776322"
+        },
+        {
+          "file": "libs/utils/src/index.ts",
+          "hash": "15229644069444018825"
+        },
+        {
+          "file": "libs/utils/src/lib/array-utils.ts",
+          "hash": "13746136419518576973"
+        },
+        {
+          "file": "libs/utils/src/lib/class-utils.ts",
+          "hash": "18373348738859304808"
+        },
+        {
+          "file": "libs/utils/src/lib/format-utils.ts",
+          "hash": "14121992085572987479"
+        },
+        {
+          "file": "libs/utils/src/lib/function-utils.ts",
+          "hash": "18178309074210125317"
+        },
+        {
+          "file": "libs/utils/src/lib/id-utils.ts",
+          "hash": "10478553703035902707"
+        },
+        {
+          "file": "libs/utils/src/lib/math-utils.ts",
+          "hash": "2378001861957132755"
+        },
+        {
+          "file": "libs/utils/src/lib/number-utils.ts",
+          "hash": "10116015359589521898"
+        },
+        {
+          "file": "libs/utils/src/lib/object-utils.ts",
+          "hash": "6888309748082788212"
+        },
+        {
+          "file": "libs/utils/src/lib/string-utils.ts",
+          "hash": "4699038961524267795"
+        },
+        {
+          "file": "libs/utils/src/lib/validation-utils.ts",
+          "hash": "7735935070756764627"
+        },
+        {
+          "file": "libs/utils/tsconfig.json",
+          "hash": "17079550796797979564"
+        },
+        {
+          "file": "libs/utils/tsconfig.lib.json",
+          "hash": "1398023143379268451"
+        },
+        {
+          "file": "libs/utils/tsconfig.spec.json",
+          "hash": "6514620907549802163"
+        }
+      ],
+      "swapi": [
+        {
+          "file": "apps/swapi/.eslintrc.json",
+          "hash": "17145576443519843445"
+        },
+        {
+          "file": "apps/swapi/api/endpoints.ts",
+          "hash": "14513034181606455384"
+        },
+        {
+          "file": "apps/swapi/api/fetcher.ts",
+          "hash": "12429310472243117154",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/swapi/api/useSWRApi.ts",
+          "hash": "7824915761893410954",
+          "deps": [
+            "npm:swr"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/CardBack.tsx",
+          "hash": "5581000606512354209",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/CardFilms.tsx",
+          "hash": "4807599704205915629"
+        },
+        {
+          "file": "apps/swapi/components/CardHomeworld.tsx",
+          "hash": "6473394122367735059",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/CardTitle.tsx",
+          "hash": "15652027929824857880",
+          "deps": [
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/CharacterAvatar/index.tsx",
+          "hash": "13098244543196615771",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/CharacterList.tsx",
+          "hash": "3356650013718039011",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/Characters.tsx",
+          "hash": "8345037175677650757",
+          "deps": [
+            "npm:react",
+            "npm:swr",
+            "react-ui",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/Header.tsx",
+          "hash": "5493062755623351583",
+          "deps": [
+            "npm:react-icons"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/Hero.tsx",
+          "hash": "17089017365917685863"
+        },
+        {
+          "file": "apps/swapi/components/Loading.tsx",
+          "hash": "17295757625174212544",
+          "deps": [
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/Pagination.tsx",
+          "hash": "16973705725538449653",
+          "deps": [
+            "react-ui",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/Planets/Planet.tsx",
+          "hash": "14662437479553929091",
+          "deps": [
+            "npm:react",
+            "npm:three"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/Planets/Swapi3DPlanet.tsx",
+          "hash": "191030910263875499",
+          "deps": [
+            "npm:react",
+            "npm:three"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/Planets/textures/swapi_earth.jpg",
+          "hash": "18006222554115595288"
+        },
+        {
+          "file": "apps/swapi/components/Planets/textures/swapi_earth_bump.jpg",
+          "hash": "8250029914168842859"
+        },
+        {
+          "file": "apps/swapi/components/PlanetsCard.tsx",
+          "hash": "14316567976302571469",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/SearchBar.tsx",
+          "hash": "15817068001421375368",
+          "deps": [
+            "npm:react",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/SearchFilter.tsx",
+          "hash": "16913721682394851862",
+          "deps": [
+            "npm:react",
+            "react-ui",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/SwapiCard.tsx",
+          "hash": "16724975381128214556",
+          "deps": [
+            "npm:react",
+            "react-ui",
+            "npm:swr"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/SwapiFooter.tsx",
+          "hash": "1319829324230254472",
+          "deps": [
+            "react-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/SwapiLayout.tsx",
+          "hash": "4726867193918119652",
+          "deps": [
+            "react-ui",
+            "nextjs-react-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/SwapiSearch.tsx",
+          "hash": "11618630342762634903",
+          "deps": [
+            "npm:react",
+            "react-ui",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/SwapiSection.tsx",
+          "hash": "12450177090525354202",
+          "deps": [
+            "react-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/SwapiThemeColorPallete.tsx",
+          "hash": "9664652423471682824",
+          "deps": [
+            "react-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/avatar-components/Ear.tsx",
+          "hash": "12420865354645411625"
+        },
+        {
+          "file": "apps/swapi/components/avatar-components/Eyebrow.tsx",
+          "hash": "3160761326115178407"
+        },
+        {
+          "file": "apps/swapi/components/avatar-components/Eyes.tsx",
+          "hash": "12336293162821989429"
+        },
+        {
+          "file": "apps/swapi/components/avatar-components/Face.tsx",
+          "hash": "13279317730038689569"
+        },
+        {
+          "file": "apps/swapi/components/avatar-components/Hair.tsx",
+          "hash": "13115275144539332878",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/avatar-components/Smile.tsx",
+          "hash": "16086628803154577545"
+        },
+        {
+          "file": "apps/swapi/components/avatar-components/hair.module.css",
+          "hash": "5027622932683948580"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/HomeworldBackground.tsx",
+          "hash": "11642089472026020329",
+          "deps": [
+            "npm:react",
+            "npm:swr",
+            "react-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/barren/Barren.tsx",
+          "hash": "17436507343728124426",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/barren/barren.module.css",
+          "hash": "467678638483796278"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/cityscape/Cityscape.tsx",
+          "hash": "14132739930832712872",
+          "deps": [
+            "npm:react",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/cityscape/cityscape.module.css",
+          "hash": "135237255552994657"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/desert/Desert.tsx",
+          "hash": "824307899648854477",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/forests/Forests.tsx",
+          "hash": "11973272705533077332",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/forests/forests.module.css",
+          "hash": "14036953449813717528"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/gasGiant/GasGiant.tsx",
+          "hash": "7431545944836156261",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/gasGiant/gasGiant.module.css",
+          "hash": "5900034283202796599"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/grasslands/Grasslands.tsx",
+          "hash": "5527009381376149215",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/grasslands/grasslands.module.css",
+          "hash": "6911992994239126065"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/jungle/Jungle.tsx",
+          "hash": "1682444562422665990",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/jungle/jungles.module.css",
+          "hash": "16958889232632169837"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/lakes/Lakes.tsx",
+          "hash": "6540037657749814542",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/lakes/lakes.module.css",
+          "hash": "13946881231980829289"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/mountain/Mountains.tsx",
+          "hash": "14394761798812182166",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/mountain/mountains.module.css",
+          "hash": "5796308620283054360"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/ocean/Ocean.tsx",
+          "hash": "4430998284384184941",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/ocean/ocean.module.css",
+          "hash": "4986747453736970964"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/plains/Plains.tsx",
+          "hash": "14140857301849886308",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/plains/plains.module.css",
+          "hash": "5983345821413370219"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/rocky/Rocky.tsx",
+          "hash": "3664990362008665744",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/rocky/rocky.css",
+          "hash": "6700603864793571561"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/rocky/rocky.scss",
+          "hash": "15835076304512484668"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/rockyIslands/RockyIslands.tsx",
+          "hash": "12889864459523754448",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/rockyIslands/rockyIslands.module.css",
+          "hash": "17708985804359750494"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/scrublands/Scrublands.tsx",
+          "hash": "17340654811958296980",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/scrublands/scrublands.scss",
+          "hash": "12114856730849711241"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/stars/index.tsx",
+          "hash": "8102536637857805607"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/stars/stars.module.css",
+          "hash": "8487557369197218191"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/toxicCloudsea/ToxicCloudsea.tsx",
+          "hash": "18282098741812782941",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/toxicCloudsea/toxicCloudsea.module.css",
+          "hash": "14304112212906848384"
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/unknown/Unknown.tsx",
+          "hash": "4253381216378417239",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/components/homeworldBackground/unknown/unknown.module.css",
+          "hash": "18280562402119896910"
+        },
+        {
+          "file": "apps/swapi/components/species/Droid.tsx",
+          "hash": "1014985473766720609"
+        },
+        {
+          "file": "apps/swapi/components/species/Human.tsx",
+          "hash": "14213016092981139517",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/context/AvatarSizeProvider.tsx",
+          "hash": "9540084429413745912",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/context/ThemeProvider.tsx",
+          "hash": "1604351718644854653",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/data/peopleData.ts",
+          "hash": "5650631952992919486"
+        },
+        {
+          "file": "apps/swapi/hooks/useAvatarSize.ts",
+          "hash": "2590011409354602270",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/hooks/useCharacterProps.ts",
+          "hash": "3033135722991190953",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/icons/SwapiCursiveSVG.tsx",
+          "hash": "5128581909142846454",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/icons/SwapiRightArrow.tsx",
+          "hash": "7637987802923137033",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/icons/SwapiSmileySVG.tsx",
+          "hash": "1837696188949200291",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/swapi/icons/SwapiSunSVG.tsx",
+          "hash": "17307197582779550337"
+        },
+        {
+          "file": "apps/swapi/index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "apps/swapi/jest.config.ts",
+          "hash": "3014360465409286065"
+        },
+        {
+          "file": "apps/swapi/next-env.d.ts",
+          "hash": "5909181270615354023"
+        },
+        {
+          "file": "apps/swapi/next.config.js",
+          "hash": "14533850306915826133",
+          "deps": [
+            "npm:@nrwl/next"
+          ]
+        },
+        {
+          "file": "apps/swapi/pages/_app.tsx",
+          "hash": "17818178717556653909",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/swapi/pages/admin/index.tsx",
+          "hash": "17647662493959681780",
+          "deps": [
+            "npm:react",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/pages/api/people.ts",
+          "hash": "12315782956955010796",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/swapi/pages/index.tsx",
+          "hash": "16540141069849372183",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "react-ui",
+            "icons",
+            "npm:swr",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/pages/people/[slug].tsx",
+          "hash": "9058384260763073165",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "react-ui",
+            "generic-ui"
+          ]
+        },
+        {
+          "file": "apps/swapi/postcss.config.js",
+          "hash": "2759402739052110475",
+          "deps": [
+            "npm:path"
+          ]
+        },
+        {
+          "file": "apps/swapi/project.json",
+          "hash": "2566889282528190482"
+        },
+        {
+          "file": "apps/swapi/public/robots.txt",
+          "hash": "2790380794362165217"
+        },
+        {
+          "file": "apps/swapi/public/site.webmanifest",
+          "hash": "11205980641497128048"
+        },
+        {
+          "file": "apps/swapi/styles/character-avatar.module.css",
+          "hash": "10354088551581086704"
+        },
+        {
+          "file": "apps/swapi/styles/styles.css",
+          "hash": "8759043031447054265"
+        },
+        {
+          "file": "apps/swapi/tailwind-safelist.js",
+          "hash": "17599424860212381528"
+        },
+        {
+          "file": "apps/swapi/tailwind.config.js",
+          "hash": "902596358600713446",
+          "deps": [
+            "npm:@nrwl/react",
+            "npm:path",
+            "npm:../../tailwind-workspace-preset.js"
+          ]
+        },
+        {
+          "file": "apps/swapi/tsconfig.json",
+          "hash": "10622235928137887514"
+        },
+        {
+          "file": "apps/swapi/tsconfig.spec.json",
+          "hash": "6922413205408300107"
+        },
+        {
+          "file": "apps/swapi/types/api/types.d.ts",
+          "hash": "9336139334790940384"
+        },
+        {
+          "file": "apps/swapi/types/people.ts",
+          "hash": "17967341869643828721"
+        },
+        {
+          "file": "apps/swapi/utils/avatarSizes.ts",
+          "hash": "18003583028812235885"
+        },
+        {
+          "file": "apps/swapi/utils/findMatchingUrl.ts",
+          "hash": "18223059282567344735"
+        },
+        {
+          "file": "apps/swapi/utils/mapCharacterProps.ts",
+          "hash": "14722753672709431753"
+        },
+        {
+          "file": "apps/swapi/utils/stylesMap.ts",
+          "hash": "8665656070015862530"
+        },
+        {
+          "file": "apps/swapi/utils/themeMap.ts",
+          "hash": "11274211528451527109"
         }
       ]
     }

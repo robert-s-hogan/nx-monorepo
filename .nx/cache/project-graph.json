@@ -1,5 +1,33 @@
 {
   "nodes": {
+    "openai-integration": {
+      "name": "openai-integration",
+      "type": "lib",
+      "data": {
+        "root": "libs/openai-integration",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "libs/openai-integration",
+              "command": "eslint ."
+            },
+            "configurations": {}
+          }
+        },
+        "name": "openai-integration",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/openai-integration/src",
+        "projectType": "library",
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
     "nextjs-react-ui": {
       "name": "nextjs-react-ui",
       "type": "lib",
@@ -24420,6 +24448,13 @@
     }
   },
   "dependencies": {
+    "openai-integration": [
+      {
+        "source": "openai-integration",
+        "target": "npm:axios",
+        "type": "static"
+      }
+    ],
     "nextjs-react-ui": [
       {
         "source": "nextjs-react-ui",
@@ -25162,6 +25197,11 @@
     "devblog": [
       {
         "source": "devblog",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "devblog",
         "target": "npm:next",
         "type": "static"
       },
@@ -25192,17 +25232,17 @@
       },
       {
         "source": "devblog",
-        "target": "npm:react",
-        "type": "static"
-      },
-      {
-        "source": "devblog",
         "target": "nextjs-react-ui",
         "type": "static"
       },
       {
         "source": "devblog",
         "target": "types",
+        "type": "static"
+      },
+      {
+        "source": "devblog",
+        "target": "npm:openai",
         "type": "static"
       },
       {

@@ -36,6 +36,7 @@
       "@with-nx/icons/feather": ["libs/icons/feather/src/index.ts"],
       "@with-nx/library": ["libs/library/src/index.ts"],
       "@with-nx/markdown": ["libs/markdown/src/index.ts"],
+      "@with-nx/openai-integration": ["libs/openai-integration/src/index.ts"],
       "@with-nx/nextjs-react-ui": ["libs/nextjs-react-ui/src/index.ts"],
       "@with-nx/react-hooks": ["libs/react-hooks/src/index.ts"],
       "@with-nx/react-ui": ["libs/react-ui/src/index.ts"],
@@ -50,7 +51,8 @@
       "@with-nx/theme": ["libs/theme/src/index.ts"],
       "@with-nx/types": ["libs/types/src/index.ts"],
       "@with-nx/ui": ["libs/ui/src/index.ts"],
-      "@with-nx/utils": ["libs/utils/src/index.ts"]
+      "@with-nx/utils": ["libs/utils/src/index.ts"],
+      "openai-integration": ["libs/openai-integration/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,11 +1,15 @@
+import { useState } from 'react';
+
 import { Flex, Grid, Link } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
 import { useTheme } from '@with-nx/theme';
 import { Heading, Text } from '@with-nx/generic-ui';
+import axios from 'axios';
 
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogSection from '../components/DevBlogSection';
 import DevBlogHighlightedProject from '../components/DevBlogHighlightedProject';
+// import DevBlogChatBot from '../components/DevBlogChatBot';
 import { projectsData } from '../data/projects';
 
 const WP_API_BASE_URL =
@@ -43,6 +47,30 @@ export async function getStaticProps() {
 export function Index({ allPostsData }) {
   const { isShowing, toggle } = useModal();
   const { theme, toggleTheme } = useTheme();
+  const [input, setInput] = useState('');
+  const [responses, setResponses] = useState([]);
+
+  const handleInputChange = (event) => {
+    setInput(event.target.value);
+  };
+
+  const handleSend = async () => {
+    if (input.trim() === '') return;
+    try {
+      const response = await axios.post('/api/chat', { prompt: input });
+      setResponses([
+        ...responses,
+        { question: input, answer: response.data.message },
+      ]);
+      setInput(''); // Clear input after sending
+    } catch (error) {
+      console.error('Error fetching response:', error);
+      setResponses([
+        ...responses,
+        { question: input, answer: 'Error getting response from server' },
+      ]);
+    }
+  };
   return (
     <DevBlogLayout>
       <DevBlogSection className="relative">
@@ -142,6 +170,7 @@ export function Index({ allPostsData }) {
           ))}
         </div>
       </DevBlogSection>
+      {/* <DevBlogChatBot /> */}
     </DevBlogLayout>
   );
 }
