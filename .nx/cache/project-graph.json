@@ -20036,6 +20036,15 @@
         "hash": "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
       }
     },
+    "npm:property-expr": {
+      "type": "npm",
+      "name": "npm:property-expr",
+      "data": {
+        "version": "2.0.6",
+        "packageName": "property-expr",
+        "hash": "sha512-SVtmxhRE/CGkn3eZY1T6pC8Nln6Fr/lu1mKSgRud0eC73whjGfoAogbn78LkD8aFL0zz3bAFerKSnOl7NlErBA=="
+      }
+    },
     "npm:property-information": {
       "type": "npm",
       "name": "npm:property-information",
@@ -22709,6 +22718,15 @@
         "hash": "sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA=="
       }
     },
+    "npm:tiny-case": {
+      "type": "npm",
+      "name": "npm:tiny-case",
+      "data": {
+        "version": "1.0.3",
+        "packageName": "tiny-case",
+        "hash": "sha512-Eet/eeMhkO6TX8mnUteS9zgPbUMQa4I6Kkp5ORiBD5476/m+PIRiumP5tmh5ioJpH7k51Kehawy2UDfsnxxY8Q=="
+      }
+    },
     "npm:tiny-invariant": {
       "type": "npm",
       "name": "npm:tiny-invariant",
@@ -22806,6 +22824,15 @@
         "version": "1.0.1",
         "packageName": "toidentifier",
         "hash": "sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA=="
+      }
+    },
+    "npm:toposort": {
+      "type": "npm",
+      "name": "npm:toposort",
+      "data": {
+        "version": "2.0.2",
+        "packageName": "toposort",
+        "hash": "sha512-0a5EOkAUp8D4moMi2W8ZF8jcga7BgZd91O/yabJCFY8az+XSzeGyTKs0Aoo897iV1Nj6guFq8orWDS96z91oGg=="
       }
     },
     "npm:totalist": {
@@ -24419,6 +24446,15 @@
         "hash": "sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g=="
       }
     },
+    "npm:yup": {
+      "type": "npm",
+      "name": "npm:yup",
+      "data": {
+        "version": "1.4.0",
+        "packageName": "yup",
+        "hash": "sha512-wPbgkJRCqIf+OHyiTBQoJiP5PFuAXaWiJK6AmYkzQAh5/c2K9hzSApBZG5wV9KoKSePF7sAxmNSvh/13YHkFDg=="
+      }
+    },
     "npm:zod": {
       "type": "npm",
       "name": "npm:zod",
@@ -24668,6 +24704,11 @@
       {
         "source": "generic-ui",
         "target": "npm:@storybook/react",
+        "type": "static"
+      },
+      {
+        "source": "generic-ui",
+        "target": "types",
         "type": "static"
       },
       {
@@ -25247,6 +25288,11 @@
       },
       {
         "source": "devblog",
+        "target": "constants",
+        "type": "static"
+      },
+      {
+        "source": "devblog",
         "target": "npm:react-konva",
         "type": "static"
       },
@@ -25287,17 +25333,22 @@
       },
       {
         "source": "devblog",
+        "target": "npm:bottleneck",
+        "type": "static"
+      },
+      {
+        "source": "devblog",
         "target": "utils",
         "type": "static"
       },
       {
         "source": "devblog",
-        "target": "constants",
+        "target": "npm:@nrwl/react",
         "type": "static"
       },
       {
         "source": "devblog",
-        "target": "npm:@nrwl/react",
+        "target": "npm:yup",
         "type": "static"
       }
     ],
@@ -61871,6 +61922,28 @@
       {
         "source": "npm:yauzl",
         "target": "npm:fd-slicer",
+        "type": "static"
+      }
+    ],
+    "npm:yup": [
+      {
+        "source": "npm:yup",
+        "target": "npm:property-expr",
+        "type": "static"
+      },
+      {
+        "source": "npm:yup",
+        "target": "npm:tiny-case",
+        "type": "static"
+      },
+      {
+        "source": "npm:yup",
+        "target": "npm:toposort",
+        "type": "static"
+      },
+      {
+        "source": "npm:yup",
+        "target": "npm:type-fest",
         "type": "static"
       }
     ],

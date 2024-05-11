@@ -21,30 +21,25 @@
   --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
 
   /* Button */
+  --button-padding-y: 0.5rem;
   --button-padding-x: 0.75rem;
-  --button-padding-y: 0.5rem;
-  --button-border-width: 0.063rem;
-  --button-border-radius: 0.25rem;
-  --button-padding-y: 0.5rem;
-  --button-border-width: 0.063rem;
-  --button-border-radius: 0.25rem;
   --transition-all: all;
   --duration-300: 0.3s;
 
   /* Font Settings */
   --font-family: 'Inter', sans-serif;
 
-  /* Form Elements */
-  --rounded: rounded;
+  /* Form Element */
+  --form-element-padding-y: 0.5rem;
+  --form-element-padding-x: 0.75rem;
+  --form-element-border-width: 0.063rem;
+  --form-element-border-color: #e2e8f0;
+  --form-element-border-radius: 0.25rem;
+  --form-element-font-size: 1rem;
+  --form-element-height: 2.5rem;
+  --form-element-color: #2d3748;
 
   /* Input */
-  --input-padding-y: 0.5rem;
-  --input-padding-x: 0.75rem;
-  --input-border-width: 0.063rem;
-  --input-border-radius: 0.25rem;
-  --input-font-size: 1rem;
-  --input-height: 2.5rem;
-  --input-border-color: #e2e8f0;
   --input-focus-outline-color: #4299e1;
   --input-focus-outline-width: 0.125rem;
   --input-focus-outline-offset: 0.125rem;
@@ -77,8 +72,7 @@
   --select-width: 100%;
   --select-padding-y: 0.5rem;
   --select-padding-x: 0.75rem;
-  --select-border-width: 0.063rem;
-  --select-border-radius: 0.25rem;
+  --border-radius: 0.25rem;
   --select-font-size: 1rem;
   --select-height: 2.5rem;
   --select-border-color: #e2e8f0;
@@ -198,8 +192,8 @@ a button {
 }
 button {
   padding: var(--button-padding-y) var(--button-padding-x);
-  border-width: var(--button-border-width);
-  border-radius: var(--button-border-radius);
+  border-width: var(--form-element-border-width);
+  border-radius: var(--form-element-border-radius);
 }
 
 .btn-primary {
@@ -285,9 +279,24 @@ code {
 }
 
 /* FORM ELEMENTS */
-input {
-  border-color: var(--border-color);
-  border-width: var(--border-width);
+input,
+textarea,
+select {
+  padding: var(--form-element-padding-y) var(--form-element-padding-x);
+  border-width: var(--form-element-border-width);
+  border-color: var(--form-element-border-color);
+  border-radius: var(--form-element-border-radius);
+  font-size: var(--form-element-font-size);
+  height: var(--form-element-height);
+  color: var(--form-element-color);
+  width: 100%; /* Assuming you want full width for all */
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--input-focus-outline-color);
+  border-width: var(--input-focus-outline-width);
 }
 
 /* ICONS */
@@ -314,13 +323,15 @@ svg {
 input[type='number'],
 input[type='text'],
 input[type='string'] {
-  padding: var(--input-padding-y) var(--input-padding-x);
-  border-width: var(--input-border-width);
-  border-color: var(--input-border-color);
-  border-radius: var(--input-border-radius);
-  font-size: var(--input-font-size);
-  height: var(--input-height);
+  width: var(--select-width);
+  padding: var(--select-padding-y) var(--select-padding-x);
+  border-width: var(--form-element-border-width);
+  border-color: var(--select-border-color);
+  border-radius: var(--border-radius);
+  font-size: var(--select-font-size);
+  height: var(--select-height);
   width: 100%;
+  color: black;
 }
 input[type='number']:focus,
 input[type='text']:focus,
@@ -328,7 +339,6 @@ input[type='string']:focus {
   outline: none;
   border-color: var(--input-focus-outline-color);
   border-width: var(--input-focus-outline-width);
-  border-offset: var(--input-focus-outline-offset);
 }
 input[type='checkbox'] {
   display: block;
@@ -338,11 +348,11 @@ input[type='checkbox']:focus {
   outline: none;
 }
 textarea {
-  padding: var(--input-padding-y) var(--input-padding-x);
-  border-width: var(--input-border-width);
-  border-color: var(--input-border-color);
-  border-radius: var(--input-border-radius);
-  font-size: var(--input-font-size);
+  padding: var(--form-element-padding-y) var(--form-element-padding-x);
+  border-width: var(--form-element-border-width);
+  border-color: var(--form-element-border-color);
+  border-radius: var(--form-element-border-radius);
+  font-size: var(--form-element-font-size);
   height: 6rem;
   width: 100%;
 }
@@ -350,7 +360,6 @@ textarea:focus {
   outline: none;
   border-color: var(--input-focus-outline-color);
   border-width: var(--input-focus-outline-width);
-  border-offset: var(--input-focus-outline-offset);
 }
 
 /* LINKS */
@@ -381,14 +390,7 @@ a:hover {
 
 /* SELECT CLASSES */
 select {
-  appearance: var(--select-appearance);
-  width: var(--select-width);
-  padding: var(--select-padding-y) var(--select-padding-x);
-  border-width: var(--select-border-width);
-  border-color: var(--select-border-color);
-  border-radius: var(--select-border-radius);
-  font-size: var(--select-font-size);
-  height: var(--select-height);
+  appearance: none; /* Hides default system UI */
 }
 
 /* SHADOW CLASSES */
@@ -427,4 +429,20 @@ a p,
 }
 .z-modal {
   z-index: var(--z-index-modal);
+}
+
+/* FORMIK VALIDATION CLASSES */
+.valid-field {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="%2300ff00" d="M16.667 4.5l-9.167 9.167-4.5-4.5 1.75-1.75 2.75 2.75 7.417-7.417z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+}
+
+.valid-field::after {
+  font-family: 'Font Awesome 5 Free'; /* FontAwesome configuration */
+  content: '\f00c'; /* FontAwesome check mark */
+  color: green;
+  margin-right: 10px;
+  float: right;
 }

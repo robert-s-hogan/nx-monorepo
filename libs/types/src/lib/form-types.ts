@@ -67,6 +67,8 @@ export interface RadioProps {
 }
 
 export interface SelectProps {
+  name?: string;
+  label: string;
   options: SelectOption[];
   value: string;
   onChange: (value: string) => void;
@@ -74,6 +76,7 @@ export interface SelectProps {
   id?: string;
   style?: React.CSSProperties;
   required?: boolean;
+  placeholder?: string;
 }
 
 export interface SelectOption {

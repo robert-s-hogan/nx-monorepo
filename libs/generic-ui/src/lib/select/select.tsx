@@ -1,33 +1,42 @@
-'use client';
+import React from 'react';
+import { SelectProps } from '@with-nx/types';
 
-import { useState } from 'react';
-
-interface Option {
-  value: string;
-  label: string;
-}
-
-interface SelectProps {
-  options: Option[];
-  onChange: (value: string) => void;
-}
-
-export const Select: React.FC<SelectProps> = ({ options, onChange }) => {
-  const [selectedValue, setSelectedValue] = useState('');
-
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    setSelectedValue(value);
-    onChange(value);
-  };
-
+export const Select: React.FC<SelectProps> = ({
+  label,
+  name,
+  options,
+  onChange,
+  value,
+  className,
+  id,
+  style,
+  required,
+  placeholder, // Make sure this is handled in the component
+}) => {
   return (
-    <select value={selectedValue} onChange={handleSelectChange}>
-      {options.map((option) => (
-        <option key={option.value} value={option.value}>
-          {option.label}
-        </option>
-      ))}
-    </select>
+    <div>
+      <label htmlFor={label}>{label}</label>
+      <select
+        name={name}
+        className={className}
+        id={id}
+        style={style}
+        required={required}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      >
+        {placeholder && (
+          <option value="" disabled>
+            {placeholder}
+          </option>
+        )}{' '}
+        // Handles placeholder
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
