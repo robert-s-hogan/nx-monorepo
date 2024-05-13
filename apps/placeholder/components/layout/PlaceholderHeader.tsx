@@ -102,15 +102,6 @@ const PlaceholderHeader = () => {
         toggleButton={toggleButton}
         searchBarProps={{ placeholder: 'Search', icon: searchIcon }}
       />
-
-      <Navbar
-        className="flex justify-between container max-w-7xl mx-auto py-2 space-x-4 "
-        links={links}
-        logo={logo}
-        isOpen={true}
-        toggleButton={toggleButton}
-        selects={selects}
-      />
     </header>
   );
 };

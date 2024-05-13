@@ -1,5 +1,7 @@
 export async function fetchCreatureData(userFormState) {
+  console.log(`Fetching creature data with form values:`, userFormState);
   const url = '/api/creature-generator/generate';
+
   try {
     const response = await fetch(url, {
       method: 'POST',

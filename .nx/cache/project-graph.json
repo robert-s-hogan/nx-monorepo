@@ -25293,6 +25293,11 @@
       },
       {
         "source": "devblog",
+        "target": "npm:yup",
+        "type": "static"
+      },
+      {
+        "source": "devblog",
         "target": "npm:react-konva",
         "type": "static"
       },
@@ -25344,11 +25349,6 @@
       {
         "source": "devblog",
         "target": "npm:@nrwl/react",
-        "type": "static"
-      },
-      {
-        "source": "devblog",
-        "target": "npm:yup",
         "type": "static"
       }
     ],

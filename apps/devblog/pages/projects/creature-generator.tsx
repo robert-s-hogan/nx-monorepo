@@ -12,65 +12,7 @@ import {
   fetchCreatureData,
   loadImage,
 } from '../../components/projects/creature-generator/creature-generator-utils';
-
-import {
-  species,
-  dndSizes,
-  alignments,
-  environments,
-  specialTraits,
-  languages,
-} from '@with-nx/constants';
-
-const toSelectOptions = (items) =>
-  items.map((item) => ({ label: item, value: item }));
-
-const fieldConfigs = [
-  { name: 'numberOfPlayers', label: 'Number of Players', type: 'text' },
-  { name: 'playerLevel', label: 'Player Level', type: 'text' },
-  {
-    name: 'challengeRating',
-    label: 'Challenge Rating',
-    type: 'select',
-    options: toSelectOptions(Array.from({ length: 30 }, (_, i) => i + 1)),
-  },
-  {
-    name: 'creatureType',
-    label: 'Creature Type',
-    type: 'select',
-    options: toSelectOptions(species),
-  },
-  {
-    name: 'alignment',
-    label: 'Alignment',
-    type: 'select',
-    options: toSelectOptions(alignments),
-  },
-  {
-    name: 'environment',
-    label: 'Environment',
-    type: 'select',
-    options: toSelectOptions(environments),
-  },
-  {
-    name: 'size',
-    label: 'Size',
-    type: 'select',
-    options: toSelectOptions(dndSizes),
-  },
-  {
-    name: 'specialTrait',
-    label: 'Special Trait',
-    type: 'select',
-    options: toSelectOptions(specialTraits),
-  },
-  {
-    name: 'language',
-    label: 'Language',
-    type: 'select',
-    options: toSelectOptions(languages),
-  },
-];
+import { fieldConfigs } from '../../components/projects/creature-generator/creature-generator-data';
 
 export default function CreatureGenerator() {
   const [creature, setCreature] = useState(null);
