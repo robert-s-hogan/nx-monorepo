@@ -36,7 +36,11 @@ export default function CreatureGenerator() {
     console.log('Form values before submitting:', formValues);
     try {
       const creatureData = await fetchCreatureData(formValues);
-      console.log('Received data:', creatureData);
+      console.log(
+        'Final JSON to send or process:',
+        JSON.stringify(creatureData)
+      );
+
       setCreature(creatureData.result);
     } catch (error) {
       console.error('Error fetching creature data:', error);
@@ -47,6 +51,7 @@ export default function CreatureGenerator() {
   };
 
   const handleBack = () => {
+    console.log('Resetting state...');
     setCreature(null);
     setImage('');
   };
@@ -66,6 +71,7 @@ export default function CreatureGenerator() {
   return (
     <DevblogLayout>
       <DevBlogSection className="space-y-4">
+        <pre>{JSON.stringify(formValues, null, 2)}</pre>
         <h1>Create DND Monster</h1>
         {!creature && !isLoading && (
           <form

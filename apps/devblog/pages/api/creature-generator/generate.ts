@@ -1,4 +1,3 @@
-// /pages/api/creature-generator/generate.js
 import { Configuration, OpenAIApi } from 'openai';
 import Bottleneck from 'bottleneck';
 import {
@@ -13,128 +12,17 @@ import {
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_DEVBLOG_CREATURE_GENERATOR_API_KEY,
 });
+
 const openai = new OpenAIApi(configuration);
 
-export function generateRandomValues() {
-  // New code: Function to generate random values
-  return {
-    challengeRating: Math.floor(Math.random() * 30) + 1,
-    creatureType: species[Math.floor(Math.random() * species.length)],
-    alignment: alignments[Math.floor(Math.random() * alignments.length)],
-    environment: environments[Math.floor(Math.random() * environments.length)],
-    size: dndSizes[Math.floor(Math.random() * dndSizes.length)],
-    specialTrait:
-      specialTraits[Math.floor(Math.random() * specialTraits.length)],
-    language: languages[Math.floor(Math.random() * languages.length)],
-  };
-}
-
-function isValidJSON(text) {
-  try {
-    JSON.parse(text);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-// Defines a limiter that allows 2000 requests per minute
 const limiter = new Bottleneck({
-  minTime: (60 * 1000) / 2000,
+  minTime: (60 * 1000) / 2000, // 2000 requests per minute
 });
 
-export default async function (req, res) {
-  if (!configuration.apiKey) {
-    res.status(500).json({
-      error: {
-        message:
-          'OpenAI API key not configured, please follow instructions in README.md',
-      },
-    });
-    return;
-  }
-
-  const {
-    numberOfPlayers,
-    playerLevel,
-    challengeRating,
-    creatureType,
-    alignment,
-    environment,
-    size,
-    specialTrait,
-    language,
-  } = req.body;
-
-  // Validate essential parameters
-  if (!numberOfPlayers || !playerLevel) {
-    console.error('Missing required fields', { numberOfPlayers, playerLevel });
-    res.status(400).json({
-      error: {
-        message: 'Please provide all required parameters',
-      },
-    });
-    return;
-  }
-
-  // Generate random values and merge with provided data, prioritizing user input
-  const randomValues = generateRandomValues();
-  const completeData = {
-    challengeRating: challengeRating || randomValues.challengeRating,
-    creatureType: creatureType || randomValues.creatureType,
-    alignment: alignment || randomValues.alignment,
-    environment: environment || randomValues.environment,
-    size: size || randomValues.size,
-    specialTrait: specialTrait || randomValues.specialTrait,
-    language: language || randomValues.language,
-  };
-
-  try {
-    // Use the limiter to manage request rate
-    const completion = await limiter.schedule(() =>
-      openai.createCompletion({
-        model: 'gpt-3.5-turbo-instruct',
-        prompt: generatePrompt(numberOfPlayers, playerLevel, completeData),
-        temperature: 0.6,
-        max_tokens: 500,
-      })
-    );
-
-    console.log('OpenAI API returned:', completion.data.choices[0].text);
-    let creature;
-    let rawText = completion.data.choices[0].text.trim();
-
-    // Validate JSON response
-    if (isValidJSON(rawText)) {
-      creature = JSON.parse(rawText);
-    } else {
-      console.error(`Invalid JSON received: ${rawText}`);
-      res.status(500).json({
-        error: {
-          message: 'Received invalid JSON from the OpenAI API.',
-        },
-      });
-      return;
-    }
-
-    // Respond with the generated creature data
-    res
-      .status(200)
-      .json({ result: creature, imagePrompt: creature.imagePrompt });
-  } catch (error) {
-    console.error('Detailed Error: ', error);
-    if (error.response) {
-      console.error(error.response.status, error.response.data);
-      res.status(error.response.status).json(error.response.data);
-    } else {
-      console.error(`Error with OpenAI API request: ${error.message}`);
-      res.status(500).json({
-        error: {
-          message: 'An error occurred during your request.',
-        },
-      });
-    }
-  }
+function extractJson(text) {
+  const regex = /{[\s\S]*}/; // Matches the first occurrence of JSON-like content
+  const matches = text.match(regex);
+  return matches ? matches[0] : null;
 }
 
 function generatePrompt(
@@ -191,4 +79,112 @@ The creature should have the following properties in a JSON-like format:
   ]
 }
 Now, create a similar creature: `;
+}
+
+function validateAndCorrectJson(jsonString) {
+  let json;
+  try {
+    json = JSON.parse(jsonString);
+  } catch (error) {
+    console.error('Initial JSON parse failed:', error.message);
+    throw new Error('Initial JSON parse failed: ' + error.message);
+  }
+
+  // Ensure actions and special abilities are arrays
+  if (!Array.isArray(json.actions)) {
+    json.actions = [];
+  }
+  if (!Array.isArray(json.specialAbilities)) {
+    json.specialAbilities = [];
+  }
+
+  return json;
+}
+
+async function fetchCompletion(prompt) {
+  try {
+    const completion = await limiter.schedule(() =>
+      openai.createCompletion({
+        model: 'gpt-3.5-turbo-instruct',
+        prompt: prompt,
+        max_tokens: 1500,
+        temperature: 0.7,
+      })
+    );
+    if (!completion || !completion.data) {
+      throw new Error('No completion data returned from OpenAI.');
+    }
+    const responseText = completion.data.choices[0].text;
+    const jsonString = extractJson(responseText);
+    if (!jsonString) {
+      throw new Error('No JSON found in response.');
+    }
+    console.log('Extracted JSON String:', jsonString);
+    const parsedData = validateAndCorrectJson(jsonString);
+    console.log('Parsed JSON Data:', parsedData);
+    return parsedData;
+  } catch (error) {
+    console.error('Error with OpenAI API request:', error);
+    throw new Error(
+      'Error parsing JSON or OpenAI API request: ' + error.message
+    );
+  }
+}
+
+function generateRandomValues(data) {
+  return {
+    challengeRating: data.challengeRating || Math.floor(Math.random() * 30) + 1,
+    creatureType:
+      data.creatureType || species[Math.floor(Math.random() * species.length)],
+    alignment:
+      data.alignment ||
+      alignments[Math.floor(Math.random() * alignments.length)],
+    environment:
+      data.environment ||
+      environments[Math.floor(Math.random() * environments.length)],
+    size: data.size || dndSizes[Math.floor(Math.random() * dndSizes.length)],
+    specialTrait:
+      data.specialTrait ||
+      specialTraits[Math.floor(Math.random() * specialTraits.length)],
+    language:
+      data.language || languages[Math.floor(Math.random() * languages.length)],
+  };
+}
+
+export default async function handler(req, res) {
+  if (!configuration.apiKey) {
+    return res
+      .status(500)
+      .json({ error: { message: 'OpenAI API key not configured' } });
+  }
+
+  const { numberOfPlayers, playerLevel } = req.body;
+
+  if (!numberOfPlayers || !playerLevel) {
+    return res.status(400).json({
+      error: {
+        message: 'Missing required fields numberOfPlayers or playerLevel',
+      },
+    });
+  }
+
+  const completeData = generateRandomValues(req.body);
+
+  const prompt = generatePrompt(numberOfPlayers, playerLevel, completeData);
+
+  try {
+    let result = await fetchCompletion(prompt);
+    console.log('Result from fetchCompletion:', result);
+    return res.status(200).json({
+      result: result,
+      message: 'Creature generated successfully',
+    });
+  } catch (error) {
+    console.error('Error during the request process:', error);
+    return res.status(500).json({
+      error: {
+        message: 'An error occurred during your request: ' + error.message,
+      },
+    });
+  }
 }

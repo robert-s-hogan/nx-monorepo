@@ -1,33 +1,37 @@
 export async function fetchCreatureData(userFormState) {
-  console.log(`Fetching creature data with form values:`, userFormState);
   const url = '/api/creature-generator/generate';
-
   try {
+    console.log(
+      'Sending request to:',
+      url,
+      'with body:',
+      JSON.stringify(userFormState)
+    );
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        numberOfPlayers: userFormState.numberOfPlayers,
-        playerLevel: userFormState.playerLevel,
-        challengeRating: userFormState.challengeRating,
-        creatureType: userFormState.creatureType,
-        alignment: userFormState.alignment,
-        environment: userFormState.environment,
-        size: userFormState.size,
-        specialTrait: userFormState.specialTrait,
-        language: userFormState.language,
-      }),
+      body: JSON.stringify(userFormState),
     });
 
+    console.log('Fetch response:', response);
+
     if (!response.ok) {
-      const errorData = await response.json(); // Get detailed error response
-      throw new Error(`Failed to fetch: ${errorData.message}`);
+      const errorText = await response.text();
+      console.error('Error response text:', errorText);
+      throw new Error(`Server responded with status: ${response.status}`);
     }
 
-    return await response.json();
+    const data = await response.text();
+    try {
+      const json = JSON.parse(data);
+      return json;
+    } catch (error) {
+      console.error('Failed to parse JSON:', data);
+      throw new Error('Failed to parse JSON: ' + error.message);
+    }
   } catch (error) {
-    console.error('Fetch error:', error.message);
-    throw error; // Rethrow to handle it in the component
+    console.error('Network or server error:', error.message);
+    throw error;
   }
 }
 
