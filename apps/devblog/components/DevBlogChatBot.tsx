@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Button } from '@with-nx/generic-ui';
 import { fetchResponseFromAssistant } from './DevBlogOpenai';
+
 interface ChatResponse {
   choices: {
     message: {
@@ -27,7 +29,7 @@ const ChatComponent = () => {
   return (
     <div>
       <input value={input} onChange={handleInput} />
-      <button onClick={handleSubmit}>Send</button>
+      <Button onClick={handleSubmit} text="Send" theme="primary" />
       <div>
         {responses.map((resp, index) => (
           <p key={index}>

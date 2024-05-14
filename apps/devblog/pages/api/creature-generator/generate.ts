@@ -16,8 +16,21 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const limiter = new Bottleneck({
-  minTime: (60 * 1000) / 2000, // 2000 requests per minute
+  minTime: (60 * 1000) / 60, // 1000 milliseconds per request if 60 requests per minute
 });
+
+// Add Bottleneck event listeners for debugging and monitoring
+limiter.on('failed', async (error, jobInfo) => {
+  const id = jobInfo.options.id;
+  console.log(`Job ${id} failed: ${error}`);
+  if (jobInfo.retryCount < 2) {
+    // Here you can set a retry limit
+    console.log(`Retrying job ${id} in 25ms!`);
+    return 25; // Reschedule the job to run after 25 ms
+  }
+});
+
+// Handling job completion, including both success and failure after all retries.
 
 function extractJson(text) {
   const regex = /{[\s\S]*}/; // Matches the first occurrence of JSON-like content
@@ -68,7 +81,7 @@ The creature should have the following properties in a JSON-like format:
     {
       "name": "Primary Action",
       "damage": "Specify damage",
-      "reach": "Specify reach"
+      "reach": "Specify reach (ft)"
     }
   ],
   "specialAbilities": [

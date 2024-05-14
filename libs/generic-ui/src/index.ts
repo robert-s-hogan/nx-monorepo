@@ -1,4 +1,5 @@
 export { Button } from './lib/button/button';
+export { Flex } from './lib/flex/flex';
 export { Heading } from './lib/heading/heading';
 export { IconButton } from './lib/icon-button/icon-button';
 export { Input } from './lib/input/input';

@@ -454,6 +454,21 @@
             },
             "configurations": {}
           },
+          "test": {
+            "executor": "@nx/jest:jest",
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "jestConfig": "libs/generic-ui/jest.config.ts"
+            },
+            "configurations": {}
+          },
           "build-storybook": {
             "executor": "@nx/storybook:build",
             "inputs": [
@@ -24698,6 +24713,16 @@
       },
       {
         "source": "generic-ui",
+        "target": "npm:tailwindcss",
+        "type": "static"
+      },
+      {
+        "source": "generic-ui",
+        "target": "npm:autoprefixer",
+        "type": "static"
+      },
+      {
+        "source": "generic-ui",
         "target": "npm:react",
         "type": "static"
       },
@@ -25243,6 +25268,11 @@
       },
       {
         "source": "devblog",
+        "target": "generic-ui",
+        "type": "static"
+      },
+      {
+        "source": "devblog",
         "target": "npm:next",
         "type": "static"
       },
@@ -25259,11 +25289,6 @@
       {
         "source": "devblog",
         "target": "npm:react-icons",
-        "type": "static"
-      },
-      {
-        "source": "devblog",
-        "target": "generic-ui",
         "type": "static"
       },
       {

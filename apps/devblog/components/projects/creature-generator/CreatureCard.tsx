@@ -1,5 +1,4 @@
-import { Text } from '@with-nx/generic-ui';
-import { Flex } from '@with-nx/react-ui';
+import React from 'react';
 
 export interface Creature {
   armorClass?: number;
@@ -11,7 +10,7 @@ export interface Creature {
   intelligence?: number;
   wisdom?: number;
   charisma?: number;
-  actions?: Array<{ name: string; damage: string }>;
+  actions?: Array<{ name: string; damage: string; reach?: string }>;
   specialAbilities?: Array<{ name: string; description: string }>;
   imagePrompt?: string;
   name?: string;
@@ -22,9 +21,9 @@ export interface CreatureCardProps {
   creature: Creature;
 }
 
-export const CreatureCard = ({ creature }) => {
+export const CreatureCard = ({ creature }: CreatureCardProps) => {
   if (!creature) {
-    return <div>No creature data</div>;
+    return <div className="text-center py-5">No creature data</div>;
   }
 
   const {
@@ -39,15 +38,15 @@ export const CreatureCard = ({ creature }) => {
     intelligence,
     wisdom,
     charisma,
-    actions = [], // Default to empty array if undefined
-    specialAbilities = [], // Default to empty array if undefined
+    actions = [],
+    specialAbilities = [],
   } = creature;
 
   return (
-    <div className="creature-card">
-      <h2>{name}</h2>
-      <p>{description}</p>
-      <div className="stats">
+    <div className="w-full bg-white shadow-xl p-5">
+      <h2 className="text-2xl font-bold text-gray-700">{name}</h2>
+      <p className="text-sm text-gray-600">{description}</p>
+      <div className="grid grid-cols-3 gap-4 text-gray-800 mt-4">
         <div>
           <strong>Armor Class:</strong> {armorClass}
         </div>
@@ -57,52 +56,54 @@ export const CreatureCard = ({ creature }) => {
         <div>
           <strong>Speed:</strong> {speed}
         </div>
-        <div>
-          <strong>STR:</strong> {strength}
-        </div>
-        <div>
-          <strong>DEX:</strong> {dexterity}
-        </div>
-        <div>
-          <strong>CON:</strong> {constitution}
-        </div>
-        <div>
-          <strong>INT:</strong> {intelligence}
-        </div>
-        <div>
-          <strong>WIS:</strong> {wisdom}
-        </div>
-        <div>
-          <strong>CHA:</strong> {charisma}
+        <div className="flex justify-between w-full">
+          <div>
+            <strong>STR</strong> {strength}
+          </div>
+          <div>
+            <strong>DEX</strong> {dexterity}
+          </div>
+          <div>
+            <strong>CON</strong> {constitution}
+          </div>
+          <div>
+            <strong>INT</strong> {intelligence}
+          </div>
+          <div>
+            <strong>WIS</strong> {wisdom}
+          </div>
+          <div>
+            <strong>CHA</strong> {charisma}
+          </div>
         </div>
       </div>
-      <div className="actions">
-        <strong>Actions:</strong>
-        <ul>
-          {actions.length > 0 ? (
-            actions.map((action, index) => (
-              <li key={index}>
-                {action.name}: {action.description}
+      <div className="mt-4 text-gray-600">
+        <strong className="block">Actions:</strong>
+        {actions.length > 0 ? (
+          <ul className="list-disc pl-5">
+            {actions.map((action, index) => (
+              <li key={index} className="mt-1">
+                {action.name}({action.reach} ft): {action.damage}
               </li>
-            ))
-          ) : (
-            <li>No actions available</li>
-          )}
-        </ul>
+            ))}
+          </ul>
+        ) : (
+          <div>No actions available</div>
+        )}
       </div>
-      <div className="special-abilities">
-        <strong>Special Abilities:</strong>
-        <ul>
-          {specialAbilities.length > 0 ? (
-            specialAbilities.map((ability, index) => (
-              <li key={index}>
+      <div className="mt-4 text-gray-600">
+        <strong className="block">Special Abilities:</strong>
+        {specialAbilities.length > 0 ? (
+          <ul className="list-disc pl-5">
+            {specialAbilities.map((ability, index) => (
+              <li key={index} className="mt-1">
                 {ability.name}: {ability.description}
               </li>
-            ))
-          ) : (
-            <li>No special abilities available</li>
-          )}
-        </ul>
+            ))}
+          </ul>
+        ) : (
+          <div>No special abilities available</div>
+        )}
       </div>
     </div>
   );

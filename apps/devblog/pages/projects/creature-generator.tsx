@@ -18,6 +18,7 @@ export default function CreatureGenerator() {
   const [creature, setCreature] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [image, setImage] = useState('');
+
   const [imageLoading, setImageLoading] = useState(false);
   const [formValues, setFormValues] = useState(
     fieldConfigs.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {})
@@ -51,9 +52,21 @@ export default function CreatureGenerator() {
   };
 
   const handleBack = () => {
-    console.log('Resetting state...');
+    console.log('Resetting state and clearing cache...');
+
+    // Resetting all relevant states
     setCreature(null);
     setImage('');
+    setFormValues(
+      fieldConfigs.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {})
+    );
+    setErrors({});
+
+    // Clear browser or session storage if used (you'll need to adjust this part based on your implementation)
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('creatureForm'); // Example, replace 'creatureForm' with your actual storage key
+      sessionStorage.removeItem('creatureForm');
+    }
   };
 
   const handleLoadImage = async (imagePrompt) => {
@@ -71,7 +84,6 @@ export default function CreatureGenerator() {
   return (
     <DevblogLayout>
       <DevBlogSection className="space-y-4">
-        <pre>{JSON.stringify(formValues, null, 2)}</pre>
         <h1>Create DND Monster</h1>
         {!creature && !isLoading && (
           <form
@@ -130,27 +142,29 @@ export default function CreatureGenerator() {
               label="Back"
               onClick={handleBack}
             />
-            <Grid className="grid-cols-1 md:grid-cols-2 gap-6">
+            <Grid className="grid-cols-1 gap-6 max-w-lg justify-center items-center bg-white border p-1">
               <div>
+                <div className="flex flex-col justify-center items-center">
+                  {image ? (
+                    <Image
+                      src={image}
+                      alt="Creature"
+                      className="transform shadow-lg"
+                      width={1024}
+                      height={1024}
+                    />
+                  ) : (
+                    <div className="w-full h-64 bg-gray-200 shadow-lg flex flex-col justify-center">
+                      <Button
+                        theme="primary"
+                        text="Generate Image"
+                        onClick={() => handleLoadImage(creature.imagePrompt)}
+                        disabled={imageLoading}
+                      />
+                    </div>
+                  )}
+                </div>
                 <CreatureCard creature={creature} />
-              </div>
-              <div className="flex flex-col justify-center items-center">
-                {image ? (
-                  <Image
-                    src={image}
-                    alt="Creature"
-                    className="rounded-md transform shadow-lg"
-                    width={1024}
-                    height={1024}
-                  />
-                ) : (
-                  <Button
-                    theme="primary"
-                    text="Generate Image"
-                    onClick={() => handleLoadImage(creature.imagePrompt)}
-                    disabled={imageLoading}
-                  />
-                )}
               </div>
             </Grid>
           </>

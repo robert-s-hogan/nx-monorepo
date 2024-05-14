@@ -1,12 +1,6 @@
 export async function fetchCreatureData(userFormState) {
   const url = '/api/creature-generator/generate';
   try {
-    console.log(
-      'Sending request to:',
-      url,
-      'with body:',
-      JSON.stringify(userFormState)
-    );
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

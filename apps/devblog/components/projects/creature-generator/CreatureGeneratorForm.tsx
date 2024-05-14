@@ -109,6 +109,18 @@ const CreatureGeneratorForm = ({ onSubmit, initialValues }) => {
     setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
   };
 
+  const resetForm = () => {
+    setFormValues(
+      fieldConfigs.reduce(
+        (values, field) => ({ ...values, [field.name]: '' }),
+        {}
+      )
+    );
+    setErrors({});
+  };
+
+  const [formKey, setFormKey] = useState(0);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     let valid = true;
@@ -124,6 +136,8 @@ const CreatureGeneratorForm = ({ onSubmit, initialValues }) => {
 
     if (valid) {
       onSubmit(formValues);
+      resetForm();
+      setFormKey((prevKey) => prevKey + 1); // Increment key to force form remount
     }
   };
 
@@ -133,6 +147,7 @@ const CreatureGeneratorForm = ({ onSubmit, initialValues }) => {
 
   return (
     <form
+      key={formKey}
       className="grid grid-cols-1 md:grid-cols-3 gap-4"
       onSubmit={handleSubmit}
     >
