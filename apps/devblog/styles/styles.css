@@ -446,3 +446,33 @@ a p,
   margin-right: 10px;
   float: right;
 }
+
+/* DND CREATURE CARD */
+.fantasy-border {
+  position: relative;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.fantasy-border::before,
+.fantasy-border::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: 10px;
+}
+.fantasy-border::before {
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.fantasy-border::after {
+  border: 2px solid #ffc107;
+  box-shadow: 0 0 10px #ffc107;
+  mix-blend-mode: multiply;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, #ffc107);
+}
