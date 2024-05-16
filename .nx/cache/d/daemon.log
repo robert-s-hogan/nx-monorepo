@@ -6116,3 +6116,9 @@
 [NX Daemon Server] - 2024-05-16T22:55:20.134Z - Closed a connection. Number of open connections: 1
 [NX Daemon Server] - 2024-05-16T22:55:20.172Z - Closed a connection. Number of open connections: 0
 [NX Daemon Server] - 2024-05-16T22:55:20.233Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-16T22:57:05.309Z - [WATCHER]: libs/generic-ui/src/lib/link was deleted
+[NX Daemon Server] - 2024-05-16T22:57:05.310Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-16T22:57:06.112Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-16T22:57:06.112Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-16T22:57:06.112Z - [REQUEST]: libs/generic-ui/src/lib/link
+[NX Daemon Server] - 2024-05-16T22:57:06.277Z - Time taken for 'hash changed files from watcher' 1.6852810084819794ms
