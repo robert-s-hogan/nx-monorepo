@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { useFirestoreCollection } from '@with-nx/firebase';
-import { Button, Heading, Input } from '@with-nx/generic-ui';
+import { Button, Flex, Heading, Input } from '@with-nx/generic-ui';
 
 import ConquestLayout from '../../components/ConquestLayout';
 import ConquestSection from '../../components/ConquestSection';
@@ -41,7 +41,7 @@ const AdminMapsPage: React.FC = () => {
     <ConquestLayout title="Maps | Admin Dashboard">
       <ConquestSection className="space-y-6">
         <Heading level={1} text="Maps Admin Page" />
-        <div className="flex flex-grow w-full">
+        <Flex className="flex-grow w-full">
           <div className="w-1/2 flex flex-col space-y-4">
             <Heading level={2} text="Maps Form" />
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -105,7 +105,7 @@ const AdminMapsPage: React.FC = () => {
               <p>No maps found.</p>
             )}
           </div>
-        </div>
+        </Flex>
       </ConquestSection>
     </ConquestLayout>
   );

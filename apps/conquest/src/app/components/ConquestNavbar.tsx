@@ -7,7 +7,7 @@ import { LiaDragonSolid } from 'react-icons/lia';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { useTheme, ThemeType } from '@with-nx/theme';
 import { Button } from '@with-nx/react-ui';
-import { IconButton } from '@with-nx/generic-ui';
+import { Flex, IconButton } from '@with-nx/generic-ui';
 import Link from 'next/link';
 import ConquestSection from './ConquestSection';
 
@@ -62,16 +62,16 @@ const Navbar: React.FC<ConquestNavbarProps> = ({ title }) => {
       <nav>
         <ConquestSection className="w-full flex items-center justify-between text-xl pt-8 mt-0">
           <Link href="/">
-            <div className="flex items-center">
+            <Flex className="items-center">
               <LiaDragonSolid
                 size={48}
                 style={{ fill: 'var(--primary-fill)' }}
               />
               <span className="text-lg">onquest</span>
-            </div>
+            </Flex>
           </Link>
 
-          <div className="flex items-center space-x-4 text-xl">
+          <Flex className="items-center space-x-4 text-xl">
             {currentUser && (
               <>
                 {links.map((link) => (
@@ -84,7 +84,7 @@ const Navbar: React.FC<ConquestNavbarProps> = ({ title }) => {
 
             {currentUser ? <LogoutButton /> : <LoginButton />}
             {toggleButton}
-          </div>
+          </Flex>
         </ConquestSection>
       </nav>
     </header>

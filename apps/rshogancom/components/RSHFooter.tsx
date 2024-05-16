@@ -6,6 +6,7 @@ import {
   FiTwitter,
 } from 'react-icons/fi';
 import { Heading, Link, Text } from '@with-nx/react-ui';
+import { Flex } from '@with-nx/generic-ui';
 import { CustomRSHLogo } from '@with-nx/icons';
 
 import RSHSection from './RSHSection';
@@ -49,7 +50,7 @@ const RSHoganComFooter = () => {
   return (
     <footer className="border-t border-gray-200">
       <RSHSection className="py-8" innerContainer>
-        <div className="flex justify-between items-center">
+        <Flex className="justify-between items-center">
           <div>
             <Link href="/">
               <CustomRSHLogo className="w-24 h-24 mx-auto" />
@@ -62,7 +63,7 @@ const RSHoganComFooter = () => {
               ))}
             </span>
           </div>
-        </div>
+        </Flex>
         <Text className="text-sm text-center mt-4">
           © Robertshogan.com. All rights reserved.
         </Text>

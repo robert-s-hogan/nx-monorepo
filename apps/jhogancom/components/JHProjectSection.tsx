@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
-import { Flex, Grid, Heading, Text, Skeleton } from '@with-nx/react-ui';
+import { Grid, Heading, Text, Skeleton } from '@with-nx/react-ui';
+import { Flex } from '@with-nx/generic-ui';
 import { FiGithub } from 'react-icons/fi';
 
 import { projectStaticData } from '../data/projects';
@@ -39,7 +40,7 @@ const ProjectCard = ({ project, loading }) => (
           : project.description}
       </Text>
 
-      <div className="flex justify-between items-end flex-shrink-0">
+      <Flex className="justify-between items-end flex-shrink-0">
         <Text
           className="font-semibold"
           isLoading={loading}
@@ -57,7 +58,7 @@ const ProjectCard = ({ project, loading }) => (
         >
           <FiGithub className="w-6 h-6" />
         </a>
-      </div>
+      </Flex>
     </div>
   </div>
 );

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { Flex, Grid, Link } from '@with-nx/react-ui';
+import { Grid, Link } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
 import { useTheme } from '@with-nx/theme';
-import { Heading, Text } from '@with-nx/generic-ui';
+import { Flex, Heading, Text } from '@with-nx/generic-ui';
 import axios from 'axios';
 
 import DevBlogLayout from '../components/DevBlogLayout';
@@ -162,10 +162,10 @@ export function Index({ allPostsData }) {
                   text={title.replace(/&nbsp;/g, ' ')}
                 />
               </Link>
-              <div className="flex items-center space-x-4 mt-0">
+              <Flex className="items-center space-x-4 mt-0">
                 <Text className="text-sm" text={categories.join(', ')} />
                 <Text className="text-sm" text={date} />
-              </div>
+              </Flex>
             </div>
           ))}
         </div>

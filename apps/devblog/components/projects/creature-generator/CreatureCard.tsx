@@ -1,4 +1,4 @@
-import React from 'react';
+import { Flex } from '@with-nx/generic-ui';
 
 export interface Creature {
   armorClass?: number;
@@ -56,7 +56,7 @@ export const CreatureCard = ({ creature }: CreatureCardProps) => {
         <div>
           <strong>Speed:</strong> {speed}
         </div>
-        <div className="flex justify-between w-full">
+        <Flex className="justify-between w-full">
           <div>
             <strong>STR</strong> {strength}
           </div>
@@ -75,7 +75,7 @@ export const CreatureCard = ({ creature }: CreatureCardProps) => {
           <div>
             <strong>CHA</strong> {charisma}
           </div>
-        </div>
+        </Flex>
       </div>
       <div className="mt-4 text-gray-600">
         <strong className="block">Actions:</strong>

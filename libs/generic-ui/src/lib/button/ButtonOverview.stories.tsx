@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
+import { Flex } from '../flex/Flex';
 
 export default {
   title: 'Components/Button/Overview',
@@ -27,7 +28,7 @@ const ButtonWithCode = ({
   className: string;
   size?: 'sm' | 'md' | 'lg';
 }) => (
-  <div className="flex items-center space-x-12 p-4 rounded-lg">
+  <Flex className="items-center space-x-12 p-4 rounded-lg">
     <Button
       text={text}
       theme={
@@ -48,7 +49,7 @@ const ButtonWithCode = ({
         theme === 'disabled' ? '\n  disabled' : ''
       } ${size ? `\n  size="${size}"` : ''}\n/>`}
     </pre>
-  </div>
+  </Flex>
 );
 
 export const Overview: StoryObj<typeof Button> = {

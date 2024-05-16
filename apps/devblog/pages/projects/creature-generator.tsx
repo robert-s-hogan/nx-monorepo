@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, IconButton } from '@with-nx/generic-ui';
+import { Button, Flex, IconButton } from '@with-nx/generic-ui';
 import Image from 'next/image';
 import { TbArrowBack } from 'react-icons/tb';
 import { Grid } from '@with-nx/react-ui';
@@ -144,7 +144,7 @@ export default function CreatureGenerator() {
             />
             <Grid className="grid-cols-1 gap-6 max-w-lg justify-center items-center bg-white border p-1">
               <div>
-                <div className="flex flex-col justify-center items-center">
+                <Flex className="flex-col justify-center items-center">
                   {image ? (
                     <Image
                       src={image}
@@ -163,7 +163,7 @@ export default function CreatureGenerator() {
                       />
                     </div>
                   )}
-                </div>
+                </Flex>
                 <CreatureCard creature={creature} />
               </div>
             </Grid>

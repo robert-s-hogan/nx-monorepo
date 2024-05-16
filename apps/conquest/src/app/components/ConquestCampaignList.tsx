@@ -1,7 +1,7 @@
 import React from 'react';
 import { FiEdit, FiTrash } from 'react-icons/fi';
 
-import { Heading, IconButton } from '@with-nx/generic-ui';
+import { Flex, Heading, IconButton } from '@with-nx/generic-ui';
 import Link from 'next/link';
 
 import { Campaign, CampaignListProps } from '../types';
@@ -73,10 +73,10 @@ const ConquestCampaignList: React.FC<CampaignListProps> = ({
                 className="border border-primary-color rounded p-0 md:p-4"
               >
                 <div className="p-2 md:p-4">
-                  <div className="flex items-center justify-between">
+                  <Flex className="items-center justify-between">
                     <Heading level={2} text={campaign.name} />
 
-                    <div className="flex justify-end pr-2 pt-2">
+                    <Flex className="justify-end pr-2 pt-2">
                       <IconButton
                         icon={<FiEdit size="2rem" />}
                         label="Edit Campaign"
@@ -94,12 +94,12 @@ const ConquestCampaignList: React.FC<CampaignListProps> = ({
                           onDelete && onDelete(campaign.id as string)
                         }
                       />
-                    </div>
-                  </div>
+                    </Flex>
+                  </Flex>
                   <div className="pt-3">
-                    <div className="flex space-x-2 items-center">
+                    <Flex className="space-x-2 items-center">
                       <p>{campaign.description}</p>
-                    </div>
+                    </Flex>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     <div />

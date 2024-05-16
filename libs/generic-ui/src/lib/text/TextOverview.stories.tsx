@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Text, TextProps } from './Text';
+import { Flex } from '../flex/Flex';
 
 export default {
   title: 'Components/Text/Overview',
@@ -17,7 +18,7 @@ export default {
 } as Meta<typeof Text>;
 
 const TextWithCode = ({ children, className, text }: TextProps) => (
-  <div className="flex flex-col items-start space-y-4 p-4">
+  <Flex className="flex-col items-start space-y-4 p-4">
     <Text className={className} text={text}>
       {children}
     </Text>
@@ -31,7 +32,7 @@ const TextWithCode = ({ children, className, text }: TextProps) => (
       }
 />`}
     </pre>
-  </div>
+  </Flex>
 );
 
 export const Overview: StoryObj<typeof Text> = {

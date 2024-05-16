@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Button, Flex, Heading, Skeleton } from '@with-nx/react-ui';
+import { Button, Heading, Skeleton } from '@with-nx/react-ui';
+import { Flex } from '@with-nx/generic-ui';
 import { ArrowCurvedDownRight } from '@with-nx/icons';
 import useSWR from 'swr';
 import { Text } from '@with-nx/generic-ui';
@@ -62,13 +63,13 @@ export default function Home() {
         headingTextColor={defaultColorScheme?.text?.tertiary}
       >
         <div className="w-full md:max-w-3xl mr-auto">
-          <div className="flex flex-col justify-start gap-4">
+          <Flex className="flex-col justify-start gap-4">
             <p>
               Step into a galaxy far, far away and craft your unique Star Wars
               characters. From a cunning bounty hunter to a revered Jedi master,
               the possibilities are endless.
             </p>
-          </div>
+          </Flex>
           <div className="absolute top-[95px] md:top-10 right-[-150px] md:right-0 transform-[rotate(15deg)]">
             <SwapiSmileySVG
               className={`h-24 w-24 ${defaultColorScheme?.text?.accent}`}
@@ -235,7 +236,7 @@ export default function Home() {
         </Flex>
       </SwapiSection>
 
-      {/* <div className="flex justify-center max-w-7xl xl:max-w-7xl container mx-auto mt-8 px-2">
+      {/* <Flex className="justify-center max-w-7xl xl:max-w-7xl container mx-auto mt-8 px-2">
         <SwapiSearch />
       </div> */}
 

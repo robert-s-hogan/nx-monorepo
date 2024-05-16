@@ -1,7 +1,8 @@
 import React, { useState, ChangeEvent } from 'react';
 import { useRouter } from 'next/router';
 
-import { Button, Flex, Heading } from '@with-nx/react-ui';
+import { Button, Heading } from '@with-nx/react-ui';
+import { Flex } from '@with-nx/generic-ui';
 import { FiX } from 'react-icons/fi';
 
 type P2WDraftConfigModalProps = {
@@ -71,7 +72,7 @@ const P2WDraftConfigModal: React.FC<P2WDraftConfigModalProps> = ({
         </Flex>
         <form onSubmit={handleDraftStart}>
           {/* Team Selection */}
-          <div className="flex flex-col space-y-4">
+          <Flex className="flex-col space-y-4">
             <Heading level={2} className="text-black-custom">
               Draft Configuration
             </Heading>
@@ -127,7 +128,7 @@ const P2WDraftConfigModal: React.FC<P2WDraftConfigModalProps> = ({
             <Button className="btn-primary" type="submit">
               Start Draft
             </Button>
-          </div>
+          </Flex>
         </form>
       </div>
     </dialog>

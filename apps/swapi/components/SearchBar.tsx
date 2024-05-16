@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSWRApi } from '../api/useSWRApi';
 import { Person } from '../types/api/types';
-import { Button, Text } from '@with-nx/generic-ui';
+import { Button, Flex, Text } from '@with-nx/generic-ui';
 
 const Loading = () => {
   const [search, setSearch] = useState('');
@@ -24,7 +24,7 @@ const Loading = () => {
   if (isError) return <div>Error occurred while fetching data</div>;
 
   return (
-    <div className="flex justify-center max-w-7xl container mx-auto my-8">
+    <Flex className="justify-center max-w-7xl container mx-auto my-8">
       <form
         onSubmit={handleFormSubmit}
         className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full mx-2"
@@ -57,7 +57,7 @@ const Loading = () => {
           text="Oops! Something went wrong. Please click the button below"
         />
       )}
-    </div>
+    </Flex>
   );
 };
 

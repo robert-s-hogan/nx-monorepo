@@ -3,9 +3,9 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 import Script from 'next/script';
 import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
-import { IconButton } from '@with-nx/generic-ui';
+import { Flex, IconButton } from '@with-nx/generic-ui';
 
-import { Button, Flex, Text } from '@with-nx/react-ui';
+import { Button, Text } from '@with-nx/react-ui';
 import { useModal } from '@with-nx/react-hooks';
 import { CustomRSHLogo } from '@with-nx/icons';
 import { useTheme, ThemeType } from '@with-nx/theme';
@@ -60,7 +60,7 @@ const RSHoganComHeader = () => {
           </NextLink>
 
           {/* Dark/Light Toggle and Hamburger Menu for Mobile */}
-          <div className="flex items-center md:hidden">
+          <Flex className="items-center md:hidden">
             {toggleButton}
             <IconButton
               onClick={toggleMobileMenu}
@@ -69,7 +69,7 @@ const RSHoganComHeader = () => {
               theme="transparent"
               className="button-icon"
             />
-          </div>
+          </Flex>
 
           {/* Links and Buttons for Desktop */}
           <Flex className="hidden md:flex items-center space-x-3">

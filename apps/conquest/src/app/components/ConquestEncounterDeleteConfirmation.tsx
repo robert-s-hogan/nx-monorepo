@@ -1,5 +1,5 @@
 import { EncounterDeleteConfirmationProps } from '../types';
-import { Button, Heading, Text } from '@with-nx/generic-ui';
+import { Button, Flex, Heading, Text } from '@with-nx/generic-ui';
 
 const ConquestEncounterDeleteConfirmation = ({
   onConfirm,
@@ -19,10 +19,10 @@ const ConquestEncounterDeleteConfirmation = ({
         text={`Are you sure you want to delete the encounter ${encounterName}</span>? This action cannot be undone.`}
       />
 
-      <div className="flex justify-end space-x-2">
+      <Flex className="justify-end space-x-2">
         <Button theme="secondary" onClick={onCancel} text="Cancel" />
         <Button theme="danger" onClick={onConfirm} text="Delete" />
-      </div>
+      </Flex>
     </div>
   );
 };

@@ -9,7 +9,7 @@ import {
   PageIndicator,
   Stepper,
 } from '@with-nx/react-ui';
-import { Button } from '@with-nx/generic-ui';
+import { Button, Flex } from '@with-nx/generic-ui';
 import { FiActivity, FiX, FiMinus, FiPlus } from 'react-icons/fi';
 
 import { motion } from 'framer-motion';
@@ -50,7 +50,7 @@ function Index() {
     {
       name: 'rentalStartDate',
       component: ({ data, onChange }) => (
-        <div className="flex flex-col space-y-4">
+        <Flex className="flex-col space-y-4">
           <label htmlFor="rental-start-date" className="block">
             Rental Start Date
           </label>
@@ -63,7 +63,7 @@ function Index() {
               onChange('rentalStartDate', event.target.value)
             }
           />
-        </div>
+        </Flex>
       ),
       validation: (data) => {
         return data?.rentalStartDate?.length > 0;
@@ -73,7 +73,7 @@ function Index() {
     {
       name: 'rentalEndDate',
       component: ({ data, onChange }) => (
-        <div className="flex flex-col space-y-4">
+        <Flex className="flex-col space-y-4">
           <label htmlFor="rental-end-date">Rental End Date</label>
           <input
             className="input"
@@ -82,7 +82,7 @@ function Index() {
             value={data.rentalEndDate}
             onChange={(event) => onChange('rentalEndDate', event.target.value)}
           />
-        </div>
+        </Flex>
       ),
       validation: (data) => {
         return data?.rentalEndDate?.length > 0;
@@ -91,7 +91,7 @@ function Index() {
     {
       name: 'availableProjectors',
       component: ({ data, onChange }) => (
-        <div className="flex flex-col space-y-4">
+        <Flex className="flex-col space-y-4">
           <label htmlFor="availableProjectors">Available Projectors</label>
           <select
             id="availableProjectors"
@@ -106,7 +106,7 @@ function Index() {
               </option>
             ))}
           </select>
-        </div>
+        </Flex>
       ),
       validation: (data) => {
         return data?.availableProjectors?.length > 0;
@@ -115,7 +115,7 @@ function Index() {
     {
       name: 'uploadYourDocuments',
       component: ({ data, onChange }) => (
-        <div className="flex flex-col space-y-4">
+        <Flex className="flex-col space-y-4">
           <label htmlFor="uploadCoi">COI (Optional)</label>
           <input
             className="input"
@@ -130,7 +130,7 @@ function Index() {
             type="file"
             onChange={(event) => onChange('uploadDL', event.target.value)}
           />
-        </div>
+        </Flex>
       ),
       validation: (data) => {
         return true;
@@ -277,7 +277,7 @@ function Index() {
     {
       name: 'confirmOrderDetails',
       component: ({ data, onChange }) => (
-        <div className="flex flex-col">
+        <Flex className="flex-col">
           <div className="table">
             <div className="table-row">
               <div className="table-cell">Item</div>
@@ -305,7 +305,7 @@ function Index() {
               <div className="table-cell">$400</div>
             </div>
           </div>
-          <div className="flex space-x-4">
+          <Flex className="space-x-4">
             <Button theme="primary" text="Pay With Card" />
             or
             <Button
@@ -313,8 +313,8 @@ function Index() {
               onClick={() => onChange('paymentMethod', 'purchaseOrder')}
               text="Pay With Purchase Order"
             />
-          </div>
-        </div>
+          </Flex>
+        </Flex>
       ),
       validation: (data) => {
         return true;
@@ -323,7 +323,7 @@ function Index() {
     {
       name: 'uploadDocuments',
       component: ({ data, onChange }) => (
-        <div className="flex flex-col space-y-4">
+        <Flex className="flex-col space-y-4">
           <label htmlFor="upload-documents" className="block">
             Upload Documents
           </label>
@@ -332,10 +332,10 @@ function Index() {
             type="file"
             onChange={(event) => onChange('documents', event.target.value)}
           />
-          <div className="flex space-x-4">
+          <Flex className="space-x-4">
             <Button theme="success" text="Complete Order" />
-          </div>
-        </div>
+          </Flex>
+        </Flex>
       ),
       validation: (data) => {
         return true;

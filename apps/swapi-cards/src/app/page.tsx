@@ -102,7 +102,7 @@ function App() {
         <Hero />
         <Header />
 
-        {/* <div className="flex justify-center max-w-4xl xl:max-w-7xl container mx-auto mt-8">
+        {/* <Flex className="justify-center max-w-4xl xl:max-w-7xl container mx-auto mt-8">
           <form
             className="w-full flex space-between space-x-8"
             onSubmit={getSearchData}

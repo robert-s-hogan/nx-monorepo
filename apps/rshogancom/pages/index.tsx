@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 
 import {
   Button,
-  Flex,
   Grid,
   Heading,
   Skeleton,
   SkeletonText,
   Text,
 } from '@with-nx/react-ui';
+import { Flex } from '@with-nx/generic-ui';
 import { useModal } from '@with-nx/react-hooks';
 
 import RSHLayout from '../components/RSHLayout';
@@ -101,7 +101,7 @@ export function Index() {
           Explore our unique digital products ranging from party PDFs to custom
           invites, crafted to add a special touch to your celebrations.
         </Text>
-        <div className="flex flex-wrap mt-6">
+        <Flex className="flex-wrap mt-6">
           <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
             <div className="card">
               <Image
@@ -119,13 +119,13 @@ export function Index() {
                 Make your child's birthday unforgettable with our
                 superhero-themed digital invitation.
               </Text>
-              <div className="flex justify-between items-center mt-4 p-4">
+              <Flex className="justify-between items-center mt-4 p-4">
                 <span className="text-lg">$4.99</span>
                 <Button className="btn-primary">Add to Cart</Button>
               </div>
             </div>
           </div>
-        </div>
+        </Flex>
       </RSHSection> */}
 
       {/* AS SEEN IN */}

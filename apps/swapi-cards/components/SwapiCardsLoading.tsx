@@ -1,4 +1,4 @@
-import { Heading } from '@with-nx/generic-ui';
+import { Flex, Heading } from '@with-nx/generic-ui';
 
 const SwapiCardsLoading = () => {
   return (
@@ -26,14 +26,14 @@ const SwapiCardsLoading = () => {
           animation: spinner-spin 1.2s linear infinite, spinner-fade 1.2s linear infinite;
         }
       `}</style>
-      <div className="flex flex-col justify-center items-center h-full">
+      <Flex className="flex-col justify-center items-center h-full">
         <div className="spinner"></div>
         <Heading
           level={2}
           className="text-center font-sans text-white mt-8"
           text="Loading..."
         />
-      </div>
+      </Flex>
     </div>
   );
 };

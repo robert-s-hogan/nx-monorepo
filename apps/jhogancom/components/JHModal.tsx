@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { FiX } from 'react-icons/fi';
 
-import { IconButton } from '@with-nx/generic-ui';
+import { Flex, IconButton } from '@with-nx/generic-ui';
 
 interface JHModalProps {
   isOpen: boolean;
@@ -37,7 +37,7 @@ const JHModal: React.FC<JHModalProps> = ({
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <Flex className="min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -52,7 +52,7 @@ const JHModal: React.FC<JHModalProps> = ({
                     screenSize && screenSize
                   } w-full  transform overflow-hidden rounded-2xl bg-surface-color p-6 text-left align-middle shadow-xl transition-all sm:my-8 sm:align-middle sm:w-full sm:p-6'`}
                 >
-                  <div className="flex justify-between items-center mb-6">
+                  <Flex className="justify-between items-center mb-6">
                     <Dialog.Title
                       as="h2"
                       className="font-medium leading-6 text-on-primary-color"
@@ -66,11 +66,11 @@ const JHModal: React.FC<JHModalProps> = ({
                       icon={<FiX size="1.5rem" />}
                       className="p-0 border-none"
                     />
-                  </div>
+                  </Flex>
                   {children}
                 </Dialog.Panel>
               </Transition.Child>
-            </div>
+            </Flex>
           </div>
         </Dialog>
       </Transition>

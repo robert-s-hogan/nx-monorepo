@@ -1,4 +1,5 @@
 import { Heading, Skeleton, Text } from '@with-nx/react-ui';
+import { Flex } from '@with-nx/generic-ui';
 import Image from 'next/image';
 
 import RSHSection from '../components/RSHSection';
@@ -25,7 +26,7 @@ const RSHWhatOurCustomersSaySection = ({
               looks. Robert was so patient and knowledgeable. He made the
               process easy and enjoyable. I highly recommend Robert!"
             </Text>
-            <div className="flex items-center mt-4">
+            <Flex className="items-center mt-4">
               {isLoading ? (
                 <Skeleton
                   isLoading={true}
@@ -54,7 +55,7 @@ const RSHWhatOurCustomersSaySection = ({
                   Verified Buyer
                 </Text>
               </div>
-            </div>
+            </Flex>
           </div>
         </div>
       </div>

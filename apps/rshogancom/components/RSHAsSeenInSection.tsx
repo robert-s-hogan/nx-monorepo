@@ -1,4 +1,5 @@
 import { Box, Heading, Skeleton, Text } from '@with-nx/react-ui';
+import { Flex } from '@with-nx/generic-ui';
 import Image from 'next/image';
 
 import RSHSection from '../components/RSHSection';
@@ -15,7 +16,7 @@ const RSHAsSeenInSection = ({ isLoading }: RSHAsSeenInSectionProps) => {
       <Heading level={2} isLoading={isLoading}>
         As Seen In
       </Heading>
-      <div className="flex flex-wrap justify-center items-center mt-6">
+      <Flex className="flex-wrap justify-center items-center mt-6">
         {collaborators.map((collaborator) => (
           <Box
             className="p-4"
@@ -41,7 +42,7 @@ const RSHAsSeenInSection = ({ isLoading }: RSHAsSeenInSectionProps) => {
             )}
           </Box>
         ))}
-      </div>
+      </Flex>
     </RSHSection>
   );
 };

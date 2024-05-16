@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import { projectStaticData } from '../../data/projects';
 import JHLayout from '../../components/JHLayout';
-import { Flex } from '@with-nx/react-ui';
-import { Heading, Text } from '@with-nx/generic-ui';
+import { Flex, Heading, Text } from '@with-nx/generic-ui';
 
 export async function getStaticPaths() {
   const paths = projectStaticData.map((project) => ({
@@ -62,8 +61,8 @@ export default function Projects({ project }) {
           </div>
         </section>
         <section className="flex items-center justify-between my-32 tracking-wider relative">
-          <div className="flex flex-col w-full md:w-1/3 space-y-12 text-center md:text-left px-4">
-            <div className="flex flex-col">
+          <Flex className="flex-col w-full md:w-1/3 space-y-12 text-center md:text-left px-4">
+            <Flex className="flex-col">
               <Heading
                 level={3}
                 className="text-xl font-bold"
@@ -74,7 +73,7 @@ export default function Projects({ project }) {
               <span className="text-lg">
                 <span className="text-capitalize">{project.tags}</span>
               </span>
-            </div>
+            </Flex>
             <div className="px-2">
               <Heading level={3} className="text-xl font-bold" text="Summary" />
               <br />
@@ -93,7 +92,7 @@ export default function Projects({ project }) {
               </a>
               <p>675 234 4323</p>
             </div>
-          </div>
+          </Flex>
 
           <Image
             className="hidden md:block object-cover w-1/4 h-screen rounded-full ring-2 ring-gray-500/50 ring-offset-[30px]"
@@ -137,7 +136,7 @@ export default function Projects({ project }) {
             text="Experience"
           />
           <div className="grid grid-cols-1 md:grid-cols-6 my-10">
-            <div className="flex flex-col col-span-2 mb-4 md:mb-0">
+            <Flex className="flex-col col-span-2 mb-4 md:mb-0">
               <Heading
                 level={5}
                 className="text-xl md:text-2xl font-bold"
@@ -150,8 +149,8 @@ export default function Projects({ project }) {
                 text="Facebook"
               />
               <p>Jan 2015 - present</p>
-            </div>
-            <div className="flex flex-col col-span-4">
+            </Flex>
+            <Flex className="flex-col col-span-4">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
                 eveniet deleniti tempore veritatis adipisci accusantium
@@ -162,10 +161,10 @@ export default function Projects({ project }) {
                 distinctio! Ipsa cupiditate harum voluptates praesentium.
                 Suscipit itaque officiis odio ut!
               </p>
-            </div>
+            </Flex>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-6 my-10">
-            <div className="flex flex-col col-span-2 mb-4 md:mb-0">
+            <Flex className="flex-col col-span-2 mb-4 md:mb-0">
               <Heading
                 level={5}
                 className="text-xl md:text-2xl  font-bold"
@@ -173,8 +172,8 @@ export default function Projects({ project }) {
               />
               <Heading level={6} className="text-lg font-bold" text="Google" />
               <p>Feb 2010 - Jan 2015</p>
-            </div>
-            <div className="flex flex-col col-span-4">
+            </Flex>
+            <Flex className="flex-col col-span-4">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
                 eveniet deleniti tempore veritatis adipisci accusantium
@@ -185,10 +184,10 @@ export default function Projects({ project }) {
                 distinctio! Ipsa cupiditate harum voluptates praesentium.
                 Suscipit itaque officiis odio ut!
               </p>
-            </div>
+            </Flex>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-6 my-10">
-            <div className="flex flex-col col-span-2 mb-4 md:mb-0">
+            <Flex className="flex-col col-span-2 mb-4 md:mb-0">
               <Heading
                 level={5}
                 className="text-xl md:text-2xl  font-bold"
@@ -196,8 +195,8 @@ export default function Projects({ project }) {
               />
               <Heading level={6} className="text-lg font-bold" text="IBM" />
               <p>Apr 2008 - Feb 2010</p>
-            </div>
-            <div className="flex flex-col col-span-4">
+            </Flex>
+            <Flex className="flex-col col-span-4">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
                 eveniet deleniti tempore veritatis adipisci accusantium
@@ -208,7 +207,7 @@ export default function Projects({ project }) {
                 distinctio! Ipsa cupiditate harum voluptates praesentium.
                 Suscipit itaque officiis odio ut!
               </p>
-            </div>
+            </Flex>
           </div>
         </section>
         <hr className="border-gray-400 mx-44" />
@@ -220,7 +219,7 @@ export default function Projects({ project }) {
             text="Education"
           />
           <div className="grid grid-cols-1 md:grid-cols-6 my-10">
-            <div className="flex flex-col col-span-2 mb-4 md:mb-0">
+            <Flex className="flex-col col-span-2 mb-4 md:mb-0">
               <Heading
                 level={5}
                 className="text-xl md:text-2xl  font-bold"
@@ -232,8 +231,8 @@ export default function Projects({ project }) {
                 text="Harward University"
               />
               <p>Jan 2015 - present</p>
-            </div>
-            <div className="flex flex-col col-span-4 ">
+            </Flex>
+            <Flex className="flex-col col-span-4 ">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
                 eveniet deleniti tempore veritatis adipisci accusantium
@@ -244,7 +243,7 @@ export default function Projects({ project }) {
                 distinctio! Ipsa cupiditate harum voluptates praesentium.
                 Suscipit itaque officiis odio ut!
               </p>
-            </div>
+            </Flex>
           </div>
         </section>
       </div>

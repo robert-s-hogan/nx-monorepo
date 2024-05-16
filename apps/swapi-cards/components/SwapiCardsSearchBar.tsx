@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Flex } from '@with-nx/generic-ui';
 import useSWAPIFetch from '../hooks/useSWAPIFetch';
 import { StarWarsCharacter } from '../types';
 
@@ -15,7 +16,7 @@ const SwapiCardsSearchBar: React.FC = () => {
   // };
 
   return (
-    <div className="flex justify-center max-w-4xl container mx-auto my-8">
+    <Flex className="justify-center max-w-4xl container mx-auto my-8">
       {/* <form
         className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full mx-2"
         onSubmit={handleSearch}
@@ -37,7 +38,7 @@ const SwapiCardsSearchBar: React.FC = () => {
       {/* {data && data.length === 0 && (
         <Text className="text-white block text-center search-results" text="No results found" />
       )} */}
-    </div>
+    </Flex>
   );
 };
 

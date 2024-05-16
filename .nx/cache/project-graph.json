@@ -24822,6 +24822,11 @@
       },
       {
         "source": "rshogancom",
+        "target": "generic-ui",
+        "type": "static"
+      },
+      {
+        "source": "rshogancom",
         "target": "npm:next",
         "type": "static"
       },
@@ -24833,11 +24838,6 @@
       {
         "source": "rshogancom",
         "target": "npm:react-redux",
-        "type": "static"
-      },
-      {
-        "source": "rshogancom",
-        "target": "generic-ui",
         "type": "static"
       },
       {

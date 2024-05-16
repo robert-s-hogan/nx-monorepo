@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Button, IconButton, Text } from '@with-nx/generic-ui';
+import { Button, Flex, IconButton, Text } from '@with-nx/generic-ui';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme, ThemeType } from '@with-nx/theme';
@@ -70,9 +70,9 @@ const PlayToWinFFHeader = () => {
     <header>
       <div className="container mx-auto  w-full flex flex-col justify-center items-center px-4">
         <nav className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black ">
-          <div className="flex justify-center">
+          <Flex className="justify-center">
             <Link href="/">{logo}</Link>
-          </div>
+          </Flex>
 
           <Text className="text-2xl" text={logoText} />
           <ul className="flex list-style-none space-x-4 items-center">

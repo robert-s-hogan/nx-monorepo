@@ -2,8 +2,7 @@ import { useState } from 'react';
 import P2WDraftConfigModal from '../components/P2WDraftConfigModal';
 import { useADPData } from '../hooks/useADPData';
 import { Error, Grid, Loading, Section } from '@with-nx/react-ui';
-import { Heading, Text } from '@with-nx/generic-ui';
-import { Button } from '@with-nx/generic-ui';
+import { Button, Flex, Heading, Text } from '@with-nx/generic-ui';
 import Link from 'next/link';
 import { FiBarChart, FiClock, FiTag } from 'react-icons/fi';
 
@@ -150,7 +149,7 @@ export function Index() {
         <Heading level={2} className="text-center mb-8">
           Explore Our Tools
         </Heading>
-        <div className="flex flex-wrap -mx-4">
+        <Flex className="flex-wrap -mx-4">
           <div className="w-full md:w-1/2 px-4 mb-8">
             <Image
               src=""

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import DevBlogLayout from '../../components/DevBlogLayout';
 import DevBlogSection from '../../components/DevBlogSection';
-import { Heading, Text } from '@with-nx/generic-ui';
+import { Flex, Heading, Text } from '@with-nx/generic-ui';
 // Define the base URL for your WordPress API
 const WP_API_BASE_URL =
   'https://public-api.wordpress.com/wp/v2/sites/robertshogandev.wordpress.com';
@@ -59,10 +59,10 @@ export default function Home({ allPostsData }) {
               <Link href={`/blog/${id}`}>
                 <Text className="" text={title} />
               </Link>
-              <div className="flex items-center space-x-4 mt-4 md:mt-0">
+              <Flex className="items-center space-x-4 mt-4 md:mt-0">
                 <Text className="text-sm" text={categories.join(', ')} />
                 <Text className="text-xs" text={date} />
-              </div>
+              </Flex>
             </div>
           ))}
         </div>

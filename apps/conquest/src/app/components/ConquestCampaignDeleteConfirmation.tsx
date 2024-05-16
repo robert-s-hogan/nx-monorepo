@@ -1,4 +1,4 @@
-import { Button, Heading, Text } from '@with-nx/generic-ui';
+import { Button, Flex, Heading, Text } from '@with-nx/generic-ui';
 import Link from 'next/link';
 import { ConquestCampaignDeleteConfirmationProps } from '../types';
 
@@ -16,7 +16,7 @@ const ConquestCampaignDeleteConfirmation = ({
           text={`Are you sure you want to delete ${campaignName}? cannot be undone.`}
         />
       </div>
-      <div className="flex justify-end space-x-2">
+      <Flex className="justify-end space-x-2">
         <Button
           theme="secondary"
           className="border-none underline"
@@ -24,7 +24,7 @@ const ConquestCampaignDeleteConfirmation = ({
           text="Cancel"
         />
         <Button theme="danger" onClick={onConfirm} text="Delete" />
-      </div>
+      </Flex>
     </div>
   );
 };

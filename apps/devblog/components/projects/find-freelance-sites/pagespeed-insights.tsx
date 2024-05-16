@@ -3,7 +3,8 @@
 import useSWR from 'swr';
 import axios from 'axios';
 import { useState } from 'react';
-import { Input, Button, Flex } from '@with-nx/react-ui';
+import { Input, Button } from '@with-nx/react-ui';
+import { Flex } from '@with-nx/generic-ui';
 
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
@@ -44,12 +45,12 @@ const PagespeedInsights = () => {
       {error && <div>Failed to load data</div>}
       {!data && requestUrl && <div className="p-4">Loading...</div>}
       {data && (
-        <div className="flex flex-col p-4">
-          <div className="flex justify-between">
+        <Flex className="flex-col p-4">
+          <Flex className="justify-between">
             <span>Performance Score</span>
             <span>{data.lighthouseResult.categories.performance.score}</span>
-          </div>
-          <div className="flex justify-between">
+          </Flex>
+          <Flex className="justify-between">
             <span>First Contentful Paint</span>
             <span>
               {
@@ -57,18 +58,18 @@ const PagespeedInsights = () => {
                   .displayValue
               }
             </span>
-          </div>
-          <div className="flex justify-between">
+          </Flex>
+          <Flex className="justify-between">
             <span>Speed Index</span>
             <span>
               {data.lighthouseResult.audits['speed-index'].displayValue}
             </span>
-          </div>
-          <div className="flex justify-between">
+          </Flex>
+          <Flex className="justify-between">
             <span>Time to Interactive</span>
             <span>{data.lighthouseResult.audits.interactive.displayValue}</span>
-          </div>
-          <div className="flex justify-between">
+          </Flex>
+          <Flex className="justify-between">
             <span>First Meaningful Paint</span>
             <span>
               {
@@ -76,8 +77,8 @@ const PagespeedInsights = () => {
                   .displayValue
               }
             </span>
-          </div>
-          <div className="flex justify-between">
+          </Flex>
+          <Flex className="justify-between">
             <span>Largest Contentful Paint</span>
             <span>
               {
@@ -85,8 +86,8 @@ const PagespeedInsights = () => {
                   .displayValue
               }
             </span>
-          </div>
-          <div className="flex justify-between">
+          </Flex>
+          <Flex className="justify-between">
             <span>Cumulative Layout Shift</span>
             <span>
               {
@@ -94,28 +95,28 @@ const PagespeedInsights = () => {
                   .displayValue
               }
             </span>
-          </div>
-          <div className="flex justify-between">
+          </Flex>
+          <Flex className="justify-between">
             <span>Total Blocking Time</span>
             <span>
               {data.lighthouseResult.audits['total-blocking-time'].displayValue}
             </span>
-          </div>
-          <div className="flex justify-between">
+          </Flex>
+          <Flex className="justify-between">
             <span>SEO Score</span>
             <span>
               {data.lighthouseResult.categories.seo ? (
-                <div className="flex justify-between">
+                <Flex className="justify-between">
                   <span>{data.lighthouseResult.categories.seo.score}</span>
-                </div>
+                </Flex>
               ) : (
-                <div className="flex justify-between">
+                <Flex className="justify-between">
                   <span>N/A</span>
-                </div>
+                </Flex>
               )}
             </span>
-          </div>
-        </div>
+          </Flex>
+        </Flex>
       )}
     </div>
   );

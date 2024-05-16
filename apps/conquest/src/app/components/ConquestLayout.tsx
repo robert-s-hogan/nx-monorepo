@@ -23,9 +23,9 @@ const ConquestLayout = ({ children, title, loading }: ConquestLayoutProps) => {
               <div className="">
                 <div className="h-4 bg-gray-200 rounded w-32"></div>
               </div>
-              <div className="flex items-center space-x-4">
+              <Flex className="items-center space-x-4">
                 <div className="h-6 w-6 bg-gray-200 rounded"></div>
-              </div>
+              </Flex>
             </div>
           </nav>
         </header>
