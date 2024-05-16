@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { projectStaticData } from '../../data/projects';
 import JHLayout from '../../components/JHLayout';
+import JHSection from '../../components/JHSection';
 import { Flex, Heading, Text } from '@with-nx/generic-ui';
 
 export async function getStaticPaths() {
@@ -36,7 +37,7 @@ export default function Projects({ project }) {
   return (
     <JHLayout>
       <div className="relative">
-        <section className="relative min-h-screen px-4">
+        <JHSection className="relative min-h-screen px-4">
           <Flex className="absolute inset-0 items-center justify-center">
             <Image
               className="absolute top-0 left-0 w-full h-full object-cover"
@@ -59,8 +60,8 @@ export default function Projects({ project }) {
               text="{project.description}"
             />
           </div>
-        </section>
-        <section className="flex items-center justify-between my-32 tracking-wider relative">
+        </JHSection>
+        <JHSection className="flex items-center justify-between my-32 tracking-wider relative">
           <Flex className="flex-col w-full md:w-1/3 space-y-12 text-center md:text-left px-4">
             <Flex className="flex-col">
               <Heading
@@ -125,11 +126,11 @@ export default function Projects({ project }) {
               <Text className="text-6xl" text="14" />
             </div>
           </div>
-        </section>
+        </JHSection>
 
         <hr className="border-gray-400 mx-44" />
 
-        <section className="px-4 mt-10">
+        <JHSection className="px-4 mt-10">
           <Heading
             level={4}
             className="mb-8 text-3xl font-bold text-center md:text-left"
@@ -209,10 +210,10 @@ export default function Projects({ project }) {
               </p>
             </Flex>
           </div>
-        </section>
+        </JHSection>
         <hr className="border-gray-400 mx-44" />
 
-        <section className="px-4 mt-10">
+        <JHSection className="px-4 mt-10">
           <Heading
             level={4}
             className="mb-8 text-3xl font-bold text-center md:text-left"
@@ -245,7 +246,7 @@ export default function Projects({ project }) {
               </p>
             </Flex>
           </div>
-        </section>
+        </JHSection>
       </div>
     </JHLayout>
   );

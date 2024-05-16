@@ -82,7 +82,7 @@ const ProjectSection = () => {
   }, []);
 
   return (
-    <section className="space-y-4">
+    <div className="space-y-4">
       <Heading level={2}>Projects</Heading>
       <p>
         As a Data Scientist and Data Analyst, I translate data into actionable
@@ -106,7 +106,7 @@ const ProjectSection = () => {
             )
         )}
       </Grid>
-    </section>
+    </div>
   );
 };
 

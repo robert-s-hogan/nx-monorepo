@@ -13,7 +13,7 @@ const RSHWhatOurCustomersSaySection = ({
 }: RSHWhatOurCustomersSaySectionProps) => {
   return (
     <RSHSection>
-      <div className="container mx-auto max-w-3xl">
+      <div className="container mx-auto max-w-3xl lg:max-w-7xl">
         <Heading level={2} isLoading={isLoading}>
           What Our Customers Say
         </Heading>
