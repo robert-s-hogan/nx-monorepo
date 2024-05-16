@@ -3,7 +3,6 @@ export { Flex } from './lib/flex/flex';
 export { Heading } from './lib/heading/heading';
 export { IconButton } from './lib/icon-button/icon-button';
 export { Input } from './lib/input/input';
-export { Link } from './lib/link/link';
 export { List } from './lib/list/list';
 export { Section } from './lib/section/section';
 export { Select } from './lib/select/select';
