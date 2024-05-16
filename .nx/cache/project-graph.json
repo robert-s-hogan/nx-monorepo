@@ -24740,6 +24740,11 @@
         "source": "generic-ui",
         "target": "npm:@nx/react",
         "type": "static"
+      },
+      {
+        "source": "generic-ui",
+        "target": "npm:framer-motion",
+        "type": "static"
       }
     ],
     "play2winff": [
