@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { useFirestoreCollection } from '@with-nx/firebase';
-import { Button, Flex, Heading, Input } from '@with-nx/generic-ui';
+import { Button, Flex, Heading, Input, List } from '@with-nx/generic-ui';
 
 import ConquestLayout from '../../components/ConquestLayout';
 import ConquestSection from '../../components/ConquestSection';
