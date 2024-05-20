@@ -4,6 +4,7 @@ export { Heading } from './lib/heading/heading';
 export { IconButton } from './lib/icon-button/icon-button';
 export { Input } from './lib/input/input';
 export { List } from './lib/list/list';
+export { ListItem } from './lib/list-item/list-item';
 export { Section } from './lib/section/section';
 export { Select } from './lib/select/select';
 export { Table } from './lib/table/table';

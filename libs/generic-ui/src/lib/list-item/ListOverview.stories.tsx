@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
-import { ListItem } from './ListItem';
+import { ListItem } from './list-item';
 
 export default {
   title: 'Components/ListOverview',

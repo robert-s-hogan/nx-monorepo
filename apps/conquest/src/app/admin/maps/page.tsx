@@ -37,6 +37,12 @@ const AdminMapsPage: React.FC = () => {
   if (loading) return <div>Loading maps...</div>;
   if (error) return <div>Error loading maps: {error.message}</div>;
 
+  const mapItems = maps.map((map: any) => ({
+    id: map.id,
+    text: `Shape: ${map.shape}, Terrain: ${map.terrain_type}`,
+    href: `#${map.id}`, // Optional: create a link to the map
+  }));
+
   return (
     <ConquestLayout title="Maps | Admin Dashboard">
       <ConquestSection className="space-y-6">
@@ -85,22 +91,7 @@ const AdminMapsPage: React.FC = () => {
           <div className="w-1/2 flex flex-col">
             <Heading level={2} text="Maps Review" />
             {maps.length > 0 ? (
-              <ul>
-                {maps.map((map: any) => (
-                  <li key={map.id}>
-                    <p>Shape: {map.shape}</p>
-                    <p>Terrain Type: {map.terrain_type}</p>
-                    <p>
-                      Starting Quadrant of Opposition:{' '}
-                      {map.starting_quadrant_of_opposition ? 'Yes' : 'No'}
-                    </p>
-                    <p>Generated: {map.generated ? 'Yes' : 'No'}</p>
-                    {map.generation_algorithm && (
-                      <p>Generation Algorithm: {map.generation_algorithm}</p>
-                    )}
-                  </li>
-                ))}
-              </ul>
+              <List items={mapItems} />
             ) : (
               <p>No maps found.</p>
             )}

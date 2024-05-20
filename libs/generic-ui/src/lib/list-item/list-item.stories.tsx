@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { ListItem, ListItemProps } from './ListItem';
+import { ListItem, ListItemProps } from './list-item';
 
 export default {
   title: 'Components/ListItem',
