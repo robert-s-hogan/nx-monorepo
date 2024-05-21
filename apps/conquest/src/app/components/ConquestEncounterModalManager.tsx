@@ -65,7 +65,6 @@ const ConquestEncounterModalManager: React.FC<EncounterModalManagerProps> = ({
       title={titleText}
       operation={operation}
       encounter={encounter}
-      fullScreen={true}
     >
       {renderContent()}
     </EncounterModal>

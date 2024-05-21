@@ -6,40 +6,96 @@
 
 /* :root variables that do not change with theme */
 :root {
-  --loader-size: 1rem;
-  --loader-border: 0.125rem;
-  --border-width: 0.063rem;
-  --transition-speed: 0.3s;
-  --animation-speed: 1s;
+  /* Animation Timings */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+  /* Aspect Ratios */
+  --aspect-ratio-wide: 16 / 9;
+  --aspect-ratio-square: 1;
+
+  /* Box Shadow */
+  --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
+
+  /* Button */
+  --button-padding-y: 0.5rem;
+  --button-padding-x: 0.75rem;
+  --transition-all: all;
+  --duration-300: 0.3s;
+
+  /* Font Settings */
+  --font-family: 'Inter', sans-serif;
+
+  /* Form Element */
+  --form-element-padding-y: 0.5rem;
+  --form-element-padding-x: 0.75rem;
+  --form-element-border-width: 0.063rem;
+  --form-element-border-color: #e2e8f0;
+  --form-element-border-radius: 0.25rem;
+  --form-element-font-size: 1rem;
+  --form-element-height: 2.5rem;
+  --form-element-color: #2d3748;
+
+  /* Input */
+  --input-focus-outline-color: #4299e1;
+  --input-focus-outline-width: 0.125rem;
+  --input-focus-outline-offset: 0.125rem;
+
+  /* Hover */
   --hover-scale: 1.05;
   --text-underline-offset: 0.25rem;
-  --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
-  --select-appearance: appearance-none;
+
+  /* Loader */
+  --loader-size: 1rem;
+  --loader-border: 0.125rem;
+  --transition-speed: 0.3s;
+  --animation-speed: 1s;
+
+  /* Maximum Container Width */
+  --max-width-container: 1200px;
+
+  /* Opacity Levels */
+  --opacity-disabled: 0.5;
+  --opacity-hover: 0.8;
+  --opacity-active: 1;
+
+  /* Radius Sizes */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Select */
+  --select-appearance: none;
   --select-width: 100%;
-  --select-padding-x: 0.75rem;
   --select-padding-y: 0.5rem;
-  --select-border-width: 1px;
-  --select-border-color: #000000;
-  --select-border-radius: 0.25rem;
-  --select-focus-outline-width: 2px;
-  --select-focus-outline-color: #0000ff;
-  --select-focus-outline-offset: 2px;
-  --select-font-size: 0.875rem;
-  --select-height: 2.375rem;
-  --input-padding-x: 0.75rem;
-  --input-padding-y: 0.5rem;
-  --input-border-width: 1px;
-  --input-border-color: #000000;
-  --input-border-radius: 0.25rem;
-  --input-focus-outline-width: 2px;
-  --input-focus-outline-color: #0000ff;
-  --input-focus-outline-offset: 2px;
-  --input-font-size: 0.875rem;
-  --input-height: 2.375rem;
-  --button-padding-x: 0.75rem;
-  --button-padding-y: 0.5rem;
-  --button-border-width: 1px;
-  --button-border-radius: 0.25rem;
+  --select-padding-x: 0.75rem;
+  --select-font-size: 1rem;
+  --select-height: 2.5rem;
+  --select-border-color: #e2e8f0;
+
+  /* Shadow Depths */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+  /* Spacing Scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+
+  /* Typography */
+  --heading-font-size: 24px;
+  --text-font-size: 16px;
+  --small-font-size: 12px;
+  --line-height: 1.5;
+
+  /* Z-Index Levels */
+  --z-index-dropdown: 1000;
+  --z-index-modal: 1050;
+  --z-index-overlay: 1100;
 }
 
 @layer base {
@@ -103,12 +159,13 @@ form {
 input[type='number'],
 input[type='text'],
 input[type='string'] {
-  padding: var(--input-padding-y) var(--input-padding-x);
-  border-width: var(--input-border-width);
-  border-color: var(--input-border-color);
-  border-radius: var(--input-border-radius);
-  font-size: var(--input-font-size);
-  height: var(--input-height);
+  padding: var(--form-element-padding-x) var(--form-element-padding-y);
+  border-width: var(--form-element-border-width);
+  border-color: var(--form-element-border-color);
+  border-radius: var(--form-element-border-radius);
+  font-size: var(--form-element-font-size);
+  /* height: var(--form-element-height); */
+  color: var(--form-element-color);
   width: 100%;
 }
 input[type='number']:focus,
@@ -117,7 +174,6 @@ input[type='string']:focus {
   outline: none;
   border-color: var(--input-focus-outline-color);
   border-width: var(--input-focus-outline-width);
-  border-offset: var(--input-focus-outline-offset);
 }
 input[type='checkbox'] {
   display: block;
@@ -127,11 +183,11 @@ input[type='checkbox']:focus {
   outline: none;
 }
 textarea {
-  padding: var(--input-padding-y) var(--input-padding-x);
-  border-width: var(--input-border-width);
-  border-color: var(--input-border-color);
-  border-radius: var(--input-border-radius);
-  font-size: var(--input-font-size);
+  padding: var(--form-element-padding-x) var(--form-element-padding-y);
+  border-width: var(--form-element-border-width);
+  border-color: var(--form-element-border-color);
+  border-radius: var(--form-element-border-radius);
+  font-size: var(--form-element-font-size);
   height: 6rem;
   width: 100%;
 }
@@ -139,26 +195,26 @@ textarea:focus {
   outline: none;
   border-color: var(--input-focus-outline-color);
   border-width: var(--input-focus-outline-width);
-  border-offset: var(--input-focus-outline-offset);
 }
 
 /* SELECT CLASSES */
 select {
   appearance: var(--select-appearance);
   width: var(--select-width);
-  padding: var(--select-padding-y) var(--select-padding-x);
-  border-width: var(--select-border-width);
-  border-color: var(--select-border-color);
-  border-radius: var(--select-border-radius);
-  font-size: var(--select-font-size);
-  height: var(--select-height);
+  padding: var(--form-element-padding-x) var(--form-element-padding-y);
+  border-width: var(--form-element-border-width);
+  border-color: var(--form-element-border-color);
+  border-radius: var(--form-element-border-radius);
+  font-size: var(--form-element-font-size);
+  /* height: var(--form-element-height); */
+  color: var(--form-element-color);
 }
 
 /* BUTTON CLASSES */
 button {
-  padding: var(--button-padding-y) var(--button-padding-x);
-  border-width: var(--button-border-width);
-  border-radius: var(--button-border-radius);
+  padding: var(--form-element-padding-x) var(--form-element-padding-y);
+  border-width: var(--form-element-border-width);
+  border-radius: var(--form-element-border-radius);
 }
 .btn-primary {
   background-color: var(--primary-color);

@@ -1,51 +1,115 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+// contexts/EncounterContext.tsx
+import React, { createContext, useContext, useState, useCallback } from 'react';
 import {
-  addEncounter,
-  editEncounter,
-  deleteEncounter,
-  fetchEncounters,
+  addEncounter as addEncounterService,
+  editEncounter as editEncounterService,
+  deleteEncounter as deleteEncounterService,
   fetchEncountersByCampaign,
 } from '../services/encounterService';
-import { Encounter, EncounterContextType } from '../types';
-import { ProviderProps } from '../types';
+import {
+  Encounter,
+  EncounterContextType,
+  ProviderProps,
+  FirestoreDocument,
+} from '../types';
 
-export const useEncounters = () => {
-  const context = useContext(EncounterContext);
-  if (!context)
-    throw new Error('useEncounters must be used within an EncounterProvider');
-  return context;
-};
-
-export const EncounterContext = createContext<EncounterContextType | undefined>(
+const EncounterContext = createContext<EncounterContextType | undefined>(
   undefined
 );
 
+export const useEncountersContext = () => {
+  const context = useContext(EncounterContext);
+  if (!context) {
+    throw new Error(
+      'useEncountersContext must be used within an EncounterProvider'
+    );
+  }
+  return context;
+};
+
 export const EncounterProvider: React.FC<ProviderProps> = ({ children }) => {
-  const [encounters, setEncounters] = useState<Encounter[]>([]);
+  const [encounters, setEncounters] = useState<FirestoreDocument<Encounter>[]>(
+    []
+  );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    const campaignId = 'your-campaign-id';
+  const fetchEncounters = useCallback(async (campaignId: string) => {
     setLoading(true);
-    fetchEncountersByCampaign(campaignId)
-      .then((data: Encounter[]) => {
-        setEncounters(data);
-        setError('');
-      })
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
+    try {
+      const data = await fetchEncountersByCampaign(campaignId);
+      setEncounters(data);
+      setError('');
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      }
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  const addEncounter = async (encounterData: Encounter) => {
+    setLoading(true);
+    try {
+      const newEncounterId = await addEncounterService(encounterData);
+      const newEncounter = { ...encounterData, id: newEncounterId };
+      setEncounters((prev) => [...prev, newEncounter]);
+      setError('');
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const editEncounter = async (
+    id: string,
+    encounterData: Partial<Encounter>
+  ) => {
+    setLoading(true);
+    try {
+      await editEncounterService(id, encounterData);
+      setEncounters((prev) =>
+        prev.map((encounter) =>
+          encounter.id === id ? { ...encounter, ...encounterData } : encounter
+        )
+      );
+      setError('');
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const deleteEncounter = async (id: string) => {
+    setLoading(true);
+    try {
+      await deleteEncounterService(id);
+      setEncounters((prev) => prev.filter((encounter) => encounter.id !== id));
+      setError('');
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const value = {
     encounters,
-    setEncounters,
     loading,
     error,
+    fetchEncounters,
     addEncounter,
     editEncounter,
     deleteEncounter,
-    fetchEncounters,
   };
 
   return (

@@ -36,7 +36,16 @@ export type Encounter = {
 };
 
 export interface EncounterContextType {
-  encounters: Encounter[];
+  encounters: FirestoreDocument<Encounter>[];
+  loading: boolean;
+  error: string;
+  fetchEncounters: (campaignId: string) => Promise<void>;
+  addEncounter: (encounterData: Encounter) => Promise<void>;
+  editEncounter: (
+    id: string,
+    encounterData: Partial<Encounter>
+  ) => Promise<void>;
+  deleteEncounter: (id: string) => Promise<void>;
 }
 
 export interface EncounterDeleteConfirmationProps {

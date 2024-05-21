@@ -1,27 +1,40 @@
-import { useCallback } from 'react';
-import { ModalOperation } from '../types';
-import { Encounter } from '../types'; // Assuming this is the type for your Encounter
+// hooks/useEncounterOperations.ts
+import { useRouter } from 'next/router';
+import { useEncounterForm } from './useEncounterForm';
+import { Encounter, ModalOperation } from '../types';
 
 export const useEncounterOperations = (onClose: () => void) => {
-  const handleSave = useCallback(
-    // Assuming Partial<Encounter> for encounterData because you might not have all properties for a new Encounter
-    (encounterData: Partial<Encounter>, operation: ModalOperation) => {
-      // Define logic to add or edit an encounter based on `operation`
-      // Close the modal after saving
-      onClose();
-    },
-    [onClose]
-  );
+  const { handleAddEncounter, handleEditEncounter, handleDeleteEncounter } =
+    useEncounterForm();
+  const router = useRouter();
 
-  const handleDelete = useCallback(
-    (encounterId: string) => {
-      // Assuming encounterId is a string. Adjust if it's a different type
-      // Define logic to delete an encounter
-      // Close the modal after deleting
-      onClose();
-    },
-    [onClose]
-  );
+  const handleSave = async (
+    encounterData: Partial<Encounter>,
+    operation: ModalOperation
+  ) => {
+    if (!encounterData.campaignId || !encounterData.mapId) {
+      console.error('Required encounter data is missing.');
+      return;
+    }
+
+    if (operation === 'add') {
+      await handleAddEncounter(encounterData as Encounter);
+    } else if (operation === 'edit' && encounterData.id) {
+      await handleEditEncounter(encounterData.id, encounterData);
+    }
+
+    onClose();
+  };
+
+  const handleDelete = async (encounterId: string) => {
+    if (!encounterId) {
+      console.error('No encounter ID provided for delete operation');
+      return;
+    }
+
+    await handleDeleteEncounter(encounterId);
+    onClose();
+  };
 
   return { handleSave, handleDelete };
 };

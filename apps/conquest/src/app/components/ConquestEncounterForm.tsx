@@ -113,8 +113,8 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
   };
 
   return (
-    <div className="grid grid-cols-2 gap-6">
-      <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-x-4">
+    <div className="grid grid-cols-1 gap-6">
+      <form onSubmit={formik.handleSubmit} className="grid grid-cols-1 gap-x-4">
         <div className="space-y-1">
           <label htmlFor="encounterDifficultyOptions">
             Encounter Difficulty
@@ -171,11 +171,10 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
         <Button
           type="submit"
           theme="primary"
-          // className="col-span-2"
           text={operation === 'edit' ? 'Update Encounter' : 'Add Encounter'}
         />
       </form>
-      <div className="border border-text-on-primary-color p-4 mt-4 rounded-md">
+      {/* <div className="border border-text-on-primary-color p-4 mt-4 rounded-md">
         <Heading level={2} text="Preview" className="text-center" />
         <p>Team Quadrant: {firstQuadrant}</p>
         <p>Enemy Quadrant: {secondQuadrant}</p>
@@ -206,7 +205,7 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
             <strong>Weather Type:</strong> {mapSelection.weatherType}
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

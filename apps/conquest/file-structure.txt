@@ -1,0 +1,114 @@
+.
+├── README.md
+├── file-structure.tx
+├── file-structure.txt
+├── index.d.ts
+├── jest.config.ts
+├── next-env.d.ts
+├── next.config.js
+├── postcss.config.js
+├── project.json
+├── public
+├── src
+│   └── app
+│       ├── admin
+│       │   ├── entities
+│       │   │   ├── [entityId].tsx
+│       │   │   └── page.tsx
+│       │   ├── items
+│       │   │   ├── [itemsId].tsx
+│       │   │   └── page.tsx
+│       │   ├── maps
+│       │   │   ├── [mapsId].tsx
+│       │   │   └── page.tsx
+│       │   └── page.tsx
+│       ├── api
+│       ├── campaigns
+│       │   ├── [campaignSlug]
+│       │   │   ├── encounters
+│       │   │   │   ├── [encounterName].tsx
+│       │   │   │   └── page.tsx
+│       │   │   └── page.tsx
+│       │   └── page.tsx
+│       ├── components
+│       │   ├── ConquestCampaignDeleteConfirmation.tsx
+│       │   ├── ConquestCampaignForm.tsx
+│       │   ├── ConquestCampaignList.tsx
+│       │   ├── ConquestCampaignListWithModal.tsx
+│       │   ├── ConquestCampaignModal.tsx
+│       │   ├── ConquestCampaignModalManager.tsx
+│       │   ├── ConquestCampaignPreview.tsx
+│       │   ├── ConquestEncounterDeleteConfirmation.tsx
+│       │   ├── ConquestEncounterForm.tsx
+│       │   ├── ConquestEncounterList.tsx
+│       │   ├── ConquestEncounterListWithModal.tsx
+│       │   ├── ConquestEncounterModal.tsx
+│       │   ├── ConquestEncounterModalManager.tsx
+│       │   ├── ConquestField.tsx
+│       │   ├── ConquestForm.tsx
+│       │   ├── ConquestLayout.tsx
+│       │   ├── ConquestLoginButton.tsx
+│       │   ├── ConquestLogoutButton.tsx
+│       │   ├── ConquestMapsForm.tsx
+│       │   ├── ConquestModal.tsx
+│       │   ├── ConquestNavbar.tsx
+│       │   ├── ConquestProgressBar.tsx
+│       │   ├── ConquestRestCalculationDisplay.tsx
+│       │   ├── ConquestSection.tsx
+│       │   └── ErrorBoundary.tsx
+│       ├── constants
+│       │   ├── difficultyConstants.tsx
+│       │   ├── experienceConstants.tsx
+│       │   ├── mapConstants.tsx
+│       │   └── timeConstants.ts
+│       ├── contexts
+│       │   ├── AuthContext.tsx
+│       │   ├── CampaignContext.tsx
+│       │   └── EncounterContext.tsx
+│       ├── data
+│       │   └── signInWithGoogle.ts
+│       ├── hooks
+│       │   ├── useCampaignForm.tsx
+│       │   ├── useCampaignOperations.tsx
+│       │   ├── useCampaigns.tsx
+│       │   ├── useEncounterCalculations.tsx
+│       │   ├── useEncounterOperations.tsx
+│       │   ├── useEncounters.tsx
+│       │   ├── useFormFields.tsx
+│       │   ├── useMaps.tsx
+│       │   ├── useModal.ts
+│       │   ├── useModalManager.tsx
+│       │   ├── useRandomMapSelection.tsx
+│       │   ├── useRestCalculations.tsx
+│       │   └── useRestOperations.tsx
+│       ├── icon.tsx
+│       ├── layout.tsx
+│       ├── page.tsx
+│       ├── services
+│       │   ├── campaignService.ts
+│       │   └── encounterService.ts
+│       ├── styles
+│       │   ├── global.css
+│       │   └── themes.ts
+│       ├── types
+│       │   ├── Campaign
+│       │   │   └── index.ts
+│       │   ├── Encounter
+│       │   │   └── index.ts
+│       │   ├── Firestore
+│       │   │   └── index.ts
+│       │   ├── Utility
+│       │   │   └── index.ts
+│       │   └── index.ts
+│       └── utils
+│           ├── campaignUtils.ts
+│           ├── generateSlug.ts
+│           ├── mapUtils.ts
+│           ├── timeUtils.ts
+│           └── withAuth.tsx
+├── tailwind.config.js
+├── tsconfig.json
+├── tsconfig.spec.json
+└── tsconfig.tsbuildinfo
+
+26 directories, 86 files

@@ -1,13 +1,22 @@
 import useSWR from 'swr';
-import { collection, getDocs } from 'firebase/firestore';
+import {
+  collection,
+  getDocs,
+  query,
+  QueryConstraint,
+} from 'firebase/firestore';
 import { db } from './firebase-config';
 import { FirestoreDocument } from './types';
 
 // Custom Firestore fetcher function
 const firestoreFetcher = async <T>(
-  collectionName: string
+  collectionName: string,
+  queryOptions?: QueryConstraint[]
 ): Promise<FirestoreDocument<T>[]> => {
-  const querySnapshot = await getDocs(collection(db, collectionName));
+  const colRef = collection(db, collectionName);
+  const q = queryOptions ? query(colRef, ...queryOptions) : colRef;
+  const querySnapshot = await getDocs(q);
+
   return querySnapshot.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),
@@ -15,10 +24,13 @@ const firestoreFetcher = async <T>(
 };
 
 // Refactored useCollection hook
-export const useCollection = <T>(collectionName: string) => {
+export const useCollection = <T>(
+  collectionName: string,
+  queryOptions?: QueryConstraint[]
+) => {
   const { data, error, mutate } = useSWR<FirestoreDocument<T>[]>(
-    collectionName,
-    () => firestoreFetcher<T>(collectionName)
+    [collectionName, queryOptions],
+    () => firestoreFetcher<T>(collectionName, queryOptions)
   );
 
   // Expose the mutate function specific to this collection
