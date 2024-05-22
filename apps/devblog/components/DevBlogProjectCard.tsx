@@ -88,16 +88,18 @@ export const DirectionAwareHover = ({
               ease: 'easeOut',
             }}
           >
-            <Image
-              alt="image"
-              className={cn(
-                'h-full w-full object-cover scale-[1.05]',
-                imageClassName
-              )}
-              width="1000"
-              height="400"
-              src={imageUrl}
-            />
+            <div className="overflow-hidden w-[1000px] h-[450px]">
+              <Image
+                alt="image"
+                className={cn(
+                  'h-full w-full object-cover scale-[1.05]',
+                  imageClassName
+                )}
+                width="1000"
+                height="450"
+                src={imageUrl}
+              />
+            </div>
           </motion.div>
           <motion.div
             variants={textVariants}
@@ -106,7 +108,7 @@ export const DirectionAwareHover = ({
               ease: 'easeOut',
             }}
             className={cn(
-              'text-white absolute top-16 left-1 z-40 space-y-2',
+              'text-white absolute top-8 left-1 z-40 space-y-2',
               childrenClassName
             )}
           >
@@ -172,13 +174,13 @@ const textVariants = {
 
 export default function DevBlogProjectCard({ projects }) {
   return (
-    <div id="projects" className="relative text-white py-32">
+    <div id="projects" className="relative text-white py-16">
       <DevBlogSection>
         <div className="container mx-auto max-w-7xl px-4 text-center">
           <Heading level={2} className="text-center mb-4" text="Projects" />
           <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
           {projects.map((project, index) => (
-            <div key={index} className="grid grid-cols-1 md:grid-cols-3 py-32">
+            <div key={index} className="grid grid-cols-1 md:grid-cols-3 py-16">
               <div className="bg-gray-800 p-6 h-full shadow-lg flex flex-col justify-center">
                 <Heading
                   level={3}
@@ -206,36 +208,22 @@ export default function DevBlogProjectCard({ projects }) {
                 />
               </div>
               <div
-                className={`md:col-span-2 ${
+                className={`md:col-span-2 shadow-lg ${
                   index % 2 === 0 ? '' : 'order-first'
                 }`}
               >
                 <DirectionAwareHover imageUrl={project.imageUrl}>
-                  <div className="p-6">
+                  <div className="px-6 space-y-4">
                     <Heading
                       level={3}
                       text="Description & Goals"
-                      className="text-left"
+                      className="text-left pt-0"
                     />
-                    <Text
-                      className="text-left"
-                      text={`The ${project.title} is a modern digital adaptation of the classic card matching game, built with vanilla JavaScript and hosted on GitHub. This project aims to leverage core web technologies to create an engaging, accessible, and maintainable application without relying on frameworks. The development focuses on best practices, scalability, and a seamless user experience.`}
-                    />
-                    <ul className="text-left">
-                      <li>
-                        Utilizing CSS and responsive design principles to ensure
-                        the game looks and functions well on various devices and
-                        screen sizes.
-                      </li>
-                      <li>
-                        Adding smooth animations and transitions using CSS to
-                        enhance the user experience.
-                      </li>
-                      <li>
-                        Ensuring the game is accessible to all users, including
-                        those with disabilities, by following WCAG guidelines
-                        and implementing ARIA roles.
-                      </li>
+                    <Text className="text-left" text={project.description} />
+                    <ul className="list-disc text-left">
+                      {project.goals.map((goal, index) => (
+                        <li>{goal}</li>
+                      ))}
                     </ul>
                   </div>
                 </DirectionAwareHover>

@@ -6,34 +6,58 @@ import { Button, Flex, Heading, IconButton, Text } from '@with-nx/generic-ui';
 
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogSection from '../components/DevBlogSection';
-import { HeroEffect } from '../components/HeroEffect';
 import DevBlogProjectCard from '../components/DevBlogProjectCard';
 
 const projects = [
+  {
+    title: 'Conquest',
+    description:
+      'Dungeon Master tool for tracking campaigns, characters, and more.',
+    technologies: ['React', 'Next.js', 'TailwindCSS', 'Firebase'],
+    goals: [
+      'Create a tool for Dungeon Masters to track campaigns, characters, and more.',
+      'Use React and Next.js for the frontend.',
+      'Use TailwindCSS for styling and layout.',
+      'Use Firebase for the backend.',
+    ],
+    imageUrl: 'https://app-assets.vercel.app/apps/devblog/dev_blog-map.jpg',
+    link: 'https://conquest-nx.vercel.app',
+  },
+  {
+    title: 'Star Wars API',
+    description: 'Visualizing Star Wars data using the SWAPI.tech API.',
+    technologies: [
+      'React',
+      'Next.js',
+      'TailwindCSS',
+      'Custom SVGs',
+      'Neo-Brutalism',
+    ],
+    goals: [
+      'Create a visually appealing and interactive web app.',
+      'Use the SWAPI.tech API to fetch and display Star Wars data.',
+      'Use TailwindCSS for styling and layout.',
+      'Find custom SVGs for planet backgrounds.',
+      'Apply a Neo-Brutalism design style.',
+    ],
+    imageUrl:
+      'https://app-assets.vercel.app/apps/swapi-cards/devblog_swapi-plus.jpg',
+    link: 'https://swapi-cards-nx-monorepo.vercel.app/',
+  },
   {
     title: 'Concentration',
     description:
       'Interactive and fun game designed to test and improve your memory skills.',
     technologies: ['Vanilla JavaScript', 'HTML5', 'CSS', 'FontAwesome'],
+    goals: [
+      'Create a fun and interactive game that tests and improves memory skills.',
+      'Use vanilla JavaScript to build the game logic.',
+      'Use HTML5 and CSS to create the game layout and design.',
+      'Use FontAwesome for the game icons.',
+    ],
     imageUrl:
-      'https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/concentration/concentration.png?token=GHSAT0AAAAAACMVWOEH5OIQP3HOWJJ7MBT4ZSN4GOA',
+      'https://app-assets.vercel.app/apps/concentration/concentration.png',
     link: 'https://robert-s-hogan.github.io/Project-Memory-Game/',
-  },
-  {
-    title: 'Project Two',
-    description: 'Description for project two.',
-    technologies: ['React', 'Next.js', 'TailwindCSS'],
-    imageUrl:
-      'https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/concentration/concentration.png?token=GHSAT0AAAAAACMVWOEH5OIQP3HOWJJ7MBT4ZSN4GOA',
-    link: 'https://example.com/project-two',
-  },
-  {
-    title: 'Project Three',
-    description: 'Description for project three.',
-    technologies: ['TypeScript', 'Node.js', 'Express'],
-    imageUrl:
-      'https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/concentration/concentration.png?token=GHSAT0AAAAAACMVWOEH5OIQP3HOWJJ7MBT4ZSN4GOA',
-    link: 'https://example.com/project-three',
   },
 ];
 

@@ -15,8 +15,8 @@ const nextConfig = {
   images: {
     domains: [
       'www.dndbeyond.com',
-      'raw.githubusercontent.com',
       'static.wikia.nocookie.net',
+      'raw.githubusercontent.com',
       'localhost',
       'app-assets.vercel.app',
       'github.com',

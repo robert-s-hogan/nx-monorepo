@@ -8,7 +8,7 @@ export const themes = {
     'surface-color': '#F5F5F5',
     'text-color': '#000000',
     'text-on-primary-color': '#ffffff',
-    'text-on-secondary-color': '#1a202c',
+    'text-on-secondary-color': '#ffffff',
     'primary-fill': '#4a5568',
     'primary-stroke': '#4a5568',
     'secondary-fill': '#a0aec0',
