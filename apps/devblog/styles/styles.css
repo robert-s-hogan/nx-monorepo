@@ -33,7 +33,7 @@
   --form-element-padding-y: 0.5rem;
   --form-element-padding-x: 0.75rem;
   --form-element-border-width: 0.063rem;
-  --form-element-border-color: #e2e8f0;
+  /* --form-element-border-color: #e2e8f0; */
   --form-element-border-radius: 0.25rem;
   --form-element-font-size: 1rem;
   --form-element-height: 2.5rem;
@@ -476,4 +476,25 @@ a p,
   mix-blend-mode: multiply;
   bottom: 0;
   background: linear-gradient(to bottom, transparent, #ffc107);
+}
+
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.nav-link.active {
+  color: var(--primary-color);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  border-radius: 4px;
 }

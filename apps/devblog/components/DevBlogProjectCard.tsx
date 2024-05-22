@@ -222,7 +222,7 @@ export default function DevBlogProjectCard({ projects }) {
                     <Text className="text-left" text={project.description} />
                     <ul className="list-disc text-left">
                       {project.goals.map((goal, index) => (
-                        <li>{goal}</li>
+                        <li key={index}>{goal}</li>
                       ))}
                     </ul>
                   </div>

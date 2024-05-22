@@ -10,27 +10,22 @@ const logo = (
   <CustomRSHLogo className="h-12 w-12 md:mb-2 text-primary nav-logo" />
 );
 
-const links: {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-}[] = [
-  // {
-  //   href: '/blog',
-  //   children: 'Blog',
-  //   className: 'link',
-  // },
-  // {
-  //   href: '/projects',
-  //   children: 'Projects',
-  //   className: 'link',
-  // },
+const links = [
+  {
+    href: '#about',
+    children: 'About',
+  },
+  {
+    href: '#projects',
+    children: 'Projects',
+  },
 ];
 
 const DevBlogHeader = () => {
   const { theme, toggleTheme, fadeClass } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [activeLink, setActiveLink] = useState<string>('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,11 +34,28 @@ const DevBlogHeader = () => {
       } else {
         setIsVisible(false);
       }
+
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      let currentActiveLink = '';
+
+      links.forEach((link) => {
+        const section = document.querySelector(link.href) as HTMLElement;
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          const sectionTop = window.scrollY + rect.top;
+          const sectionBottom = sectionTop + rect.height;
+
+          if (sectionTop <= scrollPosition && sectionBottom > scrollPosition) {
+            currentActiveLink = link.href;
+          }
+        }
+      });
+
+      setActiveLink(currentActiveLink);
     };
 
     window.addEventListener('scroll', handleScroll);
 
-    // Set initial visibility based on initial scroll position
     handleScroll();
 
     setIsMounted(true);
@@ -76,7 +88,7 @@ const DevBlogHeader = () => {
       }`}
     >
       <div className="container mx-auto max-w-full bg-bg-color shadow-xl">
-        <Flex className="flex-row justify-between py-4 container  mx-auto items-center space-y-2 md:space-y-0">
+        <Flex className="flex-row justify-between py-4 container mx-auto items-center space-y-2 md:space-y-0">
           <Flex className="items-center">
             <Link
               href="/"
@@ -91,7 +103,13 @@ const DevBlogHeader = () => {
           </Flex>
           <Flex className="flex items-center space-x-4">
             {links.map((link) => (
-              <Link key={link.href} href={link.href} className="">
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`nav-link ${
+                  activeLink === link.href ? 'active' : ''
+                }`}
+              >
                 <span>{link.children}</span>
               </Link>
             ))}
