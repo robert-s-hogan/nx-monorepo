@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Button, Flex } from '@with-nx/react-ui';
+import { Flex } from '@with-nx/react-ui';
 import { CustomRSHLogo } from '@with-nx/icons';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 

@@ -1,4 +1,4 @@
-import { Button, Flex } from '@with-nx/react-ui';
+import { Flex } from '@with-nx/react-ui';
 import { IconButton } from '@with-nx/generic-ui';
 import Link from 'next/link';
 import { useTheme, ThemeType } from '@with-nx/theme';

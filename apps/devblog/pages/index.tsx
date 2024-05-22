@@ -1,14 +1,14 @@
 'use client';
-import { useScroll, useTransform } from 'framer-motion';
 import React from 'react';
 
-import { Button, Flex, Heading, IconButton, Text } from '@with-nx/generic-ui';
+import { Button, Heading, Text } from '@with-nx/generic-ui';
 
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogSection from '../components/DevBlogSection';
 import DevBlogProjectCard from '../components/DevBlogProjectCard';
+import { Tabs, Tab } from '../components/Tabs';
 
-const projects = [
+const personalProjects = [
   {
     title: 'Conquest',
     description:
@@ -58,6 +58,75 @@ const projects = [
     imageUrl:
       'https://app-assets.vercel.app/apps/concentration/concentration.png',
     link: 'https://robert-s-hogan.github.io/Project-Memory-Game/',
+  },
+];
+
+const professionalProjects = [
+  {
+    title: 'Broadway Media',
+    description:
+      'A media company that specializes in digital signage and content management.',
+    technologies: [
+      'React',
+      'Next.js',
+      'CSS',
+      'Nx Monorepo',
+      'Redux Toolkit',
+      'Stripe',
+    ],
+    goals: [
+      'Create a new website for Broadway Media.',
+      'Use React and Next.js for the frontend.',
+      'Create custom component library.',
+      'Use Nx Monorepo to manage the project.',
+      'Use Redux Toolkit for state management.',
+      'Integrate Stripe for payment processing.',
+    ],
+    imageUrl: 'https://app-assets.vercel.app/work/broadway_media.png',
+    link: 'https://www.broadwaymedia.com/',
+  },
+  {
+    title: 'Clos Pegase Winery',
+    description:
+      'A winery located in Calistoga, California, offering wine tastings and tours.',
+    technologies: ['JavaScript', 'HTML5', 'Bootstrap', 'CORESense', 'jQuery'],
+    goals: [
+      'Redesign Clos Pegase website.',
+      'Use Bootstrap, jQuery, CSS, and HTML5 for the frontend.',
+      'Use CORESense (CMS) for the backend.',
+      'Use jQuery for interactivity and animations.',
+      'Added Talkable referral program.',
+    ],
+    imageUrl: 'https://app-assets.vercel.app/work/clos_pegase.png',
+    link: 'https://www.clospegase.com/',
+  },
+  {
+    title: 'Windsor Vineyards',
+    description:
+      'A winery located in Windsor, California, offering custom wine labels and wine tastings.',
+    technologies: ['JavaScript', 'HTML5', 'Bootstrap', 'CORESense', 'jQuery'],
+    goals: [
+      'Redesign Clos Pegase website.',
+      'Use Bootstrap, jQuery, CSS, and HTML5 for the frontend.',
+      'Use CORESense (CMS) for the backend.',
+      'Use jQuery for interactivity and animations.',
+      'Added Talkable referral program.',
+    ],
+    imageUrl: 'https://app-assets.vercel.app/work/windsor_vineyards.png',
+    link: 'https://www.windsorvineyards.com/',
+  },
+];
+
+const sampleTabs: Tab[] = [
+  {
+    title: 'Professional',
+    value: 'Professional',
+    content: <DevBlogProjectCard projects={professionalProjects} />,
+  },
+  {
+    title: 'Personal',
+    value: 'Personal',
+    content: <DevBlogProjectCard projects={personalProjects} />,
   },
 ];
 
@@ -121,7 +190,7 @@ export default function Home() {
                     'React.js',
                     'Next.js',
                     'TailwindCSS',
-                    'Nx',
+                    'Nx Monorepo',
                     'TypeScript',
                     'Jest',
                     'React Testing Library',
@@ -131,7 +200,9 @@ export default function Home() {
                     'Vercel',
                     'Stripe',
                     'CORESense',
+                    'jQuery',
                     'WordPress',
+                    'Bootstrap',
                     'SEO',
                     'CLI',
                     'SASS',
@@ -150,9 +221,11 @@ export default function Home() {
         </DevBlogSection>
       </div>
       {/* PROJECTS SECTION */}
-      <div id="projects" className="relative">
-        <DevBlogSection>
-          <DevBlogProjectCard projects={projects} />
+      <div id="projects">
+        <DevBlogSection className="py-32 min-h-[2250px] lg:min-h-[2750px] p-0">
+          <Heading level={2} className="text-center mb-4" text="Projects" />
+          <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
+          <Tabs tabs={sampleTabs} />
         </DevBlogSection>
       </div>
     </DevBlogLayout>

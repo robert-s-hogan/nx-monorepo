@@ -4,7 +4,6 @@ import React from 'react';
 import { motion, MotionValue } from 'framer-motion';
 
 import { cn } from '@with-nx/utils';
-import { Button } from '@with-nx/generic-ui';
 
 const transition = {
   duration: 0,
