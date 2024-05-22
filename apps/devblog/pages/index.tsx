@@ -1,178 +1,139 @@
-import { useState } from 'react';
+'use client';
+import { useScroll, useTransform } from 'framer-motion';
+import React from 'react';
 
-import { Grid, Link } from '@with-nx/react-ui';
-import { useModal } from '@with-nx/react-hooks';
-import { useTheme } from '@with-nx/theme';
-import { Flex, Heading, Text } from '@with-nx/generic-ui';
-import axios from 'axios';
+import { Button, Flex, Heading, IconButton, Text } from '@with-nx/generic-ui';
 
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogSection from '../components/DevBlogSection';
-import DevBlogHighlightedProject from '../components/DevBlogHighlightedProject';
-// import DevBlogChatBot from '../components/DevBlogChatBot';
-import { projectsData } from '../data/projects';
+import { HeroEffect } from '../components/HeroEffect';
+import DevBlogProjectCard from '../components/DevBlogProjectCard';
 
-const WP_API_BASE_URL =
-  'https://public-api.wordpress.com/wp/v2/sites/robertshogandev.wordpress.com';
+const projects = [
+  {
+    title: 'Concentration',
+    description:
+      'Interactive and fun game designed to test and improve your memory skills.',
+    technologies: ['Vanilla JavaScript', 'HTML5', 'CSS', 'FontAwesome'],
+    imageUrl:
+      'https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/concentration/concentration.png?token=GHSAT0AAAAAACMVWOEH5OIQP3HOWJJ7MBT4ZSN4GOA',
+    link: 'https://robert-s-hogan.github.io/Project-Memory-Game/',
+  },
+  {
+    title: 'Project Two',
+    description: 'Description for project two.',
+    technologies: ['React', 'Next.js', 'TailwindCSS'],
+    imageUrl:
+      'https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/concentration/concentration.png?token=GHSAT0AAAAAACMVWOEH5OIQP3HOWJJ7MBT4ZSN4GOA',
+    link: 'https://example.com/project-two',
+  },
+  {
+    title: 'Project Three',
+    description: 'Description for project three.',
+    technologies: ['TypeScript', 'Node.js', 'Express'],
+    imageUrl:
+      'https://raw.githubusercontent.com/robert-s-hogan/assets-nx-monorepo/main/apps/concentration/concentration.png?token=GHSAT0AAAAAACMVWOEH5OIQP3HOWJJ7MBT4ZSN4GOA',
+    link: 'https://example.com/project-three',
+  },
+];
 
-export async function getSortedPostsData() {
-  const categoriesRes = await fetch(`${WP_API_BASE_URL}/categories`);
-  const categories = await categoriesRes.json();
-
-  const categoryMaText = categories.reduce((acc, category) => {
-    acc[category.id] = category.name;
-    return acc;
-  }, {});
-
-  const postsRes = await fetch(`${WP_API_BASE_URL}/posts`);
-  const posts = await postsRes.json();
-
-  return posts.map((post) => ({
-    id: post.slug,
-    title: post.title.rendered,
-    date: new Date(post.date).toLocaleDateString(),
-    categories: post.categories.map((categoryId) => categoryMaText[categoryId]),
-  }));
-}
-
-export async function getStaticProps() {
-  const allPostsData = await getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
-}
-
-export function Index({ allPostsData }) {
-  const { isShowing, toggle } = useModal();
-  const { theme, toggleTheme } = useTheme();
-  const [input, setInput] = useState('');
-  const [responses, setResponses] = useState([]);
-
-  const handleInputChange = (event) => {
-    setInput(event.target.value);
-  };
-
-  const handleSend = async () => {
-    if (input.trim() === '') return;
-    try {
-      const response = await axios.post('/api/chat', { prompt: input });
-      setResponses([
-        ...responses,
-        { question: input, answer: response.data.message },
-      ]);
-      setInput(''); // Clear input after sending
-    } catch (error) {
-      console.error('Error fetching response:', error);
-      setResponses([
-        ...responses,
-        { question: input, answer: 'Error getting response from server' },
-      ]);
+export default function Home() {
+  // Function to scroll to the "about-me" section
+  const scrollToProjects = () => {
+    const element = document.getElementById('projects');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
   return (
-    <DevBlogLayout>
-      <DevBlogSection className="relative">
-        <Grid className="grid-cols-1 px-2">
-          <Flex className="justify-center items-center w-full mx-auto">
-            <div className="space-y-4 max-w-5xl">
-              <Heading level={1} className="text-center" text="Portfolio" />
-
-              <h2 className="pt-8 mx-4">
-                I'm Robert Hogan{' '}
-                <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block my-2 mr-1">
-                  <span className="relative px-2 lg:px-3 text-5xl font-semibold">
-                    Front End
+    <DevBlogLayout title="Portfolio | Robert Hogan" hideNavBar={false}>
+      {/* ABOUT SECTION */}
+      <div id="about" className="relative" />
+      <DevBlogSection
+        fullWidth={true}
+        className="w-full bg-secondary-color py-32"
+      >
+        <div className="container mx-auto">
+          <Heading level={2} className="text-center mb-4" text="About me" />
+          <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
+          <Text
+            className="text-xl mb-20 italic max-w-4xl mx-auto"
+            text="Dedicated Frontend Engineer with over 6 years of experience specializing in React.js, Next.js, and user-centric application development."
+          />
+          <div className="flex flex-col md:flex-row justify-center items-start md:items-center space-y-8 md:space-y-0 md:space-x-16">
+            <div className="md:w-1/2 text-left">
+              <Heading
+                level={3}
+                className="text-2xl font-bold mb-4"
+                text="Get to know me!"
+              />
+              <Text
+                className="text-lg mb-4"
+                text="I'm a software developer proficient in JavaScript and the web. I'm passionate about web performance, accessibility, mentoring, user & developer experience."
+              />
+              <Text
+                className="text-lg mb-4"
+                text="In my free time, I build side projects and like exploring new technologies. You can see some of my work in the projects section below."
+              />
+              <Text
+                className="text-lg mb-4"
+                text="I'm open to collaboration opportunities where I can contribute, learn and grow. Don't hesitate to reach out if you think my skills and experience are a good fit for your next project."
+              />
+              <Button
+                theme="primary"
+                text="Projects"
+                onClick={scrollToProjects}
+              />
+            </div>
+            <div className="md:w-1/2 text-left">
+              <Heading
+                level={3}
+                className="text-2xl font-bold mb-4"
+                text="My toolkit"
+              />
+              <div className="flex flex-wrap">
+                {[
+                  'JavaScript',
+                  'Node.js',
+                  'Express.js',
+                  'HTML5',
+                  'CSS3',
+                  'React.js',
+                  'Next.js',
+                  'TailwindCSS',
+                  'Nx',
+                  'TypeScript',
+                  'Jest',
+                  'React Testing Library',
+                  'Storybook',
+                  'Firebase',
+                  'GitHub',
+                  'Vercel',
+                  'Stripe',
+                  'CORESense',
+                  'WordPress',
+                  'SEO',
+                  'CLI',
+                  'SASS',
+                ].map((tool) => (
+                  <span
+                    key={tool}
+                    className="bg-gray-800 text-white px-4 py-2 m-1 rounded-md"
+                  >
+                    {tool}
                   </span>
-                </span>{' '}
-                Mastery to AI-Integrated Web Development
-              </h2>
-
-              {/* <Flex className="space-x-4 items-center mx-4">
-                <Button className="btn-primary" onClick={toggle}>
-                  Schedule a Meeting
-                </Button>
-              </Flex> */}
+                ))}
+              </div>
             </div>
-          </Flex>
-          {/* <dialog open={isShowing} className="border border-primary">
-            <div className="w-full z-10 pb-2" onClick={toggle}>
-              <FiX className="h-5 w-5 ml-auto opacity-80" />
-            </div>
-            <div
-              className="calendly-inline-widget"
-              data-url="https://calendly.com/robertshogan"
-              style={{ minWidth: '320px', height: '600px' }}
-            ></div>
-            <Script
-              type="text/javascript"
-              src="https://assets.calendly.com/assets/external/widget.js"
-              async
-            ></Script>
-          </dialog> */}
-        </Grid>
-        <DevBlogSection className="">
-          <Flex className="flex-col justify-start flex-shrink-0 transform-none">
-            <Heading
-              level={2}
-              className="text-left"
-              text="Highlighted Projects"
-            />
-            <Grid className="grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 relative gap-12">
-              {projectsData.map((project, index) => {
-                if (index < 3)
-                  return (
-                    <DevBlogHighlightedProject
-                      key={`project ${index}`}
-                      project={project}
-                    />
-                  );
-              })}
-            </Grid>
-          </Flex>
-        </DevBlogSection>
-
-        <div
-          id="left-circle"
-          className="absolute border border-secondary rounded-100  h-155 w-295 top-[-128px] lg:top-[-64px] left-[-169px] transform rotate-[62deg] overflow-hidden z-0"
-        ></div>
-        <div
-          id="left-circle"
-          className="absolute border border-secondary rounded-100  h-155 w-295 top-[-128px] lg:top-[-64px] left-[-169px] transform rotate-[10deg] overflow-hidden z-0"
-        ></div>
-        <div
-          id="right-top-circle"
-          className="absolute border border-secondary rounded-100 h-155 w-295 bottom-[-140px] right-[45px] transform rotate-[144deg] overflow-hidden z-0"
-        ></div>
-        <div
-          id="right-bottom-circle"
-          className="absolute border border-secondary rounded-100 h-155 w-295 bottom-[-140px] right-[45px] transform rotate-3 overflow-hidden z-0"
-        ></div>
-      </DevBlogSection>
-
-      <DevBlogSection>
-        <Heading level={2} className="text-2xl font-bold" text="Latest Posts" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 space-y-2">
-          {allPostsData.map(({ id, date, title, categories }) => (
-            <div key={id}>
-              <Link href={`/blog/${id}`}>
-                <Text
-                  className="text-lg font-semibold mb-0"
-                  text={title.replace(/&nbsp;/g, ' ')}
-                />
-              </Link>
-              <Flex className="items-center space-x-4 mt-0">
-                <Text className="text-sm" text={categories.join(', ')} />
-                <Text className="text-sm" text={date} />
-              </Flex>
-            </div>
-          ))}
+          </div>
         </div>
       </DevBlogSection>
-      {/* <DevBlogChatBot /> */}
+      {/* PROJECTS SECTION */}
+      <div id="projects" className="relative" />
+      <DevBlogSection>
+        <DevBlogProjectCard projects={projects} />
+      </DevBlogSection>
     </DevBlogLayout>
   );
 }
-
-export default Index;

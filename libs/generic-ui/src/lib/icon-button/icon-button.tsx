@@ -15,6 +15,7 @@ interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     | 'success'
     | 'info'
     | 'transparent';
+  iconPosition?: 'left' | 'right';
 }
 
 const themeClassNames = {
@@ -35,6 +36,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
   style,
   text,
   theme = 'primary',
+  iconPosition = 'right',
   ...props
 }) => {
   const classNames = `icon-button ${themeClassNames[theme] || 'btn-primary'} ${
@@ -42,8 +44,13 @@ export const IconButton: React.FC<IconButtonProps> = ({
   }`;
   return (
     <button {...props} aria-label={label} className={classNames} style={style}>
-      {icon}
-      {text && <span>{text}</span>}
+      {iconPosition === 'left' && icon}
+      {text && (
+        <span className={iconPosition === 'left' ? 'ml-2' : 'mr-2'}>
+          {text}
+        </span>
+      )}
+      {iconPosition === 'right' && icon}
     </button>
   );
 };

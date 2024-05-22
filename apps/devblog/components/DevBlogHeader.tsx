@@ -15,25 +15,42 @@ const links: {
   children: React.ReactNode;
   className?: string;
 }[] = [
-  {
-    href: '/blog',
-    children: 'Blog',
-    className: 'link',
-  },
-  {
-    href: '/projects',
-    children: 'Projects',
-    className: 'link',
-  },
+  // {
+  //   href: '/blog',
+  //   children: 'Blog',
+  //   className: 'link',
+  // },
+  // {
+  //   href: '/projects',
+  //   children: 'Projects',
+  //   className: 'link',
+  // },
 ];
 
 const DevBlogHeader = () => {
   const { theme, toggleTheme, fadeClass } = useTheme();
-
   const [isMounted, setIsMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 350) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Set initial visibility based on initial scroll position
+    handleScroll();
+
     setIsMounted(true);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const toggleButton = isMounted ? (
@@ -53,29 +70,35 @@ const DevBlogHeader = () => {
   ) : null;
 
   return (
-    <header className="container mx-auto max-w-7xl pb-0 px-4 mt-8">
-      <Flex className="flex-row justify-between md:px-4 pb-2 md:pb-0 mb-8 items-center border-y mx-0 md:mx-12 space-y-2 md:space-y-0">
-        <Flex className="items-center">
-          <Link
-            href="/"
-            className="button-link"
-            aria-label="Robert Hogans Home"
-          >
-            {logo}
-          </Link>
-          <Link href="/" className="hidden md:flex">
-            <span>Robert Hogan</span>
-          </Link>
-        </Flex>
-        <Flex className="flex items-center space-x-4">
-          {links.map((link) => (
-            <Link key={link.href} href={link.href} className="">
-              <span>{link.children}</span>
+    <header
+      className={`fixed top-0 left-0 w-full transition-opacity duration-300 z-50 bg-surface ${
+        isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      }`}
+    >
+      <div className="container mx-auto max-w-full bg-bg-color shadow-xl">
+        <Flex className="flex-row justify-between py-4 container  mx-auto items-center space-y-2 md:space-y-0">
+          <Flex className="items-center">
+            <Link
+              href="/"
+              className="button-link"
+              aria-label="Robert Hogan's Home"
+            >
+              {logo}
             </Link>
-          ))}
-          {toggleButton}
+            <Link href="/" className="hidden md:flex">
+              <span>Robert Hogan</span>
+            </Link>
+          </Flex>
+          <Flex className="flex items-center space-x-4">
+            {links.map((link) => (
+              <Link key={link.href} href={link.href} className="">
+                <span>{link.children}</span>
+              </Link>
+            ))}
+            {toggleButton}
+          </Flex>
         </Flex>
-      </Flex>
+      </div>
     </header>
   );
 };
