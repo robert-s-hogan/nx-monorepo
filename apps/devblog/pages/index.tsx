@@ -7,6 +7,7 @@ import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogSection from '../components/DevBlogSection';
 import DevBlogProjectCard from '../components/DevBlogProjectCard';
 import { Tabs, Tab } from '../components/Tabs';
+import { ContactForm } from '../components/contact-form';
 
 const personalProjects = [
   {
@@ -199,6 +200,7 @@ export default function Home() {
                     'GitHub',
                     'Vercel',
                     'Stripe',
+                    'Git',
                     'CORESense',
                     'jQuery',
                     'WordPress',
@@ -228,6 +230,14 @@ export default function Home() {
           <Tabs tabs={sampleTabs} />
         </DevBlogSection>
       </div>
+      {/* CONTACT SECTION */}
+      {/* <div id="contact" className="relative">
+        <DevBlogSection fullWidth={true} className="w-full bg-secondary-color">
+          <Heading level={2} className="text-center mb-4" text="Contact me" />
+          <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
+          <ContactForm />
+        </DevBlogSection>
+      </div> */}
     </DevBlogLayout>
   );
 }

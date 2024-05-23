@@ -4005,6 +4005,15 @@
         "hash": "sha512-tI7sT/kqYp8p96yGWY1OAnLHrqDgzHefRBKQ2YAkBS5ja7QLcZ9Z/uY7bEjPUatf8RomoXM8/1sMj1IJaE5UzQ=="
       }
     },
+    "npm:@radix-ui/react-label": {
+      "type": "npm",
+      "name": "npm:@radix-ui/react-label",
+      "data": {
+        "version": "2.0.2",
+        "packageName": "@radix-ui/react-label",
+        "hash": "sha512-N5ehvlM7qoTLx7nWPodsPYPgMzA5WM8zZChQg8nyFJKnDO5WHdba1vv5/H6IO5LtJMfD2Q3wh1qHFGNtK0w3bQ=="
+      }
+    },
     "npm:@radix-ui/react-popper": {
       "type": "npm",
       "name": "npm:@radix-ui/react-popper",
@@ -16542,6 +16551,15 @@
         "hash": "sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw=="
       }
     },
+    "npm:nodemailer": {
+      "type": "npm",
+      "name": "npm:nodemailer",
+      "data": {
+        "version": "6.9.13",
+        "packageName": "nodemailer",
+        "hash": "sha512-7o38Yogx6krdoBf3jCAqnIN4oSQFx+fMa0I7dK1D+me9kBxx12D+/33wSb+fhOCtIxvYJ+4x4IMEhmhCKfAiOA=="
+      }
+    },
     "npm:nopt": {
       "type": "npm",
       "name": "npm:nopt",
@@ -22657,9 +22675,9 @@
       "type": "npm",
       "name": "npm:@fortawesome/react-fontawesome",
       "data": {
-        "version": "github.com/fortawesome/react-fontawesome/ffa0bdff3db23f7af2277cf8e35160dbf9640e40",
+        "version": "github.com/fortawesome/react-fontawesome/432b921d69d382c54ad9495fa9cbdcea539de05f",
         "packageName": "@fortawesome/react-fontawesome",
-        "hash": "8643815929867131980"
+        "hash": "2333559598929406973"
       }
     }
   },
@@ -29777,6 +29795,36 @@
     {
       "source": "npm:@radix-ui/react-id",
       "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-label",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-label",
+      "target": "npm:@radix-ui/react-primitive",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-label",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-label",
+      "target": "npm:@types/react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-label",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-label",
+      "target": "npm:react-dom",
       "type": "static"
     },
     {

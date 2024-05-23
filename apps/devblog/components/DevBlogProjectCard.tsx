@@ -87,15 +87,15 @@ export const DirectionAwareHover = ({
               ease: 'easeOut',
             }}
           >
-            <div className="overflow-hidden w-[960px] h-[540px]">
+            <div className="overflow-hidden w-[1000px] h-[425px]">
               <Image
                 alt="image"
                 className={cn(
                   'h-full w-full object-cover object-top scale-[1.05]',
                   imageClassName
                 )}
-                width="960"
-                height="540"
+                width="1000"
+                height="425"
                 src={imageUrl}
               />
             </div>
