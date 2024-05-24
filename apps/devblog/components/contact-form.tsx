@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Label } from './label';
 import { Input } from './input';
 import { TextArea } from './TextArea';
+import { Meteors } from './meteors';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -114,6 +115,7 @@ function ContactForm() {
           <h1 className="h-full flex flex-col justify-center items-center font-bold text-xl text-success-color mb-4">
             {responseMessage}
           </h1>
+          <Meteors number={20} />
         </div>
       )}
       {responseMessage && !isSuccess && (
