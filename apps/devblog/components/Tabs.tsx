@@ -70,7 +70,9 @@ export const Tabs = ({
 
             <span
               className={`relative block ${
-                active.value === tab.value ? 'text-white' : 'text-black'
+                active.value === tab.value
+                  ? 'text-white'
+                  : 'text-on-primary-color'
               }`}
             >
               {tab.title}
@@ -83,7 +85,7 @@ export const Tabs = ({
         active={active}
         key={active.value}
         hovering={hovering}
-        className={cn('mt-8 md:mt-32', contentClassName)}
+        className={cn('mt-32', contentClassName)}
       />
     </>
   );

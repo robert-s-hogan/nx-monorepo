@@ -15,6 +15,7 @@ function ContactForm() {
   const [responseMessage, setResponseMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -28,6 +29,7 @@ function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
 
     // Introduce a slight delay
     setTimeout(async () => {
@@ -56,6 +58,8 @@ function ContactForm() {
         setIsSuccess(false);
         setIsError(true);
         setResponseMessage('Failed to send message.');
+      } finally {
+        setLoading(false);
       }
     }, 100); // Delay of 100ms
   };
@@ -107,7 +111,7 @@ function ContactForm() {
           aria-label="Sign up →"
           type="submit"
         >
-          Submit →
+          {loading ? <div className="loader" /> : 'Send Message →'}
         </button>
       </form>
       {isSuccess && (

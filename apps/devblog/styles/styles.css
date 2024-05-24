@@ -418,6 +418,10 @@ a p,
   color: var(--text-on-accent-color);
 }
 
+.bg-bg-color {
+  color: var(--text-on-bg-color);
+}
+
 /* Z-INDEX CLASSES */
 .z-dropdown {
   z-index: var(--z-index-dropdown);
@@ -502,4 +506,21 @@ a p,
 
 .no-visible-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.loader {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #000;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+  display: block;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
