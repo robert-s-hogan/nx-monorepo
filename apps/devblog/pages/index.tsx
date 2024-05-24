@@ -8,6 +8,8 @@ import DevBlogSection from '../components/DevBlogSection';
 import DevBlogProjectCard from '../components/DevBlogProjectCard';
 import { Tabs, Tab } from '../components/Tabs';
 import { ContactForm } from '../components/contact-form';
+import ToolsSection from '../components/ToolsSection';
+import { scrollToProjects } from '../utils/helper';
 
 const personalProjects = [
   {
@@ -132,13 +134,6 @@ const sampleTabs: Tab[] = [
 ];
 
 export default function Home() {
-  const scrollToProjects = () => {
-    const element = document.getElementById('projects');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <DevBlogLayout title="Portfolio | Robert Hogan" hideNavBar={false}>
       {/* ABOUT SECTION */}
@@ -172,7 +167,7 @@ export default function Home() {
                 <Button
                   theme="primary"
                   text="Projects"
-                  onClick={scrollToProjects}
+                  onClick={() => scrollToProjects('projects')}
                 />
               </div>
               <div className="w-full lg:w-1/2 text-left">
@@ -181,47 +176,7 @@ export default function Home() {
                   className="text-2xl font-bold mb-4"
                   text="My toolkit"
                 />
-                <div className="flex flex-wrap">
-                  {[
-                    'JavaScript',
-                    'Express.js',
-                    'Node.js',
-
-                    'HTML5',
-                    'CSS3',
-                    'React.js',
-                    'Next.js',
-                    'Jest',
-                    'TailwindCSS',
-                    'TypeScript',
-
-                    'Nx Monorepo',
-                    'WordPress',
-
-                    'React Testing Library',
-                    'CLI',
-
-                    'Storybook',
-                    'Firebase',
-                    'GitHub',
-                    'Vercel',
-                    'Stripe',
-                    'Git',
-                    'CORESense',
-                    'SASS',
-
-                    'jQuery',
-                    'Bootstrap',
-                    'SEO',
-                  ].map((tool) => (
-                    <span
-                      key={tool}
-                      className="bg-gray-800 text-white px-4 py-2 m-1 rounded-md"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
+                <ToolsSection />
               </div>
             </div>
           </div>

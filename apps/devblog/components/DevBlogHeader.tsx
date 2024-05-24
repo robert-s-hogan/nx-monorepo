@@ -5,6 +5,7 @@ import { useTheme, ThemeType } from '@with-nx/theme';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { CustomRSHLogo } from '@with-nx/icons';
 import { useState, useEffect } from 'react';
+import { scrollToProjects } from '../utils/helper';
 
 const logo = (
   <CustomRSHLogo className="h-12 w-12 md:mb-2 text-primary nav-logo" />
@@ -12,10 +13,12 @@ const logo = (
 
 const links = [
   {
+    id: 'about',
     href: '#about',
     children: 'About',
   },
   {
+    id: 'projects',
     href: '#projects',
     children: 'Projects',
   },
@@ -104,11 +107,15 @@ const DevBlogHeader = () => {
           <Flex className="flex items-center space-x-4">
             {links.map((link) => (
               <Link
-                key={link.href}
+                key={link.id}
                 href={link.href}
                 className={`nav-link ${
                   activeLink === link.href ? 'active' : ''
                 }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToProjects(link.id);
+                }}
               >
                 <span>{link.children}</span>
               </Link>

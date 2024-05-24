@@ -107,7 +107,7 @@ function ContactForm() {
           aria-label="Sign up →"
           type="submit"
         >
-          Sign up →
+          Submit →
         </button>
       </form>
       {isSuccess && (

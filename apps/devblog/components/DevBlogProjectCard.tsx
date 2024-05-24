@@ -181,7 +181,7 @@ export default function DevBlogProjectCard({ projects }) {
       {projects.map((project, index) => (
         <div key={index} className="grid grid-cols-1 md:grid-cols-3 py-16">
           <div
-            className={`bg-gray-800 p-4 lg:p-6 h-full shadow-lg flex flex-col justify-center rounded-md ${
+            className={`bg-surface-color p-4 lg:p-6 h-full shadow-lg flex flex-col justify-center rounded-md ${
               index % 2 === 0
                 ? 'md:rounded-r-none md:rounded-l-md'
                 : 'md:rounded-l-none md:rounded-r-md'
@@ -200,7 +200,7 @@ export default function DevBlogProjectCard({ projects }) {
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="bg-gray-700 text-sm lg:text-base text-white px-3 py-1 rounded-md"
+                  className="bg-accent-color text-sm lg:text-base px-3 py-1 rounded-md"
                 >
                   {tech}
                 </span>
@@ -208,7 +208,7 @@ export default function DevBlogProjectCard({ projects }) {
             </div>
             <IconButton
               theme="primary"
-              className="font-bold bg-green-500 text-black px-4 py-2 w-fit mx-auto"
+              className="px-4 py-2 w-fit mx-auto"
               text="Check it"
               label="Check it"
               icon={<FaExternalLinkAlt />}

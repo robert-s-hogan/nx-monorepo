@@ -37,7 +37,6 @@
   --form-element-border-radius: 0.25rem;
   --form-element-font-size: 1rem;
   --form-element-height: 2.5rem;
-  --form-element-color: #2d3748;
 
   /* Input */
   --input-focus-outline-color: #4299e1;
@@ -192,24 +191,22 @@ a button {
 }
 button {
   padding: var(--button-padding-y) var(--button-padding-x);
-  border-width: var(--form-element-border-width);
+
+  /* border-width: var(--form-element-border-width); */
   border-radius: var(--form-element-border-radius);
+  transition: all 200ms;
+  transform: translateY(0);
+}
+.btn-primary:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
   background-color: var(--primary-color);
   color: var(--text-on-primary-color);
 }
-.btn-primary:hover {
-  background-color: var(--hover-color);
-}
-.btn-primary:active {
-  background-color: var(--active-color);
-}
-.btn-primary:focus {
-  outline: none;
-  box-shadow: var(--box-shadow);
-}
+
 .disabled,
 .btn-primary:disabled {
   background-color: var(--disabled-color);
@@ -219,16 +216,7 @@ button {
   background-color: var(--secondary-color);
   color: var(--text-on-primary-color);
 }
-.btn-secondary:hover {
-  background-color: var(--hover-secondary-color);
-}
-.btn-secondary:active {
-  background-color: var(--active-secondary-color);
-}
-.btn-secondary:focus {
-  outline: none;
-  box-shadow: var(--box-shadow);
-}
+
 .btn-secondary:disabled {
   background-color: var(--disabled-secondary-color);
   cursor: not-allowed;
@@ -422,6 +410,12 @@ a p,
 .bg-secondary-color h3,
 .bg-secondary-color p {
   color: var(--text-on-secondary-color);
+}
+.bg-accent-color h2,
+.bg-accent-color h3,
+.bg-accent-color p,
+.bg-accent-color {
+  color: var(--text-on-accent-color);
 }
 
 /* Z-INDEX CLASSES */
