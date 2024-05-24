@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import { Button, Heading } from '@with-nx/generic-ui';
-
-import { useCampaigns } from '../hooks/useCampaigns';
 import { useRestOperations } from '../hooks/useRestOperations';
 import { useEncounterCalculations } from '../hooks/useEncounterCalculations';
-import { Encounter, EncounterFormProps, Campaign, Difficulty } from '../types';
+import { Encounter, EncounterFormProps, Campaign } from '../types';
 import { getRandomQuadrant } from '../utils/mapUtils';
 import { useRandomMapSelection } from '../hooks/useRandomMapSelection';
 import { mapConstants } from '../constants/mapConstants';
+import { useCampaignsContext } from '../contexts/CampaignContext';
 
 function formatFieldValue(value: any, inputType: string) {
   if (inputType === 'checkbox') {
@@ -22,9 +21,10 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
   onSubmit,
   operation,
   campaignId,
-  campaigns,
 }) => {
-  const { selectedCampaign } = useCampaigns();
+  const { campaigns } = useCampaignsContext();
+  const selectedCampaign =
+    campaigns.find((campaign) => campaign.id === campaignId) || campaigns[0];
 
   const {
     shortRestsAvailable,
@@ -174,38 +174,6 @@ const ConquestEncounterForm: React.FC<EncounterFormProps> = ({
           text={operation === 'edit' ? 'Update Encounter' : 'Add Encounter'}
         />
       </form>
-      {/* <div className="border border-text-on-primary-color p-4 mt-4 rounded-md">
-        <Heading level={2} text="Preview" className="text-center" />
-        <p>Team Quadrant: {firstQuadrant}</p>
-        <p>Enemy Quadrant: {secondQuadrant}</p>
-        <div>
-          <Heading level={3} text="Random Selection" />
-          <p>
-            <strong>Objective:</strong> {mapSelection.objective}
-          </p>
-          <p>
-            <strong>Size:</strong> {mapSelection.size}
-          </p>
-          <p>
-            <strong>Terrain:</strong> {mapSelection.terrain}
-          </p>
-          <p>
-            <strong>Time of Day:</strong> {mapSelection.timeOfDay}
-          </p>
-          <p>
-            <strong>Weather:</strong> {mapSelection.weather}
-          </p>
-          <p>
-            <strong>Weather Change:</strong> {mapSelection.weatherChange}
-          </p>
-          <p>
-            <strong>Weather Severity:</strong> {mapSelection.weatherSeverity}
-          </p>
-          <p>
-            <strong>Weather Type:</strong> {mapSelection.weatherType}
-          </p>
-        </div>
-      </div> */}
     </div>
   );
 };

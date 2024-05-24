@@ -1,6 +1,6 @@
 import { Campaign } from '../types';
 import { calculateRestsNeeded } from '../constants/experienceConstants';
-import { editCampaign } from '../services/campaignService';
+import { updateCampaign } from '../services/firebaseService';
 import { useRestCalculations } from './useRestCalculations'; // Import the new hook
 
 export const useRestOperations = (campaign: Campaign) => {
@@ -48,7 +48,7 @@ export const useRestOperations = (campaign: Campaign) => {
       updatedShortRests[restNumber - 1] = true; // Assuming the first element is for the first short rest, and the second for the second
 
       try {
-        await editCampaign(id, { shortRests: updatedShortRests });
+        await updateCampaign(id, { shortRests: updatedShortRests });
         console.log(`Short rest ${restNumber} taken for campaign ${id}.`);
       } catch (error) {
         console.error('Failed to take short rest:', error);
@@ -61,7 +61,7 @@ export const useRestOperations = (campaign: Campaign) => {
       }
 
       try {
-        await editCampaign(id, { longRestNeeded: false });
+        await updateCampaign(id, { longRestNeeded: false });
         console.log(`Long rest taken for campaign ${id}.`);
       } catch (error) {
         console.error('Failed to take long rest:', error);

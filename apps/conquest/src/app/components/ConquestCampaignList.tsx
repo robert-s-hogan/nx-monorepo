@@ -13,7 +13,7 @@ import {
 import ProgressBar from './ConquestProgressBar';
 import RestCalculationDisplay from './ConquestRestCalculationDisplay';
 import { useRestOperations } from '../hooks/useRestOperations';
-import { useCampaigns } from '../hooks/useCampaigns';
+import { useCampaignsContext } from '../contexts/CampaignContext';
 
 const ConquestCampaignList: React.FC<CampaignListProps> = ({
   campaigns,
@@ -22,7 +22,10 @@ const ConquestCampaignList: React.FC<CampaignListProps> = ({
   hideEdit,
   selectedCampaignSlug,
 }) => {
-  const { selectedCampaign } = useCampaigns();
+  const { campaigns: contextCampaigns } = useCampaignsContext();
+  const selectedCampaign = contextCampaigns.find(
+    (campaign) => campaign.slug === selectedCampaignSlug
+  );
 
   const { takeShortRest, takeLongRest, shortRestsAvailable } =
     useRestOperations(selectedCampaign as Campaign);

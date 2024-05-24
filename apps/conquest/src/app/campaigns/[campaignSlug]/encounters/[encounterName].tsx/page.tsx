@@ -5,14 +5,14 @@ import useSWR from 'swr';
 import { Heading } from '@with-nx/generic-ui';
 import Layout from '../../../../components/ConquestLayout';
 import { Encounter } from '../../../../types';
-import { fetchEncounters as fetchEncountersService } from '../../../../services/encounterService';
+import { fetchEncounters } from '../../../../services/firebaseService';
 import EncounterListWithModal from '../../../../components/ConquestEncounterListWithModal';
 import ConquestSection from '../../../../components/ConquestSection';
 
 const DynamicEncounterPage = () => {
   const { data: encounters, error } = useSWR<Encounter[]>(
     'encounters',
-    fetchEncountersService
+    fetchEncounters
   );
 
   if (error) return <div>Failed to load encounters</div>;

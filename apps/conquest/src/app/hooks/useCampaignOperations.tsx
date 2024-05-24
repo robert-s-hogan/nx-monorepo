@@ -21,6 +21,7 @@ export const useCampaignOperations = (onClose: () => void) => {
     if (operation === 'add') {
       const fullCampaignData: Campaign = {
         name: campaignData.name,
+        id: campaignData.id ?? '',
         slug: campaignData.slug ?? 'default-slug',
         description: campaignData.description ?? '',
         numberOfPlayers: campaignData.numberOfPlayers ?? 1,
@@ -47,7 +48,7 @@ export const useCampaignOperations = (onClose: () => void) => {
         console.error('No campaign ID provided for edit operation');
         return;
       }
-      await handleEditCampaign(campaignData as Campaign);
+      // await handleEditCampaign(campaignData as Campaign);
       router.push(`/campaigns/${campaignData.slug}`);
     }
 

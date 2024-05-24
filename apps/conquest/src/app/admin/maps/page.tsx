@@ -1,17 +1,16 @@
 'use client';
 import React, { useState } from 'react';
-import { useFirestoreCollection } from '@with-nx/firebase';
 import { Button, Flex, Heading, Input, List } from '@with-nx/generic-ui';
 
 import ConquestLayout from '../../components/ConquestLayout';
 import ConquestSection from '../../components/ConquestSection';
 
 const AdminMapsPage: React.FC = () => {
-  const {
-    documents: maps,
-    loading,
-    error,
-  } = useFirestoreCollection('formFields');
+  // const {
+  //   documents: maps,
+  //   loading,
+  //   error,
+  // } = useFirestoreCollection('formFields');
   const [formData, setFormData] = useState({
     shape: '',
     terrain_type: '',
@@ -34,14 +33,14 @@ const AdminMapsPage: React.FC = () => {
     // Implement your Firestore update logic here
   };
 
-  if (loading) return <div>Loading maps...</div>;
-  if (error) return <div>Error loading maps: {error.message}</div>;
+  // if (loading) return <div>Loading maps...</div>;
+  // if (error) return <div>Error loading maps: {error.message}</div>;
 
-  const mapItems = maps.map((map: any) => ({
-    id: map.id,
-    text: `Shape: ${map.shape}, Terrain: ${map.terrain_type}`,
-    href: `#${map.id}`, // Optional: create a link to the map
-  }));
+  // const mapItems = maps.map((map: any) => ({
+  //   id: map.id,
+  //   text: `Shape: ${map.shape}, Terrain: ${map.terrain_type}`,
+  //   href: `#${map.id}`, // Optional: create a link to the map
+  // }));
 
   return (
     <ConquestLayout title="Maps | Admin Dashboard">
@@ -90,11 +89,11 @@ const AdminMapsPage: React.FC = () => {
           </div>
           <div className="w-1/2 flex flex-col">
             <Heading level={2} text="Maps Review" />
-            {maps.length > 0 ? (
+            {/* {maps.length > 0 ? (
               <List items={mapItems} />
             ) : (
               <p>No maps found.</p>
-            )}
+            )} */}
           </div>
         </Flex>
       </ConquestSection>

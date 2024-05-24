@@ -21816,18 +21816,18 @@
         "hash": "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
       }
     },
-    "npm:uuid": {
+    "npm:uuid@9.0.0": {
       "type": "npm",
-      "name": "npm:uuid",
+      "name": "npm:uuid@9.0.0",
       "data": {
         "version": "9.0.0",
         "packageName": "uuid",
         "hash": "sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg=="
       }
     },
-    "npm:uuid@9.0.1": {
+    "npm:uuid": {
       "type": "npm",
-      "name": "npm:uuid@9.0.1",
+      "name": "npm:uuid",
       "data": {
         "version": "9.0.1",
         "packageName": "uuid",
@@ -27859,7 +27859,7 @@
     },
     {
       "source": "npm:@nestjs/config",
-      "target": "npm:uuid",
+      "target": "npm:uuid@9.0.0",
       "type": "static"
     },
     {
@@ -28014,7 +28014,7 @@
     },
     {
       "source": "npm:@nestjs/schedule",
-      "target": "npm:uuid",
+      "target": "npm:uuid@9.0.0",
       "type": "static"
     },
     {
@@ -30654,7 +30654,7 @@
     },
     {
       "source": "npm:@storybook/addon-actions",
-      "target": "npm:uuid@9.0.1",
+      "target": "npm:uuid",
       "type": "static"
     },
     {
@@ -54519,7 +54519,7 @@
     },
     {
       "source": "npm:typeorm",
-      "target": "npm:uuid@9.0.1",
+      "target": "npm:uuid",
       "type": "static"
     },
     {

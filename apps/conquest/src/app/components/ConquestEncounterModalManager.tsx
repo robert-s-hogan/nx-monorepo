@@ -5,7 +5,7 @@ import EncounterForm from './ConquestEncounterForm';
 import EncounterModal from './ConquestEncounterModal';
 import { useEncounterOperations } from '../hooks/useEncounterOperations';
 import { EncounterModalManagerProps } from '../types';
-import { useCampaigns } from '../hooks/useCampaigns';
+import { useCampaignsContext } from '../contexts/CampaignContext';
 
 const ConquestEncounterModalManager: React.FC<EncounterModalManagerProps> = ({
   isOpen,
@@ -14,10 +14,13 @@ const ConquestEncounterModalManager: React.FC<EncounterModalManagerProps> = ({
   encounter,
 }) => {
   const { handleSave, handleDelete } = useEncounterOperations(onClose);
-  const { campaigns, isLoading, isError, selectedCampaign } = useCampaigns();
+  const { campaigns, loading, error } = useCampaignsContext();
+  const selectedCampaign =
+    campaigns.find((campaign) => campaign.id === encounter?.campaignId) ||
+    campaigns[0];
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading campaigns.</div>;
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error loading campaigns: {error}</div>;
 
   let titleText =
     operation === 'add'
@@ -34,7 +37,6 @@ const ConquestEncounterModalManager: React.FC<EncounterModalManagerProps> = ({
           <EncounterForm
             encounter={encounter}
             campaignId={selectedCampaign?.id || ''}
-            campaigns={campaigns}
             onSubmit={(formData) => handleSave(formData, operation)}
             operation={operation}
           />

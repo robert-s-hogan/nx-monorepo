@@ -12,6 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     | 'info'
     | 'disabled';
   size?: 'sm' | 'md' | 'lg';
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const themeClassNames = {
@@ -36,6 +37,7 @@ export const Button = ({
   size,
   text,
   theme,
+  type,
   ...props
 }: ButtonProps) => {
   const themeClassName = `${themeClassNames[theme] || 'btn-primary'} ${
@@ -43,7 +45,7 @@ export const Button = ({
   } ${className || ''}`;
 
   return (
-    <button {...props} className={themeClassName} aria-label={text}>
+    <button {...props} className={themeClassName} aria-label={text} type={type}>
       {text}
     </button>
   );

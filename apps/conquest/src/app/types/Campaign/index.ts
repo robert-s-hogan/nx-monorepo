@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import { FirestoreDocument, ModalOperation } from '../../types';
+import { ModalOperation } from '../../types';
+import { FirestoreDocument } from '@with-nx/firebase';
 import { mutate } from 'swr';
 
 export interface LevelDetails {
@@ -10,7 +11,7 @@ export interface LevelDetails {
 }
 
 export interface Campaign {
-  id?: string | undefined;
+  id: string;
   name: string;
   slug: string;
   description: string;
@@ -41,6 +42,11 @@ export interface CampaignAddModalProps {
 }
 
 export interface CampaignContextType {
+  loading: boolean;
+  error: string;
+  addCampaign: (campaignData: Campaign) => void;
+  deleteCampaign: (campaignId: string) => void;
+  editCampaign: (campaignId: string, campaignData: Partial<Campaign>) => void;
   campaigns: Campaign[];
 }
 

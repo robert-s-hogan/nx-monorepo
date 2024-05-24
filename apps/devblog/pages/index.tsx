@@ -154,8 +154,8 @@ export default function Home() {
               className="text-xl mb-20 italic max-w-4xl mx-auto"
               text="Dedicated Frontend Engineer with over 6 years of experience specializing in React.js, Next.js, and user-centric application development."
             />
-            <div className="flex flex-col md:flex-row justify-center items-start md:items-center space-y-8 md:space-y-0 md:space-x-16">
-              <div className="md:w-1/2 text-left">
+            <div className="flex flex-col lg:flex-row justify-center items-start lg:items-center space-y-8 lg:space-y-0 lg:space-x-16">
+              <div className="w-full lg:w-1/2 text-left">
                 <Heading
                   level={3}
                   className="text-2xl font-bold mb-4"
@@ -175,7 +175,7 @@ export default function Home() {
                   onClick={scrollToProjects}
                 />
               </div>
-              <div className="md:w-1/2 text-left">
+              <div className="w-full lg:w-1/2 text-left">
                 <Heading
                   level={3}
                   className="text-2xl font-bold mb-4"
@@ -184,17 +184,23 @@ export default function Home() {
                 <div className="flex flex-wrap">
                   {[
                     'JavaScript',
-                    'Node.js',
                     'Express.js',
+                    'Node.js',
+
                     'HTML5',
                     'CSS3',
                     'React.js',
                     'Next.js',
-                    'TailwindCSS',
-                    'Nx Monorepo',
-                    'TypeScript',
                     'Jest',
+                    'TailwindCSS',
+                    'TypeScript',
+
+                    'Nx Monorepo',
+                    'WordPress',
+
                     'React Testing Library',
+                    'CLI',
+
                     'Storybook',
                     'Firebase',
                     'GitHub',
@@ -202,12 +208,11 @@ export default function Home() {
                     'Stripe',
                     'Git',
                     'CORESense',
+                    'SASS',
+
                     'jQuery',
-                    'WordPress',
                     'Bootstrap',
                     'SEO',
-                    'CLI',
-                    'SASS',
                   ].map((tool) => (
                     <span
                       key={tool}
@@ -223,7 +228,7 @@ export default function Home() {
         </DevBlogSection>
       </div>
       {/* PROJECTS SECTION */}
-      <div id="projects">
+      <div id="projects" className="relative">
         <DevBlogSection className="py-32 min-h-[2250px] lg:min-h-[2750px] p-0">
           <Heading level={2} className="text-center mb-4" text="Projects" />
           <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
@@ -231,13 +236,13 @@ export default function Home() {
         </DevBlogSection>
       </div>
       {/* CONTACT SECTION */}
-      {/* <div id="contact" className="relative">
+      <div id="contact" className="relative">
         <DevBlogSection fullWidth={true} className="w-full bg-secondary-color">
           <Heading level={2} className="text-center mb-4" text="Contact me" />
           <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
           <ContactForm />
         </DevBlogSection>
-      </div> */}
+      </div>
     </DevBlogLayout>
   );
 }

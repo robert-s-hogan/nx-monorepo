@@ -13,12 +13,14 @@ export const DirectionAwareHover = ({
   childrenClassName,
   imageClassName,
   className,
+  index,
 }: {
   imageUrl: string;
   children: React.ReactNode | string;
   childrenClassName?: string;
   imageClassName?: string;
   className?: string;
+  index: number;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -67,7 +69,9 @@ export const DirectionAwareHover = ({
       onMouseEnter={handleMouseEnter}
       ref={ref}
       className={cn(
-        'w-full h-full bg-transparent overflow-hidden group/card relative',
+        `w-full h-full bg-transparent overflow-hidden group/card relative ${
+          index % 2 === 0 ? 'rounded-r-md' : 'md:rounded-r-none md:rounded-l-md'
+        }`,
         className
       )}
     >
@@ -87,11 +91,11 @@ export const DirectionAwareHover = ({
               ease: 'easeOut',
             }}
           >
-            <div className="overflow-hidden w-[1000px] h-[425px]">
+            <div className="overflow-hidden md:w-full md:h-full lg:w-[1000px] lg:h-[425px]">
               <Image
                 alt="image"
                 className={cn(
-                  'h-full w-full object-cover object-top scale-[1.05]',
+                  'h-full w-full md:object-cover md:object-left xl:object-top scale-[1.05]',
                   imageClassName
                 )}
                 width="1000"
@@ -158,11 +162,11 @@ const textVariants = {
     opacity: 1,
   },
   bottom: {
-    y: 2,
+    y: 20,
     opacity: 1,
   },
   left: {
-    x: -1,
+    x: -20,
     opacity: 1,
   },
   right: {
@@ -173,16 +177,25 @@ const textVariants = {
 
 export default function DevBlogProjectCard({ projects }) {
   return (
-    <div className="p-1 lg:p-8 text-center bg-secondary">
+    <div className="p-1 lg:p-8 text-center bg-secondary rounded-md">
       {projects.map((project, index) => (
         <div key={index} className="grid grid-cols-1 md:grid-cols-3 py-16">
-          <div className="bg-gray-800 p-4 lg:p-6 h-full shadow-lg flex flex-col justify-center">
+          <div
+            className={`bg-gray-800 p-4 lg:p-6 h-full shadow-lg flex flex-col justify-center rounded-md ${
+              index % 2 === 0
+                ? 'md:rounded-r-none md:rounded-l-md'
+                : 'md:rounded-l-none md:rounded-r-md'
+            }`}
+          >
             <Heading
               level={3}
               className="text-2xl font-bold mb-2"
               text={project.title}
             />
-            <Text className="text-lg mb-4" text={project.description} />
+            <Text
+              className="text-base lg:text-xl mb-4"
+              text={project.description}
+            />
             <div className="flex flex-wrap gap-2 mb-4">
               {project.technologies.map((tech) => (
                 <span
@@ -204,10 +217,12 @@ export default function DevBlogProjectCard({ projects }) {
           </div>
           <div
             className={`hidden md:flex md:col-span-2 shadow-lg ${
-              index % 2 === 0 ? '' : 'order-first'
+              index % 2 === 0
+                ? 'md:rounded-r-none md:rounded-l-md '
+                : 'rounded-r-md order-first'
             }`}
           >
-            <DirectionAwareHover imageUrl={project.imageUrl}>
+            <DirectionAwareHover imageUrl={project.imageUrl} index={index}>
               <div className="px-6 space-y-4">
                 <Heading
                   level={3}

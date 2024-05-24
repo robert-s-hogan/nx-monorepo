@@ -1,9 +1,16 @@
 import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
-
 import { Button } from '@with-nx/generic-ui';
 import { CampaignFormProps, CampaignSubmissionData } from '../types';
 import { getLevelDetailsFromExperience } from '../constants/experienceConstants';
+import { v4 as uuidv4 } from 'uuid'; // Import uuid
+
+const generateSlug = (name: string): string => {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-') // Replace spaces and non-alphanumeric characters with '-'
+    .replace(/^-+|-+$/g, ''); // Remove leading and trailing hyphens
+};
 
 const ConquestCampaignForm: React.FC<CampaignFormProps> = ({
   campaign,
@@ -14,9 +21,11 @@ const ConquestCampaignForm: React.FC<CampaignFormProps> = ({
     campaign?.playerExperienceStart || 100
   );
 
+  const initialId = campaign?.id || uuidv4();
+
   const formik = useFormik({
     initialValues: {
-      id: campaign?.id || '',
+      id: initialId,
       name: campaign?.name || '',
       slug: campaign?.slug || '',
       description: campaign?.description || '',
@@ -28,14 +37,21 @@ const ConquestCampaignForm: React.FC<CampaignFormProps> = ({
       shortRests: campaign?.shortRests || [],
     },
     onSubmit: (values) => {
+      console.log('Form values on submit:', values);
+
       const submissionData: CampaignSubmissionData = {
         ...values,
         levelDetails: values.levelDetails,
       };
-      console.log(`submissionData: ${JSON.stringify(submissionData, null, 2)}`);
       onSubmit(submissionData);
     },
   });
+
+  useEffect(() => {
+    if (formik.values.name) {
+      formik.setFieldValue('slug', generateSlug(formik.values.name));
+    }
+  }, [formik.values.name]);
 
   useEffect(() => {
     const newLevelDetails = getLevelDetailsFromExperience(
@@ -63,8 +79,6 @@ const ConquestCampaignForm: React.FC<CampaignFormProps> = ({
 
   return (
     <form onSubmit={formik.handleSubmit} className="flex flex-col space-y-4">
-      {/* <pre>campaign: {JSON.stringify(campaign, null, 2)}</pre> */}
-
       {/* Name input */}
       <div className="space-y-1">
         <label htmlFor="name">Campaign Name</label>

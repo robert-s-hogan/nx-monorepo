@@ -6,13 +6,13 @@ import { Heading } from '@with-nx/generic-ui';
 import Layout from '../../../components/ConquestLayout';
 import ConquestSection from '../../../components/ConquestSection';
 import { Encounter } from '../../../types';
-import { fetchEncounters as fetchEncountersService } from '../../../services/encounterService';
+import { fetchEncounters } from '../../../services/firebaseService';
 import EncounterListWithModal from '../../../components/ConquestEncounterListWithModal';
 
 const EncounterPage = () => {
   const { data: encounters, error } = useSWR<Encounter[]>(
     'encounters',
-    fetchEncountersService
+    fetchEncounters
   );
 
   if (error) return <div>Failed to load encounters</div>;

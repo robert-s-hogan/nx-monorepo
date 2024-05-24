@@ -79,7 +79,7 @@ export const Tabs = ({
         active={active}
         key={active.value}
         hovering={hovering}
-        className={cn('mt-32', contentClassName)}
+        className={cn('mt-8 md:mt-32', contentClassName)}
       />
     </>
   );
@@ -89,6 +89,7 @@ export const FadeInDiv = ({
   className,
   tabs,
   hovering,
+  active,
 }: {
   className?: string;
   key?: string;

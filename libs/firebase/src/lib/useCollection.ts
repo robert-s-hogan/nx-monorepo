@@ -4,12 +4,13 @@ import {
   getDocs,
   query,
   QueryConstraint,
+  DocumentData,
 } from 'firebase/firestore';
 import { db } from './firebase-config';
 import { FirestoreDocument } from './types';
 
-// Custom Firestore fetcher function
-const firestoreFetcher = async <T>(
+// Custom Firestore fetcher function for a collection
+const firestoreFetcher = async <T extends DocumentData>(
   collectionName: string,
   queryOptions?: QueryConstraint[]
 ): Promise<FirestoreDocument<T>[]> => {
@@ -19,25 +20,26 @@ const firestoreFetcher = async <T>(
 
   return querySnapshot.docs.map((doc) => ({
     id: doc.id,
-    ...doc.data(),
+    ...(doc.data() as T),
   })) as FirestoreDocument<T>[];
 };
 
-// Refactored useCollection hook
-export const useCollection = <T>(
+// useCollection hook
+export const useCollection = <T extends DocumentData>(
   collectionName: string,
   queryOptions?: QueryConstraint[]
 ) => {
+  const fetcher = () => firestoreFetcher<T>(collectionName, queryOptions);
+
   const { data, error, mutate } = useSWR<FirestoreDocument<T>[]>(
     [collectionName, queryOptions],
-    () => firestoreFetcher<T>(collectionName, queryOptions)
+    fetcher
   );
 
-  // Expose the mutate function specific to this collection
   return {
     documents: data,
     isLoading: !error && !data,
     isError: error,
-    mutate, // Now you can use this to revalidate/update cache outside this hook
+    mutate,
   };
 };

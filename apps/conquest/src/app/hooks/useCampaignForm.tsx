@@ -1,69 +1,30 @@
+// useCampaignForm.ts
 'use client';
 
-import { useRouter } from 'next/navigation';
-
 import { Campaign } from '../types';
-import { useAuth } from '../contexts/AuthContext';
-import { useCampaigns } from '../hooks/useCampaigns';
-import {
-  addCampaign,
-  editCampaign,
-  deleteCampaign,
-} from '../services/campaignService';
+import { useCampaignsContext } from '../contexts/CampaignContext';
 
 export const useCampaignForm = () => {
-  const router = useRouter();
-  const { currentUser } = useAuth();
-  const { mutate } = useCampaigns();
+  const { addCampaign, editCampaign, deleteCampaign } = useCampaignsContext();
 
-  const handleAddCampaign = async (campaignData: Campaign): Promise<void> => {
-    if (!currentUser) {
-      console.error('No user authenticated');
-      return;
-    }
-
-    try {
-      const newCampaignData: Campaign = {
-        ...campaignData,
-        accountId: currentUser.uid,
-      };
-
-      await addCampaign(newCampaignData);
-      mutate();
-    } catch (error) {
-      console.error('Error adding campaign:', error);
-    }
+  const handleAddCampaign = async (campaignData: Campaign) => {
+    console.log(`Adding campaign: ${JSON.stringify(campaignData)}`);
+    await addCampaign(campaignData);
   };
 
   const handleEditCampaign = async (
+    id: string,
     campaignData: Partial<Campaign>
-  ): Promise<void> => {
-    if (!currentUser || !campaignData.id) {
-      console.error('No user authenticated or campaign ID is undefined');
-      return;
-    }
-
-    try {
-      await editCampaign(campaignData.id, campaignData);
-
-      mutate();
-    } catch (error) {
-      console.error('Error updating campaign:', error);
-    }
+  ) => {
+    console.log(
+      `Editing campaign ID: ${id} with data: ${JSON.stringify(campaignData)}`
+    );
+    await editCampaign(id, campaignData);
   };
 
-  const handleDeleteCampaign = async (campaignId: string): Promise<void> => {
-    if (!currentUser) {
-      console.error('No user authenticated');
-      return;
-    }
-
-    try {
-      await deleteCampaign(campaignId);
-      router.push('/campaigns'); // Redirect to the /campaigns page
-    } catch (error) {
-      console.error('Error deleting campaign:', error);
-    }
+  const handleDeleteCampaign = async (id: string) => {
+    console.log(`Deleting campaign ID: ${id}`);
+    await deleteCampaign(id);
   };
 
   return {

@@ -1,4 +1,3 @@
-// pages/api/contact.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '@with-nx/firebase';
@@ -29,7 +28,7 @@ export default async function handler(
       });
       return res.status(200).json({ message: 'Message sent successfully' });
     } catch (error) {
-      console.error('Error adding document: ', error);
+      console.error('Error adding document:', error); // Debug log
       return res.status(500).json({ message: 'Internal Server Error' });
     }
   }

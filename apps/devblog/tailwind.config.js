@@ -26,6 +26,7 @@ module.exports = {
     extend: {
       animation: {
         input: 'var(--animation-speed)',
+        'meteor-effect': 'meteor 5s linear infinite',
         wiggle: 'wiggle 1s ease-in-out infinite',
       },
       aspectRatio: {
@@ -89,6 +90,14 @@ module.exports = {
         sans: 'var(--font-family)',
       },
       keyframes: {
+        meteor: {
+          '0%': { transform: 'rotate(215deg) translateX(0)', opacity: '1' },
+          '70%': { opacity: '1' },
+          '100%': {
+            transform: 'rotate(215deg) translateX(-500px)',
+            opacity: '0',
+          },
+        },
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
           '50%': { transform: 'rotate(3deg)' },

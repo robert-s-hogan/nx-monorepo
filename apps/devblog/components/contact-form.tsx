@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Label } from './label';
 import { Input } from './input';
 import { TextArea } from './TextArea';
-import { cn } from '@with-nx/utils';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -13,6 +12,8 @@ function ContactForm() {
   });
 
   const [responseMessage, setResponseMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -27,22 +28,47 @@ function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const response = await fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
+    // Introduce a slight delay
+    setTimeout(async () => {
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
 
-    const result = await response.json();
-    setResponseMessage(result.message);
+        const result = await response.json();
+
+        if (response.ok) {
+          setIsSuccess(true);
+          setIsError(false);
+          setResponseMessage('Message sent successfully!');
+        } else {
+          setIsSuccess(false);
+          setIsError(true);
+          setResponseMessage(result.message || 'Failed to send message.');
+        }
+      } catch (error) {
+        console.error('Error during submission:', error); // Debug log
+        setIsSuccess(false);
+        setIsError(true);
+        setResponseMessage('Failed to send message.');
+      }
+    }, 100); // Delay of 100ms
   };
 
   return (
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-      <form className="my-8" onSubmit={handleSubmit}>
-        <LabelInputContainer className="mb-4">
+    <div className="max-w-md w-full mx-auto rounded-2xl p-4 md:p-8 shadow-input bg-surface-color min-h-[560px] relative">
+      <form
+        className={`my-8 ${
+          isSuccess ? 'opacity-20 pointer-events-none' : 'opacity-100'
+        } transition-opacity duration-500`}
+        onSubmit={handleSubmit}
+        noValidate
+      >
+        <div className="mb-4">
           <Label htmlFor="name">Name</Label>
           <Input
             id="name"
@@ -52,8 +78,8 @@ function ContactForm() {
             onChange={handleChange}
             required
           />
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
+        </div>
+        <div className="mb-4">
           <Label htmlFor="email">Email Address</Label>
           <Input
             id="email"
@@ -63,8 +89,8 @@ function ContactForm() {
             onChange={handleChange}
             required
           />
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-8">
+        </div>
+        <div className="mb-8">
           <Label htmlFor="message">Message</Label>
           <TextArea
             id="message"
@@ -73,42 +99,30 @@ function ContactForm() {
             onChange={handleChange}
             required
           />
-        </LabelInputContainer>
+        </div>
 
         <button
-          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+          className="btn-primary btn-md w-full text-white rounded-md"
+          aria-label="Sign up →"
           type="submit"
         >
-          Send Message &rarr;
-          <BottomGradient />
+          Sign up →
         </button>
       </form>
-      {responseMessage && <p>{responseMessage}</p>}
+      {isSuccess && (
+        <div className="absolute inset-0 bg-surface-color bg-opacity-95 rounded-2xl p-4 md:p-8 shadow-xl overflow-hidden">
+          <h1 className="h-full flex flex-col justify-center items-center font-bold text-xl text-success-color mb-4">
+            {responseMessage}
+          </h1>
+        </div>
+      )}
+      {responseMessage && !isSuccess && (
+        <p className={`mt-4 ${isError ? 'text-red-600' : 'text-green-600'}`}>
+          {responseMessage}
+        </p>
+      )}
     </div>
   );
 }
-
-const BottomGradient = () => {
-  return (
-    <>
-      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
-      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
-    </>
-  );
-};
-
-const LabelInputContainer = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  return (
-    <div className={cn('flex flex-col space-y-2 w-full', className)}>
-      {children}
-    </div>
-  );
-};
 
 export { ContactForm };

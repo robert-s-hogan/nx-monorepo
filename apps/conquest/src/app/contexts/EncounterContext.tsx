@@ -1,17 +1,14 @@
-// contexts/EncounterContext.tsx
+'use client';
+
 import React, { createContext, useContext, useState, useCallback } from 'react';
 import {
   addEncounter as addEncounterService,
   editEncounter as editEncounterService,
   deleteEncounter as deleteEncounterService,
   fetchEncountersByCampaign,
-} from '../services/encounterService';
-import {
-  Encounter,
-  EncounterContextType,
-  ProviderProps,
-  FirestoreDocument,
-} from '../types';
+} from '../services/firebaseService';
+import { Encounter, EncounterContextType, ProviderProps } from '../types';
+import { FirestoreDocument } from '@with-nx/firebase';
 
 const EncounterContext = createContext<EncounterContextType | undefined>(
   undefined
