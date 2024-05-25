@@ -8,7 +8,7 @@ import DevBlogSection from './DevBlogSection';
 const DevBlogFooter = () => {
   return (
     <footer>
-      <DevBlogSection>
+      <DevBlogSection className="!pt-0 !pb-8">
         <Flex className="flex-row justify-between py-4 items-center mx-0 space-y-2 md:space-y-0 md:px-4 pb-2 md:pb-0">
           <Link href="/" className="button-link" passHref>
             <CustomRSHLogo className="h-24 w-24 text-primary nav-logo ml-[-45px]" />

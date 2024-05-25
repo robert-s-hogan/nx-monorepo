@@ -418,6 +418,12 @@ a p,
   color: var(--text-on-accent-color);
 }
 
+.bg-surface-color h2,
+.bg-surface-color h3,
+.bg-surface-color p {
+  color: var(--text-on-surface-color);
+}
+
 .bg-bg-color {
   color: var(--text-on-bg-color);
 }

@@ -69,7 +69,7 @@ export const DirectionAwareHover = ({
       onMouseEnter={handleMouseEnter}
       ref={ref}
       className={cn(
-        `w-full h-full bg-transparent overflow-hidden group/card relative ${
+        `w-full h-full bg-transparent overflow-hidden text-white group/card relative ${
           index % 2 === 0 ? 'rounded-r-md' : 'md:rounded-r-none md:rounded-l-md'
         }`,
         className
@@ -177,7 +177,7 @@ const textVariants = {
 
 export default function DevBlogProjectCard({ projects }) {
   return (
-    <div className="p-1 lg:p-8 text-center bg-secondary rounded-md">
+    <div className="p-1 lg:p-8 text-center bg-secondary-color rounded-md w-full">
       {projects.map((project, index) => (
         <div key={index} className="grid grid-cols-1 md:grid-cols-3 py-16">
           <div
@@ -211,7 +211,7 @@ export default function DevBlogProjectCard({ projects }) {
               className="px-4 py-2 w-fit mx-auto"
               text="Check it"
               label="Check it"
-              icon={<FaExternalLinkAlt />}
+              icon={<FaExternalLinkAlt size={24} />}
               onClick={() => window.open(project.link, '_blank')}
             />
           </div>
@@ -223,7 +223,7 @@ export default function DevBlogProjectCard({ projects }) {
             }`}
           >
             <DirectionAwareHover imageUrl={project.imageUrl} index={index}>
-              <div className="px-6 space-y-4">
+              <div className="px-6 space-y-4 text-white">
                 <Heading
                   level={3}
                   text="Description & Goals"

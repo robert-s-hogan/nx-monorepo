@@ -41,7 +41,7 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <span className="relative z-20 bg-bg-color p-3 m-2 rounded-md">
+          <span className="relative z-20 bg-bg-color p-3 rounded-md">
             {item.title}
           </span>
         </p>

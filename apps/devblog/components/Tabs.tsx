@@ -62,12 +62,11 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  'absolute inset-0 bg-primary text-on-primary-color rounded ',
+                  'absolute inset-0 bg-primary text-on-primary-color rounded',
                   activeTabClassName
                 )}
               />
             )}
-
             <span
               className={`relative block ${
                 active.value === tab.value
@@ -95,7 +94,6 @@ export const FadeInDiv = ({
   className,
   tabs,
   hovering,
-  active,
 }: {
   className?: string;
   key?: string;
@@ -114,9 +112,10 @@ export const FadeInDiv = ({
           layoutId={tab.value}
           style={{
             scale: 1 - idx * 0.1,
-            top: hovering ? idx * -50 : 0,
+            top: hovering ? idx * -60 : 0,
             zIndex: -idx,
             opacity: idx < 3 ? 1 - idx * 0.1 : 0,
+            height: '100%',
           }}
           animate={{
             y: isActive(tab) ? [0, 40, 0] : 0,

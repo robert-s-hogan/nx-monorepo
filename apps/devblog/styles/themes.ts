@@ -15,6 +15,7 @@ export const themes = {
 
     'surface-color': '#F5F5F5', // Surface color
     'text-on-surface-color': '#333333', // Text on surface color
+
     'form-element-color': '#2d3748',
 
     'text-color': '#333333', // Text color
@@ -52,7 +53,7 @@ export const themes = {
     'text-on-bg-color': '#e2e8f0', // Text on background color
 
     'surface-color': '#3D3D3D', // Surface color
-    'text-on-surface-color': '#e2e8f0', // Text on surface color
+    'text-on-surface-color': '#FFFFFF', // Text on surface color
 
     'text-color': '#e2e8f0', // Text color
     'primary-fill': '#e2e8f0', // Primary fill

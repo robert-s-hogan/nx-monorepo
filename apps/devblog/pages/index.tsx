@@ -70,12 +70,13 @@ const professionalProjects = [
     description:
       'A media company that specializes in digital signage and content management.',
     technologies: [
-      'React',
-      'Next.js',
-      'CSS',
       'Nx Monorepo',
-      'Redux Toolkit',
+      'React',
+      'CSS',
+      'TypeScript',
+      'Next.js',
       'Stripe',
+      'Redux Toolkit',
     ],
     goals: [
       'Create a new website for Broadway Media.',
@@ -92,7 +93,7 @@ const professionalProjects = [
     title: 'Clos Pegase Winery',
     description:
       'A winery located in Calistoga, California, offering wine tastings and tours.',
-    technologies: ['JavaScript', 'HTML5', 'Bootstrap', 'CORESense', 'jQuery'],
+    technologies: ['jQuery', 'JavaScript', 'HTML5', 'Bootstrap', 'CORESense'],
     goals: [
       'Redesign Clos Pegase website.',
       'Use Bootstrap, jQuery, CSS, and HTML5 for the frontend.',
@@ -107,7 +108,7 @@ const professionalProjects = [
     title: 'Windsor Vineyards',
     description:
       'A winery located in Windsor, California, offering custom wine labels and wine tastings.',
-    technologies: ['JavaScript', 'HTML5', 'Bootstrap', 'CORESense', 'jQuery'],
+    technologies: ['jQuery', 'JavaScript', 'HTML5', 'Bootstrap', 'CORESense'],
     goals: [
       'Redesign Clos Pegase website.',
       'Use Bootstrap, jQuery, CSS, and HTML5 for the frontend.',
@@ -124,12 +125,20 @@ const sampleTabs: Tab[] = [
   {
     title: 'Professional',
     value: 'Professional',
-    content: <DevBlogProjectCard projects={professionalProjects} />,
+    content: (
+      <div className="w-full relative h-auto rounded-2xl p-10 text-xl bg-gradient-to-br from-accent-color to-accent-color">
+        <DevBlogProjectCard projects={professionalProjects} />
+      </div>
+    ),
   },
   {
     title: 'Personal',
     value: 'Personal',
-    content: <DevBlogProjectCard projects={personalProjects} />,
+    content: (
+      <div className="w-full relative h-auto rounded-2xl p-10 text-xl bg-gradient-to-br from-accent-color to-accent-color">
+        <DevBlogProjectCard projects={personalProjects} />
+      </div>
+    ),
   },
 ];
 
@@ -184,10 +193,12 @@ export default function Home() {
       </div>
       {/* PROJECTS SECTION */}
       <div id="projects" className="relative">
-        <DevBlogSection className="py-32 min-h-[2250px] lg:min-h-[2750px] p-0">
+        <DevBlogSection className="py-32 min-h-[2450px] md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[2650px] p-0">
           <Heading level={2} className="text-center mb-4" text="Projects" />
           <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
-          <Tabs tabs={sampleTabs} />
+          <div className="[perspective:1000px] relative flex flex-col mx-auto w-full  items-start justify-start my-40">
+            <Tabs tabs={sampleTabs} />
+          </div>
         </DevBlogSection>
       </div>
       {/* CONTACT SECTION */}
