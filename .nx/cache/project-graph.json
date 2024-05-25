@@ -24738,6 +24738,11 @@
         "source": "swapi-cards",
         "target": "npm:@nx/react",
         "type": "static"
+      },
+      {
+        "source": "swapi-cards",
+        "target": "utils",
+        "type": "static"
       }
     ],
     "generic-ui": [
