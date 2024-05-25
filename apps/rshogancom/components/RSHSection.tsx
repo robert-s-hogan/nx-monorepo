@@ -10,7 +10,7 @@ const RSHSection = ({
 
   const getSectionClassNames = () => {
     let sectionClasses = 'rsh-section';
-    sectionClasses += fullWidth ? ' w-full' : ' py-8';
+    sectionClasses += fullWidth ? ' w-full' : ' py-16';
     sectionClasses += className ? ` ${className}` : '';
     return sectionClasses;
   };

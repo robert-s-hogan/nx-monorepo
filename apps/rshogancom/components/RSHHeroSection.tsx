@@ -1,19 +1,27 @@
-import { Heading, Button } from '@with-nx/react-ui';
+import { cn } from '@with-nx/utils';
+
+import { Button } from '@with-nx/react-ui';
+import { Heading, Text } from '@with-nx/generic-ui';
 import RSHSection from '../components/RSHSection';
+import { Boxes } from './BackgroundBoxes';
 
 const RSHHeroSection = () => {
   return (
     <RSHSection fullWidth>
-      <div className="light-gradient py-28">
-        <div className="container max-w-3xl lg:max-w-7xl mx-auto flex flex-col items-center justify-center space-y-4 text-center">
-          <Heading level={1}>Empowering Your Digital Presence</Heading>
-          <Heading level={2}>
-            Tailored web solutions and creative digital products at your
-            fingertips
-          </Heading>
-          {/* Uncomment if you want to use the button */}
-          {/* <Button className="btn-primary">Discover More</Button> */}
-        </div>
+      <div className="h-96 relative w-full overflow-hidden bg-surface-color flex flex-col items-center justify-center rounded-lg">
+        <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+
+        <Boxes />
+        <Heading
+          level={1}
+          className={cn('relative z-20')}
+          text="Empowering Your Digital Presence"
+        />
+        <Text
+          className="text-center mt-2 relative z-20"
+          text="Tailored web solutions and creative digital products at your
+          fingertips"
+        />
       </div>
     </RSHSection>
   );

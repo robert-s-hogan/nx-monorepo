@@ -50,7 +50,7 @@ const RSHoganComHeader = () => {
         strategy="lazyOnload"
         src="https://assets.calendly.com/assets/external/widget.js"
       />
-      <nav className="border-b border-gray-200">
+      <nav className="border-b border-secondary-color">
         <div className="container mx-auto px-6 py-3 flex justify-between items-center">
           {/* Logo */}
           <NextLink href="/" className="flex items-center justify-center">
