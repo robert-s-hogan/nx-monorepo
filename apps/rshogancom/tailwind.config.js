@@ -1,5 +1,8 @@
 const { createGlobPatternsForDependencies } = require('@nrwl/react/tailwind');
 const { join } = require('path');
+const {
+  default: flattenColorPalette,
+} = require('tailwindcss/lib/util/flattenColorPalette');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -24,8 +27,8 @@ module.exports = {
         },
       },
       colors: {
-        primary: 'var(--primary-color)',
-        secondary: 'var(--secondary-color)',
+        'primary-color': 'var(--primary-color)',
+        'secondary-color': 'var(--secondary-color)',
         'accent-color': 'var(--accent-color)',
         'bg-color': 'var(--bg-color)',
         'surface-color': 'var(--surface-color)',
@@ -53,6 +56,18 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [addVariablesForColors],
   presets: [require('../../tailwind-workspace-preset.js')],
 };
+
+// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme('colors'));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ':root': newVars,
+  });
+}

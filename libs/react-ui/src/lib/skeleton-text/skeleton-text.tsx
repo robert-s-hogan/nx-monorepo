@@ -29,7 +29,7 @@ export const SkeletonText = ({
     >
       {Array.from({ length: rows }, (_, index) => (
         <Tag
-          key={index}
+          key={`${index}`}
           className={`skeleton-text ${skeletonTextStyles['skeletonText']}`}
           style={{
             width: typeof width === 'number' ? `${width}px` : width || '100%',

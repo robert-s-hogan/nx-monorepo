@@ -65,7 +65,7 @@ const RSHoganComFooter = () => {
           </div>
         </Flex>
         <Text className="text-sm text-center mt-4">
-          © Robertshogan.com. All rights reserved.
+          © 2024 Robertshogan.com. All rights reserved.
         </Text>
       </RSHSection>
     </footer>

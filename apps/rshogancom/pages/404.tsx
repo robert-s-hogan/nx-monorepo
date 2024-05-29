@@ -1,14 +1,12 @@
 import RSHLayout from '../components/RSHLayout';
-import { Heading, Link } from '@with-nx/react-ui';
-import { Text } from '@with-nx/generic-ui';
+import { Link } from '@with-nx/react-ui';
+import { Heading, Text } from '@with-nx/generic-ui';
 export default function Custom404() {
   return (
     <RSHLayout>
       <div className="container mx-auto my-48 md:my-80 lg:my-28 xl:my-48 2xl:my-72">
         <div className="space-y-4 px-5">
-          <Heading level={1} className="text-5xl">
-            We&rsquo;re sorry...
-          </Heading>
+          <Heading level={1} className="text-5xl" text="We&rsquo;re sorry..." />
           <Text
             text="The page you&rsquo;re looking for is not available for one of the
             following reasons:"

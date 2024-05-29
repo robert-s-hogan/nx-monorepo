@@ -23,8 +23,8 @@
       "@placeholder": ["apps/placeholder/src/index.ts"],
       "@play2winffl": ["apps/play2winffl/src/index.ts"],
       "@rshogancom": ["apps/rshogancom/src/index.ts"],
-      "@swapi": ["apps/swapi/src/index.ts"],
       "@theos-dnd": ["apps/theos-dnd/src/index.ts"],
+      "@with-nx/ace-eternity": ["libs/ace-eternity/src/index.ts"],
       "@with-nx/analytics": ["libs/analytics/src/index.ts"],
       "@with-nx/app-assets": ["libs/app-assets/src/index.ts"],
       "@with-nx/assets": ["libs/assets/images/index.ts"],
@@ -51,8 +51,7 @@
       "@with-nx/theme": ["libs/theme/src/index.ts"],
       "@with-nx/types": ["libs/types/src/index.ts"],
       "@with-nx/ui": ["libs/ui/src/index.ts"],
-      "@with-nx/utils": ["libs/utils/src/index.ts"],
-      "openai-integration": ["libs/openai-integration/src/index.ts"]
+      "@with-nx/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

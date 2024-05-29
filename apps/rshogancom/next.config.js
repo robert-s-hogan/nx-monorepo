@@ -15,6 +15,7 @@ const nextConfig = {
   images: {
     domains: [
       'images.pexels.com',
+      'assets.aceternity.com',
       'images.unsplash.com',
       'img.icons8.com',
       'res.cloudinary.com',

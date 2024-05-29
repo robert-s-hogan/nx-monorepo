@@ -61,7 +61,7 @@ function ContactForm() {
       } finally {
         setLoading(false);
       }
-    }, 100); // Delay of 100ms
+    }, 200); // Delay of 100ms
   };
 
   return (

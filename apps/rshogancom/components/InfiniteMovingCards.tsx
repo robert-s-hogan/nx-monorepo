@@ -16,6 +16,8 @@ export const InfiniteMovingCards = ({
     company: string;
     role: string;
     src: string;
+    width: number;
+    height: number;
   }[];
   direction?: 'left' | 'right';
   speed?: 'fast' | 'normal' | 'slow';
@@ -82,46 +84,36 @@ export const InfiniteMovingCards = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          ' flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap',
+          ' flex min-w-full shrink-0 gap-16 p-4 w-max flex-nowrap',
           start && 'animate-scroll ',
           pauseOnHover && 'hover:[animation-play-state:paused]'
         )}
       >
         {items.map((item, idx) => (
           <li
-            className="w-[350px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:w-[450px]"
+            className="w-[350px] max-w-full relative rounded border-br-none flex-shrink-0 px-8 py-6 md:w-[450px]"
             style={{
               background:
-                'linear-gradient(180deg, var(--slate-800), var(--slate-900)',
+                'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)', // For Safari support
+              border: '1px solid rgba(255, 255, 255, 0.18)', // Transparent border
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Optional: Add a slight shadow for depth
             }}
             key={item.quote}
           >
-            <blockquote>
-              <div
-                aria-hidden="true"
-                className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
-              ></div>
-              <span className=" relative z-20 text-sm leading-[1.6] font-normal text-left">
-                {item.quote}
+            <div className="flex flex-col justify-center items-center h-full">
+              <Image
+                src={item.src}
+                alt="quote"
+                width={item.width}
+                height={item.height}
+                className="mx-auto mb-8"
+              />
+              <span className="text-sm leading-[1.6] text-on-accent-color font-normal">
+                {item.company}
               </span>
-              <div className="relative z-20 mt-6 flex  items-center justify-between w-full">
-                <span className="flex flex-col  gap-1 text-left">
-                  <span className=" text-sm leading-[1.6] text-gray-400 font-normal">
-                    {item.company}
-                  </span>
-                  <span className=" text-sm leading-[1.6] text-gray-400 font-normal">
-                    {item.role}
-                  </span>
-                </span>
-                <Image
-                  src={item.src}
-                  alt="quote"
-                  width={100}
-                  height={100}
-                  className="ml-4"
-                />
-              </div>
-            </blockquote>
+            </div>
           </li>
         ))}
       </ul>

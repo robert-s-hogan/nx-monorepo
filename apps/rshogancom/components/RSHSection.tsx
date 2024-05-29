@@ -9,8 +9,8 @@ const RSHSection = ({
   innerContainer = fullWidth ? false : innerContainer;
 
   const getSectionClassNames = () => {
-    let sectionClasses = 'rsh-section';
-    sectionClasses += fullWidth ? ' w-full' : ' py-16';
+    let sectionClasses = 'rsh-section py-32';
+    sectionClasses += fullWidth ? ' w-full' : '';
     sectionClasses += className ? ` ${className}` : '';
     return sectionClasses;
   };

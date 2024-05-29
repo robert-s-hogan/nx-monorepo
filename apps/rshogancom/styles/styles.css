@@ -8,22 +8,96 @@
 
 /* :root variables that do not change with theme */
 :root {
-  --loader-size: 1rem;
-  --loader-border: 0.125rem;
-  --border-width: 0.063rem;
-  --transition-speed: 0.3s;
-  --animation-speed: 1s;
+  /* Animation Timings */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+  /* Aspect Ratios */
+  --aspect-ratio-wide: 16 / 9;
+  --aspect-ratio-square: 1;
+
+  /* Box Shadow */
+  --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
+
+  /* Button */
+  --button-padding-y: 0.5rem;
+  --button-padding-x: 0.75rem;
+  --transition-all: all;
+  --duration-300: 0.3s;
+
+  /* Font Settings */
+  --font-family: 'Inter', sans-serif;
+
+  /* Form Element */
+  --form-element-padding-y: 0.5rem;
+  --form-element-padding-x: 0.75rem;
+  --form-element-border-width: 0.063rem;
+  /* --form-element-border-color: #e2e8f0; */
+  --form-element-border-radius: 0.25rem;
+  --form-element-font-size: 1rem;
+  --form-element-height: 2.5rem;
+
+  /* Input */
+  --input-focus-outline-color: #4299e1;
+  --input-focus-outline-width: 0.125rem;
+  --input-focus-outline-offset: 0.125rem;
+
+  /* Hover */
   --hover-scale: 1.05;
   --text-underline-offset: 0.25rem;
-  --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
-  --font-mono: Fira Mono, monospace;
-  --pure-white: #ffffff;
-  --tertiary-color: #edf0f8;
-  --heading-color: rgba(0, 0, 0, 0.7);
-  --text-color: #444444;
-  --background-without-opacity: rgba(255, 255, 255, 0.7);
-  --column-width: 42rem;
-  --column-margin-top: 4rem;
+
+  /* Loader */
+  --loader-size: 1rem;
+  --loader-border: 0.125rem;
+  --transition-speed: 0.3s;
+  --animation-speed: 1s;
+
+  /* Maximum Container Width */
+  --max-width-container: 1200px;
+
+  /* Opacity Levels */
+  --opacity-disabled: 0.5;
+  --opacity-hover: 0.8;
+  --opacity-active: 1;
+
+  /* Radius Sizes */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Select */
+  --select-appearance: none;
+  --select-width: 100%;
+  --select-padding-y: 0.5rem;
+  --select-padding-x: 0.75rem;
+  --border-radius: 0.25rem;
+  --select-font-size: 1rem;
+  --select-height: 2.5rem;
+  --select-border-color: #e2e8f0;
+
+  /* Shadow Depths */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+  /* Spacing Scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+
+  /* Typography */
+  --heading-font-size: 24px;
+  --text-font-size: 16px;
+  --small-font-size: 12px;
+  --line-height: 1.5;
+
+  /* Z-Index Levels */
+  --z-index-dropdown: 1000;
+  --z-index-modal: 1050;
+  --z-index-overlay: 1100;
 }
 
 @layer base {
@@ -123,6 +197,12 @@ p {
 }
 
 /* LINKS */
+nav nav a {
+  color: var(--text-on-secondary-color);
+}
+nav nav a:hover {
+  color: var(--hover-secondary-color);
+}
 .nav-link {
   line-height: 1.5rem;
   color: var(--text-color);
@@ -133,16 +213,20 @@ p {
 a {
   position: relative;
   text-decoration: none;
-  color: var(--accent-color);
+  color: var(--primary-color);
   transition: color 0.3s ease;
 }
 a:hover {
-  color: darken(var(--accent-color), 10%);
+  color: darken(var(--hover-color), 10%);
 }
 
 /* ICONS */
 svg {
   transition: stroke 0.3s ease;
+}
+a.svg,
+a svg.dynamic-icon-wrapper {
+  stroke: var(--primary-color);
 }
 .icon-menu {
   stroke: var(--menu-icon-color);
@@ -165,12 +249,40 @@ code {
 input,
 textarea,
 select {
-  border-color: var(--border-color);
-  border-width: var(--border-width);
-  background-color: var(--surface-color);
-  color: var(--text-color);
+  border-color: var(--form-border-color);
+  background-color: var(--form-bg-color);
+  color: var(--form-text-color);
   padding: 0.5rem;
   font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--form-placeholder-color);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--form-focus-border-color);
+  box-shadow: 0 0 0 2px var(--form-focus-border-color);
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: var(--form-hover-border-color);
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background-color: var(--form-disabled-bg-color);
+  color: var(--form-disabled-text-color);
+  border-color: var(--form-disabled-border-color);
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 form > div {
@@ -183,27 +295,25 @@ form > * + * {
 }
 
 /* BUTTON & BUTTON STATE CLASSES */
-
 button {
-  @apply px-3 py-2 rounded-sm;
+  padding: var(--button-padding-y) var(--button-padding-x);
+  border: none;
+  border-radius: var(--form-element-border-radius);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+button:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+button.button-icon:hover {
+  transform: none;
+  box-shadow: none;
 }
 
-.btn-primary {
+.btn-primary,
+.button {
   background-color: var(--primary-color);
   color: var(--text-on-primary-color);
-}
-
-.btn-primary:hover {
-  background-color: var(--hover-color);
-}
-
-.btn-primary:active {
-  background-color: var(--active-color);
-}
-
-.btn-primary:focus {
-  outline: none;
-  box-shadow: var(--box-shadow);
 }
 
 .disabled,
@@ -217,23 +327,6 @@ button {
   color: var(--text-on-primary-color);
 }
 
-.btn-secondary:hover {
-  background-color: var(--hover-secondary-color);
-}
-
-.btn-secondary:active {
-  background-color: var(--active-secondary-color);
-}
-
-.btn-secondary:focus {
-  outline: none;
-  box-shadow: var(--box-shadow);
-}
-
-.btn-secondary:disabled {
-  background-color: var(--disabled-secondary-color);
-  cursor: not-allowed;
-}
 .icon-button {
   display: flex;
   align-items: center;
@@ -256,6 +349,15 @@ button {
 }
 
 /* BACKGROUND CLASSES */
+.bg-primary-color {
+  color: var(--text-on-primary-color);
+}
+.bg-secondary-color {
+  color: var(--text-on-secondary-color);
+}
+.bg-accent-color {
+  color: var(--text-on-accent-color);
+}
 .bg-image-overlay {
   background-color: var(--bg-opacity-color);
   transition: background-color 0.3s;
@@ -309,16 +411,16 @@ button {
 
 /* RSHSECTION */
 .rsh-section:nth-child(odd) {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--secondary-color);
+  color: var(--text-on-secondary-color);
 }
 .rsh-section:nth-child(even) {
-  background-color: var(--secondary-bg-color);
-  color: var(--secondary-text-color);
+  background-color: var(--surface-color);
+  color: var(--text-on-surface-color);
 }
 .rsh-section .container .Heading {
   color: var(--text-color);
 }
 .rsh-section .container .Text {
-  color: var(--secondary-text-color);
+  color: var(--text-on-surface-color);
 }

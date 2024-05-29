@@ -112,6 +112,7 @@
   h4,
   h5,
   h6,
+  label,
   .text-silkscreen {
     font-family: 'Silkscreen', cursive;
     color: var(--text-color);
@@ -270,14 +271,12 @@ code {
 input,
 textarea,
 select {
-  padding: var(--form-element-padding-y) var(--form-element-padding-x);
-  border-width: var(--form-element-border-width);
-  border-color: var(--form-element-border-color);
-  border-radius: var(--form-element-border-radius);
-  font-size: var(--form-element-font-size);
-  height: var(--form-element-height);
-  color: var(--form-element-color);
-  width: 100%; /* Assuming you want full width for all */
+  border-color: var(--border-color);
+  border-width: var(--border-width);
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  padding: 0.5rem;
+  font-family: inherit;
 }
 input:focus,
 textarea:focus,
@@ -408,7 +407,8 @@ a p,
 }
 .bg-secondary-color h2,
 .bg-secondary-color h3,
-.bg-secondary-color p {
+.bg-secondary-color p,
+.bg-accent-color label {
   color: var(--text-on-secondary-color);
 }
 .bg-accent-color h2,
