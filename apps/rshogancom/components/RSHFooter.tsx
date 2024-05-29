@@ -48,7 +48,7 @@ const FooterLink = ({ href, ariaLabel, icon: Icon }) => (
 
 const RSHoganComFooter = () => {
   return (
-    <footer className="border-t border-gray-200">
+    <footer className="border-t border-surface-color">
       <RSHSection className="py-8" innerContainer>
         <Flex className="justify-between items-center">
           <div>

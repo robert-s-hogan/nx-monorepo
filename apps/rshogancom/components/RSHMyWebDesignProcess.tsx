@@ -14,7 +14,7 @@ import RSHListItem from './RSHListItem';
 const content = [
   {
     title: 'Web Strategy',
-    icon: <FaChessRook size={50} />,
+    icon: <FaChessRook size={50} color="var(--text-color)" />,
     description:
       'Before we put pen to paper (or start on your digital design, rather), we conduct thorough research into your industry, competitors, and target market to gather insights that will inform your custom digital strategy.',
     // image: <img src={DataReport} alt="Data Report Illustration" />,
@@ -32,7 +32,7 @@ const content = [
   },
   {
     title: 'Planning & Information Architecture',
-    icon: <AiOutlineFile size={50} />,
+    icon: <AiOutlineFile size={50} color="var(--text-color)" />,
     description:
       'Next, we map out your unique landing pages and define your site map and navigation. We create a plan for your URL structure, along with redirects and a search engine optimization strategy, careful to maintain any existing SEO value from your current site, if applicable.',
     // image: <img src={MobileApp} alt="Mobile App Illustration" />,
@@ -51,7 +51,7 @@ const content = [
     title: 'Creative Design',
     description:
       "Here's where your website begins to come to life, as our award-winning designers step in. Your design is filled with color and custom elements as we incorporate your brand's personality and tailor the user journey to your target market.",
-    icon: <FaLightbulb size={50} />,
+    icon: <FaLightbulb size={50} color="var(--text-color)" />,
 
     content: (
       <div className="space-y-6 h-full w-full">
@@ -68,7 +68,7 @@ const content = [
     title: 'Responsive Development',
     description:
       "In the development phase, our expert development team works behind the scenes to build a custom, secure and scalable solution for your brand, on your chosen platform. From B2B to eCommerce, we ensure clean code and a website that's fully optimized.",
-    icon: <FiCode size={50} />,
+    icon: <FiCode size={50} color="var(--text-color)" />,
     // image: <img src={Download} alt="Download Illustration" />,
     content: (
       <div className="space-y-6 h-full w-full">
@@ -85,7 +85,7 @@ const content = [
     title: 'Quality Assurance (QA)',
     description:
       'Before we push your custom solution live for the world to see, we follow a stringent quality assurance process, leaving no stone unturned. We continuously test your site’s speed, functionality and other key elements to make sure it’s ready for launch.',
-    icon: <FaThumbsUp size={50} />,
+    icon: <FaThumbsUp size={50} color="var(--text-color)" />,
     // image: <img src={NoData} alt="No Data Illustration" />,
     content: (
       <div className="space-y-6 h-full w-full">
@@ -102,7 +102,7 @@ const content = [
     title: 'Launch & Optimization',
     description:
       "When our QA is complete, it’s time for launch! Our team will set up your server, carry out the DNS configuration and make sure all updates are finalized. We'll provide Cloudflare security protection, along with both internal and external monitoring.",
-    icon: <AiOutlineLineChart size={50} />,
+    icon: <AiOutlineLineChart size={50} color="var(--text-color)" />,
     // image: <img src={MobileApp} alt="Mobile App Illustration" />, // Reusing Mobile App Illustration
     content: (
       <div className="space-y-6 h-full w-full">

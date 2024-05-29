@@ -56,13 +56,13 @@ const RSHoganComHeader = () => {
         src="https://assets.calendly.com/assets/external/widget.js"
       />
       <nav>
-        <div className="container mx-auto px-6 py-3 flex justify-between items-center">
+        <div className="container mx-auto py-6 flex justify-between items-center">
           <NextLink href="/" className="flex items-center justify-center">
             <Flex className="items-center">
               <CustomRSHLogo className="w-16 h-auto" />
             </Flex>
           </NextLink>
-          <Navbar className="top-2" />
+          <Navbar className="top-2 border-2 border-surface-color" />
 
           {/* <RSHNavbarMenu className="top-2" /> */}
 
@@ -116,7 +116,10 @@ function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   return (
     <div
-      className={cn('fixed top-10 inset-x-0 max-w-2xl mx-auto z-50', className)}
+      className={cn(
+        'fixed top-10 inset-x-0 max-w-2xl rounded-full mx-auto z-50',
+        className
+      )}
     >
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Services">

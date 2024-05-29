@@ -223,6 +223,7 @@ a:hover {
 /* ICONS */
 svg {
   transition: stroke 0.3s ease;
+  stroke: var(--text-color);
 }
 a.svg,
 a svg.dynamic-icon-wrapper {
