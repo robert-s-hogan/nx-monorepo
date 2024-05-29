@@ -20,7 +20,7 @@ const links = [
   {
     id: 'projects',
     href: '#projects',
-    children: 'Projects',
+    children: 'Professional',
   },
 ];
 

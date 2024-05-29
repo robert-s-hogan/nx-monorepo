@@ -131,15 +131,15 @@ const sampleTabs: Tab[] = [
       </div>
     ),
   },
-  {
-    title: 'Personal',
-    value: 'Personal',
-    content: (
-      <div className="w-full relative h-auto rounded-2xl p-10 text-xl bg-gradient-to-br from-accent-color to-accent-color">
-        <DevBlogProjectCard projects={personalProjects} />
-      </div>
-    ),
-  },
+  // {
+  //   title: 'Personal',
+  //   value: 'Personal',
+  //   content: (
+  //     <div className="w-full relative h-auto rounded-2xl p-10 text-xl bg-gradient-to-br from-accent-color to-accent-color">
+  //       <DevBlogProjectCard projects={personalProjects} />
+  //     </div>
+  //   ),
+  // },
 ];
 
 export default function Home() {
@@ -194,7 +194,7 @@ export default function Home() {
       {/* PROJECTS SECTION */}
       <div id="projects" className="relative">
         <DevBlogSection className="py-32 min-h-[2450px] md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[2650px] p-0">
-          <Heading level={2} className="text-center mb-4" text="Projects" />
+          <Heading level={2} className="text-center mb-4" text="Professional" />
           <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
           <div className="[perspective:1000px] relative flex flex-col mx-auto w-full  items-start justify-start my-40">
             <Tabs tabs={sampleTabs} />
