@@ -3,7 +3,10 @@ import { Link } from '@with-nx/react-ui';
 import { Heading, Text } from '@with-nx/generic-ui';
 export default function Custom404() {
   return (
-    <RSHLayout>
+    <RSHLayout
+      title="404 Not Found | Robert Hogan - UI/UX Engineer"
+      description="The page you are looking for could not be found. It may have been moved or the link may be outdated. Contact us for further assistance."
+    >
       <div className="container mx-auto my-48 md:my-80 lg:my-28 xl:my-48 2xl:my-72">
         <div className="space-y-4 px-5">
           <Heading level={1} className="text-5xl" text="We&rsquo;re sorry..." />

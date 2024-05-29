@@ -62,7 +62,7 @@ const RSHoganComHeader = () => {
               <CustomRSHLogo className="w-16 h-auto" />
             </Flex>
           </NextLink>
-          <Navbar className="top-2 border-2 border-surface-color" />
+          {/* <Navbar className="top-2 border-2 border-surface-color" /> */}
 
           {/* <RSHNavbarMenu className="top-2" /> */}
 

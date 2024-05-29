@@ -7,7 +7,10 @@ const RSHQuote = dynamic(() => import('../components/RSHQuoteForm'), {
 
 export default function RequestAQuote() {
   return (
-    <RSHLayout>
+    <RSHLayout
+      title="Request a Quote | Robert Hogan - UI/UX Engineer"
+      description="Contact Robert Hogan to request a quote for your project. Provide your details and let's create something amazing together."
+    >
       <RSHQuote />
     </RSHLayout>
   );

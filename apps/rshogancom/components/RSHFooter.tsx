@@ -5,11 +5,28 @@ import {
   FiMail,
   FiTwitter,
 } from 'react-icons/fi';
-import { Heading, Link, Text } from '@with-nx/react-ui';
+import Link from 'next/link';
+
+import { Heading, Text } from '@with-nx/react-ui';
 import { Flex } from '@with-nx/generic-ui';
 import { CustomRSHLogo } from '@with-nx/icons';
 
 import RSHSection from './RSHSection';
+
+const links = [
+  {
+    name: 'Privacy Policy',
+    url: '/privacy-policy',
+  },
+  {
+    name: 'Terms of Service',
+    url: '/terms-of-service',
+  },
+  {
+    name: 'Accessibility',
+    url: '/accessibility',
+  },
+];
 
 // Data object to hold the link information
 export const footerLinks = [
@@ -49,24 +66,31 @@ const FooterLink = ({ href, ariaLabel, icon: Icon }) => (
 const RSHoganComFooter = () => {
   return (
     <footer className="border-t border-surface-color">
-      <RSHSection className="py-8" innerContainer>
-        <Flex className="justify-between items-center">
-          <div>
+      <RSHSection className="py-8 items-center" innerContainer>
+        <Flex className="flex-col lg:flex-row space-y-4 justify-between items-center h-full">
+          <Flex className="order-last mt-4 lg:mt-0 lg:order-first space-x-4 items-center">
             <Link href="/">
-              <CustomRSHLogo className="w-24 h-24 mx-auto" />
+              <CustomRSHLogo className="w-16 md:w-24 w-16 md:h-24 mx-auto" />
             </Link>
-          </div>
-          <div>
-            <span className="flex sm:mt-0 pt-4 justify-center space-x-4">
-              {footerLinks.map((link, index) => (
-                <FooterLink key={index} {...link} />
-              ))}
-            </span>
-          </div>
+            <Text className="text-xs text-center">
+              © 2024 Robertshogan.com. All rights reserved.
+            </Text>
+          </Flex>
+
+          <Flex className="items-center space-x-6">
+            {links.map((link) => (
+              <Link key={link.url} href={link.url} passHref>
+                {link.name}
+              </Link>
+            ))}
+          </Flex>
+
+          <Flex className="flex justify-center space-x-4">
+            {footerLinks.map((link, index) => (
+              <FooterLink key={index} {...link} />
+            ))}
+          </Flex>
         </Flex>
-        <Text className="text-sm text-center mt-4">
-          © 2024 Robertshogan.com. All rights reserved.
-        </Text>
       </RSHSection>
     </footer>
   );

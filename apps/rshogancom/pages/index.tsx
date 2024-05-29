@@ -65,7 +65,10 @@ export function Index() {
   }, []);
 
   return (
-    <RSHLayout>
+    <RSHLayout
+      title="Home | Robert Hogan - UI/UX Engineer"
+      description="Welcome to the official website of Robert Hogan, a talented Web Developer and UI/UX Engineer. Explore his portfolio and learn how he can enhance your digital presence."
+    >
       {/* HERO */}
       <RSHHeroSection />
 

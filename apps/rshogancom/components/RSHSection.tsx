@@ -2,7 +2,7 @@ const RSHSection = ({
   children,
   fullWidth = false,
   innerContainer = true, // Set innerContainer to true by default
-  innerContainerClass = 'container mx-auto px-6 text-center',
+  innerContainerClass = 'container mx-auto px-6',
   className = '',
 }) => {
   // Automatically set innerContainer to false if fullWidth is true

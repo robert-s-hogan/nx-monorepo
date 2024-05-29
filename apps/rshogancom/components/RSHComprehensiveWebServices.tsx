@@ -6,8 +6,12 @@ import servicesData from '../data/comprehensiveWebServicesData';
 
 const RSHComprehensiveWebServices = () => {
   return (
-    <RSHSection>
-      <Heading level={2} text="Comprehensive Web Services" />
+    <RSHSection className="text-center">
+      <Heading
+        level={2}
+        className="text-center"
+        text="Comprehensive Web Services"
+      />
       <HoverEffect items={servicesData} key="test" />
     </RSHSection>
   );
