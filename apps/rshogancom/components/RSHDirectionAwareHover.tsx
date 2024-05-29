@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { cn } from '@with-nx/utils';
 
-export const DirectionAwareHover = ({
+export const RSHDirectionAwareHover = ({
   imageUrl,
   children,
   childrenClassName,

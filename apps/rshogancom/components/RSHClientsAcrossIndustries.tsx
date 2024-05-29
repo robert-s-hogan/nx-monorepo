@@ -3,7 +3,7 @@ import { Flex, Heading } from '@with-nx/generic-ui';
 import Image from 'next/image';
 
 import RSHSection from './RSHSection';
-import { InfiniteMovingCards } from './InfiniteMovingCards';
+import { RSHInfiniteMovingCards } from './RSHInfiniteMovingCards';
 import { collaborators } from '../data/collaborators';
 
 interface RSHAsSeenInProps {
@@ -12,10 +12,7 @@ interface RSHAsSeenInProps {
 
 const RSHAsSeenIn = ({ isLoading }: RSHAsSeenInProps) => {
   return (
-    <RSHSection
-      className="w-full max-w-full text-center py-16"
-      fullWidth={true}
-    >
+    <RSHSection className="w-full max-w-full text-center" fullWidth={true}>
       <Heading
         level={2}
         className="uppercase text-3xl"
@@ -28,7 +25,7 @@ const RSHAsSeenIn = ({ isLoading }: RSHAsSeenInProps) => {
       />
       <Flex className="flex-wrap justify-center items-center">
         <div className="h-[30rem] rounded-md flex flex-col antialiased bg-transparent items-center justify-center relative overflow-hidden">
-          <InfiniteMovingCards
+          <RSHInfiniteMovingCards
             items={collaborators}
             direction="right"
             speed="slow"

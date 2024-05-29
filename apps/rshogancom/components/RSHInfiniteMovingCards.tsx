@@ -4,7 +4,7 @@ import { cn } from '@with-nx/utils';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-export const InfiniteMovingCards = ({
+export const RSHInfiniteMovingCards = ({
   items,
   direction = 'left',
   speed = 'fast',
@@ -108,6 +108,7 @@ export const InfiniteMovingCards = ({
                 alt="quote"
                 width={item.width}
                 height={item.height}
+                style={{ width: 'auto', height: 'auto' }} // Ensure aspect ratio is maintained
                 className="mx-auto mb-8"
               />
               <span className="text-sm leading-[1.6] text-on-accent-color font-normal">

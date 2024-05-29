@@ -12,15 +12,15 @@ import RSHModal from '../components/RSHModal';
 
 import RSHDigitalCreatives from '../components/RSHDigitalCreatives';
 import RSHHeroSection from '../components/RSHHeroSection';
-import RSHWebServicesSection from '../components/RSHWebServices';
+import RSHComprehensiveWebServices from '../components/RSHComprehensiveWebServices';
 import RSHMyWebDesignProcess from '../components/RSHMyWebDesignProcess';
 import RSHOurStorySection from '../components/RSHOurStory';
 import RSHAsSeenInSection from '../components/RSHClientsAcrossIndustries';
 import RSHWhatOurCustomersSaySection from '../components/RSHWhatOurCustomersSay';
 
 //dynamic imports
-const DynamicRSHWebServicesSection = dynamic(
-  () => import('../components/RSHWebServices'),
+const DynamicRSHComprehensiveWebServicesSection = dynamic(
+  () => import('../components/RSHComprehensiveWebServices'),
   {
     loading: () => <p>Loading...</p>,
   }
@@ -70,7 +70,7 @@ export function Index() {
       <RSHHeroSection />
 
       {/* COMPREHENSIVE WEB SERVICES */}
-      <DynamicRSHWebServicesSection />
+      <DynamicRSHComprehensiveWebServicesSection />
 
       {/* OUR STORY */}
       {/* <DynamicOurStorySection /> */}

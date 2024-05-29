@@ -83,7 +83,7 @@ export const collaborators = [
     role: 'Consultant',
     href: 'https://www.jessicahoganma.com/',
     src: 'https://app-assets.vercel.app/work/jh_logo.svg',
-    width: 89,
+    width: 75,
     height: 50,
     alt: 'Jessica Hogan MA Logo',
   },

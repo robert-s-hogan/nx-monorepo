@@ -58,6 +58,7 @@ export const StickyScroll = ({
   ];
   return (
     <motion.div
+      initial={{ backgroundColor: 'rgba(255, 255, 255, 0)' }} // Set an animatable initial backgroundColor
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}

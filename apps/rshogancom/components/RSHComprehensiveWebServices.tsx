@@ -1,16 +1,16 @@
 import { Grid, Text } from '@with-nx/react-ui';
 import { Heading } from '@with-nx/generic-ui';
-import RSHCardHoveredEffect from './RSHCardHoveredEffect';
+import HoverEffect from './RSHCardHoveredEffect';
 import RSHSection from './RSHSection';
 import servicesData from '../data/comprehensiveWebServicesData';
 
-const RSHWebServices = () => {
+const RSHComprehensiveWebServices = () => {
   return (
     <RSHSection>
       <Heading level={2} text="Comprehensive Web Services" />
-      <RSHCardHoveredEffect items={servicesData} />
+      <HoverEffect items={servicesData} />
     </RSHSection>
   );
 };
 
-export default RSHWebServices;
+export default RSHComprehensiveWebServices;

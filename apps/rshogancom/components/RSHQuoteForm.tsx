@@ -4,7 +4,7 @@ import { Input, Label, TextArea } from '@with-nx/ace-eternity';
 
 const QuoteForm = () => {
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gradient-to-r from-primary to-secondary-color text-on-primary">
+    <div className="flex flex-col md:flex-row min-h-screen bg-gradient-to-r from-primary-color to-secondary-color text-on-primary">
       <div className="md:w-1/2 flex flex-col justify-center items-start p-8">
         <h1 className="text-5xl font-bold mb-4">
           Digitizing Your Business Growth

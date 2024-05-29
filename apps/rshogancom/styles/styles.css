@@ -297,7 +297,6 @@ form > * + * {
 /* BUTTON & BUTTON STATE CLASSES */
 button {
   padding: var(--button-padding-y) var(--button-padding-x);
-  border: none;
   border-radius: var(--form-element-border-radius);
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -326,7 +325,11 @@ button.button-icon:hover {
   background-color: var(--secondary-color);
   color: var(--text-on-primary-color);
 }
-
+.btn-outline-white {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+}
 .icon-button {
   display: flex;
   align-items: center;
@@ -376,10 +379,10 @@ button.button-icon:hover {
 .sun {
   transition: opacity 0.3s, transform 0.3s;
 }
-.sun {
+.sun-icon {
   stroke: var(--sun-icon-color);
 }
-.moon {
+.moon-icon {
   stroke: var(--moon-icon-color);
 }
 .moon.fade-out,

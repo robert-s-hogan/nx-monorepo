@@ -83,7 +83,7 @@ const RSHoganComHeader = () => {
             </NextLink> */}
             {/* {toggleButton} */}
             <Button
-              className="btn-primary"
+              className="btn-outline-white mx-3"
               onClick={() => router.push('/request-a-quote')}
             >
               Contact
