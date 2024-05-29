@@ -8,7 +8,7 @@ const RSHComprehensiveWebServices = () => {
   return (
     <RSHSection>
       <Heading level={2} text="Comprehensive Web Services" />
-      <HoverEffect items={servicesData} />
+      <HoverEffect items={servicesData} key="test" />
     </RSHSection>
   );
 };

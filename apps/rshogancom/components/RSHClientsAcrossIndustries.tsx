@@ -15,12 +15,12 @@ const RSHAsSeenIn = ({ isLoading }: RSHAsSeenInProps) => {
     <RSHSection className="w-full max-w-full text-center" fullWidth={true}>
       <Heading
         level={2}
-        className="uppercase text-3xl"
+        className="uppercase"
         text="Clients Across Industries"
       />
       <Heading
         level={3}
-        className="text-5xl mt-4 mb-0"
+        className="mt-4 mb-0"
         text="Personalized Full-Stack Web Development"
       />
       <Flex className="flex-wrap justify-center items-center">

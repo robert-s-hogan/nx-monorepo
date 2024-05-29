@@ -8,12 +8,13 @@ const HoverEffect = ({
   className,
 }: {
   items: {
-    id: string;
+    id?: string;
     icon: React.ReactNode;
     title: string;
     description: string;
   }[];
   className?: string;
+  key: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -26,6 +27,7 @@ const HoverEffect = ({
     >
       {items.map((item, idx) => (
         <div
+          key={idx}
           className="relative group block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}

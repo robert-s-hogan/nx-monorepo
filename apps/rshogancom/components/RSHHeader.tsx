@@ -56,7 +56,7 @@ const RSHoganComHeader = () => {
         src="https://assets.calendly.com/assets/external/widget.js"
       />
       <nav>
-        <div className="container mx-auto py-6 flex justify-between items-center">
+        <div className="container mx-auto p-6 flex justify-between items-center">
           <NextLink href="/" className="flex items-center justify-center">
             <Flex className="items-center">
               <CustomRSHLogo className="w-16 h-auto" />

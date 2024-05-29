@@ -115,7 +115,7 @@
   }
 
   h1 {
-    @apply text-lg min-h-[1.75rem] md:text-xl md:min-h-[2rem] lg:text-2xl lg:min-h-[2.25rem] xl:text-3xl xl:min-h-[2.5rem] 2xl:text-4xl 2xl:min-h-[2.75rem] font-semibold;
+    @apply text-xl md:min-h-[2rem] lg:text-2xl lg:min-h-[2.25rem] xl:text-3xl xl:min-h-[2.5rem] 2xl:text-4xl 2xl:min-h-[2.75rem] font-semibold;
   }
   h2 {
     @apply text-base min-h-[1.5rem] md:text-lg md:min-h-[1.75rem] lg:text-xl lg:min-h-[2rem] xl:text-2xl xl:min-h-[2.25rem] 2xl:text-3xl 2xl:min-h-[2.5rem] font-semibold;

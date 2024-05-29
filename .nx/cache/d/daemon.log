@@ -676,3 +676,539 @@
 [NX Daemon Server] - 2024-05-29T15:05:19.068Z - Closed a connection. Number of open connections: 1
 [NX Daemon Server] - 2024-05-29T15:05:19.173Z - Closed a connection. Number of open connections: 0
 [NX Daemon Server] - 2024-05-29T15:05:19.234Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:03.528Z - [WATCHER]: apps/rshogancom/components/RSHNavbarMenu.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:08:03.528Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:09.929Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:08:09.929Z - [REQUEST]: apps/rshogancom/components/RSHNavbarMenu.tsx
+[NX Daemon Server] - 2024-05-29T15:08:09.929Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:08:10.217Z - Time taken for 'hash changed files from watcher' 1.4662409983575344ms
+[NX Daemon Server] - 2024-05-29T15:08:12.525Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-29T15:08:12.526Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-29T15:08:12.527Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-29T15:08:12.529Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-29T15:08:12.529Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-29T15:08:12.532Z - Time taken for 'total for creating and serializing project graph' 0.23389500007033348ms
+[NX Daemon Server] - 2024-05-29T15:08:12.538Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-29T15:08:12.538Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 9.
+[NX Daemon Server] - 2024-05-29T15:08:12.975Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-05-29T15:08:12.976Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-05-29T15:08:12.976Z - Handled HASH_TASKS. Handling time: 25. Response time: 1.
+[NX Daemon Server] - 2024-05-29T15:08:14.289Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-29T15:08:14.290Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-29T15:08:14.291Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-29T15:08:14.293Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-29T15:08:14.293Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-29T15:08:14.295Z - Time taken for 'total for creating and serializing project graph' 0.17309700138866901ms
+[NX Daemon Server] - 2024-05-29T15:08:14.301Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-29T15:08:14.301Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 8.
+[NX Daemon Server] - 2024-05-29T15:08:15.895Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-05-29T15:08:15.896Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-29T15:08:15.897Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-05-29T15:08:15.899Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-29T15:08:15.899Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-29T15:08:15.901Z - Time taken for 'total for creating and serializing project graph' 0.15307100117206573ms
+[NX Daemon Server] - 2024-05-29T15:08:15.906Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-29T15:08:15.906Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 7.
+[NX Daemon Server] - 2024-05-29T15:08:16.334Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-29T15:08:16.335Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-29T15:08:16.339Z - Time taken for 'total for creating and serializing project graph' 0.3616029992699623ms
+[NX Daemon Server] - 2024-05-29T15:08:16.345Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-29T15:08:16.345Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 10.
+[NX Daemon Server] - 2024-05-29T15:08:18.101Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:19.140Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:19.197Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:19.424Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:19.482Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-29T15:08:19.482Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-29T15:08:19.486Z - Time taken for 'total for creating and serializing project graph' 0.18702599965035915ms
+[NX Daemon Server] - 2024-05-29T15:08:19.500Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-29T15:08:19.500Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 18.
+[NX Daemon Server] - 2024-05-29T15:08:19.545Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:41.057Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:41.142Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:42.523Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:42.677Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:42.793Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:42.845Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:43.377Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:43.468Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:43.551Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:43.666Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:44.987Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:45.261Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:46.250Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:46.907Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:47.812Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:48.060Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:48.362Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:48.456Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:49.298Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:51.015Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:08:51.072Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:25.593Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:10:25.594Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:25.698Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:10:25.698Z - [REQUEST]: apps/rshogancom/components/RSHCardHoveredEffect.tsx
+[NX Daemon Server] - 2024-05-29T15:10:25.698Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:10:26.727Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:10:26.727Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:26.727Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:26.739Z - Time taken for 'hash changed files from watcher' 2.4410800002515316ms
+[NX Daemon Server] - 2024-05-29T15:10:26.958Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:10:26.958Z - [REQUEST]: apps/rshogancom/components/RSHCardHoveredEffect.tsx
+[NX Daemon Server] - 2024-05-29T15:10:26.958Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:10:27.423Z - Time taken for 'hash changed files from watcher' 1.9689269997179508ms
+[NX Daemon Server] - 2024-05-29T15:10:28.141Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:28.411Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:29.807Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:36.695Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:10:36.696Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:37.099Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:10:37.099Z - [REQUEST]: apps/rshogancom/components/RSHCardHoveredEffect.tsx
+[NX Daemon Server] - 2024-05-29T15:10:37.100Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:10:37.533Z - Time taken for 'hash changed files from watcher' 2.0684299990534782ms
+[NX Daemon Server] - 2024-05-29T15:10:37.584Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:37.779Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:38.741Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:50.328Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:10:50.328Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:51.131Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:10:51.132Z - [REQUEST]: apps/rshogancom/components/RSHCardHoveredEffect.tsx
+[NX Daemon Server] - 2024-05-29T15:10:51.132Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:10:51.908Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:51.908Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:10:51.910Z - Time taken for 'hash changed files from watcher' 2.5522700008004904ms
+[NX Daemon Server] - 2024-05-29T15:10:52.667Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:11:10.807Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:11:10.815Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:11:12.007Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:11:12.249Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:11:12.418Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:11:12.418Z - [REQUEST]: apps/rshogancom/components/RSHCardHoveredEffect.tsx
+[NX Daemon Server] - 2024-05-29T15:11:12.418Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:11:12.983Z - Time taken for 'hash changed files from watcher' 2.3136490005999804ms
+[NX Daemon Server] - 2024-05-29T15:11:13.397Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:11:14.851Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:11:14.851Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:11:15.456Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:11:15.542Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:11:15.980Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:11:18.053Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:11:18.054Z - [REQUEST]: apps/rshogancom/components/RSHCardHoveredEffect.tsx
+[NX Daemon Server] - 2024-05-29T15:11:18.054Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:11:18.231Z - Time taken for 'hash changed files from watcher' 2.0106540005654097ms
+[NX Daemon Server] - 2024-05-29T15:11:25.675Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:11:25.676Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:11:26.239Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:11:26.406Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:11:26.851Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:11:32.078Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:11:32.078Z - [REQUEST]: apps/rshogancom/components/RSHCardHoveredEffect.tsx
+[NX Daemon Server] - 2024-05-29T15:11:32.078Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:11:32.279Z - Time taken for 'hash changed files from watcher' 1.497613999992609ms
+[NX Daemon Server] - 2024-05-29T15:11:47.584Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:00.618Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:08.080Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:26.517Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:26.569Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:27.047Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:27.146Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:27.348Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:27.798Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:27.805Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:12:28.752Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:28.819Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:28.943Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:29.028Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:29.105Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:29.634Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:30.091Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:30.330Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:34.211Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:12:34.211Z - [REQUEST]: apps/rshogancom/components/RSHCardHoveredEffect.tsx
+[NX Daemon Server] - 2024-05-29T15:12:34.211Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:12:34.516Z - Time taken for 'hash changed files from watcher' 1.5083419997245073ms
+[NX Daemon Server] - 2024-05-29T15:12:36.002Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:12:36.002Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:36.626Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:36.829Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:37.279Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:37.417Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:37.512Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:12:37.514Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:38.335Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:38.414Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:38.866Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:42.404Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:12:42.404Z - [REQUEST]: apps/rshogancom/components/RSHCardHoveredEffect.tsx
+[NX Daemon Server] - 2024-05-29T15:12:42.404Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:12:42.709Z - Time taken for 'hash changed files from watcher' 1.829067999497056ms
+[NX Daemon Server] - 2024-05-29T15:12:44.622Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:12:44.623Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:44.763Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:45.340Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:47.137Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:12:47.139Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:47.693Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:47.774Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:48.156Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:12:51.025Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:12:51.025Z - [REQUEST]: apps/rshogancom/components/RSHCardHoveredEffect.tsx
+[NX Daemon Server] - 2024-05-29T15:12:51.025Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:12:51.490Z - Time taken for 'hash changed files from watcher' 1.8930989988148212ms
+[NX Daemon Server] - 2024-05-29T15:13:02.044Z - [WATCHER]: apps/rshogancom/components/RSHHeader.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:13:02.044Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:13:03.406Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:13:03.820Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:13:04.526Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:13:08.449Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:13:08.449Z - [REQUEST]: apps/rshogancom/components/RSHHeader.tsx
+[NX Daemon Server] - 2024-05-29T15:13:08.450Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:13:08.705Z - Time taken for 'hash changed files from watcher' 4.6091070007532835ms
+[NX Daemon Server] - 2024-05-29T15:13:56.408Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:13:56.408Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:13:57.026Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:13:57.206Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:13:57.733Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:13:58.763Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:13:58.765Z - [WATCHER]: apps/rshogancom/components/RSHCardHoveredEffect.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:13:58.871Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:13:59.597Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:14:00.176Z - [WATCHER]: apps/rshogancom/components/RSHComprehensiveWebServices.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:14:00.176Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:14:01.128Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:14:01.728Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:14:02.364Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:14:02.810Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:14:02.811Z - [REQUEST]: apps/rshogancom/components/RSHCardHoveredEffect.tsx,apps/rshogancom/components/RSHComprehensiveWebServices.tsx
+[NX Daemon Server] - 2024-05-29T15:14:02.811Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:14:03.105Z - Time taken for 'hash changed files from watcher' 2.387144999578595ms
+[NX Daemon Server] - 2024-05-29T15:14:22.877Z - [WATCHER]: apps/rshogancom/data/comprehensiveWebServicesData.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:14:22.880Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:14:23.011Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:14:23.144Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:14:29.282Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:14:29.283Z - [REQUEST]: apps/rshogancom/data/comprehensiveWebServicesData.tsx
+[NX Daemon Server] - 2024-05-29T15:14:29.283Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:14:29.517Z - Time taken for 'hash changed files from watcher' 1.7857399992644787ms
+[NX Daemon Server] - 2024-05-29T15:15:00.657Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:15:00.673Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:00.859Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:01.643Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:02.427Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:15:02.427Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:03.484Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:03.593Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:07.076Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:15:07.076Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:15:07.076Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:15:07.398Z - Time taken for 'hash changed files from watcher' 2.0858159996569157ms
+[NX Daemon Server] - 2024-05-29T15:15:23.969Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:15:23.969Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:24.597Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:24.895Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:30.372Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:15:30.372Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:15:30.372Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:15:30.597Z - Time taken for 'hash changed files from watcher' 2.6305320002138615ms
+[NX Daemon Server] - 2024-05-29T15:15:32.739Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:32.747Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:15:33.645Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:33.940Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:39.152Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:15:39.152Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:15:39.152Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:15:39.428Z - Time taken for 'hash changed files from watcher' 2.397352999076247ms
+[NX Daemon Server] - 2024-05-29T15:15:42.481Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:15:42.491Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:43.214Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:43.453Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:15:48.896Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:15:48.897Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:15:48.897Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:15:49.176Z - Time taken for 'hash changed files from watcher' 2.8918079994618893ms
+[NX Daemon Server] - 2024-05-29T15:16:25.010Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:16:25.011Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:16:26.578Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:16:26.589Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:16:26.746Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:16:26.990Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:16:27.708Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:16:31.413Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:16:31.414Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:16:31.414Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:16:31.758Z - Time taken for 'hash changed files from watcher' 1.9149409998208284ms
+[NX Daemon Server] - 2024-05-29T15:16:52.652Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:16:52.653Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:16:52.868Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:16:54.104Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:16:55.172Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:16:55.172Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:16:56.402Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:16:56.663Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:16:59.055Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:16:59.056Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:16:59.057Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:16:59.349Z - Time taken for 'hash changed files from watcher' 1.5166560001671314ms
+[NX Daemon Server] - 2024-05-29T15:17:03.585Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:17:03.585Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:04.240Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:04.412Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:08.198Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:17:08.198Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:08.792Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:08.940Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:09.989Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:17:09.989Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:17:09.989Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:17:10.463Z - Time taken for 'hash changed files from watcher' 2.2563469987362623ms
+[NX Daemon Server] - 2024-05-29T15:17:18.515Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:17:18.519Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:18.641Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:19.245Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:23.915Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:17:23.915Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:23.962Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:23.963Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:17:24.616Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:24.796Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:24.921Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:17:24.922Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:17:24.922Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:17:25.189Z - Time taken for 'hash changed files from watcher' 2.376476000994444ms
+[NX Daemon Server] - 2024-05-29T15:17:35.778Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:17:35.778Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:36.741Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:37.003Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:17:42.182Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:17:42.182Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:17:42.182Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:17:42.554Z - Time taken for 'hash changed files from watcher' 2.519750999286771ms
+[NX Daemon Server] - 2024-05-29T15:18:06.096Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:18:06.097Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:18:06.328Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:18:07.756Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:18:12.499Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:18:12.499Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:18:12.499Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:18:13.039Z - Time taken for 'hash changed files from watcher' 1.646534999832511ms
+[NX Daemon Server] - 2024-05-29T15:18:14.774Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:18:14.774Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:18:15.939Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:18:16.081Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:18:21.177Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:18:21.177Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:18:21.177Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:18:21.496Z - Time taken for 'hash changed files from watcher' 2.863782001659274ms
+[NX Daemon Server] - 2024-05-29T15:18:32.489Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:18:32.489Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:18:33.224Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:18:33.410Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:18:38.891Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:18:38.892Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:18:38.892Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:18:39.250Z - Time taken for 'hash changed files from watcher' 1.9904919993132353ms
+[NX Daemon Server] - 2024-05-29T15:18:41.541Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:18:41.542Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:18:42.568Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:18:42.854Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:18:47.944Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:18:47.944Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:18:47.944Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:18:48.254Z - Time taken for 'hash changed files from watcher' 2.3206060007214546ms
+[NX Daemon Server] - 2024-05-29T15:18:59.399Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:18:59.405Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:19:00.313Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:19:00.489Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:19:05.808Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:19:05.809Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:19:05.809Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:19:06.121Z - Time taken for 'hash changed files from watcher' 1.7776870001107454ms
+[NX Daemon Server] - 2024-05-29T15:19:10.263Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:19:10.269Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:19:11.036Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:19:11.246Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:19:16.673Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:19:16.673Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:19:16.673Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:19:16.958Z - Time taken for 'hash changed files from watcher' 1.995141001418233ms
+[NX Daemon Server] - 2024-05-29T15:19:26.878Z - [WATCHER]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:19:26.888Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:19:27.061Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:19:27.680Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:19:33.282Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:19:33.283Z - [REQUEST]: libs/ace-eternity/src/lib/sticky-scroll-reveal/sticky-scroll-reveal.tsx
+[NX Daemon Server] - 2024-05-29T15:19:33.283Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:19:33.609Z - Time taken for 'hash changed files from watcher' 1.8744449988007545ms
+[NX Daemon Server] - 2024-05-29T15:19:50.720Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:22.055Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:27.228Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:27.451Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:28.024Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:28.093Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:28.145Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:30.268Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:43.914Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:51.626Z - [WATCHER]: apps/rshogancom/components/RSHClientsAcrossIndustries.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:20:51.626Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:52.878Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:53.297Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:54.003Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:56.276Z - [WATCHER]: apps/rshogancom/components/RSHClientsAcrossIndustries.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:20:56.276Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:57.063Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:57.278Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:20:58.028Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:20:58.028Z - [REQUEST]: apps/rshogancom/components/RSHClientsAcrossIndustries.tsx
+[NX Daemon Server] - 2024-05-29T15:20:58.028Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:20:58.363Z - Time taken for 'hash changed files from watcher' 1.8538799993693829ms
+[NX Daemon Server] - 2024-05-29T15:21:40.175Z - [WATCHER]: apps/rshogancom/styles/styles.css was modified
+[NX Daemon Server] - 2024-05-29T15:21:40.175Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:21:41.531Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:21:41.692Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:21:46.577Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:21:46.578Z - [REQUEST]: apps/rshogancom/styles/styles.css
+[NX Daemon Server] - 2024-05-29T15:21:46.578Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:21:46.841Z - Time taken for 'hash changed files from watcher' 1.706716001033783ms
+[NX Daemon Server] - 2024-05-29T15:21:50.142Z - [WATCHER]: apps/rshogancom/styles/styles.css was modified
+[NX Daemon Server] - 2024-05-29T15:21:50.142Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:21:51.395Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:21:51.586Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:21:56.544Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:21:56.544Z - [REQUEST]: apps/rshogancom/styles/styles.css
+[NX Daemon Server] - 2024-05-29T15:21:56.544Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:21:56.803Z - Time taken for 'hash changed files from watcher' 1.8917740005999804ms
+[NX Daemon Server] - 2024-05-29T15:22:01.718Z - [WATCHER]: apps/rshogancom/styles/styles.css was modified
+[NX Daemon Server] - 2024-05-29T15:22:01.719Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:02.881Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:02.990Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:06.175Z - [WATCHER]: apps/rshogancom/styles/styles.css was modified
+[NX Daemon Server] - 2024-05-29T15:22:06.175Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:07.277Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:07.428Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:08.056Z - [WATCHER]: apps/rshogancom/styles/styles.css was modified
+[NX Daemon Server] - 2024-05-29T15:22:08.056Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:08.121Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:22:08.121Z - [REQUEST]: apps/rshogancom/styles/styles.css
+[NX Daemon Server] - 2024-05-29T15:22:08.121Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:22:08.677Z - Time taken for 'hash changed files from watcher' 2.2377429995685816ms
+[NX Daemon Server] - 2024-05-29T15:22:09.801Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:09.959Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:10.803Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:10.814Z - [WATCHER]: apps/rshogancom/styles/styles.css was modified
+[NX Daemon Server] - 2024-05-29T15:22:12.173Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:12.377Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:16.537Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:16.538Z - [WATCHER]: apps/rshogancom/styles/styles.css was modified
+[NX Daemon Server] - 2024-05-29T15:22:17.221Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:22:17.221Z - [REQUEST]: apps/rshogancom/styles/styles.css
+[NX Daemon Server] - 2024-05-29T15:22:17.221Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:22:17.442Z - Time taken for 'hash changed files from watcher' 5.185410000383854ms
+[NX Daemon Server] - 2024-05-29T15:22:17.641Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:22:17.792Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:23:17.892Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:23:17.958Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:23:18.030Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:23:18.155Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:23:18.758Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:23:18.835Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:23:18.940Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:23:20.555Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:48:24.511Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-29T15:48:24.525Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-29T15:48:24.674Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-29T15:48:24.739Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:48:34.900Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-29T15:48:34.901Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-29T15:48:34.902Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-29T15:48:34.905Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-29T15:48:34.905Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-29T15:48:34.910Z - Time taken for 'total for creating and serializing project graph' 0.23434099927544594ms
+[NX Daemon Server] - 2024-05-29T15:48:34.917Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-29T15:48:34.917Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 12.
+[NX Daemon Server] - 2024-05-29T15:48:35.389Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-05-29T15:48:35.390Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-05-29T15:48:35.390Z - Handled HASH_TASKS. Handling time: 32. Response time: 1.
+[NX Daemon Server] - 2024-05-29T15:48:38.577Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-29T15:48:38.578Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-29T15:48:38.578Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-29T15:48:38.580Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-29T15:48:38.580Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-29T15:48:38.582Z - Time taken for 'total for creating and serializing project graph' 0.13926600106060505ms
+[NX Daemon Server] - 2024-05-29T15:48:38.588Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-29T15:48:38.588Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 8.
+[NX Daemon Server] - 2024-05-29T15:48:43.901Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:48:43.939Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-29T15:48:43.974Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-05-29T15:48:43.975Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-05-29T15:48:43.975Z - Handled RECORD_OUTPUTS_HASH. Handling time: 14. Response time: 1.
+[NX Daemon Server] - 2024-05-29T15:48:43.987Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-29T15:49:03.798Z - [WATCHER]: apps/rshogancom/components/RSHComprehensiveWebServices.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:49:03.798Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:03.902Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:49:03.902Z - [REQUEST]: apps/rshogancom/components/RSHComprehensiveWebServices.tsx
+[NX Daemon Server] - 2024-05-29T15:49:03.903Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:49:04.355Z - Time taken for 'hash changed files from watcher' 2.310539999976754ms
+[NX Daemon Server] - 2024-05-29T15:49:09.449Z - [WATCHER]: apps/rshogancom/components/RSHComprehensiveWebServices.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:49:09.450Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:09.651Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:49:09.651Z - [REQUEST]: apps/rshogancom/components/RSHComprehensiveWebServices.tsx
+[NX Daemon Server] - 2024-05-29T15:49:09.651Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:49:09.902Z - Time taken for 'hash changed files from watcher' 1.733764998614788ms
+[NX Daemon Server] - 2024-05-29T15:49:11.204Z - [WATCHER]: apps/rshogancom/components/RSHComprehensiveWebServices.tsx was modified
+[NX Daemon Server] - 2024-05-29T15:49:11.205Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:11.607Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-05-29T15:49:11.607Z - [REQUEST]: apps/rshogancom/components/RSHComprehensiveWebServices.tsx
+[NX Daemon Server] - 2024-05-29T15:49:11.607Z - [REQUEST]: 
+[NX Daemon Server] - 2024-05-29T15:49:11.898Z - Time taken for 'hash changed files from watcher' 2.3917359989136457ms
+[NX Daemon Server] - 2024-05-29T15:49:13.695Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-29T15:49:13.696Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-05-29T15:49:13.697Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-29T15:49:13.699Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-29T15:49:13.699Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-29T15:49:13.702Z - Time taken for 'total for creating and serializing project graph' 0.1789660006761551ms
+[NX Daemon Server] - 2024-05-29T15:49:13.713Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-29T15:49:13.713Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 14.
+[NX Daemon Server] - 2024-05-29T15:49:13.894Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-05-29T15:49:13.895Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-05-29T15:49:13.895Z - Handled HASH_TASKS. Handling time: 32. Response time: 1.
+[NX Daemon Server] - 2024-05-29T15:49:15.673Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-29T15:49:15.674Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-29T15:49:15.674Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-29T15:49:15.676Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-29T15:49:15.676Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-29T15:49:15.679Z - Time taken for 'total for creating and serializing project graph' 0.13432100042700768ms
+[NX Daemon Server] - 2024-05-29T15:49:15.684Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-29T15:49:15.685Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 9.
+[NX Daemon Server] - 2024-05-29T15:49:19.569Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-05-29T15:49:19.570Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-05-29T15:49:19.576Z - Time taken for 'total for creating and serializing project graph' 0.2243150006979704ms
+[NX Daemon Server] - 2024-05-29T15:49:19.613Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:19.614Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-05-29T15:49:19.614Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 44.
+[NX Daemon Server] - 2024-05-29T15:49:19.761Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:21.913Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:22.480Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:22.949Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:23.118Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:23.170Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:27.952Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:28.479Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:28.683Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:29.721Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:30.194Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:30.382Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:30.827Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:30.892Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:30.992Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:31.120Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:31.186Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:31.279Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:41.142Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:41.249Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-29T15:49:41.504Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:49:41.521Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-05-29T15:49:41.521Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-05-29T15:49:41.521Z - Handled RECORD_OUTPUTS_HASH. Handling time: 3. Response time: 0.
+[NX Daemon Server] - 2024-05-29T15:49:41.585Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-29T15:50:49.103Z - Closed a connection. Number of open connections: 0
