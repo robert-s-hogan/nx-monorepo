@@ -296,12 +296,14 @@ form > * + * {
 }
 
 /* BUTTON & BUTTON STATE CLASSES */
-button {
+button,
+.btn {
   padding: var(--button-padding-y) var(--button-padding-x);
   border-radius: var(--form-element-border-radius);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-button:hover {
+button:hover,
+.btn:hover {
   transform: translateY(-0.25rem);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
