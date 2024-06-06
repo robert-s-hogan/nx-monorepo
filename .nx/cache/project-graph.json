@@ -25353,6 +25353,16 @@
         "source": "play2winff",
         "target": "npm:@nrwl/react",
         "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "npm:firebase",
+        "type": "static"
+      },
+      {
+        "source": "play2winff",
+        "target": "firebase",
+        "type": "static"
       }
     ],
     "rshogancom": [
