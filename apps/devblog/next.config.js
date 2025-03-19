@@ -15,6 +15,7 @@ const nextConfig = {
   images: {
     domains: [
       'www.dndbeyond.com',
+      'dazzling-rshgymtemplate.wordpress.com',
       'static.wikia.nocookie.net',
       'raw.githubusercontent.com',
       'localhost',

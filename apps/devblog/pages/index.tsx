@@ -1,3 +1,5 @@
+// apps/devblog/pages/index.tsx
+
 'use client';
 import React from 'react';
 
@@ -13,55 +15,70 @@ import { scrollToProjects } from '../utils/helper';
 
 const personalProjects = [
   {
-    title: 'Conquest',
+    title: 'Whited PTO',
     description:
-      'Dungeon Master tool for tracking campaigns, characters, and more.',
-    technologies: ['React', 'Next.js', 'TailwindCSS', 'Firebase'],
+      'A comprehensive redesign of a PTO website aimed at boosting parent engagement and enhancing accessibility with multilingual support for Spanish-speaking families.',
+    technologies: ['Figma', 'WordPress', 'TailwindCSS', 'Translation Plugin'],
     goals: [
-      'Create a tool for Dungeon Masters to track campaigns, characters, and more.',
-      'Use React and Next.js for the frontend.',
-      'Use TailwindCSS for styling and layout.',
-      'Use Firebase for the backend.',
-    ],
-    imageUrl: 'https://app-assets.vercel.app/apps/devblog/dev_blog-map.jpg',
-    link: 'https://conquest-nx.vercel.app',
-  },
-  {
-    title: 'Star Wars API',
-    description: 'Visualizing Star Wars data using the SWAPI.tech API.',
-    technologies: [
-      'React',
-      'Next.js',
-      'TailwindCSS',
-      'Custom SVGs',
-      'Neo-Brutalism',
-    ],
-    goals: [
-      'Create a visually appealing and interactive web app.',
-      'Use the SWAPI.tech API to fetch and display Star Wars data.',
-      'Use TailwindCSS for styling and layout.',
-      'Find custom SVGs for planet backgrounds.',
-      'Apply a Neo-Brutalism design style.',
+      'Increase parent involvement with an intuitive volunteer sign-up process',
+      'Implement a language translator to support Spanish-speaking users',
+      'Improve navigation and content hierarchy for ease-of-use',
+      'Modernize the visual design and ensure responsiveness across devices',
     ],
     imageUrl:
-      'https://app-assets.vercel.app/apps/swapi-cards/devblog_swapi-plus.jpg',
-    link: 'https://swapi-cards-nx-monorepo.vercel.app/',
+      'https://dazzling-rshgymtemplate.wordpress.com/wp-content/uploads/2025/03/whited_pto_case_study.png',
+    link: '/case-study/whited-pto',
   },
-  {
-    title: 'Concentration',
-    description:
-      'Interactive and fun game designed to test and improve your memory skills.',
-    technologies: ['Vanilla JavaScript', 'HTML5', 'CSS', 'FontAwesome'],
-    goals: [
-      'Create a fun and interactive game that tests and improves memory skills.',
-      'Use vanilla JavaScript to build the game logic.',
-      'Use HTML5 and CSS to create the game layout and design.',
-      'Use FontAwesome for the game icons.',
-    ],
-    imageUrl:
-      'https://app-assets.vercel.app/apps/concentration/concentration.png',
-    link: 'https://robert-s-hogan.github.io/Project-Memory-Game/',
-  },
+  // {
+  //   title: 'Conquest',
+  //   description:
+  //     'Dungeon Master tool for tracking campaigns, characters, and more.',
+  //   technologies: ['React', 'Next.js', 'TailwindCSS', 'Firebase'],
+  //   goals: [
+  //     'Create a tool for Dungeon Masters to track campaigns, characters, and more.',
+  //     'Use React and Next.js for the frontend.',
+  //     'Use TailwindCSS for styling and layout.',
+  //     'Use Firebase for the backend.',
+  //   ],
+  //   imageUrl: 'https://app-assets.vercel.app/apps/devblog/dev_blog-map.jpg',
+  //   link: 'https://conquest-nx.vercel.app',
+  // },
+  // {
+  //   title: 'Star Wars API',
+  //   description: 'Visualizing Star Wars data using the SWAPI.tech API.',
+  //   technologies: [
+  //     'React',
+  //     'Next.js',
+  //     'TailwindCSS',
+  //     'Custom SVGs',
+  //     'Neo-Brutalism',
+  //   ],
+  //   goals: [
+  //     'Create a visually appealing and interactive web app.',
+  //     'Use the SWAPI.tech API to fetch and display Star Wars data.',
+  //     'Use TailwindCSS for styling and layout.',
+  //     'Find custom SVGs for planet backgrounds.',
+  //     'Apply a Neo-Brutalism design style.',
+  //   ],
+  //   imageUrl:
+  //     'https://app-assets.vercel.app/apps/swapi-cards/devblog_swapi-plus.jpg',
+  //   link: 'https://swapi-cards-nx-monorepo.vercel.app/',
+  // },
+  // {
+  //   title: 'Concentration',
+  //   description:
+  //     'Interactive and fun game designed to test and improve your memory skills.',
+  //   technologies: ['Vanilla JavaScript', 'HTML5', 'CSS', 'FontAwesome'],
+  //   goals: [
+  //     'Create a fun and interactive game that tests and improves memory skills.',
+  //     'Use vanilla JavaScript to build the game logic.',
+  //     'Use HTML5 and CSS to create the game layout and design.',
+  //     'Use FontAwesome for the game icons.',
+  //   ],
+  //   imageUrl:
+  //     'https://app-assets.vercel.app/apps/concentration/concentration.png',
+  //   link: 'https://robert-s-hogan.github.io/Project-Memory-Game/',
+  // },
 ];
 
 const professionalProjects = [
@@ -131,15 +148,15 @@ const sampleTabs: Tab[] = [
       </div>
     ),
   },
-  // {
-  //   title: 'Personal',
-  //   value: 'Personal',
-  //   content: (
-  //     <div className="w-full relative h-auto rounded-2xl p-10 text-xl bg-gradient-to-br from-accent-color to-accent-color">
-  //       <DevBlogProjectCard projects={personalProjects} />
-  //     </div>
-  //   ),
-  // },
+  {
+    title: 'Personal',
+    value: 'Personal',
+    content: (
+      <div className="w-full relative h-auto rounded-2xl p-10 text-xl bg-gradient-to-br from-accent-color to-accent-color">
+        <DevBlogProjectCard projects={personalProjects} />
+      </div>
+    ),
+  },
 ];
 
 export default function Home() {
@@ -191,6 +208,7 @@ export default function Home() {
           </div>
         </DevBlogSection>
       </div>
+
       {/* PROJECTS SECTION */}
       <div id="projects" className="relative">
         <DevBlogSection className="py-32 min-h-[2450px] md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[2650px] p-0">
@@ -201,6 +219,7 @@ export default function Home() {
           </div>
         </DevBlogSection>
       </div>
+
       {/* CONTACT SECTION */}
       <div id="contact" className="relative">
         <DevBlogSection fullWidth={true} className="w-full bg-secondary-color">

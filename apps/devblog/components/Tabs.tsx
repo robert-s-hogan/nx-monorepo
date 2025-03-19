@@ -38,7 +38,7 @@ export const Tabs = ({
 
   return (
     <>
-      {/* <div
+      <div
         className={cn(
           'flex flex-row items-center justify-center [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full',
           containerClassName
@@ -78,7 +78,7 @@ export const Tabs = ({
             </span>
           </button>
         ))}
-      </div> */}
+      </div>
       <FadeInDiv
         tabs={tabs}
         active={active}

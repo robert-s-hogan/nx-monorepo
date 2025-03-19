@@ -22,6 +22,9 @@ const DevBlogLayout = ({
 }: PageLayoutProps) => {
   const router = useRouter();
   const asPath = router.asPath;
+  const isHomePage = router.pathname === '/';
+  const isCaseStudy = router.pathname.startsWith('/case-study');
+
   const hideMaxWidth7xl = asPath.includes('projects/dnd-interactive-map');
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
@@ -60,18 +63,22 @@ const DevBlogLayout = ({
       />
       {!hideNavBar && (
         <div
-          className="h-[300vh] max-w-full w-full relative overflow-clip"
+          className={`max-w-full w-full relative overflow-clip ${
+            isHomePage ? 'h-[300vh]' : isCaseStudy ? 'h-[20vh]' : 'h-auto'
+          }`}
           ref={ref}
         >
-          <HeroEffect
-            pathLengths={[
-              pathLengthFirst,
-              pathLengthSecond,
-              pathLengthThird,
-              pathLengthFourth,
-              pathLengthFifth,
-            ]}
-          />
+          {isHomePage && (
+            <HeroEffect
+              pathLengths={[
+                pathLengthFirst,
+                pathLengthSecond,
+                pathLengthThird,
+                pathLengthFourth,
+                pathLengthFifth,
+              ]}
+            />
+          )}
         </div>
       )}
       <div
