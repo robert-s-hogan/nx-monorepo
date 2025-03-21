@@ -149,8 +149,8 @@ const sampleTabs: Tab[] = [
     ),
   },
   {
-    title: 'Personal',
-    value: 'Personal',
+    title: 'Volunteer',
+    value: 'Volunteer',
     content: (
       <div className="w-full relative h-auto rounded-2xl p-10 text-xl bg-gradient-to-br from-accent-color to-accent-color">
         <DevBlogProjectCard projects={personalProjects} />
