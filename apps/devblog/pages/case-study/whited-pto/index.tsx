@@ -1,5 +1,3 @@
-// apps/devblog/pages/case-study.tsx
-
 'use client';
 import React from 'react';
 
@@ -11,6 +9,7 @@ export default function CaseStudy() {
   return (
     <DevBlogLayout title="Case Study | PTO Site Redesign" hideNavBar={false}>
       <DevBlogSection fullWidth={false} className="py-32">
+        {/* Title & Introduction */}
         <Heading
           level={2}
           className="text-center mb-4"
@@ -21,17 +20,30 @@ export default function CaseStudy() {
           className="text-xl italic mb-8 text-center"
           text="Boosting Parent Involvement & Accessibility"
         />
+
         <div className="max-w-3xl mx-auto space-y-10">
-          <div>
+          {/* Introduction */}
+          <section>
+            <Heading
+              level={3}
+              className="text-xl font-bold mb-2"
+              text="Introduction"
+            />
+            <Text text="An overview of the redesign project, its context, and why it was initiated." />
+          </section>
+
+          {/* Problem Statement */}
+          <section>
             <Heading
               level={3}
               className="text-xl font-bold mb-2"
               text="Problem Statement"
             />
             <Text text="The original PTO website faced low parent engagement, lacked clear calls-to-action for volunteering, and had no multilingual support for Spanish-speaking families." />
-          </div>
+          </section>
 
-          <div>
+          {/* Goals & Objectives */}
+          <section>
             <Heading
               level={3}
               className="text-xl font-bold mb-2"
@@ -43,9 +55,10 @@ export default function CaseStudy() {
               <li>Improve content hierarchy and navigation</li>
               <li>Implement a modern, responsive layout</li>
             </ul>
-          </div>
+          </section>
 
-          <div>
+          {/* Design & Approach */}
+          <section>
             <Heading
               level={3}
               className="text-xl font-bold mb-2"
@@ -53,9 +66,28 @@ export default function CaseStudy() {
             />
             <Text text="Using Figma for prototyping and WordPress for a functional test site, the redesign process included wireframing, color palette selection, and responsive layout testing." />
             <Text text="Key tasks involved configuring a translation plugin, reorganizing content for clarity, and ensuring a user-friendly parent volunteer form." />
-          </div>
+          </section>
 
-          <div>
+          {/* Figma Prototype */}
+          <section>
+            <Heading
+              level={3}
+              className="text-xl font-bold mb-2"
+              text="Figma Prototype"
+            />
+            <div className="embed-container mb-8">
+              <iframe
+                style={{ border: '1px solid rgba(0, 0, 0, 0.1)' }}
+                width="100%"
+                height="450"
+                src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/i4WisorQCHHIW8SXLEJcDA/whited-pto?node-id=46-1304&p=f&t=HjJiNw2voYo8A9JA-0"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </section>
+
+          {/* Key Outcomes */}
+          <section>
             <Heading
               level={3}
               className="text-xl font-bold mb-2"
@@ -66,16 +98,58 @@ export default function CaseStudy() {
               <li>Clear call-to-action for volunteer sign-ups</li>
               <li>Improved mobile experience with optimized load times</li>
             </ul>
-          </div>
+          </section>
 
-          <div>
+          {/* Next Steps */}
+          <section>
             <Heading
               level={3}
               className="text-xl font-bold mb-2"
               text="Next Steps"
             />
             <Text text="Continued user testing with Spanish-speaking parents, refining final design elements, and finalizing plugin configurations before launch." />
-          </div>
+          </section>
+
+          {/* Useful Links */}
+          <section>
+            <Heading
+              level={3}
+              className="text-xl font-bold mb-2"
+              text="Useful Links"
+            />
+            <ul className="list-disc list-inside pl-4">
+              <li>
+                <a
+                  href="https://www.figma.com/design/i4WisorQCHHIW8SXLEJcDA/whited-pto?node-id=46-1304&p=f&t=HjJiNw2voYo8A9JA-0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  View the Figma Design
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://dazzling-rshgymtemplate.wordpress.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Live Demo
+                </a>
+              </li>
+              {/* <li>
+                <a
+                  href="https://github.com/your-repo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  View on GitHub
+                </a>
+              </li> */}
+            </ul>
+          </section>
         </div>
       </DevBlogSection>
     </DevBlogLayout>
