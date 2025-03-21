@@ -12,25 +12,28 @@ const logo = (
 );
 
 const links = [
-  {
-    id: 'about',
-    href: '#about',
-    children: 'About',
-  },
-  {
-    id: 'projects',
-    href: '#projects',
-    children: 'Projects',
-  },
+  { id: 'about', href: '#about', children: 'About' },
+  { id: 'projects', href: '#projects', children: 'Projects' },
 ];
 
-const DevBlogHeader = () => {
+interface DevBlogHeaderProps {
+  isHomePage: boolean;
+}
+
+const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
   const { theme, toggleTheme, fadeClass } = useTheme();
+  // If not on the homepage, always show the header
   const [isMounted, setIsMounted] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(isHomePage ? false : true);
   const [activeLink, setActiveLink] = useState<string>('');
 
   useEffect(() => {
+    // For non-home pages, disable scroll effect and always show header
+    if (!isHomePage) {
+      setIsVisible(true);
+      return;
+    }
+
     const handleScroll = () => {
       if (window.scrollY > 350) {
         setIsVisible(true);
@@ -58,15 +61,13 @@ const DevBlogHeader = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
     handleScroll();
-
     setIsMounted(true);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isHomePage]);
 
   const toggleButton = isMounted ? (
     <IconButton

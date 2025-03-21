@@ -41,7 +41,7 @@ const DevBlogLayout = ({
   return (
     <PageLayout
       className={`w-full min-h-screen ${className}`}
-      header={hideNavBarProp ? '' : <DevBlogHeader />}
+      header={hideNavBarProp ? '' : <DevBlogHeader isHomePage={isHomePage} />}
       footer={<DevBlogFooter />}
     >
       <Seo

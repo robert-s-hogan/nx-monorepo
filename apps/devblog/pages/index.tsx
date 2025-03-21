@@ -212,7 +212,7 @@ export default function Home() {
       {/* PROJECTS SECTION */}
       <div id="projects" className="relative">
         <DevBlogSection className="py-32 min-h-[2450px] md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[2650px] p-0">
-          <Heading level={2} className="text-center mb-4" text="Professional" />
+          <Heading level={2} className="text-center mb-4" text="Projects" />
           <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
           <div className="[perspective:1000px] relative flex flex-col mx-auto w-full  items-start justify-start my-40">
             <Tabs tabs={sampleTabs} />
