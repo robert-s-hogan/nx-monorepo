@@ -109,13 +109,15 @@ const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
             {links.map((link) => (
               <Link
                 key={link.id}
-                href={link.href}
+                href={isHomePage ? link.href : `/${link.href}`}
                 className={`nav-link ${
                   activeLink === link.href ? 'active' : ''
                 }`}
                 onClick={(e) => {
-                  e.preventDefault();
-                  scrollToProjects(link.id);
+                  if (isHomePage) {
+                    e.preventDefault();
+                    scrollToProjects(link.id);
+                  }
                 }}
               >
                 <span>{link.children}</span>

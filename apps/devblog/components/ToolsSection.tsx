@@ -52,6 +52,10 @@ export const HoverEffect = ({
 
 const tools = [
   'JavaScript',
+  'Vue.js',
+  'Firebase',
+  'GitHub',
+  'Pinia',
   'Express.js',
   'Node.js',
   'HTML5',
@@ -66,8 +70,6 @@ const tools = [
   'React Testing Library',
   'CLI',
   'Storybook',
-  'Firebase',
-  'GitHub',
   'Vercel',
   'Stripe',
   'Git',

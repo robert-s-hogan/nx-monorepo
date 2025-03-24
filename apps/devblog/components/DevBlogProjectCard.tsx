@@ -1,11 +1,14 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import Image from 'next/image';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useRouter } from 'next/router';
+import { Flex } from '@with-nx/react-ui';
+import { IconButton } from '@with-nx/generic-ui';
+import { FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
+import { Heading, Text } from '@with-nx/generic-ui';
 import { cn } from '@with-nx/utils';
-import { FaExternalLinkAlt } from 'react-icons/fa';
-import { Heading, Text, IconButton } from '@with-nx/generic-ui';
+import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
+import { useRef, useState } from 'react';
 
 export const DirectionAwareHover = ({
   imageUrl,
@@ -23,7 +26,6 @@ export const DirectionAwareHover = ({
   index: number;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-
   const [direction, setDirection] = useState<
     'top' | 'bottom' | 'left' | 'right' | string
   >('left');
@@ -32,7 +34,6 @@ export const DirectionAwareHover = ({
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     if (!ref.current) return;
-
     const direction = getDirection(event, ref.current);
     switch (direction) {
       case 0:
@@ -86,10 +87,7 @@ export const DirectionAwareHover = ({
           <motion.div
             variants={variants}
             className="h-full w-full relative"
-            transition={{
-              duration: 0.2,
-              ease: 'easeOut',
-            }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
           >
             <div className="overflow-hidden md:w-full md:h-full lg:w-[1000px] lg:h-[425px]">
               <Image
@@ -106,10 +104,7 @@ export const DirectionAwareHover = ({
           </motion.div>
           <motion.div
             variants={textVariants}
-            transition={{
-              duration: 0.5,
-              ease: 'easeOut',
-            }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
             className={cn(
               'text-white absolute top-8 left-1 z-40 space-y-2',
               childrenClassName
@@ -124,58 +119,26 @@ export const DirectionAwareHover = ({
 };
 
 const variants = {
-  initial: {
-    x: 0,
-  },
-
-  exit: {
-    x: 0,
-    y: 0,
-  },
-  top: {
-    y: 20,
-  },
-  bottom: {
-    y: -20,
-  },
-  left: {
-    x: 20,
-  },
-  right: {
-    x: -20,
-  },
+  initial: { x: 0 },
+  exit: { x: 0, y: 0 },
+  top: { y: 20 },
+  bottom: { y: -20 },
+  left: { x: 20 },
+  right: { x: -20 },
 };
 
 const textVariants = {
-  initial: {
-    y: 0,
-    x: 0,
-    opacity: 0,
-  },
-  exit: {
-    y: 0,
-    x: 0,
-    opacity: 0,
-  },
-  top: {
-    y: -20,
-    opacity: 1,
-  },
-  bottom: {
-    y: 20,
-    opacity: 1,
-  },
-  left: {
-    x: -20,
-    opacity: 1,
-  },
-  right: {
-    x: 20,
-    opacity: 1,
-  },
+  initial: { y: 0, x: 0, opacity: 0 },
+  exit: { y: 0, x: 0, opacity: 0 },
+  top: { y: -20, opacity: 1 },
+  bottom: { y: 20, opacity: 1 },
+  left: { x: -20, opacity: 1 },
+  right: { x: 20, opacity: 1 },
 };
 
 export default function DevBlogProjectCard({ projects }) {
+  const router = useRouter();
+
   return (
     <div className="p-1 lg:p-8 text-center bg-secondary-color rounded-md w-full">
       {projects.map((project, index) => (
@@ -211,8 +174,20 @@ export default function DevBlogProjectCard({ projects }) {
               className="px-4 py-2 w-fit mx-auto"
               text="Check it"
               label="Check it"
-              icon={<FaExternalLinkAlt size={24} />}
-              onClick={() => window.open(project.link, '_blank')}
+              icon={
+                project.link.startsWith('/') ? (
+                  <FaArrowRight size={24} />
+                ) : (
+                  <FaExternalLinkAlt size={24} />
+                )
+              }
+              onClick={() => {
+                if (project.link.startsWith('/')) {
+                  router.push(project.link);
+                } else {
+                  window.open(project.link, '_blank');
+                }
+              }}
             />
           </div>
           <div
@@ -223,19 +198,24 @@ export default function DevBlogProjectCard({ projects }) {
             }`}
           >
             <DirectionAwareHover imageUrl={project.imageUrl} index={index}>
-              <div className="px-6 space-y-4 text-white">
-                <Heading
-                  level={3}
-                  text="Description & Goals"
-                  className="text-left pt-0"
-                />
-                <Text className="text-left" text={project.description} />
-                <ul className="list-disc text-left">
-                  {project.goals.map((goal, index) => (
-                    <li key={index}>{goal}</li>
-                  ))}
-                </ul>
-              </div>
+              {project.goals ? (
+                <div className="px-6 space-y-4 text-white">
+                  <Heading
+                    level={3}
+                    text="Description & Goals"
+                    className="text-left pt-0"
+                  />
+                  <Text className="text-left" text={project.description} />
+
+                  <ul className="list-disc text-left">
+                    {project.goals.map((goal, index) => (
+                      <li key={index}>{goal}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                ''
+              )}
             </DirectionAwareHover>
           </div>
         </div>
