@@ -173,7 +173,7 @@ export default function WhitedPTOCaseStudy() {
             </li>
             <li>
               <a
-                href="https://dazzling-rshgymtemplate.wordpress.com"
+                href="https://testwhitedpto.wordpress.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline"
@@ -181,7 +181,6 @@ export default function WhitedPTOCaseStudy() {
                 WordPress Test Site
               </a>
             </li>
-            {/* Add other relevant links or repositories here if you have them */}
           </ul>
         </section>
       </DevBlogSection>
