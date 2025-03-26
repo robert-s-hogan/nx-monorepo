@@ -6,6 +6,7 @@ import React from 'react';
 import { Heading, Text } from '@with-nx/generic-ui';
 import DevBlogLayout from '../../../components/DevBlogLayout';
 import DevBlogSection from '../../../components/DevBlogSection';
+import Compare from '../../../components/Compare';
 
 export default function WhitedPTOCaseStudy() {
   return (
@@ -151,6 +152,30 @@ export default function WhitedPTOCaseStudy() {
             className="text-base"
             text="After launch, we’ll track engagement metrics and parent feedback to guide future updates, ensuring the site remains relevant and user-friendly."
           />
+        </section>
+
+        <section className="max-w-3xl mx-auto mb-10">
+          <div className="flex flex-col space-y-8 mb-8">
+            <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200 dark:border-neutral-800">
+              <Heading
+                level={4}
+                className="text-lg font-semibold mb-2"
+                text="Whited PTO"
+              />
+              <div className="flex w-full items-center justify-between mb-2">
+                <span className="text-xs">Before</span>
+                <span className="text-xs">After</span>
+              </div>
+              <Compare
+                firstImage="https://rhogandev.wordpress.com/wp-content/uploads/2025/03/whited-pto_original-1.png"
+                secondImage="https://rhogandev.wordpress.com/wp-content/uploads/2025/03/whited-pto_new.png"
+                firstImageClassName="object-cover object-left-top"
+                secondImageClassname="object-cover object-left-top"
+                className="h-[250px] w-full md:h-[500px]"
+                slideMode="hover"
+              />
+            </div>
+          </div>
         </section>
 
         {/* LINKS & REFERENCES */}
