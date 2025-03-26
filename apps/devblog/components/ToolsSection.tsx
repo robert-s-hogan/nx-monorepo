@@ -41,7 +41,7 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <span className="relative z-20 bg-bg-color p-3 rounded-md">
+          <span className="relative z-20 bg-bg-color p-3 rounded-md text-xs md:text-base">
             {item.title}
           </span>
         </p>
@@ -54,6 +54,7 @@ const tools = [
   'JavaScript',
   'Vue.js',
   'Firebase',
+  'SEO',
   'GitHub',
   'Pinia',
   'Express.js',
@@ -64,20 +65,19 @@ const tools = [
   'Next.js',
   'Jest',
   'TailwindCSS',
-  'TypeScript',
   'Nx Monorepo',
   'WordPress',
+  'Bootstrap',
+  'SASS',
+  'Git',
+  'jQuery',
   'React Testing Library',
   'CLI',
+  'CORESense',
   'Storybook',
+  'TypeScript',
   'Vercel',
   'Stripe',
-  'Git',
-  'CORESense',
-  'SASS',
-  'jQuery',
-  'Bootstrap',
-  'SEO',
 ].map((tool) => ({
   title: tool,
   link: `https://example.com/${tool.toLowerCase()}`,

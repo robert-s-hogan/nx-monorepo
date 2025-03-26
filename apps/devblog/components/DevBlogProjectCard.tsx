@@ -142,7 +142,10 @@ export default function DevBlogProjectCard({ projects }) {
   return (
     <div className="p-1 lg:p-8 text-center bg-secondary-color rounded-md w-full">
       {projects.map((project, index) => (
-        <div key={index} className="grid grid-cols-1 md:grid-cols-3 py-16">
+        <div
+          key={index}
+          className="grid grid-cols-1 md:grid-cols-3 pb-8 md:py-16"
+        >
           <div
             className={`bg-surface-color p-4 lg:p-6 h-full shadow-lg flex flex-col justify-center rounded-md ${
               index % 2 === 0
@@ -163,7 +166,7 @@ export default function DevBlogProjectCard({ projects }) {
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="bg-accent-color text-sm lg:text-base px-3 py-1 rounded-md"
+                  className="bg-accent-color text-xs lg:text-base px-3 py-1 rounded-md"
                 >
                   {tech}
                 </span>

@@ -120,7 +120,7 @@ const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
                   }
                 }}
               >
-                <span>{link.children}</span>
+                <span className="text-xs md:text-base">{link.children}</span>
               </Link>
             ))}
             {toggleButton}
