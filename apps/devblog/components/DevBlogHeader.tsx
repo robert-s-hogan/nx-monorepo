@@ -2,7 +2,7 @@ import { Flex } from '@with-nx/react-ui';
 import { IconButton } from '@with-nx/generic-ui';
 import Link from 'next/link';
 import { useTheme, ThemeType } from '@with-nx/theme';
-import { FiMoon, FiSun } from 'react-icons/fi';
+import { FiMoon, FiSun, FiDownload } from 'react-icons/fi';
 import { CustomRSHLogo } from '@with-nx/icons';
 import { useState, useEffect } from 'react';
 import { scrollToProjects } from '../utils/helper';
@@ -11,7 +11,6 @@ const logo = (
   <CustomRSHLogo className="h-12 w-12 md:mb-2 text-primary nav-logo" />
 );
 
-// We've left your original links alone, but you could also add "Resume" in here:
 const links = [
   { id: 'about', href: '#about', children: 'About' },
   { id: 'projects', href: '#projects', children: 'Projects' },
@@ -23,16 +22,29 @@ interface DevBlogHeaderProps {
 
 const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
   const { theme, toggleTheme, fadeClass } = useTheme();
+
+  // State to track if the component has mounted
+  // (used for fade animations and controlling the toggle button)
   const [isMounted, setIsMounted] = useState(false);
+
+  // State to manage header visibility (fades in/out on scroll, if home page)
   const [isVisible, setIsVisible] = useState(isHomePage ? false : true);
+
+  // Track which link is currently active based on scroll
   const [activeLink, setActiveLink] = useState<string>('');
 
   useEffect(() => {
+    // Make sure we always consider the component "mounted" on first render,
+    // regardless of page. That way the toggle button can appear everywhere.
+    setIsMounted(true);
+
+    // If not on the home page, just show the header and skip scroll logic.
     if (!isHomePage) {
       setIsVisible(true);
       return;
     }
 
+    // Only apply scroll-based visibility and active-link detection on home page
     const handleScroll = () => {
       if (window.scrollY > 350) {
         setIsVisible(true);
@@ -60,14 +72,15 @@ const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    setIsMounted(true);
+    handleScroll(); // run it once right away
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [isHomePage]);
 
+  // Only show the toggle button if the component is mounted
+  // so we avoid hydration mismatch with SSR
   const toggleButton = isMounted ? (
     <IconButton
       onClick={toggleTheme}
@@ -92,6 +105,7 @@ const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
     >
       <div className="container mx-auto max-w-full bg-bg-color shadow-xl">
         <Flex className="flex-row justify-between py-4 container mx-auto items-center space-y-2 md:space-y-0">
+          {/* LOGO AREA */}
           <Flex className="items-center">
             <Link
               href="/"
@@ -105,7 +119,7 @@ const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
             </Link>
           </Flex>
 
-          {/* NAVIGATION LINKS */}
+          {/* NAV + BUTTONS */}
           <Flex className="flex items-center space-x-4">
             {links.map((link) => (
               <Link
@@ -115,6 +129,7 @@ const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
                   activeLink === link.href ? 'active' : ''
                 }`}
                 onClick={(e) => {
+                  // If on home page, smoothly scroll to the section
                   if (isHomePage) {
                     e.preventDefault();
                     scrollToProjects(link.id);
@@ -125,28 +140,17 @@ const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
               </Link>
             ))}
 
-            {/* ADD YOUR RESUME LINK HERE */}
-            {/* Option 1: Open in a new tab */}
-            <Link
+            {/* DOWNLOAD RESUME BUTTON with ICON */}
+            <a
               href="https://rhogandev.wordpress.com/wp-content/uploads/2025/03/27.03.25-rh-resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-link"
+              download
+              className="nav-link inline-flex items-center space-x-1"
             >
               <span className="text-xs md:text-base">Resume</span>
-            </Link>
-
-            {/* Option 2: Force a download */}
-            {/* 
-            <a
-              href="/resume.pdf"
-              download
-              className="nav-link"
-            >
-              <span className="text-xs md:text-base">Download Resume</span>
+              <FiDownload className="h-4 w-4" />
             </a>
-            */}
 
+            {/* THEME TOGGLE BUTTON */}
             {toggleButton}
           </Flex>
         </Flex>
