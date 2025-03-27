@@ -11,6 +11,7 @@ const logo = (
   <CustomRSHLogo className="h-12 w-12 md:mb-2 text-primary nav-logo" />
 );
 
+// We've left your original links alone, but you could also add "Resume" in here:
 const links = [
   { id: 'about', href: '#about', children: 'About' },
   { id: 'projects', href: '#projects', children: 'Projects' },
@@ -22,13 +23,11 @@ interface DevBlogHeaderProps {
 
 const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
   const { theme, toggleTheme, fadeClass } = useTheme();
-  // If not on the homepage, always show the header
   const [isMounted, setIsMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(isHomePage ? false : true);
   const [activeLink, setActiveLink] = useState<string>('');
 
   useEffect(() => {
-    // For non-home pages, disable scroll effect and always show header
     if (!isHomePage) {
       setIsVisible(true);
       return;
@@ -105,6 +104,8 @@ const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
               <span>Robert Hogan</span>
             </Link>
           </Flex>
+
+          {/* NAVIGATION LINKS */}
           <Flex className="flex items-center space-x-4">
             {links.map((link) => (
               <Link
@@ -123,6 +124,29 @@ const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
                 <span className="text-xs md:text-base">{link.children}</span>
               </Link>
             ))}
+
+            {/* ADD YOUR RESUME LINK HERE */}
+            {/* Option 1: Open in a new tab */}
+            <Link
+              href="https://rhogandev.wordpress.com/wp-content/uploads/2025/03/27.03.25-rh-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link"
+            >
+              <span className="text-xs md:text-base">Resume</span>
+            </Link>
+
+            {/* Option 2: Force a download */}
+            {/* 
+            <a
+              href="/resume.pdf"
+              download
+              className="nav-link"
+            >
+              <span className="text-xs md:text-base">Download Resume</span>
+            </a>
+            */}
+
             {toggleButton}
           </Flex>
         </Flex>
