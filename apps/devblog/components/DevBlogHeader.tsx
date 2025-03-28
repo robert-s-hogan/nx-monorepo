@@ -144,10 +144,10 @@ const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
             <a
               href="https://rhogandev.wordpress.com/wp-content/uploads/2025/03/27.03.25-rh-resume.pdf"
               download
-              className="nav-link inline-flex items-center space-x-1"
+              className="inline-flex items-center space-x-1 leading-none"
             >
               <span className="text-xs md:text-base">Resume</span>
-              <FiDownload className="h-4 w-4" />
+              <FiDownload className="h-4 w-4 align-middle" />
             </a>
 
             {/* THEME TOGGLE BUTTON */}

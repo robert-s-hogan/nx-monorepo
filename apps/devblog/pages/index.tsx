@@ -13,7 +13,7 @@ import ToolsSection from '../components/ToolsSection';
 import { scrollToProjects } from '../utils/helper';
 
 // Removed the 'goals' property from each project object.
-const personalProjects = [
+const volunteerProjects = [
   {
     title: 'Whited PTO',
     description:
@@ -23,7 +23,6 @@ const personalProjects = [
       'https://dazzling-rshgymtemplate.wordpress.com/wp-content/uploads/2025/03/whited_pto_case_study.png',
     link: '/case-study/whited-pto',
   },
-  // Other personal project objects (if needed)...
 ];
 
 const professionalProjects = [
@@ -76,7 +75,7 @@ const sampleTabs: Tab[] = [
     value: 'Volunteer',
     content: (
       <div className="w-full relative h-auto rounded-2xl p-1 lg:p-10 text-xl bg-gradient-to-br from-accent-color to-accent-color">
-        <DevBlogProjectCard projects={personalProjects} />
+        <DevBlogProjectCard projects={volunteerProjects} />
       </div>
     ),
   },
@@ -96,7 +95,7 @@ export default function Home() {
             <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
             <Text
               className="text-xl mb-20 italic max-w-4xl mx-auto"
-              text="Dedicated Frontend Engineer with over 6 years of experience specializing in React.js, Next.js, and user-centric application development."
+              text="Dedicated Frontend Engineer with over 7 years of experience specializing in Vue.js, React.js, Next.js, and user-centric application development."
             />
             <div className="flex flex-col lg:flex-row justify-center items-start lg:items-center space-y-8 lg:space-y-0 lg:space-x-16">
               <div className="w-full lg:w-1/2 text-left">
@@ -107,11 +106,11 @@ export default function Home() {
                 />
                 <Text
                   className="text-lg mb-4"
-                  text="I'm a software developer proficient in JavaScript and the web..."
+                  text="I'm a web developer proficient in JavaScript and the web. I'm passionate about web performance, accessibility, mentoring, user & developer experience."
                 />
                 <Text
                   className="text-lg mb-4"
-                  text="In my free time, I build side projects..."
+                  text="In my free time, I build side projects and like exploring new technologies. You can see some of my work in the projects section below."
                 />
                 <Button
                   theme="primary"
