@@ -144,10 +144,6 @@ export default function LykasCaseStudy() {
             className="text-xl font-bold mb-2"
             text="Project Screenshots"
           />
-          <Text
-            className="text-base mb-4"
-            text="Due to NDA constraints, we cannot show the actual user interface or provide detailed visual previews of the refactored components. Below is a simple placeholder to illustrate the transformation approach."
-          />
 
           <div className="flex flex-col space-y-8 mb-8">
             <Text

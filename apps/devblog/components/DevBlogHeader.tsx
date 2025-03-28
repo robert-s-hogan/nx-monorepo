@@ -89,9 +89,9 @@ const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
       label="Toggle Theme"
       icon={
         theme && (theme as ThemeType).name === 'light' ? (
-          <FiMoon className={`moon h-6 w-6 ${fadeClass}`} />
+          <FiMoon className={`moon h-4 w-4 ${fadeClass}`} />
         ) : (
-          <FiSun className={`sun h-6 w-6 ${fadeClass}`} />
+          <FiSun className={`sun h-4 w-4 ${fadeClass}`} />
         )
       }
     />

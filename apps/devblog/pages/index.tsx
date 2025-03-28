@@ -12,6 +12,8 @@ import { ContactForm } from '../components/contact-form';
 import ToolsSection from '../components/ToolsSection';
 import { scrollToProjects } from '../utils/helper';
 
+const yearsExperience = new Date().getFullYear() - 2018;
+
 // Removed the 'goals' property from each project object.
 const volunteerProjects = [
   {
@@ -26,6 +28,15 @@ const volunteerProjects = [
 ];
 
 const professionalProjects = [
+  {
+    title: 'LYKAS',
+    description:
+      'Refactored an extensive Python/HTML app into a modular Vue.js and Pinia-based solution, focusing on atomic design principles.',
+    technologies: ['Vue.js', 'TypeScript', 'Pinia', 'Atomic Design'],
+    imageUrl:
+      'https://rhogandev.wordpress.com/wp-content/uploads/2025/03/devblog_lykas.jpg',
+    link: '/case-study/lykas',
+  },
   {
     title: 'Broadway Media',
     description:
@@ -95,7 +106,7 @@ export default function Home() {
             <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
             <Text
               className="text-xl mb-20 italic max-w-4xl mx-auto"
-              text="Dedicated Frontend Engineer with over 7 years of experience specializing in Vue.js, React.js, Next.js, and user-centric application development."
+              text={`Dedicated Frontend Engineer with over ${yearsExperience} years of experience specializing in Vue.js, React.js, Next.js, and user-centric application development.`}
             />
             <div className="flex flex-col lg:flex-row justify-center items-start lg:items-center space-y-8 lg:space-y-0 lg:space-x-16">
               <div className="w-full lg:w-1/2 text-left">
@@ -133,7 +144,7 @@ export default function Home() {
 
       {/* PROJECTS SECTION */}
       <div id="projects" className="relative">
-        <DevBlogSection className="py-32 min-h-[2050px] md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[2650px] p-0">
+        <DevBlogSection className="py-32 min-h-[2050px] md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[3100px] p-0">
           <Heading level={2} className="text-center mb-4" text="Projects" />
           <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
           <div className="[perspective:1200px] relative flex flex-col mx-auto w-full items-start justify-start my-40">
