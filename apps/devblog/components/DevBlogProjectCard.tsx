@@ -162,7 +162,7 @@ export default function DevBlogProjectCard({ projects }) {
               className="text-base lg:text-xl mb-4"
               text={project.description}
             />
-            <div className="flex flex-wrap gap-2 mb-4">
+            {/* <div className="flex flex-wrap gap-2 mb-4">
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
@@ -171,7 +171,7 @@ export default function DevBlogProjectCard({ projects }) {
                   {tech}
                 </span>
               ))}
-            </div>
+            </div> */}
             <IconButton
               theme="primary"
               className="px-4 py-2 w-fit mx-auto"
@@ -209,12 +209,12 @@ export default function DevBlogProjectCard({ projects }) {
                     className="text-left pt-0"
                   />
                   <Text className="text-left" text={project.description} />
-
+                  {/* 
                   <ul className="list-disc text-left">
                     {project.goals.map((goal, index) => (
                       <li key={index}>{goal}</li>
                     ))}
-                  </ul>
+                  </ul> */}
                 </div>
               ) : (
                 ''

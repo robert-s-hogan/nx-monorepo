@@ -2,7 +2,6 @@
 
 'use client';
 import React from 'react';
-
 import { Button, Heading, Text } from '@with-nx/generic-ui';
 
 import DevBlogLayout from '../components/DevBlogLayout';
@@ -13,72 +12,18 @@ import { ContactForm } from '../components/contact-form';
 import ToolsSection from '../components/ToolsSection';
 import { scrollToProjects } from '../utils/helper';
 
+// Removed the 'goals' property from each project object.
 const personalProjects = [
   {
     title: 'Whited PTO',
     description:
       'A comprehensive redesign of a PTO website aimed at boosting parent engagement and enhancing accessibility with multilingual support for Spanish-speaking families.',
     technologies: ['Figma', 'WordPress', 'TailwindCSS', 'Translation Plugin'],
-    goals: [
-      'Increase parent involvement with an intuitive volunteer sign-up process',
-      'Implement a language translator to support Spanish-speaking users',
-      'Improve navigation and content hierarchy for ease-of-use',
-      'Modernize the visual design and ensure responsiveness across devices',
-    ],
     imageUrl:
       'https://dazzling-rshgymtemplate.wordpress.com/wp-content/uploads/2025/03/whited_pto_case_study.png',
     link: '/case-study/whited-pto',
   },
-  // {
-  //   title: 'Conquest',
-  //   description:
-  //     'Dungeon Master tool for tracking campaigns, characters, and more.',
-  //   technologies: ['React', 'Next.js', 'TailwindCSS', 'Firebase'],
-  //   goals: [
-  //     'Create a tool for Dungeon Masters to track campaigns, characters, and more.',
-  //     'Use React and Next.js for the frontend.',
-  //     'Use TailwindCSS for styling and layout.',
-  //     'Use Firebase for the backend.',
-  //   ],
-  //   imageUrl: 'https://app-assets.vercel.app/apps/devblog/dev_blog-map.jpg',
-  //   link: 'https://conquest-nx.vercel.app',
-  // },
-  // {
-  //   title: 'Star Wars API',
-  //   description: 'Visualizing Star Wars data using the SWAPI.tech API.',
-  //   technologies: [
-  //     'React',
-  //     'Next.js',
-  //     'TailwindCSS',
-  //     'Custom SVGs',
-  //     'Neo-Brutalism',
-  //   ],
-  //   goals: [
-  //     'Create a visually appealing and interactive web app.',
-  //     'Use the SWAPI.tech API to fetch and display Star Wars data.',
-  //     'Use TailwindCSS for styling and layout.',
-  //     'Find custom SVGs for planet backgrounds.',
-  //     'Apply a Neo-Brutalism design style.',
-  //   ],
-  //   imageUrl:
-  //     'https://app-assets.vercel.app/apps/swapi-cards/devblog_swapi-plus.jpg',
-  //   link: 'https://swapi-cards-nx-monorepo.vercel.app/',
-  // },
-  // {
-  //   title: 'Concentration',
-  //   description:
-  //     'Interactive and fun game designed to test and improve your memory skills.',
-  //   technologies: ['Vanilla JavaScript', 'HTML5', 'CSS', 'FontAwesome'],
-  //   goals: [
-  //     'Create a fun and interactive game that tests and improves memory skills.',
-  //     'Use vanilla JavaScript to build the game logic.',
-  //     'Use HTML5 and CSS to create the game layout and design.',
-  //     'Use FontAwesome for the game icons.',
-  //   ],
-  //   imageUrl:
-  //     'https://app-assets.vercel.app/apps/concentration/concentration.png',
-  //   link: 'https://robert-s-hogan.github.io/Project-Memory-Game/',
-  // },
+  // Other personal project objects (if needed)...
 ];
 
 const professionalProjects = [
@@ -95,14 +40,6 @@ const professionalProjects = [
       'Stripe',
       'Redux Toolkit',
     ],
-    // goals: [
-    //   'Create a new website for Broadway Media.',
-    //   'Use React and Next.js for the frontend.',
-    //   'Create custom component library.',
-    //   'Use Nx Monorepo to manage the project.',
-    //   'Use Redux Toolkit for state management.',
-    //   'Integrate Stripe for payment processing.',
-    // ],
     imageUrl: 'https://app-assets.vercel.app/work/broadway_media.png',
     link: '/case-study/broadway-media',
   },
@@ -111,13 +48,6 @@ const professionalProjects = [
     description:
       'A winery located in Calistoga, California, offering wine tastings and tours.',
     technologies: ['jQuery', 'HTML5', 'JavaScript', 'Bootstrap', 'CORESense'],
-    goals: [
-      'Redesign Clos Pegase website.',
-      'Use Bootstrap, jQuery, CSS, and HTML5 for the frontend.',
-      'Use CORESense (CMS) for the backend.',
-      'Use jQuery for interactivity and animations.',
-      'Added Talkable referral program.',
-    ],
     imageUrl: 'https://app-assets.vercel.app/work/clos_pegase.png',
     link: 'https://www.clospegase.com/',
   },
@@ -126,13 +56,6 @@ const professionalProjects = [
     description:
       'A winery located in Windsor, California, offering custom wine labels and wine tastings.',
     technologies: ['jQuery', 'HTML5', 'JavaScript', 'Bootstrap', 'CORESense'],
-    goals: [
-      'Redesign Clos Pegase website.',
-      'Use Bootstrap, jQuery, CSS, and HTML5 for the frontend.',
-      'Use CORESense (CMS) for the backend.',
-      'Use jQuery for interactivity and animations.',
-      'Added Talkable referral program.',
-    ],
     imageUrl: 'https://app-assets.vercel.app/work/windsor_vineyards.png',
     link: 'https://www.windsorvineyards.com/',
   },
@@ -184,11 +107,11 @@ export default function Home() {
                 />
                 <Text
                   className="text-lg mb-4"
-                  text="I'm a software developer proficient in JavaScript and the web. I'm passionate about web performance, accessibility, mentoring, user & developer experience."
+                  text="I'm a software developer proficient in JavaScript and the web..."
                 />
                 <Text
                   className="text-lg mb-4"
-                  text="In my free time, I build side projects and like exploring new technologies. You can see some of my work in the projects section below."
+                  text="In my free time, I build side projects..."
                 />
                 <Button
                   theme="primary"
