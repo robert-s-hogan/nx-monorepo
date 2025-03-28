@@ -25,7 +25,7 @@ export default function WhitedPTOCaseStudy() {
         <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
 
         {/* PROJECT OVERVIEW */}
-        <section className="max-w-3xl mx-auto mb-10">
+        <DevBlogSection>
           <Heading
             level={3}
             className="text-xl font-bold mb-2"
@@ -39,10 +39,10 @@ export default function WhitedPTOCaseStudy() {
             className="text-base"
             text="Please note that this project is still in the design and user-testing phase."
           />
-        </section>
+        </DevBlogSection>
 
         {/* MOTIVATION */}
-        <section className="max-w-3xl mx-auto mb-10">
+        <DevBlogSection>
           <Heading
             level={3}
             className="text-xl font-bold mb-2"
@@ -52,10 +52,10 @@ export default function WhitedPTOCaseStudy() {
             className="text-base mb-4"
             text="The current PTO site suffers from low volunteer turnout and limited engagement due to hard-to-find calls-to-action. Additionally, the site does not cater to Spanish-speaking parents, creating a language barrier for a significant portion of the community. By modernizing the platform and incorporating a free educational/non-profit WordPress theme, we aim to create a welcoming, inclusive environment for all families."
           />
-        </section>
+        </DevBlogSection>
 
         {/* KEY FEATURES */}
-        <section className="max-w-3xl mx-auto mb-10">
+        <DevBlogSection>
           <Heading
             level={3}
             className="text-xl font-bold mb-2"
@@ -71,10 +71,10 @@ export default function WhitedPTOCaseStudy() {
               Minimal custom styling for a quick, accessible rollout in 2025
             </li>
           </ul>
-        </section>
+        </DevBlogSection>
 
         {/* DESIGN & TOOLS */}
-        <section className="max-w-3xl mx-auto mb-10">
+        <DevBlogSection>
           <Heading
             level={3}
             className="text-xl font-bold mb-2"
@@ -96,10 +96,10 @@ export default function WhitedPTOCaseStudy() {
             <li>Minimal CSS modifications (no Tailwind in final deployment)</li>
             <li>Multilingual plugin exploration for Spanish translation</li>
           </ul>
-        </section>
+        </DevBlogSection>
 
         {/* FIGMA EMBED */}
-        <section className="max-w-3xl mx-auto mb-10">
+        <DevBlogSection>
           <Heading
             level={3}
             className="text-xl font-bold mb-2"
@@ -118,10 +118,10 @@ export default function WhitedPTOCaseStudy() {
               allowFullScreen
             ></iframe>
           </div>
-        </section>
+        </DevBlogSection>
 
         {/* CURRENT STATUS */}
-        <section className="max-w-3xl mx-auto mb-10">
+        <DevBlogSection>
           <Heading
             level={3}
             className="text-xl font-bold mb-2"
@@ -135,10 +135,10 @@ export default function WhitedPTOCaseStudy() {
             className="text-base"
             text="Before the 2025 school year starts, we hope to finalize our WordPress theme selection and begin integrating the chosen bilingual plugin."
           />
-        </section>
+        </DevBlogSection>
 
         {/* NEXT STEPS */}
-        <section className="max-w-3xl mx-auto mb-10">
+        <DevBlogSection>
           <Heading
             level={3}
             className="text-xl font-bold mb-2"
@@ -152,9 +152,9 @@ export default function WhitedPTOCaseStudy() {
             className="text-base"
             text="After launch, we’ll track engagement metrics and parent feedback to guide future updates, ensuring the site remains relevant and user-friendly."
           />
-        </section>
+        </DevBlogSection>
 
-        <section className="max-w-3xl mx-auto mb-10">
+        <DevBlogSection>
           <div className="flex flex-col space-y-8 mb-8">
             <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200 dark:border-neutral-800">
               <Heading
@@ -176,10 +176,10 @@ export default function WhitedPTOCaseStudy() {
               />
             </div>
           </div>
-        </section>
+        </DevBlogSection>
 
         {/* LINKS & REFERENCES */}
-        <section className="max-w-3xl mx-auto">
+        <DevBlogSection>
           <Heading
             level={3}
             className="text-xl font-bold mb-2"
@@ -207,7 +207,7 @@ export default function WhitedPTOCaseStudy() {
               </a>
             </li>
           </ul>
-        </section>
+        </DevBlogSection>
       </DevBlogSection>
     </DevBlogLayout>
   );
