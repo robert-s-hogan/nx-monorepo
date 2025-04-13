@@ -2,9 +2,11 @@
 
 'use client';
 import React from 'react';
-import { Heading, Text } from '@with-nx/generic-ui';
+import { Text } from '@with-nx/generic-ui';
 
 import { Button } from '../components/atomic/atoms/Button';
+import { Heading } from '../components/atomic/atoms/Heading';
+
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogSection from '../components/DevBlogSection';
 import DevBlogProjectCard from '../components/DevBlogProjectCard';
