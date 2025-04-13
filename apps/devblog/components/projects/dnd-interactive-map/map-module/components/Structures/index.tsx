@@ -23,7 +23,7 @@ const StructureGroup = ({
       {structures.map((structure) => (
         <StructureEntity
           key={`structure-${structure.id}`}
-          id={structure.id}
+          id={structure.id.toString()}
           name={structure.className}
           x={structure.x}
           y={structure.y}

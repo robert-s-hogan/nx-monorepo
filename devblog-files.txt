@@ -97,26 +97,25 @@ export { TextArea } from './TextArea';
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/components/atomic/atoms/Input.tsx
 ───────────────────────────────────────────────
-// apps/devblog/components/atomic/atoms/Input.tsx
 'use client';
 
 import * as React from 'react';
 import { cn } from '@with-nx/utils';
 import { useMotionTemplate, useMotionValue, motion } from 'framer-motion';
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
     const radius = 120;
     const [visible, setVisible] = React.useState(false);
 
-    let mouseX = useMotionValue(0);
-    let mouseY = useMotionValue(0);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
 
-    function handleMouseMove({ currentTarget, clientX, clientY }: any) {
-      let { left, top } = currentTarget.getBoundingClientRect();
+    function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
+      const { currentTarget, clientX, clientY } = event;
+      const { left, top } = currentTarget.getBoundingClientRect();
       mouseX.set(clientX - left);
       mouseY.set(clientY - top);
     }
@@ -137,7 +136,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setVisible(true)}
         onMouseLeave={() => setVisible(false)}
-        className="p-[2px] rounded-lg transition duration-300 group/input"
+        className="group/input rounded-lg p-[2px] transition duration-300"
       >
         <input
           type={type}
@@ -170,7 +169,6 @@ export { Input };
 'use client';
 import * as React from 'react';
 import * as LabelPrimitive from '@radix-ui/react-label';
-
 import { cn } from '@with-nx/utils';
 
 export const Label = React.forwardRef<
@@ -186,6 +184,8 @@ export const Label = React.forwardRef<
     {...props}
   />
 ));
+
+Label.displayName = 'Label';
 
 
 ═══════════════════════════════════════════════
@@ -216,19 +216,19 @@ import * as React from 'react';
 import { cn } from '@with-nx/utils';
 import { useMotionTemplate, useMotionValue, motion } from 'framer-motion';
 
-export interface TextAreaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+export type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ className, ...props }, ref) => {
     const radius = 120; // change this to increase the radius of the hover effect
     const [visible, setVisible] = React.useState(false);
 
-    let mouseX = useMotionValue(0);
-    let mouseY = useMotionValue(0);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
 
-    function handleMouseMove({ currentTarget, clientX, clientY }: any) {
-      let { left, top } = currentTarget.getBoundingClientRect();
+    function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
+      const { currentTarget, clientX, clientY } = event;
+      const { left, top } = currentTarget.getBoundingClientRect();
 
       mouseX.set(clientX - left);
       mouseY.set(clientY - top);
@@ -248,7 +248,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setVisible(true)}
         onMouseLeave={() => setVisible(false)}
-        className="p-[2px] rounded-lg transition duration-300 group"
+        className="group rounded-lg p-[2px] transition duration-300"
       >
         <textarea
           className={cn(
@@ -340,10 +340,10 @@ function ContactForm() {
   };
 
   return (
-    <div className="max-w-md w-full mx-auto rounded-2xl p-4 md:p-8 shadow-input bg-surface-color min-h-[560px] relative">
+    <div className="shadow-input bg-surface-color relative mx-auto min-h-[560px] w-full max-w-md rounded-2xl p-4 md:p-8">
       <form
         className={`my-8 ${
-          isSuccess ? 'opacity-20 pointer-events-none' : 'opacity-100'
+          isSuccess ? 'pointer-events-none opacity-20' : 'opacity-100'
         } transition-opacity duration-500`}
         onSubmit={handleSubmit}
         noValidate
@@ -384,15 +384,15 @@ function ContactForm() {
         <Button
           type="submit"
           text=""
-          className="w-full flex items-center justify-center"
+          className="flex w-full items-center justify-center"
           theme="primary"
         >
           {loading ? <div className="loader" /> : 'Send Message →'}
         </Button>
       </form>
       {isSuccess && (
-        <div className="absolute inset-0 bg-surface-color bg-opacity-95 rounded-2xl p-4 md:p-8 shadow-xl overflow-hidden">
-          <h1 className="h-full flex flex-col justify-center items-center font-bold text-xl text-success-color mb-4">
+        <div className="bg-surface-color absolute inset-0 overflow-hidden rounded-2xl bg-black/95 p-4 shadow-xl md:p-8">
+          <h1 className="text-success-color mb-4 flex h-full flex-col items-center justify-center text-xl font-bold">
             {responseMessage}
           </h1>
           <Meteors number={20} />
@@ -414,7 +414,6 @@ export { ContactForm };
 📄 FILE: ./apps/devblog/components/atomic/molecules/ContactForm/Meteors.tsx
 ───────────────────────────────────────────────
 import { cn } from '@with-nx/utils';
-import clsx from 'clsx';
 import React from 'react';
 
 export const Meteors = ({
@@ -454,7 +453,6 @@ export const Meteors = ({
 'use client';
 
 import { useRouter } from 'next/router';
-import { Flex } from '@with-nx/react-ui';
 import { IconButton } from '@with-nx/generic-ui';
 import { FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 import { Heading, Text } from '@with-nx/generic-ui';
@@ -536,13 +534,13 @@ export const DirectionAwareHover = ({
           whileHover={direction}
           exit="exit"
         >
-          <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/60 z-10 transition duration-500" />
+          <motion.div className="absolute inset-0 z-10 hidden h-full w-full bg-black/60 transition duration-500 group-hover/card:block" />
           <motion.div
             variants={variants}
-            className="h-full w-full relative"
+            className="relative h-full w-full"
             transition={{ duration: 0.2, ease: 'easeOut' }}
           >
-            <div className="overflow-hidden md:w-full md:h-full lg:w-[1000px] lg:h-[425px]">
+            <div className="overflow-hidden md:h-full md:w-full lg:h-[425px] lg:w-[1000px]">
               <Image
                 alt="image"
                 className={cn(
@@ -593,14 +591,14 @@ export default function DevBlogProjectCard({ projects }) {
   const router = useRouter();
 
   return (
-    <div className="p-1 lg:p-8 text-center bg-secondary-color rounded-md w-full">
+    <div className="bg-secondary-color w-full rounded-md p-1 text-center lg:p-8">
       {projects.map((project, index) => (
         <div
           key={index}
-          className="grid grid-cols-1 md:grid-cols-3 pb-8 md:py-16"
+          className="grid grid-cols-1 pb-8 md:grid-cols-3 md:py-16"
         >
           <div
-            className={`bg-surface-color p-4 lg:p-6 h-full shadow-lg flex flex-col justify-center rounded-md ${
+            className={`bg-surface-color flex h-full flex-col justify-center rounded-md p-4 shadow-lg lg:p-6 ${
               index % 2 === 0
                 ? 'md:rounded-r-none md:rounded-l-md'
                 : 'md:rounded-l-none md:rounded-r-md'
@@ -608,11 +606,11 @@ export default function DevBlogProjectCard({ projects }) {
           >
             <Heading
               level={3}
-              className="text-2xl font-bold mb-2"
+              className="mb-2 text-2xl font-bold"
               text={project.title}
             />
             <Text
-              className="text-base lg:text-xl mb-4"
+              className="mb-4 text-base lg:text-xl"
               text={project.description}
             />
             {/* <div className="flex flex-wrap gap-2 mb-4">
@@ -627,7 +625,7 @@ export default function DevBlogProjectCard({ projects }) {
             </div> */}
             <IconButton
               theme="primary"
-              className="px-4 py-2 w-fit mx-auto"
+              className="mx-auto w-fit px-4 py-2"
               text="Check it"
               label="Check it"
               icon={
@@ -647,19 +645,19 @@ export default function DevBlogProjectCard({ projects }) {
             />
           </div>
           <div
-            className={`hidden md:flex md:col-span-2 shadow-lg ${
+            className={`hidden shadow-lg md:col-span-2 md:flex ${
               index % 2 === 0
                 ? 'md:rounded-r-none md:rounded-l-md '
-                : 'rounded-r-md order-first'
+                : 'order-first rounded-r-md'
             }`}
           >
             <DirectionAwareHover imageUrl={project.imageUrl} index={index}>
               {project.goals ? (
-                <div className="px-6 space-y-4 text-white">
+                <div className="space-y-4 px-6 text-white">
                   <Heading
                     level={3}
                     text="Description & Goals"
-                    className="text-left pt-0"
+                    className="pt-0 text-left"
                   />
                   <Text className="text-left" text={project.description} />
                   {/* 
@@ -700,7 +698,7 @@ import { cn } from '@with-nx/utils';
 export type Tab = {
   title: string;
   value: string;
-  content?: string | React.ReactNode | any;
+  content?: string | React.ReactNode;
 };
 
 export const Tabs = ({
@@ -798,7 +796,7 @@ export const FadeInDiv = ({
     return tab.value === tabs[0].value;
   };
   return (
-    <div className="relative w-full h-full">
+    <div className="relative h-full w-full">
       {tabs.map((tab, idx) => (
         <motion.div
           key={tab.value}
@@ -828,7 +826,6 @@ export const FadeInDiv = ({
 ───────────────────────────────────────────────
 import { cn } from '@with-nx/utils';
 import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
 import { useState } from 'react';
 
 export const HoverEffect = ({
@@ -841,21 +838,21 @@ export const HoverEffect = ({
   }[];
   className?: string;
 }) => {
-  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <div className={cn('flex flex-wrap py-10', className)}>
       {items.map((item, idx) => (
         <p
           key={item?.link}
-          className="relative group block py-3 px-1 h-full w-auto"
+          className="group relative block h-full w-auto py-3 px-1"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-primary opacity-60 block rounded-md"
+                className="bg-primary absolute inset-0 block h-full w-full rounded-md opacity-60"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -869,7 +866,7 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <span className="relative z-20 bg-bg-color p-3 rounded-md text-xs md:text-base">
+          <span className="bg-bg-color relative z-20 rounded-md p-3 text-xs md:text-base">
             {item.title}
           </span>
         </p>
@@ -981,6 +978,7 @@ import { SparklesCore } from './Sparkles';
 import { AnimatePresence, motion } from 'framer-motion';
 import { cn } from '@with-nx/utils';
 import { IconDotsVertical } from '@tabler/icons-react';
+import Image from 'next/image';
 
 interface CompareProps {
   firstImage?: string;
@@ -1011,7 +1009,7 @@ export const Compare = ({
 
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  const [isMouseOver, setIsMouseOver] = useState(false);
+  const [, setIsMouseOver] = useState(false);
 
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -1143,7 +1141,7 @@ export const Compare = ({
     >
       <AnimatePresence initial={false}>
         <motion.div
-          className="h-full w-px absolute top-0 m-auto z-30 bg-gradient-to-b from-transparent from-[5%] to-[95%] via-indigo-500 to-transparent"
+          className="absolute top-0 z-30 m-auto h-full w-px bg-gradient-to-b from-[rgba(255,255,255,0)] via-indigo-500 to-[rgba(255,255,255,0)]"
           style={{
             left: `${sliderXPercent}%`,
             top: '0',
@@ -1151,26 +1149,26 @@ export const Compare = ({
           }}
           transition={{ duration: 0 }}
         >
-          <div className="w-36 h-full [mask-image:radial-gradient(100px_at_left,white,transparent)] absolute top-1/2 -translate-y-1/2 left-0 bg-gradient-to-r from-indigo-400 via-transparent to-transparent z-20 opacity-50" />
-          <div className="w-10 h-1/2 [mask-image:radial-gradient(50px_at_left,white,transparent)] absolute top-1/2 -translate-y-1/2 left-0 bg-gradient-to-r from-cyan-400 via-transparent to-transparent z-10 opacity-100" />
-          <div className="w-10 h-3/4 top-1/2 -translate-y-1/2 absolute -right-10 [mask-image:radial-gradient(100px_at_left,white,transparent)]">
+          <div className="absolute top-1/2 left-0 z-20 h-full w-36 -translate-y-1/2 bg-gradient-to-r from-indigo-400 via-transparent to-transparent opacity-50 [mask-image:radial-gradient(100px_at_left,white,transparent)]" />
+          <div className="absolute top-1/2 left-0 z-10 h-1/2 w-10 -translate-y-1/2 bg-gradient-to-r from-cyan-400 via-transparent to-transparent opacity-100 [mask-image:radial-gradient(50px_at_left,white,transparent)]" />
+          <div className="absolute top-1/2 -right-10 h-3/4 w-10 -translate-y-1/2 [mask-image:radial-gradient(100px_at_left,white,transparent)]">
             <MemoizedSparklesCore
               background="transparent"
               minSize={0.4}
               maxSize={1}
               particleDensity={1200}
-              className="w-full h-full"
+              className="h-full w-full"
               particleColor="#FFFFFF"
             />
           </div>
           {showHandlebar && (
-            <div className="h-5 w-5 rounded-md top-1/2 -translate-y-1/2 bg-white z-30 -right-2.5 absolute   flex items-center justify-center shadow-[0px_-1px_0px_0px_#FFFFFF40]">
+            <div className="absolute top-1/2 -right-2.5 z-30 flex h-5 w-5 -translate-y-1/2 items-center   justify-center rounded-md bg-white shadow-[0px_-1px_0px_0px_#FFFFFF40]">
               <IconDotsVertical className="h-4 w-4 text-black" />
             </div>
           )}
         </motion.div>
       </AnimatePresence>
-      <div className="overflow-hidden w-full h-full relative z-20 pointer-events-none">
+      <div className="pointer-events-none relative z-20 h-full w-full overflow-hidden">
         <AnimatePresence initial={false}>
           {firstImage ? (
             <motion.div
@@ -1183,14 +1181,16 @@ export const Compare = ({
               }}
               transition={{ duration: 0 }}
             >
-              <img
+              <Image
                 alt="first image"
                 src={firstImage}
+                fill
                 className={cn(
-                  'absolute inset-0  z-20 rounded-2xl shrink-0 w-full h-full select-none',
+                  'absolute inset-0 z-20 rounded-2xl shrink-0 w-full h-full select-none',
                   firstImageClassName
                 )}
                 draggable={false}
+                priority
               />
             </motion.div>
           ) : null}
@@ -1284,18 +1284,18 @@ const DevBlogFooter = () => {
   return (
     <footer>
       <DevBlogSection className="!pt-0 !pb-8">
-        <Flex className="flex-row justify-between py-4 items-center mx-0 space-y-2 md:space-y-0 md:px-4 pb-2 md:pb-0">
+        <Flex className="mx-0 flex-row items-center justify-between space-y-2 py-4 pb-2 md:space-y-0 md:px-4 md:pb-0">
           <Link href="/" className="button-link" passHref>
-            <CustomRSHLogo className="h-24 w-24 text-primary nav-logo ml-[-45px]" />
+            <CustomRSHLogo className="text-primary nav-logo ml-[-45px] h-24 w-24" />
           </Link>
 
-          <Flex className="sm:mt-0 pt-4 justify-center pb-4 lg:pb-0 space-x-4  mr-2 md:mr-0 ">
+          <Flex className="mr-2 justify-center space-x-4 py-4 sm:mt-0  md:mr-0 lg:pb-0 ">
             <a
               href="mailto:robert@robertshogan.com"
               target="_blank"
               aria-label="Email Robert"
             >
-              <FiMail className="w-6 h-6" />
+              <FiMail className="h-6 w-6" />
             </a>
 
             <a
@@ -1303,14 +1303,14 @@ const DevBlogFooter = () => {
               target="_blank"
               aria-label="Robert Hogans LinkedIn Profile"
             >
-              <FiLinkedin className="w-6 h-6" />
+              <FiLinkedin className="h-6 w-6" />
             </a>
             <a
               href="https://github.com/robert-s-hogan"
               target="_blank"
               aria-label="Robert Hogans GitHub Profile"
             >
-              <FiGithub className="w-6 h-6" />
+              <FiGithub className="h-6 w-6" />
             </a>
           </Flex>
         </Flex>
@@ -1335,7 +1335,7 @@ import { useState, useEffect } from 'react';
 import { scrollToProjects } from '../utils/helper';
 
 const logo = (
-  <CustomRSHLogo className="h-12 w-12 md:mb-2 text-primary nav-logo" />
+  <CustomRSHLogo className="text-primary nav-logo h-12 w-12 md:mb-2" />
 );
 
 const links = [
@@ -1426,12 +1426,12 @@ const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full transition-opacity duration-300 z-50 bg-surface ${
-        isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      className={`bg-surface fixed top-0 left-0 z-50 w-full transition-opacity duration-300 ${
+        isVisible ? 'opacity-100' : 'pointer-events-none opacity-0'
       }`}
     >
-      <div className="container mx-auto max-w-full bg-bg-color shadow-xl">
-        <Flex className="flex-row justify-between py-4 container mx-auto items-center space-y-2 md:space-y-0">
+      <div className="bg-bg-color container mx-auto max-w-full shadow-xl">
+        <Flex className="container mx-auto flex-row items-center justify-between space-y-2 py-4 md:space-y-0">
           {/* LOGO AREA */}
           <Flex className="items-center">
             <Link
@@ -1499,7 +1499,7 @@ import { Text } from '@with-nx/generic-ui';
 
 const DevBlogHighlightedProject = ({ project }) => {
   return (
-    <div className="relative w-full no-underline-on-hover">
+    <div className="no-underline-on-hover relative w-full">
       <Link
         href={`/projects/${project.slug}`}
         className="no-underline-on-hover static"
@@ -1509,17 +1509,17 @@ const DevBlogHighlightedProject = ({ project }) => {
           height={400}
           width={400}
           alt={project.title}
-          className="h-[400px] w-full md:h-[400px]  object-cover"
+          className="h-[400px] w-full object-cover  md:h-[400px]"
           loading="lazy"
           sizes="(max-width: 767px) 90vw, (max-width: 1023px) 45vw, 400px"
         />
 
-        <div className="!absolute space-y-6 p-4 md:py-6 md:px-2 inset-0 bg-image-overlay bg-opacity-60 flex flex-col justify-center items-center rounded w-full">
+        <div className="bg-image-overlay !absolute inset-0 flex w-full flex-col items-center justify-center space-y-6 rounded bg-black/60 p-4 md:py-6 md:px-2">
           <Heading level={3} className="text-center">
             <span className="hidden md:inline-block">{project.title}</span>
             <span className="md:hidden">{project.mobileTitle}</span>
           </Heading>
-          <Text className="text-center w-full" text={project.description} />
+          <Text className="w-full text-center" text={project.description} />
         </div>
       </Link>
     </div>
@@ -1574,7 +1574,7 @@ const DevBlogLayout = ({
 
   return (
     <PageLayout
-      className={`w-full min-h-screen ${className}`}
+      className={`min-h-screen w-full ${className}`}
       header={hideNavBarProp ? '' : <DevBlogHeader isHomePage={isHomePage} />}
       footer={<DevBlogFooter />}
     >
@@ -1597,7 +1597,7 @@ const DevBlogLayout = ({
       />
       {!hideNavBar && (
         <div
-          className={`max-w-full w-full relative overflow-clip ${
+          className={`relative w-full max-w-full text-clip ${
             isHomePage ? 'h-[300vh]' : isCaseStudy ? 'h-[20vh]' : 'h-auto'
           }`}
           ref={ref}
@@ -1632,13 +1632,6 @@ export default DevBlogLayout;
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/components/DevBlogOpenai.tsx
 ───────────────────────────────────────────────
-import { Configuration, OpenAIApi } from 'openai';
-
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
-
 export const fetchResponseFromAssistant = async (prompt) => {
   try {
     const res = await fetch('/api/assistant', {
@@ -1697,7 +1690,7 @@ const DevBlogSection = ({
   const widthStyles = fullWidth ? 'max-w-full' : 'max-w-7xl';
   return (
     <Section
-      className={`container mx-auto space-y-6 py-6 md:py-12 px-4 ${cn(
+      className={`container mx-auto space-y-6 py-6 px-4 md:py-12 ${cn(
         className,
         widthStyles
       )}`}
@@ -1739,14 +1732,14 @@ export const HeroEffect = ({
 }) => {
   return (
     <div className={cn('sticky top-48 md:top-64', className)}>
-      <p className="text-lg md:text-7xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300 dark:from-neutral-200 dark:to-neutral-400">
+      <p className="bg-gradient-to-b from-neutral-100 to-neutral-300 bg-clip-text pb-4 text-center text-lg font-normal text-transparent dark:from-neutral-200 dark:to-neutral-400 md:text-7xl">
         {title || `Hey, I'm Robert!`}
       </p>
-      <p className="text-xs md:text-xl font-normal text-center text-neutral-600 dark:text-neutral-400 mt-4 max-w-lg mx-auto">
+      <p className="mx-auto mt-4 max-w-lg text-center text-xs font-normal text-neutral-600 dark:text-neutral-400 md:text-xl">
         {description ? (
           description
         ) : (
-          <span className="text-xl mb-8 max-w-md">
+          <span className="mb-8 max-w-md text-xl">
             Experienced web developer who{' '}
             <span className="text-primary">enjoys</span> building{' '}
             <span className="text-primary">fast</span> and{' '}
@@ -1767,7 +1760,7 @@ export const HeroEffect = ({
         height="890"
         viewBox="0 0 1440 890"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute -top-[12rem] md:-top-40 w-full"
+        className="absolute top-[-12rem] w-full md:top-[-10rem]"
       >
         <motion.path
           d="M0 663C145.5 663 191 666.265 269 647C326.5 630 339.5 621 397.5 566C439 531.5 455 529.5 490 523C509.664 519.348 521 503.736 538 504.236C553.591 504.236 562.429 514.739 584.66 522.749C592.042 525.408 600.2 526.237 607.356 523.019C624.755 515.195 641.446 496.324 657 496.735C673.408 496.735 693.545 519.572 712.903 526.769C718.727 528.934 725.184 528.395 730.902 525.965C751.726 517.115 764.085 497.106 782 496.735C794.831 496.47 804.103 508.859 822.469 518.515C835.13 525.171 850.214 526.815 862.827 520.069C875.952 513.049 889.748 502.706 903.5 503.736C922.677 505.171 935.293 510.562 945.817 515.673C954.234 519.76 963.095 522.792 972.199 524.954C996.012 530.611 1007.42 534.118 1034 549C1077.5 573.359 1082.5 594.5 1140 629C1206 670 1328.5 662.5 1440 662.5"
@@ -2006,7 +1999,7 @@ export interface CreatureCardProps {
 
 export const CreatureCard = ({ creature }: CreatureCardProps) => {
   if (!creature) {
-    return <div className="text-center py-5">No creature data</div>;
+    return <div className="py-5 text-center">No creature data</div>;
   }
 
   const {
@@ -2026,10 +2019,10 @@ export const CreatureCard = ({ creature }: CreatureCardProps) => {
   } = creature;
 
   return (
-    <div className="w-full bg-white shadow-xl p-5">
+    <div className="w-full bg-white p-5 shadow-xl">
       <h2 className="text-2xl font-bold text-gray-700">{name}</h2>
       <p className="text-sm text-gray-600">{description}</p>
-      <div className="grid grid-cols-3 gap-4 text-gray-800 mt-4">
+      <div className="mt-4 grid grid-cols-3 gap-4 text-gray-800">
         <div>
           <strong>Armor Class:</strong> {armorClass}
         </div>
@@ -2039,7 +2032,7 @@ export const CreatureCard = ({ creature }: CreatureCardProps) => {
         <div>
           <strong>Speed:</strong> {speed}
         </div>
-        <Flex className="justify-between w-full">
+        <Flex className="w-full justify-between">
           <div>
             <strong>STR</strong> {strength}
           </div>
@@ -2240,13 +2233,13 @@ const CreatureGeneratorForm = ({ onSubmit, initialValues }) => {
   };
 
   useEffect(() => {
-    console.log('Initial form values set:', formValues);
-  }, []);
+    console.log('Initial form values set:', initialValues);
+  }, [initialValues]);
 
   return (
     <form
       key={formKey}
-      className="grid grid-cols-1 md:grid-cols-3 gap-4"
+      className="grid grid-cols-1 gap-4 md:grid-cols-3"
       onSubmit={handleSubmit}
     >
       {fieldConfigs.map(({ name, label, type, options }) => (
@@ -2301,8 +2294,8 @@ function CreatureGeneratorRandomLoadingMessage() {
   const message = loadingMessages[randomIndex];
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <p className="text-white text-2xl font-semibold animate-pulse">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50">
+      <p className="animate-pulse text-2xl font-semibold text-white">
         {message}
       </p>
     </div>
@@ -2397,9 +2390,9 @@ const KonvaMap = () => {
   const [stageScale, setStageScale] = useState(1);
   const [stageX, setStageX] = useState(0);
   const [stageY, setStageY] = useState(0);
-  const [monsters, setMonsters] = useState(generateMonsters());
-  const [party, setParty] = useState(generateParty());
-  const [structures, setStructures] = useState(generateStructures());
+  const [monsters] = useState(generateMonsters());
+  const [party] = useState(generateParty());
+  const [structures] = useState(generateStructures());
 
   const handleWheel = useCallback((e) => {
     e.evt.preventDefault();
@@ -2446,22 +2439,8 @@ const KonvaMap = () => {
     };
   }, []);
 
-  const playerRadius = 20;
-
-  const dragBoundFunc = (pos) => {
-    const x = Math.max(
-      playerRadius,
-      Math.min(pos.x, stageSize.width - playerRadius)
-    );
-    const y = Math.max(
-      playerRadius,
-      Math.min(pos.y, stageSize.height - playerRadius)
-    );
-    return { x, y };
-  };
-
   return (
-    <div className="border-2 border-primary m-16">
+    <div className="border-primary m-16 border-2">
       <Stage
         width={stageSize.width}
         height={stageSize.height}
@@ -2510,13 +2489,18 @@ export default KonvaMap;
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/components/projects/dnd-interactive-map/map-module/components/context-menu.tsx
 ───────────────────────────────────────────────
-import { useEffect } from 'react';
+import { ReactNode, useEffect, MouseEvent } from 'react';
+
+interface ContextMenuOption {
+  label: string;
+  onClick: () => void;
+}
 
 interface ContextMenuProps {
-  children: any;
-  position: any;
+  children?: ReactNode;
+  position: { x: number; y: number };
   onClose: () => void;
-  options: any;
+  options: ContextMenuOption[];
 }
 
 const ContextMenu = ({
@@ -2528,7 +2512,7 @@ const ContextMenu = ({
   const { x, y } = position;
 
   useEffect(() => {
-    const listener = (event) => {
+    const listener = (event: MouseEvent | Event) => {
       onClose();
     };
 
@@ -2541,7 +2525,7 @@ const ContextMenu = ({
 
   return (
     <div
-      className="absolute bg-white text-black shadow-md z-50 rounded py-2"
+      className="absolute z-50 rounded bg-white py-2 text-black shadow-md"
       style={{ top: y, left: x }}
     >
       {options.map((option, index) => (
@@ -2563,13 +2547,18 @@ export default ContextMenu;
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/components/projects/dnd-interactive-map/map-module/components/Monsters/index.tsx
 ───────────────────────────────────────────────
-import { generateMonsters } from '../../utils';
-
 import MonsterEntity from './MonsterEntity';
 
+interface Monster {
+  id: number;
+  x: number;
+  y: number;
+  className: string;
+}
+
 interface MonsterGroupProps {
-  monsters: any;
-  dragBoundFunc: any;
+  monsters: Monster[];
+  dragBoundFunc: (pos: { x: number; y: number }) => { x: number; y: number };
   onClick: () => void;
 }
 
@@ -2599,7 +2588,7 @@ export default MonsterGroup;
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/components/projects/dnd-interactive-map/map-module/components/Monsters/MonsterEntity.tsx
 ───────────────────────────────────────────────
-import { Group, Path, Text } from 'react-konva';
+import { Group } from 'react-konva';
 import { GoblinIcon, DragonIcon, SkeletonIcon } from '../../icons';
 
 const MonsterEntity = ({
@@ -2612,7 +2601,6 @@ const MonsterEntity = ({
   className,
   onClick,
 }) => {
-  const radius = 20;
   const classShape = () => {
     switch (className) {
       case 'goblin':
@@ -2646,13 +2634,18 @@ export default MonsterEntity;
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/components/projects/dnd-interactive-map/map-module/components/Party/index.tsx
 ───────────────────────────────────────────────
-import { generateParty } from '../../utils';
-
 import PartyMember from './PartyMember';
 
+interface Player {
+  id: string;
+  className: string;
+  x: number;
+  y: number;
+}
+
 interface PartyGroupProps {
-  party: any;
-  dragBoundFunc: any;
+  party: Player[];
+  dragBoundFunc: (pos: { x: number; y: number }) => { x: number; y: number };
   onClick: () => void;
 }
 
@@ -2678,20 +2671,30 @@ export default PartyGroup;
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/components/projects/dnd-interactive-map/map-module/components/Party/PartyMember.tsx
 ───────────────────────────────────────────────
-import { Group, Path, Text } from 'react-konva';
+import { Group } from 'react-konva';
 import { FighterIcon, WizardIcon, BarbarianIcon } from '../../icons';
+
+interface PartyMemberProps {
+  id: string;
+  x: number;
+  y: number;
+  draggable: boolean;
+  dragBoundFunc: (pos: { x: number; y: number }) => { x: number; y: number };
+  className: string;
+  onClick: () => void;
+  name: string; // add this
+}
 
 const PartyMember = ({
   id,
-  name,
   x,
   y,
   draggable,
   dragBoundFunc,
   className,
   onClick,
-}) => {
-  const radius = 20;
+  name, // receive this
+}: PartyMemberProps) => {
   const classShape = () => {
     switch (className) {
       case 'barbarian':
@@ -2725,13 +2728,18 @@ export default PartyMember;
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/components/projects/dnd-interactive-map/map-module/components/Structures/index.tsx
 ───────────────────────────────────────────────
-import { generateStructures } from '../../utils';
-
 import StructureEntity from './StructureEntity';
 
+interface Structure {
+  id: number;
+  x: number;
+  y: number;
+  className: string;
+}
+
 interface StructureGroupProps {
-  structures: any;
-  dragBoundFunc: any;
+  structures: Structure[];
+  dragBoundFunc: (pos: { x: number; y: number }) => { x: number; y: number };
   onClick: () => void;
 }
 
@@ -2771,13 +2779,13 @@ import ContextMenu from '../context-menu';
 import { ObeliskIcon, TowerIcon, HouseIcon } from '../../icons';
 
 interface StructureProps {
-  id: string;
+  id: number | string;
   name: string;
   x: number;
   y: number;
   className: string;
   draggable: boolean;
-  dragBoundFunc: any;
+  dragBoundFunc: (pos: { x: number; y: number }) => { x: number; y: number };
   onClick: () => void;
 }
 
@@ -3159,7 +3167,7 @@ export type IconProps = {
 ───────────────────────────────────────────────
 import { DraggableElement } from './commonTypes';
 
-export interface Player extends DraggableElement {}
+export type Player = DraggableElement
 
 
 ═══════════════════════════════════════════════
@@ -3167,7 +3175,7 @@ export interface Player extends DraggableElement {}
 ───────────────────────────────────────────────
 import { DraggableElement } from './commonTypes';
 
-export interface Player extends DraggableElement {}
+export type Player = DraggableElement
 
 
 ═══════════════════════════════════════════════
@@ -3175,7 +3183,7 @@ export interface Player extends DraggableElement {}
 ───────────────────────────────────────────────
 import { DraggableElement } from './commonTypes';
 
-export interface Structure extends DraggableElement {}
+export type Structure = DraggableElement
 
 
 ═══════════════════════════════════════════════
@@ -3352,15 +3360,7 @@ export default PagespeedInsights;
 import { useState } from 'react';
 import axios from 'axios';
 import useSWR from 'swr';
-import {
-  Box,
-  Button,
-  Checkbox,
-  Flex,
-  Heading,
-  Input,
-  Text,
-} from '@with-nx/react-ui';
+import { Button, Checkbox, Flex, Input, Text } from '@with-nx/react-ui';
 import { FiX } from 'react-icons/fi';
 import { useSearchQuery, useFileTypeSelection } from '@with-nx/react-hooks';
 
@@ -3371,7 +3371,6 @@ const VersionOne = () => {
   const [years, setYears] = useState(10);
   const [excludeTerms, setExcludeTerms] = useState(['']);
   const [excludeTerm, setExcludeTerm] = useState('');
-  const [zipCode, setZipCode] = useState('');
 
   const handleExcludeTermChange = (e) => {
     setExcludeTerm(e.target.value);
@@ -3391,15 +3390,14 @@ const VersionOne = () => {
 
   //file types
   const { selectedFileType, handleFileTypeChange } = useFileTypeSelection();
-  const {
-    state,
-    handleSearch: triggerSearch,
-    url,
-  } = useSearchQuery('https://www.googleapis.com/customsearch/v1', {
-    key: process.env.NEXT_PUBLIC_FREE_GOOGLE_SEARCH_API_KEY,
-    cx: process.env.NEXT_PUBLIC_CUSTOM_SEARCH_ENGINE_ID,
-    excludeTerms: excludeTerms,
-  });
+  const { handleSearch: triggerSearch, url } = useSearchQuery(
+    'https://www.googleapis.com/customsearch/v1',
+    {
+      key: process.env.NEXT_PUBLIC_FREE_GOOGLE_SEARCH_API_KEY,
+      cx: process.env.NEXT_PUBLIC_CUSTOM_SEARCH_ENGINE_ID,
+      excludeTerms: excludeTerms,
+    }
+  );
 
   const handleFormSubmit = (e, searchTerm, years) => {
     if (e.preventDefault) {
@@ -3415,12 +3413,12 @@ const VersionOne = () => {
     triggerSearch(`${searchTerm}${excluded}${fileTypeQuery}`, years);
   };
 
-  const { data, error } = useSWR(url, fetcher);
+  const { data } = useSWR(url, fetcher);
   return (
     <>
       <form
         onSubmit={(e) => handleFormSubmit(e, searchTerm, years)}
-        className="p-4 space-y-4"
+        className="space-y-4 p-4"
       >
         <Flex className="items-center space-x-6">
           <Input
@@ -3435,19 +3433,19 @@ const VersionOne = () => {
             Submit
           </Button>
         </Flex>
-        <Flex className="w-full flex-col md:flex-row space-y-2">
-          <Flex className="w-full md:w-auto md:mr-8 items-center space-x-6 space-y-2">
+        <Flex className="w-full flex-col space-y-2 md:flex-row">
+          <Flex className="w-full items-center space-x-6 space-y-2 md:mr-8 md:w-auto">
             <Input
               type="number"
               label="Age of Website (Years)"
               name="years"
-              className="!w-48 h-14 mb-8"
+              className="mb-8 h-14 !w-48"
               value={years}
               onChange={(e) => setYears(parseInt(e.target.value))}
               placeholder="Years"
             />
           </Flex>
-          <Flex className="flex-col w-full md:w-auto space-y-2 ">
+          <Flex className="w-full flex-col space-y-2 md:w-auto ">
             <Text className="block">Page File Type (old formats)</Text>
             <Flex className="space-x-2">
               {['html', 'php', 'asp'].map((fileType) => (
@@ -3462,10 +3460,10 @@ const VersionOne = () => {
             </Flex>
           </Flex>
         </Flex>
-        <Flex className="flex-col space-y-2 mt-8">
-          <Flex className="items-center justify-between w-full space-x-2">
+        <Flex className="mt-8 flex-col space-y-2">
+          <Flex className="w-full items-center justify-between space-x-2">
             <Text className="!w-auto">Excluded Terms</Text>
-            <Flex className="flex-grow space-x-1">
+            <Flex className="grow space-x-1">
               {excludeTerms.map(
                 (term, index) =>
                   term !== '' && (
@@ -3475,7 +3473,7 @@ const VersionOne = () => {
                         onClick={() => handleRemoveExcludeTerm(index)}
                       >
                         {term}
-                        <FiX className="h-4 w-4 ml-2" />
+                        <FiX className="ml-2 h-4 w-4" />
                       </Button>
                     </Flex>
                   )
@@ -3520,226 +3518,12 @@ export default VersionOne;
 
 
 ═══════════════════════════════════════════════
-📄 FILE: ./apps/devblog/components/projects/find-freelance-sites/version-three.tsx
-───────────────────────────────────────────────
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import {
-  Box,
-  Button,
-  Checkbox,
-  Flex,
-  Heading,
-  Input,
-  Text,
-} from '@with-nx/react-ui';
-import { FiX } from 'react-icons/fi';
-import { useSearchQuery, useFileTypeSelection } from '@with-nx/react-hooks';
-
-const fetcher = (url) => axios.get(url).then((res) => res.data);
-
-const VersionThree = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [years, setYears] = useState(10);
-  const [excludeTerms, setExcludeTerms] = useState(['']);
-  const [excludeTerm, setExcludeTerm] = useState('');
-  const [zipCode, setZipCode] = useState('');
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-  const [fetchData, setFetchData] = useState(false); // State to trigger data fetching
-  const [initialZipCode, setInitialZipCode] = useState(null);
-
-  const handleExcludeTermChange = (e) => {
-    setExcludeTerm(e.target.value);
-  };
-
-  const handleAddExcludeTerm = (e) => {
-    e.preventDefault();
-    if (excludeTerm !== '') {
-      setExcludeTerms([...excludeTerms, excludeTerm]);
-      setExcludeTerm('');
-    }
-  };
-
-  const handleRemoveExcludeTerm = (index) => {
-    setExcludeTerms(excludeTerms.filter((_, i) => i !== index));
-  };
-
-  const { selectedFileType, handleFileTypeChange } = useFileTypeSelection();
-
-  const restParams = {
-    key: process.env.NEXT_PUBLIC_FREE_GOOGLE_SEARCH_API_KEY,
-    cx: process.env.NEXT_PUBLIC_CUSTOM_SEARCH_ENGINE_ID,
-  };
-
-  const { state, handleSearch: triggerSearch } = useSearchQuery(
-    'https://www.googleapis.com/customsearch/v1',
-    {
-      key: process.env.NEXT_PUBLIC_FREE_GOOGLE_SEARCH_API_KEY,
-      cx: process.env.NEXT_PUBLIC_CUSTOM_SEARCH_ENGINE_ID,
-      excludeTerms: excludeTerms,
-      setFetchData: setFetchData, // pass it here
-    }
-  );
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    let zip = parseInt(zipCode);
-    setInitialZipCode(zip); // Set the initial zip code
-    const excluded = excludeTerms.reduce((acc, term) => `${acc} -${term}`, '');
-    const fileTypeQuery = selectedFileType
-      ? ` filetype:${selectedFileType}`
-      : '';
-    triggerSearch(`${searchTerm} ${zip}${excluded}${fileTypeQuery}`, years);
-  };
-
-  useEffect(() => {
-    if (state.searchTerm !== '') {
-      const zipCodes = ['95403', '95404']; // Add the zip codes you want to search through
-      const selectedFileTypes = Object.keys(state.fileTypes).filter(
-        (fileType) => state.fileTypes[fileType]
-      );
-      const formattedParams = Object.entries(restParams)
-        .map(([key, value]) => {
-          if (
-            typeof value === 'string' ||
-            typeof value === 'number' ||
-            typeof value === 'boolean'
-          ) {
-            return `${key}=${encodeURIComponent(value)}`;
-          } else {
-            return `${key}=invalid`;
-          }
-        })
-        .join('&');
-      let q = state.searchTerm;
-      if (excludeTerms.length > 0 && excludeTerms[0] !== '') {
-        q += ' -' + excludeTerms.join(' -');
-      }
-
-      const fetchData = async () => {
-        let allData = []; // Temp array to store all search results
-
-        for (let zip of zipCodes) {
-          let url = `https://www.googleapis.com/customsearch/v1?${formattedParams}&q=${encodeURIComponent(
-            q
-          )} ${zip}`;
-
-          try {
-            let response = await fetch(url);
-            let data = await response.json();
-            if (data.items) {
-              allData = allData.concat(data.items);
-            }
-          } catch (error) {
-            console.error('Error fetching data: ', error);
-            setError(error);
-          }
-        }
-
-        setData(allData);
-        setFetchData(true); // trigger network request
-      };
-
-      fetchData();
-    }
-  }, [state]);
-
-  return (
-    <form onSubmit={handleFormSubmit} className="p-4 space-y-4">
-      <Flex className="items-center space-x-6">
-        <Input
-          type="text"
-          name="searchTerm"
-          label="Search Term"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Search"
-        />
-        <Flex className="items-center space-x-6">
-          <Input
-            type="text"
-            name="zipCode"
-            label="Zip Code"
-            value={zipCode}
-            onChange={(e) => setZipCode(e.target.value)}
-            placeholder="Zip Code"
-          />
-        </Flex>
-
-        <Button className="btn-primary mt-6" type="submit">
-          Submit
-        </Button>
-      </Flex>
-      <Flex className="flex-col space-y-2 mt-8">
-        <Flex className="items-center justify-between w-full space-x-2">
-          <Text className="!w-auto">Excluded Terms</Text>
-          <Flex className="flex-grow space-x-1">
-            {excludeTerms.map(
-              (term, index) =>
-                term !== '' && (
-                  <Flex key={index} className="items-center space-x-2">
-                    <Button
-                      className="btn-secondary flex items-center"
-                      onClick={() => handleRemoveExcludeTerm(index)}
-                    >
-                      {term}
-                      <FiX className="h-4 w-4 ml-2" />
-                    </Button>
-                  </Flex>
-                )
-            )}
-          </Flex>
-        </Flex>
-        <Flex className="items-center space-x-2">
-          <Input
-            type="text"
-            value={excludeTerm}
-            onChange={handleExcludeTermChange}
-            placeholder="Enter term to exclude"
-          />
-          <Button className="btn-primary" onClick={handleAddExcludeTerm}>
-            Add
-          </Button>
-        </Flex>
-      </Flex>
-      {/* {data ? (
-        <Flex className="flex-col space-y-0 p-6">
-          {data.items &&
-            data.items.length > 0 &&
-            data.items.map((item, index) => (
-              <div key={index}>
-                <a target="_blank" rel="noopener noreferrer" href={item.link}>
-                  {item.title}
-                </a>
-              </div>
-            ))}
-        </Flex>
-      ) : (
-        <div>Loading...</div>
-      )} */}
-    </form>
-  );
-};
-
-export default VersionThree;
-
-
-═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/components/projects/find-freelance-sites/version-two.tsx
 ───────────────────────────────────────────────
 import { useState } from 'react';
 import axios from 'axios';
 import useSWR from 'swr';
-import {
-  Box,
-  Button,
-  Checkbox,
-  Flex,
-  Heading,
-  Input,
-  Text,
-} from '@with-nx/react-ui';
+import { Button, Flex, Input, Text } from '@with-nx/react-ui';
 
 const fetcher = async (urls) => {
   const results = await Promise.all(
@@ -3849,6 +3633,8 @@ export default VersionTwo;
 // DNDMap.tsx
 import React, { useState, useEffect } from 'react';
 import { Stage, Layer, Line } from 'react-konva';
+import type { KonvaEventObject } from 'konva/lib/Node';
+
 import useMockDNDData from './useMockDNDData'; // Use the mock hook
 import ShapeRenderer from './shape-renderer';
 
@@ -3876,7 +3662,7 @@ const DNDMap: React.FC = () => {
     };
   }, []);
 
-  const handleDragEnd = (e: any, id: number) => {
+  const handleDragEnd = (e: KonvaEventObject<DragEvent>, id: number) => {
     const x = e.target.x();
     const y = e.target.y();
 
@@ -3935,11 +3721,12 @@ export default DNDMap;
 // ShapeRenderer.tsx
 import React from 'react';
 import { Circle, Rect } from 'react-konva';
+import type { KonvaEventObject } from 'konva/lib/Node'; // 👈 correct import
 import { Token } from './useMockDNDData';
 
 interface ShapeRendererProps {
   token: Token;
-  handleDragEnd: (e: any, id: number) => void;
+  handleDragEnd: (e: KonvaEventObject<DragEvent>, id: number) => void; // ✅ typed
 }
 
 const ShapeRenderer: React.FC<ShapeRendererProps> = ({
@@ -4021,7 +3808,7 @@ export default useMockDNDData;
 📄 FILE: ./apps/devblog/components/Sparkles.tsx
 ───────────────────────────────────────────────
 'use client';
-import React, { useId, useMemo } from 'react';
+import React, { useId } from 'react';
 import { useEffect, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import type { Container, SingleOrMultiple } from '@tsparticles/engine';
@@ -4102,7 +3889,9 @@ export const SparklesCore = (props: ParticlesProps) => {
                   enable: false,
                   mode: 'repulse',
                 },
-                resize: true as any,
+                resize: {
+                  enable: true,
+                },
               },
               modes: {
                 push: {
@@ -4114,6 +3903,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                 },
               },
             },
+
             particles: {
               bounce: {
                 horizontal: {
@@ -4461,13 +4251,7 @@ export const SparklesCore = (props: ParticlesProps) => {
 ───────────────────────────────────────────────
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  motion,
-  useTransform,
-  useScroll,
-  useVelocity,
-  useSpring,
-} from 'framer-motion';
+import { motion, useTransform, useScroll, useSpring } from 'framer-motion';
 import { cn } from '@with-nx/utils';
 
 export const TracingBeam = ({
@@ -4512,7 +4296,7 @@ export const TracingBeam = ({
       ref={ref}
       className={cn('relative w-full max-w-4xl mx-auto h-full', className)}
     >
-      <div className="absolute -left-4 md:-left-20 top-3">
+      <div className="absolute -left-4 top-3 md:-left-20">
         <motion.div
           transition={{
             duration: 0.2,
@@ -4524,7 +4308,7 @@ export const TracingBeam = ({
                 ? 'none'
                 : 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
           }}
-          className="ml-[27px] h-4 w-4 rounded-full border border-netural-200 shadow-sm flex items-center justify-center"
+          className="border-netural-200 ml-[27px] flex h-4 w-4 items-center justify-center rounded-full border shadow-sm"
         >
           <motion.div
             transition={{
@@ -4920,7 +4704,6 @@ export const projectsData: Project[] = [
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/pages/_app.tsx
 ───────────────────────────────────────────────
-import { useEffect, useState } from 'react';
 import type { AppProps, NextWebVitalsMetric } from 'next/app';
 
 import { GoogleTagManager } from '@with-nx/analytics';
@@ -5040,7 +4823,7 @@ export default function Custom404() {
 // pages/api/assistant.js
 import { Configuration, OpenAIApi } from 'openai';
 
-export default async (req, res) => {
+const assistantHandler = async (req, res) => {
   if (req.method === 'POST') {
     const { prompt } = req.body;
 
@@ -5058,7 +4841,7 @@ export default async (req, res) => {
     } catch (error) {
       console.error('OpenAI API error:', error);
       if (error.response) {
-        console.error('Error response:', error.response.data); // Log more detailed API error info if available
+        console.error('Error response:', error.response.data);
       }
       res.status(500).json({
         message: 'Failed to fetch response from OpenAI',
@@ -5070,6 +4853,8 @@ export default async (req, res) => {
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 };
+
+export default assistantHandler;
 
 
 ═══════════════════════════════════════════════
@@ -5346,7 +5131,7 @@ export default async function handler(req, res) {
   const prompt = generatePrompt(numberOfPlayers, playerLevel, completeData);
 
   try {
-    let result = await fetchCompletion(prompt);
+    const result = await fetchCompletion(prompt);
     console.log('Result from fetchCompletion:', result);
     return res.status(200).json({
       result: result,
@@ -5380,7 +5165,7 @@ const limiter = new Bottleneck({
   minTime: (60 * 1000) / 2000,
 });
 
-export default async function (req, res) {
+export default async function generateImageHandler(req, res) {
   const { imagePrompt } = req.body;
 
   try {
@@ -5393,7 +5178,6 @@ export default async function (req, res) {
     );
 
     const imageUrl = response.data.data[0].url;
-
     res.status(200).json({ imageUrl });
   } catch (error) {
     console.error('Detailed Error: ', error);
@@ -5446,7 +5230,7 @@ export default handler;
 import { useRouter } from 'next/router';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
-import { Section } from '../components/atomic/organisms';
+import { Section } from '../../components/atomic/organisms/Section';
 import { Heading } from '@with-nx/generic-ui';
 
 const WP_API_BASE_URL =
@@ -5513,7 +5297,7 @@ export default function Post({ post }) {
 
   return (
     <DevBlogLayout>
-      <DevBlogSection className="space-y-6">
+      <Section className="space-y-6">
         <article className="space-y-8 px-4">
           <Heading level={1} text={post.title} />
           <div
@@ -5521,7 +5305,7 @@ export default function Post({ post }) {
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
         </article>
-      </DevBlogSection>
+      </Section>
     </DevBlogLayout>
   );
 }
@@ -5573,7 +5357,7 @@ export default function Post({ post }) {
 ───────────────────────────────────────────────
 import Link from 'next/link';
 import DevBlogLayout from '../../components/DevBlogLayout';
-import { Section } from '../components/atomic/organisms';
+import { Section } from '../../components/atomic/organisms/Section';
 import { Flex, Heading, Text } from '@with-nx/generic-ui';
 // Define the base URL for your WordPress API
 const WP_API_BASE_URL =
@@ -5620,61 +5404,28 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
   return (
     <DevBlogLayout>
-      <DevBlogSection className="space-y-6">
+      <Section className="space-y-6">
         <Heading level={1} className="font-bold" text="Digital Garden" />
         <Text
           className="text-center"
           text="A collection of topics, notes, and half-baked explorations I'm always tending to."
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 space-y-2 md:space-y-0">
+        <div className="grid grid-cols-1 gap-6 space-y-2 md:grid-cols-2 md:space-y-0 lg:grid-cols-3">
           {allPostsData.map(({ id, date, title, categories }) => (
-            <div key={id} className="p-4 rounded-md">
+            <div key={id} className="rounded-md p-4">
               <Link href={`/blog/${id}`}>
                 <Text className="" text={title} />
               </Link>
-              <Flex className="items-center space-x-4 mt-4 md:mt-0">
+              <Flex className="mt-4 items-center space-x-4 md:mt-0">
                 <Text className="text-sm" text={categories.join(', ')} />
                 <Text className="text-xs" text={date} />
               </Flex>
             </div>
           ))}
         </div>
-      </DevBlogSection>
+      </Section>
     </DevBlogLayout>
   );
-}
-
-function getCategoryClassName(category) {
-  switch (category) {
-    case 'react.js':
-      return 'text-react-js';
-    case 'journal':
-      return 'text-journal';
-    case 'konva.js':
-      return 'text-konva-js';
-    case 'css':
-      return 'text-css';
-    case 'tailwindcss':
-      return 'text-tailwindcss';
-    case 'chakra-ui':
-      return 'text-chakra-ui';
-    case 'terminal':
-      return 'text-terminal';
-    case 'safari':
-      return 'text-safari';
-    case 'react-query':
-      return 'text-react-query';
-    case 'antd':
-      return 'text-antd';
-    case 'emotion':
-      return 'text-emotion';
-    case 'typescript':
-      return 'text-typescript';
-    case 'javascript':
-      return 'text-javascript';
-    default:
-      return 'text-black';
-  }
 }
 
 
@@ -5702,25 +5453,25 @@ export default function BroadwayMediaCaseStudy() {
       <DevBlogSection>
         <Heading
           level={2}
-          className="text-center mb-4"
+          className="mb-4 text-center"
           text="Broadway Media: Building a Modern & Scalable Platform"
         />
-        <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
+        <hr className="bg-primary mx-auto mb-8 h-2 w-16" />
       </DevBlogSection>
 
       {/* OVERVIEW SECTION */}
       <DevBlogSection>
         <Heading
           level={3}
-          className="text-xl font-bold mb-2"
+          className="mb-2 text-xl font-bold"
           text="Project Overview"
         />
         <Text
-          className="text-base mb-4"
+          className="mb-4 text-base"
           text="Broadway Media is a media company that specializes in digital signage and content management. They required a modernized, scalable platform to support e-commerce capabilities, efficient code sharing, and faster product release cycles."
         />
         <Text
-          className="text-base mb-4"
+          className="mb-4 text-base"
           text="During my tenure from June 2022 to May 2023, I worked as a Senior Engineer focusing on front-end architecture, performance optimization, and integrating third-party services like Stripe."
         />
       </DevBlogSection>
@@ -5729,10 +5480,10 @@ export default function BroadwayMediaCaseStudy() {
       <DevBlogSection>
         <Heading
           level={3}
-          className="text-xl font-bold mb-2"
+          className="mb-2 text-xl font-bold"
           text="My Role & Key Challenges"
         />
-        <ul className="list-disc list-inside space-y-2 pl-4">
+        <ul className="list-inside list-disc space-y-2 pl-4">
           <li>
             <strong>NX Monorepo Setup:</strong> Optimized the company’s monorepo
             environment to improve code sharing and reduce build times.
@@ -5758,11 +5509,11 @@ export default function BroadwayMediaCaseStudy() {
       <DevBlogSection>
         <Heading
           level={3}
-          className="text-xl font-bold mb-2"
+          className="mb-2 text-xl font-bold"
           text="Technologies & Approach"
         />
         <Text
-          className="text-base mb-4"
+          className="mb-4 text-base"
           text="We leveraged a React + Next.js stack within an Nx Monorepo for modular code organization and faster builds. Redux Toolkit handled state management, while Stripe ensured secure payment processing."
         />
         <div className="mb-4">
@@ -5770,7 +5521,7 @@ export default function BroadwayMediaCaseStudy() {
             className="text-base font-semibold"
             text="Key Technologies Included:"
           />
-          <ul className="list-disc list-inside space-y-2 pl-4 mt-2">
+          <ul className="mt-2 list-inside list-disc space-y-2 pl-4">
             <li>React & Next.js</li>
             <li>TypeScript</li>
             <li>Nx Monorepo</li>
@@ -5785,10 +5536,10 @@ export default function BroadwayMediaCaseStudy() {
       <DevBlogSection>
         <Heading
           level={3}
-          className="text-xl font-bold mb-2"
+          className="mb-2 text-xl font-bold"
           text="Key Metrics & Outcomes"
         />
-        <ul className="list-disc list-inside space-y-2 pl-4">
+        <ul className="list-inside list-disc space-y-2 pl-4">
           <li>
             <strong>Revenue Growth (+15%):</strong> Spearheaded the Stripe
             integration, boosting e-commerce capabilities and increasing revenue
@@ -5815,23 +5566,23 @@ export default function BroadwayMediaCaseStudy() {
       <DevBlogSection>
         <Heading
           level={3}
-          className="text-xl font-bold mb-2"
+          className="mb-2 text-xl font-bold"
           text="Project Screenshots"
         />
         <Text
-          className="text-base mb-4"
+          className="mb-4 text-base"
           text="Below are snapshots from the development process, highlighting two major sections of the platform."
         />
 
         {/* STORE (CATALOG) */}
-        <div className="flex flex-col space-y-8 mb-8">
-          <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200 dark:border-neutral-800">
+        <div className="mb-8 flex flex-col space-y-8">
+          <div className="rounded-3xl border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <Heading
               level={4}
-              className="text-lg font-semibold mb-2"
+              className="mb-2 text-lg font-semibold"
               text="Catalog / Store"
             />
-            <div className="flex w-full items-center justify-between mb-2">
+            <div className="mb-2 flex w-full items-center justify-between">
               <span className="text-xs">Before</span>
               <span className="text-xs">After</span>
             </div>
@@ -5853,14 +5604,14 @@ export default function BroadwayMediaCaseStudy() {
         </div>
 
         {/* PRODUCTION EDITOR */}
-        <div className="flex flex-col space-y-8 mb-8">
-          <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200 dark:border-neutral-800">
+        <div className="mb-8 flex flex-col space-y-8">
+          <div className="rounded-3xl border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <Heading
               level={4}
-              className="text-lg font-semibold mb-2"
+              className="mb-2 text-lg font-semibold"
               text="Production Editor"
             />
-            <div className="flex w-full items-center justify-between mb-2">
+            <div className="mb-2 flex w-full items-center justify-between">
               <span className="text-xs">Before</span>
               <span className="text-xs">After</span>
             </div>
@@ -5886,15 +5637,15 @@ export default function BroadwayMediaCaseStudy() {
       <DevBlogSection>
         <Heading
           level={3}
-          className="text-xl font-bold mb-2"
+          className="mb-2 text-xl font-bold"
           text="Conclusion"
         />
         <Text
-          className="text-base mb-4"
+          className="mb-4 text-base"
           text="Broadway Media’s platform transformation showcased the advantages of a well-structured Nx Monorepo, strategic third-party integrations like Stripe, and close collaboration across teams. The results speak for themselves: increased revenue, faster release cycles, and improved user satisfaction."
         />
         <Text
-          className="text-base mb-4"
+          className="mb-4 text-base"
           text="This project was an excellent opportunity to leverage my experience in front-end engineering, system architecture, and team leadership to deliver tangible results that continue to shape Broadway Media’s digital presence."
         />
         <Text
@@ -5928,24 +5679,24 @@ export default function LykasCaseStudy() {
         {/* PAGE TITLE & INTRO */}
         <Heading
           level={2}
-          className="text-center mb-4"
+          className="mb-4 text-center"
           text="LYKAS: Transforming a Legacy Questionnaire into a Modular Vue App"
         />
-        <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
+        <hr className="bg-primary mx-auto mb-8 h-2 w-16" />
 
         {/* OVERVIEW SECTION */}
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Project Overview"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="LYKAS required a comprehensive refactor of an existing Python/HTML project, which included a lengthy 4,000+ line file. The goal was to transform this monolithic solution into a modern, modular Vue.js application with Pinia for state management, while incorporating an atomic design approach."
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="The key focus was to maintain existing functionality for setting up trusts and legal questionnaires, all without compromising on user experience or performance. Due to NDA constraints, certain specifics (like code snippets or visual layouts) are not shown."
           />
         </DevBlogSection>
@@ -5954,10 +5705,10 @@ export default function LykasCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="My Role & Key Challenges"
           />
-          <ul className="list-disc list-inside space-y-2 pl-4">
+          <ul className="list-inside list-disc space-y-2 pl-4">
             <li>
               <strong>Vue.js Migration:</strong> Converted the core
               functionality from Python/HTML into reusable, componentized Vue.js
@@ -5986,11 +5737,11 @@ export default function LykasCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Technologies & Approach"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="The project leveraged Vue.js for front-end rendering, TypeScript for type safety, and Pinia as a lightweight yet powerful state management library. An atomic design methodology ensured that smaller, reusable components could be assembled into larger features efficiently."
           />
           <div className="mb-4">
@@ -5998,7 +5749,7 @@ export default function LykasCaseStudy() {
               className="text-base font-semibold"
               text="Key Technologies Included:"
             />
-            <ul className="list-disc list-inside space-y-2 pl-4 mt-2">
+            <ul className="mt-2 list-inside list-disc space-y-2 pl-4">
               <li>Vue.js</li>
               <li>TypeScript</li>
               <li>Pinia</li>
@@ -6013,10 +5764,10 @@ export default function LykasCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Key Metrics & Outcomes"
           />
-          <ul className="list-disc list-inside space-y-2 pl-4">
+          <ul className="list-inside list-disc space-y-2 pl-4">
             <li>
               <strong>Enhanced User Engagement (+25%):</strong> Modernized
               front-end with Vue.js, improving usability and interface
@@ -6053,11 +5804,11 @@ export default function LykasCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Project Screenshots"
           />
 
-          <div className="flex flex-col space-y-8 mb-8">
+          <div className="mb-8 flex flex-col space-y-8">
             <Text
               className="text-base"
               text={
@@ -6071,15 +5822,15 @@ export default function LykasCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Conclusion"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="This LYKAS case study demonstrates the power of a modern Vue.js stack combined with Pinia and atomic design principles. By refactoring a single 4,000+ line Python/HTML file into modular components, we not only improved performance and maintainability but also opened the door for easier team collaboration and faster feature rollouts."
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="The project underscores the importance of solid testing practices, effective state management, and a well-considered design methodology—all of which contributed to measurable gains in user engagement, code quality, and deployment speed."
           />
           <Text
@@ -6117,20 +5868,20 @@ export default function WhitedPTOCaseStudy() {
         {/* PAGE TITLE & INTRO */}
         <Heading
           level={2}
-          className="text-center mb-4"
+          className="mb-4 text-center"
           text="Whited PTO: Redesign & Multilingual Support"
         />
-        <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
+        <hr className="bg-primary mx-auto mb-8 h-2 w-16" />
 
         {/* PROJECT OVERVIEW */}
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Project Overview"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="Whited PTO is a parent-teacher organization website currently undergoing a redesign. The primary goal is to increase parent engagement and support Spanish-speaking families by offering an accessible, multilingual experience. This will be critical for the 2025 school year when we plan to roll out a new WordPress theme."
           />
           <Text
@@ -6143,11 +5894,11 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Motivation"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="The current PTO site suffers from low volunteer turnout and limited engagement due to hard-to-find calls-to-action. Additionally, the site does not cater to Spanish-speaking parents, creating a language barrier for a significant portion of the community. By modernizing the platform and incorporating a free educational/non-profit WordPress theme, we aim to create a welcoming, inclusive environment for all families."
           />
         </DevBlogSection>
@@ -6156,10 +5907,10 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Key Features (Planned)"
           />
-          <ul className="list-disc list-inside space-y-2 pl-4">
+          <ul className="list-inside list-disc space-y-2 pl-4">
             <li>Dedicated volunteer sign-up form with clear CTAs</li>
             <li>
               Spanish translation toggle to better serve bilingual families
@@ -6175,18 +5926,18 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Design & Tools"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="We are prototyping in Figma to map out the user flow, test various layout ideas, and validate color choices that meet accessibility guidelines. On the technical side, we have a WordPress sandbox environment, where we’re experimenting with a free educational/non-profit theme to minimize custom development efforts."
           />
           <Text
-            className="text-base mb-2 font-semibold"
+            className="mb-2 text-base font-semibold"
             text="Key Tools & Setup:"
           />
-          <ul className="list-disc list-inside space-y-2 pl-4 mb-4">
+          <ul className="mb-4 list-inside list-disc space-y-2 pl-4">
             <li>Figma (low- to mid-fidelity prototypes & user flow)</li>
             <li>
               WordPress test site (using a free educational/non-profit theme)
@@ -6200,11 +5951,11 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Figma Prototype (In Progress)"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="Below is an embedded Figma prototype showcasing our current designs. Feel free to explore different screens and flows. Keep in mind the final styling will reflect the free WordPress theme once integrated."
           />
           <div className="mb-8">
@@ -6222,11 +5973,11 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Current Status"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="We are in the design and user-feedback phase. No metrics on engagement improvements are available yet, but we have begun collecting informal feedback from a handful of parents. Early impressions suggest that clearer volunteer calls-to-action and a bilingual interface may significantly boost participation."
           />
           <Text
@@ -6239,11 +5990,11 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Next Steps"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="Our immediate focus is establishing the final WordPress theme, setting up the multilingual plugin for Spanish, and refining the volunteer sign-up flow based on user feedback. The full rollout is planned for the 2025 school year, when the site will officially replace the old PTO webpage."
           />
           <Text
@@ -6253,14 +6004,14 @@ export default function WhitedPTOCaseStudy() {
         </DevBlogSection>
 
         <DevBlogSection>
-          <div className="flex flex-col space-y-8 mb-8">
-            <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200 dark:border-neutral-800">
+          <div className="mb-8 flex flex-col space-y-8">
+            <div className="rounded-3xl border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900">
               <Heading
                 level={4}
-                className="text-lg font-semibold mb-2"
+                className="mb-2 text-lg font-semibold"
                 text="Whited PTO"
               />
-              <div className="flex w-full items-center justify-between mb-2">
+              <div className="mb-2 flex w-full items-center justify-between">
                 <span className="text-xs">Before</span>
                 <span className="text-xs">After</span>
               </div>
@@ -6280,10 +6031,10 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Links & References"
           />
-          <ul className="list-disc list-inside pl-4 space-y-2">
+          <ul className="list-inside list-disc space-y-2 pl-4">
             <li>
               <a
                 href="https://www.figma.com/design/i4WisorQCHHIW8SXLEJcDA/whited-pto?node-id=46-1304&p=f&t=lcAa1Ur0XFPWuK3a-0"
@@ -6321,7 +6072,7 @@ export default function WhitedPTOCaseStudy() {
 import React from 'react';
 
 import { Button, Heading, Text } from '../components/atomic/atoms';
-import { Section } from '@devblog/components';
+import { Section } from '../components/atomic/organisms/Section';
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogProjectCard from '../components/atomic/molecules/DevBlogProjectCard';
 import { Tabs, Tab } from '../components/atomic/molecules/Tabs';
@@ -6331,7 +6082,6 @@ import { scrollToProjects } from '../utils/helper';
 
 const yearsExperience = new Date().getFullYear() - 2018;
 
-// Removed the 'goals' property from each project object.
 const volunteerProjects = [
   {
     title: 'Whited PTO',
@@ -6393,7 +6143,7 @@ const sampleTabs: Tab[] = [
     title: 'Professional',
     value: 'Professional',
     content: (
-      <div className="w-full relative h-auto rounded-2xl p-2 lg:p-10 text-xl bg-gradient-to-br from-accent-color to-accent-color">
+      <div className="from-accent-color to-accent-color relative h-auto w-full rounded-2xl bg-gradient-to-br p-2 text-xl lg:p-10">
         <DevBlogProjectCard projects={professionalProjects} />
       </div>
     ),
@@ -6402,7 +6152,7 @@ const sampleTabs: Tab[] = [
     title: 'Volunteer',
     value: 'Volunteer',
     content: (
-      <div className="w-full relative h-auto rounded-2xl p-1 lg:p-10 text-xl bg-gradient-to-br from-accent-color to-accent-color">
+      <div className="from-accent-color to-accent-color relative h-auto w-full rounded-2xl bg-gradient-to-br p-1 text-xl lg:p-10">
         <DevBlogProjectCard projects={volunteerProjects} />
       </div>
     ),
@@ -6414,27 +6164,27 @@ export default function Home() {
     <DevBlogLayout title="Portfolio | Robert Hogan" hideNavBar={false}>
       {/* ABOUT SECTION */}
       <div id="about" className="relative">
-        <Section fullWidth={true} className="w-full bg-secondary-color py-32">
+        <Section fullWidth={true} className="bg-secondary-color w-full py-32">
           <div className="container mx-auto">
-            <Heading level={2} className="text-center mb-4" text="About me" />
-            <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
+            <Heading level={2} className="mb-4 text-center" text="About me" />
+            <hr className="bg-primary mx-auto mb-8 h-2 w-16" />
             <Text
-              className="text-xl mb-20 italic max-w-4xl mx-auto"
+              className="mx-auto mb-20 max-w-4xl text-xl italic"
               text={`Dedicated Frontend Engineer with over ${yearsExperience} years of experience specializing in Vue.js, React.js, Next.js, and user-centric application development.`}
             />
-            <div className="flex flex-col lg:flex-row justify-center items-start lg:items-center space-y-8 lg:space-y-0 lg:space-x-16">
-              <div className="w-full lg:w-1/2 text-left">
+            <div className="flex flex-col items-start justify-center space-y-8 lg:flex-row lg:items-center lg:space-y-0 lg:space-x-16">
+              <div className="w-full text-left lg:w-1/2">
                 <Heading
                   level={3}
-                  className="text-2xl font-bold mb-4"
+                  className="mb-4 text-2xl font-bold"
                   text="Get to know me!"
                 />
                 <Text
-                  className="text-lg mb-4"
+                  className="mb-4 text-lg"
                   text="I'm a web developer proficient in JavaScript and the web. I'm passionate about web performance, accessibility, mentoring, user & developer experience."
                 />
                 <Text
-                  className="text-lg mb-4"
+                  className="mb-4 text-lg"
                   text="In my free time, I build side projects and like exploring new technologies. You can see some of my work in the projects section below."
                 />
                 <Button
@@ -6443,10 +6193,10 @@ export default function Home() {
                   onClick={() => scrollToProjects('projects')}
                 />
               </div>
-              <div className="w-full lg:w-1/2 text-left">
+              <div className="w-full text-left lg:w-1/2">
                 <Heading
                   level={3}
-                  className="text-2xl font-bold mb-4"
+                  className="mb-4 text-2xl font-bold"
                   text="My toolkit"
                 />
                 <ToolsSection />
@@ -6458,10 +6208,10 @@ export default function Home() {
 
       {/* PROJECTS SECTION */}
       <div id="projects" className="relative">
-        <Section className="py-32 min-h-[2050px] md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[3100px] p-0">
-          <Heading level={2} className="text-center mb-4" text="Projects" />
-          <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
-          <div className="[perspective:1200px] relative flex flex-col mx-auto w-full items-start justify-start my-40">
+        <Section className="min-h-[2050px] p-0 py-32 md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[3100px]">
+          <Heading level={2} className="mb-4 text-center" text="Projects" />
+          <hr className="bg-primary mx-auto mb-8 h-2 w-16" />
+          <div className="relative mx-auto my-40 flex w-full flex-col items-start justify-start [perspective:1200px]">
             <Tabs tabs={sampleTabs} />
           </div>
         </Section>
@@ -6469,9 +6219,9 @@ export default function Home() {
 
       {/* CONTACT SECTION */}
       <div id="contact" className="relative">
-        <Section fullWidth={true} className="w-full bg-secondary-color">
-          <Heading level={2} className="text-center mb-4" text="Contact me" />
-          <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
+        <Section fullWidth={true} className="bg-secondary-color w-full">
+          <Heading level={2} className="mb-4 text-center" text="Contact me" />
+          <hr className="bg-primary mx-auto mb-8 h-2 w-16" />
           <ContactForm />
         </Section>
       </div>
@@ -6483,59 +6233,20 @@ export default function Home() {
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/pages/paypal-donations-example.tsx
 ───────────────────────────────────────────────
-import React, { useState } from 'react';
+import React from 'react';
 import { Heading } from '@with-nx/generic-ui';
 
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogSection from '../components/DevBlogSection';
 
-import { Button, Flex, Grid } from '@with-nx/react-ui';
-import { copyToClipboard } from '@with-nx/utils';
-
-const link = `<iframe
-src="https://www.paypal.com/giving/campaigns?campaign_id=QAB5D5TSL487G"
-title="PayPal donate campaign card"
-frameborder="0"
-width=382
-height=550
-scrolling="no"
-></iframe>`;
-
-const CopyLinkButton = ({ link }) => {
-  const [copied, setCopied] = useState(false);
-
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text).then(
-      () => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2500);
-      },
-      (error) => {
-        console.error('Copy failed!', error);
-      }
-    );
-  };
-
-  return (
-    <div>
-      <Button
-        className={`${copied ? 'btn-success' : 'btn-primary'}`}
-        onClick={() => copyToClipboard(link)}
-      >
-        {copied ? <span>copied!</span> : <span>Copy Iframe Code</span>}
-      </Button>
-    </div>
-  );
-};
+import { Flex, Grid } from '@with-nx/react-ui';
 
 const PaypalDonationsExample = () => {
-  const [isCopied, setIsCopied] = useState(false);
-
   return (
     <DevBlogLayout className="relative">
       <DevBlogSection>
         <Heading level={3} text="Paypal Donation Options" />
-        <Grid className="grid-cols-1 lg:grid-cols-3 px-2">
+        <Grid className="grid-cols-1 px-2 lg:grid-cols-3">
           <Flex className="flex-col space-y-6">
             <iframe
               src="https://www.paypal.com/giving/campaigns?campaign_id=QAB5D5TSL487G"
@@ -6558,17 +6269,15 @@ export default PaypalDonationsExample;
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/pages/projects/[slug].tsx
 ───────────────────────────────────────────────
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import { Box, Flex, Heading } from '@with-nx/react-ui';
 import { ButtonLink } from '@with-nx/nextjs-react-ui';
 import { FiGithub } from 'react-icons/fi';
-import { GiMonkeyWrench } from 'react-icons/gi';
 import { Text } from '@with-nx/generic-ui';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
-import { Section } from '../components/atomic/organisms';
+import { Section } from '../../components/atomic/organisms/Section';
 import DevBlogProjectsThemeSection from '../../components/DevBlogProjectsThemeSection';
 import { projectsData } from '../../data/projects';
 
@@ -6576,7 +6285,6 @@ import { getIconForCategory } from '../../utils/getIconForCategory';
 
 function ProjectPage({ project }) {
   const router = useRouter();
-  const { slug } = router.query;
 
   if (router.isFallback || !project) {
     return <p>Project not found!</p>;
@@ -6588,28 +6296,28 @@ function ProjectPage({ project }) {
       description={project.description}
     >
       <div
-        className="bg-cover bg-center relative my-0"
+        className="relative my-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${project.image})` }}
       >
-        <div className="absolute inset-0 bg-image-overlay opacity-50"></div>
+        <div className="bg-image-overlay absolute inset-0 opacity-50"></div>
 
-        <DevBlogSection>
+        <Section>
           <Heading
             level={1}
-            className="h-full w-auto my-auto relative z-10 text-center pt-32 break-normal [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]"
+            className="relative z-10 my-auto h-full w-auto break-normal pt-32 text-center [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]"
           >
-            <span className="hidden md:inline-block text-5xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
+            <span className="hidden text-5xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] md:inline-block">
               {project.title}
             </span>
             <span className="text-5xl md:hidden">{project.mobileTitle}</span>
           </Heading>
 
           <Text
-            className="text-center relative z-10"
+            className="relative z-10 text-center"
             text={project.description}
           />
 
-          <div className="w-full relative z-10 flex justify-center mt-8 pb-32">
+          <div className="relative z-10 mt-8 flex w-full justify-center pb-32">
             <ButtonLink
               href={project.link}
               target="_blank"
@@ -6621,7 +6329,7 @@ function ProjectPage({ project }) {
               }`}
             >
               {project.isUnderConstruction ? (
-                <Flex className="space-x-4 items-center cursor-not-allowed">
+                <Flex className="cursor-not-allowed items-center space-x-4">
                   Under Construction
                 </Flex>
               ) : (
@@ -6642,11 +6350,11 @@ function ProjectPage({ project }) {
             )}
           </div>
 
-          <Flex className="max-w-fit shadow-lg mx-auto justify-center items-center h-10 py-2 ">
+          <Flex className="mx-auto h-10 max-w-fit items-center justify-center py-2 shadow-lg ">
             {project.category.map((cat) => (
               <span
                 key={cat}
-                className={`relative z-10 text-2xl rounded-full overflow-hidden p-2 bg-bg-color shadow-lg ${
+                className={`bg-bg-color relative z-10 overflow-hidden rounded-full p-2 text-2xl shadow-lg ${
                   cat === 'GithubPages'
                     ? 'flex items-center justify-center'
                     : ''
@@ -6656,46 +6364,46 @@ function ProjectPage({ project }) {
               </span>
             ))}
           </Flex>
-        </DevBlogSection>
+        </Section>
       </div>
 
-      <div className="w-full bg-secondary-color">
-        <DevBlogSection>
+      <div className="bg-secondary-color w-full">
+        <Section>
           <div className="grid grid-cols-1 gap-12">
             <DevBlogProjectsThemeSection
               title={project.process.title}
               description={project.process.description}
             />
           </div>
-        </DevBlogSection>
+        </Section>
       </div>
 
-      <DevBlogSection className="">
+      <Section className="">
         <DevBlogProjectsThemeSection
           title={project.management.title}
           description={project.management.description}
         />
-      </DevBlogSection>
+      </Section>
 
-      <div className="w-full bg-secondary-color">
-        <DevBlogSection>
+      <div className="bg-secondary-color w-full">
+        <Section>
           <Heading level={2} className="text-xl md:text-5xl">
             {project.media.title}
           </Heading>
           <p>{project.media.description}</p>
-        </DevBlogSection>
+        </Section>
       </div>
 
-      <DevBlogSection className="">
+      <Section className="">
         <DevBlogProjectsThemeSection
           title={project.technologyReason.title}
           description={project.technologyReason.description}
         />
         {/* If you have a list of tech used, map over them here and display as tiles or cards */}
-      </DevBlogSection>
+      </Section>
 
-      <div className="w-full bg-secondary-color">
-        <DevBlogSection>
+      <div className="bg-secondary-color w-full">
+        <Section>
           <Heading level={2} className="text-xl md:text-5xl">
             {project.purpose.title}
           </Heading>
@@ -6703,11 +6411,11 @@ function ProjectPage({ project }) {
             className="leading-relaxed"
             text={project.purpose.description}
           />
-        </DevBlogSection>
+        </Section>
       </div>
 
       {/* {project.resources && (
-        <DevBlogSection maxWidth={true} className="bg-secondary-color">
+        <Section maxWidth={true} className="bg-secondary-color">
           <div className="container max-w-7xl mx-auto px-2">
             <DevBlogProjectsThemeSection
               title="Resources & Acknowledgments"
@@ -6730,7 +6438,7 @@ function ProjectPage({ project }) {
               ))}
             </ul>
           </div>
-        </DevBlogSection>
+        </Section>
       )} */}
     </DevBlogLayout>
   );
@@ -6766,7 +6474,6 @@ export async function getStaticProps({ params }) {
 📄 FILE: ./apps/devblog/pages/projects/creature-card.tsx
 ───────────────────────────────────────────────
 import React from 'react';
-import { Button } from '@with-nx/generic-ui';
 import Image from 'next/image';
 import DevBlogLayout from '../../components/DevBlogLayout';
 
@@ -6779,24 +6486,24 @@ const GenericPage: React.FC<PageProps> = () => {
 
   return (
     <DevBlogLayout>
-      <div className="relative max-w-lg mx-auto bg-white rounded-lg shadow-lg overflow-hidden ">
-        <div className="relative z-10 flex flex-col items-center fantasy-border">
+      <div className="relative mx-auto max-w-lg overflow-hidden rounded-lg bg-white shadow-lg ">
+        <div className="fantasy-border relative z-10 flex flex-col items-center">
           <Image
             src="https://static.wikia.nocookie.net/forgottenrealms/images/0/00/Power_of_Persuasion_AFR.jpg/revision/latest/scale-to-width-down/1000?cb=20210710175238"
             alt="Ettin"
-            className="transform shadow-lg rounded-lg"
+            className="rounded-lg shadow-lg"
             width={1024}
             height={1024}
           />
         </div>
-        <div className="relative mt-[-50px] pt-10 text-center z-0">
-          <h2 className="text-3xl font-bold text-gray-700 py-1">Ettin</h2>
-          <p className="text-sm text-gray-600 mt-2">
+        <div className="relative z-0 mt-[-50px] pt-10 text-center">
+          <h2 className="py-1 text-3xl font-bold text-gray-700">Ettin</h2>
+          <p className="mt-2 text-sm text-gray-600">
             Ettins are hulking, two-headed giants with a brutish and savage
             nature. They often dwell in remote, mountainous regions and are
             known for their violent temperament and territorial behavior.
           </p>
-          <div className="grid grid-cols-3 gap-2 text-gray-800 mt-4">
+          <div className="mt-4 grid grid-cols-3 gap-2 text-gray-800">
             <div>
               <strong>Armor Class:</strong> 12 (Natural Armor)
             </div>
@@ -6876,7 +6583,7 @@ import { Grid } from '@with-nx/react-ui';
 
 import { CreatureCard } from '../../components/projects/creature-generator/CreatureCard';
 import DevblogLayout from '../../components/DevBlogLayout';
-import { Section } from '../components/atomic/organisms';
+import { Section } from '../../components/atomic/organisms/Section';
 import RandomLoadingMessage from '../../components/projects/creature-generator/CreatureGeneratorRandomLoadingMessage';
 import {
   fetchCreatureData,
@@ -6953,11 +6660,11 @@ export default function CreatureGenerator() {
 
   return (
     <DevblogLayout>
-      <DevBlogSection className="space-y-4">
+      <Section className="space-y-4">
         <h1>Create DND Monster</h1>
         {!creature && !isLoading && (
           <form
-            className="grid grid-cols-1 md:grid-cols-3 gap-4"
+            className="grid grid-cols-1 gap-4 md:grid-cols-3"
             onSubmit={(event) => {
               event.preventDefault();
               handleSubmit(event);
@@ -7012,19 +6719,19 @@ export default function CreatureGenerator() {
               label="Back"
               onClick={handleBack}
             />
-            <Grid className="grid-cols-1 gap-6 max-w-lg justify-center items-center bg-white border p-1">
+            <Grid className="max-w-lg grid-cols-1 items-center justify-center gap-6 border bg-white p-1">
               <div>
-                <Flex className="flex-col justify-center items-center">
+                <Flex className="flex-col items-center justify-center">
                   {image ? (
                     <Image
                       src={image}
                       alt="Creature"
-                      className="transform shadow-lg"
+                      className="shadow-lg"
                       width={1024}
                       height={1024}
                     />
                   ) : (
-                    <div className="w-full h-64 bg-gray-200 shadow-lg flex flex-col justify-center">
+                    <div className="flex h-64 w-full flex-col justify-center bg-gray-200 shadow-lg">
                       <Button
                         theme="primary"
                         text="Generate Image"
@@ -7039,7 +6746,7 @@ export default function CreatureGenerator() {
             </Grid>
           </>
         )}
-      </DevBlogSection>
+      </Section>
     </DevblogLayout>
   );
 }
@@ -7063,7 +6770,7 @@ const DynamicMap = dynamic(
 function Map() {
   return (
     <DevBlogLayout>
-      <div className="container mx-auto max-w-7xl space-y-6 mb-6">
+      <div className="container mx-auto mb-6 max-w-7xl space-y-6">
         <Heading level={1}>Dnd Interactive Map (Work In Progress)</Heading>
         <Text className="sub-title">
           Click the icons to interact with the map
@@ -7087,13 +6794,10 @@ export default Map;
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/pages/projects/freelance-find-sites.tsx
 ───────────────────────────────────────────────
-import axios from 'axios';
 import { Flex, Heading, Section, Tabs, Text } from '@with-nx/react-ui';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
 import VersionOne from '../../components/projects/find-freelance-sites/version-one';
-import VersionTwo from '../../components/projects/find-freelance-sites/version-two';
-import VersionThree from '../../components/projects/find-freelance-sites/version-three';
 import PagespeedInsights from '../../components/projects/find-freelance-sites/pagespeed-insights';
 
 export default function FreelanceFindSites() {
@@ -7102,24 +6806,16 @@ export default function FreelanceFindSites() {
       label: 'Search - Free (10)',
       content: <VersionOne />,
     },
-    // {
-    //   label: 'Search - Paid (100)',
-    //   content: <VersionTwo />,
-    // },
     {
       label: 'Pagespeed Insights',
       content: <PagespeedInsights />,
     },
-    // {
-    //   label: 'Search - subsequest requests',
-    //   content: <VersionThree />,
-    // },
   ];
 
   return (
     <DevBlogLayout>
       <Section>
-        <Flex className="flex-col space-y-4 mb-8">
+        <Flex className="mb-8 flex-col space-y-4">
           <Heading level={1}>Find Freelance Sites</Heading>
           <Text>
             This tool is to find older websites that need an a refresh. The
@@ -7138,55 +6834,43 @@ export default function FreelanceFindSites() {
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/pages/projects/index.tsx
 ───────────────────────────────────────────────
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-
 import Image from 'next/image';
-import { Button, Flex, Grid, Heading, Section } from '@with-nx/react-ui';
+import { Grid, Heading } from '@with-nx/react-ui';
 import { Text } from '@with-nx/generic-ui';
-import { FiMail, FiLinkedin } from 'react-icons/fi';
-import { FiGithub } from 'react-icons/fi';
-import { BiWrench } from 'react-icons/bi';
 import Link from 'next/link';
 
-import { Project, projectsData } from '../../data/projects';
+import { projectsData } from '../../data/projects';
 import DevBlogLayout from '../../components/DevBlogLayout';
-import { Section } from '../components/atomic/organisms';
-type Props = {
-  projects: Project[];
-};
+import { Section } from '../../components/atomic/organisms/Section';
 
 const ProjectPage = ({ projects }) => {
-  const router = useRouter();
-  const { projectId } = router.query;
-
   return (
     <DevBlogLayout
       title="Robert Hogan's Projects - Digital Creations & Front-End Craftsmanship"
       description="Dive into Robert Hogan's curated showcase of digital projects, from cutting-edge tools and apps to libraries and immersive interfaces. Each piece demonstrates mastery in front-end development and user experience design."
     >
-      <DevBlogSection className="space-y-6">
+      <Section className="space-y-6">
         <Heading level={1}>Projects</Heading>
         <Text
-          className="pb-6 max-w-3xl mx-auto"
+          className="mx-auto max-w-3xl pb-6"
           text="Discover a diverse array of my digital creations, ranging from tools
           to apps, and from libraries to immersive interfaces. Each piece
           showcases the pinnacle of front-end craftsmanship and my dedication to
           creating seamless user experiences. Explore and connect!"
         />
-        <Grid className="grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 md:12 space-y-4">
+        <Grid className="md:12 grid-cols-1 gap-6 space-y-4 lg:grid-cols-2 xl:grid-cols-3">
           {projects.map((project) => (
             <Link key={project.slug} href={`/projects/${project.slug}`}>
-              <div className="relative h-[400px] w-full md:h-[400px] rounded overflow-hidden">
+              <div className="relative h-[400px] w-full overflow-hidden rounded md:h-[400px]">
                 <Image
                   src={project.image}
                   alt={project.title}
                   height={400}
                   width={400}
-                  className="h-[400px] w-full md:h-[400px] object-cover rounded"
+                  className="h-[400px] w-full rounded object-cover md:h-[400px]"
                 />
 
-                <div className="absolute inset-0 bg-image-overlay image-overlay lg:hover:opacity-100"></div>
+                <div className="bg-image-overlay image-overlay absolute inset-0 lg:hover:opacity-100"></div>
               </div>
 
               <Heading level={3} className="py-6">
@@ -7197,7 +6881,7 @@ const ProjectPage = ({ projects }) => {
             </Link>
           ))}
         </Grid>
-      </DevBlogSection>
+      </Section>
     </DevBlogLayout>
   );
 };
@@ -7218,12 +6902,14 @@ export const getStaticProps = async () => {
 ───────────────────────────────────────────────
 import dynamic from 'next/dynamic';
 
-import DevBlogLayout from 'apps/devblog/components/DevBlogLayout';
-import DevBlogSection from 'apps/devblog/components/DevBlogSection';
+import DevBlogLayout from '../../components/DevBlogLayout';
+import DevBlogSection from '../../components/DevBlogSection';
 
 const DNDMap = dynamic(
   () => import('../../components/projects/konva-map-generic/DNDMap'),
-  { ssr: false }
+  {
+    ssr: false,
+  }
 );
 
 const KonvaMapGeneric: React.FC = () => {
@@ -7883,7 +7569,6 @@ export function calculateSpecialAbilities(challengeRating) {
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/utils/getIconForCategory.tsx
 ───────────────────────────────────────────────
-import { FiGithub } from 'react-icons/fi';
 import { FcGoogle } from 'react-icons/fc';
 import {
   SiCss3,
@@ -7899,7 +7584,6 @@ import {
   SiTypescript,
 } from 'react-icons/si';
 import { AiOutlineApi } from 'react-icons/ai';
-import { BiWrench } from 'react-icons/bi';
 
 export function getIconForCategory(category: string): JSX.Element | null {
   switch (category) {
@@ -8178,18 +7862,25 @@ function addVariablesForColors({ addBase, theme }) {
 ═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/next.config.js
 ───────────────────────────────────────────────
-//@ts-check
+// @ts-check
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { withNx } = require('@nrwl/next/plugins/with-nx');
+const path = require('path');
+
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
 
 /**
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
   nx: {
-    // Set this to true if you would like to to use SVGR
-    // See: https://github.com/gregberge/svgr
     svgr: false,
   },
   images: {
@@ -8209,17 +7900,16 @@ const nextConfig = {
       'framerusercontent.com',
     ],
   },
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      '@devblog/components': path.resolve(__dirname, 'components'),
+    };
+    return config;
+  },
 };
 
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-  },
-});
-
-// Merge MDX config with Next.js config
+// Combine MDX and Nx with final config
 module.exports = withNx(withMDX(nextConfig));
 
 

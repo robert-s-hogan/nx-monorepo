@@ -4,7 +4,7 @@ import ContextMenu from '../context-menu';
 import { ObeliskIcon, TowerIcon, HouseIcon } from '../../icons';
 
 interface StructureProps {
-  id: number | string;
+  id: string;
   name: string;
   x: number;
   y: number;
