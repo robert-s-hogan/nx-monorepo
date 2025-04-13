@@ -4,8 +4,7 @@
 import React from 'react';
 import { Text } from '@with-nx/generic-ui';
 
-import { Button } from '../components/atomic/atoms/Button';
-import { Heading } from '../components/atomic/atoms/Heading';
+import { Button, Heading } from '../components/atomic/atoms';
 
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogSection from '../components/DevBlogSection';
