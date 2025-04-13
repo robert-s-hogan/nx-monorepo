@@ -6,9 +6,9 @@ import React from 'react';
 import { Button, Heading, Text } from '../components/atomic/atoms';
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogSection from '../components/DevBlogSection';
-import DevBlogProjectCard from '../components/DevBlogProjectCard';
-import { Tabs, Tab } from '../components/Tabs';
-import { ContactForm } from '../components/contact-form';
+import DevBlogProjectCard from '../components/atomic/molecules/DevBlogProjectCard';
+import { Tabs, Tab } from '../components/atomic/molecules/Tabs';
+import { ContactForm } from '../components/atomic/molecules/ContactForm/ContactForm';
 import ToolsSection from '../components/atomic/molecules/ToolsSection';
 import { scrollToProjects } from '../utils/helper';
 

@@ -6,6 +6,7 @@
     "start": "nx serve",
     "nx": "nx",
     "build": "nx build",
+    "devblog-files": "bash scripts/devblog-files.sh",
     "clean": "rm -rf dist/ && rm -rf apps/*/dist apps/*/.next && rm -rf node_modules/ && echo 'Cleaned all build artifacts and node_modules'",
     "test": "nx test"
   },
