@@ -3,19 +3,19 @@ import * as React from 'react';
 import { cn } from '@with-nx/utils';
 import { useMotionTemplate, useMotionValue, motion } from 'framer-motion';
 
-export interface TextAreaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+export type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ className, ...props }, ref) => {
     const radius = 120; // change this to increase the radius of the hover effect
     const [visible, setVisible] = React.useState(false);
 
-    let mouseX = useMotionValue(0);
-    let mouseY = useMotionValue(0);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
 
-    function handleMouseMove({ currentTarget, clientX, clientY }: any) {
-      let { left, top } = currentTarget.getBoundingClientRect();
+    function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
+      const { currentTarget, clientX, clientY } = event;
+      const { left, top } = currentTarget.getBoundingClientRect();
 
       mouseX.set(clientX - left);
       mouseY.set(clientY - top);
@@ -35,7 +35,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setVisible(true)}
         onMouseLeave={() => setVisible(false)}
-        className="p-[2px] rounded-lg transition duration-300 group"
+        className="group rounded-lg p-[2px] transition duration-300"
       >
         <textarea
           className={cn(

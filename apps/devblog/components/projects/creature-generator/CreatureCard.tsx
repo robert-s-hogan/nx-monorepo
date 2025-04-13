@@ -23,7 +23,7 @@ export interface CreatureCardProps {
 
 export const CreatureCard = ({ creature }: CreatureCardProps) => {
   if (!creature) {
-    return <div className="text-center py-5">No creature data</div>;
+    return <div className="py-5 text-center">No creature data</div>;
   }
 
   const {
@@ -43,10 +43,10 @@ export const CreatureCard = ({ creature }: CreatureCardProps) => {
   } = creature;
 
   return (
-    <div className="w-full bg-white shadow-xl p-5">
+    <div className="w-full bg-white p-5 shadow-xl">
       <h2 className="text-2xl font-bold text-gray-700">{name}</h2>
       <p className="text-sm text-gray-600">{description}</p>
-      <div className="grid grid-cols-3 gap-4 text-gray-800 mt-4">
+      <div className="mt-4 grid grid-cols-3 gap-4 text-gray-800">
         <div>
           <strong>Armor Class:</strong> {armorClass}
         </div>
@@ -56,7 +56,7 @@ export const CreatureCard = ({ creature }: CreatureCardProps) => {
         <div>
           <strong>Speed:</strong> {speed}
         </div>
-        <Flex className="justify-between w-full">
+        <Flex className="w-full justify-between">
           <div>
             <strong>STR</strong> {strength}
           </div>

@@ -1,14 +1,12 @@
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import { Box, Flex, Heading } from '@with-nx/react-ui';
 import { ButtonLink } from '@with-nx/nextjs-react-ui';
 import { FiGithub } from 'react-icons/fi';
-import { GiMonkeyWrench } from 'react-icons/gi';
 import { Text } from '@with-nx/generic-ui';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
-import { Section } from '@devblog/components';
+import { Section } from '../../components/atomic/organisms/Section';
 import DevBlogProjectsThemeSection from '../../components/DevBlogProjectsThemeSection';
 import { projectsData } from '../../data/projects';
 
@@ -16,7 +14,6 @@ import { getIconForCategory } from '../../utils/getIconForCategory';
 
 function ProjectPage({ project }) {
   const router = useRouter();
-  const { slug } = router.query;
 
   if (router.isFallback || !project) {
     return <p>Project not found!</p>;
@@ -28,28 +25,28 @@ function ProjectPage({ project }) {
       description={project.description}
     >
       <div
-        className="bg-cover bg-center relative my-0"
+        className="relative my-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${project.image})` }}
       >
-        <div className="absolute inset-0 bg-image-overlay opacity-50"></div>
+        <div className="bg-image-overlay absolute inset-0 opacity-50"></div>
 
         <Section>
           <Heading
             level={1}
-            className="h-full w-auto my-auto relative z-10 text-center pt-32 break-normal [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]"
+            className="relative z-10 my-auto h-full w-auto break-normal pt-32 text-center [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]"
           >
-            <span className="hidden md:inline-block text-5xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
+            <span className="hidden text-5xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] md:inline-block">
               {project.title}
             </span>
             <span className="text-5xl md:hidden">{project.mobileTitle}</span>
           </Heading>
 
           <Text
-            className="text-center relative z-10"
+            className="relative z-10 text-center"
             text={project.description}
           />
 
-          <div className="w-full relative z-10 flex justify-center mt-8 pb-32">
+          <div className="relative z-10 mt-8 flex w-full justify-center pb-32">
             <ButtonLink
               href={project.link}
               target="_blank"
@@ -61,7 +58,7 @@ function ProjectPage({ project }) {
               }`}
             >
               {project.isUnderConstruction ? (
-                <Flex className="space-x-4 items-center cursor-not-allowed">
+                <Flex className="cursor-not-allowed items-center space-x-4">
                   Under Construction
                 </Flex>
               ) : (
@@ -82,11 +79,11 @@ function ProjectPage({ project }) {
             )}
           </div>
 
-          <Flex className="max-w-fit shadow-lg mx-auto justify-center items-center h-10 py-2 ">
+          <Flex className="mx-auto h-10 max-w-fit items-center justify-center py-2 shadow-lg ">
             {project.category.map((cat) => (
               <span
                 key={cat}
-                className={`relative z-10 text-2xl rounded-full overflow-hidden p-2 bg-bg-color shadow-lg ${
+                className={`bg-bg-color relative z-10 overflow-hidden rounded-full p-2 text-2xl shadow-lg ${
                   cat === 'GithubPages'
                     ? 'flex items-center justify-center'
                     : ''
@@ -99,7 +96,7 @@ function ProjectPage({ project }) {
         </Section>
       </div>
 
-      <div className="w-full bg-secondary-color">
+      <div className="bg-secondary-color w-full">
         <Section>
           <div className="grid grid-cols-1 gap-12">
             <DevBlogProjectsThemeSection
@@ -117,7 +114,7 @@ function ProjectPage({ project }) {
         />
       </Section>
 
-      <div className="w-full bg-secondary-color">
+      <div className="bg-secondary-color w-full">
         <Section>
           <Heading level={2} className="text-xl md:text-5xl">
             {project.media.title}
@@ -134,7 +131,7 @@ function ProjectPage({ project }) {
         {/* If you have a list of tech used, map over them here and display as tiles or cards */}
       </Section>
 
-      <div className="w-full bg-secondary-color">
+      <div className="bg-secondary-color w-full">
         <Section>
           <Heading level={2} className="text-xl md:text-5xl">
             {project.purpose.title}

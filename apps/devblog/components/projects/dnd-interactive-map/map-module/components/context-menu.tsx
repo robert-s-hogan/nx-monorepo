@@ -1,10 +1,15 @@
-import { useEffect } from 'react';
+import { ReactNode, useEffect, MouseEvent } from 'react';
+
+interface ContextMenuOption {
+  label: string;
+  onClick: () => void;
+}
 
 interface ContextMenuProps {
-  children: any;
-  position: any;
+  children?: ReactNode;
+  position: { x: number; y: number };
   onClose: () => void;
-  options: any;
+  options: ContextMenuOption[];
 }
 
 const ContextMenu = ({
@@ -16,7 +21,7 @@ const ContextMenu = ({
   const { x, y } = position;
 
   useEffect(() => {
-    const listener = (event) => {
+    const listener = (event: MouseEvent | Event) => {
       onClose();
     };
 
@@ -29,7 +34,7 @@ const ContextMenu = ({
 
   return (
     <div
-      className="absolute bg-white text-black shadow-md z-50 rounded py-2"
+      className="absolute z-50 rounded bg-white py-2 text-black shadow-md"
       style={{ top: y, left: x }}
     >
       {options.map((option, index) => (

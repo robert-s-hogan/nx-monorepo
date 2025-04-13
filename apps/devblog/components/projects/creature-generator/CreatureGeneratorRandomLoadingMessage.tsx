@@ -6,8 +6,8 @@ function CreatureGeneratorRandomLoadingMessage() {
   const message = loadingMessages[randomIndex];
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <p className="text-white text-2xl font-semibold animate-pulse">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50">
+      <p className="animate-pulse text-2xl font-semibold text-white">
         {message}
       </p>
     </div>

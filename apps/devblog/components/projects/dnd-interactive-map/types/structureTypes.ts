@@ -1,3 +1,3 @@
 import { DraggableElement } from './commonTypes';
 
-export interface Structure extends DraggableElement {}
+export type Structure = DraggableElement

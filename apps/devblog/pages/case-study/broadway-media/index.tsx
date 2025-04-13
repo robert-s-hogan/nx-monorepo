@@ -19,25 +19,25 @@ export default function BroadwayMediaCaseStudy() {
       <DevBlogSection>
         <Heading
           level={2}
-          className="text-center mb-4"
+          className="mb-4 text-center"
           text="Broadway Media: Building a Modern & Scalable Platform"
         />
-        <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
+        <hr className="bg-primary mx-auto mb-8 h-2 w-16" />
       </DevBlogSection>
 
       {/* OVERVIEW SECTION */}
       <DevBlogSection>
         <Heading
           level={3}
-          className="text-xl font-bold mb-2"
+          className="mb-2 text-xl font-bold"
           text="Project Overview"
         />
         <Text
-          className="text-base mb-4"
+          className="mb-4 text-base"
           text="Broadway Media is a media company that specializes in digital signage and content management. They required a modernized, scalable platform to support e-commerce capabilities, efficient code sharing, and faster product release cycles."
         />
         <Text
-          className="text-base mb-4"
+          className="mb-4 text-base"
           text="During my tenure from June 2022 to May 2023, I worked as a Senior Engineer focusing on front-end architecture, performance optimization, and integrating third-party services like Stripe."
         />
       </DevBlogSection>
@@ -46,10 +46,10 @@ export default function BroadwayMediaCaseStudy() {
       <DevBlogSection>
         <Heading
           level={3}
-          className="text-xl font-bold mb-2"
+          className="mb-2 text-xl font-bold"
           text="My Role & Key Challenges"
         />
-        <ul className="list-disc list-inside space-y-2 pl-4">
+        <ul className="list-inside list-disc space-y-2 pl-4">
           <li>
             <strong>NX Monorepo Setup:</strong> Optimized the company’s monorepo
             environment to improve code sharing and reduce build times.
@@ -75,11 +75,11 @@ export default function BroadwayMediaCaseStudy() {
       <DevBlogSection>
         <Heading
           level={3}
-          className="text-xl font-bold mb-2"
+          className="mb-2 text-xl font-bold"
           text="Technologies & Approach"
         />
         <Text
-          className="text-base mb-4"
+          className="mb-4 text-base"
           text="We leveraged a React + Next.js stack within an Nx Monorepo for modular code organization and faster builds. Redux Toolkit handled state management, while Stripe ensured secure payment processing."
         />
         <div className="mb-4">
@@ -87,7 +87,7 @@ export default function BroadwayMediaCaseStudy() {
             className="text-base font-semibold"
             text="Key Technologies Included:"
           />
-          <ul className="list-disc list-inside space-y-2 pl-4 mt-2">
+          <ul className="mt-2 list-inside list-disc space-y-2 pl-4">
             <li>React & Next.js</li>
             <li>TypeScript</li>
             <li>Nx Monorepo</li>
@@ -102,10 +102,10 @@ export default function BroadwayMediaCaseStudy() {
       <DevBlogSection>
         <Heading
           level={3}
-          className="text-xl font-bold mb-2"
+          className="mb-2 text-xl font-bold"
           text="Key Metrics & Outcomes"
         />
-        <ul className="list-disc list-inside space-y-2 pl-4">
+        <ul className="list-inside list-disc space-y-2 pl-4">
           <li>
             <strong>Revenue Growth (+15%):</strong> Spearheaded the Stripe
             integration, boosting e-commerce capabilities and increasing revenue
@@ -132,23 +132,23 @@ export default function BroadwayMediaCaseStudy() {
       <DevBlogSection>
         <Heading
           level={3}
-          className="text-xl font-bold mb-2"
+          className="mb-2 text-xl font-bold"
           text="Project Screenshots"
         />
         <Text
-          className="text-base mb-4"
+          className="mb-4 text-base"
           text="Below are snapshots from the development process, highlighting two major sections of the platform."
         />
 
         {/* STORE (CATALOG) */}
-        <div className="flex flex-col space-y-8 mb-8">
-          <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200 dark:border-neutral-800">
+        <div className="mb-8 flex flex-col space-y-8">
+          <div className="rounded-3xl border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <Heading
               level={4}
-              className="text-lg font-semibold mb-2"
+              className="mb-2 text-lg font-semibold"
               text="Catalog / Store"
             />
-            <div className="flex w-full items-center justify-between mb-2">
+            <div className="mb-2 flex w-full items-center justify-between">
               <span className="text-xs">Before</span>
               <span className="text-xs">After</span>
             </div>
@@ -170,14 +170,14 @@ export default function BroadwayMediaCaseStudy() {
         </div>
 
         {/* PRODUCTION EDITOR */}
-        <div className="flex flex-col space-y-8 mb-8">
-          <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200 dark:border-neutral-800">
+        <div className="mb-8 flex flex-col space-y-8">
+          <div className="rounded-3xl border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <Heading
               level={4}
-              className="text-lg font-semibold mb-2"
+              className="mb-2 text-lg font-semibold"
               text="Production Editor"
             />
-            <div className="flex w-full items-center justify-between mb-2">
+            <div className="mb-2 flex w-full items-center justify-between">
               <span className="text-xs">Before</span>
               <span className="text-xs">After</span>
             </div>
@@ -203,15 +203,15 @@ export default function BroadwayMediaCaseStudy() {
       <DevBlogSection>
         <Heading
           level={3}
-          className="text-xl font-bold mb-2"
+          className="mb-2 text-xl font-bold"
           text="Conclusion"
         />
         <Text
-          className="text-base mb-4"
+          className="mb-4 text-base"
           text="Broadway Media’s platform transformation showcased the advantages of a well-structured Nx Monorepo, strategic third-party integrations like Stripe, and close collaboration across teams. The results speak for themselves: increased revenue, faster release cycles, and improved user satisfaction."
         />
         <Text
-          className="text-base mb-4"
+          className="mb-4 text-base"
           text="This project was an excellent opportunity to leverage my experience in front-end engineering, system architecture, and team leadership to deliver tangible results that continue to shape Broadway Media’s digital presence."
         />
         <Text

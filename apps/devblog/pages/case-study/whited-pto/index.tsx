@@ -19,20 +19,20 @@ export default function WhitedPTOCaseStudy() {
         {/* PAGE TITLE & INTRO */}
         <Heading
           level={2}
-          className="text-center mb-4"
+          className="mb-4 text-center"
           text="Whited PTO: Redesign & Multilingual Support"
         />
-        <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
+        <hr className="bg-primary mx-auto mb-8 h-2 w-16" />
 
         {/* PROJECT OVERVIEW */}
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Project Overview"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="Whited PTO is a parent-teacher organization website currently undergoing a redesign. The primary goal is to increase parent engagement and support Spanish-speaking families by offering an accessible, multilingual experience. This will be critical for the 2025 school year when we plan to roll out a new WordPress theme."
           />
           <Text
@@ -45,11 +45,11 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Motivation"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="The current PTO site suffers from low volunteer turnout and limited engagement due to hard-to-find calls-to-action. Additionally, the site does not cater to Spanish-speaking parents, creating a language barrier for a significant portion of the community. By modernizing the platform and incorporating a free educational/non-profit WordPress theme, we aim to create a welcoming, inclusive environment for all families."
           />
         </DevBlogSection>
@@ -58,10 +58,10 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Key Features (Planned)"
           />
-          <ul className="list-disc list-inside space-y-2 pl-4">
+          <ul className="list-inside list-disc space-y-2 pl-4">
             <li>Dedicated volunteer sign-up form with clear CTAs</li>
             <li>
               Spanish translation toggle to better serve bilingual families
@@ -77,18 +77,18 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Design & Tools"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="We are prototyping in Figma to map out the user flow, test various layout ideas, and validate color choices that meet accessibility guidelines. On the technical side, we have a WordPress sandbox environment, where we’re experimenting with a free educational/non-profit theme to minimize custom development efforts."
           />
           <Text
-            className="text-base mb-2 font-semibold"
+            className="mb-2 text-base font-semibold"
             text="Key Tools & Setup:"
           />
-          <ul className="list-disc list-inside space-y-2 pl-4 mb-4">
+          <ul className="mb-4 list-inside list-disc space-y-2 pl-4">
             <li>Figma (low- to mid-fidelity prototypes & user flow)</li>
             <li>
               WordPress test site (using a free educational/non-profit theme)
@@ -102,11 +102,11 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Figma Prototype (In Progress)"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="Below is an embedded Figma prototype showcasing our current designs. Feel free to explore different screens and flows. Keep in mind the final styling will reflect the free WordPress theme once integrated."
           />
           <div className="mb-8">
@@ -124,11 +124,11 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Current Status"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="We are in the design and user-feedback phase. No metrics on engagement improvements are available yet, but we have begun collecting informal feedback from a handful of parents. Early impressions suggest that clearer volunteer calls-to-action and a bilingual interface may significantly boost participation."
           />
           <Text
@@ -141,11 +141,11 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Next Steps"
           />
           <Text
-            className="text-base mb-4"
+            className="mb-4 text-base"
             text="Our immediate focus is establishing the final WordPress theme, setting up the multilingual plugin for Spanish, and refining the volunteer sign-up flow based on user feedback. The full rollout is planned for the 2025 school year, when the site will officially replace the old PTO webpage."
           />
           <Text
@@ -155,14 +155,14 @@ export default function WhitedPTOCaseStudy() {
         </DevBlogSection>
 
         <DevBlogSection>
-          <div className="flex flex-col space-y-8 mb-8">
-            <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200 dark:border-neutral-800">
+          <div className="mb-8 flex flex-col space-y-8">
+            <div className="rounded-3xl border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900">
               <Heading
                 level={4}
-                className="text-lg font-semibold mb-2"
+                className="mb-2 text-lg font-semibold"
                 text="Whited PTO"
               />
-              <div className="flex w-full items-center justify-between mb-2">
+              <div className="mb-2 flex w-full items-center justify-between">
                 <span className="text-xs">Before</span>
                 <span className="text-xs">After</span>
               </div>
@@ -182,10 +182,10 @@ export default function WhitedPTOCaseStudy() {
         <DevBlogSection>
           <Heading
             level={3}
-            className="text-xl font-bold mb-2"
+            className="mb-2 text-xl font-bold"
             text="Links & References"
           />
-          <ul className="list-disc list-inside pl-4 space-y-2">
+          <ul className="list-inside list-disc space-y-2 pl-4">
             <li>
               <a
                 href="https://www.figma.com/design/i4WisorQCHHIW8SXLEJcDA/whited-pto?node-id=46-1304&p=f&t=lcAa1Ur0XFPWuK3a-0"

@@ -1,6 +1,8 @@
 // DNDMap.tsx
 import React, { useState, useEffect } from 'react';
 import { Stage, Layer, Line } from 'react-konva';
+import type { KonvaEventObject } from 'konva/lib/Node';
+
 import useMockDNDData from './useMockDNDData'; // Use the mock hook
 import ShapeRenderer from './shape-renderer';
 
@@ -28,7 +30,7 @@ const DNDMap: React.FC = () => {
     };
   }, []);
 
-  const handleDragEnd = (e: any, id: number) => {
+  const handleDragEnd = (e: KonvaEventObject<DragEvent>, id: number) => {
     const x = e.target.x();
     const y = e.target.y();
 

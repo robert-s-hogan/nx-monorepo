@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
-import { Section } from '@devblog/components';
+import { Section } from '../../components/atomic/organisms/Section';
 import { Heading } from '@with-nx/generic-ui';
 
 const WP_API_BASE_URL =

@@ -1,15 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import useSWR from 'swr';
-import {
-  Box,
-  Button,
-  Checkbox,
-  Flex,
-  Heading,
-  Input,
-  Text,
-} from '@with-nx/react-ui';
+import { Button, Flex, Input, Text } from '@with-nx/react-ui';
 
 const fetcher = async (urls) => {
   const results = await Promise.all(

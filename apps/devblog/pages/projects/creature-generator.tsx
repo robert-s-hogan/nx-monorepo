@@ -6,7 +6,7 @@ import { Grid } from '@with-nx/react-ui';
 
 import { CreatureCard } from '../../components/projects/creature-generator/CreatureCard';
 import DevblogLayout from '../../components/DevBlogLayout';
-import { Section } from '@devblog/components';
+import { Section } from '../../components/atomic/organisms/Section';
 import RandomLoadingMessage from '../../components/projects/creature-generator/CreatureGeneratorRandomLoadingMessage';
 import {
   fetchCreatureData,
@@ -87,7 +87,7 @@ export default function CreatureGenerator() {
         <h1>Create DND Monster</h1>
         {!creature && !isLoading && (
           <form
-            className="grid grid-cols-1 md:grid-cols-3 gap-4"
+            className="grid grid-cols-1 gap-4 md:grid-cols-3"
             onSubmit={(event) => {
               event.preventDefault();
               handleSubmit(event);
@@ -142,19 +142,19 @@ export default function CreatureGenerator() {
               label="Back"
               onClick={handleBack}
             />
-            <Grid className="grid-cols-1 gap-6 max-w-lg justify-center items-center bg-white border p-1">
+            <Grid className="max-w-lg grid-cols-1 items-center justify-center gap-6 border bg-white p-1">
               <div>
-                <Flex className="flex-col justify-center items-center">
+                <Flex className="flex-col items-center justify-center">
                   {image ? (
                     <Image
                       src={image}
                       alt="Creature"
-                      className="transform shadow-lg"
+                      className="shadow-lg"
                       width={1024}
                       height={1024}
                     />
                   ) : (
-                    <div className="w-full h-64 bg-gray-200 shadow-lg flex flex-col justify-center">
+                    <div className="flex h-64 w-full flex-col justify-center bg-gray-200 shadow-lg">
                       <Button
                         theme="primary"
                         text="Generate Image"

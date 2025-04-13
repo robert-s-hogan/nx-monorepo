@@ -1,6 +1,5 @@
 import { cn } from '@with-nx/utils';
 import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
 import { useState } from 'react';
 
 export const HoverEffect = ({
@@ -13,21 +12,21 @@ export const HoverEffect = ({
   }[];
   className?: string;
 }) => {
-  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <div className={cn('flex flex-wrap py-10', className)}>
       {items.map((item, idx) => (
         <p
           key={item?.link}
-          className="relative group block py-3 px-1 h-full w-auto"
+          className="group relative block h-full w-auto py-3 px-1"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-primary opacity-60 block rounded-md"
+                className="bg-primary absolute inset-0 block h-full w-full rounded-md opacity-60"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -41,7 +40,7 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <span className="relative z-20 bg-bg-color p-3 rounded-md text-xs md:text-base">
+          <span className="bg-bg-color relative z-20 rounded-md p-3 text-xs md:text-base">
             {item.title}
           </span>
         </p>

@@ -1,10 +1,7 @@
-import axios from 'axios';
 import { Flex, Heading, Section, Tabs, Text } from '@with-nx/react-ui';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
 import VersionOne from '../../components/projects/find-freelance-sites/version-one';
-import VersionTwo from '../../components/projects/find-freelance-sites/version-two';
-import VersionThree from '../../components/projects/find-freelance-sites/version-three';
 import PagespeedInsights from '../../components/projects/find-freelance-sites/pagespeed-insights';
 
 export default function FreelanceFindSites() {
@@ -13,24 +10,16 @@ export default function FreelanceFindSites() {
       label: 'Search - Free (10)',
       content: <VersionOne />,
     },
-    // {
-    //   label: 'Search - Paid (100)',
-    //   content: <VersionTwo />,
-    // },
     {
       label: 'Pagespeed Insights',
       content: <PagespeedInsights />,
     },
-    // {
-    //   label: 'Search - subsequest requests',
-    //   content: <VersionThree />,
-    // },
   ];
 
   return (
     <DevBlogLayout>
       <Section>
-        <Flex className="flex-col space-y-4 mb-8">
+        <Flex className="mb-8 flex-col space-y-4">
           <Heading level={1}>Find Freelance Sites</Heading>
           <Text>
             This tool is to find older websites that need an a refresh. The

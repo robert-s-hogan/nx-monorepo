@@ -1,7 +1,6 @@
 'use client';
 
 import { useRouter } from 'next/router';
-import { Flex } from '@with-nx/react-ui';
 import { IconButton } from '@with-nx/generic-ui';
 import { FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 import { Heading, Text } from '@with-nx/generic-ui';
@@ -83,13 +82,13 @@ export const DirectionAwareHover = ({
           whileHover={direction}
           exit="exit"
         >
-          <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/60 z-10 transition duration-500" />
+          <motion.div className="absolute inset-0 z-10 hidden h-full w-full bg-black/60 transition duration-500 group-hover/card:block" />
           <motion.div
             variants={variants}
-            className="h-full w-full relative"
+            className="relative h-full w-full"
             transition={{ duration: 0.2, ease: 'easeOut' }}
           >
-            <div className="overflow-hidden md:w-full md:h-full lg:w-[1000px] lg:h-[425px]">
+            <div className="overflow-hidden md:h-full md:w-full lg:h-[425px] lg:w-[1000px]">
               <Image
                 alt="image"
                 className={cn(
@@ -140,14 +139,14 @@ export default function DevBlogProjectCard({ projects }) {
   const router = useRouter();
 
   return (
-    <div className="p-1 lg:p-8 text-center bg-secondary-color rounded-md w-full">
+    <div className="bg-secondary-color w-full rounded-md p-1 text-center lg:p-8">
       {projects.map((project, index) => (
         <div
           key={index}
-          className="grid grid-cols-1 md:grid-cols-3 pb-8 md:py-16"
+          className="grid grid-cols-1 pb-8 md:grid-cols-3 md:py-16"
         >
           <div
-            className={`bg-surface-color p-4 lg:p-6 h-full shadow-lg flex flex-col justify-center rounded-md ${
+            className={`bg-surface-color flex h-full flex-col justify-center rounded-md p-4 shadow-lg lg:p-6 ${
               index % 2 === 0
                 ? 'md:rounded-r-none md:rounded-l-md'
                 : 'md:rounded-l-none md:rounded-r-md'
@@ -155,11 +154,11 @@ export default function DevBlogProjectCard({ projects }) {
           >
             <Heading
               level={3}
-              className="text-2xl font-bold mb-2"
+              className="mb-2 text-2xl font-bold"
               text={project.title}
             />
             <Text
-              className="text-base lg:text-xl mb-4"
+              className="mb-4 text-base lg:text-xl"
               text={project.description}
             />
             {/* <div className="flex flex-wrap gap-2 mb-4">
@@ -174,7 +173,7 @@ export default function DevBlogProjectCard({ projects }) {
             </div> */}
             <IconButton
               theme="primary"
-              className="px-4 py-2 w-fit mx-auto"
+              className="mx-auto w-fit px-4 py-2"
               text="Check it"
               label="Check it"
               icon={
@@ -194,19 +193,19 @@ export default function DevBlogProjectCard({ projects }) {
             />
           </div>
           <div
-            className={`hidden md:flex md:col-span-2 shadow-lg ${
+            className={`hidden shadow-lg md:col-span-2 md:flex ${
               index % 2 === 0
                 ? 'md:rounded-r-none md:rounded-l-md '
-                : 'rounded-r-md order-first'
+                : 'order-first rounded-r-md'
             }`}
           >
             <DirectionAwareHover imageUrl={project.imageUrl} index={index}>
               {project.goals ? (
-                <div className="px-6 space-y-4 text-white">
+                <div className="space-y-4 px-6 text-white">
                   <Heading
                     level={3}
                     text="Description & Goals"
-                    className="text-left pt-0"
+                    className="pt-0 text-left"
                   />
                   <Text className="text-left" text={project.description} />
                   {/* 

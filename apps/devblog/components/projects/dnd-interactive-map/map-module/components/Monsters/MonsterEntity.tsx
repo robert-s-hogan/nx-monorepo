@@ -1,4 +1,4 @@
-import { Group, Path, Text } from 'react-konva';
+import { Group } from 'react-konva';
 import { GoblinIcon, DragonIcon, SkeletonIcon } from '../../icons';
 
 const MonsterEntity = ({
@@ -11,7 +11,6 @@ const MonsterEntity = ({
   className,
   onClick,
 }) => {
-  const radius = 20;
   const classShape = () => {
     switch (className) {
       case 'goblin':

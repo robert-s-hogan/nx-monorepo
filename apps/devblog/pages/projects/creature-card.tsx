@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from '@with-nx/generic-ui';
 import Image from 'next/image';
 import DevBlogLayout from '../../components/DevBlogLayout';
 
@@ -12,24 +11,24 @@ const GenericPage: React.FC<PageProps> = () => {
 
   return (
     <DevBlogLayout>
-      <div className="relative max-w-lg mx-auto bg-white rounded-lg shadow-lg overflow-hidden ">
-        <div className="relative z-10 flex flex-col items-center fantasy-border">
+      <div className="relative mx-auto max-w-lg overflow-hidden rounded-lg bg-white shadow-lg ">
+        <div className="fantasy-border relative z-10 flex flex-col items-center">
           <Image
             src="https://static.wikia.nocookie.net/forgottenrealms/images/0/00/Power_of_Persuasion_AFR.jpg/revision/latest/scale-to-width-down/1000?cb=20210710175238"
             alt="Ettin"
-            className="transform shadow-lg rounded-lg"
+            className="rounded-lg shadow-lg"
             width={1024}
             height={1024}
           />
         </div>
-        <div className="relative mt-[-50px] pt-10 text-center z-0">
-          <h2 className="text-3xl font-bold text-gray-700 py-1">Ettin</h2>
-          <p className="text-sm text-gray-600 mt-2">
+        <div className="relative z-0 mt-[-50px] pt-10 text-center">
+          <h2 className="py-1 text-3xl font-bold text-gray-700">Ettin</h2>
+          <p className="mt-2 text-sm text-gray-600">
             Ettins are hulking, two-headed giants with a brutish and savage
             nature. They often dwell in remote, mountainous regions and are
             known for their violent temperament and territorial behavior.
           </p>
-          <div className="grid grid-cols-3 gap-2 text-gray-800 mt-4">
+          <div className="mt-4 grid grid-cols-3 gap-2 text-gray-800">
             <div>
               <strong>Armor Class:</strong> 12 (Natural Armor)
             </div>

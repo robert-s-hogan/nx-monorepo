@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import DevBlogLayout from '../../components/DevBlogLayout';
-import { Section } from '@devblog/components';
+import { Section } from '../../components/atomic/organisms/Section';
 import { Flex, Heading, Text } from '@with-nx/generic-ui';
 // Define the base URL for your WordPress API
 const WP_API_BASE_URL =
@@ -53,13 +53,13 @@ export default function Home({ allPostsData }) {
           className="text-center"
           text="A collection of topics, notes, and half-baked explorations I'm always tending to."
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 space-y-2 md:space-y-0">
+        <div className="grid grid-cols-1 gap-6 space-y-2 md:grid-cols-2 md:space-y-0 lg:grid-cols-3">
           {allPostsData.map(({ id, date, title, categories }) => (
-            <div key={id} className="p-4 rounded-md">
+            <div key={id} className="rounded-md p-4">
               <Link href={`/blog/${id}`}>
                 <Text className="" text={title} />
               </Link>
-              <Flex className="items-center space-x-4 mt-4 md:mt-0">
+              <Flex className="mt-4 items-center space-x-4 md:mt-0">
                 <Text className="text-sm" text={categories.join(', ')} />
                 <Text className="text-xs" text={date} />
               </Flex>
@@ -69,37 +69,4 @@ export default function Home({ allPostsData }) {
       </Section>
     </DevBlogLayout>
   );
-}
-
-function getCategoryClassName(category) {
-  switch (category) {
-    case 'react.js':
-      return 'text-react-js';
-    case 'journal':
-      return 'text-journal';
-    case 'konva.js':
-      return 'text-konva-js';
-    case 'css':
-      return 'text-css';
-    case 'tailwindcss':
-      return 'text-tailwindcss';
-    case 'chakra-ui':
-      return 'text-chakra-ui';
-    case 'terminal':
-      return 'text-terminal';
-    case 'safari':
-      return 'text-safari';
-    case 'react-query':
-      return 'text-react-query';
-    case 'antd':
-      return 'text-antd';
-    case 'emotion':
-      return 'text-emotion';
-    case 'typescript':
-      return 'text-typescript';
-    case 'javascript':
-      return 'text-javascript';
-    default:
-      return 'text-black';
-  }
 }

@@ -1,10 +1,15 @@
-import { generateStructures } from '../../utils';
-
 import StructureEntity from './StructureEntity';
 
+interface Structure {
+  id: number;
+  x: number;
+  y: number;
+  className: string;
+}
+
 interface StructureGroupProps {
-  structures: any;
-  dragBoundFunc: any;
+  structures: Structure[];
+  dragBoundFunc: (pos: { x: number; y: number }) => { x: number; y: number };
   onClick: () => void;
 }
 

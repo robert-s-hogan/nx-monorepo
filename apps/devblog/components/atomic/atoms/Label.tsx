@@ -1,7 +1,6 @@
 'use client';
 import * as React from 'react';
 import * as LabelPrimitive from '@radix-ui/react-label';
-
 import { cn } from '@with-nx/utils';
 
 export const Label = React.forwardRef<
@@ -17,3 +16,5 @@ export const Label = React.forwardRef<
     {...props}
   />
 ));
+
+Label.displayName = 'Label';

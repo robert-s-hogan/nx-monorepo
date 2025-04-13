@@ -1,15 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import useSWR from 'swr';
-import {
-  Box,
-  Button,
-  Checkbox,
-  Flex,
-  Heading,
-  Input,
-  Text,
-} from '@with-nx/react-ui';
+import { Button, Checkbox, Flex, Input, Text } from '@with-nx/react-ui';
 import { FiX } from 'react-icons/fi';
 import { useSearchQuery, useFileTypeSelection } from '@with-nx/react-hooks';
 
@@ -20,7 +12,6 @@ const VersionOne = () => {
   const [years, setYears] = useState(10);
   const [excludeTerms, setExcludeTerms] = useState(['']);
   const [excludeTerm, setExcludeTerm] = useState('');
-  const [zipCode, setZipCode] = useState('');
 
   const handleExcludeTermChange = (e) => {
     setExcludeTerm(e.target.value);
@@ -40,15 +31,14 @@ const VersionOne = () => {
 
   //file types
   const { selectedFileType, handleFileTypeChange } = useFileTypeSelection();
-  const {
-    state,
-    handleSearch: triggerSearch,
-    url,
-  } = useSearchQuery('https://www.googleapis.com/customsearch/v1', {
-    key: process.env.NEXT_PUBLIC_FREE_GOOGLE_SEARCH_API_KEY,
-    cx: process.env.NEXT_PUBLIC_CUSTOM_SEARCH_ENGINE_ID,
-    excludeTerms: excludeTerms,
-  });
+  const { handleSearch: triggerSearch, url } = useSearchQuery(
+    'https://www.googleapis.com/customsearch/v1',
+    {
+      key: process.env.NEXT_PUBLIC_FREE_GOOGLE_SEARCH_API_KEY,
+      cx: process.env.NEXT_PUBLIC_CUSTOM_SEARCH_ENGINE_ID,
+      excludeTerms: excludeTerms,
+    }
+  );
 
   const handleFormSubmit = (e, searchTerm, years) => {
     if (e.preventDefault) {
@@ -64,12 +54,12 @@ const VersionOne = () => {
     triggerSearch(`${searchTerm}${excluded}${fileTypeQuery}`, years);
   };
 
-  const { data, error } = useSWR(url, fetcher);
+  const { data } = useSWR(url, fetcher);
   return (
     <>
       <form
         onSubmit={(e) => handleFormSubmit(e, searchTerm, years)}
-        className="p-4 space-y-4"
+        className="space-y-4 p-4"
       >
         <Flex className="items-center space-x-6">
           <Input
@@ -84,19 +74,19 @@ const VersionOne = () => {
             Submit
           </Button>
         </Flex>
-        <Flex className="w-full flex-col md:flex-row space-y-2">
-          <Flex className="w-full md:w-auto md:mr-8 items-center space-x-6 space-y-2">
+        <Flex className="w-full flex-col space-y-2 md:flex-row">
+          <Flex className="w-full items-center space-x-6 space-y-2 md:mr-8 md:w-auto">
             <Input
               type="number"
               label="Age of Website (Years)"
               name="years"
-              className="!w-48 h-14 mb-8"
+              className="mb-8 h-14 !w-48"
               value={years}
               onChange={(e) => setYears(parseInt(e.target.value))}
               placeholder="Years"
             />
           </Flex>
-          <Flex className="flex-col w-full md:w-auto space-y-2 ">
+          <Flex className="w-full flex-col space-y-2 md:w-auto ">
             <Text className="block">Page File Type (old formats)</Text>
             <Flex className="space-x-2">
               {['html', 'php', 'asp'].map((fileType) => (
@@ -111,10 +101,10 @@ const VersionOne = () => {
             </Flex>
           </Flex>
         </Flex>
-        <Flex className="flex-col space-y-2 mt-8">
-          <Flex className="items-center justify-between w-full space-x-2">
+        <Flex className="mt-8 flex-col space-y-2">
+          <Flex className="w-full items-center justify-between space-x-2">
             <Text className="!w-auto">Excluded Terms</Text>
-            <Flex className="flex-grow space-x-1">
+            <Flex className="grow space-x-1">
               {excludeTerms.map(
                 (term, index) =>
                   term !== '' && (
@@ -124,7 +114,7 @@ const VersionOne = () => {
                         onClick={() => handleRemoveExcludeTerm(index)}
                       >
                         {term}
-                        <FiX className="h-4 w-4 ml-2" />
+                        <FiX className="ml-2 h-4 w-4" />
                       </Button>
                     </Flex>
                   )

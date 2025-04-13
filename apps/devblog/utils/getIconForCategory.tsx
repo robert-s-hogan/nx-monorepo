@@ -1,4 +1,3 @@
-import { FiGithub } from 'react-icons/fi';
 import { FcGoogle } from 'react-icons/fc';
 import {
   SiCss3,
@@ -14,7 +13,6 @@ import {
   SiTypescript,
 } from 'react-icons/si';
 import { AiOutlineApi } from 'react-icons/ai';
-import { BiWrench } from 'react-icons/bi';
 
 export function getIconForCategory(category: string): JSX.Element | null {
   switch (category) {

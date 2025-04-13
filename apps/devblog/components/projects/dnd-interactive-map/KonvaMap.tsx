@@ -17,9 +17,9 @@ const KonvaMap = () => {
   const [stageScale, setStageScale] = useState(1);
   const [stageX, setStageX] = useState(0);
   const [stageY, setStageY] = useState(0);
-  const [monsters, setMonsters] = useState(generateMonsters());
-  const [party, setParty] = useState(generateParty());
-  const [structures, setStructures] = useState(generateStructures());
+  const [monsters] = useState(generateMonsters());
+  const [party] = useState(generateParty());
+  const [structures] = useState(generateStructures());
 
   const handleWheel = useCallback((e) => {
     e.evt.preventDefault();
@@ -66,22 +66,8 @@ const KonvaMap = () => {
     };
   }, []);
 
-  const playerRadius = 20;
-
-  const dragBoundFunc = (pos) => {
-    const x = Math.max(
-      playerRadius,
-      Math.min(pos.x, stageSize.width - playerRadius)
-    );
-    const y = Math.max(
-      playerRadius,
-      Math.min(pos.y, stageSize.height - playerRadius)
-    );
-    return { x, y };
-  };
-
   return (
-    <div className="border-2 border-primary m-16">
+    <div className="border-primary m-16 border-2">
       <Stage
         width={stageSize.width}
         height={stageSize.height}

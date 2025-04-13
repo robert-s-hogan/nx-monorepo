@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import type { AppProps, NextWebVitalsMetric } from 'next/app';
 
 import { GoogleTagManager } from '@with-nx/analytics';

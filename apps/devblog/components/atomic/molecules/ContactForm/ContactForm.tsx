@@ -63,10 +63,10 @@ function ContactForm() {
   };
 
   return (
-    <div className="max-w-md w-full mx-auto rounded-2xl p-4 md:p-8 shadow-input bg-surface-color min-h-[560px] relative">
+    <div className="shadow-input bg-surface-color relative mx-auto min-h-[560px] w-full max-w-md rounded-2xl p-4 md:p-8">
       <form
         className={`my-8 ${
-          isSuccess ? 'opacity-20 pointer-events-none' : 'opacity-100'
+          isSuccess ? 'pointer-events-none opacity-20' : 'opacity-100'
         } transition-opacity duration-500`}
         onSubmit={handleSubmit}
         noValidate
@@ -107,15 +107,15 @@ function ContactForm() {
         <Button
           type="submit"
           text=""
-          className="w-full flex items-center justify-center"
+          className="flex w-full items-center justify-center"
           theme="primary"
         >
           {loading ? <div className="loader" /> : 'Send Message →'}
         </Button>
       </form>
       {isSuccess && (
-        <div className="absolute inset-0 bg-surface-color bg-opacity-95 rounded-2xl p-4 md:p-8 shadow-xl overflow-hidden">
-          <h1 className="h-full flex flex-col justify-center items-center font-bold text-xl text-success-color mb-4">
+        <div className="bg-surface-color absolute inset-0 overflow-hidden rounded-2xl bg-black/95 p-4 shadow-xl md:p-8">
+          <h1 className="text-success-color mb-4 flex h-full flex-col items-center justify-center text-xl font-bold">
             {responseMessage}
           </h1>
           <Meteors number={20} />

@@ -1,10 +1,15 @@
-import { generateParty } from '../../utils';
-
 import PartyMember from './PartyMember';
 
+interface Player {
+  id: string;
+  className: string;
+  x: number;
+  y: number;
+}
+
 interface PartyGroupProps {
-  party: any;
-  dragBoundFunc: any;
+  party: Player[];
+  dragBoundFunc: (pos: { x: number; y: number }) => { x: number; y: number };
   onClick: () => void;
 }
 

@@ -17,7 +17,7 @@ const DevBlogSection = ({
   const widthStyles = fullWidth ? 'max-w-full' : 'max-w-7xl';
   return (
     <Section
-      className={`container mx-auto space-y-6 py-6 md:py-12 px-4 ${cn(
+      className={`container mx-auto space-y-6 py-6 px-4 md:py-12 ${cn(
         className,
         widthStyles
       )}`}

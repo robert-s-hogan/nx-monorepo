@@ -7,7 +7,7 @@ import { cn } from '@with-nx/utils';
 export type Tab = {
   title: string;
   value: string;
-  content?: string | React.ReactNode | any;
+  content?: string | React.ReactNode;
 };
 
 export const Tabs = ({
@@ -105,7 +105,7 @@ export const FadeInDiv = ({
     return tab.value === tabs[0].value;
   };
   return (
-    <div className="relative w-full h-full">
+    <div className="relative h-full w-full">
       {tabs.map((tab, idx) => (
         <motion.div
           key={tab.value}

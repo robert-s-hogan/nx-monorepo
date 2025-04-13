@@ -186,7 +186,7 @@ export default async function handler(req, res) {
   const prompt = generatePrompt(numberOfPlayers, playerLevel, completeData);
 
   try {
-    let result = await fetchCompletion(prompt);
+    const result = await fetchCompletion(prompt);
     console.log('Result from fetchCompletion:', result);
     return res.status(200).json({
       result: result,

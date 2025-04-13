@@ -1,7 +1,7 @@
 // pages/api/assistant.js
 import { Configuration, OpenAIApi } from 'openai';
 
-export default async (req, res) => {
+const assistantHandler = async (req, res) => {
   if (req.method === 'POST') {
     const { prompt } = req.body;
 
@@ -19,7 +19,7 @@ export default async (req, res) => {
     } catch (error) {
       console.error('OpenAI API error:', error);
       if (error.response) {
-        console.error('Error response:', error.response.data); // Log more detailed API error info if available
+        console.error('Error response:', error.response.data);
       }
       res.status(500).json({
         message: 'Failed to fetch response from OpenAI',
@@ -31,3 +31,5 @@ export default async (req, res) => {
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 };
+
+export default assistantHandler;

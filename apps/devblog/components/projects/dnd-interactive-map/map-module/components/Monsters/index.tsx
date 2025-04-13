@@ -1,10 +1,15 @@
-import { generateMonsters } from '../../utils';
-
 import MonsterEntity from './MonsterEntity';
 
+interface Monster {
+  id: number;
+  x: number;
+  y: number;
+  className: string;
+}
+
 interface MonsterGroupProps {
-  monsters: any;
-  dragBoundFunc: any;
+  monsters: Monster[];
+  dragBoundFunc: (pos: { x: number; y: number }) => { x: number; y: number };
   onClick: () => void;
 }
 

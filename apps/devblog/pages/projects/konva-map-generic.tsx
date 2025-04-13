@@ -1,11 +1,13 @@
 import dynamic from 'next/dynamic';
 
-import DevBlogLayout from 'apps/devblog/components/DevBlogLayout';
-import DevBlogSection from 'apps/devblog/components/DevBlogSection';
+import DevBlogLayout from '../../components/DevBlogLayout';
+import DevBlogSection from '../../components/DevBlogSection';
 
 const DNDMap = dynamic(
   () => import('../../components/projects/konva-map-generic/DNDMap'),
-  { ssr: false }
+  {
+    ssr: false,
+  }
 );
 
 const KonvaMapGeneric: React.FC = () => {

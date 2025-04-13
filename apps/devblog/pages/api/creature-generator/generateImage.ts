@@ -12,7 +12,7 @@ const limiter = new Bottleneck({
   minTime: (60 * 1000) / 2000,
 });
 
-export default async function (req, res) {
+export default async function generateImageHandler(req, res) {
   const { imagePrompt } = req.body;
 
   try {
@@ -25,7 +25,6 @@ export default async function (req, res) {
     );
 
     const imageUrl = response.data.data[0].url;
-
     res.status(200).json({ imageUrl });
   } catch (error) {
     console.error('Detailed Error: ', error);

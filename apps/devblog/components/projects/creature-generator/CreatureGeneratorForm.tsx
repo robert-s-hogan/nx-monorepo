@@ -142,13 +142,13 @@ const CreatureGeneratorForm = ({ onSubmit, initialValues }) => {
   };
 
   useEffect(() => {
-    console.log('Initial form values set:', formValues);
-  }, []);
+    console.log('Initial form values set:', initialValues);
+  }, [initialValues]);
 
   return (
     <form
       key={formKey}
-      className="grid grid-cols-1 md:grid-cols-3 gap-4"
+      className="grid grid-cols-1 gap-4 md:grid-cols-3"
       onSubmit={handleSubmit}
     >
       {fieldConfigs.map(({ name, label, type, options }) => (

@@ -40,7 +40,7 @@ const DevBlogLayout = ({
 
   return (
     <PageLayout
-      className={`w-full min-h-screen ${className}`}
+      className={`min-h-screen w-full ${className}`}
       header={hideNavBarProp ? '' : <DevBlogHeader isHomePage={isHomePage} />}
       footer={<DevBlogFooter />}
     >
@@ -63,7 +63,7 @@ const DevBlogLayout = ({
       />
       {!hideNavBar && (
         <div
-          className={`max-w-full w-full relative overflow-clip ${
+          className={`relative w-full max-w-full text-clip ${
             isHomePage ? 'h-[300vh]' : isCaseStudy ? 'h-[20vh]' : 'h-auto'
           }`}
           ref={ref}

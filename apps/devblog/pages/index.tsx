@@ -4,7 +4,7 @@
 import React from 'react';
 
 import { Button, Heading, Text } from '../components/atomic/atoms';
-import { Section } from '@devblog/components';
+import { Section } from '../components/atomic/organisms/Section';
 import DevBlogLayout from '../components/DevBlogLayout';
 import DevBlogProjectCard from '../components/atomic/molecules/DevBlogProjectCard';
 import { Tabs, Tab } from '../components/atomic/molecules/Tabs';
@@ -75,7 +75,7 @@ const sampleTabs: Tab[] = [
     title: 'Professional',
     value: 'Professional',
     content: (
-      <div className="w-full relative h-auto rounded-2xl p-2 lg:p-10 text-xl bg-gradient-to-br from-accent-color to-accent-color">
+      <div className="from-accent-color to-accent-color relative h-auto w-full rounded-2xl bg-gradient-to-br p-2 text-xl lg:p-10">
         <DevBlogProjectCard projects={professionalProjects} />
       </div>
     ),
@@ -84,7 +84,7 @@ const sampleTabs: Tab[] = [
     title: 'Volunteer',
     value: 'Volunteer',
     content: (
-      <div className="w-full relative h-auto rounded-2xl p-1 lg:p-10 text-xl bg-gradient-to-br from-accent-color to-accent-color">
+      <div className="from-accent-color to-accent-color relative h-auto w-full rounded-2xl bg-gradient-to-br p-1 text-xl lg:p-10">
         <DevBlogProjectCard projects={volunteerProjects} />
       </div>
     ),
@@ -96,27 +96,27 @@ export default function Home() {
     <DevBlogLayout title="Portfolio | Robert Hogan" hideNavBar={false}>
       {/* ABOUT SECTION */}
       <div id="about" className="relative">
-        <Section fullWidth={true} className="w-full bg-secondary-color py-32">
+        <Section fullWidth={true} className="bg-secondary-color w-full py-32">
           <div className="container mx-auto">
-            <Heading level={2} className="text-center mb-4" text="About me" />
-            <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
+            <Heading level={2} className="mb-4 text-center" text="About me" />
+            <hr className="bg-primary mx-auto mb-8 h-2 w-16" />
             <Text
-              className="text-xl mb-20 italic max-w-4xl mx-auto"
+              className="mx-auto mb-20 max-w-4xl text-xl italic"
               text={`Dedicated Frontend Engineer with over ${yearsExperience} years of experience specializing in Vue.js, React.js, Next.js, and user-centric application development.`}
             />
-            <div className="flex flex-col lg:flex-row justify-center items-start lg:items-center space-y-8 lg:space-y-0 lg:space-x-16">
-              <div className="w-full lg:w-1/2 text-left">
+            <div className="flex flex-col items-start justify-center space-y-8 lg:flex-row lg:items-center lg:space-y-0 lg:space-x-16">
+              <div className="w-full text-left lg:w-1/2">
                 <Heading
                   level={3}
-                  className="text-2xl font-bold mb-4"
+                  className="mb-4 text-2xl font-bold"
                   text="Get to know me!"
                 />
                 <Text
-                  className="text-lg mb-4"
+                  className="mb-4 text-lg"
                   text="I'm a web developer proficient in JavaScript and the web. I'm passionate about web performance, accessibility, mentoring, user & developer experience."
                 />
                 <Text
-                  className="text-lg mb-4"
+                  className="mb-4 text-lg"
                   text="In my free time, I build side projects and like exploring new technologies. You can see some of my work in the projects section below."
                 />
                 <Button
@@ -125,10 +125,10 @@ export default function Home() {
                   onClick={() => scrollToProjects('projects')}
                 />
               </div>
-              <div className="w-full lg:w-1/2 text-left">
+              <div className="w-full text-left lg:w-1/2">
                 <Heading
                   level={3}
-                  className="text-2xl font-bold mb-4"
+                  className="mb-4 text-2xl font-bold"
                   text="My toolkit"
                 />
                 <ToolsSection />
@@ -140,10 +140,10 @@ export default function Home() {
 
       {/* PROJECTS SECTION */}
       <div id="projects" className="relative">
-        <Section className="py-32 min-h-[2050px] md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[3100px] p-0">
-          <Heading level={2} className="text-center mb-4" text="Projects" />
-          <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
-          <div className="[perspective:1200px] relative flex flex-col mx-auto w-full items-start justify-start my-40">
+        <Section className="min-h-[2050px] p-0 py-32 md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[3100px]">
+          <Heading level={2} className="mb-4 text-center" text="Projects" />
+          <hr className="bg-primary mx-auto mb-8 h-2 w-16" />
+          <div className="relative mx-auto my-40 flex w-full flex-col items-start justify-start [perspective:1200px]">
             <Tabs tabs={sampleTabs} />
           </div>
         </Section>
@@ -151,9 +151,9 @@ export default function Home() {
 
       {/* CONTACT SECTION */}
       <div id="contact" className="relative">
-        <Section fullWidth={true} className="w-full bg-secondary-color">
-          <Heading level={2} className="text-center mb-4" text="Contact me" />
-          <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
+        <Section fullWidth={true} className="bg-secondary-color w-full">
+          <Heading level={2} className="mb-4 text-center" text="Contact me" />
+          <hr className="bg-primary mx-auto mb-8 h-2 w-16" />
           <ContactForm />
         </Section>
       </div>

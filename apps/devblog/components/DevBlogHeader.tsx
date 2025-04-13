@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import { scrollToProjects } from '../utils/helper';
 
 const logo = (
-  <CustomRSHLogo className="h-12 w-12 md:mb-2 text-primary nav-logo" />
+  <CustomRSHLogo className="text-primary nav-logo h-12 w-12 md:mb-2" />
 );
 
 const links = [
@@ -99,12 +99,12 @@ const DevBlogHeader = ({ isHomePage }: DevBlogHeaderProps) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full transition-opacity duration-300 z-50 bg-surface ${
-        isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      className={`bg-surface fixed top-0 left-0 z-50 w-full transition-opacity duration-300 ${
+        isVisible ? 'opacity-100' : 'pointer-events-none opacity-0'
       }`}
     >
-      <div className="container mx-auto max-w-full bg-bg-color shadow-xl">
-        <Flex className="flex-row justify-between py-4 container mx-auto items-center space-y-2 md:space-y-0">
+      <div className="bg-bg-color container mx-auto max-w-full shadow-xl">
+        <Flex className="container mx-auto flex-row items-center justify-between space-y-2 py-4 md:space-y-0">
           {/* LOGO AREA */}
           <Flex className="items-center">
             <Link

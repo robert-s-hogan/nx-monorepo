@@ -13,7 +13,7 @@ const DynamicMap = dynamic(
 function Map() {
   return (
     <DevBlogLayout>
-      <div className="container mx-auto max-w-7xl space-y-6 mb-6">
+      <div className="container mx-auto mb-6 max-w-7xl space-y-6">
         <Heading level={1}>Dnd Interactive Map (Work In Progress)</Heading>
         <Text className="sub-title">
           Click the icons to interact with the map

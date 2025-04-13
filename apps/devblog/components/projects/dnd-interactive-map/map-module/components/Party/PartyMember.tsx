@@ -1,9 +1,8 @@
-import { Group, Path, Text } from 'react-konva';
+import { Group } from 'react-konva';
 import { FighterIcon, WizardIcon, BarbarianIcon } from '../../icons';
 
 const PartyMember = ({
   id,
-  name,
   x,
   y,
   draggable,
@@ -11,7 +10,6 @@ const PartyMember = ({
   className,
   onClick,
 }) => {
-  const radius = 20;
   const classShape = () => {
     switch (className) {
       case 'barbarian':

@@ -4,13 +4,13 @@ import ContextMenu from '../context-menu';
 import { ObeliskIcon, TowerIcon, HouseIcon } from '../../icons';
 
 interface StructureProps {
-  id: string;
+  id: number | string;
   name: string;
   x: number;
   y: number;
   className: string;
   draggable: boolean;
-  dragBoundFunc: any;
+  dragBoundFunc: (pos: { x: number; y: number }) => { x: number; y: number };
   onClick: () => void;
 }
 
