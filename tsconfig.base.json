@@ -17,7 +17,7 @@
     "paths": {
       "@assets/*": ["libs/assets/*"],
       "@conquest": ["apps/conquest/src/index.ts"],
-      "@devblog": ["apps/devblog/src/index.ts"],
+      "@devblog/*": ["apps/devblog/*"],
       "@jhoganman": ["apps/jhoganman/src/index.ts"],
       "@nuero-fit": ["apps/nuero-fit/src/index.ts"],
       "@placeholder": ["apps/placeholder/src/index.ts"],

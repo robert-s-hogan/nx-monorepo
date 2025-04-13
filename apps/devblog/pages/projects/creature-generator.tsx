@@ -6,7 +6,7 @@ import { Grid } from '@with-nx/react-ui';
 
 import { CreatureCard } from '../../components/projects/creature-generator/CreatureCard';
 import DevblogLayout from '../../components/DevBlogLayout';
-import DevBlogSection from '../../components/DevBlogSection';
+import { Section } from '../components/atomic/organisms';
 import RandomLoadingMessage from '../../components/projects/creature-generator/CreatureGeneratorRandomLoadingMessage';
 import {
   fetchCreatureData,

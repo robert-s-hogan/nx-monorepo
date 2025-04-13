@@ -85,9 +85,107 @@ export const Heading = ({ level = 2, text, className = '' }: HeadingProps) => {
 📄 FILE: ./apps/devblog/components/atomic/atoms/index.ts
 ───────────────────────────────────────────────
 // apps/devblog/components/atomic/atoms/index.ts
+
 export { Button } from './Button';
 export { Heading } from './Heading';
 export { Text } from './Text';
+export { Label } from './Label';
+export { Input } from './Input';
+export { TextArea } from './TextArea';
+
+
+═══════════════════════════════════════════════
+📄 FILE: ./apps/devblog/components/atomic/atoms/Input.tsx
+───────────────────────────────────────────────
+// apps/devblog/components/atomic/atoms/Input.tsx
+'use client';
+
+import * as React from 'react';
+import { cn } from '@with-nx/utils';
+import { useMotionTemplate, useMotionValue, motion } from 'framer-motion';
+
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, ...props }, ref) => {
+    const radius = 120;
+    const [visible, setVisible] = React.useState(false);
+
+    let mouseX = useMotionValue(0);
+    let mouseY = useMotionValue(0);
+
+    function handleMouseMove({ currentTarget, clientX, clientY }: any) {
+      let { left, top } = currentTarget.getBoundingClientRect();
+      mouseX.set(clientX - left);
+      mouseY.set(clientY - top);
+    }
+
+    return (
+      <motion.div
+        style={{
+          background: useMotionTemplate`
+            radial-gradient(
+              ${
+                visible ? radius + 'px' : '0px'
+              } circle at ${mouseX}px ${mouseY}px,
+              var(--primary),
+              transparent 80%
+            )
+          `,
+        }}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setVisible(true)}
+        onMouseLeave={() => setVisible(false)}
+        className="p-[2px] rounded-lg transition duration-300 group/input"
+      >
+        <input
+          type={type}
+          className={cn(
+            `flex h-10 w-full border-none bg-bg-color shadow-input rounded-md px-3 py-2 text-sm
+            file:border-0 file:bg-transparent file:text-sm file:font-medium
+            placeholder:text-neutral-400 dark:placeholder-text-neutral-600
+            focus-visible:outline-none focus-visible:ring-[2px]
+            focus-visible:ring-[var(--primary-color)]
+            disabled:cursor-not-allowed disabled:opacity-50
+            dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
+            group-hover/input:shadow-none transition duration-400`,
+            className
+          )}
+          ref={ref}
+          {...props}
+        />
+      </motion.div>
+    );
+  }
+);
+Input.displayName = 'Input';
+
+export { Input };
+
+
+═══════════════════════════════════════════════
+📄 FILE: ./apps/devblog/components/atomic/atoms/Label.tsx
+───────────────────────────────────────────────
+'use client';
+import * as React from 'react';
+import * as LabelPrimitive from '@radix-ui/react-label';
+
+import { cn } from '@with-nx/utils';
+
+export const Label = React.forwardRef<
+  React.ElementRef<typeof LabelPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
+>(({ className, ...props }, ref) => (
+  <LabelPrimitive.Root
+    ref={ref}
+    className={cn(
+      'text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+      className
+    )}
+    {...props}
+  />
+));
 
 
 ═══════════════════════════════════════════════
@@ -108,6 +206,770 @@ export const Text = ({ text, className = '', as = 'p' }: TextProps) => {
 
   return <Tag className={`${baseClasses} ${className}`}>{text}</Tag>;
 };
+
+
+═══════════════════════════════════════════════
+📄 FILE: ./apps/devblog/components/atomic/atoms/TextArea.tsx
+───────────────────────────────────────────────
+'use client';
+import * as React from 'react';
+import { cn } from '@with-nx/utils';
+import { useMotionTemplate, useMotionValue, motion } from 'framer-motion';
+
+export interface TextAreaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+
+const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  ({ className, ...props }, ref) => {
+    const radius = 120; // change this to increase the radius of the hover effect
+    const [visible, setVisible] = React.useState(false);
+
+    let mouseX = useMotionValue(0);
+    let mouseY = useMotionValue(0);
+
+    function handleMouseMove({ currentTarget, clientX, clientY }: any) {
+      let { left, top } = currentTarget.getBoundingClientRect();
+
+      mouseX.set(clientX - left);
+      mouseY.set(clientY - top);
+    }
+
+    return (
+      <motion.div
+        style={{
+          background: useMotionTemplate`
+        radial-gradient(
+          ${visible ? radius + 'px' : '0px'} circle at ${mouseX}px ${mouseY}px,
+          var(--primary),
+          transparent 80%
+        )
+      `,
+        }}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setVisible(true)}
+        onMouseLeave={() => setVisible(false)}
+        className="p-[2px] rounded-lg transition duration-300 group"
+      >
+        <textarea
+          className={cn(
+            `flex w-full border-none bg-bg-color shadow-input rounded-md px-3 py-2 text-sm file:border-0 file:bg-transparent
+            file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600
+            focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-[var(--primary-color)]
+            disabled:cursor-not-allowed disabled:opacity-50 dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
+            group-hover:shadow-none transition duration-400
+            `,
+            className
+          )}
+          ref={ref}
+          {...props}
+        />
+      </motion.div>
+    );
+  }
+);
+TextArea.displayName = 'TextArea';
+
+export { TextArea };
+
+
+═══════════════════════════════════════════════
+📄 FILE: ./apps/devblog/components/atomic/molecules/ContactForm/ContactForm.tsx
+───────────────────────────────────────────────
+'use client';
+import React, { useState } from 'react';
+import { Button, Label, Input, TextArea } from '../../atoms';
+import { Meteors } from './Meteors';
+
+function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const [responseMessage, setResponseMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    // Introduce a slight delay
+    setTimeout(async () => {
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          setIsSuccess(true);
+          setIsError(false);
+          setResponseMessage('Message sent successfully!');
+        } else {
+          setIsSuccess(false);
+          setIsError(true);
+          setResponseMessage(result.message || 'Failed to send message.');
+        }
+      } catch (error) {
+        console.error('Error during submission:', error); // Debug log
+        setIsSuccess(false);
+        setIsError(true);
+        setResponseMessage('Failed to send message.');
+      } finally {
+        setLoading(false);
+      }
+    }, 200); // Delay of 100ms
+  };
+
+  return (
+    <div className="max-w-md w-full mx-auto rounded-2xl p-4 md:p-8 shadow-input bg-surface-color min-h-[560px] relative">
+      <form
+        className={`my-8 ${
+          isSuccess ? 'opacity-20 pointer-events-none' : 'opacity-100'
+        } transition-opacity duration-500`}
+        onSubmit={handleSubmit}
+        noValidate
+      >
+        <div className="mb-4">
+          <Label htmlFor="name">Name</Label>
+          <Input
+            id="name"
+            placeholder="Your Name"
+            type="text"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <Label htmlFor="email">Email Address</Label>
+          <Input
+            id="email"
+            placeholder="youremail@example.com"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-8">
+          <Label htmlFor="message">Message</Label>
+          <TextArea
+            id="message"
+            placeholder="Your message here"
+            value={formData.message}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <Button
+          type="submit"
+          text=""
+          className="w-full flex items-center justify-center"
+          theme="primary"
+        >
+          {loading ? <div className="loader" /> : 'Send Message →'}
+        </Button>
+      </form>
+      {isSuccess && (
+        <div className="absolute inset-0 bg-surface-color bg-opacity-95 rounded-2xl p-4 md:p-8 shadow-xl overflow-hidden">
+          <h1 className="h-full flex flex-col justify-center items-center font-bold text-xl text-success-color mb-4">
+            {responseMessage}
+          </h1>
+          <Meteors number={20} />
+        </div>
+      )}
+      {responseMessage && !isSuccess && (
+        <p className={`mt-4 ${isError ? 'text-red-600' : 'text-green-600'}`}>
+          {responseMessage}
+        </p>
+      )}
+    </div>
+  );
+}
+
+export { ContactForm };
+
+
+═══════════════════════════════════════════════
+📄 FILE: ./apps/devblog/components/atomic/molecules/ContactForm/Meteors.tsx
+───────────────────────────────────────────────
+import { cn } from '@with-nx/utils';
+import clsx from 'clsx';
+import React from 'react';
+
+export const Meteors = ({
+  number,
+  className,
+}: {
+  number?: number;
+  className?: string;
+}) => {
+  const meteors = new Array(number || 20).fill(true);
+  return (
+    <>
+      {meteors.map((el, idx) => (
+        <span
+          key={'meteor' + idx}
+          className={cn(
+            'animate-meteor-effect absolute top-1/2 left-1/2 h-0.5 w-0.5 rounded-[9999px] bg-slate-500 shadow-[0_0_0_1px_#ffffff10] rotate-[215deg]',
+            "before:content-[''] before:absolute before:top-1/2 before:transform before:-translate-y-[50%] before:w-[50px] before:h-[1px] before:bg-gradient-to-r before:from-[#64748b] before:to-transparent",
+            className
+          )}
+          style={{
+            top: 0,
+            left: Math.floor(Math.random() * (400 - -400) + -400) + 'px',
+            animationDelay: Math.random() * (0.8 - 0.2) + 0.2 + 's',
+            animationDuration: Math.floor(Math.random() * (10 - 2) + 2) + 's',
+          }}
+        ></span>
+      ))}
+    </>
+  );
+};
+
+
+═══════════════════════════════════════════════
+📄 FILE: ./apps/devblog/components/atomic/molecules/DevBlogProjectCard.tsx
+───────────────────────────────────────────────
+'use client';
+
+import { useRouter } from 'next/router';
+import { Flex } from '@with-nx/react-ui';
+import { IconButton } from '@with-nx/generic-ui';
+import { FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
+import { Heading, Text } from '@with-nx/generic-ui';
+import { cn } from '@with-nx/utils';
+import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
+import { useRef, useState } from 'react';
+
+export const DirectionAwareHover = ({
+  imageUrl,
+  children,
+  childrenClassName,
+  imageClassName,
+  className,
+  index,
+}: {
+  imageUrl: string;
+  children: React.ReactNode | string;
+  childrenClassName?: string;
+  imageClassName?: string;
+  className?: string;
+  index: number;
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [direction, setDirection] = useState<
+    'top' | 'bottom' | 'left' | 'right' | string
+  >('left');
+
+  const handleMouseEnter = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (!ref.current) return;
+    const direction = getDirection(event, ref.current);
+    switch (direction) {
+      case 0:
+        setDirection('top');
+        break;
+      case 1:
+        setDirection('right');
+        break;
+      case 2:
+        setDirection('bottom');
+        break;
+      case 3:
+        setDirection('left');
+        break;
+      default:
+        setDirection('left');
+        break;
+    }
+  };
+
+  const getDirection = (
+    ev: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    obj: HTMLElement
+  ) => {
+    const { width: w, height: h, left, top } = obj.getBoundingClientRect();
+    const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1);
+    const y = ev.clientY - top - (h / 2) * (h > w ? w / h : 1);
+    const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
+    return d;
+  };
+
+  return (
+    <motion.div
+      onMouseEnter={handleMouseEnter}
+      ref={ref}
+      className={cn(
+        `w-full h-full bg-transparent overflow-hidden text-white group/card relative ${
+          index % 2 === 0 ? 'rounded-r-md' : 'md:rounded-r-none md:rounded-l-md'
+        }`,
+        className
+      )}
+    >
+      <AnimatePresence mode="wait">
+        <motion.div
+          className="relative h-full w-full"
+          initial="initial"
+          whileHover={direction}
+          exit="exit"
+        >
+          <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/60 z-10 transition duration-500" />
+          <motion.div
+            variants={variants}
+            className="h-full w-full relative"
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+          >
+            <div className="overflow-hidden md:w-full md:h-full lg:w-[1000px] lg:h-[425px]">
+              <Image
+                alt="image"
+                className={cn(
+                  'h-full w-full md:object-cover md:object-left xl:object-top scale-[1.05]',
+                  imageClassName
+                )}
+                width="1000"
+                height="425"
+                src={imageUrl}
+              />
+            </div>
+          </motion.div>
+          <motion.div
+            variants={textVariants}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className={cn(
+              'text-white absolute top-8 left-1 z-40 space-y-2',
+              childrenClassName
+            )}
+          >
+            {children}
+          </motion.div>
+        </motion.div>
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
+const variants = {
+  initial: { x: 0 },
+  exit: { x: 0, y: 0 },
+  top: { y: 20 },
+  bottom: { y: -20 },
+  left: { x: 20 },
+  right: { x: -20 },
+};
+
+const textVariants = {
+  initial: { y: 0, x: 0, opacity: 0 },
+  exit: { y: 0, x: 0, opacity: 0 },
+  top: { y: -20, opacity: 1 },
+  bottom: { y: 20, opacity: 1 },
+  left: { x: -20, opacity: 1 },
+  right: { x: 20, opacity: 1 },
+};
+
+export default function DevBlogProjectCard({ projects }) {
+  const router = useRouter();
+
+  return (
+    <div className="p-1 lg:p-8 text-center bg-secondary-color rounded-md w-full">
+      {projects.map((project, index) => (
+        <div
+          key={index}
+          className="grid grid-cols-1 md:grid-cols-3 pb-8 md:py-16"
+        >
+          <div
+            className={`bg-surface-color p-4 lg:p-6 h-full shadow-lg flex flex-col justify-center rounded-md ${
+              index % 2 === 0
+                ? 'md:rounded-r-none md:rounded-l-md'
+                : 'md:rounded-l-none md:rounded-r-md'
+            }`}
+          >
+            <Heading
+              level={3}
+              className="text-2xl font-bold mb-2"
+              text={project.title}
+            />
+            <Text
+              className="text-base lg:text-xl mb-4"
+              text={project.description}
+            />
+            {/* <div className="flex flex-wrap gap-2 mb-4">
+              {project.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="bg-accent-color text-xs lg:text-base px-3 py-1 rounded-md"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div> */}
+            <IconButton
+              theme="primary"
+              className="px-4 py-2 w-fit mx-auto"
+              text="Check it"
+              label="Check it"
+              icon={
+                project.link.startsWith('/') ? (
+                  <FaArrowRight size={24} />
+                ) : (
+                  <FaExternalLinkAlt size={24} />
+                )
+              }
+              onClick={() => {
+                if (project.link.startsWith('/')) {
+                  router.push(project.link);
+                } else {
+                  window.open(project.link, '_blank');
+                }
+              }}
+            />
+          </div>
+          <div
+            className={`hidden md:flex md:col-span-2 shadow-lg ${
+              index % 2 === 0
+                ? 'md:rounded-r-none md:rounded-l-md '
+                : 'rounded-r-md order-first'
+            }`}
+          >
+            <DirectionAwareHover imageUrl={project.imageUrl} index={index}>
+              {project.goals ? (
+                <div className="px-6 space-y-4 text-white">
+                  <Heading
+                    level={3}
+                    text="Description & Goals"
+                    className="text-left pt-0"
+                  />
+                  <Text className="text-left" text={project.description} />
+                  {/* 
+                  <ul className="list-disc text-left">
+                    {project.goals.map((goal, index) => (
+                      <li key={index}>{goal}</li>
+                    ))}
+                  </ul> */}
+                </div>
+              ) : (
+                ''
+              )}
+            </DirectionAwareHover>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+
+═══════════════════════════════════════════════
+📄 FILE: ./apps/devblog/components/atomic/molecules/index.ts
+───────────────────────────────────────────────
+export { Tabs } from './Tabs';
+export { ContactForm } from './ContactForm/ContactForm';
+
+
+═══════════════════════════════════════════════
+📄 FILE: ./apps/devblog/components/atomic/molecules/Tabs.tsx
+───────────────────────────────────────────────
+'use client';
+
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { cn } from '@with-nx/utils';
+
+export type Tab = {
+  title: string;
+  value: string;
+  content?: string | React.ReactNode | any;
+};
+
+export const Tabs = ({
+  tabs: propTabs,
+  containerClassName,
+  activeTabClassName,
+  tabClassName,
+  contentClassName,
+}: {
+  tabs: Tab[];
+  containerClassName?: string;
+  activeTabClassName?: string;
+  tabClassName?: string;
+  contentClassName?: string;
+}) => {
+  const [active, setActive] = useState<Tab>(propTabs[0]);
+  const [tabs, setTabs] = useState<Tab[]>(propTabs);
+
+  const moveSelectedTabToTop = (idx: number) => {
+    const newTabs = [...propTabs];
+    const selectedTab = newTabs.splice(idx, 1);
+    newTabs.unshift(selectedTab[0]);
+    setTabs(newTabs);
+    setActive(newTabs[0]);
+  };
+
+  const [hovering, setHovering] = useState(false);
+
+  return (
+    <>
+      <div
+        className={cn(
+          'flex flex-row items-center justify-center [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full',
+          containerClassName
+        )}
+      >
+        {propTabs.map((tab, idx) => (
+          <button
+            key={tab.title}
+            onClick={() => {
+              moveSelectedTabToTop(idx);
+            }}
+            onMouseEnter={() => setHovering(true)}
+            onMouseLeave={() => setHovering(false)}
+            className={cn('relative px-4 py-2 mx-1 rounded', tabClassName)}
+            style={{
+              transformStyle: 'preserve-3d',
+            }}
+          >
+            {active.value === tab.value && (
+              <motion.div
+                layoutId="clickedbutton"
+                transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
+                className={cn(
+                  'absolute inset-0 bg-primary text-on-primary-color rounded',
+                  activeTabClassName
+                )}
+              />
+            )}
+            <span
+              className={`relative block ${
+                active.value === tab.value
+                  ? 'text-white'
+                  : 'text-on-primary-color'
+              }`}
+            >
+              {tab.title}
+            </span>
+          </button>
+        ))}
+      </div>
+      <FadeInDiv
+        tabs={tabs}
+        active={active}
+        key={active.value}
+        hovering={hovering}
+        className={cn('mt-32', contentClassName)}
+      />
+    </>
+  );
+};
+
+export const FadeInDiv = ({
+  className,
+  tabs,
+  hovering,
+}: {
+  className?: string;
+  key?: string;
+  tabs: Tab[];
+  active: Tab;
+  hovering?: boolean;
+}) => {
+  const isActive = (tab: Tab) => {
+    return tab.value === tabs[0].value;
+  };
+  return (
+    <div className="relative w-full h-full">
+      {tabs.map((tab, idx) => (
+        <motion.div
+          key={tab.value}
+          layoutId={tab.value}
+          style={{
+            scale: 1 - idx * 0.1,
+            top: hovering ? idx * -60 : 0,
+            zIndex: -idx,
+            opacity: idx < 3 ? 1 - idx * 0.1 : 0,
+            height: '100%',
+          }}
+          animate={{
+            y: isActive(tab) ? [0, 40, 0] : 0,
+          }}
+          className={cn('w-full h-full absolute top-0 left-0', className)}
+        >
+          {tab.content}
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+
+═══════════════════════════════════════════════
+📄 FILE: ./apps/devblog/components/atomic/molecules/ToolsSection.tsx
+───────────────────────────────────────────────
+import { cn } from '@with-nx/utils';
+import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
+import { useState } from 'react';
+
+export const HoverEffect = ({
+  items,
+  className,
+}: {
+  items: {
+    title: string;
+    link: string;
+  }[];
+  className?: string;
+}) => {
+  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  return (
+    <div className={cn('flex flex-wrap py-10', className)}>
+      {items.map((item, idx) => (
+        <p
+          key={item?.link}
+          className="relative group block py-3 px-1 h-full w-auto"
+          onMouseEnter={() => setHoveredIndex(idx)}
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          <AnimatePresence>
+            {hoveredIndex === idx && (
+              <motion.span
+                className="absolute inset-0 h-full w-full bg-primary opacity-60 block rounded-md"
+                layoutId="hoverBackground"
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: { duration: 0.15 },
+                }}
+                exit={{
+                  opacity: 0,
+                  transition: { duration: 0.15, delay: 0.2 },
+                }}
+              />
+            )}
+          </AnimatePresence>
+          <span className="relative z-20 bg-bg-color p-3 rounded-md text-xs md:text-base">
+            {item.title}
+          </span>
+        </p>
+      ))}
+    </div>
+  );
+};
+
+const tools = [
+  'JavaScript',
+  'Vue.js',
+  'Firebase',
+  'SEO',
+  'GitHub',
+  'Pinia',
+  'Express.js',
+  'Node.js',
+  'HTML5',
+  'CSS3',
+  'React.js',
+  'Next.js',
+  'Jest',
+  'TailwindCSS',
+  'Nx Monorepo',
+  'WordPress',
+  'Bootstrap',
+  'SASS',
+  'Git',
+  'jQuery',
+  'React Testing Library',
+  'CLI',
+  'CORESense',
+  'Storybook',
+  'TypeScript',
+  'Vercel',
+  'Stripe',
+].map((tool) => ({
+  title: tool,
+  link: `https://example.com/${tool.toLowerCase()}`,
+}));
+
+const ToolsSection = () => {
+  return <HoverEffect items={tools} className="my-custom-class" />;
+};
+
+export default ToolsSection;
+
+
+═══════════════════════════════════════════════
+📄 FILE: ./apps/devblog/components/atomic/organisms/index.ts
+───────────────────────────────────────────────
+export { Section } from './Section';
+
+
+═══════════════════════════════════════════════
+📄 FILE: ./apps/devblog/components/atomic/organisms/Section.tsx
+───────────────────────────────────────────────
+import React from 'react';
+import { cn } from '@with-nx/utils';
+
+interface SectionProps {
+  className?: string;
+  children: React.ReactNode;
+  style?: React.CSSProperties;
+  fullWidth?: boolean;
+}
+
+export const Section: React.FC<SectionProps> = ({
+  children,
+  className,
+  style,
+  fullWidth = false,
+}) => {
+  const widthStyles = fullWidth ? 'max-w-full' : 'max-w-7xl';
+
+  return (
+    <section
+      className={cn(
+        'mx-auto space-y-6 py-6 md:py-12 px-4',
+        className,
+        widthStyles
+      )}
+      style={style}
+    >
+      {children}
+    </section>
+  );
+};
+
+
+═══════════════════════════════════════════════
+📄 FILE: ./apps/devblog/components/atomic/pages/index.ts
+───────────────────────────────────────────────
+export {};
+
+
+═══════════════════════════════════════════════
+📄 FILE: ./apps/devblog/components/atomic/templates/index.ts
+───────────────────────────────────────────────
+export {};
 
 
 ═══════════════════════════════════════════════
@@ -355,145 +1217,6 @@ export const Compare = ({
 const MemoizedSparklesCore = React.memo(SparklesCore);
 
 export default Compare;
-
-
-═══════════════════════════════════════════════
-📄 FILE: ./apps/devblog/components/contact-form.tsx
-───────────────────────────────────────────────
-'use client';
-import React, { useState } from 'react';
-import { Label } from './label';
-import { Input } from './input';
-import { TextArea } from './TextArea';
-import { Meteors } from './meteors';
-
-function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const [responseMessage, setResponseMessage] = useState('');
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { id, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-
-    // Introduce a slight delay
-    setTimeout(async () => {
-      try {
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-          setIsSuccess(true);
-          setIsError(false);
-          setResponseMessage('Message sent successfully!');
-        } else {
-          setIsSuccess(false);
-          setIsError(true);
-          setResponseMessage(result.message || 'Failed to send message.');
-        }
-      } catch (error) {
-        console.error('Error during submission:', error); // Debug log
-        setIsSuccess(false);
-        setIsError(true);
-        setResponseMessage('Failed to send message.');
-      } finally {
-        setLoading(false);
-      }
-    }, 200); // Delay of 100ms
-  };
-
-  return (
-    <div className="max-w-md w-full mx-auto rounded-2xl p-4 md:p-8 shadow-input bg-surface-color min-h-[560px] relative">
-      <form
-        className={`my-8 ${
-          isSuccess ? 'opacity-20 pointer-events-none' : 'opacity-100'
-        } transition-opacity duration-500`}
-        onSubmit={handleSubmit}
-        noValidate
-      >
-        <div className="mb-4">
-          <Label htmlFor="name">Name</Label>
-          <Input
-            id="name"
-            placeholder="Your Name"
-            type="text"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <Label htmlFor="email">Email Address</Label>
-          <Input
-            id="email"
-            placeholder="youremail@example.com"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="mb-8">
-          <Label htmlFor="message">Message</Label>
-          <TextArea
-            id="message"
-            placeholder="Your message here"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <button
-          className="btn-primary btn-md w-full text-white rounded-md"
-          aria-label="Sign up →"
-          type="submit"
-        >
-          {loading ? <div className="loader" /> : 'Send Message →'}
-        </button>
-      </form>
-      {isSuccess && (
-        <div className="absolute inset-0 bg-surface-color bg-opacity-95 rounded-2xl p-4 md:p-8 shadow-xl overflow-hidden">
-          <h1 className="h-full flex flex-col justify-center items-center font-bold text-xl text-success-color mb-4">
-            {responseMessage}
-          </h1>
-          <Meteors number={20} />
-        </div>
-      )}
-      {responseMessage && !isSuccess && (
-        <p className={`mt-4 ${isError ? 'text-red-600' : 'text-green-600'}`}>
-          {responseMessage}
-        </p>
-      )}
-    </div>
-  );
-}
-
-export { ContactForm };
 
 
 ═══════════════════════════════════════════════
@@ -936,239 +1659,6 @@ export const fetchResponseFromAssistant = async (prompt) => {
 
 
 ═══════════════════════════════════════════════
-📄 FILE: ./apps/devblog/components/DevBlogProjectCard.tsx
-───────────────────────────────────────────────
-'use client';
-
-import { useRouter } from 'next/router';
-import { Flex } from '@with-nx/react-ui';
-import { IconButton } from '@with-nx/generic-ui';
-import { FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
-import { Heading, Text } from '@with-nx/generic-ui';
-import { cn } from '@with-nx/utils';
-import { AnimatePresence, motion } from 'framer-motion';
-import Image from 'next/image';
-import { useRef, useState } from 'react';
-
-export const DirectionAwareHover = ({
-  imageUrl,
-  children,
-  childrenClassName,
-  imageClassName,
-  className,
-  index,
-}: {
-  imageUrl: string;
-  children: React.ReactNode | string;
-  childrenClassName?: string;
-  imageClassName?: string;
-  className?: string;
-  index: number;
-}) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [direction, setDirection] = useState<
-    'top' | 'bottom' | 'left' | 'right' | string
-  >('left');
-
-  const handleMouseEnter = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    if (!ref.current) return;
-    const direction = getDirection(event, ref.current);
-    switch (direction) {
-      case 0:
-        setDirection('top');
-        break;
-      case 1:
-        setDirection('right');
-        break;
-      case 2:
-        setDirection('bottom');
-        break;
-      case 3:
-        setDirection('left');
-        break;
-      default:
-        setDirection('left');
-        break;
-    }
-  };
-
-  const getDirection = (
-    ev: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    obj: HTMLElement
-  ) => {
-    const { width: w, height: h, left, top } = obj.getBoundingClientRect();
-    const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1);
-    const y = ev.clientY - top - (h / 2) * (h > w ? w / h : 1);
-    const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
-    return d;
-  };
-
-  return (
-    <motion.div
-      onMouseEnter={handleMouseEnter}
-      ref={ref}
-      className={cn(
-        `w-full h-full bg-transparent overflow-hidden text-white group/card relative ${
-          index % 2 === 0 ? 'rounded-r-md' : 'md:rounded-r-none md:rounded-l-md'
-        }`,
-        className
-      )}
-    >
-      <AnimatePresence mode="wait">
-        <motion.div
-          className="relative h-full w-full"
-          initial="initial"
-          whileHover={direction}
-          exit="exit"
-        >
-          <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/60 z-10 transition duration-500" />
-          <motion.div
-            variants={variants}
-            className="h-full w-full relative"
-            transition={{ duration: 0.2, ease: 'easeOut' }}
-          >
-            <div className="overflow-hidden md:w-full md:h-full lg:w-[1000px] lg:h-[425px]">
-              <Image
-                alt="image"
-                className={cn(
-                  'h-full w-full md:object-cover md:object-left xl:object-top scale-[1.05]',
-                  imageClassName
-                )}
-                width="1000"
-                height="425"
-                src={imageUrl}
-              />
-            </div>
-          </motion.div>
-          <motion.div
-            variants={textVariants}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className={cn(
-              'text-white absolute top-8 left-1 z-40 space-y-2',
-              childrenClassName
-            )}
-          >
-            {children}
-          </motion.div>
-        </motion.div>
-      </AnimatePresence>
-    </motion.div>
-  );
-};
-
-const variants = {
-  initial: { x: 0 },
-  exit: { x: 0, y: 0 },
-  top: { y: 20 },
-  bottom: { y: -20 },
-  left: { x: 20 },
-  right: { x: -20 },
-};
-
-const textVariants = {
-  initial: { y: 0, x: 0, opacity: 0 },
-  exit: { y: 0, x: 0, opacity: 0 },
-  top: { y: -20, opacity: 1 },
-  bottom: { y: 20, opacity: 1 },
-  left: { x: -20, opacity: 1 },
-  right: { x: 20, opacity: 1 },
-};
-
-export default function DevBlogProjectCard({ projects }) {
-  const router = useRouter();
-
-  return (
-    <div className="p-1 lg:p-8 text-center bg-secondary-color rounded-md w-full">
-      {projects.map((project, index) => (
-        <div
-          key={index}
-          className="grid grid-cols-1 md:grid-cols-3 pb-8 md:py-16"
-        >
-          <div
-            className={`bg-surface-color p-4 lg:p-6 h-full shadow-lg flex flex-col justify-center rounded-md ${
-              index % 2 === 0
-                ? 'md:rounded-r-none md:rounded-l-md'
-                : 'md:rounded-l-none md:rounded-r-md'
-            }`}
-          >
-            <Heading
-              level={3}
-              className="text-2xl font-bold mb-2"
-              text={project.title}
-            />
-            <Text
-              className="text-base lg:text-xl mb-4"
-              text={project.description}
-            />
-            {/* <div className="flex flex-wrap gap-2 mb-4">
-              {project.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="bg-accent-color text-xs lg:text-base px-3 py-1 rounded-md"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div> */}
-            <IconButton
-              theme="primary"
-              className="px-4 py-2 w-fit mx-auto"
-              text="Check it"
-              label="Check it"
-              icon={
-                project.link.startsWith('/') ? (
-                  <FaArrowRight size={24} />
-                ) : (
-                  <FaExternalLinkAlt size={24} />
-                )
-              }
-              onClick={() => {
-                if (project.link.startsWith('/')) {
-                  router.push(project.link);
-                } else {
-                  window.open(project.link, '_blank');
-                }
-              }}
-            />
-          </div>
-          <div
-            className={`hidden md:flex md:col-span-2 shadow-lg ${
-              index % 2 === 0
-                ? 'md:rounded-r-none md:rounded-l-md '
-                : 'rounded-r-md order-first'
-            }`}
-          >
-            <DirectionAwareHover imageUrl={project.imageUrl} index={index}>
-              {project.goals ? (
-                <div className="px-6 space-y-4 text-white">
-                  <Heading
-                    level={3}
-                    text="Description & Goals"
-                    className="text-left pt-0"
-                  />
-                  <Text className="text-left" text={project.description} />
-                  {/* 
-                  <ul className="list-disc text-left">
-                    {project.goals.map((goal, index) => (
-                      <li key={index}>{goal}</li>
-                    ))}
-                  </ul> */}
-                </div>
-              ) : (
-                ''
-              )}
-            </DirectionAwareHover>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-
-═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/components/DevBlogProjectsThemeSection.tsx
 ───────────────────────────────────────────────
 import { Heading } from '@with-nx/react-ui';
@@ -1357,130 +1847,13 @@ export const HeroEffect = ({
 
 
 ═══════════════════════════════════════════════
-📄 FILE: ./apps/devblog/components/input.tsx
+📄 FILE: ./apps/devblog/components/index.ts
 ───────────────────────────────────────────────
-'use client';
-import * as React from 'react';
-import { cn } from '@with-nx/utils';
-import { useMotionTemplate, useMotionValue, motion } from 'framer-motion';
-
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
-
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
-    const radius = 120; // change this to increase the rdaius of the hover effect
-    const [visible, setVisible] = React.useState(false);
-
-    let mouseX = useMotionValue(0);
-    let mouseY = useMotionValue(0);
-
-    function handleMouseMove({ currentTarget, clientX, clientY }: any) {
-      let { left, top } = currentTarget.getBoundingClientRect();
-
-      mouseX.set(clientX - left);
-      mouseY.set(clientY - top);
-    }
-    return (
-      <motion.div
-        style={{
-          background: useMotionTemplate`
-        radial-gradient(
-          ${visible ? radius + 'px' : '0px'} circle at ${mouseX}px ${mouseY}px,
-          var(--primary),
-          transparent 80%
-        )
-      `,
-        }}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
-        className="p-[2px] rounded-lg transition duration-300 group/input"
-      >
-        <input
-          type={type}
-          className={cn(
-            `flex h-10 w-full border-none bg-bg-color shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent
-          file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600
-          focus-visible:outline-none focus-visible:ring-[2px]  focus-visible:ring-[var(--primary-color)]
-           disabled:cursor-not-allowed disabled:opacity-50
-           dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
-           group-hover/input:shadow-none transition duration-400
-           `,
-            className
-          )}
-          ref={ref}
-          {...props}
-        />
-      </motion.div>
-    );
-  }
-);
-Input.displayName = 'Input';
-
-export { Input };
-
-
-═══════════════════════════════════════════════
-📄 FILE: ./apps/devblog/components/label.tsx
-───────────────────────────────────────────────
-'use client';
-import * as React from 'react';
-import * as LabelPrimitive from '@radix-ui/react-label';
-
-import { cn } from '@with-nx/utils';
-
-export const Label = React.forwardRef<
-  React.ElementRef<typeof LabelPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <LabelPrimitive.Root
-    ref={ref}
-    className={cn(
-      'text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
-      className
-    )}
-    {...props}
-  />
-));
-
-
-═══════════════════════════════════════════════
-📄 FILE: ./apps/devblog/components/meteors.tsx
-───────────────────────────────────────────────
-import { cn } from '@with-nx/utils';
-import clsx from 'clsx';
-import React from 'react';
-
-export const Meteors = ({
-  number,
-  className,
-}: {
-  number?: number;
-  className?: string;
-}) => {
-  const meteors = new Array(number || 20).fill(true);
-  return (
-    <>
-      {meteors.map((el, idx) => (
-        <span
-          key={'meteor' + idx}
-          className={cn(
-            'animate-meteor-effect absolute top-1/2 left-1/2 h-0.5 w-0.5 rounded-[9999px] bg-slate-500 shadow-[0_0_0_1px_#ffffff10] rotate-[215deg]',
-            "before:content-[''] before:absolute before:top-1/2 before:transform before:-translate-y-[50%] before:w-[50px] before:h-[1px] before:bg-gradient-to-r before:from-[#64748b] before:to-transparent",
-            className
-          )}
-          style={{
-            top: 0,
-            left: Math.floor(Math.random() * (400 - -400) + -400) + 'px',
-            animationDelay: Math.random() * (0.8 - 0.2) + 0.2 + 's',
-            animationDuration: Math.floor(Math.random() * (10 - 2) + 2) + 's',
-          }}
-        ></span>
-      ))}
-    </>
-  );
-};
+export * from './atomic/atoms';
+export * from './atomic/molecules';
+export * from './atomic/organisms';
+export * from './atomic/templates';
+export * from './atomic/pages';
 
 
 ═══════════════════════════════════════════════
@@ -4084,300 +4457,6 @@ export const SparklesCore = (props: ParticlesProps) => {
 
 
 ═══════════════════════════════════════════════
-📄 FILE: ./apps/devblog/components/Tabs.tsx
-───────────────────────────────────────────────
-'use client';
-
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { cn } from '@with-nx/utils';
-
-export type Tab = {
-  title: string;
-  value: string;
-  content?: string | React.ReactNode | any;
-};
-
-export const Tabs = ({
-  tabs: propTabs,
-  containerClassName,
-  activeTabClassName,
-  tabClassName,
-  contentClassName,
-}: {
-  tabs: Tab[];
-  containerClassName?: string;
-  activeTabClassName?: string;
-  tabClassName?: string;
-  contentClassName?: string;
-}) => {
-  const [active, setActive] = useState<Tab>(propTabs[0]);
-  const [tabs, setTabs] = useState<Tab[]>(propTabs);
-
-  const moveSelectedTabToTop = (idx: number) => {
-    const newTabs = [...propTabs];
-    const selectedTab = newTabs.splice(idx, 1);
-    newTabs.unshift(selectedTab[0]);
-    setTabs(newTabs);
-    setActive(newTabs[0]);
-  };
-
-  const [hovering, setHovering] = useState(false);
-
-  return (
-    <>
-      <div
-        className={cn(
-          'flex flex-row items-center justify-center [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full',
-          containerClassName
-        )}
-      >
-        {propTabs.map((tab, idx) => (
-          <button
-            key={tab.title}
-            onClick={() => {
-              moveSelectedTabToTop(idx);
-            }}
-            onMouseEnter={() => setHovering(true)}
-            onMouseLeave={() => setHovering(false)}
-            className={cn('relative px-4 py-2 mx-1 rounded', tabClassName)}
-            style={{
-              transformStyle: 'preserve-3d',
-            }}
-          >
-            {active.value === tab.value && (
-              <motion.div
-                layoutId="clickedbutton"
-                transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
-                className={cn(
-                  'absolute inset-0 bg-primary text-on-primary-color rounded',
-                  activeTabClassName
-                )}
-              />
-            )}
-            <span
-              className={`relative block ${
-                active.value === tab.value
-                  ? 'text-white'
-                  : 'text-on-primary-color'
-              }`}
-            >
-              {tab.title}
-            </span>
-          </button>
-        ))}
-      </div>
-      <FadeInDiv
-        tabs={tabs}
-        active={active}
-        key={active.value}
-        hovering={hovering}
-        className={cn('mt-32', contentClassName)}
-      />
-    </>
-  );
-};
-
-export const FadeInDiv = ({
-  className,
-  tabs,
-  hovering,
-}: {
-  className?: string;
-  key?: string;
-  tabs: Tab[];
-  active: Tab;
-  hovering?: boolean;
-}) => {
-  const isActive = (tab: Tab) => {
-    return tab.value === tabs[0].value;
-  };
-  return (
-    <div className="relative w-full h-full">
-      {tabs.map((tab, idx) => (
-        <motion.div
-          key={tab.value}
-          layoutId={tab.value}
-          style={{
-            scale: 1 - idx * 0.1,
-            top: hovering ? idx * -60 : 0,
-            zIndex: -idx,
-            opacity: idx < 3 ? 1 - idx * 0.1 : 0,
-            height: '100%',
-          }}
-          animate={{
-            y: isActive(tab) ? [0, 40, 0] : 0,
-          }}
-          className={cn('w-full h-full absolute top-0 left-0', className)}
-        >
-          {tab.content}
-        </motion.div>
-      ))}
-    </div>
-  );
-};
-
-
-═══════════════════════════════════════════════
-📄 FILE: ./apps/devblog/components/TextArea.tsx
-───────────────────────────────────────────────
-'use client';
-import * as React from 'react';
-import { cn } from '@with-nx/utils';
-import { useMotionTemplate, useMotionValue, motion } from 'framer-motion';
-
-export interface TextAreaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
-
-const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ className, ...props }, ref) => {
-    const radius = 120; // change this to increase the radius of the hover effect
-    const [visible, setVisible] = React.useState(false);
-
-    let mouseX = useMotionValue(0);
-    let mouseY = useMotionValue(0);
-
-    function handleMouseMove({ currentTarget, clientX, clientY }: any) {
-      let { left, top } = currentTarget.getBoundingClientRect();
-
-      mouseX.set(clientX - left);
-      mouseY.set(clientY - top);
-    }
-
-    return (
-      <motion.div
-        style={{
-          background: useMotionTemplate`
-        radial-gradient(
-          ${visible ? radius + 'px' : '0px'} circle at ${mouseX}px ${mouseY}px,
-          var(--primary),
-          transparent 80%
-        )
-      `,
-        }}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
-        className="p-[2px] rounded-lg transition duration-300 group"
-      >
-        <textarea
-          className={cn(
-            `flex w-full border-none bg-bg-color shadow-input rounded-md px-3 py-2 text-sm file:border-0 file:bg-transparent
-            file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600
-            focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-[var(--primary-color)]
-            disabled:cursor-not-allowed disabled:opacity-50 dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
-            group-hover:shadow-none transition duration-400
-            `,
-            className
-          )}
-          ref={ref}
-          {...props}
-        />
-      </motion.div>
-    );
-  }
-);
-TextArea.displayName = 'TextArea';
-
-export { TextArea };
-
-
-═══════════════════════════════════════════════
-📄 FILE: ./apps/devblog/components/ToolsSection.tsx
-───────────────────────────────────────────────
-import { cn } from '@with-nx/utils';
-import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
-import { useState } from 'react';
-
-export const HoverEffect = ({
-  items,
-  className,
-}: {
-  items: {
-    title: string;
-    link: string;
-  }[];
-  className?: string;
-}) => {
-  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  return (
-    <div className={cn('flex flex-wrap py-10', className)}>
-      {items.map((item, idx) => (
-        <p
-          key={item?.link}
-          className="relative group block py-3 px-1 h-full w-auto"
-          onMouseEnter={() => setHoveredIndex(idx)}
-          onMouseLeave={() => setHoveredIndex(null)}
-        >
-          <AnimatePresence>
-            {hoveredIndex === idx && (
-              <motion.span
-                className="absolute inset-0 h-full w-full bg-primary opacity-60 block rounded-md"
-                layoutId="hoverBackground"
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: 1,
-                  transition: { duration: 0.15 },
-                }}
-                exit={{
-                  opacity: 0,
-                  transition: { duration: 0.15, delay: 0.2 },
-                }}
-              />
-            )}
-          </AnimatePresence>
-          <span className="relative z-20 bg-bg-color p-3 rounded-md text-xs md:text-base">
-            {item.title}
-          </span>
-        </p>
-      ))}
-    </div>
-  );
-};
-
-const tools = [
-  'JavaScript',
-  'Vue.js',
-  'Firebase',
-  'SEO',
-  'GitHub',
-  'Pinia',
-  'Express.js',
-  'Node.js',
-  'HTML5',
-  'CSS3',
-  'React.js',
-  'Next.js',
-  'Jest',
-  'TailwindCSS',
-  'Nx Monorepo',
-  'WordPress',
-  'Bootstrap',
-  'SASS',
-  'Git',
-  'jQuery',
-  'React Testing Library',
-  'CLI',
-  'CORESense',
-  'Storybook',
-  'TypeScript',
-  'Vercel',
-  'Stripe',
-].map((tool) => ({
-  title: tool,
-  link: `https://example.com/${tool.toLowerCase()}`,
-}));
-
-const ToolsSection = () => {
-  return <HoverEffect items={tools} className="my-custom-class" />;
-};
-
-export default ToolsSection;
-
-
-═══════════════════════════════════════════════
 📄 FILE: ./apps/devblog/components/TracingBeam.tsx
 ───────────────────────────────────────────────
 'use client';
@@ -5367,7 +5446,7 @@ export default handler;
 import { useRouter } from 'next/router';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
-import DevBlogSection from '../../components/DevBlogSection';
+import { Section } from '../components/atomic/organisms';
 import { Heading } from '@with-nx/generic-ui';
 
 const WP_API_BASE_URL =
@@ -5494,7 +5573,7 @@ export default function Post({ post }) {
 ───────────────────────────────────────────────
 import Link from 'next/link';
 import DevBlogLayout from '../../components/DevBlogLayout';
-import DevBlogSection from '../../components/DevBlogSection';
+import { Section } from '../components/atomic/organisms';
 import { Flex, Heading, Text } from '@with-nx/generic-ui';
 // Define the base URL for your WordPress API
 const WP_API_BASE_URL =
@@ -6242,12 +6321,12 @@ export default function WhitedPTOCaseStudy() {
 import React from 'react';
 
 import { Button, Heading, Text } from '../components/atomic/atoms';
+import { Section } from '@devblog/components';
 import DevBlogLayout from '../components/DevBlogLayout';
-import DevBlogSection from '../components/DevBlogSection';
-import DevBlogProjectCard from '../components/DevBlogProjectCard';
-import { Tabs, Tab } from '../components/Tabs';
-import { ContactForm } from '../components/contact-form';
-import ToolsSection from '../components/ToolsSection';
+import DevBlogProjectCard from '../components/atomic/molecules/DevBlogProjectCard';
+import { Tabs, Tab } from '../components/atomic/molecules/Tabs';
+import { ContactForm } from '../components/atomic/molecules/ContactForm/ContactForm';
+import ToolsSection from '../components/atomic/molecules/ToolsSection';
 import { scrollToProjects } from '../utils/helper';
 
 const yearsExperience = new Date().getFullYear() - 2018;
@@ -6335,10 +6414,7 @@ export default function Home() {
     <DevBlogLayout title="Portfolio | Robert Hogan" hideNavBar={false}>
       {/* ABOUT SECTION */}
       <div id="about" className="relative">
-        <DevBlogSection
-          fullWidth={true}
-          className="w-full bg-secondary-color py-32"
-        >
+        <Section fullWidth={true} className="w-full bg-secondary-color py-32">
           <div className="container mx-auto">
             <Heading level={2} className="text-center mb-4" text="About me" />
             <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
@@ -6377,27 +6453,27 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </DevBlogSection>
+        </Section>
       </div>
 
       {/* PROJECTS SECTION */}
       <div id="projects" className="relative">
-        <DevBlogSection className="py-32 min-h-[2050px] md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[3100px] p-0">
+        <Section className="py-32 min-h-[2050px] md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[3100px] p-0">
           <Heading level={2} className="text-center mb-4" text="Projects" />
           <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
           <div className="[perspective:1200px] relative flex flex-col mx-auto w-full items-start justify-start my-40">
             <Tabs tabs={sampleTabs} />
           </div>
-        </DevBlogSection>
+        </Section>
       </div>
 
       {/* CONTACT SECTION */}
       <div id="contact" className="relative">
-        <DevBlogSection fullWidth={true} className="w-full bg-secondary-color">
+        <Section fullWidth={true} className="w-full bg-secondary-color">
           <Heading level={2} className="text-center mb-4" text="Contact me" />
           <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
           <ContactForm />
-        </DevBlogSection>
+        </Section>
       </div>
     </DevBlogLayout>
   );
@@ -6492,7 +6568,7 @@ import { GiMonkeyWrench } from 'react-icons/gi';
 import { Text } from '@with-nx/generic-ui';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
-import DevBlogSection from '../../components/DevBlogSection';
+import { Section } from '../components/atomic/organisms';
 import DevBlogProjectsThemeSection from '../../components/DevBlogProjectsThemeSection';
 import { projectsData } from '../../data/projects';
 
@@ -6800,7 +6876,7 @@ import { Grid } from '@with-nx/react-ui';
 
 import { CreatureCard } from '../../components/projects/creature-generator/CreatureCard';
 import DevblogLayout from '../../components/DevBlogLayout';
-import DevBlogSection from '../../components/DevBlogSection';
+import { Section } from '../components/atomic/organisms';
 import RandomLoadingMessage from '../../components/projects/creature-generator/CreatureGeneratorRandomLoadingMessage';
 import {
   fetchCreatureData,
@@ -7075,8 +7151,7 @@ import Link from 'next/link';
 
 import { Project, projectsData } from '../../data/projects';
 import DevBlogLayout from '../../components/DevBlogLayout';
-import DevBlogSection from '../../components/DevBlogSection';
-
+import { Section } from '../components/atomic/organisms';
 type Props = {
   projects: Project[];
 };

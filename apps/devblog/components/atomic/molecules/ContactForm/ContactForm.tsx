@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { Label, Input, TextArea } from '../../atoms';
+import { Button, Label, Input, TextArea } from '../../atoms';
 import { Meteors } from './Meteors';
 
 function ContactForm() {
@@ -104,13 +104,14 @@ function ContactForm() {
           />
         </div>
 
-        <button
-          className="btn-primary btn-md w-full text-white rounded-md"
-          aria-label="Sign up →"
+        <Button
           type="submit"
+          text=""
+          className="w-full flex items-center justify-center"
+          theme="primary"
         >
           {loading ? <div className="loader" /> : 'Send Message →'}
-        </button>
+        </Button>
       </form>
       {isSuccess && (
         <div className="absolute inset-0 bg-surface-color bg-opacity-95 rounded-2xl p-4 md:p-8 shadow-xl overflow-hidden">

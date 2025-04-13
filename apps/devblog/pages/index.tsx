@@ -4,8 +4,8 @@
 import React from 'react';
 
 import { Button, Heading, Text } from '../components/atomic/atoms';
+import { Section } from '@devblog/components';
 import DevBlogLayout from '../components/DevBlogLayout';
-import DevBlogSection from '../components/DevBlogSection';
 import DevBlogProjectCard from '../components/atomic/molecules/DevBlogProjectCard';
 import { Tabs, Tab } from '../components/atomic/molecules/Tabs';
 import { ContactForm } from '../components/atomic/molecules/ContactForm/ContactForm';
@@ -97,10 +97,7 @@ export default function Home() {
     <DevBlogLayout title="Portfolio | Robert Hogan" hideNavBar={false}>
       {/* ABOUT SECTION */}
       <div id="about" className="relative">
-        <DevBlogSection
-          fullWidth={true}
-          className="w-full bg-secondary-color py-32"
-        >
+        <Section fullWidth={true} className="w-full bg-secondary-color py-32">
           <div className="container mx-auto">
             <Heading level={2} className="text-center mb-4" text="About me" />
             <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
@@ -139,27 +136,27 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </DevBlogSection>
+        </Section>
       </div>
 
       {/* PROJECTS SECTION */}
       <div id="projects" className="relative">
-        <DevBlogSection className="py-32 min-h-[2050px] md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[3100px] p-0">
+        <Section className="py-32 min-h-[2050px] md:min-h-[3050px] lg:min-h-[3250px] xl:min-h-[3100px] p-0">
           <Heading level={2} className="text-center mb-4" text="Projects" />
           <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
           <div className="[perspective:1200px] relative flex flex-col mx-auto w-full items-start justify-start my-40">
             <Tabs tabs={sampleTabs} />
           </div>
-        </DevBlogSection>
+        </Section>
       </div>
 
       {/* CONTACT SECTION */}
       <div id="contact" className="relative">
-        <DevBlogSection fullWidth={true} className="w-full bg-secondary-color">
+        <Section fullWidth={true} className="w-full bg-secondary-color">
           <Heading level={2} className="text-center mb-4" text="Contact me" />
           <hr className="w-16 h-2 bg-primary mx-auto mb-8" />
           <ContactForm />
-        </DevBlogSection>
+        </Section>
       </div>
     </DevBlogLayout>
   );

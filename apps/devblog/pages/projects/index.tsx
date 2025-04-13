@@ -11,8 +11,7 @@ import Link from 'next/link';
 
 import { Project, projectsData } from '../../data/projects';
 import DevBlogLayout from '../../components/DevBlogLayout';
-import DevBlogSection from '../../components/DevBlogSection';
-
+import { Section } from '../components/atomic/organisms';
 type Props = {
   projects: Project[];
 };

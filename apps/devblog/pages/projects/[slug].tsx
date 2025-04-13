@@ -8,7 +8,7 @@ import { GiMonkeyWrench } from 'react-icons/gi';
 import { Text } from '@with-nx/generic-ui';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
-import DevBlogSection from '../../components/DevBlogSection';
+import { Section } from '../components/atomic/organisms';
 import DevBlogProjectsThemeSection from '../../components/DevBlogProjectsThemeSection';
 import { projectsData } from '../../data/projects';
 

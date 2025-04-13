@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import DevBlogLayout from '../../components/DevBlogLayout';
-import DevBlogSection from '../../components/DevBlogSection';
+import { Section } from '../components/atomic/organisms';
 import { Flex, Heading, Text } from '@with-nx/generic-ui';
 // Define the base URL for your WordPress API
 const WP_API_BASE_URL =
