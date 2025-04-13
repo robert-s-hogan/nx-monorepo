@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import Image from 'next/image';
-import { Button, Flex, Grid, Heading, Section } from '@with-nx/react-ui';
+import { Button, Flex, Grid, Heading } from '@with-nx/react-ui';
 import { Text } from '@with-nx/generic-ui';
 import { FiMail, FiLinkedin } from 'react-icons/fi';
 import { FiGithub } from 'react-icons/fi';
@@ -11,7 +11,8 @@ import Link from 'next/link';
 
 import { Project, projectsData } from '../../data/projects';
 import DevBlogLayout from '../../components/DevBlogLayout';
-import { Section } from '../components/atomic/organisms';
+import { Section } from '@devblog/components';
+
 type Props = {
   projects: Project[];
 };
@@ -25,7 +26,7 @@ const ProjectPage = ({ projects }) => {
       title="Robert Hogan's Projects - Digital Creations & Front-End Craftsmanship"
       description="Dive into Robert Hogan's curated showcase of digital projects, from cutting-edge tools and apps to libraries and immersive interfaces. Each piece demonstrates mastery in front-end development and user experience design."
     >
-      <DevBlogSection className="space-y-6">
+      <Section className="space-y-6">
         <Heading level={1}>Projects</Heading>
         <Text
           className="pb-6 max-w-3xl mx-auto"
@@ -57,7 +58,7 @@ const ProjectPage = ({ projects }) => {
             </Link>
           ))}
         </Grid>
-      </DevBlogSection>
+      </Section>
     </DevBlogLayout>
   );
 };

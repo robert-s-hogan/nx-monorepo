@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
-import { Section } from '../components/atomic/organisms';
+import { Section } from '@devblog/components';
 import { Heading } from '@with-nx/generic-ui';
 
 const WP_API_BASE_URL =
@@ -68,7 +68,7 @@ export default function Post({ post }) {
 
   return (
     <DevBlogLayout>
-      <DevBlogSection className="space-y-6">
+      <Section className="space-y-6">
         <article className="space-y-8 px-4">
           <Heading level={1} text={post.title} />
           <div
@@ -76,7 +76,7 @@ export default function Post({ post }) {
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
         </article>
-      </DevBlogSection>
+      </Section>
     </DevBlogLayout>
   );
 }

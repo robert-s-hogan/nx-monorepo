@@ -6,7 +6,7 @@ import { Grid } from '@with-nx/react-ui';
 
 import { CreatureCard } from '../../components/projects/creature-generator/CreatureCard';
 import DevblogLayout from '../../components/DevBlogLayout';
-import { Section } from '../components/atomic/organisms';
+import { Section } from '@devblog/components';
 import RandomLoadingMessage from '../../components/projects/creature-generator/CreatureGeneratorRandomLoadingMessage';
 import {
   fetchCreatureData,
@@ -83,7 +83,7 @@ export default function CreatureGenerator() {
 
   return (
     <DevblogLayout>
-      <DevBlogSection className="space-y-4">
+      <Section className="space-y-4">
         <h1>Create DND Monster</h1>
         {!creature && !isLoading && (
           <form
@@ -169,7 +169,7 @@ export default function CreatureGenerator() {
             </Grid>
           </>
         )}
-      </DevBlogSection>
+      </Section>
     </DevblogLayout>
   );
 }

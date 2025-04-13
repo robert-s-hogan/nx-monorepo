@@ -14,7 +14,6 @@ import { scrollToProjects } from '../utils/helper';
 
 const yearsExperience = new Date().getFullYear() - 2018;
 
-// Removed the 'goals' property from each project object.
 const volunteerProjects = [
   {
     title: 'Whited PTO',

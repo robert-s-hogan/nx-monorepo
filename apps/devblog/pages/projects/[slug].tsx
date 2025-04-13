@@ -8,7 +8,7 @@ import { GiMonkeyWrench } from 'react-icons/gi';
 import { Text } from '@with-nx/generic-ui';
 
 import DevBlogLayout from '../../components/DevBlogLayout';
-import { Section } from '../components/atomic/organisms';
+import { Section } from '@devblog/components';
 import DevBlogProjectsThemeSection from '../../components/DevBlogProjectsThemeSection';
 import { projectsData } from '../../data/projects';
 
@@ -33,7 +33,7 @@ function ProjectPage({ project }) {
       >
         <div className="absolute inset-0 bg-image-overlay opacity-50"></div>
 
-        <DevBlogSection>
+        <Section>
           <Heading
             level={1}
             className="h-full w-auto my-auto relative z-10 text-center pt-32 break-normal [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]"
@@ -96,46 +96,46 @@ function ProjectPage({ project }) {
               </span>
             ))}
           </Flex>
-        </DevBlogSection>
+        </Section>
       </div>
 
       <div className="w-full bg-secondary-color">
-        <DevBlogSection>
+        <Section>
           <div className="grid grid-cols-1 gap-12">
             <DevBlogProjectsThemeSection
               title={project.process.title}
               description={project.process.description}
             />
           </div>
-        </DevBlogSection>
+        </Section>
       </div>
 
-      <DevBlogSection className="">
+      <Section className="">
         <DevBlogProjectsThemeSection
           title={project.management.title}
           description={project.management.description}
         />
-      </DevBlogSection>
+      </Section>
 
       <div className="w-full bg-secondary-color">
-        <DevBlogSection>
+        <Section>
           <Heading level={2} className="text-xl md:text-5xl">
             {project.media.title}
           </Heading>
           <p>{project.media.description}</p>
-        </DevBlogSection>
+        </Section>
       </div>
 
-      <DevBlogSection className="">
+      <Section className="">
         <DevBlogProjectsThemeSection
           title={project.technologyReason.title}
           description={project.technologyReason.description}
         />
         {/* If you have a list of tech used, map over them here and display as tiles or cards */}
-      </DevBlogSection>
+      </Section>
 
       <div className="w-full bg-secondary-color">
-        <DevBlogSection>
+        <Section>
           <Heading level={2} className="text-xl md:text-5xl">
             {project.purpose.title}
           </Heading>
@@ -143,11 +143,11 @@ function ProjectPage({ project }) {
             className="leading-relaxed"
             text={project.purpose.description}
           />
-        </DevBlogSection>
+        </Section>
       </div>
 
       {/* {project.resources && (
-        <DevBlogSection maxWidth={true} className="bg-secondary-color">
+        <Section maxWidth={true} className="bg-secondary-color">
           <div className="container max-w-7xl mx-auto px-2">
             <DevBlogProjectsThemeSection
               title="Resources & Acknowledgments"
@@ -170,7 +170,7 @@ function ProjectPage({ project }) {
               ))}
             </ul>
           </div>
-        </DevBlogSection>
+        </Section>
       )} */}
     </DevBlogLayout>
   );

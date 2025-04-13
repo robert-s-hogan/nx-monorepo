@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import DevBlogLayout from '../../components/DevBlogLayout';
-import { Section } from '../components/atomic/organisms';
+import { Section } from '@devblog/components';
 import { Flex, Heading, Text } from '@with-nx/generic-ui';
 // Define the base URL for your WordPress API
 const WP_API_BASE_URL =
@@ -47,7 +47,7 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
   return (
     <DevBlogLayout>
-      <DevBlogSection className="space-y-6">
+      <Section className="space-y-6">
         <Heading level={1} className="font-bold" text="Digital Garden" />
         <Text
           className="text-center"
@@ -66,7 +66,7 @@ export default function Home({ allPostsData }) {
             </div>
           ))}
         </div>
-      </DevBlogSection>
+      </Section>
     </DevBlogLayout>
   );
 }
