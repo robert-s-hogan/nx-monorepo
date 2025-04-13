@@ -9,7 +9,7 @@ import DevBlogSection from '../components/DevBlogSection';
 import DevBlogProjectCard from '../components/DevBlogProjectCard';
 import { Tabs, Tab } from '../components/Tabs';
 import { ContactForm } from '../components/contact-form';
-import ToolsSection from '../components/ToolsSection';
+import ToolsSection from '../components/atomic/molecules/ToolsSection';
 import { scrollToProjects } from '../utils/helper';
 
 const yearsExperience = new Date().getFullYear() - 2018;
