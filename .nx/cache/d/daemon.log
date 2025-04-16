@@ -457,3 +457,42 @@
 [NX Daemon Server] - 2025-04-13T19:18:18.250Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2025-04-13T19:18:18.301Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2025-04-13T19:18:31.723Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2025-04-13T19:26:12.641Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-13T19:26:12.643Z - [WATCHER]: devblog-files.txt was created or restored
+[NX Daemon Server] - 2025-04-13T19:26:12.702Z - [WATCHER]: devblog-files.txt was created or restored
+[NX Daemon Server] - 2025-04-13T19:26:12.702Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-13T19:26:12.748Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2025-04-13T19:26:12.748Z - [REQUEST]: devblog-files.txt
+[NX Daemon Server] - 2025-04-13T19:26:12.749Z - [REQUEST]: 
+[NX Daemon Server] - 2025-04-13T19:26:12.968Z - [WATCHER]: devblog-files.txt was created or restored
+[NX Daemon Server] - 2025-04-13T19:26:12.969Z - [WATCHER]: devblog-files.txt was created or restored
+[NX Daemon Server] - 2025-04-13T19:26:12.970Z - [WATCHER]: devblog-files.txt was created or restored
+[NX Daemon Server] - 2025-04-13T19:26:12.971Z - [WATCHER]: devblog-files.txt was created or restored
+[NX Daemon Server] - 2025-04-13T19:26:12.972Z - [WATCHER]: devblog-files.txt was created or restored
+[NX Daemon Server] - 2025-04-13T19:26:12.972Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-13T19:26:12.972Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-13T19:26:12.972Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-13T19:26:12.972Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-13T19:26:12.972Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-13T19:26:12.973Z - Time taken for 'hash changed files from watcher' 3.2391860000789165ms
+[NX Daemon Server] - 2025-04-13T19:26:13.032Z - [WATCHER]: devblog-files.txt was modified
+[NX Daemon Server] - 2025-04-13T19:26:13.032Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-13T19:26:13.071Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2025-04-13T19:26:13.071Z - [REQUEST]: devblog-files.txt
+[NX Daemon Server] - 2025-04-13T19:26:13.071Z - [REQUEST]: 
+[NX Daemon Server] - 2025-04-13T19:26:13.315Z - [WATCHER]: devblog-files.txt was modified
+[NX Daemon Server] - 2025-04-13T19:26:13.316Z - [WATCHER]: devblog-files.txt was modified
+[NX Daemon Server] - 2025-04-13T19:26:13.317Z - [WATCHER]: devblog-files.txt was modified
+[NX Daemon Server] - 2025-04-13T19:26:13.317Z - [WATCHER]: devblog-files.txt was modified
+[NX Daemon Server] - 2025-04-13T19:26:13.318Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-13T19:26:13.318Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-13T19:26:13.318Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-13T19:26:13.318Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-13T19:26:13.325Z - Time taken for 'hash changed files from watcher' 2.0634550005197525ms
+[NX Daemon Server] - 2025-04-13T19:26:13.517Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2025-04-13T19:26:13.517Z - [REQUEST]: devblog-files.txt
+[NX Daemon Server] - 2025-04-13T19:26:13.517Z - [REQUEST]: 
+[NX Daemon Server] - 2025-04-13T19:26:13.689Z - Time taken for 'hash changed files from watcher' 1.734840001910925ms
+[NX Daemon Server] - 2025-04-14T01:46:09.849Z - [WATCHER]: Stopping the watcher for /Users/roberthogan/Github/personal/nx-monorepo (sources)
+[NX Daemon Server] - 2025-04-14T01:46:09.851Z - [WATCHER]: Stopping the watcher for /Users/roberthogan/Github/personal/nx-monorepo (outputs)
+[NX Daemon Server] - 2025-04-14T01:46:09.851Z - Server stopped because: "10800000ms of inactivity"

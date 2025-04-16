@@ -96,7 +96,7 @@ export default function Home() {
     <DevBlogLayout title="Portfolio | Robert Hogan" hideNavBar={false}>
       {/* ABOUT SECTION */}
       <div id="about" className="relative">
-        <Section fullWidth={true} className="bg-secondary-color w-full py-32">
+        <Section fullWidth={true} className="bg-secondary-color w-full">
           <div className="container mx-auto">
             <Heading level={2} className="mb-4 text-center" text="About me" />
             <hr className="bg-primary mx-auto mb-8 h-2 w-16" />
@@ -151,7 +151,7 @@ export default function Home() {
 
       {/* CONTACT SECTION */}
       <div id="contact" className="relative">
-        <Section fullWidth={true} className="bg-secondary-color w-full">
+        <Section fullWidth={true} className="bg-secondary-color">
           <Heading level={2} className="mb-4 text-center" text="Contact me" />
           <hr className="bg-primary mx-auto mb-8 h-2 w-16" />
           <ContactForm />

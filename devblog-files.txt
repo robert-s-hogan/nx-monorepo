@@ -2753,7 +2753,7 @@ const StructureGroup = ({
       {structures.map((structure) => (
         <StructureEntity
           key={`structure-${structure.id}`}
-          id={structure.id}
+          id={structure.id.toString()}
           name={structure.className}
           x={structure.x}
           y={structure.y}
@@ -2779,7 +2779,7 @@ import ContextMenu from '../context-menu';
 import { ObeliskIcon, TowerIcon, HouseIcon } from '../../icons';
 
 interface StructureProps {
-  id: number | string;
+  id: string;
   name: string;
   x: number;
   y: number;
