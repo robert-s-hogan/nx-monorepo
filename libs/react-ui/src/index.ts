@@ -12,6 +12,7 @@ export { Dialog } from './lib/dialog/dialog';
 export { Error } from './lib/error/error';
 export { FAQ } from './lib/faq/faq';
 export { Flex } from './lib/flex/flex';
+export { FloatingFooter } from './lib/floating-footer/floating-footer';
 export { Footer } from './lib/footer/footer';
 export { Form } from './lib/form/form';
 export { Grid } from './lib/grid/grid';

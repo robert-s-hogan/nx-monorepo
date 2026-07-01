@@ -12,3 +12,4 @@ export * from './lib/dnd-spell-data';
 export * from './lib/dnd-structure-data';
 export * from './lib/dnd-xp-data';
 export * from './lib/language-data';
+export * from './lib/sibling-apps';

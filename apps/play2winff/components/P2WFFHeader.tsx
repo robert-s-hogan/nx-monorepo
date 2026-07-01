@@ -24,16 +24,19 @@ const links: {
   className?: string;
   type: 'link' | 'button';
 }[] = [
-  // {
-  //   href: '/adp',
-  //   text: 'ADP',
-  //   className: 'text-primary',
-  //   type: 'link',
-  // },
   {
     href: '/draft',
     text: 'Draft',
-    // className: 'btn-primary',
+    type: 'link',
+  },
+  {
+    href: '/import',
+    text: 'Import',
+    type: 'link',
+  },
+  {
+    href: '/leagues',
+    text: 'Leagues',
     type: 'link',
   },
 ];

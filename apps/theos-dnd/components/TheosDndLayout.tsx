@@ -1,13 +1,10 @@
-import dynamic from 'next/dynamic';
-import { PageLayout } from '@with-nx/react-ui';
+import { FloatingFooter, PageLayout } from '@with-nx/react-ui';
 import { Seo } from '@with-nx/nextjs-react-ui';
 import { PageLayoutProps } from '@with-nx/types';
 
 import TheosDndHeader from './TheosDndHeader';
 
-// const DevBlogFooter = dynamic(() => import('./DevBlogFooter'), { ssr: false });
-
-const DevBlogLayout = ({
+const TheosDndLayout = ({
   children,
   className,
   title,
@@ -19,29 +16,27 @@ const DevBlogLayout = ({
     <PageLayout
       className={`w-full min-h-screen ${className} pulse-bg`}
       header={hideNavBarProp ? '' : <TheosDndHeader />}
-      //   footer={<DevBlogFooter />}
+      footer={<FloatingFooter currentApp="theos-dnd" />}
     >
       <Seo
-        title={
-          title ? title : 'Robert Hogan - Front-End UI Engineer | Portfolio'
-        }
+        title={title ? title : "Theo's D&D | Campaign Companion"}
         description={
           description
             ? description
-            : 'Robert Hogan, a seasoned Front-End UI Engineer crafting efficient and user-centric digital experiences. Explore highlighted projects such as the p2w Draft Tool, React UI Library, and Concentration game.'
+            : "Theo's D&D campaign companion — manage campaigns and encounters, roll dice, and track characters for your tabletop sessions."
         }
-        url="https://www.roberthogan.dev/"
+        url="https://theos-dnd-nx.vercel.app"
         faviconPath="https://app-assets.vercel.app/apps/theos-dnd/favicon.ico"
         image="https://app-assets.vercel.app/apps/theos-dnd/favicon.ico"
         twitterHandle="@robert_s_hogan"
-        siteName="Robert Hogans Portfolio"
+        siteName="Theo's D&D"
         appleTouchIconPath="/apple-touch-icon.png"
-        keywords="Robert Hogan, Front-End UI Engineer, Portfolio, p2w Draft Tool, React UI Library, Concentration, web development, digital experiences, fantasy football tool, Yahoo fantasy football, UI design, React."
+        keywords="D&D, Dungeons and Dragons, campaign companion, dice roller, character tracker, encounter tracker, tabletop RPG"
       />
       <div
         className={`mx-auto ${
           hideMaxWidth7xl ? 'max-w-full' : ''
-        } selection:bg-primary container max-w-7xl ${
+        } selection:bg-primary container max-w-7xl pb-20 ${
           className ? className : ''
         }`}
       >
@@ -51,4 +46,4 @@ const DevBlogLayout = ({
   );
 };
 
-export default DevBlogLayout;
+export default TheosDndLayout;

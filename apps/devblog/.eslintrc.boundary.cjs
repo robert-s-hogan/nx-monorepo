@@ -1,6 +1,7 @@
 module.exports = {
   root: true,
   plugins: ['boundaries', 'tailwindcss'],
+  extends: ['plugin:tailwindcss/recommended'],
   settings: {
     'boundaries/elements': [
       { type: 'atoms', pattern: 'apps/devblog/components/atomic/atoms/*' },
@@ -18,7 +19,20 @@ module.exports = {
     },
   },
   rules: {
-    'tailwindcss/no-custom-classname': 'off',
+    'tailwindcss/no-custom-classname': [
+      'error',
+      {
+        whitelist: [
+          '^bg-(primary|secondary|accent|success|error|warning|info|background|surface|border)$',
+          '^text-(primary|secondary|tertiary|inverted)$',
+          '^rounded-md$',
+          '^opacity-60$',
+          '^p-\\d+$',
+          '^text-xs$',
+          '^text-base$',
+        ],
+      },
+    ],
     'boundaries/element-types': [
       'warn',
       {

@@ -10,10 +10,12 @@
     "lint:atomic:devblog": "eslint apps/devblog --config apps/devblog/.eslintrc.boundary.cjs --ext .ts,.tsx,.js,.jsx --resolve-plugins-relative-to .",
     "devblog-files": "bash scripts/devblog-files.sh",
     "clean": "rm -rf dist/ && rm -rf apps/*/dist apps/*/.next && rm -rf node_modules/ && echo 'Cleaned all build artifacts and node_modules'",
-    "test": "nx test"
+    "test": "nx test",
+    "migrate:play2winff": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate.ts"
   },
   "private": true,
   "dependencies": {
+    "@libsql/client": "^0.17.4",
     "@emotion/react": "11.11.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "github:fortawesome/react-fontawesome",

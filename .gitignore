@@ -54,3 +54,7 @@ yarn-error.log*
 
 # Turborepo
 .turbo
+
+# Nx
+.nx/cache
+.nx/workspace-data

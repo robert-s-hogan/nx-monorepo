@@ -1,0 +1,8 @@
+.dock {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding-bottom: env(safe-area-inset-bottom);
+}

@@ -1,90 +1,90 @@
-import { Button, Flex, Heading, Section, Text } from '@with-nx/react-ui';
+import { useEffect, useState } from 'react';
 
 import PlayToWinFFLayout from '../components/P2WFFLayout';
-import useDraftedPlayers from '../hooks/useDraftedPlayers';
-import P2WDraftTable from '../components/P2WDraftTable';
-import { useState, useEffect } from 'react';
-import LegendSidebar from '../components/P2WLegendSidebar';
-import Roster from '../components/P2WRoster';
-
-// Import the new hook
-import useMergedData from '../hooks/useMergedData';
+import { useLeagues } from '../hooks/useLeagues';
+import { useSnapshots } from '../hooks/useSnapshots';
+import { useDraftSession } from '../hooks/useDraftSession';
+import { DraftSetup } from '../components/draft/DraftSetup';
+import { DraftBoard } from '../components/draft/DraftBoard';
 
 const Draft = () => {
-  // Use the new hook to fetch the merged data
-  const { data: mergedData, isLoading, isError } = useMergedData();
+  const { leagues, isLoading: leaguesLoading } = useLeagues();
+  const { snapshots, isLoading: snapshotsLoading } = useSnapshots();
 
-  const {
-    draftedPlayers,
-    togglePlayerDraftStatus,
-    showDraftedPlayers,
-    setShowDraftedPlayers,
-  } = useDraftedPlayers(mergedData?.players);
+  const [selectedLeagueId, setSelectedLeagueId] = useState<number | null>(null);
+  const [selectedSnapshotId, setSelectedSnapshotId] = useState<number | null>(null);
+  const [prevSnapshotId, setPrevSnapshotId] = useState<number | null>(null);
+  const [draftSlot, setDraftSlot] = useState(1);
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const selectedLeague = leagues.find((l) => l.id === selectedLeagueId) ?? null;
 
-  const handleSidebarClose = () => {
-    setIsSidebarOpen(false);
-  };
+  const session = useDraftSession(selectedLeague);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Error loading data!</p>;
+  // Auto-select defaults once loaded, matching the source app's behavior.
+  useEffect(() => {
+    if (!selectedLeagueId && leagues.length) {
+      setSelectedLeagueId(leagues[0].id);
+    }
+  }, [leagues, selectedLeagueId]);
+
+  useEffect(() => {
+    if (!selectedSnapshotId && selectedLeague && snapshots.length) {
+      const match = snapshots.find(
+        (s) => s.list_type === selectedLeague.default_list_type
+      );
+      if (match) setSelectedSnapshotId(match.id);
+    }
+  }, [snapshots, selectedLeague, selectedSnapshotId]);
+
+  const selectedSnapshot = snapshots.find((s) => s.id === selectedSnapshotId) ?? null;
+
+  const loading = leaguesLoading || snapshotsLoading;
 
   return (
     <PlayToWinFFLayout title="Play2WinFF Draft Dominator">
-      <Section className="container mx-auto">
-        <Flex
-          className={`flex-col flex-grow ${isSidebarOpen ? 'w-3/4' : 'w-full'}`}
-        >
-          <Heading level={1}>Play2WinFF Draft Dominator</Heading>
-          <Heading level={2}>
-            Master Your 12-Man Yahoo PPR Draft with Play2WinFF{' '}
-          </Heading>
-          <Text className="text-lg my-4">
-            <span className="hidden md:contents">
-              Dive into the ultimate draft advantage with Play2WinFF.{' '}
-            </span>
-            Our tool contrasts expert Harris rankings against popular Yahoo PPR
-            picks for 12-man leagues.{' '}
-            <span className="hidden md:contents">
-              Spot the diamonds in the rough and sidestep those potential
-              pitfalls. Elevate your fantasy football strategy, identify
-              high-value players, and draft with confidence.{' '}
-            </span>
-            Get ready to not just play, but to play to win!
-          </Text>
-        </Flex>
-      </Section>
+      {loading && <p className="p-8 text-sm text-slate-500">Loading…</p>}
+      {session.error && (
+        <p className="p-4 text-sm text-red-600">{session.error}</p>
+      )}
 
-      <Section className="container mx-auto flex">
-        {/* Sidebar */}
-        <Flex
-          className={`transition-all duration-300 ease-in-out overflow-hidden h-full ${
-            isSidebarOpen ? 'max-w-full md:max-w-sm' : 'max-w-0'
-          }`}
-          // style={{ willChange: 'max-width' }}
-        >
-          <LegendSidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
-        </Flex>
+      {!loading && !session.launched && (
+        <DraftSetup
+          leagues={leagues}
+          snapshots={snapshots}
+          selectedLeagueId={selectedLeagueId}
+          selectedSnapshotId={selectedSnapshotId}
+          prevSnapshotId={prevSnapshotId}
+          draftSlot={draftSlot}
+          loadingPlayers={session.loadingPlayers}
+          onSelectLeague={setSelectedLeagueId}
+          onSelectSnapshot={setSelectedSnapshotId}
+          onSelectPrevSnapshot={setPrevSnapshotId}
+          onChangeDraftSlot={setDraftSlot}
+          onLaunch={() => {
+            if (selectedSnapshotId) session.launch(selectedSnapshotId, prevSnapshotId);
+          }}
+        />
+      )}
 
-        {/* Main content */}
-        <Flex
-          className={`flex-grow transition-all duration-300 ease-in-out ${
-            isSidebarOpen ? 'w-3/4' : 'w-full'
-          }`}
-        >
-          <P2WDraftTable
-            players={mergedData}
-            hiddenPlayers={draftedPlayers}
-            togglePlayerVisibility={togglePlayerDraftStatus}
-            showDraftedPlayers={showDraftedPlayers}
-            setShowDraftedPlayers={setShowDraftedPlayers}
-            setIsSidebarOpen={setIsSidebarOpen}
-            isSidebarOpen={isSidebarOpen}
-          />
-        </Flex>
-        {/* <Roster draftedPlayers={draftedPlayers} /> */}
-      </Section>
+      {session.launched && selectedLeague && (
+        <DraftBoard
+          league={selectedLeague}
+          snapshot={selectedSnapshot}
+          draftSlot={draftSlot}
+          rosterSlots={session.rosterSlots}
+          bench={session.bench}
+          displayList={session.displayList}
+          droppedPlayers={session.droppedPlayers}
+          draftedCount={session.draftedCount}
+          totalStarters={session.totalStarters}
+          onBack={session.resetDraft}
+          onDraftToMyTeam={session.draftToMyTeam}
+          onDraftedByOther={session.draftedByOther}
+          onReleaseFromRoster={session.releaseFromRoster}
+          onReleaseFromBench={session.releaseFromBench}
+          onNoteSaved={session.setNoteFor}
+        />
+      )}
     </PlayToWinFFLayout>
   );
 };

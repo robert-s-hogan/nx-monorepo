@@ -39,7 +39,7 @@ const nextConfig = {
   webpack: (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
-      '@devblog/components': path.resolve(__dirname, 'components'),
+      '@devblog/components': ['apps/devblog/components/index.ts'],
     };
     return config;
   },

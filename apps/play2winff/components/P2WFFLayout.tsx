@@ -1,5 +1,5 @@
 import { Seo } from '@with-nx/nextjs-react-ui';
-import { PageLayout } from '@with-nx/react-ui';
+import { FloatingFooter, PageLayout } from '@with-nx/react-ui';
 import { PageLayoutProps } from '@with-nx/types';
 
 import PlayToWinFFHeader from './P2WFFHeader';
@@ -14,7 +14,7 @@ const PlayToWinFFLayout = ({
   return (
     <PageLayout
       header={hideNavBarProp ? '' : <PlayToWinFFHeader />}
-      //   footer={<JHFooter />}
+      footer={<FloatingFooter currentApp="play2winff" />}
       className="md:m-4 lg:mx-6  shadow-lg pb-16"
     >
       <Seo
