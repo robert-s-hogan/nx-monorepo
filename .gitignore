@@ -58,3 +58,6 @@ yarn-error.log*
 # Nx
 .nx/cache
 .nx/workspace-data
+
+# pnpm (Vercel build machines place the content-addressable store inside the repo)
+.pnpm-store
