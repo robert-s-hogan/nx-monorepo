@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f8f9fa;
+}
+
+.recipe-card {
+  transition: transform 0.15s, box-shadow 0.15s;
+  border-radius: 10px;
+}
+
+.recipe-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.steps-list li {
+  padding-left: 0.25rem;
+  line-height: 1.7;
+}

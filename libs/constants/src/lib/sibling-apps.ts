@@ -1,11 +1,25 @@
 // libs/constants/src/lib/sibling-apps.ts
 
 export interface SiblingApp {
-  id: 'play2winff' | 'theos-dnd' | 'conquest' | 'dm-toolkit';
+  id:
+    | 'play2winff'
+    | 'theos-dnd'
+    | 'conquest'
+    | 'dm-toolkit'
+    | 'the-hogans'
+    | 'shopping-list'
+    | 'recipes';
   name: string;
   shortLabel: string;
   url: string;
-  icon: 'football-helmet' | 'dice' | 'dragon' | 'scroll';
+  icon:
+    | 'football-helmet'
+    | 'dice'
+    | 'dragon'
+    | 'scroll'
+    | 'home'
+    | 'cart'
+    | 'cooking-pot';
 }
 
 export const SIBLING_APPS: SiblingApp[] = [
@@ -36,5 +50,26 @@ export const SIBLING_APPS: SiblingApp[] = [
     shortLabel: 'DM Kit',
     url: 'https://dm-toolkit-nx.vercel.app',
     icon: 'scroll',
+  },
+  {
+    id: 'the-hogans',
+    name: 'The Hogans',
+    shortLabel: 'Home',
+    url: 'https://www.the-hogans.com',
+    icon: 'home',
+  },
+  {
+    id: 'shopping-list',
+    name: 'Shopping List',
+    shortLabel: 'Groceries',
+    url: 'https://shopping-list-nx.vercel.app',
+    icon: 'cart',
+  },
+  {
+    id: 'recipes',
+    name: 'My Recipes',
+    shortLabel: 'Recipes',
+    url: 'https://recipes-nx.vercel.app',
+    icon: 'cooking-pot',
   },
 ];

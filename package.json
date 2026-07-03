@@ -12,11 +12,16 @@
     "clean": "rm -rf dist/ && rm -rf apps/*/dist apps/*/.next && rm -rf node_modules/ && echo 'Cleaned all build artifacts and node_modules'",
     "test": "nx test",
     "migrate:play2winff": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate.ts",
-    "migrate:dm-toolkit": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/dm-toolkit/scripts/migrate.ts"
+    "migrate:dm-toolkit": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/dm-toolkit/scripts/migrate.ts",
+    "migrate:recipes": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/recipes/scripts/migrate.ts"
   },
   "private": true,
+  "engines": {
+    "node": ">=22 <23"
+  },
   "dependencies": {
     "@libsql/client": "^0.17.4",
+    "@supabase/supabase-js": "^2.108.1",
     "@emotion/react": "11.11.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "github:fortawesome/react-fontawesome",
