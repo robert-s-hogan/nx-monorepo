@@ -1,0 +1,166 @@
+{
+  "skills": [
+    {
+      "id": "stumble_upon",
+      "name": "Stumble Upon",
+      "flavor": "You trip — and find something no one else noticed.",
+      "trigger": "failure",
+      "effect": "Reveal a hidden item or detail within 15ft.",
+      "tags": ["exploration"],
+      "sentiment": "positive"
+    },
+    {
+      "id": "rattled",
+      "name": "Rattled",
+      "flavor": "The near-miss shakes your nerves to their core.",
+      "trigger": "failure",
+      "effect": "Disadvantage on your next roll. Advantage on the one after that.",
+      "tags": ["combat", "mixed"],
+      "sentiment": "mixed"
+    },
+    {
+      "id": "adrenaline_surge",
+      "name": "Adrenaline Surge",
+      "flavor": "Failure fuels a desperate second wind.",
+      "trigger": "failure",
+      "effect": "Immediately take a bonus action this turn.",
+      "tags": ["combat"],
+      "sentiment": "positive"
+    },
+    {
+      "id": "wrong_footing",
+      "name": "Wrong Footing",
+      "flavor": "Your stumble puts you exactly where they didn't expect.",
+      "trigger": "failure",
+      "effect": "Move up to 10ft without provoking opportunity attacks.",
+      "tags": ["combat"],
+      "sentiment": "positive"
+    },
+    {
+      "id": "exposed",
+      "name": "Exposed",
+      "flavor": "The failure leaves you open — everyone sees it.",
+      "trigger": "failure",
+      "effect": "The next attack against you has advantage.",
+      "tags": ["combat"],
+      "sentiment": "negative"
+    },
+    {
+      "id": "dropped_guard",
+      "name": "Dropped Guard",
+      "flavor": "A split second of distraction — someone notices.",
+      "trigger": "failure",
+      "effect": "-2 AC until the start of your next turn.",
+      "tags": ["combat"],
+      "sentiment": "negative"
+    },
+    {
+      "id": "fresh_eyes",
+      "name": "Fresh Eyes",
+      "flavor": "Starting the session with a clear head, you notice something others missed.",
+      "trigger": "session_start",
+      "effect": "Once this session, ask the DM one yes/no question they must answer truthfully.",
+      "tags": ["exploration", "social"],
+      "sentiment": "positive"
+    },
+    {
+      "id": "bad_omen",
+      "name": "Bad Omen",
+      "flavor": "A crow flies left. Your gut sinks.",
+      "trigger": "session_start",
+      "effect": "The DM must foreshadow one danger you will face this session.",
+      "tags": ["mixed"],
+      "sentiment": "mixed"
+    },
+    {
+      "id": "inspired",
+      "name": "Inspired",
+      "flavor": "Something in the air today — you feel unusually sharp.",
+      "trigger": "session_start",
+      "effect": "Add 1d4 to the first ability check you make this session.",
+      "tags": ["mixed"],
+      "sentiment": "positive"
+    },
+    {
+      "id": "aching_bones",
+      "name": "Aching Bones",
+      "flavor": "Last session took more out of you than you realized.",
+      "trigger": "session_start",
+      "effect": "Start with 2 fewer HP. Recover them after a short rest.",
+      "tags": ["combat"],
+      "sentiment": "negative"
+    },
+    {
+      "id": "crowd_pleaser",
+      "name": "Crowd Pleaser",
+      "flavor": "Somehow even your worst moments make for a good story.",
+      "trigger": "random",
+      "effect": "Gain advantage on the next Charisma check you make.",
+      "tags": ["social"],
+      "sentiment": "positive"
+    },
+    {
+      "id": "gut_feeling",
+      "name": "Gut Feeling",
+      "flavor": "You can't explain it. You just know.",
+      "trigger": "random",
+      "effect": "The DM tells you if the current path leads toward danger or safety.",
+      "tags": ["exploration"],
+      "sentiment": "positive"
+    },
+    {
+      "id": "wild_swing",
+      "name": "Wild Swing",
+      "flavor": "Something takes over — reckless, powerful, uncontrolled.",
+      "trigger": "random",
+      "effect": "Next attack: roll twice, use higher result. On a hit, add 1d6 damage. On a miss, you fall prone.",
+      "tags": ["combat", "mixed"],
+      "sentiment": "mixed"
+    },
+    {
+      "id": "borrowed_time",
+      "name": "Borrowed Time",
+      "flavor": "That should have killed you. It didn't. Yet.",
+      "trigger": "random",
+      "effect": "Gain 1d8 temporary HP. Lose them all at the start of your next turn.",
+      "tags": ["combat"],
+      "sentiment": "mixed"
+    },
+    {
+      "id": "old_wound",
+      "name": "Old Wound",
+      "flavor": "Something stirs — a memory of pain, not quite healed.",
+      "trigger": "random",
+      "effect": "Lose 1d4 HP now. Gain resistance to that damage type for the rest of the encounter.",
+      "tags": ["combat", "mixed"],
+      "sentiment": "mixed"
+    },
+    {
+      "id": "overconfident",
+      "name": "Overconfident",
+      "flavor": "You've done this a hundred times. What could go wrong?",
+      "trigger": "random",
+      "effect": "Disadvantage on Wisdom saves until the end of the session.",
+      "tags": ["social", "mixed"],
+      "sentiment": "negative"
+    },
+    {
+      "id": "last_resort",
+      "name": "Last Resort",
+      "flavor": "When your back is against the wall, something awakens.",
+      "trigger": "failure",
+      "effect": "If you're at or below half HP, your next attack is a critical hit.",
+      "tags": ["combat"],
+      "sentiment": "positive"
+    },
+    {
+      "id": "fortune_smiles",
+      "name": "Fortune Smiles",
+      "flavor": "The dice gods owe you one.",
+      "trigger": "random",
+      "effect": "Reroll any one die this session. You must use the new result.",
+      "tags": ["mixed"],
+      "sentiment": "positive"
+    }
+  ]
+}

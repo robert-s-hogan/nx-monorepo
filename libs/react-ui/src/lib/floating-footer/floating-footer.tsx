@@ -1,6 +1,6 @@
 'use client';
 
-import { GiAmericanFootballHelmet, GiRollingDices } from 'react-icons/gi';
+import { GiAmericanFootballHelmet, GiRollingDices, GiScrollUnfurled } from 'react-icons/gi';
 import { LiaDragonSolid } from 'react-icons/lia';
 import { SIBLING_APPS, SiblingApp } from '@with-nx/constants';
 
@@ -10,6 +10,7 @@ const ICONS: Record<SiblingApp['icon'], React.ComponentType<{ size?: number }>> 
   'football-helmet': GiAmericanFootballHelmet,
   dice: GiRollingDices,
   dragon: LiaDragonSolid,
+  scroll: GiScrollUnfurled,
 };
 
 export interface FloatingFooterProps {

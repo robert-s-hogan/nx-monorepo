@@ -1,11 +1,11 @@
 // libs/constants/src/lib/sibling-apps.ts
 
 export interface SiblingApp {
-  id: 'play2winff' | 'theos-dnd' | 'conquest';
+  id: 'play2winff' | 'theos-dnd' | 'conquest' | 'dm-toolkit';
   name: string;
   shortLabel: string;
   url: string;
-  icon: 'football-helmet' | 'dice' | 'dragon';
+  icon: 'football-helmet' | 'dice' | 'dragon' | 'scroll';
 }
 
 export const SIBLING_APPS: SiblingApp[] = [
@@ -29,5 +29,12 @@ export const SIBLING_APPS: SiblingApp[] = [
     shortLabel: 'Conquest',
     url: 'https://conquest-2c351.web.app',
     icon: 'dragon',
+  },
+  {
+    id: 'dm-toolkit',
+    name: 'DM Toolkit',
+    shortLabel: 'DM Kit',
+    url: 'https://dm-toolkit-nx.vercel.app',
+    icon: 'scroll',
   },
 ];

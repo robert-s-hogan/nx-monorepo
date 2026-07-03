@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* theme colors can be found in /styles/themes.ts */
+
+:root {
+  --loader-size: 1rem;
+  --loader-border: 0.125rem;
+  --border-width: 0.063rem;
+  --transition-speed: 0.3s;
+  --animation-speed: 1s;
+  --hover-scale: 1.05;
+  --text-underline-offset: 0.25rem;
+  --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
+}
+
+@layer base {
+  body {
+    @apply bg-stone-950 text-stone-100 min-h-screen;
+    margin: 0;
+    font-family: Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .xp-bubble {
+    @apply w-4 h-4 rounded-full border-2 border-stone-500 transition-all duration-150;
+  }
+  .xp-bubble.filled {
+    @apply bg-green-500 border-green-400;
+  }
+  .stamina-bubble {
+    @apply w-5 h-5 rounded-full border-2 border-stone-500 transition-all duration-150;
+  }
+  .stamina-bubble.filled {
+    @apply bg-amber-400 border-amber-300;
+  }
+}
+
+html,
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+button {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0.125rem;
+}

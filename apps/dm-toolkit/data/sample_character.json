@@ -1,0 +1,49 @@
+{
+  "name": "Mushy",
+  "class": "Spore-Warden",
+  "level": 1,
+  "background": "Spore-Warden 'Mushy' is a weary traveler from the Deep Below. He carries a staff carved from petrified mycelium and acts as a guardian of rot and rebirth, helping adventurers by accelerating growth or decomposing obstacles in their path.",
+  "stats": { "str": 10, "dex": 8, "con": 16, "int": 10, "wis": 14, "cha": 10 },
+  "armor_class": 11,
+  "hit_points": { "max": 10, "current": 10 },
+  "stamina": { "max": 5, "current": 5 },
+  "ability_categories": [
+    {
+      "name": "Spore Magic",
+      "flavor": "Clouds of decay.",
+      "xp": { "current": 0, "max": 5 },
+      "abilities": [
+        { "name": "Cloud Spores", "description": "Create a 10ft area of thick spores. Enemies inside have disadvantage.", "stamina_cost": 0 },
+        { "name": "Toxic Burst", "description": "Target takes 1d4 poison damage.", "stamina_cost": 1 }
+      ]
+    },
+    {
+      "name": "Fungal Growth",
+      "flavor": "Nature's rapid path.",
+      "xp": { "current": 0, "max": 5 },
+      "abilities": [
+        { "name": "Overgrowth", "description": "Instantly grow thick moss in a path to grant cover (+2 AC).", "stamina_cost": 0 },
+        { "name": "Healing Pollen", "description": "Heal self or ally for 1d4 HP.", "stamina_cost": 1 }
+      ]
+    },
+    {
+      "name": "Decomposition",
+      "flavor": "Breaking down foes.",
+      "xp": { "current": 0, "max": 5 },
+      "abilities": [
+        { "name": "Rusting Spores", "description": "Target's armor decays. -1 AC for the encounter.", "stamina_cost": 0 },
+        { "name": "Consume Rot", "description": "Touch a decaying item to gain temporary HP.", "stamina_cost": 1 }
+      ]
+    },
+    {
+      "name": "Earth-Sense",
+      "flavor": "Feeling the vibrations.",
+      "xp": { "current": 0, "max": 5 },
+      "abilities": [
+        { "name": "Tremor Sense", "description": "Detect any hidden entities within 30ft through ground vibrations.", "stamina_cost": 0 },
+        { "name": "Deep-Roots", "description": "Gain stability. Cannot be knocked prone or pushed.", "stamina_cost": 0 }
+      ]
+    }
+  ],
+  "random_skills": []
+}
