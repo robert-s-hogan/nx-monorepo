@@ -197,7 +197,7 @@ export default function CharacterCard({ character, compact = false, onRemoveFrom
         {!compact && (
           <div className="px-4 py-3 border-b border-stone-700">
             <p className="text-[11px] font-bold uppercase text-stone-500 mb-1">Background</p>
-            <p className="text-stone-400 text-xs italic leading-relaxed">"{character.background}"</p>
+            <p className="text-stone-400 text-xs italic leading-relaxed">{`"${character.background}"`}</p>
           </div>
         )}
 
@@ -245,7 +245,7 @@ export default function CharacterCard({ character, compact = false, onRemoveFrom
                   <div className="flex justify-between items-start mb-2">
                     <div className="flex-1 min-w-0">
                       <h4 className="font-bold text-green-400 text-sm truncate">{cat.name}</h4>
-                      <p className="text-[11px] text-stone-500 italic truncate">"{cat.flavor}"</p>
+                      <p className="text-[11px] text-stone-500 italic truncate">{`"${cat.flavor}"`}</p>
                     </div>
                     <div
                       className="flex gap-0.5 flex-wrap justify-end cursor-pointer mt-0.5 ml-2 shrink-0"

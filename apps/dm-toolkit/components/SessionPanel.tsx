@@ -91,7 +91,7 @@ export default function SessionPanel() {
       {activeSession && (
         <div>
           <h3 className="text-xs font-bold uppercase text-stone-500 mb-2 tracking-wider">
-            Add to "{activeSession.name}"
+            {`Add to "${activeSession.name}"`}
           </h3>
           {characters.length === 0 ? (
             <p className="text-stone-600 text-xs">No characters yet. Import some first.</p>

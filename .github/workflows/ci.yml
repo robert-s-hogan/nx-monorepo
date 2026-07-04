@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Cancel a stale run on this branch/PR when a new commit lands, instead of
+# letting both race to completion.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      # Full history (not a shallow clone) — nx affected needs to diff
+      # against a base commit, which isn't available with the default
+      # single-commit checkout.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.7.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      # Sets NX_BASE/NX_HEAD for the `affected` commands below — picks the
+      # right comparison commits for both push and pull_request events.
+      - uses: nrwl/nx-set-shas@v4
+      # `affected`, not `run-many` — this workspace has 27 projects; only
+      # linting/testing/building the ones a given change could have touched
+      # keeps CI fast and the signal relevant to the diff.
+      - run: npx nx affected -t lint --parallel=3
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.7.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - uses: nrwl/nx-set-shas@v4
+      - run: npx nx affected -t test --parallel=3
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.7.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - uses: nrwl/nx-set-shas@v4
+      # Next.js apps type-check as part of `build` (no ignoreBuildErrors set
+      # anywhere), and library builds go through @nx/js:tsc — so this also
+      # covers typechecking without a separate target.
+      - run: npx nx affected -t build --parallel=3

@@ -117,7 +117,7 @@ export default function CharacterSheetModal({ character, onClose }: Props) {
             <button onClick={onClose} className="text-stone-400 hover:text-white text-xl leading-none px-1">✕</button>
           </div>
           <p className="no-print text-xs text-stone-600 mb-3 pl-1">
-            In the print dialog → More settings → uncheck "Headers and footers" to remove the date and URL.
+            In the print dialog → More settings → uncheck &quot;Headers and footers&quot; to remove the date and URL.
           </p>
 
           {/* ── PRINTABLE SHEET ─────────────────────────────────────────────── */}
@@ -187,7 +187,7 @@ export default function CharacterSheetModal({ character, onClose }: Props) {
                 <div style={{ padding: '10px 10px 0', flex: character.notes ? 0 : 1 }}>
                   <Label>Background</Label>
                   <p style={{ fontSize: '9.5px', color: T.inkMid, fontStyle: 'italic', lineHeight: 1.55, margin: 0 }}>
-                    "{character.background}"
+                    {`"${character.background}"`}
                   </p>
                 </div>
 
@@ -263,7 +263,7 @@ export default function CharacterSheetModal({ character, onClose }: Props) {
                           </div>
                         </div>
                         <div style={{ fontSize: '8.5px', fontStyle: 'italic', color: T.inkLight, marginBottom: '5px' }}>
-                          "{cat.flavor}"
+                          {`"${cat.flavor}"`}
                         </div>
                         {/* Abilities */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>

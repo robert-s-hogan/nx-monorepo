@@ -398,7 +398,7 @@ export default function CharacterEditModal({ character, onClose }: Props) {
                   <div className="flex justify-between items-start mb-2">
                     <div>
                       <p className="font-semibold text-green-400 text-sm">{cat.name}</p>
-                      <p className="text-[11px] text-stone-500 italic">"{cat.flavor}"</p>
+                      <p className="text-[11px] text-stone-500 italic">{`"${cat.flavor}"`}</p>
                     </div>
                     <button
                       onClick={() => removeCategory(ci)}
