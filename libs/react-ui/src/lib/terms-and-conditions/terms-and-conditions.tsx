@@ -1,4 +1,5 @@
-import { Heading, Text } from '@with-nx/react-ui';
+import { Heading } from '../heading/heading';
+import { Text } from '../text/text';
 import termsStyles from './terms-and-conditions.module.css';
 
 /* eslint-disable-next-line */

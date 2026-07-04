@@ -1,4 +1,7 @@
-import { Button, Heading, Text, Link } from '@with-nx/react-ui';
+import { Button } from '../button/button';
+import { Heading } from '../heading/heading';
+import { Text } from '../text/text';
+import { Link } from '../link/link';
 import paymentSuccessfulStyles from './payment-successful.module.css';
 
 /* eslint-disable-next-line */

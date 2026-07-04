@@ -61,3 +61,8 @@ yarn-error.log*
 
 # pnpm (Vercel build machines place the content-addressable store inside the repo)
 .pnpm-store
+
+# TypeScript incremental build cache — regenerated on every tsc/nx build run,
+# was accidentally tracked in a few apps and showed as permanently "modified"
+# for anyone who built locally.
+*.tsbuildinfo

@@ -1,4 +1,6 @@
-import { Heading, Text, Button } from '@with-nx/react-ui';
+import { Heading } from '../heading/heading';
+import { Text } from '../text/text';
+import { Button } from '../button/button';
 import contactStyles from './contact.module.css';
 
 /* eslint-disable-next-line */

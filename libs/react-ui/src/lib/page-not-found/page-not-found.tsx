@@ -1,4 +1,8 @@
-import { Button, Heading, List, ListItem, Link, Text } from '@with-nx/react-ui';
+import { Button } from '../button/button';
+import { Heading } from '../heading/heading';
+import { List } from '../list/list';
+import { Link } from '../link/link';
+import { Text } from '../text/text';
 import pageNotFoundStyles from './page-not-found.module.css';
 
 /* eslint-disable-next-line */

@@ -1,7 +1,7 @@
 'use client';
 
-import React, { FC, ReactNode, useEffect, useRef } from 'react';
-import { Button, Flex, Heading, Text } from '@with-nx/react-ui';
+import React, { FC, ReactNode, useEffect } from 'react';
+import { Button } from '../button/button';
 import { FiX } from 'react-icons/fi';
 
 interface DialogProps {

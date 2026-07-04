@@ -1,4 +1,5 @@
 import { Meta, Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { Box, BoxProps } from './box';
 
 const meta: Meta = {
@@ -71,7 +72,7 @@ export const WithOnClick = Template.bind({});
 WithOnClick.args = {
   children: 'Clickable Box',
   className: 'bg-yellow-500 text-black p-4 rounded cursor-pointer',
-  onClick: () => {},
+  onClick: action('onClick'),
 };
 
 export const WithStyle = Template.bind({});

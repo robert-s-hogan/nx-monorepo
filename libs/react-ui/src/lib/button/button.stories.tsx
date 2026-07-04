@@ -1,4 +1,5 @@
 import { Meta, Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { Button, ButtonProps } from './button';
 import { Flex, FlexProps } from '../flex/flex';
 
@@ -118,7 +119,7 @@ RightAlignedButtonInsideFlex.args = {
   children: 'Right Aligned Button',
   flexClassName: 'justify-end w-full h-full',
   className: 'bg-pink-500 text-white px-4 py-2 rounded w-auto',
-  onClick: () => {},
+  onClick: action('onClick'),
 };
 
 export const CenterAlignedButtonInsideFlex: Story<FlexProps & ButtonProps> =
@@ -127,5 +128,5 @@ CenterAlignedButtonInsideFlex.args = {
   children: 'Center Aligned Button',
   flexClassName: 'justify-center w-full h-full',
   className: 'bg-gray-500 text-white px-4 py-2 rounded w-auto',
-  onClick: () => {},
+  onClick: action('onClick'),
 };

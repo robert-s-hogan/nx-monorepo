@@ -1,6 +1,6 @@
 import { FooterProps } from '@with-nx/types';
 
-import { List } from '@with-nx/react-ui';
+import { List } from '../list/list';
 
 export const Footer = ({ className }: FooterProps): JSX.Element => {
   const links1 = [

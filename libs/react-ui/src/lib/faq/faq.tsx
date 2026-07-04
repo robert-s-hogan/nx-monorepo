@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Heading, Text } from '@with-nx/react-ui';
+import { Heading } from '../heading/heading';
+import { Text } from '../text/text';
 import faqStyles from './faq.module.css';
 
 /* eslint-disable-next-line */

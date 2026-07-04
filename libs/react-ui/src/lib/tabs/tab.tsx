@@ -1,5 +1,5 @@
 import tabStyles from './tab.module.css';
-import { Button } from '@with-nx/react-ui';
+import { Button } from '../button/button';
 
 /* eslint-disable-next-line */
 export interface TabProps {

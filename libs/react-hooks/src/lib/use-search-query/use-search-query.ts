@@ -64,7 +64,7 @@ export const useSearchQuery = (
       if (excludeTerms.length > 0 && excludeTerms[0] !== '') {
         q += ' -' + excludeTerms.join(' -');
       }
-      let url = `${baseUrl}?${formattedParams}&q=${encodeURIComponent(q)}`;
+      const url = `${baseUrl}?${formattedParams}&q=${encodeURIComponent(q)}`;
       setUrl(url as any);
       setFetchData(true); // trigger network request
     }
