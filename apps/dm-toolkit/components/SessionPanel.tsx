@@ -5,6 +5,7 @@ export default function SessionPanel() {
   const {
     characters,
     sessions,
+    campaigns,
     activeSessionId,
     createSession,
     setActiveSession,
@@ -65,6 +66,11 @@ export default function SessionPanel() {
                 <span className="ml-2 text-xs text-stone-500">
                   {s.active_character_ids.length} chars
                 </span>
+                {s.campaign_id && (
+                  <span className="ml-2 text-xs text-green-500">
+                    {campaigns.find((c) => c.id === s.campaign_id)?.name ?? 'campaign'}
+                  </span>
+                )}
               </div>
               <button
                 onClick={(e) => {

@@ -12,21 +12,17 @@ import {
 import { IconLayoutNavbarCollapse } from '@tabler/icons-react';
 import {
   GiAmericanFootballHelmet,
-  GiRollingDices,
   GiScrollUnfurled,
   GiHouse,
   GiShoppingCart,
   GiCookingPot,
 } from 'react-icons/gi';
-import { LiaDragonSolid } from 'react-icons/lia';
 import { SIBLING_APPS, SiblingApp } from '@with-nx/constants';
 
 import styles from './floating-footer.module.css';
 
 const ICONS: Record<SiblingApp['icon'], React.ComponentType<{ size?: number }>> = {
   'football-helmet': GiAmericanFootballHelmet,
-  dice: GiRollingDices,
-  dragon: LiaDragonSolid,
   scroll: GiScrollUnfurled,
   home: GiHouse,
   cart: GiShoppingCart,

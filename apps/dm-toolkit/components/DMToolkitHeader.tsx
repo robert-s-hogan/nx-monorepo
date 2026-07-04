@@ -5,7 +5,7 @@ const links = [
   { href: '/', label: 'Home', exact: true },
   { href: '/characters', label: 'Characters' },
   { href: '/session', label: 'Session' },
-  { href: '/map', label: 'Map', soon: true },
+  { href: '/map', label: 'Map' },
 ];
 
 export default function DMToolkitHeader() {
@@ -18,18 +18,6 @@ export default function DMToolkitHeader() {
       </span>
       <div className="flex gap-4 ml-4">
         {links.map((link) => {
-          if (link.soon) {
-            return (
-              <span
-                key={link.href}
-                className="text-stone-600 text-sm cursor-not-allowed flex items-center gap-1"
-                title="Coming in Phase 3"
-              >
-                {link.label}
-                <span className="text-xs bg-stone-800 text-stone-500 px-1.5 py-0.5 rounded">soon</span>
-              </span>
-            );
-          }
           const isActive = link.exact
             ? router.pathname === link.href
             : router.pathname.startsWith(link.href);

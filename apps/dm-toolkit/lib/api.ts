@@ -1,6 +1,15 @@
 // Client-safe fetch wrappers around this app's own /api/* routes.
 // The store calls these exclusively — no direct DB access outside pages/api/*.
-import type { Character, Session } from '../types';
+import type {
+  Campaign,
+  CombatEvent,
+  Character,
+  Encounter,
+  GameMap,
+  MapToken,
+  RestState,
+  Session,
+} from '../types';
 
 async function request(url: string, init?: RequestInit): Promise<Response> {
   const res = await fetch(url, {
@@ -74,4 +83,120 @@ export async function removeCharacterFromSession(
     method: 'DELETE',
     body: JSON.stringify({ characterId }),
   });
+}
+
+// ── Campaigns ───────────────────────────────────────────────────────────────
+
+export async function fetchCampaigns(): Promise<Campaign[]> {
+  const res = await request('/api/campaigns');
+  return res.json();
+}
+
+export async function createCampaign(campaign: Campaign): Promise<void> {
+  await request('/api/campaigns', {
+    method: 'POST',
+    body: JSON.stringify(campaign),
+  });
+}
+
+export async function addCampaignXp(id: string, delta: number): Promise<void> {
+  await request(`/api/campaigns/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify({ delta }),
+  });
+}
+
+export async function deleteCampaignById(id: string): Promise<void> {
+  await request(`/api/campaigns/${id}`, { method: 'DELETE' });
+}
+
+// ── Encounters (conquest mode) ──────────────────────────────────────────────
+
+export async function fetchEncounters(campaignId: string): Promise<Encounter[]> {
+  const res = await request(`/api/encounters?campaignId=${campaignId}`);
+  return res.json();
+}
+
+export async function createEncounter(encounter: Encounter): Promise<void> {
+  await request('/api/encounters', {
+    method: 'POST',
+    body: JSON.stringify(encounter),
+  });
+}
+
+export async function deleteEncounterById(id: string): Promise<void> {
+  await request(`/api/encounters/${id}`, { method: 'DELETE' });
+}
+
+// ── Rest state (conquest mode) ──────────────────────────────────────────────
+
+export async function fetchRestState(campaignId: string): Promise<RestState> {
+  const res = await request(`/api/campaigns/${campaignId}/rest`);
+  return res.json();
+}
+
+export async function saveRestState(state: RestState): Promise<void> {
+  await request(`/api/campaigns/${state.campaign_id}/rest`, {
+    method: 'PUT',
+    body: JSON.stringify(state),
+  });
+}
+
+// ── Maps / tokens / combat ───────────────────────────────────────────────────
+
+export async function fetchMaps(sessionId: string): Promise<GameMap[]> {
+  const res = await request(`/api/maps?sessionId=${sessionId}`);
+  return res.json();
+}
+
+export async function createMap(map: GameMap): Promise<void> {
+  await request('/api/maps', { method: 'POST', body: JSON.stringify(map) });
+}
+
+export async function fetchTokens(mapId: string): Promise<MapToken[]> {
+  const res = await request(`/api/maps/${mapId}/tokens`);
+  return res.json();
+}
+
+export async function createToken(token: MapToken): Promise<void> {
+  await request(`/api/maps/${token.map_id}/tokens`, {
+    method: 'POST',
+    body: JSON.stringify(token),
+  });
+}
+
+export async function updateTokenPosition(
+  mapId: string,
+  tokenId: string,
+  x: number,
+  y: number
+): Promise<void> {
+  await request(`/api/maps/${mapId}/tokens`, {
+    method: 'PATCH',
+    body: JSON.stringify({ tokenId, x, y }),
+  });
+}
+
+export async function deleteToken(mapId: string, tokenId: string): Promise<void> {
+  await request(`/api/maps/${mapId}/tokens`, {
+    method: 'DELETE',
+    body: JSON.stringify({ tokenId }),
+  });
+}
+
+export async function fetchCombatEvents(mapId: string): Promise<CombatEvent[]> {
+  const res = await request(`/api/maps/${mapId}/events`);
+  return res.json();
+}
+
+export async function triggerAttack(
+  mapId: string,
+  attackerTokenId: string,
+  defenderTokenId: string
+): Promise<CombatEvent> {
+  const res = await request(`/api/maps/${mapId}/attack`, {
+    method: 'POST',
+    body: JSON.stringify({ attackerTokenId, defenderTokenId }),
+  });
+  return res.json();
 }

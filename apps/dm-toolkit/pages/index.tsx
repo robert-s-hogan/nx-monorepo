@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useStore } from '../store/useStore';
 import DMToolkitLayout from '../components/DMToolkitLayout';
+import { getLevelDetailsFor } from '../lib/progression';
 
 const phases = [
   {
@@ -24,7 +25,12 @@ const phases = [
 ];
 
 export default function Home() {
-  const { characters, sessions } = useStore();
+  const { characters, sessions, campaigns, activeCampaignId } = useStore();
+
+  const activeCampaign = campaigns.find((c) => c.id === activeCampaignId) ?? null;
+  const activeCampaignLevel = activeCampaign
+    ? getLevelDetailsFor(activeCampaign.progression_system, activeCampaign.current_xp).level
+    : null;
 
   return (
     <DMToolkitLayout>
@@ -40,7 +46,7 @@ export default function Home() {
         </div>
 
         {/* Quick stats */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           <div className="bg-stone-800 border border-stone-700 rounded-xl p-5">
             <p className="text-3xl font-bold text-stone-100">{characters.length}</p>
             <p className="text-stone-500 text-sm mt-1">Characters</p>
@@ -48,6 +54,14 @@ export default function Home() {
           <div className="bg-stone-800 border border-stone-700 rounded-xl p-5">
             <p className="text-3xl font-bold text-stone-100">{sessions.length}</p>
             <p className="text-stone-500 text-sm mt-1">Sessions</p>
+          </div>
+          <div className="bg-stone-800 border border-stone-700 rounded-xl p-5">
+            <p className="text-3xl font-bold text-stone-100">
+              {activeCampaignLevel ?? '—'}
+            </p>
+            <p className="text-stone-500 text-sm mt-1">
+              {activeCampaign ? `${activeCampaign.name} Level` : 'No active campaign'}
+            </p>
           </div>
         </div>
 

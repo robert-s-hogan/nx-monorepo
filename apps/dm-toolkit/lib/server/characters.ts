@@ -5,32 +5,46 @@ import type { Character } from '../../types';
 type CharacterData = Omit<Character, 'id' | 'name'>;
 
 export async function fetchCharacters(): Promise<Character[]> {
-  const result = await db.execute(
-    'SELECT id, name, data FROM characters ORDER BY created_at ASC'
-  );
-  return result.rows.map((r) => ({
+  const { data, error } = await db
+    .from('characters')
+    .select('id, name, data')
+    .order('created_at', { ascending: true });
+  if (error) throw error;
+
+  return (data ?? []).map((r) => ({
     id: r.id as string,
     name: r.name as string,
-    ...(JSON.parse(r.data as string) as CharacterData),
+    ...(r.data as CharacterData),
   }));
+}
+
+export async function fetchCharacterById(id: string): Promise<Character | null> {
+  const { data, error } = await db
+    .from('characters')
+    .select('id, name, data')
+    .eq('id', id)
+    .maybeSingle();
+  if (error) throw error;
+  if (!data) return null;
+  return { id: data.id, name: data.name, ...(data.data as CharacterData) };
 }
 
 export async function insertCharacter(character: Character): Promise<void> {
   const { id, name, ...data } = character;
-  await db.execute({
-    sql: 'INSERT INTO characters (id, name, data) VALUES (?, ?, ?)',
-    args: [id, name, JSON.stringify(data)],
-  });
+  const { error } = await db.from('characters').insert({ id, name, data });
+  if (error) throw error;
 }
 
 export async function updateCharacter(character: Character): Promise<void> {
   const { id, name, ...data } = character;
-  await db.execute({
-    sql: `UPDATE characters SET name = ?, data = ?, updated_at = datetime('now') WHERE id = ?`,
-    args: [name, JSON.stringify(data), id],
-  });
+  const { error } = await db
+    .from('characters')
+    .update({ name, data, updated_at: new Date().toISOString() })
+    .eq('id', id);
+  if (error) throw error;
 }
 
 export async function deleteCharacterById(id: string): Promise<void> {
-  await db.execute({ sql: 'DELETE FROM characters WHERE id = ?', args: [id] });
+  const { error } = await db.from('characters').delete().eq('id', id);
+  if (error) throw error;
 }
