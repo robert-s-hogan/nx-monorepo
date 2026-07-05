@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import TermsAndConditions from './terms-and-conditions';
+import { TermsAndConditions } from './terms-and-conditions';
 
 describe('TermsAndConditions', () => {
   it('should render successfully', () => {

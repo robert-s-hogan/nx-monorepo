@@ -1,10 +1,11 @@
 import { render } from '@testing-library/react';
 
-import Faq from './faq';
+import { FAQ } from './faq';
 
-describe('Faq', () => {
+describe('FAQ', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Faq />);
+    const item = { question: 'Sample question?', answer: 'Sample answer.' };
+    const { baseElement } = render(<FAQ item={item} />);
     expect(baseElement).toBeTruthy();
   });
 });

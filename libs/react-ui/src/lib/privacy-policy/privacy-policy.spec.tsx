@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import PrivacyPolicy from './privacy-policy';
+import { PrivacyPolicy } from './privacy-policy';
 
 describe('PrivacyPolicy', () => {
   it('should render successfully', () => {

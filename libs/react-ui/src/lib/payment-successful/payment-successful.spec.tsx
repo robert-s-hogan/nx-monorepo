@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import PaymentSuccessful from './payment-successful';
+import { PaymentSuccessful } from './payment-successful';
 
 describe('PaymentSuccessful', () => {
   it('should render successfully', () => {

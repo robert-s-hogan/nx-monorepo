@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel renders correctly 1`] = `
+<div>
+  <div
+    class="carousel"
+  >
+    <img
+      alt="Carousel Image 0"
+      class="carousel-image carouselImage"
+      src="image1.jpg"
+    />
+    <div
+      class="carousel-buttons"
+    >
+      <button
+        class="carousel-button-left carouselButtonLeft buttonRow button-group"
+        type="button"
+      >
+        <span>
+          ←
+        </span>
+         
+      </button>
+      <button
+        class="carousel-button-right carouselButtonRight buttonRow button-group"
+        type="button"
+      >
+        <span>
+          →
+        </span>
+         
+      </button>
+    </div>
+  </div>
+</div>
+`;

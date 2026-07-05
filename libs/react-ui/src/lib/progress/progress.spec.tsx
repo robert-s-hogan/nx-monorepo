@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import Progress from './progress';
+import { Progress } from './progress';
 
 describe('Progress', () => {
   it('should render successfully', () => {

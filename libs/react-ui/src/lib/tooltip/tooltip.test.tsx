@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Tooltip } from './tooltip';
 
@@ -6,16 +6,21 @@ describe('Tooltip component', () => {
   const defaultProps = {
     tooltipText: 'Sample Tooltip',
     className: 'bg-primary text-white px-2 py-1 rounded',
+    icon: <span>i</span>,
   };
 
-  test('renders Tooltip with tooltipText', () => {
+  // Tooltip only reveals its text span on hover (onMouseEnter), so every
+  // assertion on tooltipText needs to trigger that first.
+  test('renders Tooltip with tooltipText on hover', () => {
     render(<Tooltip {...defaultProps} />);
+    fireEvent.mouseEnter(document.querySelector('.tooltip')!);
     const tooltipElement = screen.getByText(defaultProps.tooltipText);
     expect(tooltipElement).toBeInTheDocument();
   });
 
-  test('renders Tooltip with correct className', () => {
+  test('renders Tooltip with correct className on hover', () => {
     render(<Tooltip {...defaultProps} />);
+    fireEvent.mouseEnter(document.querySelector('.tooltip')!);
     const tooltipElement = screen.getByText(defaultProps.tooltipText);
 
     expect(tooltipElement).toHaveClass(defaultProps.className);
@@ -23,7 +28,7 @@ describe('Tooltip component', () => {
 
   test('renders Tooltip with icon', () => {
     const icon = (
-      <span role="img" className="mr-2">
+      <span role="img" aria-label="rocket">
         🚀
       </span>
     );
@@ -33,14 +38,14 @@ describe('Tooltip component', () => {
     expect(iconElement).toBeInTheDocument();
   });
 
-  test('renders Tooltip with children instead of tooltipText', () => {
-    const childrenText = 'Children Tooltip';
-    render(<Tooltip {...defaultProps} children={childrenText} />);
-    const childrenElement = screen.getByText(childrenText);
+  test('hides tooltipText until hovered', () => {
+    render(<Tooltip {...defaultProps} />);
+    expect(screen.queryByText(defaultProps.tooltipText)).not.toBeInTheDocument();
 
-    expect(childrenElement).toBeInTheDocument();
-    expect(
-      screen.queryByText(defaultProps.tooltipText)
-    ).not.toBeInTheDocument();
+    fireEvent.mouseEnter(document.querySelector('.tooltip')!);
+    expect(screen.getByText(defaultProps.tooltipText)).toBeInTheDocument();
+
+    fireEvent.mouseLeave(document.querySelector('.tooltip')!);
+    expect(screen.queryByText(defaultProps.tooltipText)).not.toBeInTheDocument();
   });
 });

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import Contact from './contact';
+import { Contact } from './contact';
 
 describe('Contact', () => {
   it('should render successfully', () => {

@@ -1,7 +1,8 @@
 //libs/react-ui/src/lib/collapse/collapse.test.tsx
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import Collapse from './collapse';
+import '@testing-library/jest-dom/extend-expect';
+import { Collapse } from './collapse';
 
 describe('Collapse', () => {
   const title = 'Test Title';

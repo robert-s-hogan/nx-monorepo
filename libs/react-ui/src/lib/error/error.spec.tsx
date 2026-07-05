@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import Error from './error';
+import { Error } from './error';
 
 describe('Error', () => {
   it('should render successfully', () => {
