@@ -12,7 +12,7 @@ export function Index() {
         className="relative text-center space-y-8 h-[500px] flex justify-center items-center flex-col"
         style={{
           backgroundImage:
-            "url('https://app-assets.vercel.app/apps/play2winff/p2w_hero.jpg')",
+            "url('/p2w_hero.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

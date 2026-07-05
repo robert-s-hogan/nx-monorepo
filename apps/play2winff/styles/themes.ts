@@ -33,7 +33,7 @@ export const themes = {
     'te-color': '#D1A52B',
     'pk-color': '#C1748C',
     'def-color': '#6B4A70',
-    sound: 'https://app-assets.vercel.app/sounds/air-swoosh.wav',
+    sound: '/air-swoosh.wav',
   },
   dark: {
     name: 'dark',
@@ -68,6 +68,6 @@ export const themes = {
     'te-color': '#D1A52B',
     'pk-color': '#C1748C',
     'def-color': '#6B4A70',
-    sound: 'https://app-assets.vercel.app/sounds/air-swoosh.wav',
+    sound: '/air-swoosh.wav',
   },
 };

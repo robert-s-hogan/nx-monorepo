@@ -97,7 +97,7 @@ export default function Projects({ project }) {
 
           <Image
             className="hidden md:block object-cover w-1/4 h-screen rounded-full ring-2 ring-gray-500/50 ring-offset-[30px]"
-            src="https://app-assets.vercel.app/apps/JH/jessica_portrait.webp"
+            src="/jessica_portrait.webp"
             alt="Your Name Here"
           />
 

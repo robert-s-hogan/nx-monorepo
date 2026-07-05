@@ -12,9 +12,6 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
-  images: {
-    domains: ['app-assets.vercel.app'],
-  },
 };
 
 module.exports = withNx(nextConfig);

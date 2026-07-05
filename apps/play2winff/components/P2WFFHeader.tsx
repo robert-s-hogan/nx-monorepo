@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 
 const logo = (
   <Image
-    src="https://app-assets.vercel.app/apps/play2winff/play2winff_logo_nobg.png"
+    src="/play2winff_logo_nobg.png"
     alt="Play2Win Fantasy Football Logo"
     height="64"
     width="64"

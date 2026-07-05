@@ -27,8 +27,8 @@ const PlayToWinFFLayout = ({
             : 'Play 2 Win Fantasy Football brings you the latest news, strategies, and tools for success. Explore the mock draft wizard and stay ahead of the competition.'
         }
         url="https://play2winff-nx.vercel.app"
-        faviconPath="https://app-assets.vercel.app/apps/play2winff/play2winff_logo_nobg.png"
-        image="https://app-assets.vercel.app/apps/play2winff/play2winff_logo_nobg.png"
+        faviconPath="/play2winff_logo_nobg.png"
+        image="/play2winff_logo_nobg.png"
         twitterHandle="@Play2WinFF"
         siteName="Play 2 Win Fantasy Football"
         appleTouchIconPath="/apple-touch-icon.png"

@@ -110,7 +110,7 @@ export function Index() {
               <Image
                 width={355}
                 height={384}
-                src="https://app-assets.vercel.app/apps/jhogancom/jessica_portrait.webp"
+                src="/jessica_portrait.webp"
                 alt="Jessica Hogan's Portrait"
                 loading="lazy"
                 className="object-contain h-96 w-auto"

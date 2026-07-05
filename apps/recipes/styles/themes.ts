@@ -29,7 +29,7 @@ const light = {
   'moon-icon-color': '#78909C',
   'bg-opacity-color': 'rgba(255, 255, 255, 0.8)',
   // No theme toggle in this app's header, so this is never actually played.
-  sound: 'https://app-assets.vercel.app/sounds/air-swoosh.wav',
+  sound: '/air-swoosh.wav',
 };
 
 export const themes = {

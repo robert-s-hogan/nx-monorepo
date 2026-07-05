@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 import Image from 'next/image';
-import SwapiFavicon from 'https://app-assets.vercel.app/apps/swapi-cards/favicon.ico';
+import SwapiFavicon from '../../public/favicon.ico';
 
 // Image metadata
 export const size = {
