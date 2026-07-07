@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes } from 'react';
-import { ButtonProps, SelectProps } from '@with-nx/types';
+import { ButtonProps } from './control-types';
+import { SelectProps } from './form-types';
 
 export interface BreadcrumbItem {
   title: string;

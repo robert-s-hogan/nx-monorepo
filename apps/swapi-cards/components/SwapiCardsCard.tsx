@@ -98,4 +98,6 @@ const SwapiCardsCard = React.memo<SwapiCardsCardProps>(
   }
 );
 
+SwapiCardsCard.displayName = 'SwapiCardsCard';
+
 export default SwapiCardsCard;

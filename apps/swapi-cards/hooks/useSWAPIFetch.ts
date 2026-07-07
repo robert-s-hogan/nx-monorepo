@@ -13,7 +13,7 @@ const fetcher = (url: string) => {
   });
 };
 
-function useSWAPIFetch<T>(initialUrl: string, shouldFetch: boolean = true) {
+function useSWAPIFetch<T>(initialUrl: string, shouldFetch = true) {
   const [url, setUrl] = useState(initialUrl);
 
   // SWR hook for data fetching with dynamic key

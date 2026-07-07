@@ -1,4 +1,4 @@
-[
+export default [
   {
     name: 'CR90 corvette',
     model: 'CR90 corvette',

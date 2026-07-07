@@ -31,6 +31,19 @@
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nrwl/nx/javascript"],
       "rules": {}
+    },
+    {
+      "files": ["**/.storybook/main.@(js|ts)"],
+      "rules": {
+        "storybook/no-uninstalled-addons": "off",
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.tsx", "*.test.ts", "*.test.tsx"],
+      "rules": {
+        "@typescript-eslint/no-empty-function": "off"
+      }
     }
   ],
   "extends": ["plugin:storybook/recommended"]

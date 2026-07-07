@@ -1,4 +1,4 @@
-import { ButtonProps } from '@with-nx/types';
+import { ButtonProps } from './control-types';
 
 export interface BadgeProps {
   value: number | string;

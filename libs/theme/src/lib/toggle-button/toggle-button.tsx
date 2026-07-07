@@ -1,7 +1,7 @@
 // ToggleButton.js
 import React from 'react';
 import { Button } from '@with-nx/react-ui';
-import { useTheme, ThemeType } from '@with-nx/theme';
+import { useTheme, ThemeType } from '../theme';
 import { FiMoon, FiSun } from 'react-icons/fi';
 
 type ToggleIconProps = {

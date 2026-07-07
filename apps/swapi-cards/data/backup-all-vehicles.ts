@@ -1,4 +1,4 @@
-[
+export default [
   {
     name: 'Sand Crawler',
     model: 'Digger Crawler',
