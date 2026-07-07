@@ -57,6 +57,14 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    # dm-toolkit and shopping-list read these at module load time (even for
+    # routes with no build-time data fetching), so a build without them set
+    # fails outright rather than just at runtime.
+    env:
+      NEXT_PUBLIC_DM_TOOLKIT_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_DM_TOOLKIT_SUPABASE_URL }}
+      NEXT_PUBLIC_DM_TOOLKIT_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_DM_TOOLKIT_SUPABASE_ANON_KEY }}
+      NEXT_PUBLIC_SHOPPING_LIST_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SHOPPING_LIST_SUPABASE_URL }}
+      NEXT_PUBLIC_SHOPPING_LIST_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SHOPPING_LIST_SUPABASE_ANON_KEY }}
     steps:
       - uses: actions/checkout@v4
         with:

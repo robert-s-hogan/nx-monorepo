@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Spinner } from './Spinner';
+import { Spinner } from './spinner';
 
 describe('Spinner component', () => {
   const defaultProps = {

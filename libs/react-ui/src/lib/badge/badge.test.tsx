@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Badge } from './Badge';
+import { Badge } from './badge';
 
 describe('Badge component', () => {
   const defaultProps = {

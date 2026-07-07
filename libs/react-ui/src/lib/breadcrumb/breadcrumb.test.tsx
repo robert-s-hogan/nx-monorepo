@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Breadcrumb } from './Breadcrumb';
+import { Breadcrumb } from './breadcrumb';
 
 describe('Breadcrumb component', () => {
   const defaultProps = {
