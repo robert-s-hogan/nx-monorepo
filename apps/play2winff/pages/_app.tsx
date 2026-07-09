@@ -12,6 +12,8 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to play2winff!</title>
       </Head>
       <AuthProvider>
+        {/* Unlike the other 3 gated apps, 'limited' is allowed here too —
+            league-mates who aren't family still need to get in. */}
         <RequireAuth allowedRoles={['family', 'limited']}>
           <main className="app">
             <Component {...pageProps} />
