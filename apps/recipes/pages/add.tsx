@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useAuthedFetch } from '@with-nx/auth';
 
 import RecipesLayout from '../components/RecipesLayout';
 import QuickImportPanel from '../components/QuickImportPanel';
@@ -19,6 +20,7 @@ const EMPTY_FORM: RecipeFormState = {
 
 export default function AddRecipe() {
   const router = useRouter();
+  const authedFetch = useAuthedFetch();
   const [form, setForm] = useState<RecipeFormState>(EMPTY_FORM);
   const titleRef = useRef<HTMLInputElement>(null);
 
@@ -32,7 +34,7 @@ export default function AddRecipe() {
       ingredients_raw: form.ingredientsRaw,
       steps_raw: form.stepsRaw,
     };
-    await fetch('/api/recipes', {
+    await authedFetch('/api/recipes', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(input),

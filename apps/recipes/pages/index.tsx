@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useAuthedFetch } from '@with-nx/auth';
 
 import RecipesLayout from '../components/RecipesLayout';
 import RecipeCard from '../components/RecipeCard';
@@ -8,6 +9,7 @@ import type { Recipe } from '../types';
 
 export default function Home() {
   const router = useRouter();
+  const authedFetch = useAuthedFetch();
   const q = typeof router.query.q === 'string' ? router.query.q : '';
   const [searchInput, setSearchInput] = useState(q);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
@@ -20,10 +22,11 @@ export default function Home() {
   useEffect(() => {
     if (!router.isReady) return;
     setLoading(true);
-    fetch(`/api/recipes${q ? `?q=${encodeURIComponent(q)}` : ''}`)
+    authedFetch(`/api/recipes${q ? `?q=${encodeURIComponent(q)}` : ''}`)
       .then((res) => res.json())
       .then((data) => setRecipes(data))
       .finally(() => setLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q, router.isReady]);
 
   return (

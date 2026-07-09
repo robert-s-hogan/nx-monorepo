@@ -12,6 +12,7 @@ import { getRoleForEmail, Role } from './allowlist';
 
 interface AuthContextValue {
   user: User | null;
+  session: Session | null;
   role: Role | null;
   loading: boolean;
   signInWithMagicLink: (email: string) => Promise<{ error: string | null }>;
@@ -21,7 +22,7 @@ interface AuthContextValue {
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,13 +32,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
 
     authClient.auth.getSession().then(({ data }: { data: { session: Session | null } }) => {
-      setUser(data.session?.user ?? null);
+      setSession(data.session);
       setLoading(false);
     });
 
     const { data: listener } = authClient.auth.onAuthStateChange(
-      (_event: string, session: Session | null) => {
-        setUser(session?.user ?? null);
+      (_event: string, newSession: Session | null) => {
+        setSession(newSession);
       }
     );
 
@@ -64,11 +65,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     await authClient?.auth.signOut();
   };
 
+  const user = session?.user ?? null;
   const role = getRoleForEmail(user?.email);
 
   return (
     <AuthContext.Provider
-      value={{ user, role, loading, signInWithMagicLink, signOut }}
+      value={{ user, session, role, loading, signInWithMagicLink, signOut }}
     >
       {children}
     </AuthContext.Provider>

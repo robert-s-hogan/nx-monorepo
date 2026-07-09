@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useAuthedFetch } from '@with-nx/auth';
 
 import RecipesLayout from '../../../components/RecipesLayout';
 import RecipeForm, { RecipeFormState } from '../../../components/RecipeForm';
@@ -18,6 +19,7 @@ const EMPTY_FORM: RecipeFormState = {
 
 export default function EditRecipe() {
   const router = useRouter();
+  const authedFetch = useAuthedFetch();
   const id = typeof router.query.id === 'string' ? router.query.id : '';
   const [form, setForm] = useState<RecipeFormState>(EMPTY_FORM);
   const [recipe, setRecipe] = useState<Recipe | null>(null);
@@ -50,7 +52,7 @@ export default function EditRecipe() {
       ingredients_raw: form.ingredientsRaw,
       steps_raw: form.stepsRaw,
     };
-    await fetch(`/api/recipes/${id}`, {
+    await authedFetch(`/api/recipes/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(input),

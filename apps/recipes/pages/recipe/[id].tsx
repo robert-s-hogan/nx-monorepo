@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useAuth, useAuthedFetch } from '@with-nx/auth';
 
 import RecipesLayout from '../../components/RecipesLayout';
 import type { Recipe } from '../../types';
 
-export default function RecipeDetail() {
+function RecipeDetail() {
   const router = useRouter();
+  const { role } = useAuth();
+  const authedFetch = useAuthedFetch();
+  const canEdit = role === 'family';
   const id = typeof router.query.id === 'string' ? router.query.id : '';
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const [notFound, setNotFound] = useState(false);
@@ -24,7 +28,7 @@ export default function RecipeDetail() {
   }, [id]);
 
   async function handleDelete() {
-    await fetch(`/api/recipes/${id}`, { method: 'DELETE' });
+    await authedFetch(`/api/recipes/${id}`, { method: 'DELETE' });
     router.push('/');
   }
 
@@ -45,9 +49,11 @@ export default function RecipeDetail() {
       title={recipe.title}
       navActions={
         <>
-          <Link href={`/recipe/${recipe.id}/edit`} className="bg-white text-blue-600 text-sm px-3 py-1.5 rounded font-semibold">
-            Edit
-          </Link>
+          {canEdit && (
+            <Link href={`/recipe/${recipe.id}/edit`} className="bg-white text-blue-600 text-sm px-3 py-1.5 rounded font-semibold">
+              Edit
+            </Link>
+          )}
           <Link href="/" className="border border-white text-white text-sm px-3 py-1.5 rounded">
             Back
           </Link>
@@ -112,27 +118,37 @@ export default function RecipeDetail() {
           </div>
         </div>
 
-        <hr className="my-6" />
+        {canEdit && (
+          <>
+            <hr className="my-6" />
 
-        {confirmDelete ? (
-          <div className="flex items-center gap-2 text-gray-500">
-            <span>Delete this recipe?</span>
-            <button onClick={handleDelete} className="bg-red-600 hover:bg-red-700 text-white text-sm px-3 py-1.5 rounded font-semibold">
-              Yes, delete
-            </button>
-            <button onClick={() => setConfirmDelete(false)} className="border border-gray-300 text-sm px-3 py-1.5 rounded">
-              Cancel
-            </button>
-          </div>
-        ) : (
-          <button
-            onClick={() => setConfirmDelete(true)}
-            className="border border-red-600 text-red-600 hover:bg-red-50 text-sm px-3 py-1.5 rounded"
-          >
-            Delete Recipe
-          </button>
+            {confirmDelete ? (
+              <div className="flex items-center gap-2 text-gray-500">
+                <span>Delete this recipe?</span>
+                <button onClick={handleDelete} className="bg-red-600 hover:bg-red-700 text-white text-sm px-3 py-1.5 rounded font-semibold">
+                  Yes, delete
+                </button>
+                <button onClick={() => setConfirmDelete(false)} className="border border-gray-300 text-sm px-3 py-1.5 rounded">
+                  Cancel
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => setConfirmDelete(true)}
+                className="border border-red-600 text-red-600 hover:bg-red-50 text-sm px-3 py-1.5 rounded"
+              >
+                Delete Recipe
+              </button>
+            )}
+          </>
         )}
       </div>
     </RecipesLayout>
   );
 }
+
+// Public: shareable "quick reminder of a recipe" link, no login required.
+// Edit/Delete are hidden above unless canEdit (role === 'family').
+RecipeDetail.isPublic = true;
+
+export default RecipeDetail;

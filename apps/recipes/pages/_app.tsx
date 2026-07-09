@@ -1,18 +1,33 @@
 import { AppProps } from 'next/app';
+import { NextPage } from 'next';
 import { ThemeProvider } from '@with-nx/theme';
 import { AuthProvider, RequireAuth } from '@with-nx/auth';
 import '../styles/styles.css';
 import { themes } from '../styles/themes';
 
-function CustomApp({ Component, pageProps }: AppProps) {
+// A page can opt out of the login gate with `Page.isPublic = true` (see
+// pages/recipe/[id].tsx) — everything else stays behind RequireAuth.
+type PageWithAuthOptions = NextPage & { isPublic?: boolean };
+
+interface CustomAppProps extends Omit<AppProps, 'Component'> {
+  Component: PageWithAuthOptions;
+}
+
+function CustomApp({ Component, pageProps }: CustomAppProps) {
+  const content = (
+    <main className="app">
+      <Component {...pageProps} />
+    </main>
+  );
+
   return (
     <ThemeProvider themes={themes} initialThemeName="light">
       <AuthProvider>
-        <RequireAuth allowedRoles={['family']}>
-          <main className="app">
-            <Component {...pageProps} />
-          </main>
-        </RequireAuth>
+        {Component.isPublic ? (
+          content
+        ) : (
+          <RequireAuth allowedRoles={['family']}>{content}</RequireAuth>
+        )}
       </AuthProvider>
     </ThemeProvider>
   );
