@@ -1,9 +1,9 @@
 import { Meta, Story } from '@storybook/react';
-import { PageLayout, PageLayoutProps } from './page-layout';
+import { PageLayoutProps } from '@with-nx/types';
+import { PageLayout } from './page-layout';
 
 const meta: Meta = {
   component: PageLayout,
-  title: 'PageLayout',
   title: 'Organisms/PageLayout',
 };
 export default meta;

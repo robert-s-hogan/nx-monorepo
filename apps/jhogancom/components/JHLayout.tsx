@@ -18,8 +18,10 @@ const JHLayout = ({
 }: PageLayoutProps) => {
   return (
     <PageLayout
-      header={hideNavBarProp ? '' : <JHHeader />}
+      header={<JHHeader />}
+      hideNavBar={hideNavBarProp}
       footer={<JHFooter />}
+      className={className}
     >
       <Seo
         title={title ? title : 'Portfolio | Jessca Hogan M.A.'}

@@ -13,9 +13,10 @@ const PlayToWinFFLayout = ({
 }: PageLayoutProps) => {
   return (
     <PageLayout
-      header={hideNavBarProp ? '' : <PlayToWinFFHeader />}
+      header={<PlayToWinFFHeader />}
+      hideNavBar={hideNavBarProp}
       footer={<FloatingFooter currentApp="play2winff" />}
-      className="md:m-4 lg:mx-6  shadow-lg pb-16"
+      className={`md:m-4 lg:mx-6 shadow-lg pb-16 ${className ?? ''}`}
     >
       <Seo
         title={

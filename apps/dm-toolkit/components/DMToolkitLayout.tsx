@@ -13,7 +13,8 @@ const DMToolkitLayout = ({
 }: PageLayoutProps) => {
   return (
     <PageLayout
-      header={hideNavBarProp ? '' : <DMToolkitHeader />}
+      header={<DMToolkitHeader />}
+      hideNavBar={hideNavBarProp}
       footer={<FloatingFooter currentApp="dm-toolkit" />}
       className={`min-h-screen bg-stone-950 pb-16 ${className ?? ''}`}
     >
