@@ -28,7 +28,7 @@ const RecipesLayout = ({
           description ? description : 'A shared family recipe box — add, search, and cook from anywhere.'
         }
         url="https://recipes-nx.vercel.app"
-        faviconPath="https://app-assets.vercel.app/apps/recipes/favicon.ico"
+        faviconPath="/favicon.svg"
         image="https://app-assets.vercel.app/apps/recipes/favicon.ico"
         siteName="My Recipes"
         appleTouchIconPath="/apple-touch-icon.png"

@@ -23,6 +23,9 @@ function CustomApp({ Component, pageProps }: CustomAppProps) {
 
   return (
     <ThemeProvider themes={themes} initialThemeName="light">
+      {/* Set here, not just via <Seo faviconPath>, because RequireAuth
+          gates rendering client-side — Seo never mounts for logged-out
+          users or in the pre-hydration HTML. */}
       <Head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>

@@ -25,7 +25,7 @@ const DMToolkitLayout = ({
             : 'Digital character cards, random events, and session control for tabletop RPG sessions.'
         }
         url="https://dm-toolkit-nx.vercel.app"
-        faviconPath="https://app-assets.vercel.app/apps/dm-toolkit/favicon.ico"
+        faviconPath="/favicon.svg"
         image="https://app-assets.vercel.app/apps/dm-toolkit/favicon.ico"
         siteName="DM Toolkit"
         appleTouchIconPath="/apple-touch-icon.png"

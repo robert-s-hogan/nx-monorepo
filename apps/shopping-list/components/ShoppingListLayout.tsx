@@ -16,7 +16,7 @@ const ShoppingListLayout = ({ children, className, title, description }: PageLay
             : 'A shared family shopping list with per-store lists, price comparisons, and a catalog of every item.'
         }
         url="https://shopping-list-nx.vercel.app"
-        faviconPath="https://app-assets.vercel.app/apps/shopping-list/favicon.ico"
+        faviconPath="/favicon.svg"
         image="https://app-assets.vercel.app/apps/shopping-list/favicon.ico"
         siteName="My Groceries"
         appleTouchIconPath="/apple-touch-icon.png"
