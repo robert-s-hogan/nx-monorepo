@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { Flex } from '@with-nx/react-ui';
-import { Button, IconButton } from '@with-nx/generic-ui';
+import { Button, Flex, IconButton } from '@with-nx/react-ui';
 import { useTheme, ThemeType } from '@with-nx/theme';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { CustomJHLogo } from '@with-nx/icons';
@@ -46,7 +45,7 @@ const JHHeader = () => {
 
   const toggleButton = isMounted ? (
     <IconButton
-      className={`border-0`}
+      className={`icon-button border-0`}
       icon={
         theme && (theme as ThemeType).name === 'light' ? (
           <FiMoon className={`moon h-5 w-5 ${fadeClass}`} />
@@ -60,7 +59,6 @@ const JHHeader = () => {
           ? 'Toggle dark mode'
           : 'Toggle light mode'
       }
-      theme="transparent"
     />
   ) : null;
 
@@ -139,7 +137,9 @@ const JHHeader = () => {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
             </div>
-            <Button type="submit" theme="primary" text="Send Message" />
+            <Button type="submit" variant="primary">
+              Send Message
+            </Button>
           </form>
         </JHModal>
       )}

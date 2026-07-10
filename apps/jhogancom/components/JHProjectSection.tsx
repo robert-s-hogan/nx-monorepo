@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
-import { Grid, Heading, Text, Skeleton } from '@with-nx/react-ui';
-import { Flex } from '@with-nx/generic-ui';
+import { Flex, Grid, Heading, Text, Skeleton } from '@with-nx/react-ui';
 import { FiGithub } from 'react-icons/fi';
 
 import { projectStaticData } from '../data/projects';

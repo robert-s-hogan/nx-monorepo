@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { projectStaticData } from '../../data/projects';
 import JHLayout from '../../components/JHLayout';
 import JHSection from '../../components/JHSection';
-import { Flex, Heading, Text } from '@with-nx/generic-ui';
+import { Flex, Heading, Text } from '@with-nx/react-ui';
 
 export async function getStaticPaths() {
   const paths = projectStaticData.map((project) => ({
@@ -49,26 +49,23 @@ export default function Projects({ project }) {
             <div className="absolute inset-0 bg-black opacity-50"></div>
           </Flex>
           <div className="relative z-10 flex flex-col items-center justify-center text-center h-screen">
-            <Heading
-              level={1}
-              className="text-5xl sm:text-6xl lg:text-9xl mb-4"
-              text={project.name}
-            />
+            <Heading level={1} className="text-5xl sm:text-6xl lg:text-9xl mb-4">
+              {project.name}
+            </Heading>
             <Heading
               level={2}
               className="font-light text-2xl sm:text-3xl lg:text-4xl"
-              text="{project.description}"
-            />
+            >
+              {project.description}
+            </Heading>
           </div>
         </JHSection>
         <JHSection className="flex items-center justify-between my-32 tracking-wider relative">
           <Flex className="flex-col w-full md:w-1/3 space-y-12 text-center md:text-left px-4">
             <Flex className="flex-col">
-              <Heading
-                level={3}
-                className="text-xl font-bold"
-                text="Technologies used:"
-              />
+              <Heading level={3} className="text-xl font-bold">
+                Technologies used:
+              </Heading>
               <br />
 
               <span className="text-lg">
@@ -76,18 +73,21 @@ export default function Projects({ project }) {
               </span>
             </Flex>
             <div className="px-2">
-              <Heading level={3} className="text-xl font-bold" text="Summary" />
+              <Heading level={3} className="text-xl font-bold">
+                Summary
+              </Heading>
               <br />
-              <Text
-                className="w-full md:w-2/3"
-                text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+              <Text className="w-full md:w-2/3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
                 eaque delectus consequuntur harum doloremque assumenda omnis
-                quibusdam quia neque, adipisci iste laborum sed nostrum"
-              />
+                quibusdam quia neque, adipisci iste laborum sed nostrum
+              </Text>
             </div>
             <div className="px-2">
               <br />
-              <Heading level={3} className="text-xl font-bold" text="Contact" />
+              <Heading level={3} className="text-xl font-bold">
+                Contact
+              </Heading>
               <a className="text-xl" href="mailto:test@nomail.com">
                 test@email.com
               </a>
@@ -103,27 +103,25 @@ export default function Projects({ project }) {
 
           <div className="hidden md:flex flex-col w-1/3 space-y-12 text-right">
             <div className="px-20">
-              <Heading
-                level={4}
-                className="text-xl font-bold"
-                text="Experience"
-              />
+              <Heading level={4} className="text-xl font-bold">
+                Experience
+              </Heading>
               <br />
-              <Text className="text-6xl" text="+2" />
+              <Text className="text-6xl">+2</Text>
             </div>
             <div className="px-20">
-              <Heading
-                level={4}
-                className="text-xl font-bold"
-                text="Projects"
-              />
+              <Heading level={4} className="text-xl font-bold">
+                Projects
+              </Heading>
               <br />
-              <Text className="text-6xl" text="25" />
+              <Text className="text-6xl">25</Text>
             </div>
             <div className="px-20">
-              <Heading level={4} className="text-xl font-bold" text="Clients" />
+              <Heading level={4} className="text-xl font-bold">
+                Clients
+              </Heading>
               <br />
-              <Text className="text-6xl" text="14" />
+              <Text className="text-6xl">14</Text>
             </div>
           </div>
         </JHSection>
@@ -134,21 +132,18 @@ export default function Projects({ project }) {
           <Heading
             level={4}
             className="mb-8 text-3xl font-bold text-center md:text-left"
-            text="Experience"
-          />
+          >
+            Experience
+          </Heading>
           <div className="grid grid-cols-1 md:grid-cols-6 my-10">
             <Flex className="flex-col col-span-2 mb-4 md:mb-0">
-              <Heading
-                level={5}
-                className="text-xl md:text-2xl font-bold"
-                text="Full Stack Developer"
-              />
+              <Heading level={5} className="text-xl md:text-2xl font-bold">
+                Full Stack Developer
+              </Heading>
 
-              <Heading
-                level={6}
-                className="text-lg font-bold"
-                text="Facebook"
-              />
+              <Heading level={6} className="text-lg font-bold">
+                Facebook
+              </Heading>
               <p>Jan 2015 - present</p>
             </Flex>
             <Flex className="flex-col col-span-4">
@@ -166,12 +161,12 @@ export default function Projects({ project }) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-6 my-10">
             <Flex className="flex-col col-span-2 mb-4 md:mb-0">
-              <Heading
-                level={5}
-                className="text-xl md:text-2xl  font-bold"
-                text="Software Developer"
-              />
-              <Heading level={6} className="text-lg font-bold" text="Google" />
+              <Heading level={5} className="text-xl md:text-2xl  font-bold">
+                Software Developer
+              </Heading>
+              <Heading level={6} className="text-lg font-bold">
+                Google
+              </Heading>
               <p>Feb 2010 - Jan 2015</p>
             </Flex>
             <Flex className="flex-col col-span-4">
@@ -189,12 +184,12 @@ export default function Projects({ project }) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-6 my-10">
             <Flex className="flex-col col-span-2 mb-4 md:mb-0">
-              <Heading
-                level={5}
-                className="text-xl md:text-2xl  font-bold"
-                text="Web Developer"
-              />
-              <Heading level={6} className="text-lg font-bold" text="IBM" />
+              <Heading level={5} className="text-xl md:text-2xl  font-bold">
+                Web Developer
+              </Heading>
+              <Heading level={6} className="text-lg font-bold">
+                IBM
+              </Heading>
               <p>Apr 2008 - Feb 2010</p>
             </Flex>
             <Flex className="flex-col col-span-4">
@@ -217,20 +212,17 @@ export default function Projects({ project }) {
           <Heading
             level={4}
             className="mb-8 text-3xl font-bold text-center md:text-left"
-            text="Education"
-          />
+          >
+            Education
+          </Heading>
           <div className="grid grid-cols-1 md:grid-cols-6 my-10">
             <Flex className="flex-col col-span-2 mb-4 md:mb-0">
-              <Heading
-                level={5}
-                className="text-xl md:text-2xl  font-bold"
-                text="B.S. Computer Science"
-              />
-              <Heading
-                level={6}
-                className="text-lg font-bold"
-                text="Harward University"
-              />
+              <Heading level={5} className="text-xl md:text-2xl  font-bold">
+                B.S. Computer Science
+              </Heading>
+              <Heading level={6} className="text-lg font-bold">
+                Harward University
+              </Heading>
               <p>Jan 2015 - present</p>
             </Flex>
             <Flex className="flex-col col-span-4 ">

@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Flex, Heading } from '@with-nx/react-ui';
-import { Text } from '@with-nx/generic-ui';
+import { Flex, Heading, Text } from '@with-nx/react-ui';
 import { useTheme, ThemeType } from '@with-nx/theme';
 import JHSection from '../components/JHSection';
 
@@ -68,16 +67,14 @@ export function Index() {
           <Heading level={1} className="text-shadow">
             Hi, I am Jessica.
             <br />
-            <Text
-              className="text-shadow text-4xl"
-              text="Data Scientist and Data Analyst"
-            />
+            <Text className="text-shadow text-4xl">
+              Data Scientist and Data Analyst
+            </Text>
           </Heading>
-          <Text
-            className="text-xl text-shadow"
-            text="I want to help you make the best data-driven decisions and translate
-            data into actionable insights."
-          />
+          <Text className="text-xl text-shadow">
+            I want to help you make the best data-driven decisions and
+            translate data into actionable insights.
+          </Text>
         </Flex>
       </JHSection>
       <JHSection id="projects">
@@ -88,19 +85,19 @@ export function Index() {
           <div className="lg:col-span-2 lg:mr-24 space-y-6">
             <Heading level={2}>Who I am</Heading>
 
-            <Text
-              text="I am a Data Scientist and Data Analyst based in Sonoma County,
+            <Text>
+              I am a Data Scientist and Data Analyst based in Sonoma County,
               California. I have a master’s degree and over eight years
               experience providing actionable insights. I have a diverse
               background working in both public and private sectors from
               research to marketing which gives me a unique eye in which to
-              approach your data-driven questions."
-            />
+              approach your data-driven questions.
+            </Text>
 
-            <Text
-              text="I look forward to hearing about how I can help you solve your data
-              questions!"
-            />
+            <Text>
+              I look forward to hearing about how I can help you solve your
+              data questions!
+            </Text>
 
             <JHSocialMediaIcons />
           </div>

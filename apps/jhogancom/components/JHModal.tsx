@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { FiX } from 'react-icons/fi';
 
-import { Flex, IconButton } from '@with-nx/generic-ui';
+import { Flex, IconButton } from '@with-nx/react-ui';
 
 interface JHModalProps {
   isOpen: boolean;
@@ -64,7 +64,7 @@ const JHModal: React.FC<JHModalProps> = ({
                       onClick={onClose}
                       label="Close Modal"
                       icon={<FiX size="1.5rem" />}
-                      className="p-0 border-none"
+                      className="icon-button p-0 border-none"
                     />
                   </Flex>
                   {children}
