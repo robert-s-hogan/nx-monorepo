@@ -81,6 +81,15 @@
   --white: #f3f0f8;
   --white-blue: linear-gradient(white, blue);
   --yellow: #fed064;
+
+  /* Shared FloatingFooter dock reads these three vars directly (see
+     libs/react-ui/src/lib/floating-footer). Other sibling apps set them
+     via @with-nx/theme's ThemeProvider; this app has no light/dark
+     toggle, so static values matching the existing starfield palette
+     are enough. */
+  --surface-color: #1b2735;
+  --border-color: rgba(255, 255, 255, 0.18);
+  --text-color: var(--white);
 }
 
 @layer base {
@@ -134,6 +143,7 @@ input,
 
 body {
   background: #4c3cfa;
+  padding-bottom: 4rem;
 }
 
 .bg-blue-grey {

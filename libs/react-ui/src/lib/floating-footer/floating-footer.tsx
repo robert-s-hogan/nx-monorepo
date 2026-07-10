@@ -16,6 +16,7 @@ import {
   GiHouse,
   GiShoppingCart,
   GiCookingPot,
+  GiDeathStar,
 } from 'react-icons/gi';
 import { SIBLING_APPS, SiblingApp } from '@with-nx/constants';
 
@@ -27,6 +28,7 @@ const ICONS: Record<SiblingApp['icon'], React.ComponentType<{ size?: number }>> 
   home: GiHouse,
   cart: GiShoppingCart,
   'cooking-pot': GiCookingPot,
+  'death-star': GiDeathStar,
 };
 
 const dockSurfaceStyle = {

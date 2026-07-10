@@ -6,7 +6,8 @@ export interface SiblingApp {
     | 'dm-toolkit'
     | 'the-hogans'
     | 'shopping-list'
-    | 'recipes';
+    | 'recipes'
+    | 'swapi-cards';
   name: string;
   shortLabel: string;
   url: string;
@@ -15,7 +16,8 @@ export interface SiblingApp {
     | 'scroll'
     | 'home'
     | 'cart'
-    | 'cooking-pot';
+    | 'cooking-pot'
+    | 'death-star';
 }
 
 export const SIBLING_APPS: SiblingApp[] = [
@@ -53,5 +55,12 @@ export const SIBLING_APPS: SiblingApp[] = [
     shortLabel: 'Recipes',
     url: 'https://recipes.the-hogans.com',
     icon: 'cooking-pot',
+  },
+  {
+    id: 'swapi-cards',
+    name: 'Star Wars Cards',
+    shortLabel: 'SWAPI',
+    url: 'https://swapi-cards-nx-monorepo.vercel.app',
+    icon: 'death-star',
   },
 ];
