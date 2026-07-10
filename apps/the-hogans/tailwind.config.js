@@ -20,6 +20,11 @@ module.exports = {
   theme: {
     extend: {
       spacing: percentSpacing,
+      colors: {
+        // 950 shades were only added in Tailwind v3.3; this workspace is on
+        // 3.2.7 (see apps/dm-toolkit/tailwind.config.js for the same fix).
+        neutral: { 950: '#0a0a0a' },
+      },
     },
   },
   plugins: [],
