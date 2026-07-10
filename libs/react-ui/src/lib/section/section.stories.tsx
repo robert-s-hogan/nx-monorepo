@@ -2,7 +2,7 @@
 
 import { Meta, Story } from '@storybook/react';
 import { SectionProps } from '@with-nx/types';
-import { Heading } from '@with-nx/generic-ui';
+import { Heading } from '../heading/heading';
 import { Section } from './section';
 
 export default {
@@ -34,9 +34,8 @@ FullWidthSection.args = {
     'max-w-full container mx-auto lg:mx-auto px-4 py-16 bg-blue-500 text-white text-3xl',
   ariaLabel: 'Full Width Section',
   children: (
-    <Heading
-      level={1}
-      text="This is a full width section. These classes overwrite the global.css.section classes"
-    />
+    <Heading level={1}>
+      This is a full width section. These classes overwrite the global.css.section classes
+    </Heading>
   ),
 };

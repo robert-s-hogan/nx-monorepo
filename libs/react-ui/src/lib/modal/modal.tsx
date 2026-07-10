@@ -1,7 +1,8 @@
 import { Button } from '../button/button';
+import { Heading } from '../heading/heading';
+import { Text } from '../text/text';
 import modalStyles from './modal.module.css';
 import { ModalProps } from '@with-nx/types';
-import { Heading, Text } from '@with-nx/generic-ui';
 
 export const Modal = ({
   isShowing,
@@ -27,8 +28,9 @@ export const Modal = ({
           <Heading
             level={2}
             className={`modal-title ${modalStyles['modalTitle']}`}
-            text={title || 'Modal Title'}
-          />
+          >
+            {title || 'Modal Title'}
+          </Heading>
           {icon ? (
             <div onClick={toggle} className={`modal-icon`}>
               {icon}
@@ -42,8 +44,9 @@ export const Modal = ({
         {description && (
           <Text
             className={`modal-description ${modalStyles['modalDescription']}`}
-            text={description}
-          />
+          >
+            {description}
+          </Text>
         )}
         <div className={`modal-content ${modalStyles['modalContent']}`}>
           {children}
