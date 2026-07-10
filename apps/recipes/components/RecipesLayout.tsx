@@ -29,9 +29,9 @@ const RecipesLayout = ({
         description={
           description ? description : 'A shared family recipe box — add, search, and cook from anywhere.'
         }
-        url="https://recipes-nx.vercel.app"
+        url="https://recipes.the-hogans.com"
         faviconPath="/favicon.svg"
-        image="https://app-assets.vercel.app/apps/recipes/favicon.ico"
+        image="https://recipes.the-hogans.com/og-image.png"
         siteName="My Recipes"
         appleTouchIconPath="/apple-touch-icon.png"
         keywords="recipes, cooking, family recipes, recipe box"

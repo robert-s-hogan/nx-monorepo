@@ -15,9 +15,9 @@ const ShoppingListLayout = ({ children, className, title, description }: PageLay
             ? description
             : 'A shared family shopping list with per-store lists, price comparisons, and a catalog of every item.'
         }
-        url="https://shopping-list-nx.vercel.app"
+        url="https://shopping-list.the-hogans.com"
         faviconPath="/favicon.svg"
-        image="https://app-assets.vercel.app/apps/shopping-list/favicon.ico"
+        image="https://shopping-list.the-hogans.com/og-image.png"
         siteName="My Groceries"
         appleTouchIconPath="/apple-touch-icon.png"
         keywords="shopping list, groceries, family shopping, price comparison"

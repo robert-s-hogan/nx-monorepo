@@ -25,9 +25,9 @@ const DMToolkitLayout = ({
             ? description
             : 'Digital character cards, random events, and session control for tabletop RPG sessions.'
         }
-        url="https://dm-toolkit-nx.vercel.app"
+        url="https://dm-toolkit.the-hogans.com"
         faviconPath="/favicon.svg"
-        image="https://app-assets.vercel.app/apps/dm-toolkit/favicon.ico"
+        image="https://dm-toolkit.the-hogans.com/og-image.png"
         siteName="DM Toolkit"
         appleTouchIconPath="/apple-touch-icon.png"
         keywords="D&D, Dungeons and Dragons, DM toolkit, character cards, session tracker, dice roller, tabletop RPG"
