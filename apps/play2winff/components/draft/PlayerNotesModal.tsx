@@ -7,6 +7,7 @@ export interface PlayerNotesModalProps {
   player: DraftPlayer;
   onClose: () => void;
   onNoteSaved: (nameCanon: string, note: string) => void;
+  canEdit: boolean;
 }
 
 function fmtDate(iso: string) {
@@ -22,6 +23,7 @@ export const PlayerNotesModal = ({
   player,
   onClose,
   onNoteSaved,
+  canEdit,
 }: PlayerNotesModalProps) => {
   const [noteText, setNoteText] = useState('');
   const [history, setHistory] = useState<PlayerNote[]>([]);
@@ -63,22 +65,24 @@ export const PlayerNotesModal = ({
           </button>
         </div>
 
-        <div className="space-y-2">
-          <textarea
-            value={noteText}
-            onChange={(e) => setNoteText(e.target.value)}
-            rows={3}
-            placeholder="Add a note (e.g. knee injury camp report 6/30)"
-            className="w-full resize-none rounded border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400"
-          />
-          <button
-            onClick={submit}
-            disabled={saving || !noteText.trim()}
-            className="rounded bg-slate-900 px-4 py-1.5 text-sm text-white transition hover:bg-slate-700 disabled:opacity-40"
-          >
-            {saving ? 'Saving…' : 'Add note'}
-          </button>
-        </div>
+        {canEdit && (
+          <div className="space-y-2">
+            <textarea
+              value={noteText}
+              onChange={(e) => setNoteText(e.target.value)}
+              rows={3}
+              placeholder="Add a note (e.g. knee injury camp report 6/30)"
+              className="w-full resize-none rounded border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400"
+            />
+            <button
+              onClick={submit}
+              disabled={saving || !noteText.trim()}
+              className="rounded bg-slate-900 px-4 py-1.5 text-sm text-white transition hover:bg-slate-700 disabled:opacity-40"
+            >
+              {saving ? 'Saving…' : 'Add note'}
+            </button>
+          </div>
+        )}
 
         {history.length > 0 ? (
           <div className="space-y-2 border-t border-slate-100 pt-3">

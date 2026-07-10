@@ -85,4 +85,7 @@ export function Index() {
   );
 }
 
+// Public: pure marketing content, no write actions on this page.
+Index.isPublic = true;
+
 export default Index;

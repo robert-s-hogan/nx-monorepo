@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { requireRole } from '@with-nx/auth';
 
 import { commitSnapshot, fetchSnapshots } from '../../../lib/server/rankings';
 import type { ParsedRow, ListType } from '../../../lib/rankings';
@@ -7,9 +8,14 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  // GET stays open — it backs the now-public import/draft pages.
   if (req.method === 'GET') {
     const snapshots = await fetchSnapshots();
     return res.status(200).json(snapshots);
+  }
+
+  if (!(await requireRole(req, ['family', 'limited']))) {
+    return res.status(401).json({ error: 'Not authorized' });
   }
 
   if (req.method === 'POST') {

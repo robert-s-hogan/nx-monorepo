@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { requireRole } from '@with-nx/auth';
 
 import { fetchNotesForPlayer, saveNote } from '../../../lib/server/draft';
 
@@ -6,6 +7,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  // GET stays open — reading existing notes is harmless on the now-public
+  // draft page.
   if (req.method === 'GET') {
     const name = req.query.name;
     if (typeof name !== 'string' || !name.trim()) {
@@ -13,6 +16,10 @@ export default async function handler(
     }
     const notes = await fetchNotesForPlayer(name);
     return res.status(200).json(notes);
+  }
+
+  if (!(await requireRole(req, ['family', 'limited']))) {
+    return res.status(401).json({ error: 'Not authorized' });
   }
 
   if (req.method === 'POST') {

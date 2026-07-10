@@ -24,6 +24,7 @@ export interface DraftBoardProps {
   onReleaseFromRoster: (idx: number) => void;
   onReleaseFromBench: (idx: number) => void;
   onNoteSaved: (nameCanon: string, note: string) => void;
+  canEdit: boolean;
 }
 
 export const DraftBoard = ({
@@ -42,6 +43,7 @@ export const DraftBoard = ({
   onReleaseFromRoster,
   onReleaseFromBench,
   onNoteSaved,
+  canEdit,
 }: DraftBoardProps) => {
   const [noteTarget, setNoteTarget] = useState<DraftPlayer | null>(null);
 
@@ -87,6 +89,7 @@ export const DraftBoard = ({
             onNoteSaved(nameCanon, note);
             setNoteTarget((prev) => (prev ? { ...prev, note } : prev));
           }}
+          canEdit={canEdit}
         />
       )}
     </div>

@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { requireRole } from '@with-nx/auth';
 
 import { deleteLeague, updateLeague } from '../../../lib/server/leagues';
 import type { LeagueProfile } from '../../../lib/leagues';
@@ -10,6 +11,10 @@ export default async function handler(
   const id = Number(req.query.id);
   if (!Number.isFinite(id)) {
     return res.status(400).json({ error: 'Invalid league id' });
+  }
+
+  if (!(await requireRole(req, ['family', 'limited']))) {
+    return res.status(401).json({ error: 'Not authorized' });
   }
 
   if (req.method === 'PUT') {

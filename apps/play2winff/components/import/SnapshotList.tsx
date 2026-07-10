@@ -5,6 +5,7 @@ export interface SnapshotListProps {
   snapshots: RankingSnapshot[];
   isLoading: boolean;
   onDeleted: () => void;
+  canEdit: boolean;
 }
 
 function fmtDate(iso: string) {
@@ -21,6 +22,7 @@ export const SnapshotList = ({
   snapshots,
   isLoading,
   onDeleted,
+  canEdit,
 }: SnapshotListProps) => {
   async function remove(snap: RankingSnapshot) {
     if (!confirm(`Delete snapshot "${snap.label}"?`)) return;
@@ -61,12 +63,14 @@ export const SnapshotList = ({
                 <span className="text-xs text-slate-400">
                   {fmtDate(snap.created_at)}
                 </span>
-                <button
-                  onClick={() => remove(snap)}
-                  className="text-xs text-red-500 transition hover:text-red-700"
-                >
-                  Delete
-                </button>
+                {canEdit && (
+                  <button
+                    onClick={() => remove(snap)}
+                    className="text-xs text-red-500 transition hover:text-red-700"
+                  >
+                    Delete
+                  </button>
+                )}
               </div>
             </div>
           ))}

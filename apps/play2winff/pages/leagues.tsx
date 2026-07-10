@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useAuth } from '@with-nx/auth';
 
 import PlayToWinFFLayout from '../components/P2WFFLayout';
 import { LeagueProfile } from '../lib/leagues';
@@ -12,6 +13,8 @@ import { LeagueList } from '../components/leagues/LeagueList';
 import { LeagueForm, LeagueFormValue } from '../components/leagues/LeagueForm';
 
 const Leagues = () => {
+  const { role } = useAuth();
+  const canEdit = role === 'family' || role === 'limited';
   const { leagues, isLoading, refresh } = useLeagues();
   const [editing, setEditing] = useState<LeagueProfile | null | undefined>(
     undefined
@@ -40,12 +43,14 @@ const Leagues = () => {
           <h1 className="text-lg font-semibold text-slate-800">
             League Profiles
           </h1>
-          <button
-            onClick={() => setEditing(null)}
-            className="rounded-md bg-slate-900 px-3 py-1.5 text-sm text-white transition hover:bg-slate-700"
-          >
-            + New League
-          </button>
+          {canEdit && (
+            <button
+              onClick={() => setEditing(null)}
+              className="rounded-md bg-slate-900 px-3 py-1.5 text-sm text-white transition hover:bg-slate-700"
+            >
+              + New League
+            </button>
+          )}
         </div>
 
         <LeagueList
@@ -53,10 +58,11 @@ const Leagues = () => {
           isLoading={isLoading}
           onEdit={setEditing}
           onDelete={remove}
+          canEdit={canEdit}
         />
       </div>
 
-      {editing !== undefined && (
+      {canEdit && editing !== undefined && (
         <LeagueForm
           editing={editing}
           onSave={save}
@@ -66,5 +72,9 @@ const Leagues = () => {
     </PlayToWinFFLayout>
   );
 };
+
+// Public: league list is viewable by anyone. Create/edit/delete are gated
+// on canEdit (role === 'family' || role === 'limited').
+Leagues.isPublic = true;
 
 export default Leagues;

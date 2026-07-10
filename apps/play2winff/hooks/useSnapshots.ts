@@ -2,6 +2,7 @@
 import useSWR from 'swr';
 
 import { ParsedRow, ListType, RankingSnapshot } from '../lib/rankings';
+import { authedFetch } from '../lib/authedFetch';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -24,7 +25,7 @@ export async function commitSnapshot(
   listType: ListType,
   label: string
 ): Promise<number> {
-  const res = await fetch('/api/snapshots', {
+  const res = await authedFetch('/api/snapshots', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ rows, listType, label }),
@@ -34,5 +35,5 @@ export async function commitSnapshot(
 }
 
 export async function deleteSnapshot(id: number): Promise<void> {
-  await fetch(`/api/snapshots/${id}`, { method: 'DELETE' });
+  await authedFetch(`/api/snapshots/${id}`, { method: 'DELETE' });
 }

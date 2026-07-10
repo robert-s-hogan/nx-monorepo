@@ -2,6 +2,7 @@
 import useSWR from 'swr';
 
 import { LeagueProfile } from '../lib/leagues';
+import { authedFetch } from '../lib/authedFetch';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -22,7 +23,7 @@ export function useLeagues() {
 export async function createLeague(
   profile: Omit<LeagueProfile, 'id' | 'created_at'>
 ): Promise<number> {
-  const res = await fetch('/api/leagues', {
+  const res = await authedFetch('/api/leagues', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(profile),
@@ -35,7 +36,7 @@ export async function updateLeague(
   id: number,
   profile: Omit<LeagueProfile, 'id' | 'created_at'>
 ): Promise<void> {
-  await fetch(`/api/leagues/${id}`, {
+  await authedFetch(`/api/leagues/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(profile),
@@ -43,5 +44,5 @@ export async function updateLeague(
 }
 
 export async function deleteLeague(id: number): Promise<void> {
-  await fetch(`/api/leagues/${id}`, { method: 'DELETE' });
+  await authedFetch(`/api/leagues/${id}`, { method: 'DELETE' });
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useAuth } from '@with-nx/auth';
 
 import PlayToWinFFLayout from '../components/P2WFFLayout';
 import { useLeagues } from '../hooks/useLeagues';
@@ -8,6 +9,8 @@ import { DraftSetup } from '../components/draft/DraftSetup';
 import { DraftBoard } from '../components/draft/DraftBoard';
 
 const Draft = () => {
+  const { role } = useAuth();
+  const canEdit = role === 'family' || role === 'limited';
   const { leagues, isLoading: leaguesLoading } = useLeagues();
   const { snapshots, isLoading: snapshotsLoading } = useSnapshots();
 
@@ -83,10 +86,16 @@ const Draft = () => {
           onReleaseFromRoster={session.releaseFromRoster}
           onReleaseFromBench={session.releaseFromBench}
           onNoteSaved={session.setNoteFor}
+          canEdit={canEdit}
         />
       )}
     </PlayToWinFFLayout>
   );
 };
+
+// Public: the draft board is viewable/usable by anyone (draft picks are
+// simulated client-side, never persisted). Only saving a player note is
+// gated on canEdit (role === 'family' || role === 'limited').
+Draft.isPublic = true;
 
 export default Draft;

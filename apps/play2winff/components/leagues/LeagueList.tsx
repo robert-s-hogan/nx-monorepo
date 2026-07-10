@@ -5,6 +5,7 @@ export interface LeagueListProps {
   isLoading: boolean;
   onEdit: (league: LeagueProfile) => void;
   onDelete: (league: LeagueProfile) => void;
+  canEdit: boolean;
 }
 
 export const LeagueList = ({
@@ -12,6 +13,7 @@ export const LeagueList = ({
   isLoading,
   onEdit,
   onDelete,
+  canEdit,
 }: LeagueListProps) => {
   if (isLoading) {
     return <p className="text-sm text-slate-500">Loading…</p>;
@@ -56,20 +58,22 @@ export const LeagueList = ({
                 )}
               </div>
             </div>
-            <div className="flex shrink-0 gap-2">
-              <button
-                onClick={() => onEdit(league)}
-                className="rounded border border-slate-300 px-2.5 py-1 text-xs transition hover:bg-slate-50"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => onDelete(league)}
-                className="rounded border border-red-200 px-2.5 py-1 text-xs text-red-600 transition hover:bg-red-50"
-              >
-                Delete
-              </button>
-            </div>
+            {canEdit && (
+              <div className="flex shrink-0 gap-2">
+                <button
+                  onClick={() => onEdit(league)}
+                  className="rounded border border-slate-300 px-2.5 py-1 text-xs transition hover:bg-slate-50"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => onDelete(league)}
+                  className="rounded border border-red-200 px-2.5 py-1 text-xs text-red-600 transition hover:bg-red-50"
+                >
+                  Delete
+                </button>
+              </div>
+            )}
           </div>
         </div>
       ))}

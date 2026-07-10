@@ -1,9 +1,13 @@
+import { useAuth } from '@with-nx/auth';
+
 import PlayToWinFFLayout from '../components/P2WFFLayout';
 import { useSnapshots } from '../hooks/useSnapshots';
 import { RankingsImportForm } from '../components/import/RankingsImportForm';
 import { SnapshotList } from '../components/import/SnapshotList';
 
 const Import = () => {
+  const { role } = useAuth();
+  const canEdit = role === 'family' || role === 'limited';
   const { snapshots, isLoading, refresh } = useSnapshots();
 
   return (
@@ -13,16 +17,21 @@ const Import = () => {
           Import Rankings
         </h1>
 
-        <RankingsImportForm onCommitted={() => refresh()} />
+        {canEdit && <RankingsImportForm onCommitted={() => refresh()} />}
 
         <SnapshotList
           snapshots={snapshots}
           isLoading={isLoading}
           onDeleted={() => refresh()}
+          canEdit={canEdit}
         />
       </div>
     </PlayToWinFFLayout>
   );
 };
+
+// Public: snapshot list is viewable by anyone. Import/delete are gated on
+// canEdit (role === 'family' || role === 'limited').
+Import.isPublic = true;
 
 export default Import;

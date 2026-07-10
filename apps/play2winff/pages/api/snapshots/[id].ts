@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { requireRole } from '@with-nx/auth';
 
 import { deleteSnapshot } from '../../../lib/server/rankings';
 import { loadDraftPlayers } from '../../../lib/server/draft';
@@ -12,6 +13,7 @@ export default async function handler(
     return res.status(400).json({ error: 'Invalid snapshot id' });
   }
 
+  // GET stays open — the now-public draft page loads players from it.
   if (req.method === 'GET') {
     const prev = req.query.prev ? Number(req.query.prev) : null;
     const players = await loadDraftPlayers(
@@ -19,6 +21,10 @@ export default async function handler(
       Number.isFinite(prev) ? prev : null
     );
     return res.status(200).json(players);
+  }
+
+  if (!(await requireRole(req, ['family', 'limited']))) {
+    return res.status(401).json({ error: 'Not authorized' });
   }
 
   if (req.method === 'DELETE') {
