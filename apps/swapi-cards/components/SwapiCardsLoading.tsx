@@ -1,4 +1,4 @@
-import { Flex, Heading } from '@with-nx/generic-ui';
+import { Flex, Heading } from '@with-nx/react-ui';
 
 const SwapiCardsLoading = () => {
   return (
@@ -28,11 +28,9 @@ const SwapiCardsLoading = () => {
       `}</style>
       <Flex className="flex-col justify-center items-center h-full">
         <div className="spinner"></div>
-        <Heading
-          level={2}
-          className="text-center font-sans text-white mt-8"
-          text="Loading..."
-        />
+        <Heading level={2} className="text-center font-sans text-white mt-8">
+          Loading...
+        </Heading>
       </Flex>
     </div>
   );

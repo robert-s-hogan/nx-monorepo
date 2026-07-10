@@ -1,4 +1,4 @@
-import { Flex } from '@with-nx/generic-ui';
+import { Flex } from '@with-nx/react-ui';
 
 const SwapiCardsHero: React.FC = () => {
   return (

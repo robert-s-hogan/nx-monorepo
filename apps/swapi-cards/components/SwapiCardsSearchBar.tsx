@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Flex } from '@with-nx/generic-ui';
+import { Flex } from '@with-nx/react-ui';
 import useSWAPIFetch from '../hooks/useSWAPIFetch';
 import { StarWarsCharacter } from '../types';
 
@@ -38,6 +38,7 @@ const SwapiCardsSearchBar: React.FC = () => {
       {/* {data && data.length === 0 && (
         <Text className="text-white block text-center search-results" text="No results found" />
       )} */}
+      {null}
     </Flex>
   );
 };

@@ -1,4 +1,4 @@
-import { Button } from '@with-nx/generic-ui';
+import { Button } from '@with-nx/react-ui';
 
 interface SwapiCardsPaginationProps {
   page: number;
@@ -13,25 +13,21 @@ const SwapiCardsPagination: React.FC<SwapiCardsPaginationProps> = (props) => {
   return (
     <div className="mt-4 flex justify-between">
       <Button
-        theme="primary"
         className={`letter-box bg-orange uppercase ${
           previousPage === null ? 'disabled' : ''
         }`}
-        text={previousPage === null ? 'Previous' : `${previousPage.toString()}`}
-      />
-      <Button
-        className="letter-box bg-orange"
-        theme="primary"
-        text={page.toString()}
-      />
+      >
+        {previousPage === null ? 'Previous' : `${previousPage.toString()}`}
+      </Button>
+      <Button className="letter-box bg-orange">{page.toString()}</Button>
       <Button
         className={`letter-box bg-orange uppercase ${
           nextPage === null ? 'disabled' : ''
         }`}
-        theme="primary"
         onClick={() => getInitialData()}
-        text={nextPage !== null ? 'Next' : nextPage}
-      />
+      >
+        {nextPage !== null ? 'Next' : nextPage}
+      </Button>
     </div>
   );
 };
