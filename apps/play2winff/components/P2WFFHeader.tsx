@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Button, Flex, IconButton, Text } from '@with-nx/generic-ui';
+import { Button, Flex, IconButton, Text } from '@with-nx/react-ui';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme, ThemeType } from '@with-nx/theme';
@@ -58,8 +58,7 @@ const PlayToWinFFHeader = () => {
   const toggleButton = isMounted ? (
     <IconButton
       onClick={toggleTheme}
-      className="border-0"
-      theme="transparent"
+      className="icon-button border-0"
       label="Toggle Theme"
       icon={icon}
     />
@@ -77,7 +76,7 @@ const PlayToWinFFHeader = () => {
             <Link href="/">{logo}</Link>
           </Flex>
 
-          <Text className="text-2xl" text={logoText} />
+          <Text className="text-2xl">{logoText}</Text>
           <ul className="flex list-style-none space-x-4 items-center">
             {links.map(({ className, href, text, type }) => {
               return (
@@ -85,9 +84,10 @@ const PlayToWinFFHeader = () => {
                   {type === 'button' ? (
                     <Button
                       onClick={() => router.push(href)}
-                      theme="primary"
-                      text={text}
-                    />
+                      variant="primary"
+                    >
+                      {text}
+                    </Button>
                   ) : (
                     <Link href={href}>{text}</Link>
                   )}

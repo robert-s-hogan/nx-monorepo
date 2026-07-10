@@ -1,4 +1,4 @@
-import { Section } from '@with-nx/generic-ui';
+import { Section } from '@with-nx/react-ui';
 
 interface P2WSectionProps {
   className?: string;
