@@ -1,5 +1,4 @@
-import { Seo } from '@with-nx/nextjs-react-ui';
-import { FloatingFooter, PageLayout } from '@with-nx/react-ui';
+import { FloatingFooter, PageLayout, Seo } from '@with-nx/react-ui';
 import { PageLayoutProps } from '@with-nx/types';
 
 import DMToolkitHeader from './DMToolkitHeader';

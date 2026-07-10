@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
-import { Seo } from '@with-nx/nextjs-react-ui';
-import { PageLayout } from '@with-nx/react-ui';
+import { PageLayout, Seo } from '@with-nx/react-ui';
 import { PageLayoutProps } from '@with-nx/types';
 
 import JHHeader from './JHHeader';
