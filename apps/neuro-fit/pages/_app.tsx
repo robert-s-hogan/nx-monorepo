@@ -1,14 +1,15 @@
 import { AppProps } from 'next/app';
-import Head from 'next/head';
-import './styles.css';
+import { ThemeProvider } from '@with-nx/theme';
+import '../styles/styles.css';
+import { themes } from '../styles/themes';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <ThemeProvider themes={themes} initialThemeName="dark">
       <main className="app">
         <Component {...pageProps} />
       </main>
-    </>
+    </ThemeProvider>
   );
 }
 

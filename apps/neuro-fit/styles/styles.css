@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* theme colors can be found in /styles/themes.ts */
+
+/* :root variables that do not change with theme */
+:root {
+  --loader-size: 1rem;
+  --loader-border: 0.125rem;
+  --border-width: 0.063rem;
+  --transition-speed: 0.3s;
+  --animation-speed: 1s;
+  --hover-scale: 1.05;
+  --text-underline-offset: 0.25rem;
+  --box-shadow: 0 0 0 0.188rem rgba(66, 153, 225, 0.5);
+}
+
+body {
+  margin: 0;
+}

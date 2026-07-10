@@ -12,16 +12,19 @@ module.exports = {
   ],
   theme: {
     extend: {
-      color: {
+      colors: {
         primary: 'var(--primary-color)',
         secondary: 'var(--secondary-color)',
         'accent-color': 'var(--accent-color)',
         'bg-color': 'var(--bg-color)',
         'surface-color': 'var(--surface-color)',
         'text-color': 'var(--text-color)',
-        'text-color-secondary': 'var(--text-color-secondary)',
+        'text-on-primary-color': 'var(--text-on-primary-color)',
+        'text-on-secondary-color': 'var(--text-on-secondary-color)',
         'primary-fill': 'var(--primary-fill)',
-        'secondary-icon-color': 'var(--secondary-icon-color)',
+        'primary-stroke': 'var(--primary-stroke)',
+        'secondary-fill': 'var(--secondary-fill)',
+        'secondary-stroke': 'var(--secondary-stroke)',
         'success-color': 'var(--success-color)',
         'error-color': 'var(--error-color)',
         'warning-color': 'var(--warning-color)',
@@ -32,8 +35,8 @@ module.exports = {
         'hover-secondary-color': 'var(--hover-secondary-color)',
         'active-secondary-color': 'var(--active-secondary-color)',
         'disabled-color': 'var(--disabled-color)',
-        'sun-color-color': 'var(--sun-color-color)',
-        'moon-color-color': 'var(--moon-color-color)',
+        'sun-icon-color': 'var(--sun-icon-color)',
+        'moon-icon-color': 'var(--moon-icon-color)',
         'bg-opacity-color': 'var(--bg-opacity-color)',
       },
     },
