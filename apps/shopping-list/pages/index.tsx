@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useAuth } from '@with-nx/auth';
 
 import { useStore } from '../store/useStore';
 import type { Item } from '../types';
@@ -34,7 +35,9 @@ const EMPTY_FORM: ItemFormState = {
   category: '',
 };
 
-export default function Home() {
+function Home() {
+  const { role } = useAuth();
+  const canEdit = role === 'family';
   const {
     items,
     loading,
@@ -245,6 +248,7 @@ export default function Home() {
             activeTab={activeTab}
             groupedSearchResults={groupedSearchResults}
             onAddToList={handleAddToList}
+            canEdit={canEdit}
           />
         ) : !activeTab ? (
           <HomeDashboard
@@ -260,6 +264,7 @@ export default function Home() {
             onRequestReset={() => setConfirmReset(true)}
             onConfirmReset={handleResetList}
             onCancelReset={() => setConfirmReset(false)}
+            canEdit={canEdit}
           />
         ) : (
           <ShoppingListView
@@ -270,15 +275,18 @@ export default function Home() {
             onEdit={openForm}
             onRemove={removeFromList}
             onWatchVideo={setVideoOverlayUrl}
+            canEdit={canEdit}
           />
         )}
       </main>
 
-      <button type="button" className="fab" onClick={() => openForm()}>
-        +
-      </button>
+      {canEdit && (
+        <button type="button" className="fab" onClick={() => openForm()}>
+          +
+        </button>
+      )}
 
-      {showForm && (
+      {canEdit && showForm && (
         <ItemFormModal
           editingItem={editingItem}
           storeOptions={storeOptions}
@@ -294,7 +302,7 @@ export default function Home() {
         />
       )}
 
-      {showImport && (
+      {canEdit && showImport && (
         <ImportModal
           importText={importText}
           importError={importError}
@@ -320,6 +328,7 @@ export default function Home() {
           onRequestDelete={setCatalogDeleteId}
           onConfirmDelete={handleDeleteItem}
           onCancelDelete={() => setCatalogDeleteId(null)}
+          canEdit={canEdit}
         />
       )}
 
@@ -329,3 +338,9 @@ export default function Home() {
     </ShoppingListLayout>
   );
 }
+
+// Public: the list and catalog are browsable by anyone. Every write
+// affordance above is gated on canEdit (role === 'family').
+Home.isPublic = true;
+
+export default Home;

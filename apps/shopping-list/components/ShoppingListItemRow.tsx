@@ -7,6 +7,7 @@ interface Props {
   onEdit: (item: Item) => void;
   onRemove: (item: Item) => void;
   onWatchVideo: (embedUrl: string) => void;
+  canEdit: boolean;
 }
 
 export default function ShoppingListItemRow({
@@ -15,14 +16,15 @@ export default function ShoppingListItemRow({
   onEdit,
   onRemove,
   onWatchVideo,
+  canEdit,
 }: Props) {
   return (
     <div
       className={`item ${item.is_completed ? 'completed' : ''}`}
-      role="button"
-      tabIndex={0}
-      onClick={() => onToggleCompletion(item)}
-      onKeyDown={(e) => e.key === 'Enter' && onToggleCompletion(item)}
+      role={canEdit ? 'button' : undefined}
+      tabIndex={canEdit ? 0 : undefined}
+      onClick={canEdit ? () => onToggleCompletion(item) : undefined}
+      onKeyDown={canEdit ? (e) => e.key === 'Enter' && onToggleCompletion(item) : undefined}
     >
       <div className="item-content">
         <div className="title-row">
@@ -50,26 +52,30 @@ export default function ShoppingListItemRow({
             ▶
           </button>
         )}
-        <button
-          className="edit-btn"
-          onClick={(e) => {
-            e.stopPropagation();
-            onEdit(item);
-          }}
-          title="Edit item"
-        >
-          ✏︎
-        </button>
-        <button
-          className="delete-btn"
-          onClick={(e) => {
-            e.stopPropagation();
-            onRemove(item);
-          }}
-          title="Remove from list"
-        >
-          ×
-        </button>
+        {canEdit && (
+          <button
+            className="edit-btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              onEdit(item);
+            }}
+            title="Edit item"
+          >
+            ✏︎
+          </button>
+        )}
+        {canEdit && (
+          <button
+            className="delete-btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              onRemove(item);
+            }}
+            title="Remove from list"
+          >
+            ×
+          </button>
+        )}
       </div>
     </div>
   );

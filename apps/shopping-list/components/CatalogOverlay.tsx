@@ -13,6 +13,7 @@ interface Props {
   onRequestDelete: (id: number) => void;
   onConfirmDelete: (id: number) => void;
   onCancelDelete: () => void;
+  canEdit: boolean;
 }
 
 export default function CatalogOverlay({
@@ -26,6 +27,7 @@ export default function CatalogOverlay({
   onRequestDelete,
   onConfirmDelete,
   onCancelDelete,
+  canEdit,
 }: Props) {
   const searchRef = useRef<HTMLInputElement>(null);
 
@@ -67,41 +69,43 @@ export default function CatalogOverlay({
                     {item.category && ` · ${item.category}`}
                   </span>
                 </div>
-                <div className="catalog-item-actions">
-                  {catalogDeleteId === item.id ? (
-                    <>
-                      <button
-                        type="button"
-                        className="catalog-delete-yes"
-                        onClick={() => onConfirmDelete(item.id)}
-                      >
-                        Delete
-                      </button>
-                      <button type="button" className="catalog-delete-cancel" onClick={onCancelDelete}>
-                        Cancel
-                      </button>
-                    </>
-                  ) : (
-                    <>
-                      <button
-                        type="button"
-                        className="catalog-edit-btn"
-                        onClick={() => onEdit(item)}
-                        title="Edit"
-                      >
-                        ✏︎
-                      </button>
-                      <button
-                        type="button"
-                        className="catalog-delete-btn"
-                        onClick={() => onRequestDelete(item.id)}
-                        title="Delete"
-                      >
-                        🗑
-                      </button>
-                    </>
-                  )}
-                </div>
+                {canEdit && (
+                  <div className="catalog-item-actions">
+                    {catalogDeleteId === item.id ? (
+                      <>
+                        <button
+                          type="button"
+                          className="catalog-delete-yes"
+                          onClick={() => onConfirmDelete(item.id)}
+                        >
+                          Delete
+                        </button>
+                        <button type="button" className="catalog-delete-cancel" onClick={onCancelDelete}>
+                          Cancel
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button
+                          type="button"
+                          className="catalog-edit-btn"
+                          onClick={() => onEdit(item)}
+                          title="Edit"
+                        >
+                          ✏︎
+                        </button>
+                        <button
+                          type="button"
+                          className="catalog-delete-btn"
+                          onClick={() => onRequestDelete(item.id)}
+                          title="Delete"
+                        >
+                          🗑
+                        </button>
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
             ))}
           </Fragment>

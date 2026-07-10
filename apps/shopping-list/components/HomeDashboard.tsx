@@ -11,6 +11,7 @@ interface Props {
   onRequestReset: () => void;
   onConfirmReset: () => void;
   onCancelReset: () => void;
+  canEdit: boolean;
 }
 
 export default function HomeDashboard({
@@ -23,6 +24,7 @@ export default function HomeDashboard({
   onRequestReset,
   onConfirmReset,
   onCancelReset,
+  canEdit,
 }: Props) {
   return (
     <>
@@ -48,13 +50,16 @@ export default function HomeDashboard({
       </div>
 
       <div className="home-actions">
-        <button type="button" className="import-trigger" onClick={onOpenImport}>
-          ↓ Import JSON
-        </button>
+        {canEdit && (
+          <button type="button" className="import-trigger" onClick={onOpenImport}>
+            ↓ Import JSON
+          </button>
+        )}
         <button type="button" className="catalog-trigger" onClick={onOpenCatalog}>
           ☰ Catalog
         </button>
-        {hasActiveItems &&
+        {canEdit &&
+          hasActiveItems &&
           (confirmReset ? (
             <div className="reset-confirm">
               <span>Clear all lists?</span>

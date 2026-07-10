@@ -6,12 +6,14 @@ interface Props {
   activeTab: string;
   groupedSearchResults: SearchResultGroup[];
   onAddToList: (item: Item) => void;
+  canEdit: boolean;
 }
 
 export default function SearchResultsView({
   activeTab,
   groupedSearchResults,
   onAddToList,
+  canEdit,
 }: Props) {
   if (groupedSearchResults.length === 0) {
     return (
@@ -30,7 +32,8 @@ export default function SearchResultsView({
                 key={item.id}
                 type="button"
                 className="compare-row"
-                onClick={() => onAddToList(item)}
+                disabled={!canEdit}
+                onClick={canEdit ? () => onAddToList(item) : undefined}
               >
                 <div className="compare-row-left">
                   <span className={`compare-store store-${toClassSlug(item.stores?.store_slug ?? '')}`}>
@@ -43,7 +46,7 @@ export default function SearchResultsView({
                   <span className="compare-price">
                     {item.estimated_cost != null ? `$${Number(item.estimated_cost).toFixed(2)}` : '—'}
                   </span>
-                  <span className="add-icon">+</span>
+                  {canEdit && <span className="add-icon">+</span>}
                 </div>
               </button>
             ))}
@@ -56,7 +59,8 @@ export default function SearchResultsView({
                 key={item.id}
                 type="button"
                 className="item search-result"
-                onClick={() => onAddToList(item)}
+                disabled={!canEdit}
+                onClick={canEdit ? () => onAddToList(item) : undefined}
               >
                 <div className="item-content">
                   <strong className="item-title">{item.name}</strong>
@@ -72,7 +76,7 @@ export default function SearchResultsView({
                     {item.purchase_size && <span className="detail-item">{item.purchase_size}</span>}
                   </div>
                 </div>
-                <div className="add-icon">+</div>
+                {canEdit && <div className="add-icon">+</div>}
               </button>
             );
           })()

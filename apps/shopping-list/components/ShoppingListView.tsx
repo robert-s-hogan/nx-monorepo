@@ -11,6 +11,7 @@ interface Props {
   onEdit: (item: Item) => void;
   onRemove: (item: Item) => void;
   onWatchVideo: (embedUrl: string) => void;
+  canEdit: boolean;
 }
 
 export default function ShoppingListView({
@@ -21,6 +22,7 @@ export default function ShoppingListView({
   onEdit,
   onRemove,
   onWatchVideo,
+  canEdit,
 }: Props) {
   return (
     <>
@@ -62,6 +64,7 @@ export default function ShoppingListView({
                 onEdit={onEdit}
                 onRemove={onRemove}
                 onWatchVideo={onWatchVideo}
+                canEdit={canEdit}
               />
             ))}
           </Fragment>

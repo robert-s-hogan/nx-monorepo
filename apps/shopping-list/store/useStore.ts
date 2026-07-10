@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { supabase } from '../lib/supabase';
+import { authedFetch } from '../lib/authedFetch';
 import type { Item, StoreOption } from '../types';
 
 const ITEM_SELECT =
@@ -118,11 +119,11 @@ export const useStore = create<AppStore>((set, get) => ({
         i.id === item.id ? { ...i, on_list: true, is_completed: false } : i
       ),
     }));
-    const { error } = await supabase
-      .from('items')
-      .update({ on_list: true, is_completed: false })
-      .eq('id', item.id);
-    if (error) console.error(error);
+    const res = await authedFetch(`/api/items/${item.id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ on_list: true, is_completed: false }),
+    });
+    if (!res.ok) console.error('addToList failed:', res.status);
   },
 
   toggleCompletion: async (item) => {
@@ -132,11 +133,11 @@ export const useStore = create<AppStore>((set, get) => ({
         i.id === item.id ? { ...i, is_completed: nextCompleted } : i
       ),
     }));
-    const { error } = await supabase
-      .from('items')
-      .update({ is_completed: nextCompleted })
-      .eq('id', item.id);
-    if (error) console.error(error);
+    const res = await authedFetch(`/api/items/${item.id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ is_completed: nextCompleted }),
+    });
+    if (!res.ok) console.error('toggleCompletion failed:', res.status);
   },
 
   removeFromList: async (item) => {
@@ -145,18 +146,18 @@ export const useStore = create<AppStore>((set, get) => ({
         i.id === item.id ? { ...i, on_list: false, is_completed: false } : i
       ),
     }));
-    const { error } = await supabase
-      .from('items')
-      .update({ on_list: false, is_completed: false })
-      .eq('id', item.id);
-    if (error) console.error(error);
+    const res = await authedFetch(`/api/items/${item.id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ on_list: false, is_completed: false }),
+    });
+    if (!res.ok) console.error('removeFromList failed:', res.status);
   },
 
   deleteItem: async (id) => {
     set((s) => ({ items: s.items.filter((i) => i.id !== id) }));
-    const { error } = await supabase.from('items').delete().eq('id', id);
-    if (error) {
-      console.error(error);
+    const res = await authedFetch(`/api/items/${id}`, { method: 'DELETE' });
+    if (!res.ok) {
+      console.error('deleteItem failed:', res.status);
       await get().fetchItems();
     }
   },
@@ -165,12 +166,9 @@ export const useStore = create<AppStore>((set, get) => ({
     set((s) => ({
       items: s.items.map((i) => ({ ...i, on_list: false, is_completed: false })),
     }));
-    const { error } = await supabase
-      .from('items')
-      .update({ on_list: false, is_completed: false })
-      .eq('on_list', true);
-    if (error) {
-      console.error(error);
+    const res = await authedFetch('/api/items/reset', { method: 'POST' });
+    if (!res.ok) {
+      console.error('resetList failed:', res.status);
       await get().fetchItems();
     }
   },
@@ -192,8 +190,11 @@ export const useStore = create<AppStore>((set, get) => ({
         is_completed: false,
       };
     });
-    const { error } = await supabase.from('items').insert(payload);
-    if (error) throw new Error(error.message);
+    const res = await authedFetch('/api/items/import', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) throw new Error(`importItems failed: ${res.status}`);
     await get().fetchItems();
   },
 
@@ -213,8 +214,11 @@ export const useStore = create<AppStore>((set, get) => ({
     };
 
     if (editingItemId != null) {
-      const { error } = await supabase.from('items').update(row).eq('id', editingItemId);
-      if (!error) {
+      const res = await authedFetch(`/api/items/${editingItemId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(row),
+      });
+      if (res.ok) {
         set((s) => ({
           items: s.items.map((i) =>
             i.id === editingItemId
@@ -233,13 +237,13 @@ export const useStore = create<AppStore>((set, get) => ({
         }));
       }
     } else {
-      const { data, error } = await supabase
-        .from('items')
-        .insert({ ...row, on_list: false, is_completed: false })
-        .select(ITEM_SELECT)
-        .single();
-      if (!error && data) {
-        set((s) => ({ items: [data as unknown as Item, ...s.items] }));
+      const res = await authedFetch('/api/items', {
+        method: 'POST',
+        body: JSON.stringify({ ...row, on_list: false, is_completed: false }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        set((s) => ({ items: [data as Item, ...s.items] }));
       }
     }
   },
