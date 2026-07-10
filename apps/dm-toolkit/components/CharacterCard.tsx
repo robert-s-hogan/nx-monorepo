@@ -11,6 +11,7 @@ interface Props {
   character: Character;
   compact?: boolean;
   onRemoveFromSession?: () => void;
+  canEdit: boolean;
 }
 
 const STATS = ['str', 'dex', 'con', 'int', 'wis', 'cha'] as const;
@@ -21,7 +22,7 @@ const STATUS_BADGE: Record<string, string> = {
   neutral: 'bg-stone-900 border-stone-600 text-stone-300',
 };
 
-export default function CharacterCard({ character, compact = false, onRemoveFromSession }: Props) {
+export default function CharacterCard({ character, compact = false, onRemoveFromSession, canEdit }: Props) {
   const { updateCharacter, assignRandomSkill } = useStore();
 
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -78,7 +79,7 @@ export default function CharacterCard({ character, compact = false, onRemoveFrom
   return (
     <>
       {sheetOpen && <CharacterSheetModal character={character} onClose={() => setSheetOpen(false)} />}
-      {editOpen && <CharacterEditModal character={character} onClose={() => setEditOpen(false)} />}
+      {editOpen && canEdit && <CharacterEditModal character={character} onClose={() => setEditOpen(false)} />}
 
       <div className="bg-stone-800 rounded-xl overflow-hidden shadow-2xl flex flex-col border border-stone-700">
 
@@ -102,7 +103,7 @@ export default function CharacterCard({ character, compact = false, onRemoveFrom
                 Sheet
               </button>
             )}
-            {!compact && (
+            {!compact && canEdit && (
               <button
                 onClick={() => setEditOpen(true)}
                 className="text-xs px-2.5 py-1 rounded-lg border bg-stone-800 border-stone-600 text-stone-400 hover:text-stone-200 transition-colors"
@@ -111,7 +112,7 @@ export default function CharacterCard({ character, compact = false, onRemoveFrom
                 Edit
               </button>
             )}
-            {onRemoveFromSession && (
+            {onRemoveFromSession && canEdit && (
               <button
                 onClick={onRemoveFromSession}
                 className="text-stone-500 hover:text-red-400 text-lg leading-none"
@@ -149,10 +150,12 @@ export default function CharacterCard({ character, compact = false, onRemoveFrom
             {tempHP > 0 && (
               <span className="text-xs font-semibold text-green-400">+{tempHP} temp</span>
             )}
-            <div className="flex gap-1">
-              <button onClick={() => setHP(-1)} className="text-xs px-2 py-0.5 bg-red-900 hover:bg-red-800 text-red-200 rounded">−1</button>
-              <button onClick={() => setHP(1)} className="text-xs px-2 py-0.5 bg-green-900 hover:bg-green-800 text-green-200 rounded">+1</button>
-            </div>
+            {canEdit && (
+              <div className="flex gap-1">
+                <button onClick={() => setHP(-1)} className="text-xs px-2 py-0.5 bg-red-900 hover:bg-red-800 text-red-200 rounded">−1</button>
+                <button onClick={() => setHP(1)} className="text-xs px-2 py-0.5 bg-green-900 hover:bg-green-800 text-green-200 rounded">+1</button>
+              </div>
+            )}
           </div>
 
           {/* Stamina */}
@@ -162,7 +165,8 @@ export default function CharacterCard({ character, compact = false, onRemoveFrom
               {Array.from({ length: character.stamina.max }).map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => toggleStamina(i)}
+                  onClick={canEdit ? () => toggleStamina(i) : undefined}
+                  disabled={!canEdit}
                   className={`stamina-bubble ${i < character.stamina.current ? 'filled' : ''}`}
                   title={`Stamina ${i + 1}`}
                 />
@@ -248,9 +252,9 @@ export default function CharacterCard({ character, compact = false, onRemoveFrom
                       <p className="text-[11px] text-stone-500 italic truncate">{`"${cat.flavor}"`}</p>
                     </div>
                     <div
-                      className="flex gap-0.5 flex-wrap justify-end cursor-pointer mt-0.5 ml-2 shrink-0"
-                      onClick={() => cycleXP(ci)}
-                      title="Click to advance XP"
+                      className={`flex gap-0.5 flex-wrap justify-end mt-0.5 ml-2 shrink-0 ${canEdit ? 'cursor-pointer' : ''}`}
+                      onClick={canEdit ? () => cycleXP(ci) : undefined}
+                      title={canEdit ? 'Click to advance XP' : undefined}
                     >
                       {Array.from({ length: cat.xp.max }).map((_, i) => (
                         <span key={i} className={`xp-bubble ${i < cat.xp.current ? 'filled' : ''}`} />
@@ -288,7 +292,7 @@ export default function CharacterCard({ character, compact = false, onRemoveFrom
                   <SkillBadge
                     key={assigned.skill_id}
                     skill={skill}
-                    onRemove={() => removeRandomSkill(assigned.skill_id)}
+                    onRemove={canEdit ? () => removeRandomSkill(assigned.skill_id) : undefined}
                   />
                 ) : null;
               })}
@@ -297,7 +301,7 @@ export default function CharacterCard({ character, compact = false, onRemoveFrom
         )}
 
         {/* Session trigger buttons */}
-        {!compact && (
+        {!compact && canEdit && (
           <div className="px-4 pb-4 flex gap-2 flex-wrap">
             <button
               onClick={() => assignRandomSkill(character.id, 'failure')}

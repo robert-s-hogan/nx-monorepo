@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { AppProps } from 'next/app';
+import { NextPage } from 'next';
 import Head from 'next/head';
 import { ThemeProvider } from '@with-nx/theme';
 import { AuthProvider, RequireAuth } from '@with-nx/auth';
@@ -7,10 +8,19 @@ import '../styles/styles.css';
 import { themes } from '../styles/themes';
 import { useStore } from '../store/useStore';
 
-// Split out from CustomApp so useStore's init() — which fetches real
-// campaign data — only mounts (and only then fires) once RequireAuth has
-// actually let the user through, not on every visit regardless of login.
-function AppContent({ Component, pageProps }: AppProps) {
+// A page can opt out of the login gate with `Page.isPublic = true` (see
+// pages/index.tsx, characters.tsx, map.tsx) — session.tsx has no flag and
+// stays behind RequireAuth.
+type PageWithAuthOptions = NextPage & { isPublic?: boolean };
+
+interface CustomAppProps extends Omit<AppProps, 'Component'> {
+  Component: PageWithAuthOptions;
+}
+
+// init() now runs regardless of auth state — public pages need real campaign
+// data too. RequireAuth (when present) wraps this from the outside rather
+// than gating init() itself.
+function AppContent({ Component, pageProps }: CustomAppProps) {
   const { init, loading, error } = useStore();
 
   useEffect(() => {
@@ -47,7 +57,9 @@ function AppContent({ Component, pageProps }: AppProps) {
   );
 }
 
-function CustomApp(props: AppProps) {
+function CustomApp(props: CustomAppProps) {
+  const content = <AppContent {...props} />;
+
   return (
     <ThemeProvider themes={themes} initialThemeName="dark">
       {/* Set here, not just via <Seo faviconPath>, because RequireAuth
@@ -57,9 +69,11 @@ function CustomApp(props: AppProps) {
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
       <AuthProvider>
-        <RequireAuth allowedRoles={['family']}>
-          <AppContent {...props} />
-        </RequireAuth>
+        {props.Component.isPublic ? (
+          content
+        ) : (
+          <RequireAuth allowedRoles={['family']}>{content}</RequireAuth>
+        )}
       </AuthProvider>
     </ThemeProvider>
   );

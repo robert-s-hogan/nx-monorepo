@@ -83,6 +83,9 @@ export default function FreeformSessionView() {
                 <CharacterCard
                   key={char.id}
                   character={char}
+                  // session.tsx (the only entry point to this view) is fully
+                  // gated to role === 'family', so anyone here can already edit.
+                  canEdit
                   onRemoveFromSession={() =>
                     removeFromSession(activeSession.id, char.id)
                   }

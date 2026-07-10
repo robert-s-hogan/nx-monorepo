@@ -10,6 +10,7 @@ interface TokenLayerProps {
   onSelect: (tokenId: string) => void;
   onDragMove: (tokenId: string, x: number, y: number) => void;
   onDragEnd: (tokenId: string, x: number, y: number) => void;
+  canEdit: boolean;
 }
 
 export default function TokenLayer({
@@ -19,6 +20,7 @@ export default function TokenLayer({
   onSelect,
   onDragMove,
   onDragEnd,
+  canEdit,
 }: TokenLayerProps) {
   return (
     <>
@@ -33,7 +35,7 @@ export default function TokenLayer({
             key={token.id}
             x={token.x}
             y={token.y}
-            draggable
+            draggable={canEdit}
             onClick={() => onSelect(token.id)}
             onTap={() => onSelect(token.id)}
             onDragMove={(e) => onDragMove(token.id, e.target.x(), e.target.y())}

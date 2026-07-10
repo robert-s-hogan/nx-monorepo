@@ -1,5 +1,6 @@
 // Client-safe fetch wrappers around this app's own /api/* routes.
 // The store calls these exclusively — no direct DB access outside pages/api/*.
+import { getAccessToken } from '@with-nx/auth';
 import type {
   Campaign,
   CombatEvent,
@@ -11,11 +12,19 @@ import type {
   Session,
 } from '../types';
 
+// useStore's actions are zustand store functions, not React components, so
+// they can't call the useAuthedFetch() hook — this is the non-hook
+// equivalent, attached once here since every write in the app funnels
+// through this single request() helper.
 async function request(url: string, init?: RequestInit): Promise<Response> {
-  const res = await fetch(url, {
-    headers: { 'Content-Type': 'application/json' },
-    ...init,
-  });
+  const token = await getAccessToken();
+  const headers = new Headers(init?.headers);
+  headers.set('Content-Type', 'application/json');
+  if (token) {
+    headers.set('Authorization', `Bearer ${token}`);
+  }
+
+  const res = await fetch(url, { ...init, headers });
   if (!res.ok) {
     throw new Error(`${init?.method ?? 'GET'} ${url} failed: ${res.status}`);
   }

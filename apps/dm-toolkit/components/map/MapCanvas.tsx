@@ -13,6 +13,7 @@ interface MapCanvasProps {
   selectedAttackerId: string | null;
   selectedDefenderId: string | null;
   onSelectToken: (tokenId: string) => void;
+  canEdit: boolean;
 }
 
 export default function MapCanvas({
@@ -20,6 +21,7 @@ export default function MapCanvas({
   selectedAttackerId,
   selectedDefenderId,
   onSelectToken,
+  canEdit,
 }: MapCanvasProps) {
   const { tokens, broadcastTokenDrag, commitTokenPosition } = useStore();
   const [scale, setScale] = useState(1);
@@ -49,6 +51,7 @@ export default function MapCanvas({
             onSelect={onSelectToken}
             onDragMove={broadcastTokenDrag}
             onDragEnd={(tokenId, x, y) => commitTokenPosition(map.id, tokenId, x, y)}
+            canEdit={canEdit}
           />
         </Layer>
       </Stage>

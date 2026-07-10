@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { requireRole } from '@with-nx/auth';
 
 import {
   fetchTokensForMap,
@@ -14,9 +15,14 @@ export default async function handler(
 ) {
   const mapId = req.query.id as string;
 
+  // GET stays open — it backs the now-public map page.
   if (req.method === 'GET') {
     const tokens = await fetchTokensForMap(mapId);
     return res.status(200).json(tokens);
+  }
+
+  if (!(await requireRole(req, ['family']))) {
+    return res.status(401).json({ error: 'Not authorized' });
   }
 
   if (req.method === 'POST') {

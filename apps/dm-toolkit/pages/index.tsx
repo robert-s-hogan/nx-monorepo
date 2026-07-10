@@ -24,7 +24,7 @@ const phases = [
   },
 ];
 
-export default function Home() {
+function Home() {
   const { characters, sessions, campaigns, activeCampaignId } = useStore();
 
   const activeCampaign = campaigns.find((c) => c.id === activeCampaignId) ?? null;
@@ -137,3 +137,8 @@ export default function Home() {
     </DMToolkitLayout>
   );
 }
+
+// Public: pure display, no write actions on this page.
+Home.isPublic = true;
+
+export default Home;

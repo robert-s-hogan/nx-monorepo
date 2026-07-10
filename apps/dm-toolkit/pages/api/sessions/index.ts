@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { requireRole } from '@with-nx/auth';
 
 import { fetchSessions, insertSession } from '../../../lib/server/sessions';
 import type { Session } from '../../../types';
@@ -7,9 +8,15 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  // GET stays open — session names/dates are read by the now-public
+  // home and map pages, even though session.tsx itself stays gated.
   if (req.method === 'GET') {
     const sessions = await fetchSessions();
     return res.status(200).json(sessions);
+  }
+
+  if (!(await requireRole(req, ['family']))) {
+    return res.status(401).json({ error: 'Not authorized' });
   }
 
   if (req.method === 'POST') {

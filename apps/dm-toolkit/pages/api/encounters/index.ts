@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { requireRole } from '@with-nx/auth';
 
 import {
   fetchEncountersForCampaign,
@@ -17,6 +18,10 @@ export default async function handler(
     }
     const encounters = await fetchEncountersForCampaign(campaignId);
     return res.status(200).json(encounters);
+  }
+
+  if (!(await requireRole(req, ['family']))) {
+    return res.status(401).json({ error: 'Not authorized' });
   }
 
   if (req.method === 'POST') {

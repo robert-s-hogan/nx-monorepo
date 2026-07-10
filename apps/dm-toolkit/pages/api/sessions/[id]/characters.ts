@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { requireRole } from '@with-nx/auth';
 
 import {
   addCharacterToSession,
@@ -9,6 +10,10 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  if (!(await requireRole(req, ['family']))) {
+    return res.status(401).json({ error: 'Not authorized' });
+  }
+
   const sessionId = req.query.id as string;
   const characterId = (req.body as { characterId?: string })?.characterId;
 

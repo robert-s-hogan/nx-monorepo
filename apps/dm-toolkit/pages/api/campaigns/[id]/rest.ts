@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { requireRole } from '@with-nx/auth';
 
 import { fetchRestState, upsertRestState } from '../../../../lib/server/restState';
 import type { RestState } from '../../../../types';
@@ -12,6 +13,10 @@ export default async function handler(
   if (req.method === 'GET') {
     const state = await fetchRestState(campaignId);
     return res.status(200).json(state);
+  }
+
+  if (!(await requireRole(req, ['family']))) {
+    return res.status(401).json({ error: 'Not authorized' });
   }
 
   if (req.method === 'PUT') {

@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useAuth } from '@with-nx/auth';
 import UploadArea from '../components/UploadArea';
 import CharacterCard from '../components/CharacterCard';
 import { useStore } from '../store/useStore';
 import DMToolkitLayout from '../components/DMToolkitLayout';
 
-export default function Characters() {
+function Characters() {
+  const { role } = useAuth();
+  const canEdit = role === 'family';
   const { characters, removeCharacter } = useStore();
   const [previewId, setPreviewId] = useState<string | null>(null);
 
@@ -23,7 +26,7 @@ export default function Characters() {
         <div className="grid grid-cols-5 gap-6">
           {/* Left: import + list */}
           <div className="col-span-2 space-y-4">
-            <UploadArea onSuccess={() => setPreviewId(null)} />
+            {canEdit && <UploadArea onSuccess={() => setPreviewId(null)} />}
 
             {characters.length > 0 && (
               <div className="bg-stone-800 border border-stone-700 rounded-xl p-4">
@@ -47,17 +50,19 @@ export default function Characters() {
                           {char.class} Lv{char.level}
                         </span>
                       </div>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          if (previewId === char.id) setPreviewId(null);
-                          removeCharacter(char.id);
-                        }}
-                        className="text-stone-600 hover:text-red-400 text-sm transition-colors ml-2"
-                        title="Delete character"
-                      >
-                        ✕
-                      </button>
+                      {canEdit && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (previewId === char.id) setPreviewId(null);
+                            removeCharacter(char.id);
+                          }}
+                          className="text-stone-600 hover:text-red-400 text-sm transition-colors ml-2"
+                          title="Delete character"
+                        >
+                          ✕
+                        </button>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -68,7 +73,7 @@ export default function Characters() {
           {/* Right: preview card */}
           <div className="col-span-3">
             {preview ? (
-              <CharacterCard character={preview} />
+              <CharacterCard character={preview} canEdit={canEdit} />
             ) : (
               <div className="h-full min-h-64 flex items-center justify-center bg-stone-800 border border-stone-700 border-dashed rounded-xl">
                 <p className="text-stone-600 text-sm">
@@ -84,3 +89,9 @@ export default function Characters() {
     </DMToolkitLayout>
   );
 }
+
+// Public: character cards are viewable by anyone. Import/delete/edit
+// affordances above are all gated on canEdit (role === 'family').
+Characters.isPublic = true;
+
+export default Characters;

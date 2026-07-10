@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { requireRole } from '@with-nx/auth';
 
 import { fetchMapsForSession, insertMap } from '../../../lib/server/maps';
 import type { GameMap } from '../../../types';
@@ -7,6 +8,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  // GET stays open — it backs the now-public map page.
   if (req.method === 'GET') {
     const sessionId = req.query.sessionId as string;
     if (!sessionId) {
@@ -14,6 +16,10 @@ export default async function handler(
     }
     const maps = await fetchMapsForSession(sessionId);
     return res.status(200).json(maps);
+  }
+
+  if (!(await requireRole(req, ['family']))) {
+    return res.status(401).json({ error: 'Not authorized' });
   }
 
   if (req.method === 'POST') {
