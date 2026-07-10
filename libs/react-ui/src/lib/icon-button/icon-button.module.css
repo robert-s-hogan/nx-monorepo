@@ -1,0 +1,16 @@
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.iconButton:hover {
+  transform: scale(1.05);
+}
+
+.iconButton[disabled]:hover {
+  cursor: not-allowed;
+  transform: none;
+}

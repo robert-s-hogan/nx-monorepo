@@ -1,5 +1,13 @@
 import React, { ButtonHTMLAttributes } from 'react';
 
+export type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'info';
+
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ReactNode;
   disabled?: boolean;
@@ -12,6 +20,20 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
   width?: number;
   height?: number;
+  // Only applied when className is omitted — an explicit className fully
+  // replaces the button's default styling, same as the rest of react-ui.
+  variant?: ButtonVariant;
+}
+
+export interface IconButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  icon: React.ReactNode;
+  label: string;
+  style?: React.CSSProperties;
+  className?: string;
+  variant?: ButtonVariant;
+  iconPosition?: 'left' | 'right';
+  children?: React.ReactNode;
 }
 
 export interface CollapseProps {

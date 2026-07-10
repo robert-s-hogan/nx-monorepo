@@ -113,6 +113,18 @@ FullWidth.args = {
   className: 'bg-blue-500 text-white px-4 py-2 rounded w-full',
 };
 
+const VariantsTemplate: Story<ButtonProps> = () => (
+  <Flex className="gap-3 flex-wrap">
+    <Button variant="primary">Primary</Button>
+    <Button variant="secondary">Secondary</Button>
+    <Button variant="success">Success</Button>
+    <Button variant="danger">Danger</Button>
+    <Button variant="warning">Warning</Button>
+    <Button variant="info">Info</Button>
+  </Flex>
+);
+export const Variants = VariantsTemplate.bind({});
+
 export const RightAlignedButtonInsideFlex: Story<FlexProps & ButtonProps> =
   FlexTemplate.bind({});
 RightAlignedButtonInsideFlex.args = {

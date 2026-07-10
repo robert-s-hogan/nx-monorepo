@@ -20,6 +20,7 @@ export { HamburgerMenu } from './lib/hamburger-menu/hamburger-menu';
 export { Header } from './lib/header/header';
 export { Heading } from './lib/heading/heading';
 export { Hero } from './lib/hero/hero';
+export { IconButton } from './lib/icon-button/icon-button';
 export { Input } from './lib/input/input';
 export { Label } from './lib/label/label';
 export { Link } from './lib/link/link';
