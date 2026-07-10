@@ -8,17 +8,16 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  // The full list is only ever shown on the gated index page — unlike a
-  // single recipe's page, there's no "public view" case for browsing
-  // everything at once.
-  if (!(await requireRole(req, ['family']))) {
-    return res.status(401).json({ error: 'Not authorized' });
-  }
-
+  // GET stays open — it backs the now-public recipe list/dashboard page.
+  // Mutations still require it.
   if (req.method === 'GET') {
     const q = typeof req.query.q === 'string' ? req.query.q : '';
     const recipes = await fetchRecipes(q);
     return res.status(200).json(recipes);
+  }
+
+  if (!(await requireRole(req, ['family']))) {
+    return res.status(401).json({ error: 'Not authorized' });
   }
 
   if (req.method === 'POST') {

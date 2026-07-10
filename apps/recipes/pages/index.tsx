@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useAuthedFetch } from '@with-nx/auth';
+import { useAuth, useAuthedFetch } from '@with-nx/auth';
 
 import RecipesLayout from '../components/RecipesLayout';
 import RecipeCard from '../components/RecipeCard';
 import type { Recipe } from '../types';
 
-export default function Home() {
+function Home() {
   const router = useRouter();
+  const { role } = useAuth();
   const authedFetch = useAuthedFetch();
+  const canEdit = role === 'family';
   const q = typeof router.query.q === 'string' ? router.query.q : '';
   const [searchInput, setSearchInput] = useState(q);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
@@ -30,7 +32,15 @@ export default function Home() {
   }, [q, router.isReady]);
 
   return (
-    <RecipesLayout navActions={<Link href="/add" className="bg-white text-blue-600 text-sm px-3 py-1.5 rounded font-semibold">+ Add Recipe</Link>}>
+    <RecipesLayout
+      navActions={
+        canEdit && (
+          <Link href="/add" className="bg-white text-blue-600 text-sm px-3 py-1.5 rounded font-semibold">
+            + Add Recipe
+          </Link>
+        )
+      }
+    >
       <div className="container mx-auto max-w-4xl px-4 py-4">
         <form
           onSubmit={(e) => {
@@ -64,7 +74,7 @@ export default function Home() {
         {!loading && recipes.length === 0 && (
           <div className="text-center py-12 text-gray-500">
             <p className="text-lg">{q ? 'No recipes match your search.' : 'No recipes yet.'}</p>
-            {!q && (
+            {!q && canEdit && (
               <Link href="/add" className="inline-block mt-3 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
                 Add your first recipe
               </Link>
@@ -83,3 +93,10 @@ export default function Home() {
     </RecipesLayout>
   );
 }
+
+// Public: anyone with the link can browse the recipe box. Add/edit affordances
+// are hidden above unless canEdit (role === 'family'); /add and /recipe/[id]/edit
+// stay behind the login gate themselves as a second layer.
+Home.isPublic = true;
+
+export default Home;
