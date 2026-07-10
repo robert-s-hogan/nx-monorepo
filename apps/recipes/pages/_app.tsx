@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app';
 import { NextPage } from 'next';
+import Head from 'next/head';
 import { ThemeProvider } from '@with-nx/theme';
 import { AuthProvider, RequireAuth } from '@with-nx/auth';
 import '../styles/styles.css';
@@ -22,6 +23,9 @@ function CustomApp({ Component, pageProps }: CustomAppProps) {
 
   return (
     <ThemeProvider themes={themes} initialThemeName="light">
+      <Head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      </Head>
       <AuthProvider>
         {Component.isPublic ? (
           content

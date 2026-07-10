@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { AppProps } from 'next/app';
+import Head from 'next/head';
 import { ThemeProvider } from '@with-nx/theme';
 import { AuthProvider, RequireAuth } from '@with-nx/auth';
 import '../styles/styles.css';
@@ -49,6 +50,9 @@ function AppContent({ Component, pageProps }: AppProps) {
 function CustomApp(props: AppProps) {
   return (
     <ThemeProvider themes={themes} initialThemeName="dark">
+      <Head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      </Head>
       <AuthProvider>
         <RequireAuth allowedRoles={['family']}>
           <AppContent {...props} />
