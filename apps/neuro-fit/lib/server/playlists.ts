@@ -36,6 +36,14 @@ function rowToPlaylistItem(row: Record<string, unknown>): PlaylistItem {
       name: row.exercise_name as string,
       youtube_video_id: row.youtube_video_id as string,
       notes: (row.exercise_notes as string) ?? '',
+      start_seconds:
+        row.exercise_start_seconds === null
+          ? null
+          : Number(row.exercise_start_seconds),
+      end_seconds:
+        row.exercise_end_seconds === null
+          ? null
+          : Number(row.exercise_end_seconds),
       created_at: row.exercise_created_at as string,
     } satisfies Exercise,
   };
@@ -64,6 +72,8 @@ export async function fetchPlaylistWithItems(
         exercises.name AS exercise_name,
         exercises.youtube_video_id AS youtube_video_id,
         exercises.notes AS exercise_notes,
+        exercises.start_seconds AS exercise_start_seconds,
+        exercises.end_seconds AS exercise_end_seconds,
         exercises.created_at AS exercise_created_at
       FROM playlist_items
       JOIN exercises ON exercises.id = playlist_items.exercise_id

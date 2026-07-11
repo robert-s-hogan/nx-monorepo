@@ -12,6 +12,8 @@ function AddExerciseForm({ onAdded }: { onAdded: () => void }) {
   const [name, setName] = useState('');
   const [videoInput, setVideoInput] = useState('');
   const [notes, setNotes] = useState('');
+  const [startSeconds, setStartSeconds] = useState('');
+  const [endSeconds, setEndSeconds] = useState('');
   const [error, setError] = useState('');
   const [saving, setSaving] = useState(false);
 
@@ -31,10 +33,18 @@ function AddExerciseForm({ onAdded }: { onAdded: () => void }) {
 
     setSaving(true);
     try {
-      await createExercise({ name: name.trim(), youtube_video_id, notes });
+      await createExercise({
+        name: name.trim(),
+        youtube_video_id,
+        notes,
+        start_seconds: startSeconds ? Number(startSeconds) : null,
+        end_seconds: endSeconds ? Number(endSeconds) : null,
+      });
       setName('');
       setVideoInput('');
       setNotes('');
+      setStartSeconds('');
+      setEndSeconds('');
       onAdded();
     } finally {
       setSaving(false);
@@ -58,6 +68,34 @@ function AddExerciseForm({ onAdded }: { onAdded: () => void }) {
         value={videoInput}
         onChange={(e) => setVideoInput(e.target.value)}
       />
+      <div className="grid grid-cols-2 gap-2">
+        <label className="text-xs text-text-color opacity-60">
+          Clip start (sec)
+          <input
+            type="number"
+            min={0}
+            className={inputClass}
+            placeholder="e.g. 8"
+            value={startSeconds}
+            onChange={(e) => setStartSeconds(e.target.value)}
+          />
+        </label>
+        <label className="text-xs text-text-color opacity-60">
+          Clip end (sec)
+          <input
+            type="number"
+            min={0}
+            className={inputClass}
+            placeholder="e.g. 25"
+            value={endSeconds}
+            onChange={(e) => setEndSeconds(e.target.value)}
+          />
+        </label>
+      </div>
+      <Text className="text-text-color opacity-50 text-xs">
+        Optional — skips the intro and loops just that portion. Leave blank to
+        play the full video.
+      </Text>
       <textarea
         className={inputClass}
         placeholder="Notes (optional)"
@@ -115,6 +153,11 @@ function Index() {
                 {exercise.notes && (
                   <Text className="text-text-color opacity-60 text-sm">
                     {exercise.notes}
+                  </Text>
+                )}
+                {(exercise.start_seconds !== null || exercise.end_seconds !== null) && (
+                  <Text className="text-text-color opacity-40 text-xs">
+                    Clip: {exercise.start_seconds ?? 0}s–{exercise.end_seconds ?? '…'}s
                   </Text>
                 )}
               </div>

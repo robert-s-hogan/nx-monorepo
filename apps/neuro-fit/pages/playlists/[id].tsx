@@ -52,6 +52,8 @@ function PlaylistItemRow({
           <YouTubeEmbed
             videoId={item.exercise.youtube_video_id}
             title={item.exercise.name}
+            startSeconds={item.exercise.start_seconds}
+            endSeconds={item.exercise.end_seconds}
           />
           {item.exercise.notes && (
             <Text className="text-text-color opacity-70 text-sm">
@@ -104,6 +106,17 @@ function PlaylistDetail() {
                 Edit
               </Link>
             </div>
+
+            {playlist.items.length > 0 && (
+              <Link href={`/playlists/${playlist.id}/session`}>
+                <Button
+                  variant="primary"
+                  className="bg-primary text-text-on-primary-color px-4 py-2 rounded-lg font-medium w-full"
+                >
+                  ▶ Start Workout
+                </Button>
+              </Link>
+            )}
 
             <div className="space-y-3">
               {playlist.items.length === 0 && (

@@ -8,6 +8,8 @@ function rowToExercise(row: Record<string, unknown>): Exercise {
     name: row.name as string,
     youtube_video_id: row.youtube_video_id as string,
     notes: (row.notes as string) ?? '',
+    start_seconds: row.start_seconds === null ? null : Number(row.start_seconds),
+    end_seconds: row.end_seconds === null ? null : Number(row.end_seconds),
     created_at: row.created_at as string,
   };
 }
@@ -29,8 +31,14 @@ export async function fetchExerciseById(id: string): Promise<Exercise | null> {
 
 export async function insertExercise(input: ExerciseInput): Promise<number> {
   const result = await db.execute({
-    sql: 'INSERT INTO exercises (name, youtube_video_id, notes) VALUES (?, ?, ?)',
-    args: [input.name, input.youtube_video_id, input.notes || ''],
+    sql: 'INSERT INTO exercises (name, youtube_video_id, notes, start_seconds, end_seconds) VALUES (?, ?, ?, ?, ?)',
+    args: [
+      input.name,
+      input.youtube_video_id,
+      input.notes || '',
+      input.start_seconds ?? null,
+      input.end_seconds ?? null,
+    ],
   });
   return Number(result.lastInsertRowid);
 }
@@ -40,8 +48,15 @@ export async function updateExercise(
   input: ExerciseInput
 ): Promise<void> {
   await db.execute({
-    sql: 'UPDATE exercises SET name=?, youtube_video_id=?, notes=? WHERE id=?',
-    args: [input.name, input.youtube_video_id, input.notes || '', id],
+    sql: 'UPDATE exercises SET name=?, youtube_video_id=?, notes=?, start_seconds=?, end_seconds=? WHERE id=?',
+    args: [
+      input.name,
+      input.youtube_video_id,
+      input.notes || '',
+      input.start_seconds ?? null,
+      input.end_seconds ?? null,
+      id,
+    ],
   });
 }
 

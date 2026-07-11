@@ -20,12 +20,16 @@ const db = createClient({ url, authToken });
 
 const schema = [
   // Reusable exercise library — one YouTube how-to video per exercise,
-  // shared across any number of playlists.
+  // shared across any number of playlists. start_seconds/end_seconds clip
+  // the video to the relevant portion (skip the intro, loop the working
+  // part) — both optional, null means "play from the start, no loop".
   `CREATE TABLE IF NOT EXISTS exercises (
     id                INTEGER PRIMARY KEY AUTOINCREMENT,
     name              TEXT    NOT NULL,
     youtube_video_id  TEXT    NOT NULL,
     notes             TEXT,
+    start_seconds     INTEGER,
+    end_seconds       INTEGER,
     created_at        TEXT    NOT NULL DEFAULT (datetime('now'))
   )`,
 
@@ -56,6 +60,14 @@ const schema = [
   `CREATE INDEX IF NOT EXISTS idx_playlist_items_exercise ON playlist_items(exercise_id)`,
 ];
 
+// SQLite has no `ADD COLUMN IF NOT EXISTS` — for columns added after the
+// table already existed live, try the ALTER and swallow the "duplicate
+// column" error on repeat runs so this script stays safe to re-run.
+const alterations = [
+  `ALTER TABLE exercises ADD COLUMN start_seconds INTEGER`,
+  `ALTER TABLE exercises ADD COLUMN end_seconds INTEGER`,
+];
+
 async function main() {
   console.log('Running migrations…');
   for (const sql of schema) {
@@ -63,6 +75,18 @@ async function main() {
     const label =
       sql.match(/(TABLE|INDEX)\s+IF NOT EXISTS\s+(\w+)/i)?.[2] ?? 'stmt';
     console.log(`  ✓ ${label}`);
+  }
+  for (const sql of alterations) {
+    try {
+      await db.execute(sql);
+      console.log(`  ✓ ${sql}`);
+    } catch (err) {
+      if (err instanceof Error && /duplicate column/i.test(err.message)) {
+        console.log(`  · already applied: ${sql}`);
+      } else {
+        throw err;
+      }
+    }
   }
   console.log('Done.');
 }

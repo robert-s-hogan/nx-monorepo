@@ -3,6 +3,10 @@ export interface Exercise {
   name: string;
   youtube_video_id: string;
   notes: string;
+  // Clip the video to the relevant portion (skip the intro, loop the
+  // working part) — both optional, null means play from the start, no loop.
+  start_seconds: number | null;
+  end_seconds: number | null;
   created_at: string;
 }
 
@@ -10,6 +14,8 @@ export interface ExerciseInput {
   name: string;
   youtube_video_id: string;
   notes?: string;
+  start_seconds?: number | null;
+  end_seconds?: number | null;
 }
 
 export type WeightUnit = 'lb' | 'kg';
