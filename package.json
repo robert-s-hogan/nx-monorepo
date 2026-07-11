@@ -9,7 +9,8 @@
     "clean": "rm -rf dist/ && rm -rf apps/*/dist apps/*/.next && rm -rf node_modules/ && echo 'Cleaned all build artifacts and node_modules'",
     "test": "nx test",
     "migrate:play2winff": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate.ts",
-    "migrate:recipes": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/recipes/scripts/migrate.ts"
+    "migrate:recipes": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/recipes/scripts/migrate.ts",
+    "migrate:neuro-fit": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/neuro-fit/scripts/migrate.ts"
   },
   "private": true,
   "engines": {
