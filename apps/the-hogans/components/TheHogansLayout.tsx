@@ -2,7 +2,6 @@ import { FloatingFooter, PageLayout, Seo } from '@with-nx/react-ui';
 import { PageLayoutProps } from '@with-nx/types';
 
 import TheHogansNavbar from './TheHogansNavbar';
-import { BackgroundBeamsWithCollision } from './BackgroundBeamsWithCollision';
 
 const TheHogansLayout = ({
   children,
@@ -28,11 +27,12 @@ const TheHogansLayout = ({
         appleTouchIconPath="/apple-touch-icon.png"
         keywords="Hogan, family, fun"
       />
-      <BackgroundBeamsWithCollision className="fixed inset-0 -z-10" />
-      <div className="max-w-4xl w-full container mx-auto flex items-center justify-center flex-col">
-        {!hideNavBarProp && <TheHogansNavbar title={title ?? 'The Hogans 2.0'} />}
-        <main className="relative z-10 w-full">{children}</main>
-      </div>
+      {!hideNavBarProp && (
+        <div className="max-w-4xl w-full container mx-auto flex items-center justify-center flex-col">
+          <TheHogansNavbar title={title ?? 'The Hogans 2.0'} />
+        </div>
+      )}
+      <main className="relative z-10 w-full">{children}</main>
     </PageLayout>
   );
 };

@@ -1,0 +1,297 @@
+/* A deliberate single-world piece — a terminal/neon-archive aesthetic that
+   doesn't have a meaningful light-mode inversion, so it doesn't branch on
+   prefers-color-scheme. Custom properties live on .stage rather than :root
+   so this scene doesn't impose a dark theme on any other page in the app. */
+.stage {
+  --void: #07070b;
+  --surface: #12121a;
+  --surface-2: #1b1b26;
+  --ink: #e9e8f5;
+  --ink-muted: #8b88a8;
+  --line: #2a2a3a;
+  --accent-dim: #4338ca;
+  --accent: #6366f1;
+  --accent-2: #a5b4fc;
+  --accent-max: #eef2ff;
+  --mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'Roboto Mono', Menlo, Consolas, monospace;
+  --serif: ui-serif, Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--void);
+  color: var(--ink);
+  font-family: var(--mono);
+  overflow-x: hidden;
+}
+.stage ::selection {
+  background: var(--accent);
+  color: var(--void);
+}
+.stage button {
+  font-family: inherit;
+}
+
+/* ---------- boot overlay ---------- */
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--void);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6vh 6vw;
+  transition: opacity 0.9s ease;
+}
+.bootHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.bootLog {
+  max-width: 640px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--accent-2);
+  white-space: pre-wrap;
+}
+.bootLineOk {
+  color: var(--accent-max);
+}
+.bootLineDim {
+  color: var(--ink-muted);
+}
+.caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: var(--accent-max);
+  vertical-align: -0.15em;
+  margin-left: 2px;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.bootSkip {
+  position: absolute;
+  right: 6vw;
+  bottom: 6vh;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--ink-muted);
+  padding: 8px 14px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.bootSkip:hover {
+  border-color: var(--accent);
+  color: var(--accent-2);
+}
+
+/* ---------- background layers ---------- */
+.rain {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.55;
+}
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 40%, transparent 0%, transparent 45%, var(--void) 92%),
+    linear-gradient(to bottom, rgba(7, 7, 11, 0.75) 0%, transparent 14%, transparent 78%, var(--void) 100%);
+}
+
+.wordmark {
+  position: absolute;
+  top: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  text-align: center;
+  pointer-events: none;
+}
+.wordmarkWord {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+  color: var(--ink);
+}
+.wordmarkWord em {
+  font-style: italic;
+  color: var(--accent-2);
+}
+.wordmarkSub {
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+/* ---------- family constellation scene ---------- */
+.scene {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1.4vw;
+  width: min(1600px, 94vw);
+  margin-top: 6vh;
+  padding-bottom: 30px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 1s ease 0.15s, transform 1s ease 0.15s;
+}
+.sceneIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sceneGround {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: 16px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-dim) 18%, var(--accent) 50%, var(--accent-dim) 82%, transparent);
+  opacity: 0.6;
+  pointer-events: none;
+}
+.figureSlot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.figureCanvas {
+  display: block;
+}
+.figureSlot:focus-visible {
+  outline: 2px solid var(--accent-max);
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+
+/* ---------- terminal bio panel: fixed to the viewport's bottom-right
+   corner, the same on every screen size — not anchored to the figures or
+   the scene at all. This is deliberate: the site's shared FloatingFooter
+   dock is fixed, bottom-center, z-index 1000 (libs/react-ui), so a panel
+   anchored under the (centered) figure row would collide with it. Bottom-
+   right avoids that collision entirely and reads as a standard chat-widget
+   position. z-index is kept above the footer's 1000 as a second line of
+   defense. ---------- */
+.panel {
+  position: fixed;
+  right: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  z-index: 1010;
+  width: min(400px, 88vw);
+  transform: translateY(12px);
+  opacity: 0;
+  pointer-events: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 24px 70px -20px rgba(0, 0, 0, 0.75);
+}
+.panelShow {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.panelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+  border-radius: 9px 9px 0 0;
+}
+.panelHeadDots {
+  display: flex;
+  gap: 6px;
+}
+.panelHeadDots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--line);
+}
+.panelTitle {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+.panelClose {
+  background: none;
+  border: none;
+  color: var(--ink-muted);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 6px;
+}
+.panelClose:hover {
+  color: var(--accent-2);
+}
+.panelBody {
+  padding: 18px 20px 26px;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--ink);
+  min-height: 120px;
+  max-height: 46vh;
+  overflow-y: auto;
+}
+.panelName {
+  color: var(--accent-max);
+  font-size: 15px;
+  margin: 0 0 10px;
+}
+.panelPrompt {
+  color: var(--accent-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot {
+    transition: none;
+  }
+  .scene {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .figureCanvas {
+    transition: none;
+  }
+  .panel {
+    transition: none;
+  }
+  .caret {
+    animation: none;
+  }
+}
