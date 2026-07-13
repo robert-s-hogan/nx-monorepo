@@ -14,12 +14,16 @@ export default function AttackControls({
   selectedDefenderId,
   onClearSelection,
 }: AttackControlsProps) {
-  const { characters, tokens, addToken, removeToken, attack } = useStore();
+  const { characters, tokens, addToken, removeToken, attack, spawnBossOnMap } = useStore();
   const [enemyName, setEnemyName] = useState('');
   const [enemyHp, setEnemyHp] = useState('10');
   const [enemyAc, setEnemyAc] = useState('12');
   const [selectedCharacterId, setSelectedCharacterId] = useState('');
+  const [selectedBossId, setSelectedBossId] = useState('');
+  const [spawningBoss, setSpawningBoss] = useState(false);
   const [attacking, setAttacking] = useState(false);
+
+  const bossCharacters = characters.filter((c) => c.boss);
 
   const attackerToken = tokens.find((t) => t.id === selectedAttackerId) ?? null;
   const defenderToken = tokens.find((t) => t.id === selectedDefenderId) ?? null;
@@ -56,6 +60,17 @@ export default function AttackControls({
       armor_class: ac,
     });
     setEnemyName('');
+  };
+
+  const handleSpawnBoss = async () => {
+    if (!selectedBossId) return;
+    setSpawningBoss(true);
+    try {
+      await spawnBossOnMap(mapId, selectedBossId);
+      setSelectedBossId('');
+    } finally {
+      setSpawningBoss(false);
+    }
   };
 
   const handleAttack = async () => {
@@ -125,6 +140,30 @@ export default function AttackControls({
             Add
           </button>
         </div>
+
+        {bossCharacters.length > 0 && (
+          <div className="flex gap-2 mt-2">
+            <select
+              value={selectedBossId}
+              onChange={(e) => setSelectedBossId(e.target.value)}
+              className="flex-1 bg-stone-950 border border-amber-800 rounded-lg px-2 py-1.5 text-sm text-stone-300"
+            >
+              <option value="">Spawn boss…</option>
+              {bossCharacters.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.name} (scales from party lvl {c.boss!.base_party_level})
+                </option>
+              ))}
+            </select>
+            <button
+              onClick={handleSpawnBoss}
+              disabled={!selectedBossId || spawningBoss}
+              className="px-3 py-1.5 bg-amber-800 hover:bg-amber-700 disabled:opacity-40 text-amber-100 text-xs rounded-lg transition-colors"
+            >
+              {spawningBoss ? 'Spawning…' : 'Spawn'}
+            </button>
+          </div>
+        )}
       </div>
 
       <div>

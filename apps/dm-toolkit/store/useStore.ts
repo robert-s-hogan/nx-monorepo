@@ -7,11 +7,15 @@ import type {
   CombatEvent,
   Encounter,
   GameMap,
+  MapStructure,
   MapToken,
   RestState,
   Session,
   SessionMode,
   SkillTrigger,
+  StructureCheckWithOutcomes,
+  StructureEvent,
+  StructureOutcome,
 } from '../types';
 import {
   fetchCharacters,
@@ -40,6 +44,15 @@ import {
   deleteToken as deleteTokenRequest,
   fetchCombatEvents,
   triggerAttack,
+  fetchStructures,
+  createStructure as createStructureRequest,
+  deleteStructure as deleteStructureRequest,
+  fetchStructureChecks,
+  createStructureCheck as createStructureCheckRequest,
+  resolveStructureCheck as resolveStructureCheckRequest,
+  fetchStructureEvents,
+  spawnBoss as spawnBossRequest,
+  updateStructurePosition as updateStructurePositionRequest,
 } from '../lib/api';
 import { pickSkillWithFallback } from '../lib/skillPicker';
 import randomSkillsData from '../data/random_skills.json';
@@ -59,6 +72,12 @@ interface AppStore {
   maps: GameMap[];
   tokens: MapToken[];
   combatEvents: CombatEvent[];
+  structures: MapStructure[];
+  // Keyed by structure_id — checks/outcomes are DM-only content, loaded
+  // lazily when a structure's panel is opened rather than up front with
+  // the rest of the map data (see loadMapData vs loadStructureChecks).
+  structureChecks: Record<string, StructureCheckWithOutcomes[]>;
+  structureEvents: StructureEvent[];
   activeMapId: string | null;
   activeSessionId: string | null;
   activeCampaignId: string | null;
@@ -120,6 +139,27 @@ interface AppStore {
   subscribeMapRealtime: (mapId: string) => () => void;
   broadcastTokenDrag: (tokenId: string, x: number, y: number) => void;
 
+  // Structure actions
+  addStructure: (
+    mapId: string,
+    structure: Omit<MapStructure, 'id' | 'map_id' | 'created_at'>
+  ) => Promise<void>;
+  removeStructure: (mapId: string, structureId: string) => Promise<void>;
+  commitStructurePosition: (mapId: string, structureId: string, x: number, y: number) => Promise<void>;
+  loadStructureChecks: (structureId: string) => Promise<void>;
+  addStructureCheck: (
+    structureId: string,
+    check: { skill: string; dc: number; label: string },
+    outcomes: Omit<StructureOutcome, 'id' | 'check_id'>[]
+  ) => Promise<void>;
+  rollStructureCheck: (
+    mapId: string,
+    structureId: string,
+    checkId: string,
+    characterId: string | null
+  ) => Promise<StructureEvent>;
+  spawnBossOnMap: (mapId: string, characterId: string) => Promise<void>;
+
   // Derived helpers (sync — read from local state)
   getActiveSession: () => Session | null;
   getSessionCharacters: (sessionId: string) => Character[];
@@ -135,6 +175,9 @@ export const useStore = create<AppStore>((set, get) => ({
   maps: [],
   tokens: [],
   combatEvents: [],
+  structures: [],
+  structureChecks: {},
+  structureEvents: [],
   activeMapId: null,
   activeSessionId: null,
   activeCampaignId: null,
@@ -381,11 +424,13 @@ export const useStore = create<AppStore>((set, get) => ({
   setActiveMap: (id) => set({ activeMapId: id }),
 
   loadMapData: async (mapId) => {
-    const [tokens, combatEvents] = await Promise.all([
+    const [tokens, combatEvents, structures, structureEvents] = await Promise.all([
       fetchTokens(mapId),
       fetchCombatEvents(mapId),
+      fetchStructures(mapId),
+      fetchStructureEvents(mapId),
     ]);
-    set({ tokens, combatEvents });
+    set({ tokens, combatEvents, structures, structureEvents });
   },
 
   addToken: async (mapId, tokenData) => {
@@ -463,6 +508,20 @@ export const useStore = create<AppStore>((set, get) => ({
           set((s) => ({ combatEvents: [...s.combatEvents, payload.new as CombatEvent] }));
         }
       )
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'map_structures', filter: `map_id=eq.${mapId}` },
+        () => {
+          fetchStructures(mapId).then((structures) => set({ structures }));
+        }
+      )
+      .on(
+        'postgres_changes',
+        { event: 'INSERT', schema: 'public', table: 'structure_events', filter: `map_id=eq.${mapId}` },
+        (payload) => {
+          set((s) => ({ structureEvents: [...s.structureEvents, payload.new as StructureEvent] }));
+        }
+      )
       .subscribe();
 
     mapChannel = channel;
@@ -475,6 +534,62 @@ export const useStore = create<AppStore>((set, get) => ({
 
   broadcastTokenDrag: (tokenId, x, y) => {
     mapChannel?.send({ type: 'broadcast', event: 'token_drag', payload: { tokenId, x, y } });
+  },
+
+  addStructure: async (mapId, structureData) => {
+    const structure: MapStructure = {
+      ...structureData,
+      id: uuidv4(),
+      map_id: mapId,
+      created_at: new Date().toISOString(),
+    };
+    set((s) => ({ structures: [...s.structures, structure] }));
+    await createStructureRequest(structure);
+  },
+
+  removeStructure: async (mapId, structureId) => {
+    set((s) => ({ structures: s.structures.filter((st) => st.id !== structureId) }));
+    await deleteStructureRequest(mapId, structureId);
+  },
+
+  commitStructurePosition: async (mapId, structureId, x, y) => {
+    set((s) => ({
+      structures: s.structures.map((st) => (st.id === structureId ? { ...st, x, y } : st)),
+    }));
+    await updateStructurePositionRequest(mapId, structureId, x, y);
+  },
+
+  loadStructureChecks: async (structureId) => {
+    const checks = await fetchStructureChecks(structureId);
+    set((s) => ({ structureChecks: { ...s.structureChecks, [structureId]: checks } }));
+  },
+
+  addStructureCheck: async (structureId, checkData, outcomes) => {
+    const check = {
+      ...checkData,
+      id: uuidv4(),
+      structure_id: structureId,
+      created_at: new Date().toISOString(),
+    };
+    const created = await createStructureCheckRequest(structureId, check, outcomes);
+    set((s) => ({
+      structureChecks: {
+        ...s.structureChecks,
+        [structureId]: [...(s.structureChecks[structureId] ?? []), created],
+      },
+    }));
+  },
+
+  rollStructureCheck: async (mapId, structureId, checkId, characterId) => {
+    // Resolution (roll, tier, damage, boss spawn) happens server-side; local
+    // state updates when the result comes back through the
+    // structure_events/map_tokens Realtime subscription, same as attack().
+    return resolveStructureCheckRequest(mapId, structureId, checkId, characterId);
+  },
+
+  spawnBossOnMap: async (mapId, characterId) => {
+    // The new token lands via the map_tokens Realtime subscription.
+    await spawnBossRequest(mapId, characterId);
   },
 
   getActiveSession: () => {

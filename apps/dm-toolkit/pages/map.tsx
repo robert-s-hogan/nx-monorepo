@@ -5,6 +5,8 @@ import { useStore } from '../store/useStore';
 import DMToolkitLayout from '../components/DMToolkitLayout';
 import AttackControls from '../components/map/AttackControls';
 import CombatLog from '../components/map/CombatLog';
+import StructurePanel from '../components/map/StructurePanel';
+import StructureEventLog from '../components/map/StructureEventLog';
 
 // react-konva renders to an HTML5 canvas and touches `window` at import time
 // — must not be part of the SSR bundle.
@@ -18,6 +20,7 @@ function Map() {
   const [newMapName, setNewMapName] = useState('');
   const [selectedAttackerId, setSelectedAttackerId] = useState<string | null>(null);
   const [selectedDefenderId, setSelectedDefenderId] = useState<string | null>(null);
+  const [selectedStructureId, setSelectedStructureId] = useState<string | null>(null);
 
   const activeSession = getActiveSession();
   const sessionMaps = activeSession ? maps.filter((m) => m.session_id === activeSession.id) : [];
@@ -100,6 +103,8 @@ function Map() {
                 selectedAttackerId={selectedAttackerId}
                 selectedDefenderId={selectedDefenderId}
                 onSelectToken={handleSelectToken}
+                selectedStructureId={selectedStructureId}
+                onSelectStructure={(id) => setSelectedStructureId(id === selectedStructureId ? null : id)}
                 canEdit={canEdit}
               />
             </div>
@@ -113,6 +118,14 @@ function Map() {
                 />
               ) : null}
               <CombatLog />
+              {canEdit ? (
+                <StructurePanel
+                  mapId={activeMap.id}
+                  selectedStructureId={selectedStructureId}
+                  onSelectStructure={setSelectedStructureId}
+                />
+              ) : null}
+              <StructureEventLog />
             </div>
           </div>
         )}

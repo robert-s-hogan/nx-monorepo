@@ -3,6 +3,7 @@ import { Stage, Layer, Rect } from 'react-konva';
 import type Konva from 'konva';
 import { useStore } from '../../store/useStore';
 import TokenLayer from './TokenLayer';
+import StructureLayer from './StructureLayer';
 import type { GameMap } from '../../types';
 
 const MIN_SCALE = 0.3;
@@ -13,6 +14,8 @@ interface MapCanvasProps {
   selectedAttackerId: string | null;
   selectedDefenderId: string | null;
   onSelectToken: (tokenId: string) => void;
+  selectedStructureId: string | null;
+  onSelectStructure: (structureId: string) => void;
   canEdit: boolean;
 }
 
@@ -21,9 +24,12 @@ export default function MapCanvas({
   selectedAttackerId,
   selectedDefenderId,
   onSelectToken,
+  selectedStructureId,
+  onSelectStructure,
   canEdit,
 }: MapCanvasProps) {
-  const { tokens, broadcastTokenDrag, commitTokenPosition } = useStore();
+  const { tokens, broadcastTokenDrag, commitTokenPosition, structures, commitStructurePosition } =
+    useStore();
   const [scale, setScale] = useState(1);
 
   const handleWheel = (e: Konva.KonvaEventObject<WheelEvent>) => {
@@ -44,6 +50,13 @@ export default function MapCanvas({
       >
         <Layer>
           <Rect x={0} y={0} width={map.width} height={map.height} fill="#1c1917" />
+          <StructureLayer
+            structures={structures}
+            selectedStructureId={selectedStructureId}
+            onSelect={onSelectStructure}
+            onDragEnd={(structureId, x, y) => commitStructurePosition(map.id, structureId, x, y)}
+            canEdit={canEdit}
+          />
           <TokenLayer
             tokens={tokens}
             selectedAttackerId={selectedAttackerId}

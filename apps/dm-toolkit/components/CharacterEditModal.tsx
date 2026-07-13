@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import type { Character, Ability, AbilityCategory, StatusEffect, CharacterStats } from '../types';
+import type { Character, Ability, AbilityCategory, StatusEffect, CharacterStats, BossConfig } from '../types';
 import { useStore } from '../store/useStore';
 import { statModifier } from '../lib/dice';
 
@@ -17,6 +17,10 @@ type ModKey = (typeof MOD_KEYS)[number];
 const emptyAbility = (): Ability => ({ name: '', description: '', stamina_cost: 0 });
 const emptyCategory = (): Pick<AbilityCategory, 'name' | 'flavor'> => ({ name: '', flavor: '' });
 const emptyStatus = (): Omit<StatusEffect, 'id'> => ({ name: '', type: 'negative', modifiers: {} });
+const defaultBossConfig = (level: number): BossConfig => ({
+  base_party_level: level,
+  scaling: { hp_per_level: 10, ac_per_levels: 2 },
+});
 
 interface Draft {
   name: string;
@@ -30,6 +34,7 @@ interface Draft {
   stamina: { max: number; current: number };
   ability_categories: AbilityCategory[];
   status_effects: StatusEffect[];
+  boss: BossConfig | null;
 }
 
 const STATUS_BADGE: Record<StatusEffect['type'], string> = {
@@ -56,6 +61,7 @@ export default function CharacterEditModal({ character, onClose }: Props) {
       abilities: [...cat.abilities],
     })),
     status_effects: [...(character.status_effects ?? [])],
+    boss: character.boss ?? null,
   });
 
   // Ability editing
@@ -162,6 +168,7 @@ export default function CharacterEditModal({ character, onClose }: Props) {
       hit_points: hp,
       stamina,
       status_effects: draft.status_effects.length > 0 ? draft.status_effects : undefined,
+      boss: draft.boss,
     });
     onClose();
   };
@@ -283,6 +290,71 @@ export default function CharacterEditModal({ character, onClose }: Props) {
                 />
               </div>
             </div>
+          </section>
+
+          {/* ══ BOSS ══════════════════════════════════════════════════════════ */}
+          <section>
+            <div className="flex justify-between items-center mb-3">
+              <p className={sectionHeading.replace('mb-3', '')}>Boss</p>
+              <label className="flex items-center gap-2 text-xs text-stone-400 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={!!draft.boss}
+                  onChange={(e) =>
+                    setField('boss', e.target.checked ? defaultBossConfig(draft.level) : null)
+                  }
+                  className="accent-amber-600"
+                />
+                Boss-eligible (spawnable onto a map, scales to party level)
+              </label>
+            </div>
+
+            {draft.boss && (
+              <div className="bg-stone-800 border border-stone-600 rounded-lg p-3 grid grid-cols-3 gap-3">
+                <div>
+                  <label className="block text-[10px] text-stone-500 mb-1">Base Party Lvl</label>
+                  <input
+                    type="number" min={1} max={20}
+                    value={draft.boss.base_party_level}
+                    onChange={(e) =>
+                      setField('boss', {
+                        ...draft.boss!,
+                        base_party_level: Math.max(1, Math.min(20, Number(e.target.value))),
+                      })
+                    }
+                    className={numCls}
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] text-stone-500 mb-1">HP / Level</label>
+                  <input
+                    type="number" min={0} max={100}
+                    value={draft.boss.scaling.hp_per_level}
+                    onChange={(e) =>
+                      setField('boss', {
+                        ...draft.boss!,
+                        scaling: { ...draft.boss!.scaling, hp_per_level: Math.max(0, Number(e.target.value)) },
+                      })
+                    }
+                    className={numCls}
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] text-stone-500 mb-1">+1 AC / N Lvls</label>
+                  <input
+                    type="number" min={1} max={20}
+                    value={draft.boss.scaling.ac_per_levels}
+                    onChange={(e) =>
+                      setField('boss', {
+                        ...draft.boss!,
+                        scaling: { ...draft.boss!.scaling, ac_per_levels: Math.max(1, Number(e.target.value)) },
+                      })
+                    }
+                    className={numCls}
+                  />
+                </div>
+              </div>
+            )}
           </section>
 
           {/* ══ STATUS EFFECTS ════════════════════════════════════════════════ */}

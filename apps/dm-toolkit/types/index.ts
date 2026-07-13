@@ -56,6 +56,20 @@ export interface StatusEffect {
   };
 }
 
+// Marks a roster character as available to spawn onto a map as a scaled
+// encounter — see lib/server/structureResolution.ts#scaleBossStats. Scaling
+// is relative to base_party_level so the same boss definition can be reused
+// across campaigns at different party strengths.
+export interface BossScaling {
+  hp_per_level: number;
+  ac_per_levels: number; // +1 AC every N levels above base_party_level
+}
+
+export interface BossConfig {
+  base_party_level: number;
+  scaling: BossScaling;
+}
+
 export interface Character {
   id: string;
   name: string;
@@ -71,6 +85,7 @@ export interface Character {
   random_skills: AssignedSkill[];
   status_effects?: StatusEffect[];
   image_url?: string;
+  boss?: BossConfig | null;
 }
 
 export interface Session {
@@ -167,5 +182,73 @@ export interface CombatEvent {
   hit: boolean;
   damage: number;
   defender_hp_after: number;
+  created_at: string;
+}
+
+// ── Map structures (investigatable Lego builds) ─────────────────────────────
+
+export interface MapStructure {
+  id: string;
+  map_id: string;
+  name: string;
+  structure_type: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  revealed: boolean;
+  created_at: string;
+}
+
+export interface StructureCheck {
+  id: string;
+  structure_id: string;
+  skill: string;
+  dc: number;
+  label: string;
+  created_at: string;
+}
+
+export type OutcomeTier = 'crit_fail' | 'fail' | 'success' | 'crit_success';
+
+export interface StructureItem {
+  name: string;
+  description?: string;
+}
+
+export interface StructureOutcome {
+  id: string;
+  check_id: string;
+  tier: OutcomeTier;
+  narrative: string;
+  damage_dice?: string | null;
+  insight?: string | null;
+  item?: StructureItem | null;
+  spawns_boss_character_id?: string | null;
+}
+
+// A structure_check bundled with all its possible outcomes — the shape used
+// when authoring/displaying a structure in full (StructurePanel).
+export interface StructureCheckWithOutcomes extends StructureCheck {
+  outcomes: StructureOutcome[];
+}
+
+// tier/narrative/damage_dealt/insight/item are denormalized from the outcome
+// that was hit — see supabase/migrations/0004_structures.sql for why (a
+// Realtime INSERT payload only carries this row's own columns).
+export interface StructureEvent {
+  id: string;
+  map_id: string;
+  structure_id: string;
+  check_id: string;
+  character_id?: string | null;
+  roll: number;
+  total: number;
+  outcome_id: string;
+  tier: OutcomeTier;
+  narrative: string;
+  damage_dealt?: number | null;
+  insight?: string | null;
+  item?: StructureItem | null;
   created_at: string;
 }

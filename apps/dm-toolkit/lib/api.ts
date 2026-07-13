@@ -7,9 +7,14 @@ import type {
   Character,
   Encounter,
   GameMap,
+  MapStructure,
   MapToken,
   RestState,
   Session,
+  StructureCheck,
+  StructureCheckWithOutcomes,
+  StructureEvent,
+  StructureOutcome,
 } from '../types';
 
 // useStore's actions are zustand store functions, not React components, so
@@ -208,4 +213,85 @@ export async function triggerAttack(
     body: JSON.stringify({ attackerTokenId, defenderTokenId }),
   });
   return res.json();
+}
+
+// ── Structures / checks / outcomes ──────────────────────────────────────────
+
+export async function fetchStructures(mapId: string): Promise<MapStructure[]> {
+  const res = await request(`/api/maps/${mapId}/structures`);
+  return res.json();
+}
+
+export async function createStructure(structure: MapStructure): Promise<void> {
+  await request(`/api/maps/${structure.map_id}/structures`, {
+    method: 'POST',
+    body: JSON.stringify(structure),
+  });
+}
+
+export async function updateStructurePosition(
+  mapId: string,
+  structureId: string,
+  x: number,
+  y: number
+): Promise<void> {
+  await request(`/api/maps/${mapId}/structures`, {
+    method: 'PATCH',
+    body: JSON.stringify({ structureId, x, y }),
+  });
+}
+
+export async function deleteStructure(mapId: string, structureId: string): Promise<void> {
+  await request(`/api/maps/${mapId}/structures`, {
+    method: 'DELETE',
+    body: JSON.stringify({ structureId }),
+  });
+}
+
+export async function fetchStructureChecks(
+  structureId: string
+): Promise<StructureCheckWithOutcomes[]> {
+  const res = await request(`/api/structures/${structureId}/checks`);
+  return res.json();
+}
+
+export async function createStructureCheck(
+  structureId: string,
+  check: StructureCheck,
+  outcomes: Omit<StructureOutcome, 'id' | 'check_id'>[]
+): Promise<StructureCheckWithOutcomes> {
+  const res = await request(`/api/structures/${structureId}/checks`, {
+    method: 'POST',
+    body: JSON.stringify({ check, outcomes }),
+  });
+  return res.json();
+}
+
+export async function resolveStructureCheck(
+  mapId: string,
+  structureId: string,
+  checkId: string,
+  characterId: string | null
+): Promise<StructureEvent> {
+  const res = await request(`/api/structures/${structureId}/resolve`, {
+    method: 'POST',
+    body: JSON.stringify({ mapId, checkId, characterId }),
+  });
+  return res.json();
+}
+
+export async function fetchStructureEvents(mapId: string): Promise<StructureEvent[]> {
+  const res = await request(`/api/maps/${mapId}/structure-events`);
+  return res.json();
+}
+
+export async function spawnBoss(
+  mapId: string,
+  characterId: string,
+  position?: { x: number; y: number }
+): Promise<void> {
+  await request(`/api/maps/${mapId}/spawn-boss`, {
+    method: 'POST',
+    body: JSON.stringify({ characterId, ...position }),
+  });
 }
