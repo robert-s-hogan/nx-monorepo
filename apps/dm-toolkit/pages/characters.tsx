@@ -13,6 +13,21 @@ function Characters() {
 
   const preview = previewId ? characters.find((c) => c.id === previewId) ?? null : null;
 
+  // Manual, on-demand backup of the roster — re-importable via UploadArea's
+  // "Upload File" (id/random_skills on each entry are ignored on re-add, so
+  // round-tripping this file back in is safe). Complements the scheduled
+  // full-DB pg_dump in .github/workflows/dm-toolkit-db-backup.yml, which
+  // covers everything else but only runs once a day.
+  const handleExportAll = () => {
+    const blob = new Blob([JSON.stringify(characters, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `dm-toolkit-characters-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <DMToolkitLayout>
       <div className="max-w-6xl mx-auto px-6 py-8 space-y-8">
@@ -30,9 +45,17 @@ function Characters() {
 
             {characters.length > 0 && (
               <div className="bg-stone-800 border border-stone-700 rounded-xl p-4">
-                <h3 className="text-xs font-bold uppercase text-stone-500 mb-3 tracking-wider">
-                  All Characters ({characters.length})
-                </h3>
+                <div className="flex justify-between items-center mb-3">
+                  <h3 className="text-xs font-bold uppercase text-stone-500 tracking-wider">
+                    All Characters ({characters.length})
+                  </h3>
+                  <button
+                    onClick={handleExportAll}
+                    className="text-xs text-stone-500 hover:text-green-400 border border-stone-700 hover:border-green-700 px-2 py-0.5 rounded-lg transition-colors"
+                  >
+                    Export All
+                  </button>
+                </div>
                 <div className="space-y-1">
                   {characters.map((char) => (
                     <div
