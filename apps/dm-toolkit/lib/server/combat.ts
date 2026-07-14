@@ -1,11 +1,14 @@
 // Server-only attack resolution for the visual map. Resolves DM-only (no
-// player-auth system exists yet — see the map feature's design notes) so the
-// roll always happens server-side and every client gets one authoritative
-// result via Realtime, rather than trusting a client-computed outcome.
+// player-auth system exists yet — see the map feature's design notes). The
+// d20/damage-die VALUES are player-reported (physical dice at the table,
+// entered by the DM) rather than server-generated — but the server still
+// authoritatively computes hit/miss and applies damage from those raw
+// numbers plus the attacker's real modifier and the defender's current AC,
+// so a client can't just claim "that was a hit for 40 damage."
 import { db } from './db';
 import { fetchTokenById, updateTokenHp } from './maps';
 import { fetchCharacterById } from './characters';
-import { rollD20, rollD8, modifier } from '../dice';
+import { meleeAttackModifier } from '../dice';
 import type { CombatEvent } from '../../types';
 
 // Ad-hoc enemy tokens (no character_id) have no STR/DEX to draw an attack
@@ -13,14 +16,15 @@ import type { CombatEvent } from '../../types';
 async function attackModifierFor(characterId: string | null | undefined): Promise<number> {
   if (!characterId) return 0;
   const character = await fetchCharacterById(characterId);
-  if (!character) return 0;
-  return Math.max(modifier(character.stats.str), modifier(character.stats.dex));
+  return meleeAttackModifier(character);
 }
 
 export async function resolveAttack(
   mapId: string,
   attackerTokenId: string,
-  defenderTokenId: string
+  defenderTokenId: string,
+  rawAttackRoll: number,
+  rawDamageRoll: number
 ): Promise<CombatEvent> {
   const [attacker, defender] = await Promise.all([
     fetchTokenById(attackerTokenId),
@@ -28,9 +32,9 @@ export async function resolveAttack(
   ]);
 
   const attackMod = await attackModifierFor(attacker.character_id);
-  const roll = rollD20() + attackMod;
+  const roll = rawAttackRoll + attackMod;
   const hit = roll >= defender.armor_class;
-  const damage = hit ? rollD8() + attackMod : 0;
+  const damage = hit ? Math.max(0, rawDamageRoll + attackMod) : 0;
   const defenderHpAfter = Math.max(0, defender.hp_current - damage);
 
   await updateTokenHp(defenderTokenId, defenderHpAfter);

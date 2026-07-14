@@ -14,16 +14,25 @@ export default async function handler(
   }
 
   if (req.method === 'POST') {
-    const { attackerTokenId, defenderTokenId } = req.body as {
+    const { attackerTokenId, defenderTokenId, rawAttackRoll, rawDamageRoll } = req.body as {
       attackerTokenId: string;
       defenderTokenId: string;
+      rawAttackRoll: number;
+      rawDamageRoll?: number;
     };
     if (!attackerTokenId || !defenderTokenId) {
       return res
         .status(400)
         .json({ error: 'attackerTokenId and defenderTokenId are required' });
     }
-    const event = await resolveAttack(mapId, attackerTokenId, defenderTokenId);
+    if (!Number.isInteger(rawAttackRoll) || rawAttackRoll < 1 || rawAttackRoll > 20) {
+      return res.status(400).json({ error: 'rawAttackRoll must be an integer between 1 and 20' });
+    }
+    const damageInput = rawDamageRoll ?? 0;
+    if (!Number.isInteger(damageInput) || damageInput < 0) {
+      return res.status(400).json({ error: 'rawDamageRoll must be a non-negative integer' });
+    }
+    const event = await resolveAttack(mapId, attackerTokenId, defenderTokenId, rawAttackRoll, damageInput);
     return res.status(201).json(event);
   }
 

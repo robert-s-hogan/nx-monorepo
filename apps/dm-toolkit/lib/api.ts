@@ -206,11 +206,13 @@ export async function fetchCombatEvents(mapId: string): Promise<CombatEvent[]> {
 export async function triggerAttack(
   mapId: string,
   attackerTokenId: string,
-  defenderTokenId: string
+  defenderTokenId: string,
+  rawAttackRoll: number,
+  rawDamageRoll: number
 ): Promise<CombatEvent> {
   const res = await request(`/api/maps/${mapId}/attack`, {
     method: 'POST',
-    body: JSON.stringify({ attackerTokenId, defenderTokenId }),
+    body: JSON.stringify({ attackerTokenId, defenderTokenId, rawAttackRoll, rawDamageRoll }),
   });
   return res.json();
 }

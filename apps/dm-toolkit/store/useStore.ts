@@ -135,7 +135,13 @@ interface AppStore {
   removeToken: (mapId: string, tokenId: string) => Promise<void>;
   moveTokenLocal: (tokenId: string, x: number, y: number) => void;
   commitTokenPosition: (mapId: string, tokenId: string, x: number, y: number) => Promise<void>;
-  attack: (mapId: string, attackerTokenId: string, defenderTokenId: string) => Promise<void>;
+  attack: (
+    mapId: string,
+    attackerTokenId: string,
+    defenderTokenId: string,
+    rawAttackRoll: number,
+    rawDamageRoll: number
+  ) => Promise<void>;
   subscribeMapRealtime: (mapId: string) => () => void;
   broadcastTokenDrag: (tokenId: string, x: number, y: number) => void;
 
@@ -463,11 +469,11 @@ export const useStore = create<AppStore>((set, get) => ({
     await updateTokenPositionRequest(mapId, tokenId, x, y);
   },
 
-  attack: async (mapId, attackerTokenId, defenderTokenId) => {
+  attack: async (mapId, attackerTokenId, defenderTokenId, rawAttackRoll, rawDamageRoll) => {
     // Resolution happens server-side; local state updates when the result
     // comes back through the map_tokens/combat_events Realtime subscription,
     // same as for every other connected client.
-    await triggerAttack(mapId, attackerTokenId, defenderTokenId);
+    await triggerAttack(mapId, attackerTokenId, defenderTokenId, rawAttackRoll, rawDamageRoll);
   },
 
   subscribeMapRealtime: (mapId) => {

@@ -30,6 +30,7 @@ interface Draft {
   notes: string;
   stats: CharacterStats;
   armor_class: number;
+  speed: number;
   hit_points: { max: number; current: number };
   stamina: { max: number; current: number };
   ability_categories: AbilityCategory[];
@@ -54,6 +55,7 @@ export default function CharacterEditModal({ character, onClose }: Props) {
     notes: character.notes ?? '',
     stats: { ...character.stats },
     armor_class: character.armor_class,
+    speed: character.speed ?? 30,
     hit_points: { ...character.hit_points },
     stamina: { ...character.stamina },
     ability_categories: character.ability_categories.map((cat) => ({
@@ -260,14 +262,23 @@ export default function CharacterEditModal({ character, onClose }: Props) {
               ))}
             </div>
 
-            {/* AC / HP max / Stamina max */}
-            <div className="grid grid-cols-3 gap-4">
+            {/* AC / Speed / HP max / Stamina max */}
+            <div className="grid grid-cols-4 gap-4">
               <div>
                 <label className="block text-[10px] text-stone-500 mb-1">Armor Class</label>
                 <input
                   type="number" min={0} max={30}
                   value={draft.armor_class}
                   onChange={(e) => setField('armor_class', Math.max(0, Number(e.target.value)))}
+                  className={numCls}
+                />
+              </div>
+              <div>
+                <label className="block text-[10px] text-stone-500 mb-1">Speed (ft)</label>
+                <input
+                  type="number" min={0} max={999} step={5}
+                  value={draft.speed}
+                  onChange={(e) => setField('speed', Math.max(0, Number(e.target.value)))}
                   className={numCls}
                 />
               </div>

@@ -79,3 +79,12 @@ export function skillModifier(skill: string, stats: CharacterStats): number {
   const ability = SKILL_ABILITY[skill.trim().toLowerCase()] ?? 'int';
   return modifier(stats[ability]);
 }
+
+// Shared by lib/server/combat.ts (authoritative) and AttackControls.tsx (live
+// hit preview as the DM types in a roll) so both sides of the wire agree on
+// the same number without duplicating the formula. STR/DEX-based, matching
+// the melee-or-finesse assumption combat already made pre-manual-rolls.
+export function meleeAttackModifier(character: { stats: CharacterStats } | null | undefined): number {
+  if (!character) return 0;
+  return Math.max(modifier(character.stats.str), modifier(character.stats.dex));
+}

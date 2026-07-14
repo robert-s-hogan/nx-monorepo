@@ -4,6 +4,8 @@ import type Konva from 'konva';
 import { useStore } from '../../store/useStore';
 import TokenLayer from './TokenLayer';
 import StructureLayer from './StructureLayer';
+import GridLayer from './GridLayer';
+import { snapToGridCenter, snapToGridLine } from '../../lib/grid';
 import type { GameMap } from '../../types';
 
 const MIN_SCALE = 0.3;
@@ -28,9 +30,16 @@ export default function MapCanvas({
   onSelectStructure,
   canEdit,
 }: MapCanvasProps) {
-  const { tokens, broadcastTokenDrag, commitTokenPosition, structures, commitStructurePosition } =
-    useStore();
+  const {
+    tokens,
+    characters,
+    broadcastTokenDrag,
+    commitTokenPosition,
+    structures,
+    commitStructurePosition,
+  } = useStore();
   const [scale, setScale] = useState(1);
+  const [showGrid, setShowGrid] = useState(true);
 
   const handleWheel = (e: Konva.KonvaEventObject<WheelEvent>) => {
     e.evt.preventDefault();
@@ -50,28 +59,42 @@ export default function MapCanvas({
       >
         <Layer>
           <Rect x={0} y={0} width={map.width} height={map.height} fill="#1c1917" />
+          {showGrid && <GridLayer width={map.width} height={map.height} />}
           <StructureLayer
             structures={structures}
             selectedStructureId={selectedStructureId}
             onSelect={onSelectStructure}
-            onDragEnd={(structureId, x, y) => commitStructurePosition(map.id, structureId, x, y)}
+            onDragEnd={(structureId, x, y) =>
+              commitStructurePosition(map.id, structureId, snapToGridLine(x), snapToGridLine(y))
+            }
             canEdit={canEdit}
           />
           <TokenLayer
             tokens={tokens}
+            characters={characters}
             selectedAttackerId={selectedAttackerId}
             selectedDefenderId={selectedDefenderId}
             onSelect={onSelectToken}
             onDragMove={broadcastTokenDrag}
-            onDragEnd={(tokenId, x, y) => commitTokenPosition(map.id, tokenId, x, y)}
+            onDragEnd={(tokenId, x, y) =>
+              commitTokenPosition(map.id, tokenId, snapToGridCenter(x), snapToGridCenter(y))
+            }
             canEdit={canEdit}
           />
         </Layer>
       </Stage>
-      <p className="text-xs text-stone-600 px-3 py-1.5 border-t border-stone-800">
-        Scroll to zoom, drag background to pan, drag a token to move it. Click a token to select
-        attacker, then defender.
-      </p>
+      <div className="flex items-center justify-between px-3 py-1.5 border-t border-stone-800">
+        <p className="text-xs text-stone-600">
+          Scroll to zoom, drag background to pan, drag a token to move it. Click a token to select
+          attacker, then defender.
+        </p>
+        <button
+          onClick={() => setShowGrid((g) => !g)}
+          className="text-xs text-stone-500 hover:text-stone-300 border border-stone-700 hover:border-stone-600 rounded px-2 py-0.5 transition-colors shrink-0 ml-2"
+        >
+          {showGrid ? 'Hide grid' : 'Show grid'}
+        </button>
+      </div>
     </div>
   );
 }

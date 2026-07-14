@@ -130,7 +130,7 @@ export default function CharacterCard({ character, compact = false, onRemoveFrom
         </div>
 
         {/* Core stats row */}
-        <div className="grid grid-cols-3 divide-x divide-stone-700 border-b border-stone-700 bg-stone-900">
+        <div className="grid grid-cols-4 divide-x divide-stone-700 border-b border-stone-700 bg-stone-900">
           {/* AC */}
           <div className="flex flex-col items-center py-3">
             <span className="text-xs font-bold uppercase text-stone-500">AC</span>
@@ -138,6 +138,13 @@ export default function CharacterCard({ character, compact = false, onRemoveFrom
             {effectiveAC !== character.armor_class && (
               <span className="text-[10px] text-stone-500">base {character.armor_class}</span>
             )}
+          </div>
+
+          {/* Speed */}
+          <div className="flex flex-col items-center py-3">
+            <span className="text-xs font-bold uppercase text-stone-500">Speed</span>
+            <span className="text-2xl font-bold text-stone-100">{character.speed ?? 30}</span>
+            <span className="text-[10px] text-stone-500">ft</span>
           </div>
 
           {/* HP */}

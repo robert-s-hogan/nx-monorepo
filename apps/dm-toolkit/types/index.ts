@@ -86,6 +86,9 @@ export interface Character {
   status_effects?: StatusEffect[];
   image_url?: string;
   boss?: BossConfig | null;
+  // Feet per turn. Optional since existing characters predate this field —
+  // read with a `?? 30` fallback (5e default) rather than assuming present.
+  speed?: number;
 }
 
 export interface Session {
