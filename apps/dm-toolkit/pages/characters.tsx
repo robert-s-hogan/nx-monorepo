@@ -4,6 +4,47 @@ import UploadArea from '../components/UploadArea';
 import CharacterCard from '../components/CharacterCard';
 import { useStore } from '../store/useStore';
 import DMToolkitLayout from '../components/DMToolkitLayout';
+import type { Character } from '../types';
+
+interface CharacterRowProps {
+  char: Character;
+  selected: boolean;
+  canEdit: boolean;
+  onSelect: () => void;
+  onRemove: () => void;
+}
+
+function CharacterRow({ char, selected, canEdit, onSelect, onRemove }: CharacterRowProps) {
+  return (
+    <div
+      onClick={onSelect}
+      className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-colors ${
+        selected
+          ? 'bg-green-950 border border-green-700'
+          : 'bg-stone-900 border border-stone-700 hover:border-stone-600'
+      }`}
+    >
+      <div>
+        <span className="text-sm font-medium text-stone-200">{char.name}</span>
+        <span className="ml-2 text-xs text-stone-500">
+          {char.class} Lv{char.level}
+        </span>
+      </div>
+      {canEdit && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onRemove();
+          }}
+          className="text-stone-600 hover:text-red-400 text-sm transition-colors ml-2"
+          title="Delete character"
+        >
+          ✕
+        </button>
+      )}
+    </div>
+  );
+}
 
 function Characters() {
   const { role } = useAuth();
@@ -12,6 +53,8 @@ function Characters() {
   const [previewId, setPreviewId] = useState<string | null>(null);
 
   const preview = previewId ? characters.find((c) => c.id === previewId) ?? null : null;
+  const pcs = characters.filter((c) => (c.character_type ?? 'pc') === 'pc');
+  const npcs = characters.filter((c) => c.character_type === 'npc');
 
   // Manual, on-demand backup of the roster — re-importable via UploadArea's
   // "Upload File" (id/random_skills on each entry are ignored on re-add, so
@@ -56,39 +99,52 @@ function Characters() {
                     Export All
                   </button>
                 </div>
-                <div className="space-y-1">
-                  {characters.map((char) => (
-                    <div
-                      key={char.id}
-                      onClick={() => setPreviewId(char.id === previewId ? null : char.id)}
-                      className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-colors ${
-                        char.id === previewId
-                          ? 'bg-green-950 border border-green-700'
-                          : 'bg-stone-900 border border-stone-700 hover:border-stone-600'
-                      }`}
-                    >
-                      <div>
-                        <span className="text-sm font-medium text-stone-200">{char.name}</span>
-                        <span className="ml-2 text-xs text-stone-500">
-                          {char.class} Lv{char.level}
-                        </span>
-                      </div>
-                      {canEdit && (
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
+
+                {pcs.length > 0 && (
+                  <div className="mb-3">
+                    <p className="text-[10px] font-bold uppercase text-stone-600 mb-1.5">
+                      Party ({pcs.length})
+                    </p>
+                    <div className="space-y-1">
+                      {pcs.map((char) => (
+                        <CharacterRow
+                          key={char.id}
+                          char={char}
+                          selected={char.id === previewId}
+                          canEdit={canEdit}
+                          onSelect={() => setPreviewId(char.id === previewId ? null : char.id)}
+                          onRemove={() => {
                             if (previewId === char.id) setPreviewId(null);
                             removeCharacter(char.id);
                           }}
-                          className="text-stone-600 hover:text-red-400 text-sm transition-colors ml-2"
-                          title="Delete character"
-                        >
-                          ✕
-                        </button>
-                      )}
+                        />
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                )}
+
+                {npcs.length > 0 && (
+                  <div>
+                    <p className="text-[10px] font-bold uppercase text-stone-600 mb-1.5">
+                      NPCs ({npcs.length})
+                    </p>
+                    <div className="space-y-1">
+                      {npcs.map((char) => (
+                        <CharacterRow
+                          key={char.id}
+                          char={char}
+                          selected={char.id === previewId}
+                          canEdit={canEdit}
+                          onSelect={() => setPreviewId(char.id === previewId ? null : char.id)}
+                          onRemove={() => {
+                            if (previewId === char.id) setPreviewId(null);
+                            removeCharacter(char.id);
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>

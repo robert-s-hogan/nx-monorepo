@@ -83,7 +83,7 @@ export default function TokenLayer({
             <Circle radius={TOKEN_RADIUS + 3} fill={ringColor} opacity={0.9} />
             <Circle
               radius={TOKEN_RADIUS}
-              fill={token.character_id ? '#4a5e2a' : '#7a2a2a'}
+              fill={token.side === 'ally' ? '#4a5e2a' : '#7a2a2a'}
               stroke="#292524"
               strokeWidth={2}
             />

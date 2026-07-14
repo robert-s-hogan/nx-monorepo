@@ -59,6 +59,7 @@ export async function spawnBossToken(
     hp_current: hp_max,
     hp_max,
     armor_class,
+    side: 'enemy',
     updated_at: new Date().toISOString(),
   });
 }

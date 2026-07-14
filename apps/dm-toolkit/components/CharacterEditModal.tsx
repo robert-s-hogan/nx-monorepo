@@ -36,6 +36,7 @@ interface Draft {
   ability_categories: AbilityCategory[];
   status_effects: StatusEffect[];
   boss: BossConfig | null;
+  character_type: 'pc' | 'npc';
 }
 
 const STATUS_BADGE: Record<StatusEffect['type'], string> = {
@@ -64,6 +65,7 @@ export default function CharacterEditModal({ character, onClose }: Props) {
     })),
     status_effects: [...(character.status_effects ?? [])],
     boss: character.boss ?? null,
+    character_type: character.character_type ?? 'pc',
   });
 
   // Ability editing
@@ -201,7 +203,29 @@ export default function CharacterEditModal({ character, onClose }: Props) {
 
           {/* ══ CORE DETAILS ══════════════════════════════════════════════════ */}
           <section>
-            <p className={sectionHeading}>Core Details</p>
+            <div className="flex justify-between items-center mb-3">
+              <p className={sectionHeading.replace('mb-3', '')}>Core Details</p>
+              <div className="flex rounded-lg border border-stone-600 overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => setField('character_type', 'pc')}
+                  className={`px-3 py-1 text-xs transition-colors ${
+                    draft.character_type === 'pc' ? 'bg-green-800 text-green-100' : 'bg-stone-800 text-stone-500'
+                  }`}
+                >
+                  PC
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setField('character_type', 'npc')}
+                  className={`px-3 py-1 text-xs transition-colors ${
+                    draft.character_type === 'npc' ? 'bg-stone-600 text-stone-100' : 'bg-stone-800 text-stone-500'
+                  }`}
+                >
+                  NPC
+                </button>
+              </div>
+            </div>
             <div className="grid grid-cols-3 gap-3 mb-3">
               <div className="col-span-2">
                 <label className="block text-[10px] text-stone-500 mb-1">Name</label>
@@ -472,7 +496,10 @@ export default function CharacterEditModal({ character, onClose }: Props) {
             )}
           </section>
 
-          {/* ══ ABILITY CATEGORIES ════════════════════════════════════════════ */}
+          {/* ══ ABILITY CATEGORIES ════════════════════════════════════════════
+              PC-only — a monster/NPC stat block has no use for this homebrew
+              category/ability/stamina-cost mechanic. */}
+          {draft.character_type === 'pc' && (
           <section>
             <p className={sectionHeading}>Ability Categories</p>
             <div className="space-y-3">
@@ -604,6 +631,7 @@ export default function CharacterEditModal({ character, onClose }: Props) {
               </button>
             )}
           </section>
+          )}
         </div>
 
         {/* Footer */}

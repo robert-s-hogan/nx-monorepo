@@ -2,8 +2,31 @@ import { useState } from 'react';
 import { useStore } from '../../store/useStore';
 import { meleeAttackModifier, formatModifier } from '../../lib/dice';
 import DiePicker from './DiePicker';
+import type { Character, CharacterStats } from '../../types';
 
 const DAMAGE_DICE = [4, 6, 8, 10, 12];
+
+const BLANK_STATS: CharacterStats = { str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10 };
+
+// Minimal NPC preset — only the fields a reusable monster stat block
+// actually needs (name/hp/ac/speed). The rest are filled with harmless
+// defaults since Character requires them, but they're PC-only mechanics
+// (ability categories, stamina) an NPC has no use for.
+function blankNpc(name: string, hp: number, ac: number, speed: number): Omit<Character, 'id' | 'random_skills'> {
+  return {
+    name,
+    class: 'NPC',
+    level: 1,
+    background: '',
+    stats: BLANK_STATS,
+    armor_class: ac,
+    speed,
+    hit_points: { max: hp, current: hp },
+    stamina: { max: 0, current: 0 },
+    ability_categories: [],
+    character_type: 'npc',
+  };
+}
 
 interface AttackControlsProps {
   mapId: string;
@@ -18,11 +41,13 @@ export default function AttackControls({
   selectedDefenderId,
   onClearSelection,
 }: AttackControlsProps) {
-  const { characters, tokens, addToken, removeToken, attack, spawnBossOnMap } = useStore();
+  const { characters, tokens, addToken, addCharacter, removeToken, attack, spawnBossOnMap } = useStore();
   const [enemyName, setEnemyName] = useState('');
   const [enemyHp, setEnemyHp] = useState('10');
   const [enemyAc, setEnemyAc] = useState('12');
   const [selectedCharacterId, setSelectedCharacterId] = useState('');
+  const [selectedNpcId, setSelectedNpcId] = useState('');
+  const [npcSide, setNpcSide] = useState<'ally' | 'enemy'>('enemy');
   const [selectedBossId, setSelectedBossId] = useState('');
   const [spawningBoss, setSpawningBoss] = useState(false);
   const [attacking, setAttacking] = useState(false);
@@ -30,7 +55,15 @@ export default function AttackControls({
   const [damageRollInput, setDamageRollInput] = useState('');
   const [damageDieSides, setDamageDieSides] = useState(8);
 
+  const [addingNpc, setAddingNpc] = useState(false);
+  const [newNpcName, setNewNpcName] = useState('');
+  const [newNpcHp, setNewNpcHp] = useState('10');
+  const [newNpcAc, setNewNpcAc] = useState('12');
+  const [newNpcSpeed, setNewNpcSpeed] = useState('30');
+
   const bossCharacters = characters.filter((c) => c.boss);
+  const pcCharacters = characters.filter((c) => (c.character_type ?? 'pc') === 'pc');
+  const npcCharacters = characters.filter((c) => c.character_type === 'npc');
 
   const attackerToken = tokens.find((t) => t.id === selectedAttackerId) ?? null;
   const defenderToken = tokens.find((t) => t.id === selectedDefenderId) ?? null;
@@ -59,8 +92,43 @@ export default function AttackControls({
       hp_current: character.hit_points.current,
       hp_max: character.hit_points.max,
       armor_class: character.armor_class,
+      side: 'ally',
     });
     setSelectedCharacterId('');
+  };
+
+  // The same reusable NPC (e.g. "Goblin") gets spawned as either side
+  // depending on the session — side is chosen here, not fixed on the
+  // character record.
+  const handleAddNpcToken = () => {
+    const character = characters.find((c) => c.id === selectedNpcId);
+    if (!character) return;
+    addToken(mapId, {
+      character_id: character.id,
+      label: character.name,
+      x: 100 + Math.random() * 200,
+      y: 100 + Math.random() * 200,
+      hidden: false,
+      hp_current: character.hit_points.current,
+      hp_max: character.hit_points.max,
+      armor_class: character.armor_class,
+      side: npcSide,
+    });
+    setSelectedNpcId('');
+  };
+
+  const handleCreateNpc = async () => {
+    const name = newNpcName.trim();
+    if (!name) return;
+    const hp = parseInt(newNpcHp, 10) || 10;
+    const ac = parseInt(newNpcAc, 10) || 10;
+    const speed = parseInt(newNpcSpeed, 10) || 30;
+    await addCharacter(blankNpc(name, hp, ac, speed));
+    setNewNpcName('');
+    setNewNpcHp('10');
+    setNewNpcAc('12');
+    setNewNpcSpeed('30');
+    setAddingNpc(false);
   };
 
   const handleAddEnemyToken = () => {
@@ -77,6 +145,7 @@ export default function AttackControls({
       hp_current: hp,
       hp_max: hp,
       armor_class: ac,
+      side: 'enemy',
     });
     setEnemyName('');
   };
@@ -119,7 +188,7 @@ export default function AttackControls({
             className="flex-1 bg-stone-950 border border-stone-700 rounded-lg px-2 py-1.5 text-sm text-stone-300"
           >
             <option value="">Select character…</option>
-            {characters.map((c) => (
+            {pcCharacters.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name}
               </option>
@@ -133,11 +202,110 @@ export default function AttackControls({
             Add
           </button>
         </div>
+
+        {/* NPCs — reused across sessions as either side since there are
+            only ~15-20 physical miniatures to go around. */}
+        <div className="flex gap-2 mb-2">
+          <select
+            value={selectedNpcId}
+            onChange={(e) => setSelectedNpcId(e.target.value)}
+            className="flex-1 bg-stone-950 border border-stone-700 rounded-lg px-2 py-1.5 text-sm text-stone-300"
+          >
+            <option value="">Select NPC…</option>
+            {npcCharacters.map((c) => (
+              <option key={c.id} value={c.id}>
+                {c.name} ({c.hit_points.max} HP, AC {c.armor_class})
+              </option>
+            ))}
+          </select>
+          <div className="flex rounded-lg border border-stone-700 overflow-hidden shrink-0">
+            <button
+              type="button"
+              onClick={() => setNpcSide('ally')}
+              className={`px-2 py-1.5 text-xs transition-colors ${
+                npcSide === 'ally' ? 'bg-green-800 text-green-100' : 'bg-stone-950 text-stone-500 hover:text-stone-300'
+              }`}
+            >
+              Ally
+            </button>
+            <button
+              type="button"
+              onClick={() => setNpcSide('enemy')}
+              className={`px-2 py-1.5 text-xs transition-colors ${
+                npcSide === 'enemy' ? 'bg-red-900 text-red-100' : 'bg-stone-950 text-stone-500 hover:text-stone-300'
+              }`}
+            >
+              Enemy
+            </button>
+          </div>
+          <button
+            onClick={handleAddNpcToken}
+            disabled={!selectedNpcId}
+            className="px-3 py-1.5 bg-stone-700 hover:bg-stone-600 disabled:opacity-40 text-stone-200 text-xs rounded-lg transition-colors"
+          >
+            Add
+          </button>
+        </div>
+
+        {addingNpc ? (
+          <div className="flex gap-2 mb-2 bg-stone-900 border border-stone-700 rounded-lg p-2">
+            <input
+              value={newNpcName}
+              onChange={(e) => setNewNpcName(e.target.value)}
+              placeholder="Name"
+              autoFocus
+              className="flex-1 bg-stone-950 border border-stone-700 rounded-lg px-2 py-1.5 text-sm text-stone-300 placeholder:text-stone-600"
+            />
+            <input
+              type="number"
+              value={newNpcHp}
+              onChange={(e) => setNewNpcHp(e.target.value)}
+              title="HP"
+              className="w-14 bg-stone-950 border border-stone-700 rounded-lg px-2 py-1.5 text-sm text-stone-300"
+            />
+            <input
+              type="number"
+              value={newNpcAc}
+              onChange={(e) => setNewNpcAc(e.target.value)}
+              title="AC"
+              className="w-14 bg-stone-950 border border-stone-700 rounded-lg px-2 py-1.5 text-sm text-stone-300"
+            />
+            <input
+              type="number"
+              step={5}
+              value={newNpcSpeed}
+              onChange={(e) => setNewNpcSpeed(e.target.value)}
+              title="Speed (ft)"
+              className="w-14 bg-stone-950 border border-stone-700 rounded-lg px-2 py-1.5 text-sm text-stone-300"
+            />
+            <button
+              onClick={handleCreateNpc}
+              disabled={!newNpcName.trim()}
+              className="px-3 py-1.5 bg-green-800 hover:bg-green-700 disabled:opacity-40 text-green-100 text-xs rounded-lg transition-colors"
+            >
+              Save
+            </button>
+            <button
+              onClick={() => setAddingNpc(false)}
+              className="px-2 py-1.5 bg-stone-800 border border-stone-700 text-stone-400 text-xs rounded-lg transition-colors"
+            >
+              ✕
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={() => setAddingNpc(true)}
+            className="w-full text-xs py-1 mb-2 border border-dashed border-stone-600 hover:border-amber-700 text-stone-600 hover:text-amber-500 rounded-lg transition-colors"
+          >
+            + New reusable NPC
+          </button>
+        )}
+
         <div className="flex gap-2">
           <input
             value={enemyName}
             onChange={(e) => setEnemyName(e.target.value)}
-            placeholder="Enemy name…"
+            placeholder="One-off enemy name…"
             className="flex-1 bg-stone-950 border border-stone-700 rounded-lg px-2 py-1.5 text-sm text-stone-300 placeholder:text-stone-600"
           />
           <input
@@ -279,6 +447,7 @@ export default function AttackControls({
                 className="flex items-center justify-between px-2 py-1.5 bg-stone-900 border border-stone-700 rounded-lg text-sm text-stone-300"
               >
                 <span>
+                  <span className={t.side === 'ally' ? 'text-green-400' : 'text-red-400'}>●</span>{' '}
                   {t.label} ({t.hp_current}/{t.hp_max} HP, AC {t.armor_class})
                 </span>
                 <button

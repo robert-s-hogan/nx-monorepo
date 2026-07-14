@@ -86,8 +86,13 @@ export default function CharacterCard({ character, compact = false, onRemoveFrom
         {/* Header */}
         <div className="px-5 py-4 flex justify-between items-start" style={{ backgroundColor: '#3a4b20' }}>
           <div>
-            <h2 className="text-xl font-bold text-stone-100 uppercase tracking-widest">
+            <h2 className="text-xl font-bold text-stone-100 uppercase tracking-widest flex items-center gap-2">
               {character.name}
+              {character.character_type === 'npc' && (
+                <span className="text-[10px] font-bold uppercase tracking-wider bg-stone-700 text-stone-300 rounded px-1.5 py-0.5">
+                  NPC
+                </span>
+              )}
             </h2>
             <p className="text-stone-400 text-sm italic">
               {character.class} — Lvl {character.level}

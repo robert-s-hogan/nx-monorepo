@@ -27,6 +27,7 @@ function rowToToken(row: Record<string, unknown>): MapToken {
     hp_current: Number(row.hp_current),
     hp_max: Number(row.hp_max),
     armor_class: Number(row.armor_class),
+    side: row.side as MapToken['side'],
     updated_at: row.updated_at as string,
   };
 }
@@ -86,6 +87,7 @@ export async function insertToken(token: MapToken): Promise<void> {
     hp_current: token.hp_current,
     hp_max: token.hp_max,
     armor_class: token.armor_class,
+    side: token.side,
   });
   if (error) throw error;
 }

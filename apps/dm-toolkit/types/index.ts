@@ -89,6 +89,11 @@ export interface Character {
   // Feet per turn. Optional since existing characters predate this field —
   // read with a `?? 30` fallback (5e default) rather than assuming present.
   speed?: number;
+  // Distinguishes a PC from a reusable NPC/monster stat block (see
+  // MapToken.side for why an NPC's ally/enemy status lives on the token, not
+  // here — the same "Goblin" character gets reused as either across
+  // sessions). Optional/defaults to 'pc' since it predates this field.
+  character_type?: 'pc' | 'npc';
 }
 
 export interface Session {
@@ -161,7 +166,10 @@ export interface GameMap {
 
 // character_id is null for ad-hoc enemy/NPC tokens with no roster Character.
 // hp_current/hp_max/armor_class are denormalized so combat can resolve
-// against a token even when it has no character_id.
+// against a token even when it has no character_id. side is deliberately a
+// token-level property, not derived from the linked character: a reusable
+// NPC character (e.g. "Goblin") can be an ally in one encounter and an enemy
+// in the next, so which side it's on has to be chosen per token placement.
 export interface MapToken {
   id: string;
   map_id: string;
@@ -173,6 +181,7 @@ export interface MapToken {
   hp_current: number;
   hp_max: number;
   armor_class: number;
+  side: 'ally' | 'enemy';
   updated_at: string;
 }
 
