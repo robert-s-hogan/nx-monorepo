@@ -12,6 +12,8 @@ interface TokenLayerProps {
   characters: Character[];
   selectedAttackerId: string | null;
   selectedDefenderId: string | null;
+  currentTurnTokenId: string | null;
+  nextTurnTokenId: string | null;
   onSelect: (tokenId: string) => void;
   onDragMove: (tokenId: string, x: number, y: number) => void;
   onDragEnd: (tokenId: string, x: number, y: number) => void;
@@ -23,6 +25,8 @@ export default function TokenLayer({
   characters,
   selectedAttackerId,
   selectedDefenderId,
+  currentTurnTokenId,
+  nextTurnTokenId,
   onSelect,
   onDragMove,
   onDragEnd,
@@ -62,6 +66,8 @@ export default function TokenLayer({
         const isAttacker = token.id === selectedAttackerId;
         const isDefender = token.id === selectedDefenderId;
         const ringColor = isAttacker ? '#facc15' : isDefender ? '#ef4444' : 'transparent';
+        const isCurrentTurn = token.id === currentTurnTokenId;
+        const isNextTurn = token.id === nextTurnTokenId;
 
         const character = characters.find((c) => c.id === token.character_id) ?? null;
         const speed = character?.speed ?? DEFAULT_SPEED_FT;
@@ -83,10 +89,32 @@ export default function TokenLayer({
             <Circle radius={TOKEN_RADIUS + 3} fill={ringColor} opacity={0.9} />
             <Circle
               radius={TOKEN_RADIUS}
-              fill={token.side === 'ally' ? '#4a5e2a' : '#7a2a2a'}
+              fill={token.side === 'ally' ? '#4a5e2a' : token.side === 'neutral' ? '#4a2a6e' : '#7a2a2a'}
               stroke="#292524"
               strokeWidth={2}
             />
+            {/* Turn-order marker — whose turn it is now (bright, dashed) and
+                who's up next (dimmer, thinner), so the DM doesn't have to
+                cross-reference the ActivityLog banner while looking at the
+                board. Only rendered while combat is active (see MapCanvas). */}
+            {isCurrentTurn && (
+              <Circle
+                radius={TOKEN_RADIUS + 8}
+                stroke="#38bdf8"
+                strokeWidth={3}
+                dash={[8, 5]}
+                listening={false}
+              />
+            )}
+            {isNextTurn && (
+              <Circle
+                radius={TOKEN_RADIUS + 8}
+                stroke="#a8a29e"
+                strokeWidth={1.5}
+                dash={[4, 5]}
+                listening={false}
+              />
+            )}
             <Text
               text={token.label.slice(0, 2).toUpperCase()}
               fontSize={14}

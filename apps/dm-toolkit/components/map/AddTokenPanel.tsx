@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useStore } from '../../store/useStore';
-import { meleeAttackModifier, formatModifier } from '../../lib/dice';
 import DiePicker from './DiePicker';
+import { generateEnemyDraft } from '../../lib/rulesets/enemyGen';
 import type { Character, CharacterStats } from '../../types';
 
-const DAMAGE_DICE = [4, 6, 8, 10, 12];
+const HIT_DICE = [6, 8, 10, 12];
 
 const BLANK_STATS: CharacterStats = { str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10 };
 
@@ -28,32 +28,22 @@ function blankNpc(name: string, hp: number, ac: number, speed: number): Omit<Cha
   };
 }
 
-interface AttackControlsProps {
+interface AddTokenPanelProps {
   mapId: string;
-  selectedAttackerId: string | null;
-  selectedDefenderId: string | null;
-  onClearSelection: () => void;
 }
 
-export default function AttackControls({
-  mapId,
-  selectedAttackerId,
-  selectedDefenderId,
-  onClearSelection,
-}: AttackControlsProps) {
-  const { characters, tokens, addToken, addCharacter, removeToken, attack, spawnBossOnMap } = useStore();
+export default function AddTokenPanel({ mapId }: AddTokenPanelProps) {
+  const { characters, tokens, addToken, addCharacter, removeToken, spawnBossOnMap } = useStore();
   const [enemyName, setEnemyName] = useState('');
-  const [enemyHp, setEnemyHp] = useState('10');
+  const [enemyFlavor, setEnemyFlavor] = useState('');
+  const [enemyHpDieSides, setEnemyHpDieSides] = useState(8);
+  const [enemyHpRoll, setEnemyHpRoll] = useState<number | null>(null);
   const [enemyAc, setEnemyAc] = useState('12');
   const [selectedCharacterId, setSelectedCharacterId] = useState('');
   const [selectedNpcId, setSelectedNpcId] = useState('');
-  const [npcSide, setNpcSide] = useState<'ally' | 'enemy'>('enemy');
+  const [npcSide, setNpcSide] = useState<'ally' | 'neutral' | 'enemy'>('enemy');
   const [selectedBossId, setSelectedBossId] = useState('');
   const [spawningBoss, setSpawningBoss] = useState(false);
-  const [attacking, setAttacking] = useState(false);
-  const [attackRollInput, setAttackRollInput] = useState('');
-  const [damageRollInput, setDamageRollInput] = useState('');
-  const [damageDieSides, setDamageDieSides] = useState(8);
 
   const [addingNpc, setAddingNpc] = useState(false);
   const [newNpcName, setNewNpcName] = useState('');
@@ -64,21 +54,6 @@ export default function AttackControls({
   const bossCharacters = characters.filter((c) => c.boss);
   const pcCharacters = characters.filter((c) => (c.character_type ?? 'pc') === 'pc');
   const npcCharacters = characters.filter((c) => c.character_type === 'npc');
-
-  const attackerToken = tokens.find((t) => t.id === selectedAttackerId) ?? null;
-  const defenderToken = tokens.find((t) => t.id === selectedDefenderId) ?? null;
-
-  // Live preview as the DM types in the attacker's physical dice roll —
-  // mirrors the same formula lib/server/combat.ts uses to resolve it, so
-  // "will this hit" is visible before submitting.
-  const attackerCharacter = characters.find((c) => c.id === attackerToken?.character_id) ?? null;
-  const attackMod = meleeAttackModifier(attackerCharacter);
-  const attackRoll = parseInt(attackRollInput, 10);
-  const hasValidAttackRoll = Number.isInteger(attackRoll) && attackRoll >= 1 && attackRoll <= 20;
-  const previewTotal = hasValidAttackRoll ? attackRoll + attackMod : null;
-  const previewHit =
-    previewTotal !== null && defenderToken ? previewTotal >= defenderToken.armor_class : null;
-  const damageRollValue = damageRollInput ? parseInt(damageRollInput, 10) : null;
 
   const handleAddCharacterToken = () => {
     const character = characters.find((c) => c.id === selectedCharacterId);
@@ -131,23 +106,34 @@ export default function AttackControls({
     setAddingNpc(false);
   };
 
+  // Fills in a flavorful name + description — the HP die and its roll are
+  // left alone since that's a manual step, same "every roll is manual"
+  // convention as the attack roll.
+  const handleGenerateEnemy = () => {
+    const draft = generateEnemyDraft();
+    setEnemyName(draft.name);
+    setEnemyFlavor(draft.flavor);
+  };
+
   const handleAddEnemyToken = () => {
     const name = enemyName.trim();
-    if (!name) return;
-    const hp = parseInt(enemyHp, 10) || 10;
+    if (!name || enemyHpRoll === null) return;
     const ac = parseInt(enemyAc, 10) || 10;
     addToken(mapId, {
       character_id: null,
       label: name,
+      flavor_text: enemyFlavor.trim() || null,
       x: 100 + Math.random() * 200,
       y: 100 + Math.random() * 200,
       hidden: false,
-      hp_current: hp,
-      hp_max: hp,
+      hp_current: enemyHpRoll,
+      hp_max: enemyHpRoll,
       armor_class: ac,
       side: 'enemy',
     });
     setEnemyName('');
+    setEnemyFlavor('');
+    setEnemyHpRoll(null);
   };
 
   const handleSpawnBoss = async () => {
@@ -161,22 +147,8 @@ export default function AttackControls({
     }
   };
 
-  const handleAttack = async () => {
-    if (!selectedAttackerId || !selectedDefenderId || !hasValidAttackRoll) return;
-    const damageRoll = previewHit ? parseInt(damageRollInput, 10) || 0 : 0;
-    setAttacking(true);
-    try {
-      await attack(mapId, selectedAttackerId, selectedDefenderId, attackRoll, damageRoll);
-      setAttackRollInput('');
-      setDamageRollInput('');
-      onClearSelection();
-    } finally {
-      setAttacking(false);
-    }
-  };
-
   return (
-    <div className="bg-stone-800 border border-stone-700 rounded-xl p-5 space-y-4">
+    <div className="space-y-4">
       <div>
         <h3 className="text-xs font-bold uppercase text-stone-500 tracking-wider mb-2">
           Add Token
@@ -227,6 +199,15 @@ export default function AttackControls({
               }`}
             >
               Ally
+            </button>
+            <button
+              type="button"
+              onClick={() => setNpcSide('neutral')}
+              className={`px-2 py-1.5 text-xs transition-colors ${
+                npcSide === 'neutral' ? 'bg-violet-800 text-violet-100' : 'bg-stone-950 text-stone-500 hover:text-stone-300'
+              }`}
+            >
+              Neutral
             </button>
             <button
               type="button"
@@ -301,34 +282,63 @@ export default function AttackControls({
           </button>
         )}
 
-        <div className="flex gap-2">
-          <input
-            value={enemyName}
-            onChange={(e) => setEnemyName(e.target.value)}
-            placeholder="One-off enemy name…"
-            className="flex-1 bg-stone-950 border border-stone-700 rounded-lg px-2 py-1.5 text-sm text-stone-300 placeholder:text-stone-600"
-          />
-          <input
-            type="number"
-            value={enemyHp}
-            onChange={(e) => setEnemyHp(e.target.value)}
-            title="HP"
-            className="w-16 bg-stone-950 border border-stone-700 rounded-lg px-2 py-1.5 text-sm text-stone-300"
-          />
-          <input
-            type="number"
-            value={enemyAc}
-            onChange={(e) => setEnemyAc(e.target.value)}
-            title="AC"
-            className="w-16 bg-stone-950 border border-stone-700 rounded-lg px-2 py-1.5 text-sm text-stone-300"
-          />
-          <button
-            onClick={handleAddEnemyToken}
-            disabled={!enemyName.trim()}
-            className="px-3 py-1.5 bg-red-900 hover:bg-red-800 disabled:opacity-40 text-red-100 text-xs rounded-lg transition-colors"
-          >
-            Add
-          </button>
+        <div className="space-y-1.5">
+          <div className="flex gap-2">
+            <input
+              value={enemyName}
+              onChange={(e) => setEnemyName(e.target.value)}
+              placeholder="One-off enemy name…"
+              className="flex-1 bg-stone-950 border border-stone-700 rounded-lg px-2 py-1.5 text-sm text-stone-300 placeholder:text-stone-600"
+            />
+            <button
+              type="button"
+              onClick={handleGenerateEnemy}
+              title="Generate a random name + flavor"
+              className="px-2.5 py-1.5 bg-stone-700 hover:bg-stone-600 text-stone-200 text-xs rounded-lg transition-colors"
+            >
+              🎲
+            </button>
+          </div>
+          {enemyFlavor && <p className="text-xs text-stone-500 italic">{enemyFlavor}</p>}
+          <div className="flex gap-2 items-center">
+            <DiePicker sides={enemyHpDieSides} value={enemyHpRoll} onSelect={setEnemyHpRoll} />
+            <div className="flex gap-1">
+              {HIT_DICE.map((sides) => (
+                <button
+                  key={sides}
+                  type="button"
+                  onClick={() => {
+                    setEnemyHpDieSides(sides);
+                    setEnemyHpRoll(null);
+                  }}
+                  className={`px-1.5 py-0.5 rounded text-[10px] font-mono transition-colors ${
+                    enemyHpDieSides === sides
+                      ? 'bg-stone-700 text-stone-200'
+                      : 'text-stone-600 hover:text-stone-400'
+                  }`}
+                >
+                  d{sides}
+                </button>
+              ))}
+            </div>
+            <span className="text-xs text-stone-500">
+              {enemyHpRoll !== null ? `${enemyHpRoll} HP` : 'roll HP'}
+            </span>
+            <input
+              type="number"
+              value={enemyAc}
+              onChange={(e) => setEnemyAc(e.target.value)}
+              title="AC"
+              className="w-14 ml-auto bg-stone-950 border border-stone-700 rounded-lg px-2 py-1.5 text-sm text-stone-300"
+            />
+            <button
+              onClick={handleAddEnemyToken}
+              disabled={!enemyName.trim() || enemyHpRoll === null}
+              className="px-3 py-1.5 bg-red-900 hover:bg-red-800 disabled:opacity-40 text-red-100 text-xs rounded-lg transition-colors"
+            >
+              Add
+            </button>
+          </div>
         </div>
 
         {bossCharacters.length > 0 && (
@@ -356,85 +366,6 @@ export default function AttackControls({
         )}
       </div>
 
-      <div>
-        <h3 className="text-xs font-bold uppercase text-stone-500 tracking-wider mb-2">Attack</h3>
-        <div className="text-sm text-stone-400 space-y-1 mb-2">
-          <p>
-            Attacker:{' '}
-            <span className="text-amber-400">{attackerToken?.label ?? 'click a token'}</span>
-            {attackerToken && <span className="text-stone-600"> (mod {formatModifier(attackMod)})</span>}
-          </p>
-          <p>
-            Defender:{' '}
-            <span className="text-red-400">{defenderToken?.label ?? 'click a token'}</span>
-            {defenderToken && <span className="text-stone-600"> (AC {defenderToken.armor_class})</span>}
-          </p>
-        </div>
-
-        <div className="flex gap-2 items-start mb-2">
-          <DiePicker
-            sides={20}
-            value={hasValidAttackRoll ? attackRoll : null}
-            onSelect={(v) => setAttackRollInput(String(v))}
-          />
-
-          <div>
-            <DiePicker
-              sides={damageDieSides}
-              value={damageRollValue}
-              onSelect={(v) => setDamageRollInput(String(v))}
-              disabled={previewHit === false}
-            />
-            <div className="flex gap-1 mt-1">
-              {DAMAGE_DICE.map((sides) => (
-                <button
-                  key={sides}
-                  type="button"
-                  onClick={() => {
-                    setDamageDieSides(sides);
-                    setDamageRollInput('');
-                  }}
-                  className={`px-1.5 py-0.5 rounded text-[10px] font-mono transition-colors ${
-                    damageDieSides === sides
-                      ? 'bg-stone-700 text-stone-200'
-                      : 'text-stone-600 hover:text-stone-400'
-                  }`}
-                >
-                  d{sides}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex-1 flex items-center text-xs h-9">
-            {hasValidAttackRoll ? (
-              <span className={previewHit ? 'text-green-400' : 'text-stone-500'}>
-                {attackRoll} {formatModifier(attackMod)} = {previewTotal}
-                {defenderToken ? (previewHit ? ' — HIT' : ' — MISS') : ''}
-              </span>
-            ) : (
-              <span className="text-stone-600">click the d20 for the attacker&apos;s roll</span>
-            )}
-          </div>
-        </div>
-
-        <div className="flex gap-2">
-          <button
-            onClick={handleAttack}
-            disabled={!attackerToken || !defenderToken || !hasValidAttackRoll || attacking}
-            className="flex-1 px-3 py-2 bg-red-800 hover:bg-red-700 disabled:opacity-40 text-red-100 text-sm font-bold rounded-lg transition-colors"
-          >
-            {attacking ? 'Resolving…' : 'Resolve Attack'}
-          </button>
-          <button
-            onClick={onClearSelection}
-            className="px-3 py-2 bg-stone-900 border border-stone-700 text-stone-400 text-sm rounded-lg transition-colors hover:border-stone-600"
-          >
-            Clear
-          </button>
-        </div>
-      </div>
-
       {tokens.length > 0 && (
         <div>
           <h3 className="text-xs font-bold uppercase text-stone-500 tracking-wider mb-2">
@@ -447,8 +378,19 @@ export default function AttackControls({
                 className="flex items-center justify-between px-2 py-1.5 bg-stone-900 border border-stone-700 rounded-lg text-sm text-stone-300"
               >
                 <span>
-                  <span className={t.side === 'ally' ? 'text-green-400' : 'text-red-400'}>●</span>{' '}
+                  <span
+                    className={
+                      t.side === 'ally'
+                        ? 'text-green-400'
+                        : t.side === 'neutral'
+                        ? 'text-violet-400'
+                        : 'text-red-400'
+                    }
+                  >
+                    ●
+                  </span>{' '}
                   {t.label} ({t.hp_current}/{t.hp_max} HP, AC {t.armor_class})
+                  {t.flavor_text && <span className="block text-xs text-stone-500 italic">{t.flavor_text}</span>}
                 </span>
                 <button
                   onClick={() => removeToken(mapId, t.id)}

@@ -4,8 +4,8 @@
 import { fetchCheckWithOutcomes, insertStructureEvent } from './structures';
 import { fetchTokensForMap, updateTokenHp, insertToken } from './maps';
 import { fetchCharacterById } from './characters';
-import { rollD20, rollDiceExpression, skillModifier } from '../dice';
-import type { Character, StructureEvent, StructureOutcome } from '../../types';
+import { skillModifier } from '../dice';
+import type { Character, StructureEvent, StructureOutcome, StructureRollPreview } from '../../types';
 
 // Tokens with no character_id (ad-hoc enemies/structures-as-tokens) have no
 // stats to scale from, so party level defaults to 1 when the map has no
@@ -64,43 +64,87 @@ export async function spawnBossToken(
   });
 }
 
+// How far margin (total - DC) shifts before a tier's worst/best authored
+// variant is fully favored — tune here rather than by count-specific
+// thresholds, so any number of authored variants per tier buckets sensibly.
+const MARGIN_SPAN = 10;
+
+// Deterministically picks which of a tier's authored variants a roll lands
+// on, graduated by how far the roll's margin (total - DC) is from the pass
+// line — a deep fail lands on the worst-authored fail variant (band_order
+// 0), a narrow miss on the mildest one, and symmetrically for success. Ties
+// (equal band_order, or a single variant) just return that variant.
+function bandIndex(tier: StructureOutcome['tier'], margin: number, count: number): number {
+  if (count <= 1) return 0;
+  const isFailSide = tier === 'fail' || tier === 'crit_fail';
+  const clamped = Math.max(-MARGIN_SPAN, Math.min(MARGIN_SPAN, margin));
+  const t = isFailSide ? (clamped + MARGIN_SPAN) / MARGIN_SPAN : clamped / MARGIN_SPAN;
+  return Math.min(count - 1, Math.max(0, Math.floor(t * count)));
+}
+
 // Falls back to the base tier when a structure has no dedicated crit outcome
 // authored (crit_success -> success, crit_fail -> fail) so a DM can skip
 // writing every tier for every check.
-function pickOutcome(outcomes: StructureOutcome[], tier: StructureOutcome['tier']): StructureOutcome | null {
-  const exact = outcomes.find((o) => o.tier === tier);
-  if (exact) return exact;
+function pickOutcome(
+  outcomes: StructureOutcome[],
+  tier: StructureOutcome['tier'],
+  margin: number
+): StructureOutcome | null {
+  const atTier = outcomes.filter((o) => o.tier === tier).sort((a, b) => a.band_order - b.band_order);
+  if (atTier.length > 0) return atTier[bandIndex(tier, margin, atTier.length)];
+
   const fallbackTier = tier === 'crit_success' ? 'success' : tier === 'crit_fail' ? 'fail' : tier;
-  return outcomes.find((o) => o.tier === fallbackTier) ?? null;
+  const atFallback = outcomes.filter((o) => o.tier === fallbackTier).sort((a, b) => a.band_order - b.band_order);
+  return atFallback.length > 0 ? atFallback[bandIndex(fallbackTier, margin, atFallback.length)] : null;
 }
 
 export async function resolveStructureCheck(
   mapId: string,
   structureId: string,
   checkId: string,
-  characterId: string | null
-): Promise<StructureEvent> {
+  characterId: string | null,
+  rawRoll: number,
+  outcomeId?: string,
+  rawDamageRoll?: number
+): Promise<StructureEvent | StructureRollPreview> {
   const found = await fetchCheckWithOutcomes(checkId);
   if (!found) throw new Error(`Structure check ${checkId} not found`);
   const { check, outcomes } = found;
 
   const character = characterId ? await fetchCharacterById(characterId) : null;
   const mod = character ? skillModifier(check.skill, character.stats) : 0;
-
-  const natRoll = rollD20();
+  const natRoll = rawRoll;
   const total = natRoll + mod;
-  const tier: StructureOutcome['tier'] =
-    natRoll === 1 ? 'crit_fail' : natRoll === 20 ? 'crit_success' : total >= check.dc ? 'success' : 'fail';
 
-  const outcome = pickOutcome(outcomes, tier);
-  if (!outcome) throw new Error(`No outcome authored for check ${checkId} tier ${tier}`);
+  let outcome: StructureOutcome | null;
+
+  if (outcomeId) {
+    // Committing a previously-previewed outcome (the DM has now supplied
+    // the damage roll) — skip tier/outcome selection and use the exact
+    // outcome already shown to them, rather than re-rolling it.
+    outcome = outcomes.find((o) => o.id === outcomeId) ?? null;
+    if (!outcome) throw new Error(`Outcome ${outcomeId} not found for check ${checkId}`);
+  } else {
+    const tier: StructureOutcome['tier'] =
+      natRoll === 1 ? 'crit_fail' : natRoll === 20 ? 'crit_success' : total >= check.dc ? 'success' : 'fail';
+    outcome = pickOutcome(outcomes, tier, total - check.dc);
+    if (!outcome) throw new Error(`No outcome authored for check ${checkId} tier ${tier}`);
+
+    // Damage-bearing outcomes need a second, manually-rolled die whose size
+    // isn't known until this exact outcome is picked — preview it instead
+    // of writing anything, and let the caller resubmit with outcomeId once
+    // they have that roll.
+    if (outcome.damage_dice && rawDamageRoll === undefined) {
+      return { preview: true, tier: outcome.tier, outcome, roll: natRoll, total };
+    }
+  }
 
   let damageDealt: number | null = null;
-  if (outcome.damage_dice && characterId) {
+  if (outcome.damage_dice && characterId && rawDamageRoll !== undefined) {
     const tokens = await fetchTokensForMap(mapId);
     const token = tokens.find((t) => t.character_id === characterId);
     if (token) {
-      damageDealt = rollDiceExpression(outcome.damage_dice);
+      damageDealt = rawDamageRoll;
       await updateTokenHp(token.id, Math.max(0, token.hp_current - damageDealt));
     }
   }

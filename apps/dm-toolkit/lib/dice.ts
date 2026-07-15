@@ -51,6 +51,14 @@ export function rollDiceExpression(expr: string): number {
   return total;
 }
 
+// Returns the side count for a plain single-die expression like "1d8", or
+// null for anything a single DiePicker click can't represent (multi-die,
+// modifiers) — those fall back to a manual number input instead.
+export function diceSidesIfSingleDie(expr: string): number | null {
+  const match = /^1d(\d+)$/i.exec(expr.trim());
+  return match ? parseInt(match[1], 10) : null;
+}
+
 // Maps a 5e skill name to the ability score it's checked against, for
 // structure investigation rolls. Falls back to 'int' for unlisted skills
 // since most investigate-a-structure checks (History, Arcana, Investigation)
@@ -80,11 +88,31 @@ export function skillModifier(skill: string, stats: CharacterStats): number {
   return modifier(stats[ability]);
 }
 
-// Shared by lib/server/combat.ts (authoritative) and AttackControls.tsx (live
+// The skill pool for auto-generated structure checks — reuses the same set
+// skillModifier() already knows how to score, rather than a separate list.
+export const INVESTIGATE_SKILLS = Object.keys(SKILL_ABILITY);
+
+// A small, capped bonus from landing attacks over time — "practice makes
+// perfect" — stacked on top of the STR/DEX modifier rather than touching
+// the character's actual ability scores. +1 every 20 lifetime hits landed,
+// capped at +5 (100 hits) so it stays a flavorful nudge rather than a power
+// spike alongside normal leveling.
+const PRACTICED_HITS_PER_BONUS = 20;
+const PRACTICED_MAX_BONUS = 5;
+
+export function practicedBonus(hitsLanded: number): number {
+  return Math.min(PRACTICED_MAX_BONUS, Math.floor(hitsLanded / PRACTICED_HITS_PER_BONUS));
+}
+
+// Shared by lib/server/combat.ts (authoritative) and AttackPanel.tsx (live
 // hit preview as the DM types in a roll) so both sides of the wire agree on
 // the same number without duplicating the formula. STR/DEX-based, matching
-// the melee-or-finesse assumption combat already made pre-manual-rolls.
-export function meleeAttackModifier(character: { stats: CharacterStats } | null | undefined): number {
+// the melee-or-finesse assumption combat already made pre-manual-rolls, plus
+// the practiced bonus above.
+export function meleeAttackModifier(
+  character: { stats: CharacterStats; hits_landed?: number } | null | undefined
+): number {
   if (!character) return 0;
-  return Math.max(modifier(character.stats.str), modifier(character.stats.dex));
+  const base = Math.max(modifier(character.stats.str), modifier(character.stats.dex));
+  return base + practicedBonus(character.hits_landed ?? 0);
 }

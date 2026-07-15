@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { requireRole } from '@with-nx/auth';
+import { requireRole, getRoleFromRequest } from '@with-nx/auth';
 
 import {
   fetchStructuresForMap,
@@ -15,10 +15,19 @@ export default async function handler(
 ) {
   const mapId = req.query.id as string;
 
-  // GET stays open — it backs the now-public map page.
+  // GET stays open — it backs the now-public map page (including the
+  // no-login preview link). The client already only ever displays
+  // `revealed ? name : '?'` (StructureLayer.tsx), but for a non-family
+  // viewer we now also strip the real name server-side so it never exists
+  // in the payload at all while unrevealed.
   if (req.method === 'GET') {
     const structures = await fetchStructuresForMap(mapId);
-    return res.status(200).json(structures);
+    const role = await getRoleFromRequest(req);
+    const visible =
+      role === 'family'
+        ? structures
+        : structures.map((s) => (s.revealed ? s : { ...s, name: '?' }));
+    return res.status(200).json(visible);
   }
 
   if (!(await requireRole(req, ['family']))) {

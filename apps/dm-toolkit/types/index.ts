@@ -94,6 +94,10 @@ export interface Character {
   // here — the same "Goblin" character gets reused as either across
   // sessions). Optional/defaults to 'pc' since it predates this field.
   character_type?: 'pc' | 'npc';
+  // Lifetime count of attacks this character has landed — backs the
+  // "practiced" attack bonus (see lib/dice.ts). Optional since it predates
+  // this field; read with a `?? 0` fallback.
+  hits_landed?: number;
 }
 
 export interface Session {
@@ -102,6 +106,9 @@ export interface Session {
   active_character_ids: string[];
   created_at: string;
   campaign_id?: string | null;
+  // Which map an anonymous /map?session=<id> preview link should show —
+  // set whenever the DM creates or switches to a map. Null until then.
+  active_map_id?: string | null;
 }
 
 // Only 'dnd5e' is implemented today; the union grows as more systems are added
@@ -162,6 +169,13 @@ export interface GameMap {
   width: number;
   height: number;
   created_at: string;
+  // Turn tracking — turn_order is an ordered list of MapToken ids,
+  // current_turn_index points into it. See lib/server/maps.ts's
+  // startCombat/advanceTurn/endCombat.
+  turn_order: string[];
+  current_turn_index: number;
+  round_number: number;
+  combat_active: boolean;
 }
 
 // character_id is null for ad-hoc enemy/NPC tokens with no roster Character.
@@ -181,8 +195,15 @@ export interface MapToken {
   hp_current: number;
   hp_max: number;
   armor_class: number;
-  side: 'ally' | 'enemy';
+  side: 'ally' | 'enemy' | 'neutral';
   updated_at: string;
+  // The rolled 1d20 + DEX mod total for this token's current turn-order
+  // slot — null until initiative has been rolled for it.
+  initiative?: number | null;
+  // Short generated flavor line for one-off enemies (see
+  // lib/rulesets/enemyGen.ts) — null for character-linked/manually-added
+  // tokens.
+  flavor_text?: string | null;
 }
 
 export interface CombatEvent {
@@ -194,6 +215,19 @@ export interface CombatEvent {
   hit: boolean;
   damage: number;
   defender_hp_after: number;
+  created_at: string;
+}
+
+// One row per committed token move (not every intermediate drag frame) —
+// same denormalized-log role as combat_events/structure_events.
+export interface MovementEvent {
+  id: string;
+  map_id: string;
+  token_id: string;
+  from_x: number;
+  from_y: number;
+  to_x: number;
+  to_y: number;
   created_at: string;
 }
 
@@ -237,12 +271,27 @@ export interface StructureOutcome {
   insight?: string | null;
   item?: StructureItem | null;
   spawns_boss_character_id?: string | null;
+  // Ranks outcomes within the same (check_id, tier) from worst (0) to best,
+  // used to deterministically pick a variant by how far the roll landed
+  // from the DC — see lib/server/structureResolution.ts's pickOutcome.
+  band_order: number;
 }
 
 // A structure_check bundled with all its possible outcomes — the shape used
 // when authoring/displaying a structure in full (StructurePanel).
 export interface StructureCheckWithOutcomes extends StructureCheck {
   outcomes: StructureOutcome[];
+}
+
+// Returned instead of a StructureEvent when the DM still needs to manually
+// roll damage for the resolved outcome — nothing is persisted yet at this
+// point (see lib/server/structureResolution.ts).
+export interface StructureRollPreview {
+  preview: true;
+  tier: OutcomeTier;
+  outcome: StructureOutcome;
+  roll: number;
+  total: number;
 }
 
 // tier/narrative/damage_dealt/insight/item are denormalized from the outcome

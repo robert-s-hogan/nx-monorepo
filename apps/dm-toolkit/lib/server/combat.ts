@@ -7,17 +7,9 @@
 // so a client can't just claim "that was a hit for 40 damage."
 import { db } from './db';
 import { fetchTokenById, updateTokenHp } from './maps';
-import { fetchCharacterById } from './characters';
+import { fetchCharacterById, updateCharacter } from './characters';
 import { meleeAttackModifier } from '../dice';
 import type { CombatEvent } from '../../types';
-
-// Ad-hoc enemy tokens (no character_id) have no STR/DEX to draw an attack
-// modifier from, so they attack at +0 — a deliberate v1 simplification.
-async function attackModifierFor(characterId: string | null | undefined): Promise<number> {
-  if (!characterId) return 0;
-  const character = await fetchCharacterById(characterId);
-  return meleeAttackModifier(character);
-}
 
 export async function resolveAttack(
   mapId: string,
@@ -31,13 +23,29 @@ export async function resolveAttack(
     fetchTokenById(defenderTokenId),
   ]);
 
-  const attackMod = await attackModifierFor(attacker.character_id);
+  // Ad-hoc enemy tokens (no character_id) have no STR/DEX to draw an attack
+  // modifier from, so they attack at +0 with no practiced bonus to track —
+  // a deliberate v1 simplification.
+  const attackerCharacter = attacker.character_id
+    ? await fetchCharacterById(attacker.character_id)
+    : null;
+  const attackMod = meleeAttackModifier(attackerCharacter);
   const roll = rawAttackRoll + attackMod;
   const hit = roll >= defender.armor_class;
   const damage = hit ? Math.max(0, rawDamageRoll + attackMod) : 0;
   const defenderHpAfter = Math.max(0, defender.hp_current - damage);
 
   await updateTokenHp(defenderTokenId, defenderHpAfter);
+
+  // "Practice makes perfect" — a landed hit nudges the attacker's lifetime
+  // count, which meleeAttackModifier already knows how to turn into a
+  // small capped bonus (see lib/dice.ts's practicedBonus).
+  if (hit && attackerCharacter) {
+    await updateCharacter({
+      ...attackerCharacter,
+      hits_landed: (attackerCharacter.hits_landed ?? 0) + 1,
+    });
+  }
 
   const { data, error } = await db
     .from('combat_events')

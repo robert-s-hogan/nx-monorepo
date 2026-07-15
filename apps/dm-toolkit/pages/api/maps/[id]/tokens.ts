@@ -1,10 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { requireRole } from '@with-nx/auth';
+import { requireRole, getRoleFromRequest } from '@with-nx/auth';
 
 import {
   fetchTokensForMap,
   insertToken,
   updateTokenPosition,
+  updateTokenSide,
   deleteTokenById,
 } from '../../../../lib/server/maps';
 import type { MapToken } from '../../../../types';
@@ -15,10 +16,15 @@ export default async function handler(
 ) {
   const mapId = req.query.id as string;
 
-  // GET stays open — it backs the now-public map page.
+  // GET stays open — it backs the now-public map page (including the
+  // no-login preview link) — but hidden tokens are DM-only, so a non-family
+  // viewer (including an anonymous one) never receives them at all, rather
+  // than just having the UI choose not to render them.
   if (req.method === 'GET') {
     const tokens = await fetchTokensForMap(mapId);
-    return res.status(200).json(tokens);
+    const role = await getRoleFromRequest(req);
+    const visible = role === 'family' ? tokens : tokens.filter((t) => !t.hidden);
+    return res.status(200).json(visible);
   }
 
   if (!(await requireRole(req, ['family']))) {
@@ -35,11 +41,26 @@ export default async function handler(
   }
 
   if (req.method === 'PATCH') {
-    const { tokenId, x, y } = req.body as { tokenId: string; x: number; y: number };
-    if (!tokenId || typeof x !== 'number' || typeof y !== 'number') {
-      return res.status(400).json({ error: 'tokenId, x and y are required' });
+    const { tokenId, x, y, side } = req.body as {
+      tokenId: string;
+      x?: number;
+      y?: number;
+      side?: MapToken['side'];
+    };
+    if (!tokenId) {
+      return res.status(400).json({ error: 'tokenId is required' });
     }
-    await updateTokenPosition(tokenId, x, y);
+    if (side !== undefined) {
+      if (!['ally', 'neutral', 'enemy'].includes(side)) {
+        return res.status(400).json({ error: 'side must be ally, neutral, or enemy' });
+      }
+      await updateTokenSide(tokenId, side);
+      return res.status(200).end();
+    }
+    if (typeof x !== 'number' || typeof y !== 'number') {
+      return res.status(400).json({ error: 'x and y are required when side is not set' });
+    }
+    await updateTokenPosition(mapId, tokenId, x, y);
     return res.status(200).end();
   }
 
@@ -48,7 +69,7 @@ export default async function handler(
     if (!tokenId) {
       return res.status(400).json({ error: 'tokenId is required' });
     }
-    await deleteTokenById(tokenId);
+    await deleteTokenById(mapId, tokenId);
     return res.status(204).end();
   }
 

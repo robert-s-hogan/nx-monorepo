@@ -46,6 +46,7 @@ function rowToOutcome(row: Record<string, unknown>): StructureOutcome {
     insight: (row.insight as string) ?? null,
     item: (row.item as StructureOutcome['item']) ?? null,
     spawns_boss_character_id: (row.spawns_boss_character_id as string) ?? null,
+    band_order: (row.band_order as number) ?? 0,
   };
 }
 
@@ -159,6 +160,7 @@ export async function insertCheckWithOutcomes(
         insight: o.insight ?? null,
         item: o.item ?? null,
         spawns_boss_character_id: o.spawns_boss_character_id ?? null,
+        band_order: o.band_order ?? 0,
       }))
     )
     .select('*');

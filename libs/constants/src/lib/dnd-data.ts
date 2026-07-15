@@ -29,6 +29,33 @@ export const dndConditionTypes = [
   'Weakened',
 ];
 
+export const dndConditionDescriptions: Record<string, string> = {
+  Blinded: "can't see, automatically fails sight-based checks",
+  Charmed: "can't attack the charmer, who has advantage on social checks against them",
+  Deafened: "can't hear, automatically fails hearing-based checks",
+  Frightened: "can't willingly move closer to the source of its fear",
+  Grappled: 'speed becomes 0, held in place',
+  Incapacitated: "can't take actions or reactions",
+  Paralyzed: "can't move or speak, fails STR/DEX saves, attacks against it crit if within 5ft",
+  Petrified: 'transformed to stone, incapacitated and unaware of surroundings',
+  Poisoned: 'disadvantage on attack rolls and ability checks',
+  Prone: 'must crawl or spend movement to stand, attackers within 5ft have advantage',
+  Restrained: 'speed 0, disadvantage on attacks and DEX saves',
+  Stunned: "can't move, speak falteringly, fails STR/DEX saves",
+  Unconscious: 'incapacitated, drops what it holds, falls prone',
+  Exhaustion: 'cumulative penalties to ability checks and speed',
+  Bleeding: 'takes damage again at the start of its next turn',
+  Burning: 'catches fire, takes ongoing fire damage',
+  Frozen: "speed halved, can't take reactions",
+  Cursed: 'suffers a lingering magical penalty until the curse is lifted',
+  Enraged: 'must attack the nearest creature on its turn',
+  Entangled: "speed halved, can't take the Dash action",
+  Invisible: "can't be seen without special senses, has advantage on attack rolls",
+  Silenced: "can't cast spells with verbal components",
+  Slowed: 'speed halved',
+  Weakened: 'disadvantage on STR-based checks and attacks',
+};
+
 export const dndLootOptions = [
   'gold',
   'silver',

@@ -1,6 +1,7 @@
 // Ported from apps/conquest/src/app/constants/mapConstants.tsx (data) and
 // hooks/useRandomMapSelection.tsx (logic — reduced from a memoized hook to a
 // plain function since dm-toolkit doesn't need it wrapped in useMemo).
+import { pickRandom } from '../pickRandom';
 
 const ENCOUNTER_OBJECTIVES = [
   'Capture the Flag (/ Hold flag for 2 rounds)',
@@ -32,10 +33,6 @@ const TERRAIN_TYPES = [
 
 const TIME_OF_DAY = ['Night', 'Dawn', 'Day', 'Dusk'];
 const WEATHER_PRESENT = ['Yes', 'No'];
-
-function pickRandom<T>(items: T[]): T {
-  return items[Math.floor(Math.random() * items.length)];
-}
 
 export interface RandomEncounterSetting {
   objective: string;

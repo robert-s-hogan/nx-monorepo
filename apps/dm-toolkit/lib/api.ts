@@ -9,12 +9,14 @@ import type {
   GameMap,
   MapStructure,
   MapToken,
+  MovementEvent,
   RestState,
   Session,
   StructureCheck,
   StructureCheckWithOutcomes,
   StructureEvent,
   StructureOutcome,
+  StructureRollPreview,
 } from '../types';
 
 // useStore's actions are zustand store functions, not React components, so
@@ -77,6 +79,22 @@ export async function createSession(session: Session): Promise<void> {
 
 export async function deleteSessionById(id: string): Promise<void> {
   await request(`/api/sessions/${id}`, { method: 'DELETE' });
+}
+
+// Public — backs the no-login /map?session=<id> preview link, which needs
+// to look up a session's active_map_id with no auth token at all.
+export async function fetchSessionById(id: string): Promise<Session | null> {
+  const res = await fetch(`/api/sessions/${id}`);
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`GET /api/sessions/${id} failed: ${res.status}`);
+  return res.json();
+}
+
+export async function setSessionActiveMap(sessionId: string, mapId: string | null): Promise<void> {
+  await request(`/api/sessions/${sessionId}`, {
+    method: 'PATCH',
+    body: JSON.stringify({ active_map_id: mapId }),
+  });
 }
 
 export async function addCharacterToSession(
@@ -191,6 +209,17 @@ export async function updateTokenPosition(
   });
 }
 
+export async function updateTokenSide(
+  mapId: string,
+  tokenId: string,
+  side: MapToken['side']
+): Promise<void> {
+  await request(`/api/maps/${mapId}/tokens`, {
+    method: 'PATCH',
+    body: JSON.stringify({ tokenId, side }),
+  });
+}
+
 export async function deleteToken(mapId: string, tokenId: string): Promise<void> {
   await request(`/api/maps/${mapId}/tokens`, {
     method: 'DELETE',
@@ -201,6 +230,35 @@ export async function deleteToken(mapId: string, tokenId: string): Promise<void>
 export async function fetchCombatEvents(mapId: string): Promise<CombatEvent[]> {
   const res = await request(`/api/maps/${mapId}/events`);
   return res.json();
+}
+
+export async function fetchMovementEvents(mapId: string): Promise<MovementEvent[]> {
+  const res = await request(`/api/maps/${mapId}/movements`);
+  return res.json();
+}
+
+export async function startCombat(
+  mapId: string,
+  initiative: Record<string, number>
+): Promise<void> {
+  await request(`/api/maps/${mapId}/turn`, {
+    method: 'POST',
+    body: JSON.stringify({ action: 'start', initiative }),
+  });
+}
+
+export async function advanceTurn(mapId: string): Promise<void> {
+  await request(`/api/maps/${mapId}/turn`, {
+    method: 'POST',
+    body: JSON.stringify({ action: 'advance' }),
+  });
+}
+
+export async function endCombat(mapId: string): Promise<void> {
+  await request(`/api/maps/${mapId}/turn`, {
+    method: 'POST',
+    body: JSON.stringify({ action: 'end' }),
+  });
 }
 
 export async function triggerAttack(
@@ -273,11 +331,14 @@ export async function resolveStructureCheck(
   mapId: string,
   structureId: string,
   checkId: string,
-  characterId: string | null
-): Promise<StructureEvent> {
+  characterId: string | null,
+  rawRoll: number,
+  outcomeId?: string,
+  rawDamageRoll?: number
+): Promise<StructureEvent | StructureRollPreview> {
   const res = await request(`/api/structures/${structureId}/resolve`, {
     method: 'POST',
-    body: JSON.stringify({ mapId, checkId, characterId }),
+    body: JSON.stringify({ mapId, checkId, characterId, rawRoll, outcomeId, rawDamageRoll }),
   });
   return res.json();
 }

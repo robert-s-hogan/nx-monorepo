@@ -6,7 +6,7 @@ export async function fetchSessions(): Promise<Session[]> {
   const [sessionsResult, membershipResult] = await Promise.all([
     db
       .from('sessions')
-      .select('id, name, created_at, campaign_id')
+      .select('id, name, created_at, campaign_id, active_map_id')
       .order('created_at', { ascending: true }),
     db.from('session_characters').select('session_id, character_id'),
   ]);
@@ -25,8 +25,32 @@ export async function fetchSessions(): Promise<Session[]> {
     name: r.name as string,
     created_at: r.created_at as string,
     campaign_id: (r.campaign_id as string) ?? null,
+    active_map_id: (r.active_map_id as string) ?? null,
     active_character_ids: membersBySession.get(r.id as string) ?? [],
   }));
+}
+
+export async function fetchSessionById(id: string): Promise<Session | null> {
+  const { data, error } = await db
+    .from('sessions')
+    .select('id, name, created_at, campaign_id, active_map_id')
+    .eq('id', id)
+    .maybeSingle();
+  if (error) throw error;
+  if (!data) return null;
+  return {
+    id: data.id as string,
+    name: data.name as string,
+    created_at: data.created_at as string,
+    campaign_id: (data.campaign_id as string) ?? null,
+    active_map_id: (data.active_map_id as string) ?? null,
+    active_character_ids: [],
+  };
+}
+
+export async function updateActiveMap(sessionId: string, mapId: string | null): Promise<void> {
+  const { error } = await db.from('sessions').update({ active_map_id: mapId }).eq('id', sessionId);
+  if (error) throw error;
 }
 
 export async function insertSession(session: Session): Promise<void> {

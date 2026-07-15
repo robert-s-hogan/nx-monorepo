@@ -41,6 +41,12 @@ export default function MapCanvas({
   const [scale, setScale] = useState(1);
   const [showGrid, setShowGrid] = useState(true);
 
+  const currentTurnTokenId = map.combat_active ? map.turn_order[map.current_turn_index] ?? null : null;
+  const nextTurnTokenId =
+    map.combat_active && map.turn_order.length > 1
+      ? map.turn_order[(map.current_turn_index + 1) % map.turn_order.length] ?? null
+      : null;
+
   const handleWheel = (e: Konva.KonvaEventObject<WheelEvent>) => {
     e.evt.preventDefault();
     const direction = e.evt.deltaY > 0 ? -1 : 1;
@@ -74,6 +80,8 @@ export default function MapCanvas({
             characters={characters}
             selectedAttackerId={selectedAttackerId}
             selectedDefenderId={selectedDefenderId}
+            currentTurnTokenId={currentTurnTokenId}
+            nextTurnTokenId={nextTurnTokenId}
             onSelect={onSelectToken}
             onDragMove={broadcastTokenDrag}
             onDragEnd={(tokenId, x, y) =>

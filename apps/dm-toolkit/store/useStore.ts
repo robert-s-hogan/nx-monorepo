@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
 import { v4 as uuidv4 } from 'uuid';
 import type { RealtimeChannel } from '@supabase/supabase-js';
 import type {
@@ -9,6 +10,7 @@ import type {
   GameMap,
   MapStructure,
   MapToken,
+  MovementEvent,
   RestState,
   Session,
   SessionMode,
@@ -16,6 +18,7 @@ import type {
   StructureCheckWithOutcomes,
   StructureEvent,
   StructureOutcome,
+  StructureRollPreview,
 } from '../types';
 import {
   fetchCharacters,
@@ -36,14 +39,20 @@ import {
   deleteEncounterById,
   fetchRestState,
   saveRestState,
+  setSessionActiveMap as setSessionActiveMapRequest,
   fetchMaps,
   createMap as createMapRequest,
   fetchTokens,
   createToken as createTokenRequest,
   updateTokenPosition as updateTokenPositionRequest,
+  updateTokenSide as updateTokenSideRequest,
   deleteToken as deleteTokenRequest,
   fetchCombatEvents,
   triggerAttack,
+  fetchMovementEvents,
+  startCombat as startCombatRequest,
+  advanceTurn as advanceTurnRequest,
+  endCombat as endCombatRequest,
   fetchStructures,
   createStructure as createStructureRequest,
   deleteStructure as deleteStructureRequest,
@@ -72,6 +81,7 @@ interface AppStore {
   maps: GameMap[];
   tokens: MapToken[];
   combatEvents: CombatEvent[];
+  movementEvents: MovementEvent[];
   structures: MapStructure[];
   // Keyed by structure_id — checks/outcomes are DM-only content, loaded
   // lazily when a structure's panel is opened rather than up front with
@@ -126,7 +136,10 @@ interface AppStore {
   // Map / token / combat actions
   loadMapsForSession: (sessionId: string) => Promise<void>;
   createMap: (sessionId: string, name: string) => Promise<GameMap>;
-  setActiveMap: (id: string | null) => void;
+  // Also persists to the session's active_map_id (see
+  // supabase/migrations/0011_session_active_map.sql) so the no-login
+  // /map?session=<id> preview link knows which map to follow.
+  setActiveMap: (id: string | null) => Promise<void>;
   loadMapData: (mapId: string) => Promise<void>;
   addToken: (
     mapId: string,
@@ -135,6 +148,9 @@ interface AppStore {
   removeToken: (mapId: string, tokenId: string) => Promise<void>;
   moveTokenLocal: (tokenId: string, x: number, y: number) => void;
   commitTokenPosition: (mapId: string, tokenId: string, x: number, y: number) => Promise<void>;
+  // Re-flags an already-placed token — a "backstab" turning an ally
+  // hostile, or just fixing a mis-set side during setup.
+  setTokenSide: (mapId: string, tokenId: string, side: MapToken['side']) => Promise<void>;
   attack: (
     mapId: string,
     attackerTokenId: string,
@@ -145,11 +161,18 @@ interface AppStore {
   subscribeMapRealtime: (mapId: string) => () => void;
   broadcastTokenDrag: (tokenId: string, x: number, y: number) => void;
 
+  // Turn tracking — resolution happens server-side, same pattern as attack/
+  // rollStructureCheck; local state updates via the game_maps Realtime
+  // subscription so every connected client stays in sync.
+  startCombat: (mapId: string, initiative: Record<string, number>) => Promise<void>;
+  advanceTurn: (mapId: string) => Promise<void>;
+  endCombat: (mapId: string) => Promise<void>;
+
   // Structure actions
   addStructure: (
     mapId: string,
     structure: Omit<MapStructure, 'id' | 'map_id' | 'created_at'>
-  ) => Promise<void>;
+  ) => Promise<string>;
   removeStructure: (mapId: string, structureId: string) => Promise<void>;
   commitStructurePosition: (mapId: string, structureId: string, x: number, y: number) => Promise<void>;
   loadStructureChecks: (structureId: string) => Promise<void>;
@@ -162,8 +185,11 @@ interface AppStore {
     mapId: string,
     structureId: string,
     checkId: string,
-    characterId: string | null
-  ) => Promise<StructureEvent>;
+    characterId: string | null,
+    rawRoll: number,
+    outcomeId?: string,
+    rawDamageRoll?: number
+  ) => Promise<StructureEvent | StructureRollPreview>;
   spawnBossOnMap: (mapId: string, characterId: string) => Promise<void>;
 
   // Derived helpers (sync — read from local state)
@@ -172,7 +198,22 @@ interface AppStore {
   getActiveCampaign: () => Campaign | null;
 }
 
-export const useStore = create<AppStore>((set, get) => ({
+// localStorage isn't defined during Next.js SSR — guard so hydrating the
+// store on the server (pages/map.tsx and pages/session.tsx aren't SSR-off)
+// doesn't throw. Real reads/writes only ever happen client-side.
+const sessionStorage = {
+  getItem: (name: string) => (typeof window === 'undefined' ? null : localStorage.getItem(name)),
+  setItem: (name: string, value: string) => {
+    if (typeof window !== 'undefined') localStorage.setItem(name, value);
+  },
+  removeItem: (name: string) => {
+    if (typeof window !== 'undefined') localStorage.removeItem(name);
+  },
+};
+
+export const useStore = create<AppStore>()(
+  persist(
+    (set, get) => ({
   characters: [],
   sessions: [],
   campaigns: [],
@@ -181,6 +222,7 @@ export const useStore = create<AppStore>((set, get) => ({
   maps: [],
   tokens: [],
   combatEvents: [],
+  movementEvents: [],
   structures: [],
   structureChecks: {},
   structureEvents: [],
@@ -421,22 +463,50 @@ export const useStore = create<AppStore>((set, get) => ({
       width: 1000,
       height: 1000,
       created_at: new Date().toISOString(),
+      turn_order: [],
+      current_turn_index: 0,
+      round_number: 1,
+      combat_active: false,
     };
-    set((s) => ({ maps: [...s.maps, map], activeMapId: map.id }));
+    set((s) => ({
+      maps: [...s.maps, map],
+      activeMapId: map.id,
+      // Creating a map already implicitly makes it the active one — update
+      // the local session copy too (not just the server, below), so a
+      // same-render "is this session's active_map_id already correct?"
+      // check (see pages/map.tsx's sync effect) sees fresh data instead of
+      // re-firing on every render.
+      sessions: s.sessions.map((sess) =>
+        sess.id === sessionId ? { ...sess, active_map_id: map.id } : sess
+      ),
+    }));
     await createMapRequest(map);
+    await setSessionActiveMapRequest(sessionId, map.id);
     return map;
   },
 
-  setActiveMap: (id) => set({ activeMapId: id }),
+  setActiveMap: async (id) => {
+    const sessionId = get().activeSessionId;
+    set((s) => ({
+      activeMapId: id,
+      sessions: sessionId
+        ? s.sessions.map((sess) => (sess.id === sessionId ? { ...sess, active_map_id: id } : sess))
+        : s.sessions,
+    }));
+    if (sessionId) {
+      await setSessionActiveMapRequest(sessionId, id);
+    }
+  },
 
   loadMapData: async (mapId) => {
-    const [tokens, combatEvents, structures, structureEvents] = await Promise.all([
+    const [tokens, combatEvents, movementEvents, structures, structureEvents] = await Promise.all([
       fetchTokens(mapId),
       fetchCombatEvents(mapId),
+      fetchMovementEvents(mapId),
       fetchStructures(mapId),
       fetchStructureEvents(mapId),
     ]);
-    set({ tokens, combatEvents, structures, structureEvents });
+    set({ tokens, combatEvents, movementEvents, structures, structureEvents });
   },
 
   addToken: async (mapId, tokenData) => {
@@ -469,11 +539,35 @@ export const useStore = create<AppStore>((set, get) => ({
     await updateTokenPositionRequest(mapId, tokenId, x, y);
   },
 
+  setTokenSide: async (mapId, tokenId, side) => {
+    set((s) => ({ tokens: s.tokens.map((t) => (t.id === tokenId ? { ...t, side } : t)) }));
+    await updateTokenSideRequest(mapId, tokenId, side);
+  },
+
   attack: async (mapId, attackerTokenId, defenderTokenId, rawAttackRoll, rawDamageRoll) => {
-    // Resolution happens server-side; local state updates when the result
-    // comes back through the map_tokens/combat_events Realtime subscription,
-    // same as for every other connected client.
+    // Resolution happens server-side; local token/event state updates when
+    // the result comes back through the map_tokens/combat_events Realtime
+    // subscription, same as for every other connected client. Characters
+    // aren't Realtime-subscribed anywhere in this app, so a landed hit's
+    // practiced-bonus bump (see lib/server/combat.ts) needs an explicit
+    // refetch to show up locally.
     await triggerAttack(mapId, attackerTokenId, defenderTokenId, rawAttackRoll, rawDamageRoll);
+    const characters = await fetchCharacters();
+    set({ characters });
+  },
+
+  startCombat: async (mapId, initiative) => {
+    // Local state updates via the game_maps Realtime subscription below,
+    // same as every other connected client — no optimistic write here.
+    await startCombatRequest(mapId, initiative);
+  },
+
+  advanceTurn: async (mapId) => {
+    await advanceTurnRequest(mapId);
+  },
+
+  endCombat: async (mapId) => {
+    await endCombatRequest(mapId);
   },
 
   subscribeMapRealtime: (mapId) => {
@@ -516,6 +610,22 @@ export const useStore = create<AppStore>((set, get) => ({
       )
       .on(
         'postgres_changes',
+        { event: 'INSERT', schema: 'public', table: 'movement_events', filter: `map_id=eq.${mapId}` },
+        (payload) => {
+          set((s) => ({ movementEvents: [...s.movementEvents, payload.new as MovementEvent] }));
+        }
+      )
+      .on(
+        'postgres_changes',
+        { event: 'UPDATE', schema: 'public', table: 'game_maps', filter: `id=eq.${mapId}` },
+        (payload) => {
+          set((s) => ({
+            maps: s.maps.map((m) => (m.id === payload.new.id ? { ...m, ...payload.new } : m)),
+          }));
+        }
+      )
+      .on(
+        'postgres_changes',
         { event: '*', schema: 'public', table: 'map_structures', filter: `map_id=eq.${mapId}` },
         () => {
           fetchStructures(mapId).then((structures) => set({ structures }));
@@ -551,6 +661,7 @@ export const useStore = create<AppStore>((set, get) => ({
     };
     set((s) => ({ structures: [...s.structures, structure] }));
     await createStructureRequest(structure);
+    return structure.id;
   },
 
   removeStructure: async (mapId, structureId) => {
@@ -586,11 +697,13 @@ export const useStore = create<AppStore>((set, get) => ({
     }));
   },
 
-  rollStructureCheck: async (mapId, structureId, checkId, characterId) => {
-    // Resolution (roll, tier, damage, boss spawn) happens server-side; local
-    // state updates when the result comes back through the
-    // structure_events/map_tokens Realtime subscription, same as attack().
-    return resolveStructureCheckRequest(mapId, structureId, checkId, characterId);
+  rollStructureCheck: async (mapId, structureId, checkId, characterId, rawRoll, outcomeId, rawDamageRoll) => {
+    // Resolution (tier, damage, boss spawn) happens server-side off the
+    // DM-supplied roll; local state updates when a finalized event comes
+    // back through the structure_events/map_tokens Realtime subscription,
+    // same as attack(). A preview response (damage still needs a manual
+    // roll) isn't persisted anywhere and is just returned to the caller.
+    return resolveStructureCheckRequest(mapId, structureId, checkId, characterId, rawRoll, outcomeId, rawDamageRoll);
   },
 
   spawnBossOnMap: async (mapId, characterId) => {
@@ -615,4 +728,16 @@ export const useStore = create<AppStore>((set, get) => ({
     const { campaigns, activeCampaignId } = get();
     return campaigns.find((c) => c.id === activeCampaignId) ?? null;
   },
-}));
+    }),
+    {
+      // Persists which session/map a DM was engaged with across page
+      // reloads and fresh visits, so opening the map doesn't require a
+      // detour through the Session page every time — everything else
+      // (characters, tokens, etc.) is re-fetched fresh from Supabase on
+      // load and intentionally not persisted here.
+      name: 'dm-toolkit-active-session',
+      storage: createJSONStorage(() => sessionStorage),
+      partialize: (s) => ({ activeSessionId: s.activeSessionId, activeMapId: s.activeMapId }),
+    }
+  )
+);
