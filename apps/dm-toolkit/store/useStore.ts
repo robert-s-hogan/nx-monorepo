@@ -8,6 +8,7 @@ import type {
   CombatEvent,
   Encounter,
   GameMap,
+  GeneralCheckEvent,
   MapStructure,
   MapToken,
   MovementEvent,
@@ -53,6 +54,7 @@ import {
   startCombat as startCombatRequest,
   advanceTurn as advanceTurnRequest,
   endCombat as endCombatRequest,
+  joinTurnOrder as joinTurnOrderRequest,
   fetchStructures,
   createStructure as createStructureRequest,
   deleteStructure as deleteStructureRequest,
@@ -62,10 +64,20 @@ import {
   fetchStructureEvents,
   spawnBoss as spawnBossRequest,
   updateStructurePosition as updateStructurePositionRequest,
+  fetchGeneralCheckEvents,
+  resolveGeneralCheck as resolveGeneralCheckRequest,
+  updateMapStory as updateMapStoryRequest,
 } from '../lib/api';
+import { generateMapStory } from '../lib/rulesets/storyGen';
+import { generateStructureDraft } from '../lib/rulesets/structureGen';
 import { pickSkillWithFallback } from '../lib/skillPicker';
 import randomSkillsData from '../data/random_skills.json';
 import { supabase } from '../lib/supabaseClient';
+
+// How many structures createMap auto-generates alongside a new map's story
+// — enough to make the map feel populated without exhausting the theme's
+// 8-clue pool in one shot (each structure can claim up to 4).
+const STARTER_STRUCTURE_COUNT = 4;
 
 // Not part of the zustand state itself (a Realtime channel isn't serializable
 // store data) — module-scoped so broadcastTokenDrag can reach the channel
@@ -88,6 +100,7 @@ interface AppStore {
   // the rest of the map data (see loadMapData vs loadStructureChecks).
   structureChecks: Record<string, StructureCheckWithOutcomes[]>;
   structureEvents: StructureEvent[];
+  generalCheckEvents: GeneralCheckEvent[];
   activeMapId: string | null;
   activeSessionId: string | null;
   activeCampaignId: string | null;
@@ -136,6 +149,8 @@ interface AppStore {
   // Map / token / combat actions
   loadMapsForSession: (sessionId: string) => Promise<void>;
   createMap: (sessionId: string, name: string) => Promise<GameMap>;
+  rerollMapStory: (mapId: string) => Promise<void>;
+  consumeStoryClues: (mapId: string, clueIds: string[]) => Promise<void>;
   // Also persists to the session's active_map_id (see
   // supabase/migrations/0011_session_active_map.sql) so the no-login
   // /map?session=<id> preview link knows which map to follow.
@@ -167,6 +182,7 @@ interface AppStore {
   startCombat: (mapId: string, initiative: Record<string, number>) => Promise<void>;
   advanceTurn: (mapId: string) => Promise<void>;
   endCombat: (mapId: string) => Promise<void>;
+  joinTurnOrder: (mapId: string, tokenId: string, initiative: number) => Promise<void>;
 
   // Structure actions
   addStructure: (
@@ -178,7 +194,7 @@ interface AppStore {
   loadStructureChecks: (structureId: string) => Promise<void>;
   addStructureCheck: (
     structureId: string,
-    check: { skill: string; dc: number; label: string },
+    check: { skill: string; label: string },
     outcomes: Omit<StructureOutcome, 'id' | 'check_id'>[]
   ) => Promise<void>;
   rollStructureCheck: (
@@ -191,6 +207,13 @@ interface AppStore {
     rawDamageRoll?: number
   ) => Promise<StructureEvent | StructureRollPreview>;
   spawnBossOnMap: (mapId: string, characterId: string) => Promise<void>;
+  rollGeneralCheck: (
+    mapId: string,
+    characterId: string | null,
+    skill: string,
+    dc: number,
+    rawRoll: number
+  ) => Promise<GeneralCheckEvent>;
 
   // Derived helpers (sync — read from local state)
   getActiveSession: () => Session | null;
@@ -226,6 +249,7 @@ export const useStore = create<AppStore>()(
   structures: [],
   structureChecks: {},
   structureEvents: [],
+  generalCheckEvents: [],
   activeMapId: null,
   activeSessionId: null,
   activeCampaignId: null,
@@ -467,6 +491,7 @@ export const useStore = create<AppStore>()(
       current_turn_index: 0,
       round_number: 1,
       combat_active: false,
+      story: generateMapStory(),
     };
     set((s) => ({
       maps: [...s.maps, map],
@@ -482,7 +507,63 @@ export const useStore = create<AppStore>()(
     }));
     await createMapRequest(map);
     await setSessionActiveMapRequest(sessionId, map.id);
+
+    // A starter batch of structures tied to the new story, so the DM isn't
+    // opening a blank map — map-creation-only (not on story reroll, to
+    // avoid piling up structures mid-session, see rerollMapStory). Threads
+    // a local working copy of the story's clues through each generation
+    // call so the 4 structures don't all claim the same still-"unused"
+    // clues before any of them are persisted.
+    let workingStory = map.story ?? null;
+    const allUsedClueIds: string[] = [];
+    for (let i = 0; i < STARTER_STRUCTURE_COUNT; i++) {
+      const draft = generateStructureDraft(workingStory);
+      const structureId = await get().addStructure(map.id, {
+        name: draft.name,
+        structure_type: draft.structure_type,
+        x: 150 + Math.random() * 700,
+        y: 150 + Math.random() * 700,
+        width: 60,
+        height: 60,
+        revealed: true,
+      });
+      await get().addStructureCheck(structureId, draft.check, draft.outcomes);
+      allUsedClueIds.push(...draft.usedClueIds);
+      if (workingStory && draft.usedClueIds.length > 0) {
+        workingStory = {
+          ...workingStory,
+          clues: workingStory.clues.map((c) =>
+            draft.usedClueIds.includes(c.id) ? { ...c, used: true } : c
+          ),
+        };
+      }
+    }
+    if (allUsedClueIds.length > 0) {
+      await get().consumeStoryClues(map.id, allUsedClueIds);
+    }
+
     return map;
+  },
+
+  rerollMapStory: async (mapId) => {
+    // No optimistic update — local state picks it up via the game_maps
+    // Realtime subscription below, same as startCombat/endCombat.
+    await updateMapStoryRequest(mapId, generateMapStory());
+  },
+
+  consumeStoryClues: async (mapId, clueIds) => {
+    const map = get().maps.find((m) => m.id === mapId);
+    if (!map?.story || clueIds.length === 0) return;
+    // Optimistic here (unlike rerollMapStory) — the next Generate Structure
+    // click needs to see these clues as used immediately, not after a
+    // Realtime round trip, or a fast double-click could hand out the same
+    // clue twice.
+    const story = {
+      ...map.story,
+      clues: map.story.clues.map((c) => (clueIds.includes(c.id) ? { ...c, used: true } : c)),
+    };
+    set((s) => ({ maps: s.maps.map((m) => (m.id === mapId ? { ...m, story } : m)) }));
+    await updateMapStoryRequest(mapId, story);
   },
 
   setActiveMap: async (id) => {
@@ -499,14 +580,16 @@ export const useStore = create<AppStore>()(
   },
 
   loadMapData: async (mapId) => {
-    const [tokens, combatEvents, movementEvents, structures, structureEvents] = await Promise.all([
-      fetchTokens(mapId),
-      fetchCombatEvents(mapId),
-      fetchMovementEvents(mapId),
-      fetchStructures(mapId),
-      fetchStructureEvents(mapId),
-    ]);
-    set({ tokens, combatEvents, movementEvents, structures, structureEvents });
+    const [tokens, combatEvents, movementEvents, structures, structureEvents, generalCheckEvents] =
+      await Promise.all([
+        fetchTokens(mapId),
+        fetchCombatEvents(mapId),
+        fetchMovementEvents(mapId),
+        fetchStructures(mapId),
+        fetchStructureEvents(mapId),
+        fetchGeneralCheckEvents(mapId),
+      ]);
+    set({ tokens, combatEvents, movementEvents, structures, structureEvents, generalCheckEvents });
   },
 
   addToken: async (mapId, tokenData) => {
@@ -568,6 +651,12 @@ export const useStore = create<AppStore>()(
 
   endCombat: async (mapId) => {
     await endCombatRequest(mapId);
+  },
+
+  joinTurnOrder: async (mapId, tokenId, initiative) => {
+    // Local state updates via the game_maps/map_tokens Realtime
+    // subscriptions below, same as startCombat.
+    await joinTurnOrderRequest(mapId, tokenId, initiative);
   },
 
   subscribeMapRealtime: (mapId) => {
@@ -636,6 +725,13 @@ export const useStore = create<AppStore>()(
         { event: 'INSERT', schema: 'public', table: 'structure_events', filter: `map_id=eq.${mapId}` },
         (payload) => {
           set((s) => ({ structureEvents: [...s.structureEvents, payload.new as StructureEvent] }));
+        }
+      )
+      .on(
+        'postgres_changes',
+        { event: 'INSERT', schema: 'public', table: 'general_check_events', filter: `map_id=eq.${mapId}` },
+        (payload) => {
+          set((s) => ({ generalCheckEvents: [...s.generalCheckEvents, payload.new as GeneralCheckEvent] }));
         }
       )
       .subscribe();
@@ -709,6 +805,14 @@ export const useStore = create<AppStore>()(
   spawnBossOnMap: async (mapId, characterId) => {
     // The new token lands via the map_tokens Realtime subscription.
     await spawnBossRequest(mapId, characterId);
+  },
+
+  rollGeneralCheck: async (mapId, characterId, skill, dc, rawRoll) => {
+    // Resolves and persists in one step (no damage-preview split like
+    // structure checks — nothing here can deal damage or spawn a boss);
+    // local state updates via the general_check_events Realtime
+    // subscription below, same as every other connected client.
+    return resolveGeneralCheckRequest(mapId, characterId, skill, dc, rawRoll);
   },
 
   getActiveSession: () => {

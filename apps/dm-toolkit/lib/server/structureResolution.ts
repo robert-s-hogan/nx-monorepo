@@ -4,7 +4,8 @@
 import { fetchCheckWithOutcomes, insertStructureEvent } from './structures';
 import { fetchTokensForMap, updateTokenHp, insertToken } from './maps';
 import { fetchCharacterById } from './characters';
-import { skillModifier } from '../dice';
+import { skillModifier, structureCheckBand, type StructureBand } from '../dice';
+import { averagePartyLevel } from '../party';
 import type { Character, StructureEvent, StructureOutcome, StructureRollPreview } from '../../types';
 
 // Tokens with no character_id (ad-hoc enemies/structures-as-tokens) have no
@@ -17,8 +18,7 @@ export async function getPartyLevelForMap(mapId: string): Promise<number> {
 
   const characters = await Promise.all(characterIds.map((id) => fetchCharacterById(id)));
   const levels = characters.filter((c): c is Character => !!c).map((c) => c.level);
-  if (levels.length === 0) return 1;
-  return Math.round(levels.reduce((sum, l) => sum + l, 0) / levels.length);
+  return averagePartyLevel(levels);
 }
 
 export function scaleBossStats(
@@ -64,38 +64,30 @@ export async function spawnBossToken(
   });
 }
 
-// How far margin (total - DC) shifts before a tier's worst/best authored
-// variant is fully favored — tune here rather than by count-specific
-// thresholds, so any number of authored variants per tier buckets sensibly.
-const MARGIN_SPAN = 10;
+// Picks the outcome matching the resolved band exactly (tier + band_order).
+// Hand-authored checks aren't guaranteed to have all 7 slots filled in, so
+// this falls back to whichever authored variant's band_order is closest
+// within the same tier, and finally to the base tier (crit_success ->
+// success, crit_fail -> fail) if nothing at all was authored for a crit —
+// same "a DM can skip writing every tier" convention as before.
+function pickOutcome(outcomes: StructureOutcome[], band: StructureBand): StructureOutcome | null {
+  const tiersToTry: StructureOutcome['tier'][] =
+    band.tier === 'crit_success'
+      ? ['crit_success', 'success']
+      : band.tier === 'crit_fail'
+      ? ['crit_fail', 'fail']
+      : [band.tier];
 
-// Deterministically picks which of a tier's authored variants a roll lands
-// on, graduated by how far the roll's margin (total - DC) is from the pass
-// line — a deep fail lands on the worst-authored fail variant (band_order
-// 0), a narrow miss on the mildest one, and symmetrically for success. Ties
-// (equal band_order, or a single variant) just return that variant.
-function bandIndex(tier: StructureOutcome['tier'], margin: number, count: number): number {
-  if (count <= 1) return 0;
-  const isFailSide = tier === 'fail' || tier === 'crit_fail';
-  const clamped = Math.max(-MARGIN_SPAN, Math.min(MARGIN_SPAN, margin));
-  const t = isFailSide ? (clamped + MARGIN_SPAN) / MARGIN_SPAN : clamped / MARGIN_SPAN;
-  return Math.min(count - 1, Math.max(0, Math.floor(t * count)));
-}
-
-// Falls back to the base tier when a structure has no dedicated crit outcome
-// authored (crit_success -> success, crit_fail -> fail) so a DM can skip
-// writing every tier for every check.
-function pickOutcome(
-  outcomes: StructureOutcome[],
-  tier: StructureOutcome['tier'],
-  margin: number
-): StructureOutcome | null {
-  const atTier = outcomes.filter((o) => o.tier === tier).sort((a, b) => a.band_order - b.band_order);
-  if (atTier.length > 0) return atTier[bandIndex(tier, margin, atTier.length)];
-
-  const fallbackTier = tier === 'crit_success' ? 'success' : tier === 'crit_fail' ? 'fail' : tier;
-  const atFallback = outcomes.filter((o) => o.tier === fallbackTier).sort((a, b) => a.band_order - b.band_order);
-  return atFallback.length > 0 ? atFallback[bandIndex(fallbackTier, margin, atFallback.length)] : null;
+  for (const tier of tiersToTry) {
+    const atTier = outcomes.filter((o) => o.tier === tier);
+    if (atTier.length === 0) continue;
+    const exact = atTier.find((o) => o.band_order === band.band_order);
+    if (exact) return exact;
+    return atTier.reduce((best, o) =>
+      Math.abs(o.band_order - band.band_order) < Math.abs(best.band_order - band.band_order) ? o : best
+    );
+  }
+  return null;
 }
 
 export async function resolveStructureCheck(
@@ -125,10 +117,9 @@ export async function resolveStructureCheck(
     outcome = outcomes.find((o) => o.id === outcomeId) ?? null;
     if (!outcome) throw new Error(`Outcome ${outcomeId} not found for check ${checkId}`);
   } else {
-    const tier: StructureOutcome['tier'] =
-      natRoll === 1 ? 'crit_fail' : natRoll === 20 ? 'crit_success' : total >= check.dc ? 'success' : 'fail';
-    outcome = pickOutcome(outcomes, tier, total - check.dc);
-    if (!outcome) throw new Error(`No outcome authored for check ${checkId} tier ${tier}`);
+    const band = structureCheckBand(natRoll, mod);
+    outcome = pickOutcome(outcomes, band);
+    if (!outcome) throw new Error(`No outcome authored for check ${checkId} band ${band.tier}/${band.band_order}`);
 
     // Damage-bearing outcomes need a second, manually-rolled die whose size
     // isn't known until this exact outcome is picked — preview it instead

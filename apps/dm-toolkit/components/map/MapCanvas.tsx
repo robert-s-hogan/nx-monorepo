@@ -15,6 +15,9 @@ interface MapCanvasProps {
   map: GameMap;
   selectedAttackerId: string | null;
   selectedDefenderId: string | null;
+  selectedCheckTokenId: string | null;
+  selectedCheckStructureId: string | null;
+  tokenClickMode: 'attack' | 'investigate';
   onSelectToken: (tokenId: string) => void;
   selectedStructureId: string | null;
   onSelectStructure: (structureId: string) => void;
@@ -25,6 +28,9 @@ export default function MapCanvas({
   map,
   selectedAttackerId,
   selectedDefenderId,
+  selectedCheckTokenId,
+  selectedCheckStructureId,
+  tokenClickMode,
   onSelectToken,
   selectedStructureId,
   onSelectStructure,
@@ -69,6 +75,7 @@ export default function MapCanvas({
           <StructureLayer
             structures={structures}
             selectedStructureId={selectedStructureId}
+            selectedCheckStructureId={selectedCheckStructureId}
             onSelect={onSelectStructure}
             onDragEnd={(structureId, x, y) =>
               commitStructurePosition(map.id, structureId, snapToGridLine(x), snapToGridLine(y))
@@ -80,6 +87,7 @@ export default function MapCanvas({
             characters={characters}
             selectedAttackerId={selectedAttackerId}
             selectedDefenderId={selectedDefenderId}
+            selectedCheckTokenId={selectedCheckTokenId}
             currentTurnTokenId={currentTurnTokenId}
             nextTurnTokenId={nextTurnTokenId}
             onSelect={onSelectToken}
@@ -93,8 +101,10 @@ export default function MapCanvas({
       </Stage>
       <div className="flex items-center justify-between px-3 py-1.5 border-t border-stone-800">
         <p className="text-xs text-stone-600">
-          Scroll to zoom, drag background to pan, drag a token to move it. Click a token to select
-          attacker, then defender.
+          Scroll to zoom, drag background to pan, drag a token to move it.{' '}
+          {tokenClickMode === 'investigate'
+            ? 'Click a token to select the investigator, then a structure to check.'
+            : 'Click a token to select attacker, then defender.'}
         </p>
         <button
           onClick={() => setShowGrid((g) => !g)}

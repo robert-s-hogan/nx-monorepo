@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { useStore } from '../../store/useStore';
-import DiePicker from './DiePicker';
 import { generateEnemyDraft } from '../../lib/rulesets/enemyGen';
+import { averagePartyLevel } from '../../lib/party';
 import type { Character, CharacterStats } from '../../types';
-
-const HIT_DICE = [6, 8, 10, 12];
 
 const BLANK_STATS: CharacterStats = { str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10 };
 
@@ -36,8 +34,7 @@ export default function AddTokenPanel({ mapId }: AddTokenPanelProps) {
   const { characters, tokens, addToken, addCharacter, removeToken, spawnBossOnMap } = useStore();
   const [enemyName, setEnemyName] = useState('');
   const [enemyFlavor, setEnemyFlavor] = useState('');
-  const [enemyHpDieSides, setEnemyHpDieSides] = useState(8);
-  const [enemyHpRoll, setEnemyHpRoll] = useState<number | null>(null);
+  const [enemyHp, setEnemyHp] = useState('');
   const [enemyAc, setEnemyAc] = useState('12');
   const [selectedCharacterId, setSelectedCharacterId] = useState('');
   const [selectedNpcId, setSelectedNpcId] = useState('');
@@ -54,6 +51,16 @@ export default function AddTokenPanel({ mapId }: AddTokenPanelProps) {
   const bossCharacters = characters.filter((c) => c.boss);
   const pcCharacters = characters.filter((c) => (c.character_type ?? 'pc') === 'pc');
   const npcCharacters = characters.filter((c) => c.character_type === 'npc');
+
+  // Same "average level of characters currently tokened onto the map"
+  // definition as boss scaling (lib/server/structureResolution.ts), just
+  // computed from already-loaded store state instead of a DB round trip.
+  const partyLevel = averagePartyLevel(
+    tokens
+      .map((t) => characters.find((c) => c.id === t.character_id))
+      .filter((c): c is Character => !!c)
+      .map((c) => c.level)
+  );
 
   const handleAddCharacterToken = () => {
     const character = characters.find((c) => c.id === selectedCharacterId);
@@ -106,18 +113,22 @@ export default function AddTokenPanel({ mapId }: AddTokenPanelProps) {
     setAddingNpc(false);
   };
 
-  // Fills in a flavorful name + description — the HP die and its roll are
-  // left alone since that's a manual step, same "every roll is manual"
-  // convention as the attack roll.
+  // Fills in name/flavor/HP/AC all at once, scaled to the party's current
+  // average level — one-off enemies are filler, not a combat action a
+  // player watches get rolled, so unlike attacks/structure checks this is
+  // fully randomized rather than a manual DiePicker roll.
   const handleGenerateEnemy = () => {
-    const draft = generateEnemyDraft();
+    const draft = generateEnemyDraft(partyLevel);
     setEnemyName(draft.name);
     setEnemyFlavor(draft.flavor);
+    setEnemyHp(String(draft.hp));
+    setEnemyAc(String(draft.armorClass));
   };
 
   const handleAddEnemyToken = () => {
     const name = enemyName.trim();
-    if (!name || enemyHpRoll === null) return;
+    const hp = parseInt(enemyHp, 10) || 0;
+    if (!name || hp <= 0) return;
     const ac = parseInt(enemyAc, 10) || 10;
     addToken(mapId, {
       character_id: null,
@@ -126,14 +137,14 @@ export default function AddTokenPanel({ mapId }: AddTokenPanelProps) {
       x: 100 + Math.random() * 200,
       y: 100 + Math.random() * 200,
       hidden: false,
-      hp_current: enemyHpRoll,
-      hp_max: enemyHpRoll,
+      hp_current: hp,
+      hp_max: hp,
       armor_class: ac,
       side: 'enemy',
     });
     setEnemyName('');
     setEnemyFlavor('');
-    setEnemyHpRoll(null);
+    setEnemyHp('');
   };
 
   const handleSpawnBoss = async () => {
@@ -293,7 +304,7 @@ export default function AddTokenPanel({ mapId }: AddTokenPanelProps) {
             <button
               type="button"
               onClick={handleGenerateEnemy}
-              title="Generate a random name + flavor"
+              title={`Generate a random name/flavor/HP/AC, scaled to party level ${partyLevel}`}
               className="px-2.5 py-1.5 bg-stone-700 hover:bg-stone-600 text-stone-200 text-xs rounded-lg transition-colors"
             >
               🎲
@@ -301,29 +312,14 @@ export default function AddTokenPanel({ mapId }: AddTokenPanelProps) {
           </div>
           {enemyFlavor && <p className="text-xs text-stone-500 italic">{enemyFlavor}</p>}
           <div className="flex gap-2 items-center">
-            <DiePicker sides={enemyHpDieSides} value={enemyHpRoll} onSelect={setEnemyHpRoll} />
-            <div className="flex gap-1">
-              {HIT_DICE.map((sides) => (
-                <button
-                  key={sides}
-                  type="button"
-                  onClick={() => {
-                    setEnemyHpDieSides(sides);
-                    setEnemyHpRoll(null);
-                  }}
-                  className={`px-1.5 py-0.5 rounded text-[10px] font-mono transition-colors ${
-                    enemyHpDieSides === sides
-                      ? 'bg-stone-700 text-stone-200'
-                      : 'text-stone-600 hover:text-stone-400'
-                  }`}
-                >
-                  d{sides}
-                </button>
-              ))}
-            </div>
-            <span className="text-xs text-stone-500">
-              {enemyHpRoll !== null ? `${enemyHpRoll} HP` : 'roll HP'}
-            </span>
+            <input
+              type="number"
+              value={enemyHp}
+              onChange={(e) => setEnemyHp(e.target.value)}
+              placeholder="HP"
+              title="HP"
+              className="w-16 bg-stone-950 border border-stone-700 rounded-lg px-2 py-1.5 text-sm text-stone-300 placeholder:text-stone-600"
+            />
             <input
               type="number"
               value={enemyAc}
@@ -333,7 +329,7 @@ export default function AddTokenPanel({ mapId }: AddTokenPanelProps) {
             />
             <button
               onClick={handleAddEnemyToken}
-              disabled={!enemyName.trim() || enemyHpRoll === null}
+              disabled={!enemyName.trim() || (parseInt(enemyHp, 10) || 0) <= 0}
               className="px-3 py-1.5 bg-red-900 hover:bg-red-800 disabled:opacity-40 text-red-100 text-xs rounded-lg transition-colors"
             >
               Add

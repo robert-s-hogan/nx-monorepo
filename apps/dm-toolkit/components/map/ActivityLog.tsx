@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { useStore } from '../../store/useStore';
-import type { CombatEvent, MovementEvent, OutcomeTier, StructureEvent } from '../../types';
+import type { CombatEvent, GeneralCheckEvent, MovementEvent, OutcomeTier, StructureEvent } from '../../types';
 
 const TIER_COLOR: Record<OutcomeTier, string> = {
   crit_fail: 'text-red-400',
@@ -11,14 +12,28 @@ const TIER_COLOR: Record<OutcomeTier, string> = {
 type FeedItem =
   | { type: 'attack'; id: string; created_at: string; event: CombatEvent }
   | { type: 'structure'; id: string; created_at: string; event: StructureEvent }
+  | { type: 'general_check'; id: string; created_at: string; event: GeneralCheckEvent }
   | { type: 'movement'; id: string; created_at: string; event: MovementEvent };
+
+// 'checks' groups both structure checks and ad-hoc quick checks — they're
+// both "someone rolled a skill check", just against different sources.
+type Tab = 'all' | 'attack' | 'checks' | 'movement';
+
+const TABS: { key: Tab; label: string }[] = [
+  { key: 'all', label: 'All' },
+  { key: 'attack', label: 'Attacks' },
+  { key: 'checks', label: 'Checks' },
+  { key: 'movement', label: 'Moves' },
+];
 
 // Everything that happened on the map — attacks, structure checks, and
 // moves — merged and time-ordered. Public, always visible in the watch
 // rail (see pages/map.tsx). Turn/round state lives in MapStatusBar now;
 // this is purely the history feed.
 export default function ActivityLog() {
-  const { tokens, combatEvents, movementEvents, structureEvents, structures, characters } = useStore();
+  const { tokens, combatEvents, movementEvents, structureEvents, generalCheckEvents, structures, characters } =
+    useStore();
+  const [activeTab, setActiveTab] = useState<Tab>('all');
 
   const tokenLabel = (tokenId: string) => tokens.find((t) => t.id === tokenId)?.label ?? 'Unknown';
   const structureName = (structureId: string) =>
@@ -34,6 +49,12 @@ export default function ActivityLog() {
       created_at: event.created_at,
       event,
     })),
+    ...generalCheckEvents.map((event) => ({
+      type: 'general_check' as const,
+      id: event.id,
+      created_at: event.created_at,
+      event,
+    })),
     ...movementEvents.map((event) => ({
       type: 'movement' as const,
       id: event.id,
@@ -42,14 +63,40 @@ export default function ActivityLog() {
     })),
   ].sort((a, b) => b.created_at.localeCompare(a.created_at));
 
+  const visibleFeed = feed.filter((item) => {
+    if (activeTab === 'all') return true;
+    if (activeTab === 'checks') return item.type === 'structure' || item.type === 'general_check';
+    return item.type === activeTab;
+  });
+
   return (
     <div className="bg-stone-800 border border-stone-700 rounded-xl p-5">
-      <h3 className="text-xs font-bold uppercase text-stone-500 tracking-wider mb-2">Activity Log</h3>
-      {feed.length === 0 ? (
-        <p className="text-xs text-stone-600">Nothing has happened yet.</p>
+      <div className="flex items-center justify-between mb-2">
+        <h3 className="text-xs font-bold uppercase text-stone-500 tracking-wider">Activity Log</h3>
+        <div className="flex gap-1">
+          {TABS.map((tab) => (
+            <button
+              key={tab.key}
+              type="button"
+              onClick={() => setActiveTab(tab.key)}
+              className={`px-2 py-0.5 rounded-full text-[11px] transition-colors ${
+                activeTab === tab.key
+                  ? 'bg-sky-950 border border-sky-500 text-stone-100'
+                  : 'border border-stone-700 text-stone-500 hover:text-stone-300'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      {visibleFeed.length === 0 ? (
+        <p className="text-xs text-stone-600">
+          {feed.length === 0 ? 'Nothing has happened yet.' : 'Nothing in this category yet.'}
+        </p>
       ) : (
         <div className="space-y-2 max-h-96 overflow-y-auto">
-          {feed.map((item) => {
+          {visibleFeed.map((item) => {
             if (item.type === 'attack') {
               const e = item.event;
               return (
@@ -89,6 +136,19 @@ export default function ActivityLog() {
                     </p>
                   )}
                 </div>
+              );
+            }
+
+            if (item.type === 'general_check') {
+              const e = item.event;
+              return (
+                <p key={item.id} className="text-sm text-stone-300">
+                  <span className="text-amber-300">{characterName(e.character_id)}</span> rolls{' '}
+                  <span className="text-stone-100">{e.skill}</span>:{' '}
+                  <span className={TIER_COLOR[e.tier]}>
+                    {e.tier.replace('_', ' ')} (roll {e.total} vs DC {e.dc})
+                  </span>
+                </p>
               );
             }
 

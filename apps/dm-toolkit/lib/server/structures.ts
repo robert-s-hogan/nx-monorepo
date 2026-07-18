@@ -30,7 +30,6 @@ function rowToCheck(row: Record<string, unknown>): StructureCheck {
     id: row.id as string,
     structure_id: row.structure_id as string,
     skill: row.skill as string,
-    dc: Number(row.dc),
     label: row.label as string,
     created_at: row.created_at as string,
   };
@@ -142,7 +141,6 @@ export async function insertCheckWithOutcomes(
     id: check.id,
     structure_id: check.structure_id,
     skill: check.skill,
-    dc: check.dc,
     label: check.label,
   });
   if (checkErr) throw checkErr;

@@ -1,34 +1,29 @@
 import { useState } from 'react';
 import AddTokenPanel from './AddTokenPanel';
-import AttackPanel from './AttackPanel';
 import StructurePanel from './StructurePanel';
 
-type Tab = 'token' | 'attack' | 'structure';
+type Tab = 'token' | 'structure';
 
 const TABS: { id: Tab; label: string; swatch: string }[] = [
   { id: 'token', label: 'Add Token', swatch: 'bg-green-400' },
-  { id: 'attack', label: 'Attack', swatch: 'bg-red-400' },
   { id: 'structure', label: 'Structures', swatch: 'bg-amber-400' },
 ];
 
 interface ActDrawerProps {
   mapId: string;
-  selectedAttackerId: string | null;
-  selectedDefenderId: string | null;
-  onClearSelection: () => void;
   selectedStructureId: string | null;
   onSelectStructure: (structureId: string | null) => void;
 }
 
 // Full-width, DM-only drawer at the bottom of the map page: only the tab
-// currently in use claims vertical space, instead of Add Token/Attack/
-// Structures all being permanently stacked (see the approved layout
-// mockup — this is that "act drawer" concept built for real).
+// currently in use claims vertical space, instead of Add Token/Structures
+// both being permanently stacked (see the approved layout mockup — this is
+// that "act drawer" concept built for real). Purely authoring content —
+// Attack and Investigate both live in the watch rail instead, since rolling
+// a check now happens by clicking tokens/structures on the map, same
+// gesture as an attack.
 export default function ActDrawer({
   mapId,
-  selectedAttackerId,
-  selectedDefenderId,
-  onClearSelection,
   selectedStructureId,
   onSelectStructure,
 }: ActDrawerProps) {
@@ -65,14 +60,6 @@ export default function ActDrawer({
       {!collapsed && (
         <div className="px-4 pb-4 pt-1 border-t border-stone-700">
           {activeTab === 'token' && <AddTokenPanel mapId={mapId} />}
-          {activeTab === 'attack' && (
-            <AttackPanel
-              mapId={mapId}
-              selectedAttackerId={selectedAttackerId}
-              selectedDefenderId={selectedDefenderId}
-              onClearSelection={onClearSelection}
-            />
-          )}
           {activeTab === 'structure' && (
             <StructurePanel
               mapId={mapId}

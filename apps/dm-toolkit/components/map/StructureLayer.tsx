@@ -4,6 +4,7 @@ import type { MapStructure } from '../../types';
 interface StructureLayerProps {
   structures: MapStructure[];
   selectedStructureId: string | null;
+  selectedCheckStructureId: string | null;
   onSelect: (structureId: string) => void;
   onDragEnd: (structureId: string, x: number, y: number) => void;
   canEdit: boolean;
@@ -12,6 +13,7 @@ interface StructureLayerProps {
 export default function StructureLayer({
   structures,
   selectedStructureId,
+  selectedCheckStructureId,
   onSelect,
   onDragEnd,
   canEdit,
@@ -20,6 +22,10 @@ export default function StructureLayer({
     <>
       {structures.map((structure) => {
         const isSelected = structure.id === selectedStructureId;
+        // Teal matches TokenLayer's investigate-selection ring — same
+        // "this is the Investigate target" color language for both halves
+        // of the click-person-then-structure flow.
+        const isCheckTarget = structure.id === selectedCheckStructureId;
         // Unrevealed structures show as a plain fog marker to everyone
         // (including the DM view here — canEdit still authors/rolls checks
         // via the structure's id, it just doesn't need the name spoiled on
@@ -40,8 +46,8 @@ export default function StructureLayer({
               width={structure.width}
               height={structure.height}
               fill={structure.revealed ? '#57534e' : '#292524'}
-              stroke={isSelected ? '#facc15' : '#78716c'}
-              strokeWidth={isSelected ? 3 : 1.5}
+              stroke={isCheckTarget ? '#2dd4bf' : isSelected ? '#facc15' : '#78716c'}
+              strokeWidth={isCheckTarget || isSelected ? 3 : 1.5}
               cornerRadius={4}
               opacity={0.9}
             />

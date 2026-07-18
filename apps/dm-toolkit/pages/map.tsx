@@ -7,7 +7,8 @@ import { fetchSessionById } from '../lib/api';
 import { supabase } from '../lib/supabaseClient';
 import DMToolkitLayout from '../components/DMToolkitLayout';
 import MapStatusBar from '../components/map/MapStatusBar';
-import TokenRoster from '../components/map/TokenRoster';
+import MapStoryCard from '../components/map/MapStoryCard';
+import WatchRailTabs, { type RailTab } from '../components/map/WatchRailTabs';
 import ActivityLog from '../components/map/ActivityLog';
 import ActDrawer from '../components/map/ActDrawer';
 import type { GameMap } from '../types';
@@ -25,13 +26,31 @@ function Map() {
   // activeSessionId/activeMapId state, and is always read-only.
   const shareSessionId = typeof router.query.session === 'string' ? router.query.session : null;
   const canEdit = !shareSessionId && role === 'family';
-  const { getActiveSession, maps, activeMapId, loadMapsForSession, createMap, setActiveMap, loadMapData, subscribeMapRealtime } =
-    useStore();
+  const {
+    getActiveSession,
+    maps,
+    activeMapId,
+    loadMapsForSession,
+    createMap,
+    setActiveMap,
+    loadMapData,
+    subscribeMapRealtime,
+  } = useStore();
   const [newMapName, setNewMapName] = useState('');
   const [selectedAttackerId, setSelectedAttackerId] = useState<string | null>(null);
   const [selectedDefenderId, setSelectedDefenderId] = useState<string | null>(null);
   const [selectedStructureId, setSelectedStructureId] = useState<string | null>(null);
   const [linkCopied, setLinkCopied] = useState(false);
+
+  // The watch rail's active tab doubles as the token/structure click mode:
+  // Attack tab -> click selects attacker then defender; Investigate tab ->
+  // click selects investigator then target structure. Roster tab doesn't
+  // change what a click does (falls back to Attack's routing, harmless
+  // since Roster has no map-click interaction of its own).
+  const [activeRailTab, setActiveRailTab] = useState<RailTab>('attack');
+  const tokenClickMode: 'attack' | 'investigate' = activeRailTab === 'investigate' ? 'investigate' : 'attack';
+  const [selectedCheckTokenId, setSelectedCheckTokenId] = useState<string | null>(null);
+  const [selectedCheckStructureId, setSelectedCheckStructureId] = useState<string | null>(null);
 
   const [shareSessionFound, setShareSessionFound] = useState<boolean | null>(null);
   const [shareMapId, setShareMapId] = useState<string | null>(null);
@@ -109,6 +128,10 @@ function Map() {
   };
 
   const handleSelectToken = (tokenId: string) => {
+    if (tokenClickMode === 'investigate') {
+      setSelectedCheckTokenId(tokenId === selectedCheckTokenId ? null : tokenId);
+      return;
+    }
     if (!selectedAttackerId || selectedAttackerId === tokenId) {
       setSelectedAttackerId(tokenId === selectedAttackerId ? null : tokenId);
       return;
@@ -116,9 +139,25 @@ function Map() {
     setSelectedDefenderId(tokenId === selectedDefenderId ? null : tokenId);
   };
 
+  // Structure clicks on the canvas feed Investigate's target selection
+  // while in that mode; otherwise they drive the Structures authoring tab's
+  // selection, same as clicking a structure in that tab's own list does.
+  const handleSelectStructure = (structureId: string) => {
+    if (tokenClickMode === 'investigate') {
+      setSelectedCheckStructureId(structureId === selectedCheckStructureId ? null : structureId);
+      return;
+    }
+    setSelectedStructureId(structureId === selectedStructureId ? null : structureId);
+  };
+
   const handleClearSelection = () => {
     setSelectedAttackerId(null);
     setSelectedDefenderId(null);
+  };
+
+  const handleClearCheckSelection = () => {
+    setSelectedCheckTokenId(null);
+    setSelectedCheckStructureId(null);
   };
 
   const handleCreateMap = () => {
@@ -131,32 +170,49 @@ function Map() {
   const renderMainView = (map: GameMap) => (
     <div className="space-y-4">
       <MapStatusBar mapId={map.id} canEdit={canEdit} />
+      <MapStoryCard map={map} canEdit={canEdit} />
 
       <div className="flex gap-6">
         <div className="flex-1 space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-bold text-stone-100">{map.name}</h2>
-            {canEdit && (
-              <button
-                onClick={handleCopyPreviewLink}
-                className="text-xs px-2.5 py-1 bg-stone-800 hover:bg-stone-700 border border-stone-700 text-stone-400 rounded-lg transition-colors"
-              >
-                {linkCopied ? 'Copied!' : '🔗 Copy preview link'}
-              </button>
-            )}
+            <div className="flex items-center gap-2">
+              {canEdit && (
+                <button
+                  onClick={handleCopyPreviewLink}
+                  className="text-xs px-2.5 py-1 bg-stone-800 hover:bg-stone-700 border border-stone-700 text-stone-400 rounded-lg transition-colors"
+                >
+                  {linkCopied ? 'Copied!' : '🔗 Copy preview link'}
+                </button>
+              )}
+            </div>
           </div>
           <MapCanvas
             map={map}
             selectedAttackerId={selectedAttackerId}
             selectedDefenderId={selectedDefenderId}
+            selectedCheckTokenId={selectedCheckTokenId}
+            selectedCheckStructureId={selectedCheckStructureId}
+            tokenClickMode={tokenClickMode}
             onSelectToken={handleSelectToken}
             selectedStructureId={selectedStructureId}
-            onSelectStructure={(id) => setSelectedStructureId(id === selectedStructureId ? null : id)}
+            onSelectStructure={handleSelectStructure}
             canEdit={canEdit}
           />
         </div>
         <div className="w-96 shrink-0 space-y-4">
-          <TokenRoster canEdit={canEdit} />
+          <WatchRailTabs
+            mapId={map.id}
+            canEdit={canEdit}
+            activeTab={activeRailTab}
+            onChangeTab={setActiveRailTab}
+            selectedAttackerId={selectedAttackerId}
+            selectedDefenderId={selectedDefenderId}
+            onClearAttackSelection={handleClearSelection}
+            selectedInvestigatorId={selectedCheckTokenId}
+            selectedStructureId={selectedCheckStructureId}
+            onClearCheckSelection={handleClearCheckSelection}
+          />
           <ActivityLog />
         </div>
       </div>
@@ -164,9 +220,6 @@ function Map() {
       {canEdit && (
         <ActDrawer
           mapId={map.id}
-          selectedAttackerId={selectedAttackerId}
-          selectedDefenderId={selectedDefenderId}
-          onClearSelection={handleClearSelection}
           selectedStructureId={selectedStructureId}
           onSelectStructure={setSelectedStructureId}
         />

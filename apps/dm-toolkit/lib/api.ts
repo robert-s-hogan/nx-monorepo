@@ -7,6 +7,7 @@ import type {
   Character,
   Encounter,
   GameMap,
+  GeneralCheckEvent,
   MapStructure,
   MapToken,
   MovementEvent,
@@ -185,6 +186,10 @@ export async function createMap(map: GameMap): Promise<void> {
   await request('/api/maps', { method: 'POST', body: JSON.stringify(map) });
 }
 
+export async function updateMapStory(mapId: string, story: NonNullable<GameMap['story']>): Promise<void> {
+  await request(`/api/maps/${mapId}/story`, { method: 'PATCH', body: JSON.stringify({ story }) });
+}
+
 export async function fetchTokens(mapId: string): Promise<MapToken[]> {
   const res = await request(`/api/maps/${mapId}/tokens`);
   return res.json();
@@ -258,6 +263,13 @@ export async function endCombat(mapId: string): Promise<void> {
   await request(`/api/maps/${mapId}/turn`, {
     method: 'POST',
     body: JSON.stringify({ action: 'end' }),
+  });
+}
+
+export async function joinTurnOrder(mapId: string, tokenId: string, initiative: number): Promise<void> {
+  await request(`/api/maps/${mapId}/turn`, {
+    method: 'POST',
+    body: JSON.stringify({ action: 'join', tokenId, initiative }),
   });
 }
 
@@ -345,6 +357,25 @@ export async function resolveStructureCheck(
 
 export async function fetchStructureEvents(mapId: string): Promise<StructureEvent[]> {
   const res = await request(`/api/maps/${mapId}/structure-events`);
+  return res.json();
+}
+
+export async function fetchGeneralCheckEvents(mapId: string): Promise<GeneralCheckEvent[]> {
+  const res = await request(`/api/maps/${mapId}/general-check-events`);
+  return res.json();
+}
+
+export async function resolveGeneralCheck(
+  mapId: string,
+  characterId: string | null,
+  skill: string,
+  dc: number,
+  rawRoll: number
+): Promise<GeneralCheckEvent> {
+  const res = await request(`/api/maps/${mapId}/general-checks`, {
+    method: 'POST',
+    body: JSON.stringify({ characterId, skill, dc, rawRoll }),
+  });
   return res.json();
 }
 

@@ -3,27 +3,6 @@ import { useStore } from '../store/useStore';
 import DMToolkitLayout from '../components/DMToolkitLayout';
 import { getLevelDetailsFor } from '../lib/progression';
 
-const phases = [
-  {
-    phase: 1,
-    label: 'Core Tool',
-    status: 'active',
-    items: ['JSON character import', 'Digital character cards', 'HP / Stamina / XP tracking', 'Rule-based random skills', 'Session management'],
-  },
-  {
-    phase: 2,
-    label: 'Multiplayer',
-    status: 'planned',
-    items: ['Realtime backend', 'Player login', 'Real-time session sync', 'Shared dice rolls'],
-  },
-  {
-    phase: 3,
-    label: 'DM Map',
-    status: 'planned',
-    items: ['React Konva canvas', 'Enemies, items, traps, landmarks', 'DM-controlled fog of war', 'Click-to-reveal entities'],
-  },
-];
-
 function Home() {
   const { characters, sessions, campaigns, activeCampaignId } = useStore();
 
@@ -92,46 +71,6 @@ function Home() {
               Select active party, roll dice, trigger random events.
             </p>
           </Link>
-        </div>
-
-        {/* Roadmap */}
-        <div>
-          <h2 className="text-sm font-bold uppercase text-stone-500 tracking-wider mb-4">Roadmap</h2>
-          <div className="grid grid-cols-3 gap-4">
-            {phases.map((p) => (
-              <div
-                key={p.phase}
-                className={`rounded-xl p-4 border ${
-                  p.status === 'active'
-                    ? 'bg-green-950 border-green-800'
-                    : 'bg-stone-800 border-stone-700 opacity-60'
-                }`}
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <span
-                    className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-                      p.status === 'active'
-                        ? 'bg-green-700 text-green-100'
-                        : 'bg-stone-700 text-stone-400'
-                    }`}
-                  >
-                    Phase {p.phase}
-                  </span>
-                  <span className="text-sm font-semibold text-stone-200">{p.label}</span>
-                </div>
-                <ul className="space-y-1">
-                  {p.items.map((item) => (
-                    <li key={item} className="text-xs text-stone-400 flex items-start gap-1.5">
-                      <span className={p.status === 'active' ? 'text-green-500' : 'text-stone-600'}>
-                        {p.status === 'active' ? '✓' : '○'}
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </DMToolkitLayout>

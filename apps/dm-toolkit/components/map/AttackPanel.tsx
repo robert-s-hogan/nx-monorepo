@@ -55,7 +55,7 @@ export default function AttackPanel({
   };
 
   return (
-    <div className="space-y-4">
+    <div>
       <div>
         <div className="text-sm text-stone-400 space-y-1 mb-2">
           <p>

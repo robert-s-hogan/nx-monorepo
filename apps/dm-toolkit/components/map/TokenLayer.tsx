@@ -12,6 +12,7 @@ interface TokenLayerProps {
   characters: Character[];
   selectedAttackerId: string | null;
   selectedDefenderId: string | null;
+  selectedCheckTokenId: string | null;
   currentTurnTokenId: string | null;
   nextTurnTokenId: string | null;
   onSelect: (tokenId: string) => void;
@@ -25,6 +26,7 @@ export default function TokenLayer({
   characters,
   selectedAttackerId,
   selectedDefenderId,
+  selectedCheckTokenId,
   currentTurnTokenId,
   nextTurnTokenId,
   onSelect,
@@ -65,7 +67,11 @@ export default function TokenLayer({
         const hpPct = token.hp_max > 0 ? Math.max(0, token.hp_current / token.hp_max) : 0;
         const isAttacker = token.id === selectedAttackerId;
         const isDefender = token.id === selectedDefenderId;
-        const ringColor = isAttacker ? '#facc15' : isDefender ? '#ef4444' : 'transparent';
+        const isCheckToken = token.id === selectedCheckTokenId;
+        // Teal is otherwise unused on the board (red/yellow are attack,
+        // sky/gray are turn order, green/violet/red are side fill) so the
+        // investigate ring reads as a clearly different kind of selection.
+        const ringColor = isAttacker ? '#facc15' : isDefender ? '#ef4444' : isCheckToken ? '#2dd4bf' : 'transparent';
         const isCurrentTurn = token.id === currentTurnTokenId;
         const isNextTurn = token.id === nextTurnTokenId;
 

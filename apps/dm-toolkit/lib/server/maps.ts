@@ -16,6 +16,7 @@ function rowToMap(row: Record<string, unknown>): GameMap {
     current_turn_index: Number(row.current_turn_index ?? 0),
     round_number: Number(row.round_number ?? 1),
     combat_active: Boolean(row.combat_active),
+    story: (row.story as GameMap['story']) ?? null,
   };
 }
 
@@ -70,7 +71,13 @@ export async function insertMap(map: GameMap): Promise<void> {
     width: map.width,
     height: map.height,
     created_at: map.created_at,
+    story: map.story ?? null,
   });
+  if (error) throw error;
+}
+
+export async function updateMapStory(mapId: string, story: GameMap['story']): Promise<void> {
+  const { error } = await db.from('game_maps').update({ story }).eq('id', mapId);
   if (error) throw error;
 }
 
@@ -270,6 +277,33 @@ export async function endCombat(mapId: string): Promise<void> {
     .update({ turn_order: [], current_turn_index: 0, round_number: 1, combat_active: false })
     .eq('id', mapId);
   if (error) throw error;
+}
+
+// Lets the DM seat a token that missed its initiative roll before Start
+// Combat (or was added to the map before combat began) into an already-
+// active encounter, without ending combat to fix it. Appends to the end of
+// turn_order — same convention as a token spawned mid-combat
+// (appendToTurnOrderIfActive above) — rather than re-sorting the whole
+// order by roll value.
+export async function joinTurnOrder(mapId: string, tokenId: string, initiative: number): Promise<void> {
+  const { error: tokenErr } = await db.from('map_tokens').update({ initiative }).eq('id', tokenId);
+  if (tokenErr) throw tokenErr;
+
+  const { data: map, error } = await db
+    .from('game_maps')
+    .select('turn_order')
+    .eq('id', mapId)
+    .single();
+  if (error) throw error;
+
+  const turnOrder = (map?.turn_order as string[]) ?? [];
+  if (turnOrder.includes(tokenId)) return;
+
+  const { error: updateErr } = await db
+    .from('game_maps')
+    .update({ turn_order: [...turnOrder, tokenId] })
+    .eq('id', mapId);
+  if (updateErr) throw updateErr;
 }
 
 export async function fetchCombatEventsForMap(mapId: string): Promise<CombatEvent[]> {

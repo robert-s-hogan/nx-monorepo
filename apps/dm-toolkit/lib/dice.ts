@@ -1,4 +1,4 @@
-import type { CharacterStats } from '../types';
+import type { CharacterStats, OutcomeTier } from '../types';
 
 export function roll(sides: number): number {
   return Math.floor(Math.random() * sides) + 1;
@@ -115,4 +115,27 @@ export function meleeAttackModifier(
   if (!character) return 0;
   const base = Math.max(modifier(character.stats.str), modifier(character.stats.dex));
   return base + practicedBonus(character.hits_landed ?? 0);
+}
+
+// Structure investigation checks no longer roll against a DC — a flat
+// 7-band table replaces roll-vs-DC + margin math (decided over DC-relative
+// bands specifically so a natural 1/20 always crits regardless of
+// modifier, 5e convention, while a modifier still matters everywhere else
+// by shifting the total across band boundaries). Shared by
+// lib/server/structureResolution.ts (authoritative) and
+// InvestigatePanel.tsx (live preview) so both sides of the wire agree.
+export interface StructureBand {
+  tier: OutcomeTier;
+  band_order: number;
+}
+
+export function structureCheckBand(rawRoll: number, mod: number): StructureBand {
+  if (rawRoll === 1) return { tier: 'crit_fail', band_order: 0 };
+  if (rawRoll === 20) return { tier: 'crit_success', band_order: 0 };
+  const total = rawRoll + mod;
+  if (total >= 17) return { tier: 'success', band_order: 1 };
+  if (total >= 13) return { tier: 'success', band_order: 0 };
+  if (total >= 9) return { tier: 'fail', band_order: 2 };
+  if (total >= 5) return { tier: 'fail', band_order: 1 };
+  return { tier: 'fail', band_order: 0 };
 }

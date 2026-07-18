@@ -32,8 +32,8 @@ export default async function handler(
       check: StructureCheck;
       outcomes: Omit<StructureOutcome, 'id' | 'check_id'>[];
     };
-    if (!check?.id || !check?.skill || typeof check?.dc !== 'number') {
-      return res.status(400).json({ error: 'check.id, check.skill and check.dc are required' });
+    if (!check?.id || !check?.skill) {
+      return res.status(400).json({ error: 'check.id and check.skill are required' });
     }
     const created = await insertCheckWithOutcomes(
       { ...check, structure_id: structureId },

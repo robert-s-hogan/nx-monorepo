@@ -22,11 +22,13 @@ interface MapStatusBarProps {
 // as the turn banner already was before this was its own component; only
 // the "roll initiative"/"Next Turn"/"End Combat" controls are DM-only.
 export default function MapStatusBar({ mapId, canEdit }: MapStatusBarProps) {
-  const { maps, tokens, characters, startCombat, advanceTurn, endCombat } = useStore();
+  const { maps, tokens, characters, startCombat, advanceTurn, endCombat, joinTurnOrder } = useStore();
 
   const [initiativeRolls, setInitiativeRolls] = useState<Record<string, number>>({});
   const [startingCombat, setStartingCombat] = useState(false);
   const [advancing, setAdvancing] = useState(false);
+  const [joinRolls, setJoinRolls] = useState<Record<string, number>>({});
+  const [joiningTokenId, setJoiningTokenId] = useState<string | null>(null);
 
   const map = maps.find((m) => m.id === mapId) ?? null;
 
@@ -59,6 +61,22 @@ export default function MapStatusBar({ mapId, canEdit }: MapStatusBarProps) {
       await advanceTurn(mapId);
     } finally {
       setAdvancing(false);
+    }
+  };
+
+  const handleJoin = async (tokenId: string) => {
+    const roll = joinRolls[tokenId];
+    if (roll == null) return;
+    setJoiningTokenId(tokenId);
+    try {
+      await joinTurnOrder(mapId, tokenId, roll + initiativeModFor(tokenId));
+      setJoinRolls((prev) => {
+        const next = { ...prev };
+        delete next[tokenId];
+        return next;
+      });
+    } finally {
+      setJoiningTokenId(null);
     }
   };
 
@@ -107,61 +125,96 @@ export default function MapStatusBar({ mapId, canEdit }: MapStatusBarProps) {
 
   const currentTurnTokenId = map.turn_order[map.current_turn_index];
   const currentTurnToken = tokens.find((t) => t.id === currentTurnTokenId) ?? null;
+  // Tokens on the map that missed their initiative roll before Start Combat
+  // (or were added before combat began) — surfaced here so the DM can seat
+  // them without ending combat, instead of them silently never appearing.
+  const unjoinedTokens = tokens.filter((t) => !map.turn_order.includes(t.id));
 
   return (
-    <div className="bg-stone-800 border border-stone-700 rounded-xl px-4 py-3 flex items-center gap-4">
-      <span className="text-xs text-stone-500 shrink-0">
-        Round <b className="text-stone-200 font-bold">{map.round_number}</b>
-      </span>
+    <div className="bg-stone-800 border border-stone-700 rounded-xl px-4 py-3 space-y-2">
+      <div className="flex items-center gap-4">
+        <span className="text-xs text-stone-500 shrink-0">
+          Round <b className="text-stone-200 font-bold">{map.round_number}</b>
+        </span>
 
-      <div className="flex-1 flex items-center gap-1.5 overflow-x-auto">
-        {map.turn_order.map((tokenId) => {
-          const t = tokens.find((tok) => tok.id === tokenId);
-          if (!t) return null;
-          const isCurrent = tokenId === currentTurnTokenId;
-          return (
-            <span
-              key={tokenId}
-              className={`flex items-center gap-1.5 px-2 py-1 rounded-full text-[11px] whitespace-nowrap border ${
-                isCurrent
-                  ? 'bg-sky-950 border-sky-500 text-stone-100 font-semibold'
-                  : 'bg-stone-900 border-stone-700 text-stone-500'
-              }`}
+        <div className="flex-1 flex items-center gap-1.5 overflow-x-auto">
+          {map.turn_order.map((tokenId) => {
+            const t = tokens.find((tok) => tok.id === tokenId);
+            if (!t) return null;
+            const isCurrent = tokenId === currentTurnTokenId;
+            return (
+              <span
+                key={tokenId}
+                className={`flex items-center gap-1.5 px-2 py-1 rounded-full text-[11px] whitespace-nowrap border ${
+                  isCurrent
+                    ? 'bg-sky-950 border-sky-500 text-stone-100 font-semibold'
+                    : 'bg-stone-900 border-stone-700 text-stone-500'
+                }`}
+              >
+                <span className={SIDE_COLOR[t.side]}>●</span>
+                {t.label}
+                {t.initiative != null && <span className="text-stone-600">{t.initiative}</span>}
+              </span>
+            );
+          })}
+        </div>
+
+        {criticalTokens.length > 0 && (
+          <span className="text-[11px] text-red-400 shrink-0">
+            ⚠ {criticalTokens.map((t) => `${t.label} ${t.hp_current}/${t.hp_max}`).join(', ')}
+          </span>
+        )}
+
+        {canEdit && (
+          <div className="flex gap-2 shrink-0">
+            <button
+              onClick={handleAdvance}
+              disabled={advancing}
+              className="px-3 py-1.5 bg-amber-800 hover:bg-amber-700 disabled:opacity-40 text-amber-100 text-xs rounded-lg transition-colors"
             >
-              <span className={SIDE_COLOR[t.side]}>●</span>
-              {t.label}
-              {t.initiative != null && <span className="text-stone-600">{t.initiative}</span>}
-            </span>
-          );
-        })}
+              Next Turn
+            </button>
+            <button
+              onClick={() => endCombat(mapId)}
+              className="px-2 py-1.5 bg-stone-900 border border-stone-700 text-stone-400 text-xs rounded-lg transition-colors hover:border-stone-600"
+            >
+              End Combat
+            </button>
+          </div>
+        )}
+
+        {!currentTurnToken && (
+          <span className="text-xs text-stone-600 shrink-0">Unknown token&apos;s turn</span>
+        )}
       </div>
 
-      {criticalTokens.length > 0 && (
-        <span className="text-[11px] text-red-400 shrink-0">
-          ⚠ {criticalTokens.map((t) => `${t.label} ${t.hp_current}/${t.hp_max}`).join(', ')}
-        </span>
-      )}
-
-      {canEdit && (
-        <div className="flex gap-2 shrink-0">
-          <button
-            onClick={handleAdvance}
-            disabled={advancing}
-            className="px-3 py-1.5 bg-amber-800 hover:bg-amber-700 disabled:opacity-40 text-amber-100 text-xs rounded-lg transition-colors"
-          >
-            Next Turn
-          </button>
-          <button
-            onClick={() => endCombat(mapId)}
-            className="px-2 py-1.5 bg-stone-900 border border-stone-700 text-stone-400 text-xs rounded-lg transition-colors hover:border-stone-600"
-          >
-            End Combat
-          </button>
+      {canEdit && unjoinedTokens.length > 0 && (
+        <div className="pt-2 border-t border-stone-700 space-y-1.5">
+          <p className="text-[11px] text-stone-600">Not yet in turn order:</p>
+          {unjoinedTokens.map((t) => (
+            <div key={t.id} className="flex items-center gap-2">
+              <span className={SIDE_COLOR[t.side]}>●</span>
+              <span className="flex-1 text-xs text-stone-400">{t.label}</span>
+              <DiePicker
+                sides={20}
+                value={joinRolls[t.id] ?? null}
+                onSelect={(v) => setJoinRolls((prev) => ({ ...prev, [t.id]: v }))}
+              />
+              <span className="w-14 text-xs text-stone-500">
+                {joinRolls[t.id] != null
+                  ? `= ${joinRolls[t.id] + initiativeModFor(t.id)}`
+                  : formatModifier(initiativeModFor(t.id))}
+              </span>
+              <button
+                onClick={() => handleJoin(t.id)}
+                disabled={joinRolls[t.id] == null || joiningTokenId === t.id}
+                className="px-2.5 py-1 bg-amber-800 hover:bg-amber-700 disabled:opacity-40 text-amber-100 text-xs rounded-lg transition-colors"
+              >
+                {joiningTokenId === t.id ? 'Joining…' : 'Join'}
+              </button>
+            </div>
+          ))}
         </div>
-      )}
-
-      {!currentTurnToken && (
-        <span className="text-xs text-stone-600 shrink-0">Unknown token&apos;s turn</span>
       )}
     </div>
   );

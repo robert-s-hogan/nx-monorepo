@@ -161,6 +161,21 @@ export interface RestState {
 
 // ── Visual map / combat ──────────────────────────────────────────────────────
 
+// A flat, un-ordered pool — any structure/NPC generator can claim any
+// unused clue, no dependency graph between them. See
+// lib/rulesets/storyGen.ts.
+export interface MapStoryClue {
+  id: string;
+  text: string;
+  used: boolean;
+}
+
+export interface MapStory {
+  title: string;
+  hook: string;
+  clues: MapStoryClue[];
+}
+
 export interface GameMap {
   id: string;
   session_id: string;
@@ -176,6 +191,9 @@ export interface GameMap {
   current_turn_index: number;
   round_number: number;
   combat_active: boolean;
+  // Generated once at map creation (null for maps predating this feature,
+  // or until rerolled). See lib/rulesets/storyGen.ts.
+  story?: MapStory | null;
 }
 
 // character_id is null for ad-hoc enemy/NPC tokens with no roster Character.
@@ -250,7 +268,6 @@ export interface StructureCheck {
   id: string;
   structure_id: string;
   skill: string;
-  dc: number;
   label: string;
   created_at: string;
 }
@@ -311,5 +328,22 @@ export interface StructureEvent {
   damage_dealt?: number | null;
   insight?: string | null;
   item?: StructureItem | null;
+  created_at: string;
+}
+
+// A "make a Perception check right now" roll that isn't tied to any
+// physical Lego structure (see StructureEvent above) — unlike structure
+// checks there's no reusable check/outcome definition authored ahead of
+// time, so this is just the resolved roll itself; the DM narrates the
+// result live at the table instead of reading pre-written narrative text.
+export interface GeneralCheckEvent {
+  id: string;
+  map_id: string;
+  character_id?: string | null;
+  skill: string;
+  dc: number;
+  roll: number;
+  total: number;
+  tier: OutcomeTier;
   created_at: string;
 }
