@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
-import { parseRecipeText, ParsedRecipe } from '../lib/recipeParser';
+import { copyToClipboard } from '@with-nx/utils';
+import { parseRecipeText, formatRecipeText, ParsedRecipe } from '../lib/recipeParser';
 
 interface Props {
   onParsed: (parsed: ParsedRecipe) => void;
@@ -8,11 +9,15 @@ interface Props {
 export default function QuickImportPanel({ onParsed }: Props) {
   const [pasteText, setPasteText] = useState('');
   const [showAlert, setShowAlert] = useState(false);
+  const [formattedText, setFormattedText] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const doParse = (text: string) => {
     if (!text.trim()) return;
-    onParsed(parseRecipeText(text));
+    const parsed = parseRecipeText(text);
+    onParsed(parsed);
+    setFormattedText(formatRecipeText(parsed));
     setShowAlert(true);
   };
 
@@ -62,6 +67,7 @@ export default function QuickImportPanel({ onParsed }: Props) {
             onClick={() => {
               setPasteText('');
               setShowAlert(false);
+              setFormattedText(null);
             }}
             className="text-gray-500 hover:text-gray-700 underline"
           >
@@ -70,7 +76,16 @@ export default function QuickImportPanel({ onParsed }: Props) {
         </div>
         {showAlert && (
           <div className="bg-green-100 text-green-800 rounded px-3 py-2 mt-2">
-            Fields filled — review and save below.
+            <div className="flex items-center justify-between gap-2">
+              <span>Fields filled — review and save below.</span>
+              <button
+                type="button"
+                onClick={() => formattedText && copyToClipboard(formattedText, setCopied)}
+                className="shrink-0 rounded bg-green-700 px-3 py-1 text-sm font-semibold text-white hover:bg-green-800"
+              >
+                {copied ? 'Copied!' : 'Copy as Text'}
+              </button>
+            </div>
           </div>
         )}
       </div>
