@@ -36,7 +36,7 @@
     }
   },
   "generators": {
-    "@nrwl/react": {
+    "@nx/react": {
       "application": {
         "style": "css",
         "linter": "eslint",
@@ -51,7 +51,7 @@
         "unitTestRunner": "none"
       }
     },
-    "@nrwl/next": {
+    "@nx/next": {
       "application": {
         "style": "css",
         "linter": "eslint"

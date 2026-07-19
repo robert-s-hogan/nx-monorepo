@@ -6,7 +6,7 @@
   "tags": [],
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": [
         "{options.outputFile}"
       ],
@@ -17,7 +17,7 @@
       }
     },
     "storybook": {
-      "executor": "@nrwl/storybook:storybook",
+      "executor": "@nx/storybook:storybook",
       "options": {
         "port": 4400,
         "configDir": "libs/react-hooks/.storybook"
@@ -29,7 +29,7 @@
       }
     },
     "build-storybook": {
-      "executor": "@nrwl/storybook:build",
+      "executor": "@nx/storybook:build",
       "outputs": [
         "{options.outputDir}"
       ],
@@ -44,7 +44,7 @@
       }
     },
     "static-storybook": {
-      "executor": "@nrwl/web:file-server",
+      "executor": "@nx/web:file-server",
       "options": {
         "buildTarget": "react-hooks:build-storybook",
         "staticFilePath": "dist/storybook/react-hooks"
