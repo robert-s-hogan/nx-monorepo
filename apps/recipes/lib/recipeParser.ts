@@ -80,3 +80,26 @@ export function parseRecipeText(text: string): ParsedRecipe {
   result.description = descLines.join(' ').trim();
   return result;
 }
+
+export function formatRecipeText(recipe: ParsedRecipe): string {
+  const lines: string[] = [recipe.title || 'Untitled Recipe'];
+
+  if (recipe.description) lines.push('', recipe.description);
+
+  const meta = [
+    recipe.prep_time && `Prep: ${recipe.prep_time}`,
+    recipe.cook_time && `Cook: ${recipe.cook_time}`,
+    recipe.servings && `Servings: ${recipe.servings}`,
+  ].filter((line): line is string => Boolean(line));
+  if (meta.length) lines.push('', ...meta);
+
+  if (recipe.ingredients.length) {
+    lines.push('', 'Ingredients', ...recipe.ingredients.map((i) => `- ${i}`));
+  }
+
+  if (recipe.steps.length) {
+    lines.push('', 'Instructions', ...recipe.steps.map((s, i) => `${i + 1}. ${s}`));
+  }
+
+  return lines.join('\n');
+}
