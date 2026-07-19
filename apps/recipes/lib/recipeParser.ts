@@ -81,25 +81,19 @@ export function parseRecipeText(text: string): ParsedRecipe {
   return result;
 }
 
-export function formatRecipeText(recipe: ParsedRecipe): string {
-  const lines: string[] = [recipe.title || 'Untitled Recipe'];
+// Mirrors what parseRecipeText() above recognizes — kept in sync with it.
+export const RECIPE_FORMAT_TEMPLATE = `Recipe Title
 
-  if (recipe.description) lines.push('', recipe.description);
+Optional description of the recipe.
 
-  const meta = [
-    recipe.prep_time && `Prep: ${recipe.prep_time}`,
-    recipe.cook_time && `Cook: ${recipe.cook_time}`,
-    recipe.servings && `Servings: ${recipe.servings}`,
-  ].filter((line): line is string => Boolean(line));
-  if (meta.length) lines.push('', ...meta);
+Prep: 15 min
+Cook: 30 min
+Servings: 4
 
-  if (recipe.ingredients.length) {
-    lines.push('', 'Ingredients', ...recipe.ingredients.map((i) => `- ${i}`));
-  }
+Ingredients
+- ingredient one
+- ingredient two
 
-  if (recipe.steps.length) {
-    lines.push('', 'Instructions', ...recipe.steps.map((s, i) => `${i + 1}. ${s}`));
-  }
-
-  return lines.join('\n');
-}
+Instructions
+1. First step
+2. Second step`;
