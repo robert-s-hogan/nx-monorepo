@@ -39,7 +39,9 @@ export const RequireAuth = ({ children, allowedRoles }: RequireAuthProps) => {
             Signed in as {user.email}. Contact the site owner if you think
             this is a mistake.
           </Text>
-          <Button onClick={() => signOut()}>Sign out</Button>
+          <Button variant="secondary" onClick={() => signOut()}>
+            Sign out
+          </Button>
         </div>
       </div>
     );
@@ -84,7 +86,7 @@ export const RequireAuth = ({ children, allowedRoles }: RequireAuthProps) => {
           placeholder="you@example.com"
           ariaLabel="Email address"
         />
-        <Button type="submit" disabled={submitting}>
+        <Button type="submit" variant="primary" disabled={submitting}>
           {submitting ? 'Sending…' : 'Send magic link'}
         </Button>
         {error && <Text className="text-red-600">{error}</Text>}

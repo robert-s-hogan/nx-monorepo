@@ -28,7 +28,7 @@ export const Input = ({
         {label} {/* This is now correctly provided as the children of Label */}
       </Label>
       <input
-        className="input"
+        className={inputStyles['input']}
         type={type}
         name={name}
         id={id}
