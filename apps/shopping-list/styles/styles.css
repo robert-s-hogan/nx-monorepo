@@ -78,8 +78,9 @@ main { font-family: system-ui, -apple-system, sans-serif; max-width: 600px; marg
 .item-content { flex: 1; padding-right: 6.5rem; }
 .title-row { display: flex; align-items: center; margin-bottom: 0.3rem; }
 .item-title { font-size: 1.1rem; }
-.price-badge { font-size: 0.75em; padding: 0.15rem 0.5rem; border-radius: 4px; margin-left: 0.5rem; }
-.price-badge.cost { background: #2d5a2d; color: #4CAF50; font-weight: bold; }
+.price-badge { font-size: 0.75em; padding: 0.15rem 0.5rem; border-radius: 4px; }
+.price-badge.total { margin-left: 0.5rem; background: #333; color: #bbb; font-weight: 600; }
+.price-badge.unit-cost { background: #2d5a2d; color: #4CAF50; font-weight: bold; }
 .details-row { font-size: 0.8em; color: #888; display: flex; gap: 1rem; }
 
 .item-actions { position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); display: flex; gap: 0.1rem; }

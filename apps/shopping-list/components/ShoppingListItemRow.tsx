@@ -30,12 +30,14 @@ export default function ShoppingListItemRow({
         <div className="title-row">
           <strong className="item-title">{item.name}</strong>
           {item.estimated_cost != null && (
-            <span className="price-badge cost">${Number(item.estimated_cost).toFixed(2)}</span>
+            <span className="price-badge total">${Number(item.estimated_cost).toFixed(2)}</span>
           )}
         </div>
         <div className="details-row">
           {item.purchase_size && <span className="detail-item">{item.purchase_size}</span>}
-          {item.unit_price_note && <span className="detail-item">{item.unit_price_note}</span>}
+          {item.unit_price_note && (
+            <span className="detail-item price-badge unit-cost">{item.unit_price_note}</span>
+          )}
         </div>
       </div>
       <div className="item-actions">
