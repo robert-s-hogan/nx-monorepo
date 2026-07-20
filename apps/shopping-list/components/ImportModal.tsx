@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { copyToClipboard } from '@with-nx/utils';
+
 interface Props {
   importText: string;
   importError: string;
@@ -26,6 +29,8 @@ export default function ImportModal({
   onClose,
   onImport,
 }: Props) {
+  const [copied, setCopied] = useState(false);
+
   return (
     <>
       <button type="button" className="form-backdrop" onClick={onClose} aria-label="Close import" />
@@ -36,9 +41,18 @@ export default function ImportModal({
             ×
           </button>
         </div>
-        <p className="import-hint">
-          Paste a JSON array. Each object needs at least <code>name</code> and <code>store_slug</code>.
-        </p>
+        <div className="import-hint-row">
+          <p className="import-hint">
+            Paste a JSON array. Each object needs at least <code>name</code> and <code>store_slug</code>.
+          </p>
+          <button
+            type="button"
+            className="import-copy-format-btn"
+            onClick={() => copyToClipboard(PLACEHOLDER, setCopied)}
+          >
+            {copied ? 'Copied!' : 'Copy Format'}
+          </button>
+        </div>
         <textarea
           className="field-input import-textarea"
           value={importText}

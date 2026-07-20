@@ -125,8 +125,11 @@ main { font-family: system-ui, -apple-system, sans-serif; max-width: 600px; marg
 .reset-cancel { background: none; border: 1px solid #444; color: #888; border-radius: 8px; padding: 0.45rem 0.9rem; font: inherit; font-size: 0.85rem; cursor: pointer; }
 
 .import-textarea { min-height: 180px; resize: vertical; font-family: ui-monospace, monospace; font-size: 0.85rem; line-height: 1.5; }
+.import-hint-row { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
 .import-hint { margin: 0; font-size: 0.85rem; color: #777; line-height: 1.5; }
 .import-hint code { background: #2a2a2a; padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.9em; }
+.import-copy-format-btn { flex-shrink: 0; background: none; border: 1px solid #444; color: #888; border-radius: 8px; padding: 0.35rem 0.75rem; font: inherit; font-size: 0.8rem; cursor: pointer; transition: 0.2s; }
+.import-copy-format-btn:hover { color: #aaa; border-color: #666; }
 .import-error { color: #ff4a4a; font-size: 0.9rem; }
 @media (prefers-color-scheme: light) { .import-hint code { background: #eee; } }
 
