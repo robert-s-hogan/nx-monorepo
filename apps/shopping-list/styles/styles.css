@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config '../tailwind.config.js';
 
 body { margin: 0; background: #1a1a1a; color: #fff; -webkit-tap-highlight-color: transparent; }
 @media (prefers-color-scheme: light) { body { background: #f9f9f9; color: #111; } }
