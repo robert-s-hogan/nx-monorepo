@@ -3,7 +3,11 @@ const path = require('path');
 
 module.exports = {
   stories: [],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-mdx-gfm'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-mdx-gfm',
+    '@storybook/addon-webpack5-compiler-swc',
+  ],
 
   // Storybook's webpack has no knowledge of this workspace's @with-nx/*
   // path aliases (tsconfig.base.json) unless told about them explicitly —
@@ -26,8 +30,5 @@ module.exports = {
   framework: {
     name: '@storybook/react-webpack5',
     options: {}
-  },
-  docs: {
-    autodocs: true
   }
 };
