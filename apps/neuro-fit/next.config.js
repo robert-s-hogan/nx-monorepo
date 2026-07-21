@@ -13,7 +13,13 @@ const nextConfig = {
     svgr: false,
   },
   images: {
-    domains: ['placekitten.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placekitten.com',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
