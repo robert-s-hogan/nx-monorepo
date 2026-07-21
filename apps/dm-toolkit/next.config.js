@@ -10,6 +10,11 @@ const nextConfig = {
   nx: {
     svgr: false,
   },
+  turbopack: {
+    resolveAlias: {
+      canvas: './empty-module.js',
+    },
+  },
 };
 
 module.exports = withNx(nextConfig);
