@@ -1,3 +1,5 @@
+'use client';
+
 import { CheckboxProps } from '@with-nx/types';
 import { useState } from 'react';
 import checkboxStyles from './checkbox.module.css';

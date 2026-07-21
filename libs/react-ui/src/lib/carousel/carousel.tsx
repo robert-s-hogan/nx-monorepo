@@ -1,3 +1,5 @@
+'use client';
+
 import { CarouselProps } from '@with-nx/types';
 import carouselStyles from './carousel.module.css';
 import React, { useState } from 'react';

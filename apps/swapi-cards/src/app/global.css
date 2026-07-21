@@ -1,6 +1,8 @@
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Poller+One&family=Roboto+Flex:opsz,wght@8..144,300;8..144,600;8..144,1000&display=swap');
 @config '../../tailwind.config.js';
+
+/* Poller One / Roboto Flex are loaded via an HTML <link> in
+   src/app/layout.tsx, not here -- see the comment there. */
 
 :root {
   /* --primary-color: #3b82f6;
