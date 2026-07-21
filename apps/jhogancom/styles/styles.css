@@ -1,6 +1,11 @@
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap');
 @config '../tailwind.config.js';
+
+/* Montserrat is loaded via GoogleFontLoader in pages/_document.tsx (an
+   HTML <link> preload), not here -- a CSS @import of the same font was
+   redundant and, under Turbopack, got silently dropped from the
+   production bundle because @config sits between it and the Tailwind
+   import (breaks the "@import must be first" rule). */
 
 /* theme colors can be found in /styles/themes.ts */
 
