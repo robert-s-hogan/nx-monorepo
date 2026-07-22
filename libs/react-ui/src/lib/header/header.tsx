@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { HeaderProps } from '@with-nx/types';
 
 export const Header = ({

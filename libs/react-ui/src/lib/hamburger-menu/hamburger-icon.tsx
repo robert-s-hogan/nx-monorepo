@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { Button } from '../button/button';
 import hamburgerIconStyles from './hamburger-icon.module.css';

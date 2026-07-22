@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { TextareaProps } from '@with-nx/types';
 import textareaStyles from './textarea.module.css';
 import { Label } from '../label/label';

@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { LinkProps } from '@with-nx/types';
 
 export const Link = ({

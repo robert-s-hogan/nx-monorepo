@@ -2,6 +2,7 @@
 
 import { FormProps } from '@with-nx/types';
 import React, { useState } from 'react';
+import type { JSX } from 'react';
 
 export const Form = ({ fields, onSubmit, action }: FormProps): JSX.Element => {
   const [values, setValues] = useState<{ [name: string]: string }>(

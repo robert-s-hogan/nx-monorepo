@@ -1,4 +1,5 @@
 import React from 'react';
+import type { JSX } from 'react';
 import iconButtonStyles from './icon-button.module.css';
 import { IconButtonProps } from '@with-nx/types';
 import { BUTTON_VARIANT_CLASSES } from '../button/button';

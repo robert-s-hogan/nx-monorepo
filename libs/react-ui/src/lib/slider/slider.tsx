@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react';
+import type { JSX } from 'react';
 import { SliderProps } from '@with-nx/types';
 
 export const Slider = ({

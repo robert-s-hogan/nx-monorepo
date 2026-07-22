@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { FooterProps } from '@with-nx/types';
 
 import { List } from '../list/list';

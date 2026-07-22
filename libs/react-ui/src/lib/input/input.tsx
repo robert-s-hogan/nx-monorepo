@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { InputProps } from '@with-nx/types';
 import { Label } from '../label/label';
 import inputStyles from './input.module.css';

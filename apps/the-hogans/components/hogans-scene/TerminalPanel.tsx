@@ -10,7 +10,7 @@ interface TerminalPanelProps {
 
 const TerminalPanel = ({ persona, onClose }: TerminalPanelProps) => {
   const [typed, setTyped] = useState('');
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   useEffect(() => {
     clearTimeout(timerRef.current);

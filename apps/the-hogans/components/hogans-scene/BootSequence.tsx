@@ -31,7 +31,7 @@ const BootSequence = ({ onComplete }: BootSequenceProps) => {
   const [hidden, setHidden] = useState(false);
   const [typed, setTyped] = useState<string[]>(() => BOOT_LINES.map(() => ''));
   const [suffixShown, setSuffixShown] = useState<boolean[]>(() => BOOT_LINES.map(() => false));
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const finishedRef = useRef(false);
   const onCompleteRef = useRef(onComplete);
   const finishRef = useRef<() => void>(() => undefined);

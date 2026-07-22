@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import type { JSX } from 'react';
 import HamburgerIcon from './hamburger-icon';
 import { List } from '../list/list';
 

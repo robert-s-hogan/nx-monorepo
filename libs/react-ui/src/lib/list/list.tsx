@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import listStyles from './list.module.css';
 import { ListItem } from '../list-item/list-item';
 

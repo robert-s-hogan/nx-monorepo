@@ -2,6 +2,7 @@
 
 import { CheckboxProps } from '@with-nx/types';
 import { useState } from 'react';
+import type { JSX } from 'react';
 import checkboxStyles from './checkbox.module.css';
 
 export const Checkbox = ({

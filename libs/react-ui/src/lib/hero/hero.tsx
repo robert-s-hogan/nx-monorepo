@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { HeroProps } from '@with-nx/types';
 import { Heading } from '../heading/heading';
 import { Button } from '../button/button';

@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { LabelProps } from '@with-nx/types';
 import labelStyles from './label.module.css';
 

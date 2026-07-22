@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import skeletonTextStyles from './skeleton-text.module.css';
 
 interface SkeletonTextProps {

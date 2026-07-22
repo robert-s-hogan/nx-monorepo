@@ -1,4 +1,5 @@
 import React from 'react';
+import type { JSX } from 'react';
 import buttonStyles from './button.module.css';
 import { ButtonProps, ButtonVariant } from '@with-nx/types';
 import { Skeleton } from '../skeleton/skeleton'; // Import Skeleton component
