@@ -35,7 +35,10 @@ const BootSequence = ({ onComplete }: BootSequenceProps) => {
   const finishedRef = useRef(false);
   const onCompleteRef = useRef(onComplete);
   const finishRef = useRef<() => void>(() => undefined);
-  onCompleteRef.current = onComplete;
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  });
 
   useEffect(() => {
     function finish() {

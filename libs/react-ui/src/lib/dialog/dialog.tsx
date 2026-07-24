@@ -21,6 +21,11 @@ export const Dialog: FC<DialogProps> = ({
   toggle,
   backdropRef,
 }) => {
+  const handleClose = () => {
+    toggle(); // Toggle the dialog visibility
+    onClose(); // Call onClose prop function
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -44,11 +49,6 @@ export const Dialog: FC<DialogProps> = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isShowing]);
-
-  const handleClose = () => {
-    toggle(); // Toggle the dialog visibility
-    onClose(); // Call onClose prop function
-  };
 
   return (
     <dialog ref={backdropRef}>
