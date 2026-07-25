@@ -67,3 +67,6 @@ yarn-error.log*
 # for anyone who built locally.
 *.tsbuildinfo
 .env*
+
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
