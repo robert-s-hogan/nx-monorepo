@@ -4,9 +4,8 @@ const path = require('path');
 module.exports = {
   stories: [],
   addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-mdx-gfm',
     '@storybook/addon-webpack5-compiler-swc',
+    '@storybook/addon-docs'
   ],
 
   // Storybook's webpack has no knowledge of this workspace's @with-nx/*

@@ -29,7 +29,9 @@ describe('Box', () => {
     expect(screen.getByText(childText)).toBeInTheDocument();
     expect(box).toHaveAttribute('id', id);
     expect(box).toHaveClass('box', className);
-    expect(box).toHaveStyle({ color: 'blue' });
+    // jsdom (bumped by Jest 30) now serializes computed color values as
+    // rgb(), not the original CSS keyword.
+    expect(box).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 
   it('handles onClick event', () => {
