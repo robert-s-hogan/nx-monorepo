@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { Button, ButtonProps } from './button';
 import { Flex, FlexProps } from '../flex/flex';
 

@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default {
+module.exports = {
   displayName: 'shopping-list',
   preset: '../../jest.preset.js',
   transform: {

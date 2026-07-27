@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { Box, BoxProps } from './box';
 
 const meta: Meta = {

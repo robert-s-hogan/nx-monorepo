@@ -68,4 +68,17 @@ module.exports = [
   {
     ignores: ['**/vite.config.*.timestamp*', '**/vitest.config.*.timestamp*'],
   },
+  {
+    // eslint.config.js / .storybook/main.js / tailwind.config.js are build
+    // tooling, not app source -- they legitimately do relative requires
+    // (e.g. require('../../eslint.config.js'),
+    // require('../../tailwind-workspace-preset.js')) to inherit a shared
+    // parent config, which @nx/enforce-module-boundaries otherwise flags
+    // as an "external resource" import.
+    ignores: [
+      '**/eslint.config.js',
+      '**/.storybook/main.js',
+      '**/tailwind.config.js',
+    ],
+  },
 ];

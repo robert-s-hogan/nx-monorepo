@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default {
+module.exports = {
   displayName: 'neuro-fit',
   preset: '../../jest.preset.js',
   transform: {

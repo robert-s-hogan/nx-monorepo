@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default {
+module.exports = {
   displayName: 'dm-toolkit',
   preset: '../../jest.preset.js',
   transform: {
