@@ -2,6 +2,7 @@ const { FlatCompat } = require('@eslint/eslintrc');
 const js = require('@eslint/js');
 const nxEslintPlugin = require('@nx/eslint-plugin');
 const eslintPluginTailwindcss = require('eslint-plugin-tailwindcss');
+const eslintPluginStorybook = require('eslint-plugin-storybook');
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
@@ -9,7 +10,13 @@ const compat = new FlatCompat({
 });
 
 module.exports = [
-  ...compat.extends('plugin:storybook/recommended'),
+  // eslint-plugin-storybook ships ESM-only (no CJS build). A plain
+  // top-level require() works fine under Node 22's require(esm) support,
+  // but FlatCompat's extends() resolves plugins through @eslint/eslintrc's
+  // bundled loader, which doesn't and throws ERR_REQUIRE_ESM -- so this
+  // uses the plugin's native flat config export directly instead, same as
+  // the eslint-plugin-tailwindcss config just below.
+  ...eslintPluginStorybook.configs['flat/recommended'],
   {
     plugins: {
       '@nx': nxEslintPlugin,

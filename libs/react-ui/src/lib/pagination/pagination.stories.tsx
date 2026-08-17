@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react-webpack5';
 import Pagination, { PaginationProps } from './pagination';
 import paginationStyles from './pagination.module.css';
 

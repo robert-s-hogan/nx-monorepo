@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react-webpack5';
 import { Breadcrumb } from './breadcrumb';
 import { BreadcrumbProps } from '@with-nx/types';
 

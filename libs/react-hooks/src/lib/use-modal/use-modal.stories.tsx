@@ -4,7 +4,7 @@
 // custom-modal.stories.tsx for why (breaks a circular dependency with
 // react-ui, which has a real runtime dependency on this lib).
 
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react-webpack5';
 import { useModal } from './use-modal';
 
 export default {

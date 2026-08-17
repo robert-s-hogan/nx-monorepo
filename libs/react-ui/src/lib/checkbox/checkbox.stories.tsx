@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react-webpack5';
 import { Checkbox, CheckboxProps } from './checkbox';
 
 interface StyledCheckboxProps extends CheckboxProps {

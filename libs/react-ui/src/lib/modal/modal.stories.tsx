@@ -1,6 +1,6 @@
 // Modal.stories.tsx
 
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react-webpack5';
 import { Modal, ModalProps } from './modal';
 
 const meta: Meta = {

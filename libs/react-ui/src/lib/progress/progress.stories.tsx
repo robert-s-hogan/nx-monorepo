@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react-webpack5';
 import { Progress, ProgressProps } from './progress';
 
 const meta: Meta = {

@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react-webpack5';
 import { FloatingFooter, FloatingFooterProps } from './floating-footer';
 
 const meta: Meta = {

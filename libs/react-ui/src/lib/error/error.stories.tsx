@@ -1,6 +1,6 @@
 // /libs/react-ui/src/lib/error/error.stories.tsx
 
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react-webpack5';
 import { Error, ErrorProps } from './error';
 
 const meta: Meta = {

@@ -7,7 +7,7 @@
 // completed the cycle). This story is about demoing useModal's toggle
 // behavior, not Modal's rendering, so a plain div stands in fine.
 
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react-webpack5';
 import { useModal } from './use-modal';
 
 export default {

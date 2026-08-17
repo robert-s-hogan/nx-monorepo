@@ -1,6 +1,6 @@
 // Loading.stories.tsx
 
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react-webpack5';
 import { Loading, LoadingProps } from './loading';
 
 const meta: Meta = {

@@ -1,5 +1,5 @@
 //libs/react-ui/src/lib/collapse.stories.tsx
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react-webpack5';
 import Collapse, { CollapseProps } from './collapse';
 
 const meta: Meta = {

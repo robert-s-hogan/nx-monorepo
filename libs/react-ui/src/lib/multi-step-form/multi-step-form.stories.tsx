@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react-webpack5';
 import { MultiStepForm, MultiStepFormProps, FormStep } from './multi-step-form';
 
 const meta: Meta = {
