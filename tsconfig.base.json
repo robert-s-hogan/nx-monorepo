@@ -24,7 +24,12 @@
       "@with-nx/theme": ["libs/theme/src/index.ts"],
       "@with-nx/types": ["libs/types/src/index.ts"],
       "@with-nx/utils": ["libs/utils/src/index.ts"]
-    }
+    },
+    "strict": false,
+    "noUncheckedSideEffectImports": false,
+    "types": ["*"],
+    "esModuleInterop": false,
+    "ignoreDeprecations": "6.0"
   },
   "exclude": ["node_modules", "tmp"]
 }
