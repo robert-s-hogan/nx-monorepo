@@ -1,7 +1,7 @@
 //libs/react-ui/src/lib/collapse/collapse.test.tsx
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { Collapse } from './collapse';
 
 describe('Collapse', () => {
