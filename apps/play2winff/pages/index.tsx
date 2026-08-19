@@ -26,9 +26,7 @@ export function Index() {
             and real-time drafting tools.
           </Text>
           <Link href="/draft">
-            <Button className="mt-6 bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded font-medium">
-              Start Drafting
-            </Button>
+            <Button className="btn-primary mt-6">Start Drafting</Button>
           </Link>
         </div>
       </Section>
@@ -77,7 +75,7 @@ export function Index() {
         </Text>
         <div className="text-center">
           <Link href="/draft">
-            <Button variant="primary">Start Now</Button>
+            <Button className="btn-primary">Start Now</Button>
           </Link>
         </div>
       </Section>
