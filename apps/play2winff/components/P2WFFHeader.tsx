@@ -3,6 +3,7 @@ import { Button, Flex, IconButton, Text } from '@with-nx/react-ui';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme, ThemeType } from '@with-nx/theme';
+import { useAuth } from '@with-nx/auth';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -43,6 +44,7 @@ const links: {
 
 const PlayToWinFFHeader = () => {
   const { theme, toggleTheme, fadeClass } = useTheme();
+  const { user, role, signOut } = useAuth();
   const router = useRouter();
 
   const [isMounted, setIsMounted] = useState(false);
@@ -94,6 +96,25 @@ const PlayToWinFFHeader = () => {
                 </li>
               );
             })}
+            <li>
+              {user ? (
+                <button
+                  onClick={() => signOut()}
+                  title="Click to sign out"
+                  className="text-xs text-slate-500 transition hover:text-slate-700"
+                >
+                  {user.email}
+                  {role ? ` (${role})` : ' (no access)'}
+                </button>
+              ) : (
+                <Link
+                  href="/login"
+                  className="text-xs text-slate-500 transition hover:text-slate-700"
+                >
+                  Not signed in
+                </Link>
+              )}
+            </li>
             <li>{toggleButton}</li>
           </ul>
         </nav>

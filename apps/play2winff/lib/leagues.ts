@@ -31,4 +31,11 @@ export const SLOT_PRESETS: { label: string; def: Omit<SlotDef, 'id'> }[] = [
     def: { label: 'Superflex', positions: ['QB', 'WR', 'RB', 'TE'] },
   },
   { label: 'OP', def: { label: 'OP', positions: ['QB', 'WR', 'RB', 'TE'] } },
+  {
+    label: 'IR',
+    def: {
+      label: 'IR',
+      positions: ['QB', 'RB', 'WR', 'TE', 'K', 'DST'],
+    },
+  },
 ];
