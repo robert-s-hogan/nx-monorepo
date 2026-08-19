@@ -1,6 +1,8 @@
 import type { DraftPlayer } from '../../lib/server/draft';
 import { DisplayItem } from '../../hooks/useDraftSession';
 import { posClass } from './posClass';
+import { PlayerFlagIcons } from './PlayerFlagIcons';
+import type { BooleanFlag } from '../../lib/flags';
 
 export interface PlayerTableProps {
   displayList: DisplayItem[];
@@ -8,6 +10,9 @@ export interface PlayerTableProps {
   onOpenNotes: (player: DraftPlayer) => void;
   onDraftToMyTeam: (player: DraftPlayer) => void;
   onDraftedByOther: (player: DraftPlayer) => void;
+  onToggleFlag: (player: DraftPlayer, flag: BooleanFlag) => void;
+  onSetRiskFactor: (player: DraftPlayer, value: number | null) => void;
+  canEditFlags: boolean;
 }
 
 export const PlayerTable = ({
@@ -16,6 +21,9 @@ export const PlayerTable = ({
   onOpenNotes,
   onDraftToMyTeam,
   onDraftedByOther,
+  onToggleFlag,
+  onSetRiskFactor,
+  canEditFlags,
 }: PlayerTableProps) => {
   return (
     <main className="flex-1 overflow-y-auto">
@@ -35,6 +43,9 @@ export const PlayerTable = ({
               Team
             </th>
             <th className="w-36 border-b border-slate-300 px-2 py-2 text-center font-semibold">
+              Flags
+            </th>
+            <th className="w-36 border-b border-slate-300 px-2 py-2 text-center font-semibold">
               Draft
             </th>
           </tr>
@@ -44,7 +55,7 @@ export const PlayerTable = ({
             item.type === 'header' ? (
               <tr key={`h${item.round}`}>
                 <td
-                  colSpan={5}
+                  colSpan={6}
                   className="select-none border-y border-slate-300 bg-slate-200 py-1 text-center font-semibold"
                 >
                   Round {item.round}
@@ -82,6 +93,14 @@ export const PlayerTable = ({
                   {item.data.team ?? '—'}
                 </td>
                 <td className="border-b border-slate-200 px-2 py-1.5 text-center">
+                  <PlayerFlagIcons
+                    player={item.data}
+                    canEdit={canEditFlags}
+                    onToggleFlag={onToggleFlag}
+                    onSetRiskFactor={onSetRiskFactor}
+                  />
+                </td>
+                <td className="border-b border-slate-200 px-2 py-1.5 text-center">
                   <div className="flex items-center justify-center gap-1.5">
                     <button
                       onClick={() => onDraftToMyTeam(item.data)}
@@ -105,7 +124,7 @@ export const PlayerTable = ({
             <>
               <tr>
                 <td
-                  colSpan={5}
+                  colSpan={6}
                   className="select-none border-y border-slate-400 bg-slate-300 py-1 text-center font-semibold text-slate-700"
                 >
                   Dropped off rankings
@@ -137,6 +156,14 @@ export const PlayerTable = ({
                   </td>
                   <td className="border-b border-slate-200 px-2 py-1.5 text-center uppercase text-slate-500">
                     {p.team ?? '—'}
+                  </td>
+                  <td className="border-b border-slate-200 px-2 py-1.5 text-center">
+                    <PlayerFlagIcons
+                      player={p}
+                      canEdit={canEditFlags}
+                      onToggleFlag={onToggleFlag}
+                      onSetRiskFactor={onSetRiskFactor}
+                    />
                   </td>
                   <td className="border-b border-slate-200 px-2 py-1.5 text-center">
                     <div className="flex items-center justify-center gap-1.5">

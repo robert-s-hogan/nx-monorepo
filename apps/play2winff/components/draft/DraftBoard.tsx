@@ -3,10 +3,12 @@ import { useState } from 'react';
 import { LeagueProfile } from '../../lib/leagues';
 import { RankingSnapshot } from '../../lib/rankings';
 import type { DraftPlayer } from '../../lib/server/draft';
+import type { BooleanFlag, FlagType } from '../../lib/flags';
 import { RosterEntry, DisplayItem } from '../../hooks/useDraftSession';
 import { RosterSidebar } from './RosterSidebar';
 import { PlayerTable } from './PlayerTable';
 import { PlayerNotesModal } from './PlayerNotesModal';
+import { FlagFilterBar } from './FlagFilterBar';
 
 export interface DraftBoardProps {
   league: LeagueProfile;
@@ -24,6 +26,10 @@ export interface DraftBoardProps {
   onReleaseFromRoster: (idx: number) => void;
   onReleaseFromBench: (idx: number) => void;
   onNoteSaved: (nameCanon: string, note: string) => void;
+  onToggleFlag: (player: DraftPlayer, flag: BooleanFlag) => void;
+  onSetRiskFactor: (player: DraftPlayer, value: number | null) => void;
+  filters: Set<FlagType>;
+  onToggleFilter: (flag: FlagType) => void;
   canEdit: boolean;
 }
 
@@ -43,6 +49,10 @@ export const DraftBoard = ({
   onReleaseFromRoster,
   onReleaseFromBench,
   onNoteSaved,
+  onToggleFlag,
+  onSetRiskFactor,
+  filters,
+  onToggleFilter,
   canEdit,
 }: DraftBoardProps) => {
   const [noteTarget, setNoteTarget] = useState<DraftPlayer | null>(null);
@@ -64,6 +74,8 @@ export const DraftBoard = ({
         </button>
       </div>
 
+      <FlagFilterBar filters={filters} onToggleFilter={onToggleFilter} />
+
       <div className="flex flex-1 overflow-hidden">
         <RosterSidebar
           rosterSlots={rosterSlots}
@@ -78,6 +90,9 @@ export const DraftBoard = ({
           onOpenNotes={setNoteTarget}
           onDraftToMyTeam={onDraftToMyTeam}
           onDraftedByOther={onDraftedByOther}
+          onToggleFlag={onToggleFlag}
+          onSetRiskFactor={onSetRiskFactor}
+          canEditFlags={canEdit}
         />
       </div>
 

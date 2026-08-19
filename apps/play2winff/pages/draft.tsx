@@ -86,6 +86,10 @@ const Draft = () => {
           onReleaseFromRoster={session.releaseFromRoster}
           onReleaseFromBench={session.releaseFromBench}
           onNoteSaved={session.setNoteFor}
+          onToggleFlag={session.toggleFlag}
+          onSetRiskFactor={session.setRiskFactor}
+          filters={session.filters}
+          onToggleFilter={session.toggleFilter}
           canEdit={canEdit}
         />
       )}

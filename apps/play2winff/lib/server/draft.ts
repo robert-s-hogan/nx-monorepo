@@ -2,6 +2,12 @@
 // and pages/api/player-notes/*.
 import { db } from './db';
 import { canonName } from '../rankings';
+import {
+  BooleanFlag,
+  FlagType,
+  PlayerFlags,
+  emptyFlags,
+} from '../flags';
 
 export type DraftPlayer = {
   rank: number;
@@ -12,7 +18,27 @@ export type DraftPlayer = {
   note: string | null;
   dropped: boolean;
   lastRank: number | null;
+  flags: PlayerFlags;
 };
+
+async function loadFlagsByCanon(): Promise<Map<string, PlayerFlags>> {
+  const result = await db.execute(
+    `SELECT name_canon, flag, value FROM player_flags`
+  );
+  const byCanon = new Map<string, PlayerFlags>();
+  for (const r of result.rows) {
+    const canon = r.name_canon as string;
+    const flag = r.flag as FlagType;
+    const flags = byCanon.get(canon) ?? emptyFlags();
+    if (flag === 'risk_factor') {
+      flags.risk_factor = r.value as number;
+    } else {
+      flags[flag as BooleanFlag] = true;
+    }
+    byCanon.set(canon, flags);
+  }
+  return byCanon;
+}
 
 export async function loadDraftPlayers(
   snapshotId: number,
@@ -36,6 +62,8 @@ export async function loadDraftPlayers(
     notesByCanon.set(r.name_canon as string, r.note as string);
   }
 
+  const flagsByCanon = await loadFlagsByCanon();
+
   const current: DraftPlayer[] = currResult.rows.map((r) => ({
     rank: r.rank as number,
     name: r.name as string,
@@ -45,6 +73,7 @@ export async function loadDraftPlayers(
     note: notesByCanon.get(r.name_canon as string) ?? null,
     dropped: false,
     lastRank: null,
+    flags: flagsByCanon.get(r.name_canon as string) ?? emptyFlags(),
   }));
 
   if (!prevSnapshotId) return current;
@@ -69,6 +98,7 @@ export async function loadDraftPlayers(
         note: notesByCanon.get(canon) ?? null,
         dropped: true,
         lastRank: r.rank as number,
+        flags: flagsByCanon.get(canon) ?? emptyFlags(),
       });
     }
   }
@@ -96,4 +126,66 @@ export async function fetchNotesForPlayer(
     note: r.note as string,
     created_at: r.created_at as string,
   }));
+}
+
+export async function fetchFlagsForPlayer(name: string): Promise<PlayerFlags> {
+  const canon = canonName(name);
+  const result = await db.execute({
+    sql: `SELECT flag, value FROM player_flags WHERE name_canon=?`,
+    args: [canon],
+  });
+  const flags = emptyFlags();
+  for (const r of result.rows) {
+    const flag = r.flag as FlagType;
+    if (flag === 'risk_factor') {
+      flags.risk_factor = r.value as number;
+    } else {
+      flags[flag as BooleanFlag] = true;
+    }
+  }
+  return flags;
+}
+
+// Presence of a row = on; toggling off deletes the row.
+export async function toggleBooleanFlag(
+  name: string,
+  flag: BooleanFlag
+): Promise<PlayerFlags> {
+  const canon = canonName(name);
+  const existing = await db.execute({
+    sql: `SELECT 1 FROM player_flags WHERE name_canon=? AND flag=?`,
+    args: [canon, flag],
+  });
+  if (existing.rows.length > 0) {
+    await db.execute({
+      sql: `DELETE FROM player_flags WHERE name_canon=? AND flag=?`,
+      args: [canon, flag],
+    });
+  } else {
+    await db.execute({
+      sql: `INSERT INTO player_flags (name_canon, flag) VALUES (?, ?)`,
+      args: [canon, flag],
+    });
+  }
+  return fetchFlagsForPlayer(name);
+}
+
+export async function setRiskFactor(
+  name: string,
+  value: number | null
+): Promise<PlayerFlags> {
+  const canon = canonName(name);
+  if (value == null) {
+    await db.execute({
+      sql: `DELETE FROM player_flags WHERE name_canon=? AND flag='risk_factor'`,
+      args: [canon],
+    });
+  } else {
+    await db.execute({
+      sql: `INSERT INTO player_flags (name_canon, flag, value) VALUES (?, 'risk_factor', ?)
+            ON CONFLICT(name_canon, flag) DO UPDATE SET value=excluded.value`,
+      args: [canon, value],
+    });
+  }
+  return fetchFlagsForPlayer(name);
 }

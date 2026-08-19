@@ -58,9 +58,28 @@ const schema = [
     created_at  TEXT NOT NULL DEFAULT (datetime('now'))
   )`,
 
+  // Draft-board tags. Boolean flags (post_hype_sleeper, swing_player,
+  // film_room_zero, andys_favorite) store no value, presence = on.
+  // risk_factor stores a 1-10 rating in `value`. One row per player per flag.
+  `CREATE TABLE IF NOT EXISTS player_flags (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    name_canon  TEXT    NOT NULL,
+    flag        TEXT    NOT NULL CHECK(flag IN (
+                  'risk_factor',
+                  'post_hype_sleeper',
+                  'swing_player',
+                  'film_room_zero',
+                  'andys_favorite'
+                )),
+    value       INTEGER,
+    created_at  TEXT    NOT NULL DEFAULT (datetime('now')),
+    UNIQUE(name_canon, flag)
+  )`,
+
   `CREATE INDEX IF NOT EXISTS idx_rankings_snapshot ON rankings(snapshot_id)`,
   `CREATE INDEX IF NOT EXISTS idx_rankings_name     ON rankings(name_canon)`,
   `CREATE INDEX IF NOT EXISTS idx_notes_name        ON player_notes(name_canon)`,
+  `CREATE INDEX IF NOT EXISTS idx_flags_name        ON player_flags(name_canon)`,
 ];
 
 async function main() {
