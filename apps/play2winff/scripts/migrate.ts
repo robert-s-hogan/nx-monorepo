@@ -19,12 +19,23 @@ if (!url || !authToken) {
 const db = createClient({ url, authToken });
 
 const schema = [
-  // Each paste import creates one snapshot
+  // Two pinned snapshots per list_type: one locked 'original' (set once,
+  // never changed) and one 'latest' (replaced in place on every import).
+  // role is nullable so legacy/one-off rows could exist, but the app only
+  // ever writes 'original' or 'latest'. UNIQUE(list_type, role) is what
+  // enforces "only one of each per list type" — SQLite treats each NULL as
+  // distinct, so it doesn't constrain rows with role IS NULL.
+  // NOTE: keep in sync with scripts/migrate-add-original-latest.ts, which
+  // rebuilds this same table against an already-existing one (SQLite can't
+  // ALTER a CHECK/UNIQUE constraint in place, and this CREATE TABLE IF NOT
+  // EXISTS is a no-op once the table exists).
   `CREATE TABLE IF NOT EXISTS ranking_snapshots (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,
     list_type   TEXT    NOT NULL CHECK(list_type IN ('ppr','superflex')),
+    role        TEXT    CHECK(role IN ('original','latest')),
     label       TEXT    NOT NULL,
-    created_at  TEXT    NOT NULL DEFAULT (datetime('now'))
+    created_at  TEXT    NOT NULL DEFAULT (datetime('now')),
+    UNIQUE(list_type, role)
   )`,
 
   // One row per player per snapshot (up to 300)
@@ -58,28 +69,49 @@ const schema = [
     created_at  TEXT NOT NULL DEFAULT (datetime('now'))
   )`,
 
-  // Draft-board tags. Boolean flags (post_hype_sleeper, swing_player,
-  // film_room_zero, andys_favorite) store no value, presence = on.
-  // risk_factor stores a 1-10 rating in `value`. One row per player per flag.
-  `CREATE TABLE IF NOT EXISTS player_flags (
+  // User-defined draft-board tags. A tag is created once (name + icon key
+  // into lib/tagIcons.ts + auto-assigned color), then applied to any number
+  // of players via player_tags. No preset taxonomy, unlike the old
+  // player_flags table this replaced.
+  `CREATE TABLE IF NOT EXISTS custom_tags (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    name        TEXT    NOT NULL UNIQUE,
+    icon        TEXT    NOT NULL,
+    color       TEXT    NOT NULL,
+    created_at  TEXT    NOT NULL DEFAULT (datetime('now'))
+  )`,
+
+  // Presence of a row = tag applied to that player.
+  `CREATE TABLE IF NOT EXISTS player_tags (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,
     name_canon  TEXT    NOT NULL,
-    flag        TEXT    NOT NULL CHECK(flag IN (
-                  'risk_factor',
-                  'post_hype_sleeper',
-                  'swing_player',
-                  'film_room_zero',
-                  'andys_favorite'
-                )),
-    value       INTEGER,
+    tag_id      INTEGER NOT NULL REFERENCES custom_tags(id) ON DELETE CASCADE,
     created_at  TEXT    NOT NULL DEFAULT (datetime('now')),
-    UNIQUE(name_canon, flag)
+    UNIQUE(name_canon, tag_id)
+  )`,
+
+  // One row per player; setting a new injury upserts it, clearing deletes
+  // the row. expected_return is free text ("Week 4", "TBD") rather than a
+  // strict date, since injury timelines are usually described that way.
+  `CREATE TABLE IF NOT EXISTS player_injuries (
+    name_canon      TEXT PRIMARY KEY,
+    injury          TEXT NOT NULL,
+    expected_return TEXT,
+    updated_at      TEXT NOT NULL DEFAULT (datetime('now'))
+  )`,
+
+  // One row per player; setting a new rating upserts it (0-10), clearing
+  // deletes the row.
+  `CREATE TABLE IF NOT EXISTS player_risk (
+    name_canon  TEXT PRIMARY KEY,
+    value       INTEGER NOT NULL CHECK(value BETWEEN 0 AND 10),
+    updated_at  TEXT    NOT NULL DEFAULT (datetime('now'))
   )`,
 
   `CREATE INDEX IF NOT EXISTS idx_rankings_snapshot ON rankings(snapshot_id)`,
   `CREATE INDEX IF NOT EXISTS idx_rankings_name     ON rankings(name_canon)`,
   `CREATE INDEX IF NOT EXISTS idx_notes_name        ON player_notes(name_canon)`,
-  `CREATE INDEX IF NOT EXISTS idx_flags_name        ON player_flags(name_canon)`,
+  `CREATE INDEX IF NOT EXISTS idx_player_tags_name  ON player_tags(name_canon)`,
 ];
 
 async function main() {

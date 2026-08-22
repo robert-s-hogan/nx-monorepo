@@ -1,51 +1,50 @@
 import { useMemo, useState } from 'react';
 
 import { ListType, ParsedRow, parsePaste } from '../../lib/rankings';
-import { commitSnapshot } from '../../hooks/useSnapshots';
+import { commitSnapshot, useOriginalAndLatest } from '../../hooks/useSnapshots';
 
-export interface RankingsImportFormProps {
-  onCommitted: () => void;
-}
-
-export const RankingsImportForm = ({ onCommitted }: RankingsImportFormProps) => {
+export const RankingsImportForm = () => {
   const [pasteText, setPasteText] = useState('');
   const [listType, setListType] = useState<ListType>('ppr');
-  const [label, setLabel] = useState('');
   const [parsed, setParsed] = useState<ParsedRow[]>([]);
   const [committing, setCommitting] = useState(false);
-  const [committed, setCommitted] = useState(false);
+  const [committedRole, setCommittedRole] = useState<null | 'original' | 'latest'>(
+    null
+  );
   const [error, setError] = useState<string | null>(null);
+
+  const { original, refresh } = useOriginalAndLatest(listType);
 
   function onPaste(text: string) {
     setPasteText(text);
-    setCommitted(false);
-    const rows = parsePaste(text);
-    setParsed(rows);
-    if (!label) {
-      const d = new Date();
-      setLabel(
-        `${listType.toUpperCase()} ${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`
-      );
-    }
+    setCommittedRole(null);
+    setParsed(parsePaste(text));
   }
 
   const goodRows = useMemo(() => parsed.filter((r) => r.parseOk), [parsed]);
   const badRows = useMemo(() => parsed.filter((r) => !r.parseOk), [parsed]);
   const hasParsed = parsed.length > 0;
 
-  async function commit() {
-    if (!goodRows.length || !label.trim()) return;
+  async function commit(role: 'original' | 'latest') {
+    if (!goodRows.length) return;
+    if (
+      role === 'latest' &&
+      !confirm(`Replace the current Latest ${listType.toUpperCase()} list?`)
+    ) {
+      return;
+    }
     setCommitting(true);
     setError(null);
     try {
-      await commitSnapshot(goodRows, listType, label.trim());
+      const result = await commitSnapshot(goodRows, listType, role);
+      if ('error' in result) {
+        setError(result.error);
+        return;
+      }
       setPasteText('');
       setParsed([]);
-      setLabel('');
-      setCommitted(true);
-      onCommitted();
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Commit failed');
+      setCommittedRole(role);
+      refresh();
     } finally {
       setCommitting(false);
     }
@@ -55,48 +54,33 @@ export const RankingsImportForm = ({ onCommitted }: RankingsImportFormProps) => 
     <div className="space-y-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
       {error && <p className="text-sm text-red-600">{error}</p>}
 
-      <div className="flex flex-wrap gap-4">
-        <div>
-          <label className="mb-1 block text-xs font-medium text-slate-600">
-            Rankings type
+      <div>
+        <label className="mb-1 block text-xs font-medium text-slate-600">
+          Rankings type
+        </label>
+        <div className="flex gap-3">
+          <label className="flex cursor-pointer items-center gap-1.5 text-sm">
+            <input
+              type="radio"
+              checked={listType === 'ppr'}
+              onChange={() => setListType('ppr')}
+            />
+            PPR
           </label>
-          <div className="flex gap-3">
-            <label className="flex cursor-pointer items-center gap-1.5 text-sm">
-              <input
-                type="radio"
-                checked={listType === 'ppr'}
-                onChange={() => setListType('ppr')}
-              />
-              PPR 300
-            </label>
-            <label className="flex cursor-pointer items-center gap-1.5 text-sm">
-              <input
-                type="radio"
-                checked={listType === 'superflex'}
-                onChange={() => setListType('superflex')}
-              />
-              Superflex 300
-            </label>
-          </div>
-        </div>
-
-        <div className="min-w-48 flex-1">
-          <label className="mb-1 block text-xs font-medium text-slate-600">
-            Snapshot label
+          <label className="flex cursor-pointer items-center gap-1.5 text-sm">
+            <input
+              type="radio"
+              checked={listType === 'superflex'}
+              onChange={() => setListType('superflex')}
+            />
+            Superflex
           </label>
-          <input
-            type="text"
-            value={label}
-            onChange={(e) => setLabel(e.target.value)}
-            placeholder="e.g. PPR 8/30/2026"
-            className="w-full rounded border border-slate-300 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400"
-          />
         </div>
       </div>
 
       <div>
         <label className="mb-1 block text-xs font-medium text-slate-600">
-          Paste rankings (rank · name · team · position)
+          Paste rankings (rank · name · team · position, or rank · name · POS#)
         </label>
         <textarea
           value={pasteText}
@@ -109,26 +93,42 @@ export const RankingsImportForm = ({ onCommitted }: RankingsImportFormProps) => 
       </div>
 
       {hasParsed && (
-        <div className="flex items-center gap-4 text-sm">
+        <div className="flex flex-wrap items-center gap-4 text-sm">
           <span className="font-medium text-emerald-700">
             ✓ {goodRows.length} parsed
           </span>
           {badRows.length > 0 && (
             <span className="text-amber-600">⚠ {badRows.length} skipped</span>
           )}
-          <button
-            onClick={commit}
-            disabled={committing || !goodRows.length || !label.trim()}
-            className="ml-auto rounded-md bg-slate-900 px-4 py-1.5 text-sm text-white transition hover:bg-slate-700 disabled:opacity-40"
-          >
-            {committing ? 'Saving…' : 'Commit snapshot'}
-          </button>
+          <div className="ml-auto flex items-center gap-2">
+            {original ? (
+              <span className="text-xs text-slate-400">
+                Original set {new Date(original.created_at).toLocaleDateString()}
+              </span>
+            ) : (
+              <button
+                onClick={() => commit('original')}
+                disabled={committing || !goodRows.length}
+                className="rounded-md border border-slate-300 px-4 py-1.5 text-sm text-slate-700 transition hover:bg-slate-50 disabled:opacity-40"
+              >
+                {committing ? 'Saving…' : 'Set as Original'}
+              </button>
+            )}
+            <button
+              onClick={() => commit('latest')}
+              disabled={committing || !goodRows.length}
+              className="rounded-md bg-slate-900 px-4 py-1.5 text-sm text-white transition hover:bg-slate-700 disabled:opacity-40"
+            >
+              {committing ? 'Saving…' : 'Update Latest'}
+            </button>
+          </div>
         </div>
       )}
 
-      {committed && (
+      {committedRole && (
         <p className="text-sm font-medium text-emerald-600">
-          ✓ Snapshot saved successfully.
+          ✓ {committedRole === 'original' ? 'Original' : 'Latest'} saved
+          successfully.
         </p>
       )}
 

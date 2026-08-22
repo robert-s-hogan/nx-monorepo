@@ -1,6 +1,7 @@
 // Pure, client-safe ranking-paste parsing. No DB access here — see lib/server/rankings.ts.
 
 export type ListType = 'ppr' | 'superflex';
+export type SnapshotRole = 'original' | 'latest';
 
 export type ParsedRow = {
   rank: number;
@@ -15,6 +16,7 @@ export type ParsedRow = {
 export type RankingSnapshot = {
   id: number;
   list_type: ListType;
+  role: SnapshotRole | null;
   label: string;
   created_at: string;
   count?: number;
@@ -65,15 +67,26 @@ export function parsePaste(raw: string): ParsedRow[] {
 
     let posIdx: number | null = null;
     let teamIdx: number | null = null;
+    // Some sources (e.g. a plain "positional rank" chart) fuse position and
+    // positional-rank into one token with no team column at all, e.g.
+    // "RB1", "WR42" instead of "DET RB". Strip trailing digits and retry
+    // against VALID_POSITIONS when the bare last token doesn't match.
+    let fusedPos: string | null = null;
 
     const lastToken = tokens[tokens.length - 1]?.toUpperCase();
     if (lastToken && VALID_POSITIONS.has(lastToken)) {
       posIdx = tokens.length - 1;
+    } else if (lastToken) {
+      const stripped = lastToken.replace(/\d+$/, '');
+      if (stripped && stripped !== lastToken && VALID_POSITIONS.has(stripped)) {
+        posIdx = tokens.length - 1;
+        fusedPos = stripped;
+      }
     }
 
     const teamSearch = posIdx != null ? posIdx - 1 : tokens.length - 1;
     const maybeTeam = tokens[teamSearch]?.toUpperCase();
-    if (maybeTeam && TEAM_ABBREVS.has(maybeTeam)) {
+    if (fusedPos == null && maybeTeam && TEAM_ABBREVS.has(maybeTeam)) {
       teamIdx = teamSearch;
     }
 
@@ -81,7 +94,7 @@ export function parsePaste(raw: string): ParsedRow[] {
     const nameParts = tokens.slice(1, nameEnd);
     const name = nameParts.join(' ').trim();
 
-    const rawPos = posIdx != null ? tokens[posIdx].toUpperCase() : null;
+    const rawPos = fusedPos ?? (posIdx != null ? tokens[posIdx].toUpperCase() : null);
     const position = rawPos ? NORM_POS[rawPos] ?? rawPos : null;
     const team = teamIdx != null ? tokens[teamIdx].toUpperCase() : null;
 

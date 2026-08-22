@@ -1,7 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { requireRole } from '@with-nx/auth';
 
-import { deleteSnapshot } from '../../../lib/server/rankings';
 import { loadDraftPlayers } from '../../../lib/server/draft';
 
 export default async function handler(
@@ -23,15 +21,6 @@ export default async function handler(
     return res.status(200).json(players);
   }
 
-  if (!(await requireRole(req, ['family', 'limited']))) {
-    return res.status(401).json({ error: 'Not authorized' });
-  }
-
-  if (req.method === 'DELETE') {
-    await deleteSnapshot(id);
-    return res.status(204).end();
-  }
-
-  res.setHeader('Allow', ['GET', 'DELETE']);
+  res.setHeader('Allow', ['GET']);
   return res.status(405).end(`Method ${req.method} Not Allowed`);
 }

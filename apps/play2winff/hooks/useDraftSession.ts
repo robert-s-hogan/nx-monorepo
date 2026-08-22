@@ -5,8 +5,9 @@ import { useMemo, useState } from 'react';
 
 import { LeagueProfile, SlotDef } from '../lib/leagues';
 import type { DraftPlayer } from '../lib/server/draft';
-import type { BooleanFlag, FlagType } from '../lib/flags';
-import * as playerFlagsApi from './usePlayerFlags';
+import type { PlayerInjury } from './usePlayerInjury';
+import * as customTagsApi from './useCustomTags';
+import * as playerRiskApi from './usePlayerRisk';
 
 export type DisplayItem =
   | { type: 'header'; round: number }
@@ -22,7 +23,6 @@ export function useDraftSession(league: LeagueProfile | null) {
   const [loadingPlayers, setLoadingPlayers] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [launched, setLaunched] = useState(false);
-  const [filters, setFilters] = useState<Set<FlagType>>(new Set());
 
   async function launch(snapshotId: number, prevSnapshotId: number | null) {
     if (!league) return;
@@ -105,43 +105,35 @@ export function useDraftSession(league: LeagueProfile | null) {
     );
   }
 
-  async function toggleFlag(player: DraftPlayer, flag: BooleanFlag) {
-    const flags = await playerFlagsApi.toggleBooleanFlag(player.name, flag);
+  function setInjuryFor(nameCanon: string, injury: PlayerInjury | null) {
     setPlayers((prev) =>
-      prev.map((p) => (p.name_canon === player.name_canon ? { ...p, flags } : p))
+      prev.map((p) => (p.name_canon === nameCanon ? { ...p, injury } : p))
     );
   }
 
-  async function setRiskFactor(player: DraftPlayer, value: number | null) {
-    const flags = await playerFlagsApi.setRiskFactor(player.name, value);
+  async function toggleTag(player: DraftPlayer, tagId: number) {
+    const tags = await customTagsApi.toggleTagForPlayer(player.name, tagId);
     setPlayers((prev) =>
-      prev.map((p) => (p.name_canon === player.name_canon ? { ...p, flags } : p))
+      prev.map((p) => (p.name_canon === player.name_canon ? { ...p, tags } : p))
     );
   }
 
-  function toggleFilter(flag: FlagType) {
-    setFilters((prev) => {
-      const next = new Set(prev);
-      if (next.has(flag)) next.delete(flag);
-      else next.add(flag);
-      return next;
-    });
-  }
-
-  function matchesFilters(p: DraftPlayer): boolean {
-    if (filters.size === 0) return true;
-    for (const f of filters) {
-      if (f === 'risk_factor' ? p.flags.risk_factor != null : p.flags[f]) {
-        return true;
-      }
+  async function setRisk(player: DraftPlayer, value: number | null) {
+    if (value == null) {
+      await playerRiskApi.clearRiskForPlayer(player.name);
+    } else {
+      await playerRiskApi.setRiskForPlayer(player.name, value);
     }
-    return false;
+    setPlayers((prev) =>
+      prev.map((p) =>
+        p.name_canon === player.name_canon ? { ...p, riskFactor: value } : p
+      )
+    );
   }
 
   const visiblePlayers = useMemo(
-    () =>
-      players.filter((p) => !hiddenIds.has(p.name_canon) && matchesFilters(p)),
-    [players, hiddenIds, filters]
+    () => players.filter((p) => !hiddenIds.has(p.name_canon)),
+    [players, hiddenIds]
   );
 
   const activePlayers = useMemo(
@@ -200,9 +192,8 @@ export function useDraftSession(league: LeagueProfile | null) {
     releaseFromRoster,
     releaseFromBench,
     setNoteFor,
-    toggleFlag,
-    setRiskFactor,
-    filters,
-    toggleFilter,
+    setInjuryFor,
+    toggleTag,
+    setRisk,
   };
 }

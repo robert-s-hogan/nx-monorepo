@@ -2,12 +2,12 @@
 // and pages/api/player-notes/*.
 import { db } from './db';
 import { canonName } from '../rankings';
-import {
-  BooleanFlag,
-  FlagType,
-  PlayerFlags,
-  emptyFlags,
-} from '../flags';
+import type { CustomTag } from '../tags';
+
+export type PlayerInjury = {
+  injury: string;
+  expectedReturn: string | null;
+};
 
 export type DraftPlayer = {
   rank: number;
@@ -18,27 +18,67 @@ export type DraftPlayer = {
   note: string | null;
   dropped: boolean;
   lastRank: number | null;
-  flags: PlayerFlags;
+  // Rank in the Original snapshot (the `prevSnapshotId` passed to
+  // loadDraftPlayers), regardless of whether the player is still present in
+  // the current snapshot. Null if they weren't in the Original list at all.
+  originalRank: number | null;
+  tags: CustomTag[];
+  injury: PlayerInjury | null;
+  riskFactor: number | null;
 };
 
-async function loadFlagsByCanon(): Promise<Map<string, PlayerFlags>> {
-  const result = await db.execute(
-    `SELECT name_canon, flag, value FROM player_flags`
-  );
-  const byCanon = new Map<string, PlayerFlags>();
+async function loadTagsByCanon(): Promise<Map<string, CustomTag[]>> {
+  const result = await db.execute(`
+    SELECT pt.name_canon, ct.id, ct.name, ct.icon, ct.color
+    FROM player_tags pt
+    JOIN custom_tags ct ON ct.id = pt.tag_id
+    ORDER BY ct.name ASC
+  `);
+  const byCanon = new Map<string, CustomTag[]>();
   for (const r of result.rows) {
     const canon = r.name_canon as string;
-    const flag = r.flag as FlagType;
-    const flags = byCanon.get(canon) ?? emptyFlags();
-    if (flag === 'risk_factor') {
-      flags.risk_factor = r.value as number;
-    } else {
-      flags[flag as BooleanFlag] = true;
-    }
-    byCanon.set(canon, flags);
+    const list = byCanon.get(canon) ?? [];
+    list.push({
+      id: r.id as number,
+      name: r.name as string,
+      icon: r.icon as string,
+      color: r.color as string,
+    });
+    byCanon.set(canon, list);
   }
   return byCanon;
 }
+
+async function loadInjuriesByCanon(): Promise<Map<string, PlayerInjury>> {
+  const result = await db.execute(
+    `SELECT name_canon, injury, expected_return FROM player_injuries`
+  );
+  const byCanon = new Map<string, PlayerInjury>();
+  for (const r of result.rows) {
+    byCanon.set(r.name_canon as string, {
+      injury: r.injury as string,
+      expectedReturn: r.expected_return as string | null,
+    });
+  }
+  return byCanon;
+}
+
+async function loadRiskByCanon(): Promise<Map<string, number>> {
+  const result = await db.execute(`SELECT name_canon, value FROM player_risk`);
+  const byCanon = new Map<string, number>();
+  for (const r of result.rows) {
+    byCanon.set(r.name_canon as string, r.value as number);
+  }
+  return byCanon;
+}
+
+type RankingRow = {
+  rank: number;
+  name: string;
+  name_canon: string;
+  team: string | null;
+  position: string | null;
+};
 
 export async function loadDraftPlayers(
   snapshotId: number,
@@ -49,6 +89,7 @@ export async function loadDraftPlayers(
           FROM rankings WHERE snapshot_id=? ORDER BY rank ASC`,
     args: [snapshotId],
   });
+  const currRows = currResult.rows as unknown as RankingRow[];
 
   const notesResult = await db.execute(`
     SELECT name_canon, note
@@ -62,45 +103,74 @@ export async function loadDraftPlayers(
     notesByCanon.set(r.name_canon as string, r.note as string);
   }
 
-  const flagsByCanon = await loadFlagsByCanon();
+  const tagsByCanon = await loadTagsByCanon();
+  const injuriesByCanon = await loadInjuriesByCanon();
+  const riskByCanon = await loadRiskByCanon();
 
-  const current: DraftPlayer[] = currResult.rows.map((r) => ({
-    rank: r.rank as number,
-    name: r.name as string,
-    name_canon: r.name_canon as string,
-    team: r.team as string | null,
-    position: r.position as string | null,
-    note: notesByCanon.get(r.name_canon as string) ?? null,
-    dropped: false,
-    lastRank: null,
-    flags: flagsByCanon.get(r.name_canon as string) ?? emptyFlags(),
-  }));
+  const makePlayer = (
+    r: RankingRow,
+    overrides: Pick<DraftPlayer, 'rank' | 'dropped' | 'lastRank' | 'originalRank'>
+  ): DraftPlayer => ({
+    name: r.name,
+    name_canon: r.name_canon,
+    team: r.team,
+    position: r.position,
+    note: notesByCanon.get(r.name_canon) ?? null,
+    tags: tagsByCanon.get(r.name_canon) ?? [],
+    injury: injuriesByCanon.get(r.name_canon) ?? null,
+    riskFactor: riskByCanon.get(r.name_canon) ?? null,
+    ...overrides,
+  });
 
-  if (!prevSnapshotId) return current;
+  if (!prevSnapshotId) {
+    return currRows.map((r) =>
+      makePlayer(r, {
+        rank: r.rank,
+        dropped: false,
+        lastRank: null,
+        originalRank: null,
+      })
+    );
+  }
 
   const prevResult = await db.execute({
     sql: `SELECT rank, name, name_canon, team, position
           FROM rankings WHERE snapshot_id=? ORDER BY rank ASC`,
     args: [prevSnapshotId],
   });
+  const prevRows = prevResult.rows as unknown as RankingRow[];
+  const prevRankByCanon = new Map(prevRows.map((r) => [r.name_canon, r.rank]));
 
-  const currentCanons = new Set(current.map((p) => p.name_canon));
+  const current: DraftPlayer[] = currRows.map((r) =>
+    makePlayer(r, {
+      rank: r.rank,
+      dropped: false,
+      lastRank: null,
+      originalRank: prevRankByCanon.get(r.name_canon) ?? null,
+    })
+  );
 
-  for (const r of prevResult.rows) {
-    const canon = r.name_canon as string;
-    if (!currentCanons.has(canon)) {
-      current.push({
-        rank: 9999,
-        name: r.name as string,
-        name_canon: canon,
-        team: r.team as string | null,
-        position: r.position as string | null,
-        note: notesByCanon.get(canon) ?? null,
-        dropped: true,
-        lastRank: r.rank as number,
-        flags: flagsByCanon.get(canon) ?? emptyFlags(),
-      });
-    }
+  // A Latest paste doesn't have to cover the full Original range (e.g. the
+  // user only pasted ranks 7-160) — so "in Original, not in Latest" is only
+  // a real drop if it falls inside the range Latest actually covers.
+  // Outside that range, Original wasn't updated either way, so the player
+  // just carries forward at their Original rank/position unchanged.
+  const currentCanons = new Set(currRows.map((r) => r.name_canon));
+  const currentRanks = currRows.map((r) => r.rank);
+  const minCovered = currentRanks.length ? Math.min(...currentRanks) : Infinity;
+  const maxCovered = currentRanks.length ? Math.max(...currentRanks) : -Infinity;
+
+  for (const r of prevRows) {
+    if (currentCanons.has(r.name_canon)) continue;
+    const inCoveredRange = r.rank >= minCovered && r.rank <= maxCovered;
+    current.push(
+      makePlayer(r, {
+        rank: inCoveredRange ? 9999 : r.rank,
+        dropped: inCoveredRange,
+        lastRank: inCoveredRange ? r.rank : null,
+        originalRank: r.rank,
+      })
+    );
   }
 
   return current;
@@ -128,64 +198,116 @@ export async function fetchNotesForPlayer(
   }));
 }
 
-export async function fetchFlagsForPlayer(name: string): Promise<PlayerFlags> {
+export async function fetchTagsForPlayer(name: string): Promise<CustomTag[]> {
   const canon = canonName(name);
   const result = await db.execute({
-    sql: `SELECT flag, value FROM player_flags WHERE name_canon=?`,
+    sql: `SELECT ct.id, ct.name, ct.icon, ct.color
+          FROM player_tags pt
+          JOIN custom_tags ct ON ct.id = pt.tag_id
+          WHERE pt.name_canon=?
+          ORDER BY ct.name ASC`,
     args: [canon],
   });
-  const flags = emptyFlags();
-  for (const r of result.rows) {
-    const flag = r.flag as FlagType;
-    if (flag === 'risk_factor') {
-      flags.risk_factor = r.value as number;
-    } else {
-      flags[flag as BooleanFlag] = true;
-    }
-  }
-  return flags;
+  return result.rows.map((r) => ({
+    id: r.id as number,
+    name: r.name as string,
+    icon: r.icon as string,
+    color: r.color as string,
+  }));
 }
 
-// Presence of a row = on; toggling off deletes the row.
-export async function toggleBooleanFlag(
+// Presence of a row = tag applied; toggling off deletes the row.
+export async function toggleTagForPlayer(
   name: string,
-  flag: BooleanFlag
-): Promise<PlayerFlags> {
+  tagId: number
+): Promise<CustomTag[]> {
   const canon = canonName(name);
   const existing = await db.execute({
-    sql: `SELECT 1 FROM player_flags WHERE name_canon=? AND flag=?`,
-    args: [canon, flag],
+    sql: `SELECT 1 FROM player_tags WHERE name_canon=? AND tag_id=?`,
+    args: [canon, tagId],
   });
   if (existing.rows.length > 0) {
     await db.execute({
-      sql: `DELETE FROM player_flags WHERE name_canon=? AND flag=?`,
-      args: [canon, flag],
+      sql: `DELETE FROM player_tags WHERE name_canon=? AND tag_id=?`,
+      args: [canon, tagId],
     });
   } else {
     await db.execute({
-      sql: `INSERT INTO player_flags (name_canon, flag) VALUES (?, ?)`,
-      args: [canon, flag],
+      sql: `INSERT INTO player_tags (name_canon, tag_id) VALUES (?, ?)`,
+      args: [canon, tagId],
     });
   }
-  return fetchFlagsForPlayer(name);
+  return fetchTagsForPlayer(name);
 }
 
-export async function setRiskFactor(
-  name: string,
-  value: number | null
-): Promise<PlayerFlags> {
+export async function fetchInjuryForPlayer(
+  name: string
+): Promise<PlayerInjury | null> {
   const canon = canonName(name);
-  if (value == null) {
-    await db.execute({
-      sql: `DELETE FROM player_flags WHERE name_canon=? AND flag='risk_factor'`,
-      args: [canon],
-    });
-  } else {
-    await db.execute({
-      sql: `INSERT INTO player_flags (name_canon, flag, value) VALUES (?, 'risk_factor', ?)
-            ON CONFLICT(name_canon, flag) DO UPDATE SET value=excluded.value`,
-      args: [canon, value],
-    });
-  }
-  return fetchFlagsForPlayer(name);
+  const result = await db.execute({
+    sql: `SELECT injury, expected_return FROM player_injuries WHERE name_canon=?`,
+    args: [canon],
+  });
+  if (!result.rows.length) return null;
+  return {
+    injury: result.rows[0]['injury'] as string,
+    expectedReturn: result.rows[0]['expected_return'] as string | null,
+  };
+}
+
+export async function setInjuryForPlayer(
+  name: string,
+  injury: string,
+  expectedReturn: string | null
+): Promise<PlayerInjury> {
+  const canon = canonName(name);
+  await db.execute({
+    sql: `INSERT INTO player_injuries (name_canon, injury, expected_return, updated_at)
+          VALUES (?, ?, ?, datetime('now'))
+          ON CONFLICT(name_canon) DO UPDATE
+          SET injury=excluded.injury, expected_return=excluded.expected_return, updated_at=excluded.updated_at`,
+    args: [canon, injury.trim(), expectedReturn?.trim() || null],
+  });
+  return { injury: injury.trim(), expectedReturn: expectedReturn?.trim() || null };
+}
+
+export async function clearInjuryForPlayer(name: string): Promise<void> {
+  const canon = canonName(name);
+  await db.execute({
+    sql: `DELETE FROM player_injuries WHERE name_canon=?`,
+    args: [canon],
+  });
+}
+
+export async function fetchRiskForPlayer(name: string): Promise<number | null> {
+  const canon = canonName(name);
+  const result = await db.execute({
+    sql: `SELECT value FROM player_risk WHERE name_canon=?`,
+    args: [canon],
+  });
+  if (!result.rows.length) return null;
+  return result.rows[0]['value'] as number;
+}
+
+export async function setRiskForPlayer(
+  name: string,
+  value: number
+): Promise<number> {
+  const canon = canonName(name);
+  await db.execute({
+    sql: `INSERT INTO player_risk (name_canon, value, updated_at)
+          VALUES (?, ?, datetime('now'))
+          ON CONFLICT(name_canon) DO UPDATE
+          SET value=excluded.value, updated_at=excluded.updated_at`,
+    args: [canon, value],
+  });
+  return value;
+}
+
+export async function clearRiskForPlayer(name: string): Promise<void> {
+  const canon = canonName(name);
+  await db.execute({
+    sql: `DELETE FROM player_risk WHERE name_canon=?`,
+    args: [canon],
+  });
 }

@@ -3,7 +3,7 @@ import { useAuth } from '@with-nx/auth';
 
 import PlayToWinFFLayout from '../components/P2WFFLayout';
 import { useLeagues } from '../hooks/useLeagues';
-import { useSnapshots } from '../hooks/useSnapshots';
+import { useOriginalAndLatest } from '../hooks/useSnapshots';
 import { useDraftSession } from '../hooks/useDraftSession';
 import { DraftSetup } from '../components/draft/DraftSetup';
 import { DraftBoard } from '../components/draft/DraftBoard';
@@ -12,36 +12,26 @@ const Draft = () => {
   const { role } = useAuth();
   const canEdit = role === 'family' || role === 'limited';
   const { leagues, isLoading: leaguesLoading } = useLeagues();
-  const { snapshots, isLoading: snapshotsLoading } = useSnapshots();
 
   const [selectedLeagueId, setSelectedLeagueId] = useState<number | null>(null);
-  const [selectedSnapshotId, setSelectedSnapshotId] = useState<number | null>(null);
-  const [prevSnapshotId, setPrevSnapshotId] = useState<number | null>(null);
   const [draftSlot, setDraftSlot] = useState(1);
 
   const selectedLeague = leagues.find((l) => l.id === selectedLeagueId) ?? null;
+  const listType = selectedLeague?.default_list_type ?? 'ppr';
+
+  const { original, latest, isLoading: rankingsLoading } =
+    useOriginalAndLatest(listType);
 
   const session = useDraftSession(selectedLeague);
 
-  // Auto-select defaults once loaded, matching the source app's behavior.
+  // Auto-select the first league, matching the source app's behavior.
   useEffect(() => {
     if (!selectedLeagueId && leagues.length) {
       setSelectedLeagueId(leagues[0].id);
     }
   }, [leagues, selectedLeagueId]);
 
-  useEffect(() => {
-    if (!selectedSnapshotId && selectedLeague && snapshots.length) {
-      const match = snapshots.find(
-        (s) => s.list_type === selectedLeague.default_list_type
-      );
-      if (match) setSelectedSnapshotId(match.id);
-    }
-  }, [snapshots, selectedLeague, selectedSnapshotId]);
-
-  const selectedSnapshot = snapshots.find((s) => s.id === selectedSnapshotId) ?? null;
-
-  const loading = leaguesLoading || snapshotsLoading;
+  const loading = leaguesLoading;
 
   return (
     <PlayToWinFFLayout title="Play2WinFF Draft Dominator">
@@ -53,18 +43,16 @@ const Draft = () => {
       {!loading && !session.launched && (
         <DraftSetup
           leagues={leagues}
-          snapshots={snapshots}
           selectedLeagueId={selectedLeagueId}
-          selectedSnapshotId={selectedSnapshotId}
-          prevSnapshotId={prevSnapshotId}
+          original={original}
+          latest={latest}
+          rankingsLoading={rankingsLoading}
           draftSlot={draftSlot}
           loadingPlayers={session.loadingPlayers}
           onSelectLeague={setSelectedLeagueId}
-          onSelectSnapshot={setSelectedSnapshotId}
-          onSelectPrevSnapshot={setPrevSnapshotId}
           onChangeDraftSlot={setDraftSlot}
           onLaunch={() => {
-            if (selectedSnapshotId) session.launch(selectedSnapshotId, prevSnapshotId);
+            if (latest) session.launch(latest.id, original?.id ?? null);
           }}
         />
       )}
@@ -72,7 +60,7 @@ const Draft = () => {
       {session.launched && selectedLeague && (
         <DraftBoard
           league={selectedLeague}
-          snapshot={selectedSnapshot}
+          snapshot={latest}
           draftSlot={draftSlot}
           rosterSlots={session.rosterSlots}
           bench={session.bench}
@@ -86,10 +74,9 @@ const Draft = () => {
           onReleaseFromRoster={session.releaseFromRoster}
           onReleaseFromBench={session.releaseFromBench}
           onNoteSaved={session.setNoteFor}
-          onToggleFlag={session.toggleFlag}
-          onSetRiskFactor={session.setRiskFactor}
-          filters={session.filters}
-          onToggleFilter={session.toggleFilter}
+          onInjurySaved={session.setInjuryFor}
+          onToggleTag={session.toggleTag}
+          onSetRisk={session.setRisk}
           canEdit={canEdit}
         />
       )}

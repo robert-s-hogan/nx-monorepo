@@ -3,12 +3,11 @@ import { useState } from 'react';
 import { LeagueProfile } from '../../lib/leagues';
 import { RankingSnapshot } from '../../lib/rankings';
 import type { DraftPlayer } from '../../lib/server/draft';
-import type { BooleanFlag, FlagType } from '../../lib/flags';
+import type { PlayerInjury } from '../../hooks/usePlayerInjury';
 import { RosterEntry, DisplayItem } from '../../hooks/useDraftSession';
 import { RosterSidebar } from './RosterSidebar';
 import { PlayerTable } from './PlayerTable';
-import { PlayerNotesModal } from './PlayerNotesModal';
-import { FlagFilterBar } from './FlagFilterBar';
+import { PlayerDetailsModal } from './PlayerDetailsModal';
 
 export interface DraftBoardProps {
   league: LeagueProfile;
@@ -26,10 +25,9 @@ export interface DraftBoardProps {
   onReleaseFromRoster: (idx: number) => void;
   onReleaseFromBench: (idx: number) => void;
   onNoteSaved: (nameCanon: string, note: string) => void;
-  onToggleFlag: (player: DraftPlayer, flag: BooleanFlag) => void;
-  onSetRiskFactor: (player: DraftPlayer, value: number | null) => void;
-  filters: Set<FlagType>;
-  onToggleFilter: (flag: FlagType) => void;
+  onInjurySaved: (nameCanon: string, injury: PlayerInjury | null) => void;
+  onToggleTag: (player: DraftPlayer, tagId: number) => void;
+  onSetRisk: (player: DraftPlayer, value: number | null) => void;
   canEdit: boolean;
 }
 
@@ -49,32 +47,29 @@ export const DraftBoard = ({
   onReleaseFromRoster,
   onReleaseFromBench,
   onNoteSaved,
-  onToggleFlag,
-  onSetRiskFactor,
-  filters,
-  onToggleFilter,
+  onInjurySaved,
+  onToggleTag,
+  onSetRisk,
   canEdit,
 }: DraftBoardProps) => {
   const [noteTarget, setNoteTarget] = useState<DraftPlayer | null>(null);
 
   return (
     <div className="flex h-[calc(100vh-3rem)] flex-col">
-      <div className="flex flex-wrap items-center gap-4 border-b border-slate-200 bg-white px-4 py-2 text-xs text-slate-600">
-        <span className="font-semibold text-slate-800">{league.name}</span>
-        <span>{snapshot?.label}</span>
-        <span>Slot {draftSlot}</span>
-        <span>
+      <div className="flex flex-wrap items-center gap-4 border-b border-border-color bg-surface-color px-4 py-2 text-xs text-text-color">
+        <span className="font-semibold">{league.name}</span>
+        <span className="opacity-70">{snapshot?.label}</span>
+        <span className="opacity-70">Slot {draftSlot}</span>
+        <span className="opacity-70">
           {draftedCount} / {totalStarters + league.bench_spots} drafted
         </span>
         <button
           onClick={onBack}
-          className="ml-auto rounded border border-slate-300 px-2.5 py-1 text-xs transition hover:bg-slate-50"
+          className="ml-auto rounded border border-border-color px-2.5 py-1 text-xs transition hover:bg-hover-color"
         >
           ← Back
         </button>
       </div>
-
-      <FlagFilterBar filters={filters} onToggleFilter={onToggleFilter} />
 
       <div className="flex flex-1 overflow-hidden">
         <RosterSidebar
@@ -90,19 +85,23 @@ export const DraftBoard = ({
           onOpenNotes={setNoteTarget}
           onDraftToMyTeam={onDraftToMyTeam}
           onDraftedByOther={onDraftedByOther}
-          onToggleFlag={onToggleFlag}
-          onSetRiskFactor={onSetRiskFactor}
-          canEditFlags={canEdit}
+          onToggleTag={onToggleTag}
+          onSetRisk={onSetRisk}
+          canEditTags={canEdit}
         />
       </div>
 
       {noteTarget && (
-        <PlayerNotesModal
+        <PlayerDetailsModal
           player={noteTarget}
           onClose={() => setNoteTarget(null)}
           onNoteSaved={(nameCanon, note) => {
             onNoteSaved(nameCanon, note);
             setNoteTarget((prev) => (prev ? { ...prev, note } : prev));
+          }}
+          onInjurySaved={(nameCanon, injury) => {
+            onInjurySaved(nameCanon, injury);
+            setNoteTarget((prev) => (prev ? { ...prev, injury } : prev));
           }}
           canEdit={canEdit}
         />
