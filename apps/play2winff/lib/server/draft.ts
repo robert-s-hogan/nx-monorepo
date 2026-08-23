@@ -25,6 +25,7 @@ export type DraftPlayer = {
   tags: CustomTag[];
   injury: PlayerInjury | null;
   riskFactor: number | null;
+  sleeperRank: number | null;
 };
 
 async function loadTagsByCanon(): Promise<Map<string, CustomTag[]>> {
@@ -72,6 +73,17 @@ async function loadRiskByCanon(): Promise<Map<string, number>> {
   return byCanon;
 }
 
+async function loadSleeperAdpByCanon(): Promise<Map<string, number>> {
+  const result = await db.execute(
+    `SELECT name_canon, rank FROM player_sleeper_adp`
+  );
+  const byCanon = new Map<string, number>();
+  for (const r of result.rows) {
+    byCanon.set(r.name_canon as string, r.rank as number);
+  }
+  return byCanon;
+}
+
 type RankingRow = {
   rank: number;
   name: string;
@@ -106,6 +118,7 @@ export async function loadDraftPlayers(
   const tagsByCanon = await loadTagsByCanon();
   const injuriesByCanon = await loadInjuriesByCanon();
   const riskByCanon = await loadRiskByCanon();
+  const sleeperAdpByCanon = await loadSleeperAdpByCanon();
 
   const makePlayer = (
     r: RankingRow,
@@ -119,6 +132,7 @@ export async function loadDraftPlayers(
     tags: tagsByCanon.get(r.name_canon) ?? [],
     injury: injuriesByCanon.get(r.name_canon) ?? null,
     riskFactor: riskByCanon.get(r.name_canon) ?? null,
+    sleeperRank: sleeperAdpByCanon.get(r.name_canon) ?? null,
     ...overrides,
   });
 
@@ -310,4 +324,41 @@ export async function clearRiskForPlayer(name: string): Promise<void> {
     sql: `DELETE FROM player_risk WHERE name_canon=?`,
     args: [canon],
   });
+}
+
+// Upsert, not delete-then-reinsert — a partial re-paste (e.g. just the top
+// 50 of Sleeper's queue) shouldn't wipe ADP data for everyone else.
+export async function replaceSleeperAdp(
+  rows: { name_canon: string; rank: number }[]
+): Promise<void> {
+  const BATCH = 50;
+  for (let i = 0; i < rows.length; i += BATCH) {
+    const chunk = rows.slice(i, i + BATCH);
+    const placeholders = chunk.map(() => `(?, ?, datetime('now'))`).join(',');
+    const args: (string | number)[] = [];
+    for (const r of chunk) {
+      args.push(r.name_canon, r.rank);
+    }
+    await db.execute({
+      sql: `INSERT INTO player_sleeper_adp (name_canon, rank, updated_at)
+            VALUES ${placeholders}
+            ON CONFLICT(name_canon) DO UPDATE
+            SET rank=excluded.rank, updated_at=excluded.updated_at`,
+      args,
+    });
+  }
+}
+
+export async function fetchSleeperAdpStatus(): Promise<{
+  count: number;
+  lastUpdated: string | null;
+}> {
+  const result = await db.execute(
+    `SELECT COUNT(*) as count, MAX(updated_at) as lastUpdated FROM player_sleeper_adp`
+  );
+  const row = result.rows[0];
+  return {
+    count: (row?.count as number) ?? 0,
+    lastUpdated: (row?.lastUpdated as string | null) ?? null,
+  };
 }

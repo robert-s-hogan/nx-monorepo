@@ -1,10 +1,13 @@
+import { useMemo, useState } from 'react';
 import { FiArrowUp, FiArrowDown, FiMinus } from 'react-icons/fi';
 
 import type { DraftPlayer } from '../../lib/server/draft';
 import { DisplayItem } from '../../hooks/useDraftSession';
-import { posBadgeClass, posBorderClass } from './posClass';
+import { sleeperRowTint } from '../../lib/sleeperDelta';
+import { posBadgeClass, posBorderClass, POSITIONS } from './posClass';
 import { PlayerTagPicker } from './PlayerTagPicker';
 import { RiskFactorControl } from './RiskFactorControl';
+import { SleeperDeltaBadge } from './SleeperDeltaBadge';
 
 const PosBadge = ({ pos }: { pos: string | null }) => (
   <span
@@ -70,6 +73,8 @@ const MUTED = 'text-text-color opacity-70';
 export interface PlayerTableProps {
   displayList: DisplayItem[];
   droppedPlayers: DraftPlayer[];
+  teams: number;
+  currentPick: number;
   onOpenNotes: (player: DraftPlayer) => void;
   onDraftToMyTeam: (player: DraftPlayer) => void;
   onDraftedByOther: (player: DraftPlayer) => void;
@@ -81,6 +86,8 @@ export interface PlayerTableProps {
 export const PlayerTable = ({
   displayList,
   droppedPlayers,
+  teams,
+  currentPick,
   onOpenNotes,
   onDraftToMyTeam,
   onDraftedByOther,
@@ -88,38 +95,119 @@ export const PlayerTable = ({
   onSetRisk,
   canEditTags,
 }: PlayerTableProps) => {
+  const [hiddenPositions, setHiddenPositions] = useState<Set<string>>(
+    new Set()
+  );
+
+  function togglePosition(pos: string) {
+    setHiddenPositions((prev) => {
+      const next = new Set(prev);
+      if (next.has(pos)) next.delete(pos);
+      else next.add(pos);
+      return next;
+    });
+  }
+
+  // Counts reflect everyone still on the board (active + dropped), so the
+  // filter bar tells you how many of each position you'd be hiding.
+  const positionCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const item of displayList) {
+      if (item.type !== 'player') continue;
+      const pos = item.data.position ?? '—';
+      counts[pos] = (counts[pos] ?? 0) + 1;
+    }
+    for (const p of droppedPlayers) {
+      const pos = p.position ?? '—';
+      counts[pos] = (counts[pos] ?? 0) + 1;
+    }
+    return counts;
+  }, [displayList, droppedPlayers]);
+
+  const filteredDisplayList = useMemo(() => {
+    const kept = displayList.filter(
+      (item) =>
+        item.type === 'header' || !hiddenPositions.has(item.data.position ?? '')
+    );
+    // Drop a round header if every player in that round got filtered out.
+    const result: DisplayItem[] = [];
+    for (let i = 0; i < kept.length; i++) {
+      const item = kept[i];
+      if (item.type === 'header') {
+        const next = kept[i + 1];
+        if (!next || next.type === 'header') continue;
+      }
+      result.push(item);
+    }
+    return result;
+  }, [displayList, hiddenPositions]);
+
+  const filteredDroppedPlayers = useMemo(
+    () => droppedPlayers.filter((p) => !hiddenPositions.has(p.position ?? '')),
+    [droppedPlayers, hiddenPositions]
+  );
+
   return (
     <main className="flex-1 overflow-y-auto bg-bg-color">
+      <div className="flex flex-wrap items-center gap-2 border-b border-border-color px-3 py-2">
+        <span
+          className={`text-[10px] font-semibold uppercase tracking-wide ${MUTED}`}
+        >
+          Filter:
+        </span>
+        {POSITIONS.map((pos) => {
+          const count = positionCounts[pos] ?? 0;
+          if (count === 0) return null;
+          const hidden = hiddenPositions.has(pos);
+          return (
+            <button
+              key={pos}
+              type="button"
+              onClick={() => togglePosition(pos)}
+              className={`rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide transition ${
+                hidden
+                  ? `border border-border-color opacity-50 hover:opacity-100 ${MUTED}`
+                  : `text-white hover:opacity-90 ${posBadgeClass(pos)}`
+              }`}
+            >
+              {hidden ? `Show ${pos}` : `Hide ${pos}`} ({count})
+            </button>
+          );
+        })}
+      </div>
       <table className="min-w-full table-fixed border-collapse text-sm">
         <thead className="sticky top-0 z-10 bg-bg-color">
           <tr className="select-none">
-            <th className="w-16 border-b-2 border-border-color px-2 py-2 text-center text-[11px] font-semibold uppercase tracking-wide text-text-color">
+            <th className="w-16 border-b-2 border-border-color p-2 text-center text-[11px] font-semibold tracking-wide text-text-color uppercase">
               #
             </th>
-            <th className="w-14 border-b-2 border-border-color px-2 py-2 text-center text-[11px] font-semibold uppercase tracking-wide text-text-color">
+            <th className="w-14 border-b-2 border-border-color p-2 text-center text-[11px] font-semibold tracking-wide text-text-color uppercase">
               Pos
             </th>
-            <th className="border-b-2 border-border-color px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-wide text-text-color">
+            <th className="border-b-2 border-border-color px-3 py-2 text-left text-[11px] font-semibold tracking-wide text-text-color uppercase">
               Player
             </th>
-            <th className="w-14 border-b-2 border-border-color px-2 py-2 text-center text-[11px] font-semibold uppercase tracking-wide text-text-color">
+            <th className="w-14 border-b-2 border-border-color p-2 text-center text-[11px] font-semibold tracking-wide text-text-color uppercase">
               Team
             </th>
-            <th className="w-56 border-b-2 border-border-color px-2 py-2 text-center text-[11px] font-semibold uppercase tracking-wide text-text-color">
+            <th className="w-32 border-b-2 border-border-color p-2 text-center text-[11px] font-semibold tracking-wide text-text-color uppercase">
+              ADP Δ
+            </th>
+            <th className="w-56 border-b-2 border-border-color p-2 text-center text-[11px] font-semibold tracking-wide text-text-color uppercase">
               Tags
             </th>
-            <th className="w-36 border-b-2 border-border-color px-2 py-2 text-center text-[11px] font-semibold uppercase tracking-wide text-text-color">
+            <th className="w-36 border-b-2 border-border-color p-2 text-center text-[11px] font-semibold tracking-wide text-text-color uppercase">
               Draft
             </th>
           </tr>
         </thead>
         <tbody>
-          {displayList.map((item) =>
+          {filteredDisplayList.map((item) =>
             item.type === 'header' ? (
               <tr key={`h${item.round}`}>
                 <td
-                  colSpan={6}
-                  className={`select-none border-y border-border-color bg-bg-color py-1 text-center text-xs font-semibold uppercase tracking-wide ${MUTED}`}
+                  colSpan={7}
+                  className={`border-y border-border-color bg-bg-color py-1 text-center text-xs font-semibold tracking-wide uppercase select-none ${MUTED}`}
                 >
                   Round {item.round}
                 </td>
@@ -127,10 +215,17 @@ export const PlayerTable = ({
             ) : (
               <tr
                 key={item.data.name_canon}
-                className="select-none cursor-default bg-surface-color hover:bg-hover-color"
+                className={`cursor-default select-none hover:bg-hover-color ${
+                  sleeperRowTint(
+                    item.data.rank,
+                    item.data.sleeperRank,
+                    teams,
+                    currentPick
+                  ) || 'bg-surface-color'
+                }`}
               >
                 <td
-                  className={`border-b border-l-4 border-border-color px-2 py-2 text-center text-text-color ${posBorderClass(
+                  className={`border-b border-l-4 border-border-color p-2 text-center text-text-color ${posBorderClass(
                     item.data.position
                   )}`}
                 >
@@ -139,14 +234,14 @@ export const PlayerTable = ({
                     <RankDelta player={item.data} />
                   </div>
                 </td>
-                <td className="border-b border-border-color px-2 py-2 text-center">
+                <td className="border-b border-border-color p-2 text-center">
                   <PosBadge pos={item.data.position} />
                 </td>
                 <td className="border-b border-border-color px-3 py-2">
                   <div className="flex flex-col">
                     <button
                       onClick={() => onOpenNotes(item.data)}
-                      className="text-left font-medium leading-snug text-text-color hover:underline"
+                      className="text-left leading-snug font-medium text-text-color hover:underline"
                     >
                       {item.data.name}
                     </button>
@@ -158,10 +253,17 @@ export const PlayerTable = ({
                     )}
                   </div>
                 </td>
-                <td className={`border-b border-border-color px-2 py-2 text-center uppercase ${MUTED}`}>
+                <td className={`border-b border-border-color p-2 text-center uppercase ${MUTED}`}>
                   {item.data.team ?? '—'}
                 </td>
-                <td className="border-b border-border-color px-2 py-2 text-center">
+                <td className="border-b border-border-color p-2 text-center">
+                  <SleeperDeltaBadge
+                    player={item.data}
+                    teams={teams}
+                    currentPick={currentPick}
+                  />
+                </td>
+                <td className="border-b border-border-color p-2 text-center">
                   <div className="flex flex-wrap items-center justify-center gap-2">
                     <RiskFactorControl
                       player={item.data}
@@ -175,7 +277,7 @@ export const PlayerTable = ({
                     />
                   </div>
                 </td>
-                <td className="border-b border-border-color px-2 py-2 text-center">
+                <td className="border-b border-border-color p-2 text-center">
                   <div className="flex items-center justify-center gap-1.5">
                     <button
                       onClick={() => onDraftToMyTeam(item.data)}
@@ -195,29 +297,36 @@ export const PlayerTable = ({
             )
           )}
 
-          {droppedPlayers.length > 0 && (
+          {filteredDroppedPlayers.length > 0 && (
             <>
               <tr>
                 <td
-                  colSpan={6}
-                  className={`select-none border-y border-border-color bg-bg-color py-1 text-center text-xs font-semibold uppercase tracking-wide ${MUTED}`}
+                  colSpan={7}
+                  className={`border-y border-border-color bg-bg-color py-1 text-center text-xs font-semibold tracking-wide uppercase select-none ${MUTED}`}
                 >
                   Dropped off rankings
                 </td>
               </tr>
-              {droppedPlayers.map((p) => (
+              {filteredDroppedPlayers.map((p) => (
                 <tr
                   key={`dropped-${p.name_canon}`}
-                  className="select-none bg-surface-color opacity-70"
+                  className={`opacity-70 select-none ${
+                    sleeperRowTint(
+                      p.lastRank ?? p.rank,
+                      p.sleeperRank,
+                      teams,
+                      currentPick
+                    ) || 'bg-surface-color'
+                  }`}
                 >
                   <td
-                    className={`border-b border-l-4 border-border-color px-2 py-2 text-center text-text-color ${posBorderClass(
+                    className={`border-b border-l-4 border-border-color p-2 text-center text-text-color ${posBorderClass(
                       p.position
                     )}`}
                   >
                     —
                   </td>
-                  <td className="border-b border-border-color px-2 py-2 text-center">
+                  <td className="border-b border-border-color p-2 text-center">
                     <PosBadge pos={p.position} />
                   </td>
                   <td className="border-b border-border-color px-3 py-2">
@@ -233,10 +342,19 @@ export const PlayerTable = ({
                       </span>
                     </div>
                   </td>
-                  <td className="border-b border-border-color px-2 py-2 text-center uppercase text-text-color">
+                  <td className="border-b border-border-color p-2 text-center text-text-color uppercase">
                     {p.team ?? '—'}
                   </td>
-                  <td className="border-b border-border-color px-2 py-2 text-center">
+                  <td className="border-b border-border-color p-2 text-center">
+                    {p.lastRank != null && (
+                      <SleeperDeltaBadge
+                        player={{ ...p, rank: p.lastRank }}
+                        teams={teams}
+                        currentPick={currentPick}
+                      />
+                    )}
+                  </td>
+                  <td className="border-b border-border-color p-2 text-center">
                     <div className="flex flex-wrap items-center justify-center gap-2">
                       <RiskFactorControl
                         player={p}
@@ -250,7 +368,7 @@ export const PlayerTable = ({
                       />
                     </div>
                   </td>
-                  <td className="border-b border-border-color px-2 py-2 text-center">
+                  <td className="border-b border-border-color p-2 text-center">
                     <div className="flex items-center justify-center gap-1.5">
                       <button
                         onClick={() => onDraftToMyTeam(p)}

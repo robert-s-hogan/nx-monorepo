@@ -173,6 +173,11 @@ export function useDraftSession(league: LeagueProfile | null) {
     [rosterSlots, bench]
   );
 
+  // Every hidden player (mine or someone else's) is a pick that's actually
+  // happened, unlike `draftedCount` which only counts mine. This is the
+  // live "on the clock" pick number used to make Sleeper Delta dynamic.
+  const currentPick = hiddenIds.size + 1;
+
   const totalStarters = rosterSlots.length;
 
   return {
@@ -184,6 +189,7 @@ export function useDraftSession(league: LeagueProfile | null) {
     displayList,
     droppedPlayers,
     draftedCount,
+    currentPick,
     totalStarters,
     launch,
     resetDraft,

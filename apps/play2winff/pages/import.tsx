@@ -3,6 +3,7 @@ import { useAuth } from '@with-nx/auth';
 import PlayToWinFFLayout from '../components/P2WFFLayout';
 import { RankingsImportForm } from '../components/import/RankingsImportForm';
 import { OriginalLatestStatus } from '../components/import/OriginalLatestStatus';
+import { SleeperAdpImportForm } from '../components/import/SleeperAdpImportForm';
 
 const Import = () => {
   const { role } = useAuth();
@@ -18,6 +19,15 @@ const Import = () => {
         {canEdit && <RankingsImportForm />}
 
         <OriginalLatestStatus />
+
+        {canEdit && (
+          <div>
+            <h2 className="mb-2 text-sm font-semibold text-slate-800">
+              Sleeper ADP
+            </h2>
+            <SleeperAdpImportForm />
+          </div>
+        )}
       </div>
     </PlayToWinFFLayout>
   );

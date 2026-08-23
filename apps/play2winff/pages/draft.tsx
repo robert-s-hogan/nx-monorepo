@@ -67,6 +67,7 @@ const Draft = () => {
           displayList={session.displayList}
           droppedPlayers={session.droppedPlayers}
           draftedCount={session.draftedCount}
+          currentPick={session.currentPick}
           totalStarters={session.totalStarters}
           onBack={session.resetDraft}
           onDraftToMyTeam={session.draftToMyTeam}

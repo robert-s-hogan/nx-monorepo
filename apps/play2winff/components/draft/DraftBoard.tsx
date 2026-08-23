@@ -18,6 +18,7 @@ export interface DraftBoardProps {
   displayList: DisplayItem[];
   droppedPlayers: DraftPlayer[];
   draftedCount: number;
+  currentPick: number;
   totalStarters: number;
   onBack: () => void;
   onDraftToMyTeam: (player: DraftPlayer) => void;
@@ -40,6 +41,7 @@ export const DraftBoard = ({
   displayList,
   droppedPlayers,
   draftedCount,
+  currentPick,
   totalStarters,
   onBack,
   onDraftToMyTeam,
@@ -82,6 +84,8 @@ export const DraftBoard = ({
         <PlayerTable
           displayList={displayList}
           droppedPlayers={droppedPlayers}
+          teams={league.teams}
+          currentPick={currentPick}
           onOpenNotes={setNoteTarget}
           onDraftToMyTeam={onDraftToMyTeam}
           onDraftedByOther={onDraftedByOther}

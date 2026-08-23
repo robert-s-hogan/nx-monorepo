@@ -4,6 +4,8 @@
 // rather than a full-row background wash, so body text keeps consistent
 // contrast against the theme's surface color instead of fighting six
 // different tinted backgrounds.
+export const POSITIONS = ['QB', 'RB', 'WR', 'TE', 'K', 'DST'];
+
 const POS_BADGE_CLASS: Record<string, string> = {
   QB: 'bg-qb',
   WR: 'bg-wr',
