@@ -5,7 +5,7 @@ import type { DraftPlayer } from '../../lib/server/draft';
 import { DisplayItem } from '../../hooks/useDraftSession';
 import { sleeperRowTint } from '../../lib/sleeperDelta';
 import { posBadgeClass, posBorderClass, POSITIONS } from './posClass';
-import { teamBadgeClass } from './teamClass';
+import { teamBadgeClass, teamLogoUrl } from './teamClass';
 import { PlayerTagPicker } from './PlayerTagPicker';
 import { RiskFactorControl } from './RiskFactorControl';
 import { SleeperDeltaBadge } from './SleeperDeltaBadge';
@@ -30,6 +30,25 @@ const TeamBadge = ({ team }: { team: string | null }) => {
     >
       {team}
     </span>
+  );
+};
+
+// Real logo first (Sleeper's CDN); if it fails to load — unrecognized team,
+// CDN hiccup, offline — fall back to the colored badge instead of a broken
+// image icon.
+const TeamLogo = ({ team }: { team: string | null }) => {
+  const [errored, setErrored] = useState(false);
+  if (!team) return null;
+  const url = teamLogoUrl(team);
+  if (!url || errored) return <TeamBadge team={team} />;
+  return (
+    <img
+      src={url}
+      alt={team}
+      title={team}
+      className="size-4 shrink-0 object-contain"
+      onError={() => setErrored(true)}
+    />
   );
 };
 
@@ -254,7 +273,7 @@ export const PlayerTable = ({
                 <td className="border-b border-border-color px-3 py-2">
                   <div className="flex flex-col">
                     <div className="flex items-center gap-1.5">
-                      <TeamBadge team={item.data.team} />
+                      <TeamLogo team={item.data.team} />
                       <button
                         onClick={() => onOpenNotes(item.data)}
                         className="text-left leading-snug font-medium text-text-color hover:underline"
@@ -348,7 +367,7 @@ export const PlayerTable = ({
                   </td>
                   <td className="border-b border-border-color px-3 py-2">
                     <div className="flex items-center gap-2">
-                      <TeamBadge team={p.team} />
+                      <TeamLogo team={p.team} />
                       <button
                         onClick={() => onOpenNotes(p)}
                         className="text-left font-medium text-text-color hover:underline"

@@ -45,3 +45,20 @@ const TEAM_BADGE_CLASS: Record<string, string> = {
 export function teamBadgeClass(team: string | null): string {
   return TEAM_BADGE_CLASS[team ?? ''] ?? 'bg-disabled-color text-text-color';
 }
+
+// Sleeper's own logo CDN — unauthenticated, free, and already the source of
+// truth for this app's ADP data. Not an official public API (no ToS, could
+// change without notice), so callers should fall back to teamBadgeClass()
+// on image load failure rather than trust this unconditionally.
+// Confirmed live: every abbreviation TEAM_BADGE_CLASS knows about resolves
+// under lowercase(team), except WSH (404s) — Sleeper only serves that team
+// under "was".
+const LOGO_ABBR_OVERRIDES: Record<string, string> = {
+  WSH: 'was',
+};
+
+export function teamLogoUrl(team: string | null): string | null {
+  if (!team) return null;
+  const abbr = LOGO_ABBR_OVERRIDES[team] ?? team.toLowerCase();
+  return `https://sleepercdn.com/images/team_logos/nfl/${abbr}.png`;
+}
