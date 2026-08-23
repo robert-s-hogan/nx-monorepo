@@ -89,7 +89,9 @@ export const PlayerTagPicker = ({
           type="button"
           onClick={() => setMenuOpen((o) => !o)}
           title="Add or edit tags"
-          className="flex h-5 w-5 items-center justify-center rounded-full border border-border-color text-xs font-semibold text-text-color opacity-70 transition hover:bg-hover-color hover:opacity-100"
+          className={`flex size-5 items-center justify-center rounded-full border border-border-color text-xs font-semibold text-text-color opacity-0 transition group-hover:opacity-70 hover:bg-hover-color hover:opacity-100 focus:opacity-100 focus-visible:opacity-100 ${
+            menuOpen ? 'opacity-100' : ''
+          }`}
         >
           +
         </button>

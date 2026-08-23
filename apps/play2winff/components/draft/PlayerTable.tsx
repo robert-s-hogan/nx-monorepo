@@ -46,7 +46,7 @@ const TeamLogo = ({ team }: { team: string | null }) => {
       src={url}
       alt={team}
       title={team}
-      className="size-4 shrink-0 object-contain"
+      className="size-6 shrink-0 object-contain"
       onError={() => setErrored(true)}
     />
   );
@@ -220,9 +220,6 @@ export const PlayerTable = ({
             <th className="border-b-2 border-border-color px-3 py-2 text-left text-[11px] font-semibold tracking-wide text-text-color uppercase">
               Player
             </th>
-            <th className="w-14 border-b-2 border-border-color p-2 text-center text-[11px] font-semibold tracking-wide text-text-color uppercase">
-              Team
-            </th>
             <th className="w-32 border-b-2 border-border-color p-2 text-center text-[11px] font-semibold tracking-wide text-text-color uppercase">
               ADP Δ
             </th>
@@ -239,7 +236,7 @@ export const PlayerTable = ({
             item.type === 'header' ? (
               <tr key={`h${item.round}`}>
                 <td
-                  colSpan={7}
+                  colSpan={6}
                   className={`border-y border-border-color bg-bg-color py-1 text-center text-xs font-semibold tracking-wide uppercase select-none ${MUTED}`}
                 >
                   Round {item.round}
@@ -289,9 +286,6 @@ export const PlayerTable = ({
                     )}
                   </div>
                 </td>
-                <td className={`border-b border-border-color p-2 text-center uppercase ${MUTED}`}>
-                  {item.data.team ?? '—'}
-                </td>
                 <td className="border-b border-border-color p-2 text-center">
                   <SleeperDeltaBadge
                     player={item.data}
@@ -300,7 +294,7 @@ export const PlayerTable = ({
                   />
                 </td>
                 <td className="border-b border-border-color p-2 text-center">
-                  <div className="flex flex-wrap items-center justify-center gap-2">
+                  <div className="group flex flex-wrap items-center justify-center gap-2">
                     <RiskFactorControl
                       player={item.data}
                       canEdit={canEditTags}
@@ -337,7 +331,7 @@ export const PlayerTable = ({
             <>
               <tr>
                 <td
-                  colSpan={7}
+                  colSpan={6}
                   className={`border-y border-border-color bg-bg-color py-1 text-center text-xs font-semibold tracking-wide uppercase select-none ${MUTED}`}
                 >
                   Dropped off rankings
@@ -379,9 +373,6 @@ export const PlayerTable = ({
                       </span>
                     </div>
                   </td>
-                  <td className="border-b border-border-color p-2 text-center text-text-color uppercase">
-                    {p.team ?? '—'}
-                  </td>
                   <td className="border-b border-border-color p-2 text-center">
                     {p.lastRank != null && (
                       <SleeperDeltaBadge
@@ -392,7 +383,7 @@ export const PlayerTable = ({
                     )}
                   </td>
                   <td className="border-b border-border-color p-2 text-center">
-                    <div className="flex flex-wrap items-center justify-center gap-2">
+                    <div className="group flex flex-wrap items-center justify-center gap-2">
                       <RiskFactorControl
                         player={p}
                         canEdit={canEditTags}
