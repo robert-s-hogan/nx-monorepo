@@ -33,9 +33,9 @@ const TeamBadge = ({ team }: { team: string | null }) => {
   );
 };
 
-// Real logo first (Sleeper's CDN); if it fails to load — unrecognized team,
-// CDN hiccup, offline — fall back to the colored badge instead of a broken
-// image icon.
+// Real logo first (self-hosted, see teamClass.ts); if it fails to load —
+// unrecognized team abbreviation — fall back to the colored badge instead
+// of a broken image icon.
 const TeamLogo = ({ team }: { team: string | null }) => {
   const [errored, setErrored] = useState(false);
   if (!team) return null;
