@@ -73,13 +73,18 @@ async function loadRiskByCanon(): Promise<Map<string, number>> {
   return byCanon;
 }
 
-async function loadSleeperAdpByCanon(): Promise<Map<string, number>> {
+type SleeperAdpEntry = { rank: number; team: string | null };
+
+async function loadSleeperAdpByCanon(): Promise<Map<string, SleeperAdpEntry>> {
   const result = await db.execute(
-    `SELECT name_canon, rank FROM player_sleeper_adp`
+    `SELECT name_canon, rank, team FROM player_sleeper_adp`
   );
-  const byCanon = new Map<string, number>();
+  const byCanon = new Map<string, SleeperAdpEntry>();
   for (const r of result.rows) {
-    byCanon.set(r.name_canon as string, r.rank as number);
+    byCanon.set(r.name_canon as string, {
+      rank: r.rank as number,
+      team: r.team as string | null,
+    });
   }
   return byCanon;
 }
@@ -123,18 +128,24 @@ export async function loadDraftPlayers(
   const makePlayer = (
     r: RankingRow,
     overrides: Pick<DraftPlayer, 'rank' | 'dropped' | 'lastRank' | 'originalRank'>
-  ): DraftPlayer => ({
-    name: r.name,
-    name_canon: r.name_canon,
-    team: r.team,
-    position: r.position,
-    note: notesByCanon.get(r.name_canon) ?? null,
-    tags: tagsByCanon.get(r.name_canon) ?? [],
-    injury: injuriesByCanon.get(r.name_canon) ?? null,
-    riskFactor: riskByCanon.get(r.name_canon) ?? null,
-    sleeperRank: sleeperAdpByCanon.get(r.name_canon) ?? null,
-    ...overrides,
-  });
+  ): DraftPlayer => {
+    const sleeperAdp = sleeperAdpByCanon.get(r.name_canon);
+    return {
+      name: r.name,
+      name_canon: r.name_canon,
+      // The main rankings paste doesn't always carry a team column (fused
+      // "RB1"-style position with no team token) — fall back to the team
+      // captured from the separately-pasted Sleeper ADP list when needed.
+      team: r.team ?? sleeperAdp?.team ?? null,
+      position: r.position,
+      note: notesByCanon.get(r.name_canon) ?? null,
+      tags: tagsByCanon.get(r.name_canon) ?? [],
+      injury: injuriesByCanon.get(r.name_canon) ?? null,
+      riskFactor: riskByCanon.get(r.name_canon) ?? null,
+      sleeperRank: sleeperAdp?.rank ?? null,
+      ...overrides,
+    };
+  };
 
   if (!prevSnapshotId) {
     return currRows.map((r) =>
@@ -329,21 +340,21 @@ export async function clearRiskForPlayer(name: string): Promise<void> {
 // Upsert, not delete-then-reinsert — a partial re-paste (e.g. just the top
 // 50 of Sleeper's queue) shouldn't wipe ADP data for everyone else.
 export async function replaceSleeperAdp(
-  rows: { name_canon: string; rank: number }[]
+  rows: { name_canon: string; rank: number; team: string | null }[]
 ): Promise<void> {
   const BATCH = 50;
   for (let i = 0; i < rows.length; i += BATCH) {
     const chunk = rows.slice(i, i + BATCH);
-    const placeholders = chunk.map(() => `(?, ?, datetime('now'))`).join(',');
-    const args: (string | number)[] = [];
+    const placeholders = chunk.map(() => `(?, ?, ?, datetime('now'))`).join(',');
+    const args: (string | number | null)[] = [];
     for (const r of chunk) {
-      args.push(r.name_canon, r.rank);
+      args.push(r.name_canon, r.rank, r.team);
     }
     await db.execute({
-      sql: `INSERT INTO player_sleeper_adp (name_canon, rank, updated_at)
+      sql: `INSERT INTO player_sleeper_adp (name_canon, rank, team, updated_at)
             VALUES ${placeholders}
             ON CONFLICT(name_canon) DO UPDATE
-            SET rank=excluded.rank, updated_at=excluded.updated_at`,
+            SET rank=excluded.rank, team=excluded.team, updated_at=excluded.updated_at`,
       args,
     });
   }

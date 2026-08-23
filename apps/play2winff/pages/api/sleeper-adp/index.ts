@@ -23,14 +23,18 @@ export default async function handler(
 
   if (req.method === 'POST') {
     const { rows } = req.body as {
-      rows: { name_canon: string; rank: number }[];
+      rows: { name_canon: string; rank: number; team?: string | null }[];
     };
     if (!Array.isArray(rows) || rows.length === 0) {
       return res.status(400).json({ error: 'rows is required' });
     }
-    const clean = rows.filter(
-      (r) => r?.name_canon?.trim() && Number.isFinite(r.rank) && r.rank > 0
-    );
+    const clean = rows
+      .filter((r) => r?.name_canon?.trim() && Number.isFinite(r.rank) && r.rank > 0)
+      .map((r) => ({
+        name_canon: r.name_canon,
+        rank: r.rank,
+        team: r.team?.trim() || null,
+      }));
     if (!clean.length) {
       return res.status(400).json({ error: 'No valid rows provided' });
     }

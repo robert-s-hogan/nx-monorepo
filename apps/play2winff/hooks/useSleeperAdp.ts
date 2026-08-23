@@ -28,7 +28,11 @@ export async function replaceSleeperAdp(
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      rows: rows.map((r) => ({ name_canon: r.name_canon, rank: r.rank })),
+      rows: rows.map((r) => ({
+        name_canon: r.name_canon,
+        rank: r.rank,
+        team: r.team,
+      })),
     }),
   });
   const body = await res.json();

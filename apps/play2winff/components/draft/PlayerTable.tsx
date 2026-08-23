@@ -5,6 +5,7 @@ import type { DraftPlayer } from '../../lib/server/draft';
 import { DisplayItem } from '../../hooks/useDraftSession';
 import { sleeperRowTint } from '../../lib/sleeperDelta';
 import { posBadgeClass, posBorderClass, POSITIONS } from './posClass';
+import { teamBadgeClass } from './teamClass';
 import { PlayerTagPicker } from './PlayerTagPicker';
 import { RiskFactorControl } from './RiskFactorControl';
 import { SleeperDeltaBadge } from './SleeperDeltaBadge';
@@ -18,6 +19,19 @@ const PosBadge = ({ pos }: { pos: string | null }) => (
     {pos ?? '—'}
   </span>
 );
+
+const TeamBadge = ({ team }: { team: string | null }) => {
+  if (!team) return null;
+  return (
+    <span
+      className={`inline-block shrink-0 rounded px-1 py-0.5 text-[9px] font-bold uppercase ${teamBadgeClass(
+        team
+      )}`}
+    >
+      {team}
+    </span>
+  );
+};
 
 const InjuryBadge = ({ injury }: { injury: DraftPlayer['injury'] }) => {
   if (!injury) return null;
@@ -239,12 +253,15 @@ export const PlayerTable = ({
                 </td>
                 <td className="border-b border-border-color px-3 py-2">
                   <div className="flex flex-col">
-                    <button
-                      onClick={() => onOpenNotes(item.data)}
-                      className="text-left leading-snug font-medium text-text-color hover:underline"
-                    >
-                      {item.data.name}
-                    </button>
+                    <div className="flex items-center gap-1.5">
+                      <TeamBadge team={item.data.team} />
+                      <button
+                        onClick={() => onOpenNotes(item.data)}
+                        className="text-left leading-snug font-medium text-text-color hover:underline"
+                      >
+                        {item.data.name}
+                      </button>
+                    </div>
                     <InjuryBadge injury={item.data.injury} />
                     {item.data.note && (
                       <span className={`max-w-xs truncate text-[10px] ${MUTED}`}>
@@ -331,6 +348,7 @@ export const PlayerTable = ({
                   </td>
                   <td className="border-b border-border-color px-3 py-2">
                     <div className="flex items-center gap-2">
+                      <TeamBadge team={p.team} />
                       <button
                         onClick={() => onOpenNotes(p)}
                         className="text-left font-medium text-text-color hover:underline"

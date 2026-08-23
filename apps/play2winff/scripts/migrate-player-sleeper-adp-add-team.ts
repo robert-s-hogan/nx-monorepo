@@ -1,4 +1,5 @@
-// Run once to add player_sleeper_adp: pnpm migrate:play2winff:sleeper-adp
+// Run once to add the `team` column to an existing player_sleeper_adp
+// table: pnpm migrate:play2winff:sleeper-adp-add-team
 // Requires TURSO_DATABASE_URL / TURSO_AUTH_TOKEN in the environment (e.g. via .env.local).
 import { config } from 'dotenv';
 import { resolve } from 'path';
@@ -19,12 +20,13 @@ if (!url || !authToken) {
 const db = createClient({ url, authToken });
 
 async function main() {
-  await db.execute(`CREATE TABLE IF NOT EXISTS player_sleeper_adp (
-    name_canon  TEXT PRIMARY KEY,
-    rank        INTEGER NOT NULL,
-    team        TEXT,
-    updated_at  TEXT    NOT NULL DEFAULT (datetime('now'))
-  )`);
+  const info = await db.execute(`PRAGMA table_info(player_sleeper_adp)`);
+  const hasTeam = info.rows.some((r) => r.name === 'team');
+  if (hasTeam) {
+    console.log('team column already present, nothing to do.');
+    return;
+  }
+  await db.execute(`ALTER TABLE player_sleeper_adp ADD COLUMN team TEXT`);
   console.log('Done.');
 }
 
