@@ -25,14 +25,15 @@ import {
   FiThumbsDown,
   FiAward,
   FiHelpCircle,
+  FiSlash,
 } from 'react-icons/fi';
 // Deliberate exceptions to the all-Feather palette — Feather has nothing
-// for "swing player" or "gross/sick", so these two pull from Game Icons
-// instead. Visibly a different, more detailed style than the rest of the
-// grid, but the closest real match for what they represent. (Tried
+// for "swing player", "gross/sick", or "superhero", so these pull from Game
+// Icons instead. Visibly a different, more detailed style than the rest of
+// the grid, but the closest real match for what they represent. (Tried
 // GiPendulumSwing for "swing" first — too easy to mistake for a clock/gauge
 // at a glance — GiTreeSwing reads immediately as an actual swing.)
-import { GiTreeSwing, GiVomiting } from 'react-icons/gi';
+import { GiTreeSwing, GiVomiting, GiCape } from 'react-icons/gi';
 import type { IconType } from 'react-icons';
 
 export const TAG_ICONS: Record<string, IconType> = {
@@ -58,8 +59,10 @@ export const TAG_ICONS: Record<string, IconType> = {
   'thumbs-down': FiThumbsDown,
   award: FiAward,
   help: FiHelpCircle,
+  slash: FiSlash,
   'tree-swing': GiTreeSwing,
   vomiting: GiVomiting,
+  cape: GiCape,
 };
 
 export const TAG_ICON_KEYS = Object.keys(TAG_ICONS);
