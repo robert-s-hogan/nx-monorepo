@@ -1,7 +1,7 @@
 // hooks/usePlayerNotes.ts
 import { authedFetch } from '../lib/authedFetch';
 
-export type PlayerNote = { note: string; created_at: string };
+export type PlayerNote = { id: number; note: string; created_at: string };
 
 export async function fetchNotesForPlayer(name: string): Promise<PlayerNote[]> {
   const res = await fetch(`/api/player-notes?name=${encodeURIComponent(name)}`);
@@ -18,4 +18,12 @@ export async function saveNote(
     body: JSON.stringify({ name, note }),
   });
   return res.json();
+}
+
+export async function deleteNote(id: number): Promise<void> {
+  await authedFetch('/api/player-notes', {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id }),
+  });
 }

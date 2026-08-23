@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 
 import type { DraftPlayer } from '../../lib/server/draft';
-import { fetchNotesForPlayer, saveNote, PlayerNote } from '../../hooks/usePlayerNotes';
+import {
+  fetchNotesForPlayer,
+  saveNote,
+  deleteNote,
+  PlayerNote,
+} from '../../hooks/usePlayerNotes';
 import {
   setInjuryForPlayer,
   clearInjuryForPlayer,
@@ -35,6 +40,7 @@ export const PlayerDetailsModal = ({
   const [noteText, setNoteText] = useState('');
   const [history, setHistory] = useState<PlayerNote[]>([]);
   const [saving, setSaving] = useState(false);
+  const [deletingId, setDeletingId] = useState<number | null>(null);
 
   const [injuryText, setInjuryText] = useState(player.injury?.injury ?? '');
   const [returnText, setReturnText] = useState(player.injury?.expectedReturn ?? '');
@@ -55,6 +61,16 @@ export const PlayerDetailsModal = ({
       setNoteText('');
     } finally {
       setSaving(false);
+    }
+  }
+
+  async function removeNote(id: number) {
+    setDeletingId(id);
+    try {
+      await deleteNote(id);
+      setHistory((prev) => prev.filter((n) => n.id !== id));
+    } finally {
+      setDeletingId(null);
     }
   }
 
@@ -189,15 +205,27 @@ export const PlayerDetailsModal = ({
             <p className="text-xs font-medium uppercase text-text-color opacity-70">
               History
             </p>
-            {history.map((n, i) => (
+            {history.map((n) => (
               <div
-                key={i}
-                className="border-l-2 border-border-color pl-3 text-sm text-text-color"
+                key={n.id}
+                className="flex items-start justify-between gap-2 border-l-2 border-border-color pl-3 text-sm text-text-color"
               >
-                <p>{n.note}</p>
-                <p className="mt-0.5 text-[10px] opacity-60">
-                  {fmtDate(n.created_at)}
-                </p>
+                <div>
+                  <p>{n.note}</p>
+                  <p className="mt-0.5 text-[10px] opacity-60">
+                    {fmtDate(n.created_at)}
+                  </p>
+                </div>
+                {canEdit && (
+                  <button
+                    onClick={() => removeNote(n.id)}
+                    disabled={deletingId === n.id}
+                    title="Delete note"
+                    className="shrink-0 text-xs text-text-color opacity-50 transition hover:text-error-color hover:opacity-100 disabled:opacity-30"
+                  >
+                    {deletingId === n.id ? '…' : '×'}
+                  </button>
+                )}
               </div>
             ))}
           </div>

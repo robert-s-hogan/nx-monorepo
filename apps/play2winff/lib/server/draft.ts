@@ -213,16 +213,24 @@ export async function saveNote(name: string, note: string): Promise<void> {
 
 export async function fetchNotesForPlayer(
   name: string
-): Promise<{ note: string; created_at: string }[]> {
+): Promise<{ id: number; note: string; created_at: string }[]> {
   const canon = canonName(name);
   const result = await db.execute({
-    sql: `SELECT note, created_at FROM player_notes WHERE name_canon=? ORDER BY created_at DESC`,
+    sql: `SELECT id, note, created_at FROM player_notes WHERE name_canon=? ORDER BY created_at DESC`,
     args: [canon],
   });
   return result.rows.map((r) => ({
+    id: r.id as number,
     note: r.note as string,
     created_at: r.created_at as string,
   }));
+}
+
+export async function deleteNote(id: number): Promise<void> {
+  await db.execute({
+    sql: `DELETE FROM player_notes WHERE id=?`,
+    args: [id],
+  });
 }
 
 export async function fetchTagsForPlayer(name: string): Promise<CustomTag[]> {

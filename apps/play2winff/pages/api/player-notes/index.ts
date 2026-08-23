@@ -1,7 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { requireRole } from '@with-nx/auth';
 
-import { fetchNotesForPlayer, saveNote } from '../../../lib/server/draft';
+import {
+  fetchNotesForPlayer,
+  saveNote,
+  deleteNote,
+} from '../../../lib/server/draft';
 
 export default async function handler(
   req: NextApiRequest,
@@ -32,6 +36,15 @@ export default async function handler(
     return res.status(201).json(notes);
   }
 
-  res.setHeader('Allow', ['GET', 'POST']);
+  if (req.method === 'DELETE') {
+    const { id } = req.body as { id: number };
+    if (!Number.isInteger(id)) {
+      return res.status(400).json({ error: 'id is required' });
+    }
+    await deleteNote(id);
+    return res.status(204).end();
+  }
+
+  res.setHeader('Allow', ['GET', 'POST', 'DELETE']);
   return res.status(405).end(`Method ${req.method} Not Allowed`);
 }
