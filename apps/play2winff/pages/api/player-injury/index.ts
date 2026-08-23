@@ -27,15 +27,21 @@ export default async function handler(
   }
 
   if (req.method === 'POST') {
-    const { name, injury, expectedReturn } = req.body as {
+    const { name, injury, expectedReturn, onIR } = req.body as {
       name: string;
       injury: string;
       expectedReturn?: string | null;
+      onIR?: boolean;
     };
     if (!name?.trim() || !injury?.trim()) {
       return res.status(400).json({ error: 'name and injury are required' });
     }
-    const result = await setInjuryForPlayer(name, injury, expectedReturn ?? null);
+    const result = await setInjuryForPlayer(
+      name,
+      injury,
+      expectedReturn ?? null,
+      onIR ?? false
+    );
     return res.status(200).json(result);
   }
 

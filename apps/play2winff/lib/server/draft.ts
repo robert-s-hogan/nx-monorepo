@@ -7,6 +7,7 @@ import type { CustomTag } from '../tags';
 export type PlayerInjury = {
   injury: string;
   expectedReturn: string | null;
+  onIR: boolean;
 };
 
 export type DraftPlayer = {
@@ -52,13 +53,14 @@ async function loadTagsByCanon(): Promise<Map<string, CustomTag[]>> {
 
 async function loadInjuriesByCanon(): Promise<Map<string, PlayerInjury>> {
   const result = await db.execute(
-    `SELECT name_canon, injury, expected_return FROM player_injuries`
+    `SELECT name_canon, injury, expected_return, on_ir FROM player_injuries`
   );
   const byCanon = new Map<string, PlayerInjury>();
   for (const r of result.rows) {
     byCanon.set(r.name_canon as string, {
       injury: r.injury as string,
       expectedReturn: r.expected_return as string | null,
+      onIR: Boolean(r.on_ir),
     });
   }
   return byCanon;
@@ -270,30 +272,32 @@ export async function fetchInjuryForPlayer(
 ): Promise<PlayerInjury | null> {
   const canon = canonName(name);
   const result = await db.execute({
-    sql: `SELECT injury, expected_return FROM player_injuries WHERE name_canon=?`,
+    sql: `SELECT injury, expected_return, on_ir FROM player_injuries WHERE name_canon=?`,
     args: [canon],
   });
   if (!result.rows.length) return null;
   return {
     injury: result.rows[0]['injury'] as string,
     expectedReturn: result.rows[0]['expected_return'] as string | null,
+    onIR: Boolean(result.rows[0]['on_ir']),
   };
 }
 
 export async function setInjuryForPlayer(
   name: string,
   injury: string,
-  expectedReturn: string | null
+  expectedReturn: string | null,
+  onIR: boolean
 ): Promise<PlayerInjury> {
   const canon = canonName(name);
   await db.execute({
-    sql: `INSERT INTO player_injuries (name_canon, injury, expected_return, updated_at)
-          VALUES (?, ?, ?, datetime('now'))
+    sql: `INSERT INTO player_injuries (name_canon, injury, expected_return, on_ir, updated_at)
+          VALUES (?, ?, ?, ?, datetime('now'))
           ON CONFLICT(name_canon) DO UPDATE
-          SET injury=excluded.injury, expected_return=excluded.expected_return, updated_at=excluded.updated_at`,
-    args: [canon, injury.trim(), expectedReturn?.trim() || null],
+          SET injury=excluded.injury, expected_return=excluded.expected_return, on_ir=excluded.on_ir, updated_at=excluded.updated_at`,
+    args: [canon, injury.trim(), expectedReturn?.trim() || null, onIR ? 1 : 0],
   });
-  return { injury: injury.trim(), expectedReturn: expectedReturn?.trim() || null };
+  return { injury: injury.trim(), expectedReturn: expectedReturn?.trim() || null, onIR };
 }
 
 export async function clearInjuryForPlayer(name: string): Promise<void> {

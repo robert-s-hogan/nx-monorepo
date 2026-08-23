@@ -38,6 +38,7 @@ export const PlayerDetailsModal = ({
 
   const [injuryText, setInjuryText] = useState(player.injury?.injury ?? '');
   const [returnText, setReturnText] = useState(player.injury?.expectedReturn ?? '');
+  const [onIR, setOnIR] = useState(player.injury?.onIR ?? false);
   const [savingInjury, setSavingInjury] = useState(false);
 
   useEffect(() => {
@@ -64,7 +65,8 @@ export const PlayerDetailsModal = ({
       const result = await setInjuryForPlayer(
         player.name,
         injuryText,
-        returnText.trim() || null
+        returnText.trim() || null,
+        onIR
       );
       onInjurySaved(player.name_canon, result);
     } finally {
@@ -78,6 +80,7 @@ export const PlayerDetailsModal = ({
       await clearInjuryForPlayer(player.name);
       setInjuryText('');
       setReturnText('');
+      setOnIR(false);
       onInjurySaved(player.name_canon, null);
     } finally {
       setSavingInjury(false);
@@ -121,6 +124,15 @@ export const PlayerDetailsModal = ({
                 placeholder="Expected return (e.g. Week 4) — optional"
                 className="w-full rounded border border-border-color bg-bg-color px-3 py-1.5 text-sm text-text-color focus:outline-none focus:ring-2 focus:ring-primary"
               />
+              <label className="flex items-center gap-1.5 text-xs text-text-color">
+                <input
+                  type="checkbox"
+                  checked={onIR}
+                  onChange={(e) => setOnIR(e.target.checked)}
+                  className="accent-error-color"
+                />
+                On IR
+              </label>
               <div className="flex gap-2">
                 <button
                   onClick={submitInjury}
@@ -142,6 +154,9 @@ export const PlayerDetailsModal = ({
             </div>
           ) : player.injury ? (
             <p className="text-sm text-text-color">
+              {player.injury.onIR && (
+                <span className="mr-1.5 font-semibold text-error-color">IR</span>
+              )}
               {player.injury.injury}
               {player.injury.expectedReturn && ` — ${player.injury.expectedReturn}`}
             </p>

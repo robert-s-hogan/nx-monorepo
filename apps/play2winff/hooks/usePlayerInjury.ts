@@ -1,7 +1,11 @@
 // hooks/usePlayerInjury.ts
 import { authedFetch } from '../lib/authedFetch';
 
-export type PlayerInjury = { injury: string; expectedReturn: string | null };
+export type PlayerInjury = {
+  injury: string;
+  expectedReturn: string | null;
+  onIR: boolean;
+};
 
 export async function fetchInjuryForPlayer(
   name: string
@@ -13,12 +17,13 @@ export async function fetchInjuryForPlayer(
 export async function setInjuryForPlayer(
   name: string,
   injury: string,
-  expectedReturn: string | null
+  expectedReturn: string | null,
+  onIR: boolean
 ): Promise<PlayerInjury> {
   const res = await authedFetch('/api/player-injury', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, injury, expectedReturn }),
+    body: JSON.stringify({ name, injury, expectedReturn, onIR }),
   });
   return res.json();
 }

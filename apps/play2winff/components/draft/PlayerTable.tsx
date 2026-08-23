@@ -20,6 +20,15 @@ const PosBadge = ({ pos }: { pos: string | null }) => (
   </span>
 );
 
+const IRBadge = () => (
+  <span
+    title="On IR"
+    className="inline-block rounded bg-error-color px-1 py-0.5 text-[9px] font-bold text-white"
+  >
+    IR
+  </span>
+);
+
 const TeamBadge = ({ team }: { team: string | null }) => {
   if (!team) return null;
   return (
@@ -214,7 +223,7 @@ export const PlayerTable = ({
             <th className="w-16 border-b-2 border-border-color p-2 text-center text-[11px] font-semibold tracking-wide text-text-color uppercase">
               #
             </th>
-            <th className="w-14 border-b-2 border-border-color p-2 text-center text-[11px] font-semibold tracking-wide text-text-color uppercase">
+            <th className="w-20 border-b-2 border-border-color p-2 text-center text-[11px] font-semibold tracking-wide text-text-color uppercase">
               Pos
             </th>
             <th className="border-b-2 border-border-color px-3 py-2 text-left text-[11px] font-semibold tracking-wide text-text-color uppercase">
@@ -265,7 +274,10 @@ export const PlayerTable = ({
                   </div>
                 </td>
                 <td className="border-b border-border-color p-2 text-center">
-                  <PosBadge pos={item.data.position} />
+                  <div className="flex flex-wrap items-center justify-center gap-1">
+                    <PosBadge pos={item.data.position} />
+                    {item.data.injury?.onIR && <IRBadge />}
+                  </div>
                 </td>
                 <td className="border-b border-border-color px-3 py-2">
                   <div className="flex flex-col">
@@ -357,7 +369,10 @@ export const PlayerTable = ({
                     —
                   </td>
                   <td className="border-b border-border-color p-2 text-center">
-                    <PosBadge pos={p.position} />
+                    <div className="flex flex-wrap items-center justify-center gap-1">
+                      <PosBadge pos={p.position} />
+                      {p.injury?.onIR && <IRBadge />}
+                    </div>
                   </td>
                   <td className="border-b border-border-color px-3 py-2">
                     <div className="flex items-center gap-2">
