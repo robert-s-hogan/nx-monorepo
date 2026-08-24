@@ -16,7 +16,7 @@ export interface PlayerTagPickerProps {
 // Plain object indexing (not a function call) — calling a function to
 // resolve a component reference inside render trips the "no components
 // created during render" lint rule even when it's just a lookup.
-const TagGlyph = ({ tag, size = 13 }: { tag: CustomTag; size?: number }) => {
+const TagGlyph = ({ tag, size = 18 }: { tag: CustomTag; size?: number }) => {
   const Icon = TAG_ICONS[tag.icon] ?? FiHelpCircle;
   return <Icon size={size} className={tag.color} />;
 };
@@ -128,7 +128,7 @@ export const PlayerTagPicker = ({
                 onClick={() => setCreating(true)}
                 className="flex w-full items-center gap-2 rounded px-1.5 py-1 text-left text-xs text-text-color opacity-70 transition hover:bg-hover-color hover:opacity-100"
               >
-                <FiPlus size={13} />
+                <FiPlus size={18} />
                 New tag
               </button>
             ) : (
@@ -158,7 +158,7 @@ export const PlayerTagPicker = ({
                             : 'text-text-color opacity-60 hover:bg-hover-color hover:opacity-100'
                         }`}
                       >
-                        <Icon size={13} />
+                        <Icon size={18} />
                       </button>
                     );
                   })}
