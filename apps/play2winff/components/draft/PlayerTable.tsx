@@ -184,10 +184,17 @@ export const PlayerTable = ({
     return result;
   }, [displayList, hiddenPositions]);
 
-  const filteredDroppedPlayers = useMemo(
-    () => droppedPlayers.filter((p) => !hiddenPositions.has(p.position ?? '')),
-    [droppedPlayers, hiddenPositions]
-  );
+  // IR/PUP stash candidates surface first — the whole point of this section
+  // for draft night is spotting who's worth grabbing for the IR slot, not
+  // reading top-to-bottom through everyone who merely fell in rank.
+  const filteredDroppedPlayers = useMemo(() => {
+    const filtered = droppedPlayers.filter(
+      (p) => !hiddenPositions.has(p.position ?? '')
+    );
+    return [...filtered].sort(
+      (a, b) => Number(!!b.injury?.onIR) - Number(!!a.injury?.onIR)
+    );
+  }, [droppedPlayers, hiddenPositions]);
 
   return (
     <main className="flex-1 overflow-y-auto bg-bg-color">
@@ -352,13 +359,17 @@ export const PlayerTable = ({
               {filteredDroppedPlayers.map((p) => (
                 <tr
                   key={`dropped-${p.name_canon}`}
-                  className={`opacity-70 select-none ${
-                    sleeperRowTint(
-                      p.lastRank ?? p.rank,
-                      p.sleeperRank,
-                      teams,
-                      currentPick
-                    ) || 'bg-surface-color'
+                  className={`select-none ${
+                    p.injury?.onIR
+                      ? 'bg-error-color/20'
+                      : `opacity-70 ${
+                          sleeperRowTint(
+                            p.lastRank ?? p.rank,
+                            p.sleeperRank,
+                            teams,
+                            currentPick
+                          ) || 'bg-surface-color'
+                        }`
                   }`}
                 >
                   <td
