@@ -11,6 +11,7 @@
     "migrate:play2winff": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate.ts",
     "migrate:play2winff:custom-tags": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate-custom-tags.ts",
     "migrate:play2winff:player-injuries-add-ir": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate-player-injuries-add-ir.ts",
+    "migrate:play2winff:player-team": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate-player-team.ts",
     "migrate:play2winff:player-risk": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate-player-risk.ts",
     "migrate:play2winff:sleeper-adp": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate-player-sleeper-adp.ts",
     "migrate:play2winff:sleeper-adp-add-team": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate-player-sleeper-adp-add-team.ts",

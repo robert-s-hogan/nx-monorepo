@@ -111,6 +111,12 @@ export function useDraftSession(league: LeagueProfile | null) {
     );
   }
 
+  function setTeamFor(nameCanon: string, team: string | null) {
+    setPlayers((prev) =>
+      prev.map((p) => (p.name_canon === nameCanon ? { ...p, team } : p))
+    );
+  }
+
   async function toggleTag(player: DraftPlayer, tagId: number) {
     const tags = await customTagsApi.toggleTagForPlayer(player.name, tagId);
     setPlayers((prev) =>
@@ -199,6 +205,7 @@ export function useDraftSession(league: LeagueProfile | null) {
     releaseFromBench,
     setNoteFor,
     setInjuryFor,
+    setTeamFor,
     toggleTag,
     setRisk,
   };

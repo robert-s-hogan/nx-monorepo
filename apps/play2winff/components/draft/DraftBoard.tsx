@@ -27,6 +27,7 @@ export interface DraftBoardProps {
   onReleaseFromBench: (idx: number) => void;
   onNoteSaved: (nameCanon: string, note: string) => void;
   onInjurySaved: (nameCanon: string, injury: PlayerInjury | null) => void;
+  onTeamSaved: (nameCanon: string, team: string | null) => void;
   onToggleTag: (player: DraftPlayer, tagId: number) => void;
   onSetRisk: (player: DraftPlayer, value: number | null) => void;
   canEdit: boolean;
@@ -50,6 +51,7 @@ export const DraftBoard = ({
   onReleaseFromBench,
   onNoteSaved,
   onInjurySaved,
+  onTeamSaved,
   onToggleTag,
   onSetRisk,
   canEdit,
@@ -106,6 +108,10 @@ export const DraftBoard = ({
           onInjurySaved={(nameCanon, injury) => {
             onInjurySaved(nameCanon, injury);
             setNoteTarget((prev) => (prev ? { ...prev, injury } : prev));
+          }}
+          onTeamSaved={(nameCanon, team) => {
+            onTeamSaved(nameCanon, team);
+            setNoteTarget((prev) => (prev ? { ...prev, team } : prev));
           }}
           canEdit={canEdit}
         />

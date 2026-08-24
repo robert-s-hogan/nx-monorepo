@@ -76,6 +76,7 @@ const Draft = () => {
           onReleaseFromBench={session.releaseFromBench}
           onNoteSaved={session.setNoteFor}
           onInjurySaved={session.setInjuryFor}
+          onTeamSaved={session.setTeamFor}
           onToggleTag={session.toggleTag}
           onSetRisk={session.setRisk}
           canEdit={canEdit}

@@ -12,12 +12,15 @@ import {
   clearInjuryForPlayer,
   PlayerInjury,
 } from '../../hooks/usePlayerInjury';
+import { setTeamForPlayer } from '../../hooks/usePlayerTeam';
+import { TEAM_OPTIONS } from './teamClass';
 
 export interface PlayerDetailsModalProps {
   player: DraftPlayer;
   onClose: () => void;
   onNoteSaved: (nameCanon: string, note: string) => void;
   onInjurySaved: (nameCanon: string, injury: PlayerInjury | null) => void;
+  onTeamSaved: (nameCanon: string, team: string | null) => void;
   canEdit: boolean;
 }
 
@@ -35,6 +38,7 @@ export const PlayerDetailsModal = ({
   onClose,
   onNoteSaved,
   onInjurySaved,
+  onTeamSaved,
   canEdit,
 }: PlayerDetailsModalProps) => {
   const [noteText, setNoteText] = useState('');
@@ -46,6 +50,9 @@ export const PlayerDetailsModal = ({
   const [returnText, setReturnText] = useState(player.injury?.expectedReturn ?? '');
   const [onIR, setOnIR] = useState(player.injury?.onIR ?? false);
   const [savingInjury, setSavingInjury] = useState(false);
+
+  const [team, setTeam] = useState(player.team ?? '');
+  const [savingTeam, setSavingTeam] = useState(false);
 
   useEffect(() => {
     fetchNotesForPlayer(player.name).then(setHistory);
@@ -71,6 +78,17 @@ export const PlayerDetailsModal = ({
       setHistory((prev) => prev.filter((n) => n.id !== id));
     } finally {
       setDeletingId(null);
+    }
+  }
+
+  async function submitTeam() {
+    if (!team || team === player.team) return;
+    setSavingTeam(true);
+    try {
+      const result = await setTeamForPlayer(player.name, team);
+      onTeamSaved(player.name_canon, result);
+    } finally {
+      setSavingTeam(false);
     }
   }
 
@@ -120,6 +138,37 @@ export const PlayerDetailsModal = ({
           >
             ×
           </button>
+        </div>
+
+        <div className="space-y-2 border-b border-border-color pb-4">
+          <p className="text-xs font-medium uppercase text-text-color opacity-70">
+            Team
+          </p>
+          {canEdit ? (
+            <div className="flex gap-2">
+              <select
+                value={team}
+                onChange={(e) => setTeam(e.target.value)}
+                className="w-full rounded border border-border-color bg-bg-color px-3 py-1.5 text-sm text-text-color focus:outline-none focus:ring-2 focus:ring-primary"
+              >
+                <option value="">— Select team —</option>
+                {TEAM_OPTIONS.map((t) => (
+                  <option key={t.code} value={t.code}>
+                    {t.code} — {t.name}
+                  </option>
+                ))}
+              </select>
+              <button
+                onClick={submitTeam}
+                disabled={savingTeam || !team || team === player.team}
+                className="shrink-0 rounded bg-primary px-3 py-1 text-xs font-semibold text-(--text-on-primary-color) transition hover:bg-hover-color disabled:opacity-40"
+              >
+                {savingTeam ? 'Saving…' : 'Save'}
+              </button>
+            </div>
+          ) : (
+            <p className="text-sm text-text-color">{player.team ?? 'Unknown'}</p>
+          )}
         </div>
 
         <div className="space-y-2 border-b border-border-color pb-4">

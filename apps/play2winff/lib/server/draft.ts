@@ -91,6 +91,15 @@ async function loadSleeperAdpByCanon(): Promise<Map<string, SleeperAdpEntry>> {
   return byCanon;
 }
 
+async function loadTeamOverridesByCanon(): Promise<Map<string, string>> {
+  const result = await db.execute(`SELECT name_canon, team FROM player_team`);
+  const byCanon = new Map<string, string>();
+  for (const r of result.rows) {
+    byCanon.set(r.name_canon as string, r.team as string);
+  }
+  return byCanon;
+}
+
 type RankingRow = {
   rank: number;
   name: string;
@@ -126,6 +135,7 @@ export async function loadDraftPlayers(
   const injuriesByCanon = await loadInjuriesByCanon();
   const riskByCanon = await loadRiskByCanon();
   const sleeperAdpByCanon = await loadSleeperAdpByCanon();
+  const teamOverridesByCanon = await loadTeamOverridesByCanon();
 
   const makePlayer = (
     r: RankingRow,
@@ -135,10 +145,12 @@ export async function loadDraftPlayers(
     return {
       name: r.name,
       name_canon: r.name_canon,
+      // Priority: manual correction > rankings paste > Sleeper ADP backfill.
       // The main rankings paste doesn't always carry a team column (fused
       // "RB1"-style position with no team token) — fall back to the team
-      // captured from the separately-pasted Sleeper ADP list when needed.
-      team: r.team ?? sleeperAdp?.team ?? null,
+      // captured from the separately-pasted Sleeper ADP list when needed,
+      // and let a manual override win over either when one exists.
+      team: teamOverridesByCanon.get(r.name_canon) ?? r.team ?? sleeperAdp?.team ?? null,
       position: r.position,
       note: notesByCanon.get(r.name_canon) ?? null,
       tags: tagsByCanon.get(r.name_canon) ?? [],
@@ -384,4 +396,27 @@ export async function fetchSleeperAdpStatus(): Promise<{
     count: (row?.count as number) ?? 0,
     lastUpdated: (row?.lastUpdated as string | null) ?? null,
   };
+}
+
+export async function setTeamForPlayer(
+  name: string,
+  team: string
+): Promise<string> {
+  const canon = canonName(name);
+  await db.execute({
+    sql: `INSERT INTO player_team (name_canon, team, updated_at)
+          VALUES (?, ?, datetime('now'))
+          ON CONFLICT(name_canon) DO UPDATE
+          SET team=excluded.team, updated_at=excluded.updated_at`,
+    args: [canon, team],
+  });
+  return team;
+}
+
+export async function clearTeamForPlayer(name: string): Promise<void> {
+  const canon = canonName(name);
+  await db.execute({
+    sql: `DELETE FROM player_team WHERE name_canon=?`,
+    args: [canon],
+  });
 }
