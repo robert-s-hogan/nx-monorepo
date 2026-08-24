@@ -114,7 +114,7 @@ const MUTED = 'text-text-color opacity-70';
 
 export interface PlayerTableProps {
   displayList: DisplayItem[];
-  droppedPlayers: DraftPlayer[];
+  seasonEndingPlayers: DraftPlayer[];
   teams: number;
   currentPick: number;
   onOpenNotes: (player: DraftPlayer) => void;
@@ -127,7 +127,7 @@ export interface PlayerTableProps {
 
 export const PlayerTable = ({
   displayList,
-  droppedPlayers,
+  seasonEndingPlayers,
   teams,
   currentPick,
   onOpenNotes,
@@ -150,8 +150,8 @@ export const PlayerTable = ({
     });
   }
 
-  // Counts reflect everyone still on the board (active + dropped), so the
-  // filter bar tells you how many of each position you'd be hiding.
+  // Counts reflect everyone still on the board (active + season-ending), so
+  // the filter bar tells you how many of each position you'd be hiding.
   const positionCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const item of displayList) {
@@ -159,12 +159,12 @@ export const PlayerTable = ({
       const pos = item.data.position ?? '—';
       counts[pos] = (counts[pos] ?? 0) + 1;
     }
-    for (const p of droppedPlayers) {
+    for (const p of seasonEndingPlayers) {
       const pos = p.position ?? '—';
       counts[pos] = (counts[pos] ?? 0) + 1;
     }
     return counts;
-  }, [displayList, droppedPlayers]);
+  }, [displayList, seasonEndingPlayers]);
 
   const filteredDisplayList = useMemo(() => {
     const kept = displayList.filter(
@@ -184,17 +184,10 @@ export const PlayerTable = ({
     return result;
   }, [displayList, hiddenPositions]);
 
-  // IR/PUP stash candidates surface first — the whole point of this section
-  // for draft night is spotting who's worth grabbing for the IR slot, not
-  // reading top-to-bottom through everyone who merely fell in rank.
-  const filteredDroppedPlayers = useMemo(() => {
-    const filtered = droppedPlayers.filter(
-      (p) => !hiddenPositions.has(p.position ?? '')
-    );
-    return [...filtered].sort(
-      (a, b) => Number(!!b.injury?.onIR) - Number(!!a.injury?.onIR)
-    );
-  }, [droppedPlayers, hiddenPositions]);
+  const filteredSeasonEndingPlayers = useMemo(
+    () => seasonEndingPlayers.filter((p) => !hiddenPositions.has(p.position ?? '')),
+    [seasonEndingPlayers, hiddenPositions]
+  );
 
   return (
     <main className="flex-1 overflow-y-auto bg-bg-color">
@@ -346,67 +339,54 @@ export const PlayerTable = ({
             )
           )}
 
-          {filteredDroppedPlayers.length > 0 && (
+          {filteredSeasonEndingPlayers.length > 0 && (
             <>
               <tr>
                 <td
                   colSpan={6}
                   className={`border-y border-border-color bg-bg-color py-1 text-center text-xs font-semibold tracking-wide uppercase select-none ${MUTED}`}
                 >
-                  Dropped off rankings
+                  Season-Ending Injuries
                 </td>
               </tr>
-              {filteredDroppedPlayers.map((p) => (
+              {filteredSeasonEndingPlayers.map((p) => (
                 <tr
-                  key={`dropped-${p.name_canon}`}
-                  className={`select-none ${
-                    p.injury?.onIR
-                      ? 'bg-error-color/20'
-                      : `opacity-70 ${
-                          sleeperRowTint(
-                            p.lastRank ?? p.rank,
-                            p.sleeperRank,
-                            teams,
-                            currentPick
-                          ) || 'bg-surface-color'
-                        }`
-                  }`}
+                  key={`season-ending-${p.name_canon}`}
+                  className="select-none bg-error-color/20"
                 >
                   <td
                     className={`border-b border-l-4 border-border-color p-2 text-center text-text-color ${posBorderClass(
                       p.position
                     )}`}
                   >
-                    —
+                    {p.rank}
                   </td>
                   <td className="border-b border-border-color p-2 text-center">
                     <div className="flex flex-wrap items-center justify-center gap-1">
                       <PosBadge pos={p.position} />
-                      {p.injury?.onIR && <IRBadge />}
+                      <IRBadge />
                     </div>
                   </td>
                   <td className="border-b border-border-color px-3 py-2">
-                    <div className="flex items-center gap-2">
-                      <TeamLogo team={p.team} />
-                      <button
-                        onClick={() => onOpenNotes(p)}
-                        className="text-left font-medium text-text-color hover:underline"
-                      >
-                        {p.name}
-                      </button>
-                      <span className="rounded bg-disabled-color px-1.5 text-[10px] text-text-color">
-                        was #{p.lastRank}
-                      </span>
+                    <div className="flex flex-col">
+                      <div className="flex items-center gap-1.5">
+                        <TeamLogo team={p.team} />
+                        <button
+                          onClick={() => onOpenNotes(p)}
+                          className="text-left leading-snug font-medium text-text-color hover:underline"
+                        >
+                          {p.name}
+                        </button>
+                      </div>
+                      <InjuryBadge injury={p.injury} />
                     </div>
                   </td>
                   <td className="border-b border-border-color p-2 text-center">
-                    {p.lastRank != null && (
-                      <SleeperDeltaBadge
-                        player={{ ...p, rank: p.lastRank }}
-                        teams={teams}
-                        currentPick={currentPick}
-                      />
-                    )}
+                    <SleeperDeltaBadge
+                      player={p}
+                      teams={teams}
+                      currentPick={currentPick}
+                    />
                   </td>
                   <td className="border-b border-border-color p-2 text-center">
                     <div className="group flex flex-wrap items-center justify-center gap-2">

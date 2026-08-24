@@ -142,19 +142,23 @@ export function useDraftSession(league: LeagueProfile | null) {
     [players, hiddenIds]
   );
 
+  // On IR is the only thing that pulls a player out of the ranked pool —
+  // everyone else stays in activePlayers at their carried-forward rank even
+  // if they dropped out of the latest paste, so the board never quietly
+  // loses non-injury players.
   const activePlayers = useMemo(
     () =>
       visiblePlayers
-        .filter((p) => !p.dropped)
+        .filter((p) => !p.injury?.onIR)
         .sort((a, b) => a.rank - b.rank),
     [visiblePlayers]
   );
 
-  const droppedPlayers = useMemo(
+  const seasonEndingPlayers = useMemo(
     () =>
       visiblePlayers
-        .filter((p) => p.dropped)
-        .sort((a, b) => (a.lastRank ?? 999) - (b.lastRank ?? 999)),
+        .filter((p) => p.injury?.onIR)
+        .sort((a, b) => a.rank - b.rank),
     [visiblePlayers]
   );
 
@@ -193,7 +197,7 @@ export function useDraftSession(league: LeagueProfile | null) {
     rosterSlots,
     bench,
     displayList,
-    droppedPlayers,
+    seasonEndingPlayers,
     draftedCount,
     currentPick,
     totalStarters,

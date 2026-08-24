@@ -17,8 +17,6 @@ export type DraftPlayer = {
   team: string | null;
   position: string | null;
   note: string | null;
-  dropped: boolean;
-  lastRank: number | null;
   // Rank in the Original snapshot (the `prevSnapshotId` passed to
   // loadDraftPlayers), regardless of whether the player is still present in
   // the current snapshot. Null if they weren't in the Original list at all.
@@ -139,7 +137,7 @@ export async function loadDraftPlayers(
 
   const makePlayer = (
     r: RankingRow,
-    overrides: Pick<DraftPlayer, 'rank' | 'dropped' | 'lastRank' | 'originalRank'>
+    overrides: Pick<DraftPlayer, 'rank' | 'originalRank'>
   ): DraftPlayer => {
     const sleeperAdp = sleeperAdpByCanon.get(r.name_canon);
     return {
@@ -163,12 +161,7 @@ export async function loadDraftPlayers(
 
   if (!prevSnapshotId) {
     return currRows.map((r) =>
-      makePlayer(r, {
-        rank: r.rank,
-        dropped: false,
-        lastRank: null,
-        originalRank: null,
-      })
+      makePlayer(r, { rank: r.rank, originalRank: null })
     );
   }
 
@@ -183,33 +176,22 @@ export async function loadDraftPlayers(
   const current: DraftPlayer[] = currRows.map((r) =>
     makePlayer(r, {
       rank: r.rank,
-      dropped: false,
-      lastRank: null,
       originalRank: prevRankByCanon.get(r.name_canon) ?? null,
     })
   );
 
-  // A Latest paste doesn't have to cover the full Original range (e.g. the
-  // user only pasted ranks 7-160) — so "in Original, not in Latest" is only
-  // a real drop if it falls inside the range Latest actually covers.
-  // Outside that range, Original wasn't updated either way, so the player
-  // just carries forward at their Original rank/position unchanged.
+  // A player who drops out of a Latest re-paste (whether because Latest
+  // simply doesn't extend as far as Original, or because the source list
+  // removed them outright) always carries forward at their last known rank
+  // instead of vanishing — "still ranked, just not updated this pass" is
+  // the default assumption. The one thing that actually pulls a player out
+  // of the ranked pool is being marked On IR (see useDraftSession's
+  // activePlayers/seasonEndingPlayers split), not simply being missing from
+  // a specific paste.
   const currentCanons = new Set(currRows.map((r) => r.name_canon));
-  const currentRanks = currRows.map((r) => r.rank);
-  const minCovered = currentRanks.length ? Math.min(...currentRanks) : Infinity;
-  const maxCovered = currentRanks.length ? Math.max(...currentRanks) : -Infinity;
-
   for (const r of prevRows) {
     if (currentCanons.has(r.name_canon)) continue;
-    const inCoveredRange = r.rank >= minCovered && r.rank <= maxCovered;
-    current.push(
-      makePlayer(r, {
-        rank: inCoveredRange ? 9999 : r.rank,
-        dropped: inCoveredRange,
-        lastRank: inCoveredRange ? r.rank : null,
-        originalRank: r.rank,
-      })
-    );
+    current.push(makePlayer(r, { rank: r.rank, originalRank: r.rank }));
   }
 
   return current;
