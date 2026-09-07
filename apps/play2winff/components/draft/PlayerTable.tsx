@@ -163,7 +163,6 @@ const MUTED = 'text-text-color opacity-70';
 
 export interface PlayerTableProps {
   displayList: DisplayItem[];
-  seasonEndingPlayers: DraftPlayer[];
   teams: number;
   adpSource: 'sleeper' | 'yahoo' | 'espn';
   currentPick: number;
@@ -177,7 +176,6 @@ export interface PlayerTableProps {
 
 export const PlayerTable = ({
   displayList,
-  seasonEndingPlayers,
   teams,
   adpSource,
   currentPick,
@@ -201,8 +199,8 @@ export const PlayerTable = ({
     });
   }
 
-  // Counts reflect everyone still on the board (active + season-ending), so
-  // the filter bar tells you how many of each position you'd be hiding.
+  // Counts reflect everyone still on the board, so the filter bar tells you
+  // how many of each position you'd be hiding.
   const positionCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const item of displayList) {
@@ -210,12 +208,8 @@ export const PlayerTable = ({
       const pos = item.data.position ?? '—';
       counts[pos] = (counts[pos] ?? 0) + 1;
     }
-    for (const p of seasonEndingPlayers) {
-      const pos = p.position ?? '—';
-      counts[pos] = (counts[pos] ?? 0) + 1;
-    }
     return counts;
-  }, [displayList, seasonEndingPlayers]);
+  }, [displayList]);
 
   const filteredDisplayList = useMemo(() => {
     const kept = displayList.filter(
@@ -234,11 +228,6 @@ export const PlayerTable = ({
     }
     return result;
   }, [displayList, hiddenPositions]);
-
-  const filteredSeasonEndingPlayers = useMemo(
-    () => seasonEndingPlayers.filter((p) => !hiddenPositions.has(p.position ?? '')),
-    [seasonEndingPlayers, hiddenPositions]
-  );
 
   return (
     <main className="flex-1 overflow-y-auto bg-bg-color">
@@ -389,91 +378,6 @@ export const PlayerTable = ({
                 </td>
               </tr>
             )
-          )}
-
-          {filteredSeasonEndingPlayers.length > 0 && (
-            <>
-              <tr>
-                <td
-                  colSpan={6}
-                  className={`border-y border-border-color bg-bg-color py-1 text-center text-xs font-semibold tracking-wide uppercase select-none ${MUTED}`}
-                >
-                  Season-Ending Injuries
-                </td>
-              </tr>
-              {filteredSeasonEndingPlayers.map((p) => (
-                <tr
-                  key={`season-ending-${p.name_canon}`}
-                  className="select-none bg-error-color/20"
-                >
-                  <td
-                    className={`border-b border-l-4 border-border-color p-2 text-center text-text-color ${posBorderClass(
-                      p.position
-                    )}`}
-                  >
-                    {p.rank}
-                  </td>
-                  <td className="border-b border-border-color p-2 text-center">
-                    <div className="flex flex-wrap items-center justify-center gap-1">
-                      <PosBadge pos={p.position} />
-                      <IRBadge />
-                    </div>
-                  </td>
-                  <td className="border-b border-border-color px-3 py-2">
-                    <div className="flex flex-col">
-                      <div className="flex items-center gap-1.5">
-                        <TeamLogo team={p.team} />
-                        <button
-                          onClick={() => onOpenNotes(p)}
-                          className="text-left leading-snug font-medium text-text-color hover:underline"
-                        >
-                          {p.name}
-                        </button>
-                      </div>
-                      <InjuryBadge injury={p.injury} />
-                    </div>
-                  </td>
-                  <td className="border-b border-border-color p-2 text-center">
-                    <AdpDeltaBadge
-                      adpSource={adpSource}
-                      player={p}
-                      teams={teams}
-                      currentPick={currentPick}
-                    />
-                  </td>
-                  <td className="border-b border-border-color p-2 text-center">
-                    <div className="group flex flex-wrap items-center justify-center gap-2">
-                      <RiskFactorControl
-                        player={p}
-                        canEdit={canEditTags}
-                        onSetRisk={onSetRisk}
-                      />
-                      <PlayerTagPicker
-                        player={p}
-                        canEdit={canEditTags}
-                        onToggleTag={onToggleTag}
-                      />
-                    </div>
-                  </td>
-                  <td className="border-b border-border-color p-2 text-center">
-                    <div className="flex items-center justify-center gap-1.5">
-                      <button
-                        onClick={() => onDraftToMyTeam(p)}
-                        className="rounded bg-primary px-2 py-0.5 text-[11px] font-semibold text-(--text-on-primary-color) transition hover:bg-hover-color"
-                      >
-                        Mine
-                      </button>
-                      <button
-                        onClick={() => onDraftedByOther(p)}
-                        className="rounded border border-border-color px-2 py-0.5 text-[11px] text-text-color transition hover:bg-hover-color"
-                      >
-                        Gone
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </>
           )}
         </tbody>
       </table>

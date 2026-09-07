@@ -16,7 +16,6 @@ export interface DraftBoardProps {
   rosterSlots: RosterEntry[];
   bench: DraftPlayer[];
   displayList: DisplayItem[];
-  seasonEndingPlayers: DraftPlayer[];
   draftedCount: number;
   currentPick: number;
   totalStarters: number;
@@ -40,7 +39,6 @@ export const DraftBoard = ({
   rosterSlots,
   bench,
   displayList,
-  seasonEndingPlayers,
   draftedCount,
   currentPick,
   totalStarters,
@@ -85,7 +83,6 @@ export const DraftBoard = ({
         />
         <PlayerTable
           displayList={displayList}
-          seasonEndingPlayers={seasonEndingPlayers}
           teams={league.teams}
           adpSource={league.adp_source}
           currentPick={currentPick}

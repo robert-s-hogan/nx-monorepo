@@ -65,7 +65,6 @@ const Draft = () => {
           rosterSlots={session.rosterSlots}
           bench={session.bench}
           displayList={session.displayList}
-          seasonEndingPlayers={session.seasonEndingPlayers}
           draftedCount={session.draftedCount}
           currentPick={session.currentPick}
           totalStarters={session.totalStarters}

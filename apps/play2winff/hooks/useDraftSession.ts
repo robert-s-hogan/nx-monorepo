@@ -142,23 +142,12 @@ export function useDraftSession(league: LeagueProfile | null) {
     [players, hiddenIds]
   );
 
-  // On IR is the only thing that pulls a player out of the ranked pool —
-  // everyone else stays in activePlayers at their carried-forward rank even
-  // if they dropped out of the latest paste, so the board never quietly
-  // loses non-injury players.
+  // Everyone stays in the ranked pool at their carried-forward rank, even a
+  // player marked On IR/PUP — they're still routinely draftable as a stash,
+  // so they sit inline at their normal rank with an IR badge rather than
+  // getting pulled into a separate section.
   const activePlayers = useMemo(
-    () =>
-      visiblePlayers
-        .filter((p) => !p.injury?.onIR)
-        .sort((a, b) => a.rank - b.rank),
-    [visiblePlayers]
-  );
-
-  const seasonEndingPlayers = useMemo(
-    () =>
-      visiblePlayers
-        .filter((p) => p.injury?.onIR)
-        .sort((a, b) => a.rank - b.rank),
+    () => [...visiblePlayers].sort((a, b) => a.rank - b.rank),
     [visiblePlayers]
   );
 
@@ -197,7 +186,6 @@ export function useDraftSession(league: LeagueProfile | null) {
     rosterSlots,
     bench,
     displayList,
-    seasonEndingPlayers,
     draftedCount,
     currentPick,
     totalStarters,

@@ -231,10 +231,9 @@ export async function loadDraftPlayers(
   // simply doesn't extend as far as Original, or because the source list
   // removed them outright) always carries forward at their last known rank
   // instead of vanishing — "still ranked, just not updated this pass" is
-  // the default assumption. The one thing that actually pulls a player out
-  // of the ranked pool is being marked On IR (see useDraftSession's
-  // activePlayers/seasonEndingPlayers split), not simply being missing from
-  // a specific paste.
+  // the default assumption. Nothing pulls a player out of the ranked pool;
+  // On IR/PUP just adds a badge (see useDraftSession's activePlayers) since
+  // those players are routinely draftable as a stash.
   const currentCanons = new Set(currRows.map((r) => r.name_canon));
   for (const r of prevRows) {
     if (currentCanons.has(r.name_canon)) continue;
