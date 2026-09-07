@@ -33,13 +33,6 @@ export async function requireRole(
   req: NextApiRequest,
   allowedRoles: Role[]
 ): Promise<boolean> {
-  // TEMP: the shared auth Supabase project (idoyjldovrwiekfpagkv) is down —
-  // DNS doesn't even resolve — so magic-link sign-in can't produce a token
-  // to check here. Bypass in dev only until that project is restored/rebuilt.
-  // Revert once auth works again.
-  if (process.env.NODE_ENV !== 'production') {
-    return true;
-  }
   const role = await getRoleFromRequest(req);
   return role !== null && allowedRoles.includes(role);
 }

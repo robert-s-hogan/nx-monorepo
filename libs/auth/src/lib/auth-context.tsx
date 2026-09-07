@@ -66,13 +66,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const user = session?.user ?? null;
-  // TEMP: same dev-only bypass as requireRole() in verify-request.ts — the
-  // shared auth Supabase project is down, so there's no session to derive a
-  // role from. Fake 'family' locally so canEdit-gated UI (New League, import
-  // form, draft edit controls) still renders. Revert once auth works again.
-  const role =
-    getRoleForEmail(user?.email) ??
-    (process.env.NODE_ENV !== 'production' ? 'family' : null);
+  const role = getRoleForEmail(user?.email);
 
   return (
     <AuthContext.Provider
