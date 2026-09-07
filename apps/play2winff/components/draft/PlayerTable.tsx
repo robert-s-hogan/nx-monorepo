@@ -4,11 +4,13 @@ import { FiArrowUp, FiArrowDown, FiMinus } from 'react-icons/fi';
 import type { DraftPlayer } from '../../lib/server/draft';
 import { DisplayItem } from '../../hooks/useDraftSession';
 import { sleeperRowTint } from '../../lib/sleeperDelta';
+import { yahooRowTint } from '../../lib/yahooDelta';
 import { posBadgeClass, posBorderClass, POSITIONS } from './posClass';
 import { teamBadgeClass, teamLogoUrl } from './teamClass';
 import { PlayerTagPicker } from './PlayerTagPicker';
 import { RiskFactorControl } from './RiskFactorControl';
 import { SleeperDeltaBadge } from './SleeperDeltaBadge';
+import { YahooDeltaBadge } from './YahooDeltaBadge';
 
 const PosBadge = ({ pos }: { pos: string | null }) => (
   <span
@@ -116,6 +118,7 @@ export interface PlayerTableProps {
   displayList: DisplayItem[];
   seasonEndingPlayers: DraftPlayer[];
   teams: number;
+  adpSource: 'sleeper' | 'yahoo';
   currentPick: number;
   onOpenNotes: (player: DraftPlayer) => void;
   onDraftToMyTeam: (player: DraftPlayer) => void;
@@ -129,6 +132,7 @@ export const PlayerTable = ({
   displayList,
   seasonEndingPlayers,
   teams,
+  adpSource,
   currentPick,
   onOpenNotes,
   onDraftToMyTeam,
@@ -230,7 +234,7 @@ export const PlayerTable = ({
               Player
             </th>
             <th className="w-32 border-b-2 border-border-color p-2 text-center text-[11px] font-semibold tracking-wide text-text-color uppercase">
-              ADP Δ
+              {adpSource === 'yahoo' ? 'Yahoo Δ' : 'Sleeper Δ'}
             </th>
             <th className="w-56 border-b-2 border-border-color p-2 text-center text-[11px] font-semibold tracking-wide text-text-color uppercase">
               Tags
@@ -255,12 +259,19 @@ export const PlayerTable = ({
               <tr
                 key={item.data.name_canon}
                 className={`cursor-default select-none hover:bg-hover-color ${
-                  sleeperRowTint(
-                    item.data.rank,
-                    item.data.sleeperRank,
-                    teams,
-                    currentPick
-                  ) || 'bg-surface-color'
+                  (adpSource === 'yahoo'
+                    ? yahooRowTint(
+                        item.data.rank,
+                        item.data.yahooRank,
+                        teams,
+                        currentPick
+                      )
+                    : sleeperRowTint(
+                        item.data.rank,
+                        item.data.sleeperRank,
+                        teams,
+                        currentPick
+                      )) || 'bg-surface-color'
                 }`}
               >
                 <td
@@ -299,11 +310,19 @@ export const PlayerTable = ({
                   </div>
                 </td>
                 <td className="border-b border-border-color p-2 text-center">
-                  <SleeperDeltaBadge
-                    player={item.data}
-                    teams={teams}
-                    currentPick={currentPick}
-                  />
+                  {adpSource === 'yahoo' ? (
+                    <YahooDeltaBadge
+                      player={item.data}
+                      teams={teams}
+                      currentPick={currentPick}
+                    />
+                  ) : (
+                    <SleeperDeltaBadge
+                      player={item.data}
+                      teams={teams}
+                      currentPick={currentPick}
+                    />
+                  )}
                 </td>
                 <td className="border-b border-border-color p-2 text-center">
                   <div className="group flex flex-wrap items-center justify-center gap-2">
@@ -382,11 +401,19 @@ export const PlayerTable = ({
                     </div>
                   </td>
                   <td className="border-b border-border-color p-2 text-center">
-                    <SleeperDeltaBadge
-                      player={p}
-                      teams={teams}
-                      currentPick={currentPick}
-                    />
+                    {adpSource === 'yahoo' ? (
+                      <YahooDeltaBadge
+                        player={p}
+                        teams={teams}
+                        currentPick={currentPick}
+                      />
+                    ) : (
+                      <SleeperDeltaBadge
+                        player={p}
+                        teams={teams}
+                        currentPick={currentPick}
+                      />
+                    )}
                   </td>
                   <td className="border-b border-border-color p-2 text-center">
                     <div className="group flex flex-wrap items-center justify-center gap-2">

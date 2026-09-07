@@ -8,6 +8,7 @@ export interface LeagueFormValue {
   teams: number;
   bench_spots: number;
   default_list_type: 'ppr' | 'superflex';
+  adp_source: 'sleeper' | 'yahoo';
   roster_config: SlotDef[];
 }
 
@@ -23,6 +24,7 @@ function blankForm(): LeagueFormValue {
     teams: 12,
     bench_spots: 6,
     default_list_type: 'ppr',
+    adp_source: 'sleeper',
     roster_config: [],
   };
 }
@@ -35,6 +37,7 @@ export const LeagueForm = ({ editing, onSave, onClose }: LeagueFormProps) => {
           teams: editing.teams,
           bench_spots: editing.bench_spots,
           default_list_type: editing.default_list_type,
+          adp_source: editing.adp_source,
           roster_config: editing.roster_config.map((s) => ({
             ...s,
             positions: [...s.positions],
@@ -137,6 +140,29 @@ export const LeagueForm = ({ editing, onSave, onClose }: LeagueFormProps) => {
                   }
                 />
                 Superflex 300
+              </label>
+            </div>
+          </div>
+          <div className="col-span-2">
+            <label className="mb-1 block text-xs font-medium text-slate-600">
+              ADP source
+            </label>
+            <div className="flex gap-3">
+              <label className="flex cursor-pointer items-center gap-1.5 text-sm">
+                <input
+                  type="radio"
+                  checked={form.adp_source === 'sleeper'}
+                  onChange={() => setForm({ ...form, adp_source: 'sleeper' })}
+                />
+                Sleeper
+              </label>
+              <label className="flex cursor-pointer items-center gap-1.5 text-sm">
+                <input
+                  type="radio"
+                  checked={form.adp_source === 'yahoo'}
+                  onChange={() => setForm({ ...form, adp_source: 'yahoo' })}
+                />
+                Yahoo
               </label>
             </div>
           </div>

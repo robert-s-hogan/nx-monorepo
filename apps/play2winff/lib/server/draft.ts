@@ -25,6 +25,7 @@ export type DraftPlayer = {
   injury: PlayerInjury | null;
   riskFactor: number | null;
   sleeperRank: number | null;
+  yahooRank: number | null;
 };
 
 async function loadTagsByCanon(): Promise<Map<string, CustomTag[]>> {
@@ -89,6 +90,22 @@ async function loadSleeperAdpByCanon(): Promise<Map<string, SleeperAdpEntry>> {
   return byCanon;
 }
 
+type YahooAdpEntry = { rank: number; team: string | null };
+
+async function loadYahooAdpByCanon(): Promise<Map<string, YahooAdpEntry>> {
+  const result = await db.execute(
+    `SELECT name_canon, rank, team FROM player_yahoo_adp`
+  );
+  const byCanon = new Map<string, YahooAdpEntry>();
+  for (const r of result.rows) {
+    byCanon.set(r.name_canon as string, {
+      rank: r.rank as number,
+      team: r.team as string | null,
+    });
+  }
+  return byCanon;
+}
+
 async function loadTeamOverridesByCanon(): Promise<Map<string, string>> {
   const result = await db.execute(`SELECT name_canon, team FROM player_team`);
   const byCanon = new Map<string, string>();
@@ -133,6 +150,7 @@ export async function loadDraftPlayers(
   const injuriesByCanon = await loadInjuriesByCanon();
   const riskByCanon = await loadRiskByCanon();
   const sleeperAdpByCanon = await loadSleeperAdpByCanon();
+  const yahooAdpByCanon = await loadYahooAdpByCanon();
   const teamOverridesByCanon = await loadTeamOverridesByCanon();
 
   const makePlayer = (
@@ -140,21 +158,28 @@ export async function loadDraftPlayers(
     overrides: Pick<DraftPlayer, 'rank' | 'originalRank'>
   ): DraftPlayer => {
     const sleeperAdp = sleeperAdpByCanon.get(r.name_canon);
+    const yahooAdp = yahooAdpByCanon.get(r.name_canon);
     return {
       name: r.name,
       name_canon: r.name_canon,
-      // Priority: manual correction > rankings paste > Sleeper ADP backfill.
-      // The main rankings paste doesn't always carry a team column (fused
-      // "RB1"-style position with no team token) — fall back to the team
-      // captured from the separately-pasted Sleeper ADP list when needed,
-      // and let a manual override win over either when one exists.
-      team: teamOverridesByCanon.get(r.name_canon) ?? r.team ?? sleeperAdp?.team ?? null,
+      // Priority: manual correction > rankings paste > Sleeper ADP backfill
+      // > Yahoo ADP backfill. The main rankings paste doesn't always carry a
+      // team column (fused "RB1"-style position with no team token) — fall
+      // back to the team captured from the separately-pasted ADP lists when
+      // needed, and let a manual override win over any of them.
+      team:
+        teamOverridesByCanon.get(r.name_canon) ??
+        r.team ??
+        sleeperAdp?.team ??
+        yahooAdp?.team ??
+        null,
       position: r.position,
       note: notesByCanon.get(r.name_canon) ?? null,
       tags: tagsByCanon.get(r.name_canon) ?? [],
       injury: injuriesByCanon.get(r.name_canon) ?? null,
       riskFactor: riskByCanon.get(r.name_canon) ?? null,
       sleeperRank: sleeperAdp?.rank ?? null,
+      yahooRank: yahooAdp?.rank ?? null,
       ...overrides,
     };
   };
@@ -372,6 +397,44 @@ export async function fetchSleeperAdpStatus(): Promise<{
 }> {
   const result = await db.execute(
     `SELECT COUNT(*) as count, MAX(updated_at) as lastUpdated FROM player_sleeper_adp`
+  );
+  const row = result.rows[0];
+  return {
+    count: (row?.count as number) ?? 0,
+    lastUpdated: (row?.lastUpdated as string | null) ?? null,
+  };
+}
+
+// Upsert, not delete-then-reinsert — a partial re-paste shouldn't wipe ADP
+// data for everyone else. Duplicate of replaceSleeperAdp for the Yahoo
+// ADP/rankings source.
+export async function replaceYahooAdp(
+  rows: { name_canon: string; rank: number; team: string | null }[]
+): Promise<void> {
+  const BATCH = 50;
+  for (let i = 0; i < rows.length; i += BATCH) {
+    const chunk = rows.slice(i, i + BATCH);
+    const placeholders = chunk.map(() => `(?, ?, ?, datetime('now'))`).join(',');
+    const args: (string | number | null)[] = [];
+    for (const r of chunk) {
+      args.push(r.name_canon, r.rank, r.team);
+    }
+    await db.execute({
+      sql: `INSERT INTO player_yahoo_adp (name_canon, rank, team, updated_at)
+            VALUES ${placeholders}
+            ON CONFLICT(name_canon) DO UPDATE
+            SET rank=excluded.rank, team=excluded.team, updated_at=excluded.updated_at`,
+      args,
+    });
+  }
+}
+
+export async function fetchYahooAdpStatus(): Promise<{
+  count: number;
+  lastUpdated: string | null;
+}> {
+  const result = await db.execute(
+    `SELECT COUNT(*) as count, MAX(updated_at) as lastUpdated FROM player_yahoo_adp`
   );
   const row = result.rows[0];
   return {

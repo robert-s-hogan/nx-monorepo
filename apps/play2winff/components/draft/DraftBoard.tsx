@@ -87,6 +87,7 @@ export const DraftBoard = ({
           displayList={displayList}
           seasonEndingPlayers={seasonEndingPlayers}
           teams={league.teams}
+          adpSource={league.adp_source}
           currentPick={currentPick}
           onOpenNotes={setNoteTarget}
           onDraftToMyTeam={onDraftToMyTeam}

@@ -13,6 +13,7 @@ export async function fetchLeagues(): Promise<LeagueProfile[]> {
     bench_spots: r.bench_spots as number,
     roster_config: JSON.parse(r.roster_config as string),
     default_list_type: r.default_list_type as 'ppr' | 'superflex',
+    adp_source: r.adp_source as 'sleeper' | 'yahoo',
     created_at: r.created_at as string,
   }));
 }
@@ -21,14 +22,15 @@ export async function saveLeague(
   profile: Omit<LeagueProfile, 'id' | 'created_at'>
 ): Promise<number> {
   const result = await db.execute({
-    sql: `INSERT INTO league_profiles (name, teams, bench_spots, roster_config, default_list_type)
-          VALUES (?, ?, ?, ?, ?)`,
+    sql: `INSERT INTO league_profiles (name, teams, bench_spots, roster_config, default_list_type, adp_source)
+          VALUES (?, ?, ?, ?, ?, ?)`,
     args: [
       profile.name,
       profile.teams,
       profile.bench_spots,
       JSON.stringify(profile.roster_config),
       profile.default_list_type,
+      profile.adp_source,
     ],
   });
   return Number(result.lastInsertRowid);
@@ -40,7 +42,7 @@ export async function updateLeague(
 ): Promise<void> {
   await db.execute({
     sql: `UPDATE league_profiles
-          SET name=?, teams=?, bench_spots=?, roster_config=?, default_list_type=?
+          SET name=?, teams=?, bench_spots=?, roster_config=?, default_list_type=?, adp_source=?
           WHERE id=?`,
     args: [
       profile.name,
@@ -48,6 +50,7 @@ export async function updateLeague(
       profile.bench_spots,
       JSON.stringify(profile.roster_config),
       profile.default_list_type,
+      profile.adp_source,
       id,
     ],
   });

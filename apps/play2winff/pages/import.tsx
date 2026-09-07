@@ -4,6 +4,7 @@ import PlayToWinFFLayout from '../components/P2WFFLayout';
 import { RankingsImportForm } from '../components/import/RankingsImportForm';
 import { OriginalLatestStatus } from '../components/import/OriginalLatestStatus';
 import { SleeperAdpImportForm } from '../components/import/SleeperAdpImportForm';
+import { YahooAdpImportForm } from '../components/import/YahooAdpImportForm';
 
 const Import = () => {
   const { role } = useAuth();
@@ -26,6 +27,15 @@ const Import = () => {
               Sleeper ADP
             </h2>
             <SleeperAdpImportForm />
+          </div>
+        )}
+
+        {canEdit && (
+          <div>
+            <h2 className="mb-2 text-sm font-semibold text-slate-800">
+              Yahoo ADP
+            </h2>
+            <YahooAdpImportForm />
           </div>
         )}
       </div>

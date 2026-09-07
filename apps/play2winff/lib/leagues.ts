@@ -13,6 +13,7 @@ export type LeagueProfile = {
   bench_spots: number;
   roster_config: SlotDef[];
   default_list_type: 'ppr' | 'superflex';
+  adp_source: 'sleeper' | 'yahoo';
   created_at: string;
 };
 
