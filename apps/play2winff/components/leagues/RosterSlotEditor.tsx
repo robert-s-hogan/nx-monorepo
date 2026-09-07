@@ -5,14 +5,24 @@ export interface RosterSlotEditorProps {
   onChange: (slots: SlotDef[]) => void;
 }
 
-let nextSlotId = 1;
+// Derived from the current slots rather than a module-level counter — a
+// counter reset by every fresh page load would regenerate an id (e.g.
+// "slot_1") that already exists in a league saved in an earlier session,
+// producing duplicate React keys.
+function nextSlotId(existing: SlotDef[]): string {
+  const max = existing.reduce((m, s) => {
+    const n = /^slot_(\d+)$/.exec(s.id)?.[1];
+    return n ? Math.max(m, Number(n)) : m;
+  }, 0);
+  return `slot_${max + 1}`;
+}
 
 export const RosterSlotEditor = ({ slots, onChange }: RosterSlotEditorProps) => {
   function addSlotFromPreset(preset: (typeof SLOT_PRESETS)[number]) {
     onChange([
       ...slots,
       {
-        id: `slot_${nextSlotId++}`,
+        id: nextSlotId(slots),
         label: preset.def.label,
         positions: [...preset.def.positions],
       },
