@@ -8,7 +8,7 @@ export interface LeagueFormValue {
   teams: number;
   bench_spots: number;
   default_list_type: 'ppr' | 'superflex';
-  adp_source: 'sleeper' | 'yahoo';
+  adp_source: 'sleeper' | 'yahoo' | 'espn';
   roster_config: SlotDef[];
 }
 
@@ -163,6 +163,14 @@ export const LeagueForm = ({ editing, onSave, onClose }: LeagueFormProps) => {
                   onChange={() => setForm({ ...form, adp_source: 'yahoo' })}
                 />
                 Yahoo
+              </label>
+              <label className="flex cursor-pointer items-center gap-1.5 text-sm">
+                <input
+                  type="radio"
+                  checked={form.adp_source === 'espn'}
+                  onChange={() => setForm({ ...form, adp_source: 'espn' })}
+                />
+                ESPN
               </label>
             </div>
           </div>

@@ -16,6 +16,7 @@
     "migrate:play2winff:sleeper-adp": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate-player-sleeper-adp.ts",
     "migrate:play2winff:sleeper-adp-add-team": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate-player-sleeper-adp-add-team.ts",
     "migrate:play2winff:yahoo-adp": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate-player-yahoo-adp.ts",
+    "migrate:play2winff:espn-adp": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate-player-espn-adp.ts",
     "migrate:play2winff:league-adp-source": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate-league-adp-source.ts",
     "migrate:play2winff:add-original-latest": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/migrate-add-original-latest.ts",
     "migrate:play2winff:seed-original-ppr": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/seed-original-ppr.ts",

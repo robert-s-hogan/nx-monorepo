@@ -5,6 +5,7 @@ import { RankingsImportForm } from '../components/import/RankingsImportForm';
 import { OriginalLatestStatus } from '../components/import/OriginalLatestStatus';
 import { SleeperAdpImportForm } from '../components/import/SleeperAdpImportForm';
 import { YahooAdpImportForm } from '../components/import/YahooAdpImportForm';
+import { EspnAdpImportForm } from '../components/import/EspnAdpImportForm';
 
 const Import = () => {
   const { role } = useAuth();
@@ -36,6 +37,15 @@ const Import = () => {
               Yahoo ADP
             </h2>
             <YahooAdpImportForm />
+          </div>
+        )}
+
+        {canEdit && (
+          <div>
+            <h2 className="mb-2 text-sm font-semibold text-slate-800">
+              ESPN ADP
+            </h2>
+            <EspnAdpImportForm />
           </div>
         )}
       </div>

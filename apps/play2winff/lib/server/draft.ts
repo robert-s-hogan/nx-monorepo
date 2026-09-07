@@ -26,6 +26,7 @@ export type DraftPlayer = {
   riskFactor: number | null;
   sleeperRank: number | null;
   yahooRank: number | null;
+  espnRank: number | null;
 };
 
 async function loadTagsByCanon(): Promise<Map<string, CustomTag[]>> {
@@ -106,6 +107,22 @@ async function loadYahooAdpByCanon(): Promise<Map<string, YahooAdpEntry>> {
   return byCanon;
 }
 
+type EspnAdpEntry = { rank: number; team: string | null };
+
+async function loadEspnAdpByCanon(): Promise<Map<string, EspnAdpEntry>> {
+  const result = await db.execute(
+    `SELECT name_canon, rank, team FROM player_espn_adp`
+  );
+  const byCanon = new Map<string, EspnAdpEntry>();
+  for (const r of result.rows) {
+    byCanon.set(r.name_canon as string, {
+      rank: r.rank as number,
+      team: r.team as string | null,
+    });
+  }
+  return byCanon;
+}
+
 async function loadTeamOverridesByCanon(): Promise<Map<string, string>> {
   const result = await db.execute(`SELECT name_canon, team FROM player_team`);
   const byCanon = new Map<string, string>();
@@ -151,6 +168,7 @@ export async function loadDraftPlayers(
   const riskByCanon = await loadRiskByCanon();
   const sleeperAdpByCanon = await loadSleeperAdpByCanon();
   const yahooAdpByCanon = await loadYahooAdpByCanon();
+  const espnAdpByCanon = await loadEspnAdpByCanon();
   const teamOverridesByCanon = await loadTeamOverridesByCanon();
 
   const makePlayer = (
@@ -159,19 +177,22 @@ export async function loadDraftPlayers(
   ): DraftPlayer => {
     const sleeperAdp = sleeperAdpByCanon.get(r.name_canon);
     const yahooAdp = yahooAdpByCanon.get(r.name_canon);
+    const espnAdp = espnAdpByCanon.get(r.name_canon);
     return {
       name: r.name,
       name_canon: r.name_canon,
       // Priority: manual correction > rankings paste > Sleeper ADP backfill
-      // > Yahoo ADP backfill. The main rankings paste doesn't always carry a
-      // team column (fused "RB1"-style position with no team token) — fall
-      // back to the team captured from the separately-pasted ADP lists when
-      // needed, and let a manual override win over any of them.
+      // > Yahoo ADP backfill > ESPN ADP backfill. The main rankings paste
+      // doesn't always carry a team column (fused "RB1"-style position with
+      // no team token) — fall back to the team captured from the
+      // separately-pasted ADP lists when needed, and let a manual override
+      // win over any of them.
       team:
         teamOverridesByCanon.get(r.name_canon) ??
         r.team ??
         sleeperAdp?.team ??
         yahooAdp?.team ??
+        espnAdp?.team ??
         null,
       position: r.position,
       note: notesByCanon.get(r.name_canon) ?? null,
@@ -180,6 +201,7 @@ export async function loadDraftPlayers(
       riskFactor: riskByCanon.get(r.name_canon) ?? null,
       sleeperRank: sleeperAdp?.rank ?? null,
       yahooRank: yahooAdp?.rank ?? null,
+      espnRank: espnAdp?.rank ?? null,
       ...overrides,
     };
   };
@@ -435,6 +457,44 @@ export async function fetchYahooAdpStatus(): Promise<{
 }> {
   const result = await db.execute(
     `SELECT COUNT(*) as count, MAX(updated_at) as lastUpdated FROM player_yahoo_adp`
+  );
+  const row = result.rows[0];
+  return {
+    count: (row?.count as number) ?? 0,
+    lastUpdated: (row?.lastUpdated as string | null) ?? null,
+  };
+}
+
+// Upsert, not delete-then-reinsert — a partial re-paste shouldn't wipe ADP
+// data for everyone else. Duplicate of replaceYahooAdp for the ESPN
+// ADP/rankings source.
+export async function replaceEspnAdp(
+  rows: { name_canon: string; rank: number; team: string | null }[]
+): Promise<void> {
+  const BATCH = 50;
+  for (let i = 0; i < rows.length; i += BATCH) {
+    const chunk = rows.slice(i, i + BATCH);
+    const placeholders = chunk.map(() => `(?, ?, ?, datetime('now'))`).join(',');
+    const args: (string | number | null)[] = [];
+    for (const r of chunk) {
+      args.push(r.name_canon, r.rank, r.team);
+    }
+    await db.execute({
+      sql: `INSERT INTO player_espn_adp (name_canon, rank, team, updated_at)
+            VALUES ${placeholders}
+            ON CONFLICT(name_canon) DO UPDATE
+            SET rank=excluded.rank, team=excluded.team, updated_at=excluded.updated_at`,
+      args,
+    });
+  }
+}
+
+export async function fetchEspnAdpStatus(): Promise<{
+  count: number;
+  lastUpdated: string | null;
+}> {
+  const result = await db.execute(
+    `SELECT COUNT(*) as count, MAX(updated_at) as lastUpdated FROM player_espn_adp`
   );
   const row = result.rows[0];
   return {
