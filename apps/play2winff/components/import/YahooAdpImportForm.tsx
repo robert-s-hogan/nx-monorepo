@@ -9,8 +9,17 @@ export const YahooAdpImportForm = () => {
   const [committing, setCommitting] = useState(false);
   const [committed, setCommitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
 
   const { count, lastUpdated, refresh } = useYahooAdpStatus();
+
+  async function copyFormatExample() {
+    await navigator.clipboard.writeText(
+      "1  Saquon Barkley  NYG  RB\n2  Ja'Marr Chase  CIN  WR\n3  Bijan Robinson  ATL  RB"
+    );
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  }
 
   function onPaste(text: string) {
     setPasteText(text);
@@ -46,9 +55,18 @@ export const YahooAdpImportForm = () => {
       {error && <p className="text-sm text-red-600">{error}</p>}
 
       <div className="flex items-center justify-between">
-        <label className="block text-xs font-medium text-slate-600">
-          Paste Yahoo ADP/Rankings (rank · name · team · position)
-        </label>
+        <div className="flex items-center gap-2">
+          <label className="block text-xs font-medium text-slate-600">
+            Paste Yahoo ADP/Rankings (rank · name · team · position)
+          </label>
+          <button
+            type="button"
+            onClick={copyFormatExample}
+            className="rounded border border-slate-300 px-1.5 py-0.5 text-[10px] font-medium text-slate-500 transition hover:bg-slate-50 hover:text-slate-700"
+          >
+            {copied ? '✓ Copied' : 'Copy format'}
+          </button>
+        </div>
         <span className="text-xs text-slate-400">
           {count} player{count === 1 ? '' : 's'} tracked
           {lastUpdated
