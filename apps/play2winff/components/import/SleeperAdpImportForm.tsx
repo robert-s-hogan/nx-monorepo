@@ -15,7 +15,9 @@ export const SleeperAdpImportForm = () => {
 
   async function copyFormatExample() {
     await navigator.clipboard.writeText(
-      "1  Saquon Barkley  NYG  RB\n2  Ja'Marr Chase  CIN  WR\n3  Bijan Robinson  ATL  RB"
+      '# Match name punctuation exactly against your other lists — ' +
+        '"D.J. Moore" and "DJ Moore" won\'t merge as the same player\n' +
+        "1  Saquon Barkley  NYG  RB\n2  Ja'Marr Chase  CIN  WR\n3  Bijan Robinson  ATL  RB"
     );
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
