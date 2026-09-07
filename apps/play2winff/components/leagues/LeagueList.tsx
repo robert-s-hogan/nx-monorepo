@@ -1,5 +1,11 @@
 import { LeagueProfile } from '../../lib/leagues';
 
+const ADP_SOURCE_LABELS: Record<LeagueProfile['adp_source'], string> = {
+  sleeper: 'Sleeper',
+  yahoo: 'Yahoo',
+  espn: 'ESPN',
+};
+
 export interface LeagueListProps {
   leagues: LeagueProfile[];
   isLoading: boolean;
@@ -32,6 +38,9 @@ export const LeagueList = ({
                 <span className="font-semibold text-slate-800">{league.name}</span>
                 <span className="rounded bg-slate-100 px-2 py-0.5 text-xs uppercase text-slate-600">
                   {league.default_list_type}
+                </span>
+                <span className="rounded bg-indigo-50 px-2 py-0.5 text-xs uppercase text-indigo-600">
+                  {ADP_SOURCE_LABELS[league.adp_source]}
                 </span>
                 <span className="text-xs text-slate-500">
                   {league.teams} teams · {league.bench_spots} bench
