@@ -54,6 +54,8 @@ export default function Index() {
       try {
         const res = await authedFetch('/api/progress');
         const data = res.ok ? ((await res.json()) as ProgressState) : blankState();
+        // Defensive: a row saved before `extra` existed won't have it.
+        if (!Array.isArray(data.extra)) data.extra = [];
         if (!cancelled) {
           skipNextSaveRef.current = true;
           setState(data);
@@ -206,6 +208,36 @@ export default function Index() {
     });
   }, [update]);
 
+  const addExtra = useCallback(
+    (code: string, title: string, units: number) => {
+      update((s) => {
+        if (!s.extra) s.extra = [];
+        s.extra.push({ id: 'x' + Date.now(), code, title, units, status: 'none' });
+      });
+    },
+    [update]
+  );
+
+  const cycleExtra = useCallback(
+    (id: string) => {
+      update((s) => {
+        const e = (s.extra ?? []).find((x) => x.id === id);
+        if (!e) return;
+        e.status = e.status === 'none' ? 'prog' : e.status === 'prog' ? 'done' : 'none';
+      });
+    },
+    [update]
+  );
+
+  const removeExtra = useCallback(
+    (id: string) => {
+      update((s) => {
+        s.extra = (s.extra ?? []).filter((x) => x.id !== id);
+      });
+    },
+    [update]
+  );
+
   const handleExport = useCallback(() => {
     if (!state) return;
     const blob = new Blob([JSON.stringify(state, null, 2)], {
@@ -231,6 +263,7 @@ export default function Index() {
               { open: {}, hideDone: false, hideOut: false, weekTerm: d.terms[0]?.id },
               d.ui || {}
             ),
+            extra: Array.isArray(d.extra) ? d.extra : [],
           });
         } else {
           alert('That file is not a saved progress file.');
@@ -359,7 +392,7 @@ export default function Index() {
           <div className="brand">
             Rad<span>Tech</span> Prereqs
           </div>
-          <div className="who">SRJC · AS · Fall 2026 catalog</div>
+          <div className="who">SRJC · Certificate of Achievement 3059 · Fall 2026</div>
         </div>
         <Gauge state={state} groups={GROUPS} />
         <nav className="tabs" role="tablist">
@@ -384,6 +417,9 @@ export default function Index() {
             onOpenTerm={(id) => setSheetMode({ kind: 'term', id })}
             onToggleHideDone={toggleHideDone}
             onToggleHideOut={toggleHideOut}
+            onAddExtra={addExtra}
+            onCycleExtra={cycleExtra}
+            onRemoveExtra={removeExtra}
           />
         )}
         {tab === 'plan' && (
@@ -416,8 +452,8 @@ export default function Index() {
       />
 
       <footer>
-        Requirements pulled from the SRJC Radiologic Technology (AS) program of study, catalog
-        effective Fall&nbsp;2026.
+        Requirements pulled from the SRJC Radiologic Technology Certificate of
+        Achievement (3059) evaluation worksheet, effective Fall&nbsp;2026.
         <br />
         Always confirm with a counselor before you register —{' '}
         <a

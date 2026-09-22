@@ -60,10 +60,24 @@ export interface UIState {
   weekTerm: string;
 }
 
+// A class he's taking that isn't part of the RadTech prerequisite catalog
+// at all (general ed, an elective, something he registered for before
+// checking this list) — free-form, not tied to any requirement group, and
+// never counted toward the 27-unit gauge. Just here so it doesn't fall
+// through the cracks.
+export interface ExtraCourse {
+  id: string;
+  code: string;
+  title: string;
+  units: number;
+  status: CourseStatus;
+}
+
 export interface ProgressState {
   terms: Term[];
   c: Record<CourseId, CourseState>;
   ui: UIState;
+  extra: ExtraCourse[];
 }
 
 export interface GroupEval {

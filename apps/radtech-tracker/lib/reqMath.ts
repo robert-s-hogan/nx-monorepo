@@ -227,6 +227,7 @@ export function blankState(): ProgressState {
     terms: seedTerms(),
     c: {},
     ui: { open: { core: true, anat: true, comm: true }, hideDone: false, hideOut: false, weekTerm: 'f26' },
+    extra: [],
   };
 }
 

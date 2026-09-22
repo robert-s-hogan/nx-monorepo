@@ -1,4 +1,5 @@
 import { CourseRow } from './CourseRow';
+import { ExtraClasses } from './ExtraClasses';
 import { GROUPS, SUPPORT_IDS } from '../lib/catalog';
 import { evalGroup, ruledOut } from '../lib/reqMath';
 import { CourseId, ProgressState } from '../types';
@@ -12,6 +13,9 @@ interface RequirementsViewProps {
   onOpenTerm: (id: CourseId) => void;
   onToggleHideDone: () => void;
   onToggleHideOut: () => void;
+  onAddExtra: (code: string, title: string, units: number) => void;
+  onCycleExtra: (id: string) => void;
+  onRemoveExtra: (id: string) => void;
 }
 
 export function RequirementsView({
@@ -21,6 +25,9 @@ export function RequirementsView({
   onOpenTerm,
   onToggleHideDone,
   onToggleHideOut,
+  onAddExtra,
+  onCycleExtra,
+  onRemoveExtra,
 }: RequirementsViewProps) {
   return (
     <section className="view on" id="v-req">
@@ -135,6 +142,13 @@ export function RequirementsView({
           />
         ))}
       </div>
+
+      <ExtraClasses
+        extras={state.extra}
+        onAdd={onAddExtra}
+        onCycle={onCycleExtra}
+        onRemove={onRemoveExtra}
+      />
     </section>
   );
 }
