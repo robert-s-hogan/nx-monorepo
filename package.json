@@ -23,7 +23,8 @@
     "migrate:play2winff:seed-original-superflex": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/seed-original-superflex.ts",
     "migrate:play2winff:promote-ppr-latest": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/play2winff/scripts/promote-ppr-original-to-latest.ts",
     "migrate:recipes": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/recipes/scripts/migrate.ts",
-    "migrate:neuro-fit": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/neuro-fit/scripts/migrate.ts"
+    "migrate:neuro-fit": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/neuro-fit/scripts/migrate.ts",
+    "migrate:radtech-tracker": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node apps/radtech-tracker/scripts/migrate.ts"
   },
   "private": true,
   "engines": {
