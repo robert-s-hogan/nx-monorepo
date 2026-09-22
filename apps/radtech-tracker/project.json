@@ -1,0 +1,69 @@
+{
+  "name": "radtech-tracker",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/radtech-tracker",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/radtech-tracker",
+        "outputPath": "dist/apps/radtech-tracker"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/radtech-tracker"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "radtech-tracker:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "radtech-tracker:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "radtech-tracker:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "radtech-tracker:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/radtech-tracker/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/radtech-tracker/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}
