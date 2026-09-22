@@ -585,6 +585,43 @@ nav.tabs button[aria-selected='true'] {
   font-size: 11px;
   width: 82px;
 }
+/* free-form "Other classes" add row */
+.addrow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 5px 0 0;
+}
+.textinput {
+  background: var(--ink);
+  border: 1px solid var(--line);
+  color: var(--bone);
+  border-radius: 6px;
+  padding: 7px 9px;
+  font-family: var(--body);
+  font-size: 13px;
+}
+.textinput::placeholder {
+  color: var(--dim);
+}
+.addbtn {
+  border: 1px solid var(--line2);
+  background: transparent;
+  border-radius: 7px;
+  padding: 7px 12px;
+  font-family: var(--display);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mid);
+  font-weight: 600;
+  flex: none;
+}
+.addbtn:hover {
+  border-color: var(--phos-d);
+  color: var(--phos);
+}
 .daybtn {
   border: 1px solid var(--line);
   background: var(--ink);

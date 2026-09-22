@@ -1,7 +1,9 @@
-// SRJC Radiologic Technology (AS) program of study, catalog effective Fall
-// 2026. Pulled from the source program-of-study page (see footer link in
-// the page). Static curriculum data — never touches the DB, only his
-// per-course status/term/schedule does (see types/index.ts ProgressState).
+// SRJC Radiologic Technology Certificate of Achievement (3059), evaluation
+// worksheet effective Fall 2026 — cross-checked line-by-line against the
+// official worksheet 2026-09-22 (course codes, titles, units, and the 27-
+// unit prerequisite group thresholds all match exactly). Static curriculum
+// data — never touches the DB, only his per-course status/term/schedule
+// does (see types/index.ts ProgressState).
 import { Course, CourseId, RequirementGroup } from '../types';
 
 export const C: Record<CourseId, Course> = {
