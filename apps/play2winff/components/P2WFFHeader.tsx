@@ -73,13 +73,13 @@ const PlayToWinFFHeader = () => {
   return (
     <header>
       <div className="container mx-auto  w-full flex flex-col justify-center items-center px-4">
-        <nav className="flex justify-between container mx-auto space-x-4 py-4 items-center text-black ">
+        <nav className="flex flex-wrap justify-between container mx-auto gap-x-4 gap-y-2 py-4 items-center text-black ">
           <Flex className="justify-center">
             <Link href="/">{logo}</Link>
           </Flex>
 
           <Text className="text-2xl">{logoText}</Text>
-          <ul className="flex list-style-none space-x-4 items-center">
+          <ul className="flex flex-wrap list-style-none gap-x-4 gap-y-1 items-center">
             {links.map(({ className, href, text, type }) => {
               return (
                 <li key={href} className={className}>
