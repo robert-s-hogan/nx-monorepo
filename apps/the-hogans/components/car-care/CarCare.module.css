@@ -1,0 +1,463 @@
+/* Car care guide, scoped to this page: everything sits under .root so the
+   site's global rules (styles/styles.css's p/h3) and this guide's generic
+   class names (.wrap, .task, footer…) can't leak into each other. Ported
+   from the original "Car care starter guide" artifact's stylesheet. */
+.root {
+  --paper: #eef1f0;
+  --card: #ffffff;
+  --ink: #1e2a32;
+  --muted: #55656d;
+  --line: #c9d2d0;
+  --yellow: #f2c230;
+  --yellow-ink: #1e2a32;
+  --blue: #2d6ca8;
+  --warn: #b8401c;
+  --ok: #2f7d4f;
+  --slot: #f7f9f8;
+  min-height: 100vh;
+  padding-top: env(safe-area-inset-top, 0px);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+}
+/* Undo the site-wide `p { text-lg opacity-90 }` and Tailwind preflight's
+   list/heading resets for this page. */
+.root p {
+  font-size: inherit;
+  opacity: 1;
+}
+.root :global(section),
+.root :global(.task) {
+  /* keeps jump-nav targets clear of the sticky nav */
+  scroll-margin-top: 64px;
+}
+.root :global(img) {
+  max-width: 100%;
+  display: block;
+}
+
+.root :global(.wrap) {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+.root :global(h1),
+.root :global(h2),
+.root :global(h3) {
+  font-stretch: 125%;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.root :global(h1) {
+  font-size: clamp(2.1rem, 8vw, 3.4rem);
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+
+.root :global(h2) {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.root :global(p) {
+  margin: 0.5em 0;
+}
+
+.root :global(a) {
+  color: var(--blue);
+}
+
+.root :global(:focus-visible) {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* hero */
+.root :global(.hero) {
+  padding: 40px 18px 28px;
+  border-bottom: 6px solid var(--yellow);
+}
+
+.root :global(.hero p) {
+  color: var(--muted);
+  max-width: 52ch;
+  font-size: 1.05rem;
+}
+
+.root :global(.meter) {
+  margin-top: 22px;
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.root :global(.meter div) {
+  min-width: 120px;
+}
+
+.root :global(.meter b) {
+  display: block;
+  font-size: 1.9rem;
+  font-stretch: 125%;
+  font-weight: 800;
+}
+
+.root :global(.meter span) {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.root :global(.bar) {
+  height: 8px;
+  background: var(--line);
+  border-radius: 4px;
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+.root :global(.note) {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 14px;
+}
+.root :global(.bar i) {
+  display: block;
+  height: 100%;
+  background: var(--yellow);
+  transition: width 0.4s ease;
+}
+
+/* jump nav */
+.root :global(nav.jump) {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.root :global(nav.jump .wrap) {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+}
+
+.root :global(nav.jump .wrap::-webkit-scrollbar) {
+  display: none;
+}
+
+.root :global(nav.jump a) {
+  flex: none;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  white-space: nowrap;
+}
+
+.root :global(nav.jump a.done) {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+.root :global(section) {
+  padding: 34px 0 8px;
+}
+
+.root :global(section > h2) {
+  margin-bottom: 6px;
+}
+
+.root :global(.lead) {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+/* my car */
+.root :global(.fields) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.root :global(.fields label) {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.root :global(.fields input) {
+  width: 100%;
+  margin-top: 4px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--slot);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 9px 10px;
+}
+
+/* schedule */
+.root :global(.scroll) {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.root :global(table) {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 480px;
+  font-size: 0.95rem;
+}
+
+.root :global(th),
+.root :global(td) {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.root :global(th) {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.root :global(tr:last-child td) {
+  border-bottom: 0;
+}
+
+.root :global(.who) {
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.root :global(.who.you) {
+  background: var(--yellow);
+  color: var(--yellow-ink);
+}
+
+.root :global(.who.shop) {
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.root :global(.fine) {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+/* pros list */
+.root :global(.pros) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.root :global(.pros li) {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.root :global(.pros li:last-child) {
+  border-bottom: 0;
+}
+
+.root :global(.pros b) {
+  display: block;
+}
+
+.root :global(.pros span) {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* task */
+.root :global(.task) {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin: 22px 0;
+  overflow: hidden;
+}
+
+.root :global(.task header) {
+  padding: 18px 18px 6px;
+  border-left: 6px solid var(--yellow);
+}
+
+.root :global(.task header .when) {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-top: 6px;
+}
+
+.root :global(.task .before) {
+  margin: 10px 18px 0;
+  font-size: 0.95rem;
+}
+
+.root :global(ol.steps) {
+  list-style: none;
+  margin: 0;
+  padding: 6px 18px 4px;
+  counter-reset: s;
+}
+
+.root :global(ol.steps > li) {
+  counter-increment: s;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 4px 12px;
+  padding: 16px 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+.root :global(ol.steps > li:last-child) {
+  border-bottom: 0;
+}
+
+.root :global(ol.steps > li::before) {
+  content: counter(s);
+  grid-row: span 2;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--card);
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+}
+
+.root :global(.step-text) {
+  align-self: center;
+}
+
+/* photo */
+.root :global(.photo) {
+  position: relative;
+  margin: 6px 0 0;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  background: #000;
+  overflow: hidden;
+}
+
+.root :global(.photo img) {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+.root :global(.photo figcaption) {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  background: var(--yellow);
+  color: #1e2a32;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  max-width: 70%;
+}
+
+.root :global(#habits .photo) {
+  margin-top: 14px;
+}
+
+.root :global(.caution) {
+  margin: 4px 18px 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--warn);
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.root :global(.caution b) {
+  color: var(--warn);
+}
+
+.root :global(.checks) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 18px 18px;
+  border-top: 1px solid var(--line);
+}
+
+.root :global(.checks label) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--slot);
+}
+
+.root :global(.checks input) {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--ok);
+}
+
+.root :global(.checks label:has(input:checked)) {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+.root :global(ul.habits) {
+  list-style: disc;
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.root :global(ul.habits li) {
+  margin: 8px 0;
+}
+
+.root :global(footer) {
+  padding: 36px 0 48px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  border-top: 1px solid var(--line);
+  margin-top: 30px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .root :global(*) {
+    transition: none !important;
+  }
+}
