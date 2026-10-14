@@ -1,8 +1,106 @@
+/* Self-contained on purpose: no Tailwind utilities, since consuming apps'
+   Tailwind builds don't scan this lib. Colors come from each app's theme
+   vars, with fallbacks for apps that don't define them. */
 .dock {
+  --dock-surface: var(--surface-color, #ffffff);
+  --dock-border: var(--border-color, #e4e4e7);
+  --dock-text: var(--text-color, #18181b);
+  --dock-hover: var(--hover-color, rgba(0, 0, 0, 0.06));
+  --dock-focus: var(--primary-color, #3b82f6);
+
   position: fixed;
   left: 50%;
-  bottom: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
   transform: translateX(-50%);
   z-index: 1000;
-  padding-bottom: env(safe-area-inset-bottom);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  /* The footer box itself never blocks clicks on the page behind it; only
+     the button and open panel do. */
+  pointer-events: none;
+  color: var(--dock-text);
+  font-family: inherit;
+}
+
+.toggle,
+.panel {
+  pointer-events: auto;
+  background: var(--dock-surface);
+  border: 1px solid var(--dock-border);
+  color: var(--dock-text);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+.toggle {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.panel {
+  /* One row on wide screens; an even 3-column grid on phones so a 6th app
+     never wraps onto a row by itself. */
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+}
+
+@media (max-width: 480px) {
+  .panel {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, minmax(72px, 1fr));
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 56px;
+  padding: 0.375rem 0.25rem;
+  border-radius: 0.75rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+a.item:hover {
+  background: var(--dock-hover);
+}
+
+.active {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  font-size: 0.7rem;
+  line-height: 1;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.toggle:focus-visible,
+.item:focus-visible {
+  outline: 2px solid var(--dock-focus);
+  outline-offset: 2px;
 }
