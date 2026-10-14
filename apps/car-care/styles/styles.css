@@ -1,0 +1,422 @@
+@import 'tailwindcss';
+@config '../tailwind.config.js';
+
+/* Ported from the original "Car care starter guide" artifact — same tokens,
+   same class names. The upload-slot styles became the simpler .photo figure
+   since photos are static files now. */
+:root {
+  --paper: #eef1f0;
+  --card: #ffffff;
+  --ink: #1e2a32;
+  --muted: #55656d;
+  --line: #c9d2d0;
+  --yellow: #f2c230;
+  --yellow-ink: #1e2a32;
+  --blue: #2d6ca8;
+  --warn: #b8401c;
+  --ok: #2f7d4f;
+  --slot: #f7f9f8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #11171b;
+    --card: #1a2329;
+    --ink: #e6eceb;
+    --muted: #98a8af;
+    --line: #2f3b42;
+    --yellow-ink: #11171b;
+    --blue: #74aee3;
+    --warn: #f08359;
+    --ok: #6cc795;
+    --slot: #141c21;
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px);
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+h1,
+h2,
+h3 {
+  font-stretch: 125%;
+  line-height: 1.1;
+  margin: 0;
+}
+h1 {
+  font-size: clamp(2.1rem, 8vw, 3.4rem);
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+p {
+  margin: 0.5em 0;
+}
+a {
+  color: var(--blue);
+}
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* hero */
+.hero {
+  padding: 40px 18px 28px;
+  border-bottom: 6px solid var(--yellow);
+}
+.hero p {
+  color: var(--muted);
+  max-width: 52ch;
+  font-size: 1.05rem;
+}
+.meter {
+  margin-top: 22px;
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.meter div {
+  min-width: 120px;
+}
+.meter b {
+  display: block;
+  font-size: 1.9rem;
+  font-stretch: 125%;
+  font-weight: 800;
+}
+.meter span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.bar {
+  height: 8px;
+  background: var(--line);
+  border-radius: 4px;
+  margin-top: 16px;
+  overflow: hidden;
+}
+.bar i {
+  display: block;
+  height: 100%;
+  background: var(--yellow);
+  transition: width 0.4s ease;
+}
+
+/* jump nav */
+nav.jump {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+nav.jump .wrap {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+}
+nav.jump .wrap::-webkit-scrollbar {
+  display: none;
+}
+nav.jump a {
+  flex: none;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  white-space: nowrap;
+}
+nav.jump a.done {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+section {
+  padding: 34px 0 8px;
+}
+section > h2 {
+  margin-bottom: 6px;
+}
+.lead {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+/* my car */
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px;
+}
+.fields label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.fields input {
+  width: 100%;
+  margin-top: 4px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--slot);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 9px 10px;
+}
+
+/* schedule */
+.scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 480px;
+  font-size: 0.95rem;
+}
+th,
+td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+th {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+tr:last-child td {
+  border-bottom: 0;
+}
+.who {
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.who.you {
+  background: var(--yellow);
+  color: var(--yellow-ink);
+}
+.who.shop {
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+.fine {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+/* pros list */
+.pros {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.pros li {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+}
+.pros li:last-child {
+  border-bottom: 0;
+}
+.pros b {
+  display: block;
+}
+.pros span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* task */
+.task {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin: 22px 0;
+  overflow: hidden;
+}
+.task header {
+  padding: 18px 18px 6px;
+  border-left: 6px solid var(--yellow);
+}
+.task header .when {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-top: 6px;
+}
+.task .before {
+  margin: 10px 18px 0;
+  font-size: 0.95rem;
+}
+ol.steps {
+  list-style: none;
+  margin: 0;
+  padding: 6px 18px 4px;
+  counter-reset: s;
+}
+ol.steps > li {
+  counter-increment: s;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 4px 12px;
+  padding: 16px 0;
+  border-bottom: 1px dashed var(--line);
+}
+ol.steps > li:last-child {
+  border-bottom: 0;
+}
+ol.steps > li::before {
+  content: counter(s);
+  grid-row: span 2;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--card);
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+}
+.step-text {
+  align-self: center;
+}
+
+/* photo */
+.photo {
+  position: relative;
+  margin: 6px 0 0;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  background: #000;
+  overflow: hidden;
+}
+.photo img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+.photo figcaption {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  background: var(--yellow);
+  color: #1e2a32;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  max-width: 70%;
+}
+#habits .photo {
+  margin-top: 14px;
+}
+
+.caution {
+  margin: 4px 18px 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--warn);
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+.caution b {
+  color: var(--warn);
+}
+.checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 18px 18px;
+  border-top: 1px solid var(--line);
+}
+.checks label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--slot);
+}
+.checks input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--ok);
+}
+.checks label:has(input:checked) {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+ul.habits {
+  margin: 0;
+  padding-left: 1.2em;
+}
+ul.habits li {
+  margin: 8px 0;
+}
+footer {
+  padding: 36px 0 48px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  border-top: 1px solid var(--line);
+  margin-top: 30px;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
