@@ -18,6 +18,8 @@ export interface SiblingApp {
     | 'cart'
     | 'cooking-pot'
     | 'death-star';
+  /** Left out of the dock's menu (the app itself can still render the dock). */
+  hidden?: boolean;
 }
 
 export const SIBLING_APPS: SiblingApp[] = [
@@ -62,5 +64,6 @@ export const SIBLING_APPS: SiblingApp[] = [
     shortLabel: 'SWAPI',
     url: 'https://swapi-cards-nx-monorepo.vercel.app',
     icon: 'death-star',
+    hidden: true,
   },
 ];

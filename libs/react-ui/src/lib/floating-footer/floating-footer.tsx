@@ -25,6 +25,8 @@ const ICONS: Record<SiblingApp['icon'], React.ComponentType<{ size?: number }>> 
   'death-star': GiDeathStar,
 };
 
+const VISIBLE_APPS = SIBLING_APPS.filter((app) => !app.hidden);
+
 export interface FloatingFooterProps {
   currentApp: SiblingApp['id'];
   className?: string;
@@ -72,28 +74,30 @@ export const FloatingFooter = ({
             exit={{ opacity: 0, y: 8, scale: 0.97 }}
             transition={{ duration: 0.15 }}
           >
-            {SIBLING_APPS.map((app) => {
+            {VISIBLE_APPS.map((app) => {
               const Icon = ICONS[app.icon];
-              const content = (
-                <>
-                  <span className={styles.icon}>
-                    <Icon size={20} />
-                  </span>
-                  <span className={styles.label}>{app.shortLabel}</span>
-                </>
-              );
+              // Icon-only, so the app name rides along as the accessible
+              // label and hover tooltip.
               return app.id === currentApp ? (
                 <span
                   key={app.id}
+                  role="img"
                   aria-current="page"
+                  aria-label={`${app.name} (you are here)`}
                   title={`${app.name} (you are here)`}
                   className={`${styles.item} ${styles.active}`}
                 >
-                  {content}
+                  <Icon size={22} />
                 </span>
               ) : (
-                <a key={app.id} href={app.url} title={app.name} className={styles.item}>
-                  {content}
+                <a
+                  key={app.id}
+                  href={app.url}
+                  aria-label={app.name}
+                  title={app.name}
+                  className={styles.item}
+                >
+                  <Icon size={22} />
                 </a>
               );
             })}
