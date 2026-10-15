@@ -1,0 +1,486 @@
+/* Theodore's chore chart. Olive and gold headers, cream row labels and a
+   green title, carried over from the original Canva chart. On screen the
+   sheet scrolls sideways on narrow phones; in print it fills one landscape
+   letter page and everything else on the page is hidden. */
+.root {
+  --olive: #7f6a22;
+  --olive-dark: #5b4c13;
+  --cream: #f1dfa6;
+  --cream-light: #f7ebca;
+  --rule: #c8b26b;
+  --title: #4d7a34;
+  --ink: #2f2a1c;
+  --muted: #6a6250;
+  --paper: #faf6ea;
+  --card: #ffffff;
+  min-height: 100vh;
+  padding-top: env(safe-area-inset-top, 0px);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+/* Undo the site-wide `p { text-lg opacity-90 }` for this page. */
+.root p {
+  font-size: inherit;
+  opacity: 1;
+  margin: 0.5em 0;
+}
+
+.root button:focus-visible,
+.root input:focus-visible {
+  outline: 3px solid var(--title);
+  outline-offset: 2px;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* hero */
+.hero {
+  padding-top: 40px;
+  padding-bottom: 24px;
+}
+
+.hero h1 {
+  color: var(--title);
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 52ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.actions button {
+  font: inherit;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 2px solid var(--olive);
+  background: var(--card);
+  color: var(--olive-dark);
+  cursor: pointer;
+}
+
+.actions .primary {
+  background: var(--olive);
+  color: #fff;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+/* sheet on screen */
+.sheetWrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.sheetScroll {
+  overflow-x: auto;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 20px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sheet {
+  --row: 44px;
+  min-width: 900px;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.sheetTitle {
+  color: var(--title);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.15;
+  padding-bottom: 4px;
+  border-bottom: 3px solid var(--olive);
+  margin-bottom: 6px;
+}
+
+.chart {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  color: var(--ink);
+}
+
+.colChore {
+  width: 31%;
+}
+
+.colStreak {
+  width: 12.4%;
+}
+
+.chart thead th {
+  background: var(--olive);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 7px 4px;
+  border: 1px solid var(--rule);
+}
+
+.chart thead .headChore {
+  text-align: left;
+  padding-left: 12px;
+}
+
+.chart thead .headStreak {
+  background: var(--olive-dark);
+}
+
+.band th {
+  background: var(--olive-dark);
+  color: #fff;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+}
+
+.band span {
+  margin-left: 10px;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  opacity: 0.85;
+}
+
+.row td,
+.row th {
+  height: var(--row);
+  border: 1px solid var(--rule);
+}
+
+.row:nth-child(odd) .label {
+  background: var(--cream-light);
+}
+
+.label {
+  background: var(--cream);
+  text-align: left;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 0 10px 0 12px;
+  white-space: nowrap;
+  border-right: 2px solid var(--olive-dark) !important;
+}
+
+/* emoji · name · coin in one line; the coin rides at the right edge */
+.label > * {
+  vertical-align: middle;
+}
+
+.label {
+  position: relative;
+}
+
+.emoji {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.name {
+  display: inline-block;
+  max-width: calc(100% - 90px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.coin {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: 36px;
+  padding: 1px 8px;
+  border: 1px solid var(--olive);
+  border-radius: 999px;
+  background: #fffaf0;
+  color: var(--olive-dark);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.streak {
+  background: var(--cream-light);
+  text-align: center;
+}
+
+.bonus {
+  display: inline-block;
+  min-width: 38px;
+  padding: 1px 8px;
+  border: 1px dashed var(--muted);
+  border-radius: 999px;
+  background: #fffaf0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* editor */
+.editor {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.streakField {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.editor input {
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.streakField input {
+  width: 80px;
+}
+
+.editSection {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  padding: 12px 0 4px;
+  margin: 8px 0 0;
+}
+
+.editSection legend {
+  font-weight: 800;
+  color: var(--olive-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  padding: 0 8px 0 0;
+}
+
+.editSection legend span {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--muted);
+  margin-left: 6px;
+}
+
+.editRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+.editor .editEmoji {
+  width: 3em;
+  text-align: center;
+  flex: none;
+}
+
+.editor .editName {
+  flex: 1;
+  min-width: 0;
+}
+
+.editCents {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+
+.editCents input {
+  width: 4.5em;
+}
+
+.remove,
+.addButton,
+.resetButton {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  background: var(--card);
+  color: var(--olive-dark);
+}
+
+.remove {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.addButton {
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  margin-top: 4px;
+}
+
+.resetButton {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  color: #9a3412;
+}
+
+/* guide */
+.guide {
+  padding-top: 16px;
+  padding-bottom: 96px;
+}
+
+.guide section {
+  padding-top: 28px;
+}
+
+.guide h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--title);
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+
+.guide ol {
+  list-style: decimal;
+  padding-left: 1.4em;
+}
+
+.guide li {
+  margin: 0.6em 0;
+}
+
+.sections dt {
+  font-weight: 800;
+  margin-top: 12px;
+}
+
+.sections dd {
+  margin: 2px 0 0;
+  color: var(--muted);
+}
+
+/* print: just the sheet, on one landscape letter page */
+@page {
+  size: letter landscape;
+  margin: 0.2in 0.35in;
+}
+
+@media print {
+  .page {
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+
+  .page > :global(footer),
+  .noPrint {
+    display: none !important;
+  }
+
+  .root {
+    min-height: 0;
+    padding: 0;
+    background: #fff;
+  }
+
+  .sheetWrap,
+  .sheetScroll {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  .sheet {
+    --row: var(--print-row, 0.45in);
+    min-width: 0;
+    break-inside: avoid;
+  }
+
+  .sheetTitle {
+    font-size: 24pt;
+    margin-bottom: 0.06in;
+  }
+
+  .chart thead th {
+    height: 0.3in;
+    padding: 0 4px;
+  }
+
+  .band th {
+    height: 0.22in;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .label {
+    font-size: 11pt;
+    padding: 0 6px 0 8px;
+  }
+
+  .emoji {
+    margin-right: 6px;
+  }
+
+  .name {
+    max-width: calc(100% - 72px);
+  }
+
+  .coin {
+    right: 6px;
+    min-width: 0;
+    padding: 1px 6px;
+  }
+}
