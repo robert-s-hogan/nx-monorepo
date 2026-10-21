@@ -67,7 +67,7 @@
       "rollup": ">=4.59.0 <5",
       "esbuild": ">=0.25.0",
       "adm-zip": ">=0.6.0",
-      "handlebars": ">=4.7.9"
+      "handlebars": ">=4.7.10"
     }
   },
   "dependencies": {
@@ -142,7 +142,6 @@
     "eslint": "^9.8.0",
     "eslint-config-next": "16.3.1",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-boundaries": "^5.4.0",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-react": "7.37.5",
