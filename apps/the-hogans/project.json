@@ -5,8 +5,21 @@
   "projectType": "application",
   "tags": [],
   "targets": {
+    "sitemap": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": [
+        "{projectRoot}/pages/**/*",
+        "{projectRoot}/scripts/generate-sitemap.mjs"
+      ],
+      "outputs": ["{projectRoot}/public/sitemap.xml"],
+      "options": {
+        "command": "node apps/the-hogans/scripts/generate-sitemap.mjs"
+      }
+    },
     "build": {
       "executor": "@nx/next:build",
+      "dependsOn": ["sitemap"],
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
