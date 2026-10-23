@@ -77,3 +77,5 @@ vitest.config.*.timestamp*
 .nx/polygraph
 .nx/self-healing
 .nx/migrate-runs
+# Generated before each build by apps/the-hogans/scripts/generate-sitemap.mjs
+apps/the-hogans/public/sitemap.xml
