@@ -14,9 +14,9 @@ import {
 } from '../components/birthday/icons';
 import styles from '../components/birthday/Birthday.module.css';
 
-// Theo's 8th birthday invite. Shared by link with guests, but kept out of
-// search engines and the sitemap (noindex) since it has a party location and
-// a phone number. Details live in components/birthday/content.ts.
+// Theo's 8th birthday invite. Public and in the sitemap (the owner's call,
+// 2026-10-26), even though it shows the party location and an RSVP phone
+// number. Details live in components/birthday/content.ts.
 
 const START = new Date(party.start).getTime();
 
@@ -130,7 +130,6 @@ export default function TheoTurns8() {
   return (
     <TheHogansLayout title={party.pageTitle} description={party.sub} hideNavBar>
       <Head>
-        <meta name="robots" content="noindex" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
