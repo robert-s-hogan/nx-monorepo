@@ -10,7 +10,8 @@
       "cache": true,
       "inputs": [
         "{projectRoot}/pages/**/*",
-        "{projectRoot}/scripts/generate-sitemap.mjs"
+        "{projectRoot}/scripts/generate-sitemap.mjs",
+        "{projectRoot}/lib/private-folders.json"
       ],
       "outputs": ["{projectRoot}/public/sitemap.xml"],
       "options": {

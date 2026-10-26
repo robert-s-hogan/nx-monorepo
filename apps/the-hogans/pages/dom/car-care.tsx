@@ -4,9 +4,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import TheHogansLayout from '../components/TheHogansLayout';
-import { Photo } from '../components/car-care/Photo';
-import { TaskCard } from '../components/car-care/TaskCard';
+import TheHogansLayout from '../../components/TheHogansLayout';
+import { Photo } from '../../components/dom/car-care/Photo';
+import { TaskCard } from '../../components/dom/car-care/TaskCard';
 import {
   FIELDS,
   KIT_PHOTO,
@@ -14,13 +14,13 @@ import {
   SCHEDULE,
   TASKS,
   blankState,
-} from '../components/car-care/content';
-import { DoneKind, ProgressState } from '../components/car-care/types';
-import styles from '../components/car-care/CarCare.module.css';
+} from '../../components/dom/car-care/content';
+import { DoneKind, ProgressState } from '../../components/dom/car-care/types';
+import styles from '../../components/dom/car-care/CarCare.module.css';
 
-// Progress lives in this browser only — the-hogans has no login or
-// database, so it's per device, the same as the original artifact's
-// offline fallback.
+// Progress lives in this browser only (no database), so it's per device,
+// the same as the original artifact's offline fallback. The page itself is
+// behind the /dom login (lib/access.ts).
 const STORAGE_KEY = 'car-care-guide';
 
 function loadState(): ProgressState {
@@ -90,7 +90,10 @@ export default function CarCare({ photos }: CarCareProps) {
 
   const toggleDone = useCallback((taskId: string, kind: DoneKind) => {
     const k = `${taskId}-${kind}`;
-    setState((prev) => ({ ...prev, done: { ...prev.done, [k]: !prev.done[k] } }));
+    setState((prev) => ({
+      ...prev,
+      done: { ...prev.done, [k]: !prev.done[k] },
+    }));
   }, []);
 
   const help = TASKS.filter((t) => state.done[`${t.id}-help`]).length;
@@ -104,7 +107,11 @@ export default function CarCare({ photos }: CarCareProps) {
     >
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap"
           rel="stylesheet"
@@ -135,7 +142,9 @@ export default function CarCare({ photos }: CarCareProps) {
           <div className="bar" aria-hidden="true">
             <i style={{ width: `${(100 * solo) / TASKS.length}%` }} />
           </div>
-          <p className="note">Your progress is saved in this browser on this device.</p>
+          <p className="note">
+            Your progress is saved in this browser on this device.
+          </p>
         </header>
 
         <nav className="jump" aria-label="Jump to a section">
@@ -198,7 +207,9 @@ export default function CarCare({ photos }: CarCareProps) {
                       <td>{what}</td>
                       <td>{often}</td>
                       <td>
-                        <span className={`who ${who}`}>{who === 'you' ? 'You' : 'Shop'}</span>
+                        <span className={`who ${who}`}>
+                          {who === 'you' ? 'You' : 'Shop'}
+                        </span>
                       </td>
                     </tr>
                   ))}
@@ -233,7 +244,13 @@ export default function CarCare({ photos }: CarCareProps) {
               times. After that, you can do it from this page.
             </p>
             {TASKS.map((t) => (
-              <TaskCard key={t.id} task={t} photos={photos} done={state.done} onToggle={toggleDone} />
+              <TaskCard
+                key={t.id}
+                task={t}
+                photos={photos}
+                done={state.done}
+                onToggle={toggleDone}
+              />
             ))}
           </section>
 
@@ -265,9 +282,8 @@ export default function CarCare({ photos }: CarCareProps) {
           </section>
 
           <footer>
-            When in doubt, open the owner&apos;s manual. It was written for
-            this exact car. And if something feels off, ask before you drive
-            on it.
+            When in doubt, open the owner&apos;s manual. It was written for this
+            exact car. And if something feels off, ask before you drive on it.
           </footer>
         </div>
       </div>
