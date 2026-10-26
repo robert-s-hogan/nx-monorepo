@@ -11,7 +11,8 @@
       "inputs": [
         "{projectRoot}/pages/**/*",
         "{projectRoot}/scripts/generate-sitemap.mjs",
-        "{projectRoot}/lib/private-folders.json"
+        "{projectRoot}/lib/private-folders.json",
+        "{projectRoot}/public/*/index.html"
       ],
       "outputs": ["{projectRoot}/public/sitemap.xml"],
       "options": {
