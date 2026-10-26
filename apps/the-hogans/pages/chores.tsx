@@ -6,8 +6,8 @@ import { ChoreSheet } from '../components/chores/ChoreSheet';
 import { ChartState, defaultState, formatCents } from '../components/chores/content';
 import styles from '../components/chores/Chores.module.css';
 
-// Edits live in this browser only — the-hogans has no login or database,
-// same as /car-care. The chart itself is meant to be printed and marked by
+// Edits live in this browser only (no database), same as /dom/car-care.
+// The chart itself is meant to be printed and marked by
 // hand, so nothing about the week is tracked here.
 const STORAGE_KEY = 'chores-chart';
 

@@ -1,10 +1,10 @@
-// Guide content for pages/car-care.tsx, ported verbatim from the original
+// Guide content for pages/dom/car-care.tsx, ported verbatim from the original
 // "Car care starter guide" artifact (claude.ai/artifact/Dv2DXJMKnDEBEqMGspcPHp).
 //
 // Photos: every step with a `caption` has a photo slot named
 // `<task id>-<step number>` (e.g. `oil-2` is "Your dipstick handle"), plus
 // `kit` for the trunk kit. Drop a matching file into public/car-care/
-// (`oil-2.jpg`, `.jpeg`, `.png` or `.webp`) and redeploy — pages/car-care.tsx
+// (`oil-2.jpg`, `.jpeg`, `.png` or `.webp`) and redeploy — pages/dom/car-care.tsx
 // picks it up at build time, no code change needed.
 import type { ProgressState, Task, Who } from './types';
 

@@ -32,6 +32,12 @@ const nextConfig = {
   async rewrites() {
     return [{ source: '/home-gym', destination: '/home-gym/index.html' }];
   },
+  // Old URLs of pages that moved.
+  async redirects() {
+    return [
+      { source: '/car-care', destination: '/dom/car-care', permanent: true },
+    ];
+  },
 };
 
 module.exports = withNx(nextConfig);

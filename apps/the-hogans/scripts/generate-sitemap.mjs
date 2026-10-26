@@ -3,8 +3,8 @@
 // `sitemap` target in project.json.
 //
 // Left out: _app/_document, api routes, dynamic routes ([id]), error pages,
-// any page that opts in to the login gate with `Page.isPrivate = true`, and
-// unlisted pages that set `<meta name="robots" content="noindex" />`.
+// folders behind the login (lib/private-folders.json), and unlisted pages
+// that set `<meta name="robots" content="noindex" />`.
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -15,6 +15,9 @@ const PAGES = join(APP, 'pages');
 const OUT = join(APP, 'public', 'sitemap.xml');
 
 const PAGE_FILE = /\.(tsx|ts|jsx|js|mdx)$/;
+const PRIVATE = Object.keys(
+  JSON.parse(readFileSync(join(APP, 'lib', 'private-folders.json'), 'utf8')),
+);
 const ERROR_PAGES = new Set(['/404', '/500', '/_error']);
 
 function* walk(dir) {
@@ -32,8 +35,9 @@ function toRoute(file) {
   if (parts[parts.length - 1] === 'index') parts.pop();
   const route = '/' + parts.join('/');
   if (ERROR_PAGES.has(route)) return null;
+  if (PRIVATE.some((f) => route === f || route.startsWith(`${f}/`)))
+    return null;
   const source = readFileSync(file, 'utf8');
-  if (/\.isPrivate\s*=\s*true/.test(source)) return null;
   if (/name="robots"\s+content="[^"]*noindex/.test(source)) return null;
   return route;
 }
