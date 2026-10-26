@@ -1,13 +1,7 @@
 // libs/constants/src/lib/sibling-apps.ts
 
 export interface SiblingApp {
-  id:
-    | 'play2winff'
-    | 'dm-toolkit'
-    | 'the-hogans'
-    | 'shopping-list'
-    | 'recipes'
-    | 'swapi-cards';
+  id: 'play2winff' | 'dm-toolkit' | 'the-hogans' | 'shopping-list' | 'recipes';
   name: string;
   shortLabel: string;
   url: string;
@@ -57,13 +51,5 @@ export const SIBLING_APPS: SiblingApp[] = [
     shortLabel: 'Recipes',
     url: 'https://recipes.the-hogans.com',
     icon: 'cooking-pot',
-  },
-  {
-    id: 'swapi-cards',
-    name: 'Star Wars Cards',
-    shortLabel: 'SWAPI',
-    url: 'https://swapi-cards-nx-monorepo.vercel.app',
-    icon: 'death-star',
-    hidden: true,
   },
 ];
