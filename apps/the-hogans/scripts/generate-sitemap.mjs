@@ -1,5 +1,6 @@
-// Writes public/sitemap.xml from the files in pages/, so a new page shows up
-// in the sitemap without editing anything. Runs before every build via the
+// Writes public/sitemap.xml from the files in pages/ plus the standalone HTML
+// apps in public/<name>/index.html (served at /<name> by rewrites in
+// next.config.js), so a new page shows up without editing anything. Runs before every build via the
 // `sitemap` target in project.json.
 //
 // Left out: _app/_document, api routes, dynamic routes ([id]), error pages,
@@ -28,6 +29,8 @@ function* walk(dir) {
   }
 }
 
+const NOINDEX = /name="robots"\s+content="[^"]*noindex/;
+
 function toRoute(file) {
   const parts = relative(PAGES, file).replace(PAGE_FILE, '').split(sep);
   if (parts[0] === 'api') return null;
@@ -38,12 +41,24 @@ function toRoute(file) {
   if (PRIVATE.some((f) => route === f || route.startsWith(`${f}/`)))
     return null;
   const source = readFileSync(file, 'utf8');
-  if (/name="robots"\s+content="[^"]*noindex/.test(source)) return null;
+  if (NOINDEX.test(source)) return null;
   return route;
 }
 
-const routes = [...walk(PAGES)]
-  .map(toRoute)
+function* standaloneApps() {
+  const PUBLIC = join(APP, 'public');
+  for (const entry of readdirSync(PUBLIC, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    try {
+      const html = readFileSync(join(PUBLIC, entry.name, 'index.html'), 'utf8');
+      if (!NOINDEX.test(html)) yield `/${entry.name}`;
+    } catch {
+      // no index.html: just an asset folder (e.g. public/car-care photos)
+    }
+  }
+}
+
+const routes = [...[...walk(PAGES)].map(toRoute), ...standaloneApps()]
   .filter(Boolean)
   .sort((a, b) => (a === '/' ? -1 : b === '/' ? 1 : a.localeCompare(b)));
 
