@@ -27,6 +27,11 @@ const nextConfig = {
       },
     ],
   },
+  // Standalone HTML apps copied from claude.ai artifacts live in public/<name>/
+  // and are served at /<name> without the .html path.
+  async rewrites() {
+    return [{ source: '/home-gym', destination: '/home-gym/index.html' }];
+  },
 };
 
 module.exports = withNx(nextConfig);
