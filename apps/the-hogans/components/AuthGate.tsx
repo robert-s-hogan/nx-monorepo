@@ -23,7 +23,7 @@ export default function AuthGate({
   }
 
   return (
-    <AuthProvider>
+    <AuthProvider returnToCurrentPage>
       <RequireAuth allowedRoles={roles}>{children}</RequireAuth>
     </AuthProvider>
   );
