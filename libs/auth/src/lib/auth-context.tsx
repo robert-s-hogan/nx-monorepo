@@ -21,7 +21,22 @@ interface AuthContextValue {
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
+interface AuthProviderProps {
+  children: ReactNode;
+  /**
+   * Send the sign-in link back to the page the person signed in from,
+   * instead of the site's home page. Needed when only some pages are gated
+   * (the-hogans): a public home page never loads this provider, so the token
+   * in the link would sit unread in the address bar. The page must be
+   * covered by the Supabase Redirect URLs allow list (e.g. `https://site/**`).
+   */
+  returnToCurrentPage?: boolean;
+}
+
+export const AuthProvider = ({
+  children,
+  returnToCurrentPage = false,
+}: AuthProviderProps) => {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -55,7 +70,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       email,
       options: {
         emailRedirectTo:
-          typeof window !== 'undefined' ? window.location.origin : undefined,
+          typeof window === 'undefined'
+            ? undefined
+            : returnToCurrentPage
+              ? window.location.origin + window.location.pathname
+              : window.location.origin,
       },
     });
     return { error: error?.message ?? null };
