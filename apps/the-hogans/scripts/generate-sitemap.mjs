@@ -45,7 +45,7 @@ function toRoute(file) {
   return route;
 }
 
-// Nested folders count too: public/wow/prot-warrior/index.html is /wow/prot-warrior.
+// Nested folders count too: public/wow/tauren-warrior-prot/index.html is /wow/tauren-warrior-prot.
 function* standaloneApps(dir, prefix = '') {
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     if (!entry.isDirectory()) continue;

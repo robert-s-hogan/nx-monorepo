@@ -8,7 +8,7 @@ const { readdirSync, existsSync } = require('node:fs');
 const { join } = require('node:path');
 
 // Folders under public/ that hold an index.html, e.g. 'home-gym' and
-// 'wow/prot-warrior'. Same scan as scripts/generate-sitemap.mjs.
+// 'wow/tauren-warrior-prot'. Same scan as scripts/generate-sitemap.mjs.
 function standaloneApps(dir = join(__dirname, 'public'), prefix = '') {
   return readdirSync(dir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
