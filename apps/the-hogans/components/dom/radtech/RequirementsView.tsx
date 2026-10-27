@@ -1,8 +1,8 @@
 import { CourseRow } from './CourseRow';
 import { ExtraClasses } from './ExtraClasses';
-import { GROUPS, SUPPORT_IDS } from '../lib/catalog';
-import { evalGroup, ruledOut } from '../lib/reqMath';
-import { CourseId, ProgressState } from '../types';
+import { GROUPS, SUPPORT_IDS } from './catalog';
+import { evalGroup, ruledOut } from './reqMath';
+import { CourseId, ProgressState } from './types';
 
 const fmt = (n: number) => (n % 1 ? n.toFixed(1) : String(n));
 

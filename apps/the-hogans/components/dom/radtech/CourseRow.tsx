@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
-import { C } from '../lib/catalog';
-import { prereqCheck, st, termOf } from '../lib/reqMath';
-import { CourseId, ProgressState } from '../types';
+import { C } from './catalog';
+import { prereqCheck, st, termOf } from './reqMath';
+import { CourseId, ProgressState } from './types';
 
 function termLabel(name: string | null): string {
   if (!name) return 'TERM';

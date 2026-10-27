@@ -1,13 +1,16 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import Head from 'next/head';
 import { useAuthedFetch } from '@with-nx/auth';
 import { Spinner } from '@with-nx/react-ui';
 
-import { Gauge } from '../components/Gauge';
-import { RequirementsView } from '../components/RequirementsView';
-import { PlannerView } from '../components/PlannerView';
-import { WeekView } from '../components/WeekView';
-import { Sheet, SheetSection } from '../components/Sheet';
-import { C, GROUPS, SUPPORT_IDS } from '../lib/catalog';
+import TheHogansLayout from '../../components/TheHogansLayout';
+
+import { Gauge } from '../../components/dom/radtech/Gauge';
+import { RequirementsView } from '../../components/dom/radtech/RequirementsView';
+import { PlannerView } from '../../components/dom/radtech/PlannerView';
+import { WeekView } from '../../components/dom/radtech/WeekView';
+import { Sheet, SheetSection } from '../../components/dom/radtech/Sheet';
+import { C, GROUPS, SUPPORT_IDS } from '../../components/dom/radtech/catalog';
 import {
   blankState,
   coursesInTerm,
@@ -15,14 +18,47 @@ import {
   ruledOut,
   st,
   termOf,
-} from '../lib/reqMath';
-import { CourseId, CourseState, ProgressState } from '../types';
+} from '../../components/dom/radtech/reqMath';
+import {
+  CourseId,
+  CourseState,
+  ProgressState,
+} from '../../components/dom/radtech/types';
+import styles from '../../components/dom/radtech/Radtech.module.css';
+
+// Dom's SRJC RadTech prerequisite tracker, moved here from the standalone
+// radtech-tracker app. Behind the /dom login; progress is one shared record
+// in Turso (lib/server/radtech), so Dom and family see the same plan.
+const API = '/api/dom/radtech-progress';
+
+function Shell({ children }: { children: ReactNode }) {
+  return (
+    <TheHogansLayout
+      title="RadTech Prereq Tracker"
+      description="Dom's SRJC Radiologic Technology prerequisite tracker."
+      hideNavBar
+    >
+      <Head>
+        <meta name="theme-color" content="#0d1317" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <div className={styles.root}>{children}</div>
+    </TheHogansLayout>
+  );
+}
 
 type Tab = 'req' | 'plan' | 'week';
 type SheetMode =
-  | { kind: 'term'; id: CourseId }
-  | { kind: 'add'; termId: string }
-  | null;
+  { kind: 'term'; id: CourseId } | { kind: 'add'; termId: string } | null;
 
 const blankCourse = (): CourseState => ({
   status: 'none',
@@ -32,9 +68,10 @@ const blankCourse = (): CourseState => ({
   to: '',
 });
 
-export default function Index() {
+export default function Radtech() {
   const authedFetch = useAuthedFetch();
   const [state, setState] = useState<ProgressState | null>(null);
+  const [loadError, setLoadError] = useState(false);
   const [tab, setTab] = useState<Tab>('req');
   const [sheetMode, setSheetMode] = useState<SheetMode>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -43,17 +80,21 @@ export default function Index() {
   // Import/reset intentionally skip this — those really are new edits that
   // should persist.
   const skipNextSaveRef = useRef(false);
-  const saveTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const saveTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
 
-  // Load his saved progress on mount. By the time this page renders,
-  // RequireAuth has already confirmed a real 'family' session, so the
-  // bearer token useAuthedFetch attaches is guaranteed to be present.
+  // Load the saved progress on mount. By the time this page renders, the
+  // /dom gate has confirmed a session, so useAuthedFetch has a token. If the
+  // load fails, show an error instead of a blank tracker: autosave would
+  // otherwise overwrite the real progress with that blank state.
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        const res = await authedFetch('/api/progress');
-        const data = res.ok ? ((await res.json()) as ProgressState) : blankState();
+        const res = await authedFetch(API);
+        if (!res.ok) throw new Error(String(res.status));
+        const data = (await res.json()) as ProgressState;
         // Defensive: a row saved before `extra` existed won't have it.
         if (!Array.isArray(data.extra)) data.extra = [];
         if (!cancelled) {
@@ -61,10 +102,7 @@ export default function Index() {
           setState(data);
         }
       } catch {
-        if (!cancelled) {
-          skipNextSaveRef.current = true;
-          setState(blankState());
-        }
+        if (!cancelled) setLoadError(true);
       }
     })();
     return () => {
@@ -83,7 +121,7 @@ export default function Index() {
     }
     if (saveTimer.current) clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(() => {
-      authedFetch('/api/progress', {
+      authedFetch(API, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(state),
@@ -108,7 +146,8 @@ export default function Index() {
     (id: CourseId) => {
       update((s) => {
         const c = s.c[id] ?? (s.c[id] = blankCourse());
-        c.status = c.status === 'none' ? 'prog' : c.status === 'prog' ? 'done' : 'none';
+        c.status =
+          c.status === 'none' ? 'prog' : c.status === 'prog' ? 'done' : 'none';
         if (c.status === 'none' && !c.term) {
           c.days = [];
           c.from = '';
@@ -116,7 +155,7 @@ export default function Index() {
         }
       });
     },
-    [update]
+    [update],
   );
 
   const setTerm = useCallback(
@@ -138,7 +177,7 @@ export default function Index() {
       });
       setSheetMode(null);
     },
-    [update]
+    [update],
   );
 
   const dropCourse = useCallback(
@@ -152,7 +191,7 @@ export default function Index() {
         if (c.status === 'prog') c.status = 'none';
       });
     },
-    [update]
+    [update],
   );
 
   const toggleDay = useCallback(
@@ -164,7 +203,7 @@ export default function Index() {
         else c.days.push(day);
       });
     },
-    [update]
+    [update],
   );
 
   const setTime = useCallback(
@@ -174,24 +213,36 @@ export default function Index() {
         c[field] = value;
       });
     },
-    [update]
+    [update],
   );
 
   const toggleGroup = useCallback(
-    (groupId: string) => update((s) => { s.ui.open[groupId] = !s.ui.open[groupId]; }),
-    [update]
+    (groupId: string) =>
+      update((s) => {
+        s.ui.open[groupId] = !s.ui.open[groupId];
+      }),
+    [update],
   );
   const toggleHideDone = useCallback(
-    () => update((s) => { s.ui.hideDone = !s.ui.hideDone; }),
-    [update]
+    () =>
+      update((s) => {
+        s.ui.hideDone = !s.ui.hideDone;
+      }),
+    [update],
   );
   const toggleHideOut = useCallback(
-    () => update((s) => { s.ui.hideOut = !s.ui.hideOut; }),
-    [update]
+    () =>
+      update((s) => {
+        s.ui.hideOut = !s.ui.hideOut;
+      }),
+    [update],
   );
   const selectWeekTerm = useCallback(
-    (tid: string) => update((s) => { s.ui.weekTerm = tid; }),
-    [update]
+    (tid: string) =>
+      update((s) => {
+        s.ui.weekTerm = tid;
+      }),
+    [update],
   );
 
   const addTerm = useCallback(() => {
@@ -202,7 +253,11 @@ export default function Index() {
       if (m) {
         const y = +m[2];
         next =
-          m[1] === 'Fall' ? `Spring ${y + 1}` : m[1] === 'Spring' ? `Summer ${y}` : `Fall ${y}`;
+          m[1] === 'Fall'
+            ? `Spring ${y + 1}`
+            : m[1] === 'Spring'
+              ? `Summer ${y}`
+              : `Fall ${y}`;
       }
       s.terms.push({ id: 't' + Date.now(), name: next, phase: 'future' });
     });
@@ -212,10 +267,16 @@ export default function Index() {
     (code: string, title: string, units: number) => {
       update((s) => {
         if (!s.extra) s.extra = [];
-        s.extra.push({ id: 'x' + Date.now(), code, title, units, status: 'none' });
+        s.extra.push({
+          id: 'x' + Date.now(),
+          code,
+          title,
+          units,
+          status: 'none',
+        });
       });
     },
-    [update]
+    [update],
   );
 
   const cycleExtra = useCallback(
@@ -223,10 +284,11 @@ export default function Index() {
       update((s) => {
         const e = (s.extra ?? []).find((x) => x.id === id);
         if (!e) return;
-        e.status = e.status === 'none' ? 'prog' : e.status === 'prog' ? 'done' : 'none';
+        e.status =
+          e.status === 'none' ? 'prog' : e.status === 'prog' ? 'done' : 'none';
       });
     },
-    [update]
+    [update],
   );
 
   const removeExtra = useCallback(
@@ -235,7 +297,7 @@ export default function Index() {
         s.extra = (s.extra ?? []).filter((x) => x.id !== id);
       });
     },
-    [update]
+    [update],
   );
 
   const handleExport = useCallback(() => {
@@ -260,8 +322,13 @@ export default function Index() {
             terms: d.terms,
             c: d.c,
             ui: Object.assign(
-              { open: {}, hideDone: false, hideOut: false, weekTerm: d.terms[0]?.id },
-              d.ui || {}
+              {
+                open: {},
+                hideDone: false,
+                hideOut: false,
+                weekTerm: d.terms[0]?.id,
+              },
+              d.ui || {},
             ),
             extra: Array.isArray(d.extra) ? d.extra : [],
           });
@@ -283,15 +350,37 @@ export default function Index() {
 
   if (!state) {
     return (
-      <div className="rt-app" style={{ display: 'flex', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
-        <Spinner />
-      </div>
+      <Shell>
+        <div
+          className="rt-app"
+          style={{
+            display: 'flex',
+            minHeight: '100vh',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textAlign: 'center',
+            padding: 16,
+          }}
+        >
+          {loadError ? (
+            <p>
+              Couldn&apos;t load your tracker. Nothing was changed. Refresh to
+              try again.
+            </p>
+          ) : (
+            <Spinner />
+          )}
+        </div>
+      </Shell>
     );
   }
 
-  let sheetContent:
-    | { title: string; sub: string; sections: SheetSection[]; emptyMessage?: string }
-    | null = null;
+  let sheetContent: {
+    title: string;
+    sub: string;
+    sections: SheetSection[];
+    emptyMessage?: string;
+  } | null = null;
 
   if (sheetMode?.kind === 'term') {
     const id = sheetMode.id;
@@ -337,9 +426,9 @@ export default function Index() {
       const list =
         g.kind === 'combo'
           ? [...(g.solo ?? []), ...(g.slotA ?? []), ...(g.slotB ?? [])]
-          : g.list ?? [];
+          : (g.list ?? []);
       const items = list.filter(
-        (id) => !taken.has(id) && st(state, id) !== 'done' && !out.has(id)
+        (id) => !taken.has(id) && st(state, id) !== 'done' && !out.has(id),
       );
       if (!items.length) return;
       sections.push({
@@ -353,7 +442,9 @@ export default function Index() {
               <>
                 {C[id].t}
                 {!pc.ok ? (
-                  <span className="warn">Needs {pc.missing.join(' + ')} first</span>
+                  <span className="warn">
+                    Needs {pc.missing.join(' + ')} first
+                  </span>
                 ) : null}
               </>
             ),
@@ -364,7 +455,9 @@ export default function Index() {
         }),
       });
     });
-    const sup = SUPPORT_IDS.filter((id) => !taken.has(id) && st(state, id) !== 'done');
+    const sup = SUPPORT_IDS.filter(
+      (id) => !taken.has(id) && st(state, id) !== 'done',
+    );
     if (sup.length) {
       sections.push({
         label: "Supporting classes (don't count toward 27)",
@@ -386,98 +479,120 @@ export default function Index() {
   }
 
   return (
-    <div className="rt-app">
-      <header>
-        <div className="brandrow">
-          <div className="brand">
-            Rad<span>Tech</span> Prereqs
+    <Shell>
+      <div className="rt-app">
+        <header>
+          <div className="brandrow">
+            <div className="brand">
+              Rad<span>Tech</span> Prereqs
+            </div>
+            <div className="who">
+              SRJC · Certificate of Achievement 3059 · Fall 2026
+            </div>
           </div>
-          <div className="who">SRJC · Certificate of Achievement 3059 · Fall 2026</div>
-        </div>
-        <Gauge state={state} groups={GROUPS} />
-        <nav className="tabs" role="tablist">
-          <button role="tab" aria-selected={tab === 'req'} onClick={() => setTab('req')}>
-            Requirements
-          </button>
-          <button role="tab" aria-selected={tab === 'plan'} onClick={() => setTab('plan')}>
-            Plan
-          </button>
-          <button role="tab" aria-selected={tab === 'week'} onClick={() => setTab('week')}>
-            Week
-          </button>
-        </nav>
-      </header>
+          <Gauge state={state} groups={GROUPS} />
+          <nav className="tabs" role="tablist">
+            <button
+              role="tab"
+              aria-selected={tab === 'req'}
+              onClick={() => setTab('req')}
+            >
+              Requirements
+            </button>
+            <button
+              role="tab"
+              aria-selected={tab === 'plan'}
+              onClick={() => setTab('plan')}
+            >
+              Plan
+            </button>
+            <button
+              role="tab"
+              aria-selected={tab === 'week'}
+              onClick={() => setTab('week')}
+            >
+              Week
+            </button>
+          </nav>
+        </header>
 
-      <main>
-        {tab === 'req' && (
-          <RequirementsView
-            state={state}
-            onToggleGroup={toggleGroup}
-            onCycle={cycle}
-            onOpenTerm={(id) => setSheetMode({ kind: 'term', id })}
-            onToggleHideDone={toggleHideDone}
-            onToggleHideOut={toggleHideOut}
-            onAddExtra={addExtra}
-            onCycleExtra={cycleExtra}
-            onRemoveExtra={removeExtra}
-          />
-        )}
-        {tab === 'plan' && (
-          <PlannerView
-            state={state}
-            onCycle={cycle}
-            onDrop={dropCourse}
-            onToggleDay={toggleDay}
-            onTimeChange={setTime}
-            onOpenAdd={(termId) => setSheetMode({ kind: 'add', termId })}
-            onAddTerm={addTerm}
-            onExport={handleExport}
-            onImportClick={() => fileInputRef.current?.click()}
-            onReset={handleReset}
-          />
-        )}
-        {tab === 'week' && <WeekView state={state} onSelectTerm={selectWeekTerm} />}
-      </main>
+        <main>
+          {tab === 'req' && (
+            <RequirementsView
+              state={state}
+              onToggleGroup={toggleGroup}
+              onCycle={cycle}
+              onOpenTerm={(id) => setSheetMode({ kind: 'term', id })}
+              onToggleHideDone={toggleHideDone}
+              onToggleHideOut={toggleHideOut}
+              onAddExtra={addExtra}
+              onCycleExtra={cycleExtra}
+              onRemoveExtra={removeExtra}
+            />
+          )}
+          {tab === 'plan' && (
+            <PlannerView
+              state={state}
+              onCycle={cycle}
+              onDrop={dropCourse}
+              onToggleDay={toggleDay}
+              onTimeChange={setTime}
+              onOpenAdd={(termId) => setSheetMode({ kind: 'add', termId })}
+              onAddTerm={addTerm}
+              onExport={handleExport}
+              onImportClick={() => fileInputRef.current?.click()}
+              onReset={handleReset}
+            />
+          )}
+          {tab === 'week' && (
+            <WeekView state={state} onSelectTerm={selectWeekTerm} />
+          )}
+        </main>
 
-      <input
-        type="file"
-        accept="application/json"
-        ref={fileInputRef}
-        hidden
-        onChange={(e) => {
-          const f = e.target.files?.[0];
-          if (f) handleImportFile(f);
-          e.target.value = '';
-        }}
-      />
+        <input
+          type="file"
+          accept="application/json"
+          ref={fileInputRef}
+          hidden
+          onChange={(e) => {
+            const f = e.target.files?.[0];
+            if (f) handleImportFile(f);
+            e.target.value = '';
+          }}
+        />
 
-      <footer>
-        Requirements pulled from the SRJC Radiologic Technology Certificate of
-        Achievement (3059) evaluation worksheet, effective Fall&nbsp;2026.
-        <br />
-        Always confirm with a counselor before you register —{' '}
-        <a
-          href="https://portal.santarosa.edu/SRWeb/SR_ProgramOfStudy.aspx?MajorCertID=3126"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          program of study
-        </a>{' '}
-        ·{' '}
-        <a href="http://radtech.santarosa.edu/" target="_blank" rel="noopener noreferrer">
-          Health Sciences
-        </a>{' '}
-        · (707) 527-4346
-      </footer>
+        <footer>
+          Requirements pulled from the SRJC Radiologic Technology Certificate of
+          Achievement (3059) evaluation worksheet, effective Fall&nbsp;2026.
+          <br />
+          Always confirm with a counselor before you register —{' '}
+          <a
+            href="https://portal.santarosa.edu/SRWeb/SR_ProgramOfStudy.aspx?MajorCertID=3126"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            program of study
+          </a>{' '}
+          ·{' '}
+          <a
+            href="http://radtech.santarosa.edu/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Health Sciences
+          </a>{' '}
+          · (707) 527-4346
+        </footer>
 
-      <Sheet
-        open={!!sheetMode}
-        title={sheetContent?.title ?? ''}
-        sub={sheetContent?.sub ?? ''}
-        sections={sheetContent?.sections ?? []}
-        emptyMessage={sheetContent?.emptyMessage}
-        onClose={() => setSheetMode(null)}
-      />
-    </div>
+        <Sheet
+          open={!!sheetMode}
+          title={sheetContent?.title ?? ''}
+          sub={sheetContent?.sub ?? ''}
+          sections={sheetContent?.sections ?? []}
+          emptyMessage={sheetContent?.emptyMessage}
+          onClose={() => setSheetMode(null)}
+        />
+      </div>
+    </Shell>
   );
 }
