@@ -1,0 +1,740 @@
+<!doctype html><html><head>
+<!-- Tauren Prot Warrior (WoW Forever leveling guide), served at the-hogans.com/wow/tauren-warrior-prot
+     (rewrite in next.config.js). Started as the claude.ai artifact "Tauren Prot Warrior"
+     (3vaUb77JJEKkeCHH3YWJCq); this file is now the source of truth, so edit it here.
+     Progress is saved in the browser (localStorage key tauren-prot-warrior-v2).
+     Items tagged "check" are beta data to confirm after the Nov 4, 2026 launch. -->
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="WoW Forever leveling checklist: talent point per level, trainer trips, gear and consumables, 1-60.">
+<meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Tauren Prot Warrior</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: comic-panel page. Burst level badge + talent "next point" strip up top, a "bring with you" panel,
+   then the level checklist beside a reference rail (stacks on phones). */
+:root {
+  --paper: #E8DBC4;      /* tanned hide */
+  --dots: #D6C5A8;
+  --panel: #FFFBF3;
+  --sunk: #F1E7D6;
+  --ink: #15100D;
+  --shadow: #15100D;
+  --fg: #1A1410;
+  --muted: #6A5A49;
+  --blood: #B3121F;      /* Horde red */
+  --blood-ink: #FFF6EA;
+  --gold: #F2B705;       /* comic yellow highlight */
+  --gold-ink: #1A1208;
+  --arms: #8C5A22;
+  --fury: #B3121F;
+  --prot: #24618F;
+  --ok: #2E7A3F;
+  --font-display: "Bangers", "Impact", "Arial Black", sans-serif;
+  --font-label: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "Barlow", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1B1512; --dots: #261D18; --panel: #30261F; --sunk: #3A2E25;
+    --ink: #050302; --shadow: #000000; --fg: #F2E8DA; --muted: #BCA992;
+    --blood: #E0414A; --blood-ink: #1A0B0B; --gold: #F5C431; --gold-ink: #1A1208;
+    --arms: #D49A55; --fury: #F0606A; --prot: #6FAEDD; --ok: #6CC683; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1B1512; --dots: #261D18; --panel: #30261F; --sunk: #3A2E25;
+  --ink: #050302; --shadow: #000000; --fg: #F2E8DA; --muted: #BCA992;
+  --blood: #E0414A; --blood-ink: #1A0B0B; --gold: #F5C431; --gold-ink: #1A1208;
+  --arms: #D49A55; --fury: #F0606A; --prot: #6FAEDD; --ok: #6CC683; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background-color: var(--paper);
+  background-image: radial-gradient(var(--dots) 1.4px, transparent 1.6px);
+  background-size: 9px 9px;
+  color: var(--fg);
+  font: 400 15px/1.5 var(--font-body);
+}
+.wrap {
+  max-width: 1180px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: .04em; margin: 0; text-wrap: balance; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.panel { background: var(--panel); border: 3px solid var(--ink); border-radius: 4px; box-shadow: 5px 5px 0 var(--shadow); }
+.label { font: 700 .78rem/1.2 var(--font-label); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+
+/* ---------- masthead ---------- */
+.mast .wrap { padding-block: 18px 6px; display: flex; align-items: center; gap: 16px; }
+.mast .title { min-width: 0; margin-right: auto; }
+.mast h1 { font-size: clamp(2rem, 6vw, 3.1rem); line-height: .95; color: var(--fg); text-shadow: 3px 3px 0 var(--blood); }
+.mast .sub { font: 600 .95rem var(--font-label); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-top: 4px; }
+.burst {
+  flex: none; width: 112px; height: 112px; display: grid; place-items: center; text-align: center;
+  background: var(--gold); color: var(--gold-ink);
+  clip-path: polygon(50% 0%, 61% 18%, 82% 8%, 80% 30%, 100% 36%, 85% 52%, 98% 70%, 76% 72%, 74% 95%, 56% 82%, 40% 100%, 34% 78%, 12% 88%, 18% 64%, 0% 56%, 16% 40%, 4% 20%, 28% 22%, 32% 2%);
+  transform: rotate(-6deg);
+}
+.burst div { font-family: var(--font-display); line-height: .9; }
+.burst small { display: block; font-size: .95rem; letter-spacing: .1em; }
+.burst b { display: block; font-size: 2.6rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+
+/* ---------- talent strip ---------- */
+.stripbox { padding: 14px 0 6px; }
+.strip-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 10px; }
+.strip-head h2 { font-size: 1.6rem; }
+.trees { display: flex; gap: 6px; flex-wrap: wrap; margin-left: auto; }
+.tree-pill { font: 700 .82rem var(--font-label); text-transform: uppercase; letter-spacing: .06em; border: 2px solid var(--ink); border-radius: 999px; padding: 1px 10px; background: var(--panel); font-variant-numeric: tabular-nums; }
+.tree-pill i { font-style: normal; display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; border: 1.5px solid var(--ink); }
+
+.strip { display: grid; grid-template-columns: 70px minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, .8fr); gap: 14px; align-items: center; }
+.cardx { position: relative; min-width: 0; }
+.prev {
+  height: 100%; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  background: var(--sunk); border: 3px dashed var(--muted); border-radius: 4px; cursor: pointer; padding: 6px; text-align: center; color: var(--muted);
+}
+.prev:hover { border-color: var(--ink); color: var(--fg); }
+.prev:disabled { cursor: default; opacity: .45; }
+.prev .arr { font-family: var(--font-display); font-size: 1.8rem; line-height: 1; }
+.prev span { font: 700 .72rem var(--font-label); text-transform: uppercase; letter-spacing: .08em; }
+
+.big { padding: 16px 18px 16px; border-width: 4px; box-shadow: 8px 8px 0 var(--blood); transform: rotate(-.6deg); }
+.big .lvtag { position: absolute; top: -14px; left: 14px; background: var(--ink); color: var(--panel); font: 400 1.05rem var(--font-display); letter-spacing: .08em; padding: 2px 10px; transform: rotate(-3deg); }
+:root[data-theme="dark"] .big .lvtag { color: var(--fg); }
+.big .tname { font: 400 clamp(1.8rem, 4.4vw, 2.6rem)/1 var(--font-display); letter-spacing: .03em; margin-top: 6px; overflow-wrap: anywhere; }
+.big .rank { display: inline-flex; align-items: baseline; gap: 8px; margin-top: 8px; font: 700 1.05rem var(--font-label); text-transform: uppercase; letter-spacing: .06em; }
+.rankbox { display: inline-block; font-family: var(--font-display); font-size: 1.5rem; letter-spacing: .04em; background: var(--gold); color: var(--gold-ink); border: 2px solid var(--ink); padding: 0 8px; }
+.big .why { margin: 10px 0 14px; font-size: .98rem; max-width: 60ch; }
+.go {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  background: var(--blood); color: var(--blood-ink); border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--shadow);
+  font: 400 1.35rem/1 var(--font-display); letter-spacing: .06em; padding: 9px 18px 7px; border-radius: 3px;
+}
+.go:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--shadow); }
+.go:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--shadow); }
+.trainline { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin: -4px 0 14px; font-weight: 600; }
+.trainline span { font: 700 .74rem var(--font-label); text-transform: uppercase; letter-spacing: .1em; background: var(--gold); color: var(--gold-ink); border: 2px solid var(--ink); padding: 0 6px; }
+.trainline.off { font: 600 .8rem var(--font-label); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.peek .pt { display: inline-block; margin-top: 6px; font: 700 .7rem var(--font-label); text-transform: uppercase; letter-spacing: .1em; background: var(--gold); color: var(--gold-ink); border: 1.5px solid var(--ink); padding: 0 5px; }
+.big.respec { box-shadow: 8px 8px 0 var(--gold); }
+.big.respec .tname { color: var(--blood); }
+.treetag { font: 700 .74rem var(--font-label); text-transform: uppercase; letter-spacing: .1em; padding: 1px 7px; border: 2px solid var(--ink); border-radius: 3px; color: var(--panel); }
+.t-arms { background: var(--arms); } .t-fury { background: var(--fury); } .t-prot { background: var(--prot); } .t-none { background: var(--muted); }
+:root[data-theme="dark"] .treetag { color: var(--ink); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .treetag { color: var(--ink); } :root:not([data-theme="light"]) .big .lvtag { color: var(--fg); } }
+
+.peek { padding: 12px 14px; opacity: .78; box-shadow: 4px 4px 0 var(--shadow); }
+.peek.far { opacity: .48; }
+.peek .pl { font: 400 .95rem var(--font-display); letter-spacing: .08em; color: var(--muted); }
+.peek .pn { font: 700 1.15rem/1.15 var(--font-label); text-transform: uppercase; letter-spacing: .02em; margin: 4px 0; overflow-wrap: anywhere; }
+.peek .pr { font: 600 .85rem var(--font-label); color: var(--muted); }
+
+.anim-fwd .big, .anim-fwd .peek { animation: inR .32s cubic-bezier(.2, .8, .2, 1); }
+.anim-back .big, .anim-back .peek { animation: inL .32s cubic-bezier(.2, .8, .2, 1); }
+@keyframes inR { from { transform: translateX(60px); opacity: 0; } }
+@keyframes inL { from { transform: translateX(-60px); opacity: 0; } }
+
+.build { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.build .chip { font: 600 .82rem var(--font-label); letter-spacing: .03em; border: 2px solid var(--ink); border-radius: 3px; padding: 1px 7px; background: var(--panel); }
+.build .chip b { font-variant-numeric: tabular-nums; }
+.build .chip.c-arms { border-left: 7px solid var(--arms); } .build .chip.c-fury { border-left: 7px solid var(--fury); } .build .chip.c-prot { border-left: 7px solid var(--prot); }
+.build .none { color: var(--muted); font-size: .9rem; }
+
+@media (max-width: 760px) {
+  .strip { grid-template-columns: 56px minmax(0, 1fr); }
+  .strip .peek.far { display: none; }
+  .strip .peek { grid-column: 2; }
+  .big { transform: none; }
+}
+
+/* ---------- bring-with-you ---------- */
+.bring { margin-top: 22px; padding: 14px 16px 12px; position: relative; }
+.bring h2 { font-size: 1.45rem; }
+.bring .hint { font-size: .9rem; color: var(--muted); margin: 2px 0 10px; }
+.stock { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.stock span { background: var(--gold); color: var(--gold-ink); border: 2px solid var(--ink); font: 700 .86rem var(--font-label); text-transform: uppercase; letter-spacing: .04em; padding: 2px 9px; transform: rotate(-1deg); }
+.bring ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 6px 14px; }
+.bring .empty { color: var(--muted); font-size: .92rem; }
+
+/* ---------- checklist ---------- */
+.tools { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; padding-block: 22px 8px; }
+.switch { display: inline-flex; align-items: center; gap: 6px; font: 600 .95rem var(--font-label); text-transform: uppercase; letter-spacing: .05em; cursor: pointer; }
+.switch input { accent-color: var(--blood); width: 17px; height: 17px; }
+.btn { border: 2px solid var(--ink); background: var(--panel); border-radius: 3px; box-shadow: 3px 3px 0 var(--shadow); padding: 5px 12px; cursor: pointer; font: 700 .9rem var(--font-label); text-transform: uppercase; letter-spacing: .05em; }
+.btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--shadow); }
+.btn.warn { background: var(--blood); color: var(--blood-ink); }
+
+.grid { display: grid; gap: 22px; padding-block: 6px 40px; }
+@media (min-width: 980px) { .grid { grid-template-columns: minmax(0, 1fr) 370px; align-items: start; } }
+.col-head { font: 400 1.35rem var(--font-display); letter-spacing: .06em; margin: 0 0 10px; }
+
+.secs, .rail { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+details.sec > summary, details.ref > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details.sec > summary { padding: 10px 14px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; }
+details.sec.here { box-shadow: 6px 6px 0 var(--blood); }
+details.sec.past { opacity: .78; }
+.range { font: 700 .82rem var(--font-label); letter-spacing: .05em; background: var(--ink); color: var(--panel); padding: 2px 8px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .range { color: var(--fg); } }
+:root[data-theme="dark"] .range { color: var(--fg); }
+.ttl { font: 400 1.4rem/1.05 var(--font-display); letter-spacing: .04em; }
+.meta { display: flex; gap: 8px; align-items: center; font: 600 .85rem var(--font-label); color: var(--muted); white-space: nowrap; text-transform: uppercase; letter-spacing: .04em; }
+.here-tag { background: var(--blood); color: var(--blood-ink); padding: 1px 8px; font: 400 .95rem var(--font-display); letter-spacing: .08em; transform: rotate(-2deg); }
+.chev { transition: transform .15s; font-size: .8rem; }
+details[open] > summary .chev { transform: rotate(90deg); }
+.sec-note { margin: 0 14px 6px; font-size: .88rem; color: var(--muted); }
+
+ul.items { list-style: none; margin: 0; padding: 0 8px 10px; display: flex; flex-direction: column; gap: 2px; }
+li.it label { display: grid; grid-template-columns: 20px 40px minmax(0, 1fr); gap: 10px; align-items: start; padding: 7px 6px; cursor: pointer; border-radius: 3px; }
+li.it label:hover { background: var(--sunk); }
+li.it input { margin-top: 3px; width: 17px; height: 17px; accent-color: var(--blood); }
+li.it .lv { font: 700 .9rem/1.5 var(--font-label); color: var(--muted); font-variant-numeric: tabular-nums; }
+li.it .body { min-width: 0; }
+li.it .main { font-weight: 600; }
+li.it .sub { display: block; font-size: .88rem; color: var(--muted); margin-top: 1px; }
+li.it.done .main { text-decoration: line-through; color: var(--muted); }
+li.it.alert label { background: var(--sunk); border: 2px solid var(--ink); margin: 3px 0; }
+li.it.alert .lv { color: var(--blood); }
+.kind { display: inline-block; font: 700 .68rem var(--font-label); text-transform: uppercase; letter-spacing: .08em; padding: 0 6px; border: 1.5px solid var(--ink); margin-right: 6px; vertical-align: 1px; }
+.k-alert { background: var(--blood); color: var(--blood-ink); }
+.k-talent { background: var(--prot); color: var(--panel); }
+.k-train, .k-trip { background: var(--gold); color: var(--gold-ink); }
+.k-gear, .k-consum, .k-prof, .k-tip { background: var(--panel); color: var(--fg); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .k-talent { color: var(--ink); } }
+:root[data-theme="dark"] .k-talent { color: var(--ink); }
+.chk { font: 700 .68rem var(--font-label); text-transform: uppercase; letter-spacing: .06em; color: var(--blood); border: 1.5px dashed var(--blood); padding: 0 4px; margin-left: 6px; white-space: nowrap; }
+.empty { padding: 2px 16px 14px; color: var(--muted); font-size: .92rem; }
+
+/* reference rail */
+details.ref > summary { padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+details.ref > summary h3 { font-size: 1.3rem; }
+.ref .in { padding: 0 14px 14px; font-size: .92rem; }
+.ref p { margin: 0 0 8px; }
+.ref ol, .ref ul { margin: 0 0 8px; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+.ref ol li::marker { font-family: var(--font-display); color: var(--blood); }
+.ref .label { margin: 10px 0 4px; }
+.ref .label:first-child { margin-top: 0; }
+.phase { border: 2px solid var(--ink); padding: 7px 10px; margin-bottom: 8px; background: var(--sunk); }
+.phase.on { background: var(--gold); color: var(--gold-ink); box-shadow: 3px 3px 0 var(--shadow); }
+.phase .ph { display: flex; justify-content: space-between; gap: 8px; font: 700 .92rem var(--font-label); text-transform: uppercase; letter-spacing: .04em; }
+.chain { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin-top: 5px; }
+.chain span { background: var(--panel); color: var(--fg); border: 1.5px solid var(--ink); padding: 0 6px; font-size: .85rem; }
+.chain i { font-style: normal; font-size: .8rem; }
+table.tbl { width: 100%; border-collapse: collapse; font-size: .88rem; margin-bottom: 8px; }
+.tbl th, .tbl td { text-align: left; padding: 4px 6px; border-bottom: 1.5px solid var(--sunk); vertical-align: top; }
+.tbl th { font: 700 .72rem var(--font-label); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.tbl td.n { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tblwrap { overflow-x: auto; }
+.note { font-size: .84rem; color: var(--muted); }
+.ref a, footer a { color: var(--blood); }
+
+footer .wrap { padding-block: 8px 30px; font-size: .84rem; color: var(--muted); }
+footer ul { margin: 6px 0 0; padding-left: 18px; }
+footer a { word-break: break-word; }
+
+@media (max-width: 520px) {
+  .burst { width: 92px; height: 92px; } .burst b { font-size: 2.1rem; }
+  li.it label { grid-template-columns: 20px 34px minmax(0, 1fr); gap: 8px; }
+  details.sec > summary { grid-template-columns: auto minmax(0, 1fr); }
+  details.sec > summary .meta { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-fwd .big, .anim-fwd .peek, .anim-back .big, .anim-back .peek { animation: none; }
+  .chev { transition: none; }
+}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="title">
+      <h1>Tauren Prot Warrior</h1>
+      <div class="sub">WoW Forever · Rend start, shield at 16</div>
+    </div>
+    <div class="burst" aria-live="polite"><div><small>Level</small><b id="lvl">1</b></div></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="stripbox" aria-labelledby="stripHead">
+    <div class="strip-head">
+      <h2 id="stripHead">Next point</h2>
+      <div class="trees" id="trees"></div>
+    </div>
+    <div class="strip" id="strip"></div>
+    <div class="build" id="build"></div>
+  </section>
+
+  <section class="bring panel" aria-labelledby="bringHead">
+    <h2 id="bringHead">Bring with you</h2>
+    <p class="hint" id="bringHint"></p>
+    <div class="stock" id="stock"></div>
+    <ul id="bringList"></ul>
+  </section>
+
+  <div class="tools">
+    <label class="switch"><input type="checkbox" id="hideDone" checked> Hide finished</label>
+    <button class="btn" id="markBelow">Mark below my level done</button>
+    <button class="btn" id="reset">Start over</button>
+  </div>
+
+  <div class="grid">
+    <section aria-labelledby="planHead" style="min-width:0">
+      <h2 class="col-head" id="planHead">Level checklist</h2>
+      <div class="secs" id="secs"></div>
+    </section>
+
+    <aside class="rail" aria-labelledby="refHead">
+      <h2 class="col-head" id="refHead">Quick reference</h2>
+
+      <details class="ref panel" id="ref-pull" open>
+        <summary><h3>Pull loop</h3><span class="chev">▶</span></summary>
+        <div class="in">
+          <p class="label">1–15 · two-hander, Battle Stance</p>
+          <ol>
+            <li>Charge, then Rend.</li>
+            <li>Thunder Clap when 2+ mobs.</li>
+            <li>Heroic Strike on spare rage. Skip it on a nearly dead mob.</li>
+            <li>Overpower whenever it lights up.</li>
+          </ol>
+          <p class="label">16+ · shield, AoE tanking</p>
+          <ol>
+            <li>Bank rage from the last pull.</li>
+            <li>Bloodrage on the run-in.</li>
+            <li>Charge. Straight into Defensive once you have Vanguard (29).</li>
+            <li>Thunder Clap, Battle Shout. Demo Shout after you have threat.</li>
+            <li>Shield Block up. Revenge on every proc.</li>
+            <li>Rend mobs that will live. Sunder the ones pulling away.</li>
+            <li>Spam Cleave and Thunder Clap. Heroic Strike on spare rage.</li>
+            <li>War Stomp at 3+ mobs or to stop a caster.</li>
+            <li>Going bad: Last Stand, Retaliation, potion.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ref panel" id="ref-stats" open>
+        <summary><h3>Stat priority</h3><span class="chev">▶</span></summary>
+        <div class="in">
+          <div class="phase" data-from="1" data-to="19">
+            <div class="ph">Questing, saving gold <span>1–19</span></div>
+            <div class="chain"><span>Stamina / Armor</span><i>›</i><span>HP5</span><i>›</i><span>Spirit</span><i>›</i><span>Strength</span><i>›</i><span>Agility</span></div>
+          </div>
+          <div class="phase" data-from="20" data-to="39">
+            <div class="ph">Dungeon gear <span>20–39</span></div>
+            <div class="chain"><span>Stamina / Armor</span><i>›</i><span>HP5</span><i>›</i><span>Strength = Agility</span><i>›</i><span>Spirit</span></div>
+          </div>
+          <div class="phase" data-from="40" data-to="60">
+            <div class="ph">Shield Slam online <span>40–60</span></div>
+            <div class="chain"><span>Stamina / Armor</span><i>›</i><span>Strength</span><i>›</i><span>Block value</span><i>›</i><span>HP5</span><i>›</i><span>Agility</span></div>
+          </div>
+          <ul>
+            <li>"of the Whale" greens: stamina and spirit together.</li>
+            <li>Tauren spirit only regens out of combat. It saves food money.</li>
+            <li>From 16: a fast one-hander, for more Cleave and Heroic Strike swings.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ref panel" id="ref-train">
+        <summary><h3>Weapon trainers</h3><span class="chev">▶</span></summary>
+        <div class="in">
+          <p>New warrior spells only come on even levels, so make town trips on even levels and train both at once. Weapon skills are 10 silver each.</p>
+          <div class="tblwrap">
+            <table class="tbl">
+              <thead><tr><th>City</th><th>Trainer</th><th>Teaches</th></tr></thead>
+              <tbody>
+                <tr><td>Thunder Bluff</td><td>Ansekhwa, Lower Rise</td><td>1H &amp; 2H maces, staves, guns</td></tr>
+                <tr><td>Orgrimmar</td><td>Sayoc, Valley of Honor (next to the warrior trainers)</td><td>1H &amp; 2H axes, daggers, fist, thrown, bows, staves</td></tr>
+                <tr><td>Undercity</td><td>Archibald, War Quarter (warrior trainers there too)</td><td>1H &amp; 2H swords, daggers, crossbows, polearms (20, 1g)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">Wingblade and most swords on the upgrade list need One-Handed Swords from Undercity.</p>
+        </div>
+      </details>
+
+      <details class="ref panel" id="ref-sustain">
+        <summary><h3>Sustain &amp; consumables</h3><span class="chev">▶</span></summary>
+        <div class="in">
+          <ul>
+            <li><b>Troll's Blood Elixir</b> (26): 12 HP5 for an hour.</li>
+            <li><b>Commander's Crest</b> (21, Shadowfang Keep): shield with +4 HP5.</li>
+            <li>Healing potions: Lesser 3, Standard 12, Greater 21, Superior 35, Major 45.</li>
+            <li>Victory Rush (20) and Thrill of Adventure heal between pulls.</li>
+            <li>Bandages, then cheap food. Cooked food also adds kill XP.</li>
+          </ul>
+          <p class="label">Stones (30 min, keep one up)</p>
+          <table class="tbl">
+            <thead><tr><th>Lvl</th><th>Tier</th><th>Damage</th></tr></thead>
+            <tbody>
+              <tr><td class="n">1</td><td>Rough</td><td class="n">+2</td></tr>
+              <tr><td class="n">5</td><td>Coarse</td><td class="n">+3</td></tr>
+              <tr><td class="n">15</td><td>Heavy</td><td class="n">+4</td></tr>
+              <tr><td class="n">25</td><td>Solid</td><td class="n">+6</td></tr>
+              <tr><td class="n">35</td><td>Dense</td><td class="n">+8</td></tr>
+            </tbody>
+          </table>
+          <p class="note">Weightstones for maces, sharpening stones for swords, axes and daggers.</p>
+        </div>
+      </details>
+
+      <details class="ref panel" id="ref-prof">
+        <summary><h3>Professions, camp &amp; Legacy</h3><span class="chev">▶</span></summary>
+        <div class="in">
+          <p class="label">Professions</p>
+          <ul>
+            <li>First Aid on every warrior.</li>
+            <li>Herbalism + Skinning for gold. No overlap with your partner's mining.</li>
+            <li>Cooking: food buffs plus bonus kill XP.</li>
+          </ul>
+          <p class="label">Camping</p>
+          <ul>
+            <li>Every profession unlocks a camp item at skill 20. Needs a campfire; one-hour shared cooldown.</li>
+            <li>Skinning: Camp Chair, 2% crit for everyone at the camp.</li>
+            <li>Field Guide upgrade (Skinning 140): blueprint from Lady Anacondra, Wailing Caverns. Adds Track Beasts.</li>
+          </ul>
+          <p class="label">Legacy points</p>
+          <ul>
+            <li>Start at 0. First point: Novice Warrior challenge at 25.</li>
+            <li>Crafting skill 150, 225 and 300 each earn one. Gathering doesn't count.</li>
+            <li>Spend on Thrill of Adventure to 5/5.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ref panel" id="ref-tauren">
+        <summary><h3>Tauren racials</h3><span class="chev">▶</span></summary>
+        <div class="in">
+          <ul>
+            <li><b>Endurance:</b> +5% health, +2% crit damage and healing.</li>
+            <li><b>War Stomp:</b> 2-second stun on up to 5 nearby enemies. 90-second cooldown.</li>
+          </ul>
+        </div>
+      </details>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    Built from beta data. Items tagged <span class="chk">check</span> may change at the Nov 4 launch, so confirm them in-game.
+    <ul>
+      <li><a href="https://mobalytics.gg/wow-forever/classes/warrior-leveling-guide" target="_blank" rel="noopener">Mobalytics: Warrior leveling guide</a></li>
+      <li><a href="https://mobalytics.gg/wow-forever/profile/kargoz/classes/1-60-protection-warrior-leveling-guide-weapons-talents-rotation-macros" target="_blank" rel="noopener">Mobalytics: 1–60 Protection leveling (Kargoz)</a></li>
+      <li><a href="https://mobalytics.gg/wow-forever/classes/protection-warrior-guide-kalltorak" target="_blank" rel="noopener">Mobalytics: Protection guide (Kalltorak)</a></li>
+      <li><a href="https://conquestcapped.com/guides/wow-forever/wow-forever-warrior-leveling/" target="_blank" rel="noopener">ConquestCapped: Warrior leveling</a></li>
+      <li><a href="https://talentsforever.com/warrior/leveling" target="_blank" rel="noopener">TalentsForever: Warrior leveling talents</a></li>
+      <li><a href="https://conquestcapped.com/guides/wow-forever/wow-forever-warrior-overview/" target="_blank" rel="noopener">ConquestCapped: Warrior abilities by level</a></li>
+      <li><a href="https://www.warcrafttavern.com/forever/guides/weapon-trainers/" target="_blank" rel="noopener">Warcraft Tavern: Weapon trainers</a></li>
+      <li><a href="https://www.gfinityesports.com/article/how-to-get-the-cozy-sleeping-bag-in-world-of-warcraft-forever" target="_blank" rel="noopener">Gfinity: Cozy Sleeping Bag</a></li>
+      <li><a href="https://www.wow-professions.com/forever/cooking-leveling-guide" target="_blank" rel="noopener">WoW-Professions: Forever cooking</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* ---------- talent path: one entry per level 10–60 ---------- */
+  var T = {
+    rend: ["Improved Rend", "arms", 3, "More Rend bleed damage. Your two-hander's best friend while questing."],
+    cruel: ["Cruelty", "fury", 5, "+1% melee crit per rank."],
+    shspec: ["Shield Specialization", "prot", 5, "More block chance, and rage on every block."],
+    imptc: ["Improved Thunder Clap", "prot", 3, "Cheaper, stronger Thunder Clap. Your AoE threat button."],
+    impbr: ["Improved Bloodrage", "prot", 2, "More rage from Bloodrage to open pulls."],
+    imprev: ["Improved Revenge", "prot", 3, "Revenge hits much harder and becomes your main attack."],
+    mod: ["Master of Defense", "prot", 2, "5 rage when you dodge or parry with a shield."],
+    ls: ["Last Stand", "prot", 1, "Emergency max-health button. 3-minute cooldown."],
+    defi: ["Defiance", "prot", 3, "More threat generated in Defensive Stance."],
+    vang: ["Vanguard", "prot", 1, "Charge in Defensive Stance and keep pooled rage between fights."],
+    conc: ["Concussion Blow", "prot", 1, "A stun. Skip for Bastion later if you like."],
+    focus: ["Focused Rage", "prot", 3, "Cheaper abilities."],
+    isw: ["Improved Shield Wall", "prot", 2, "Longer Shield Wall."],
+    bast: ["Bastion", "prot", 5, "Builds toward Shield Slam."],
+    slam: ["Shield Slam", "prot", 1, "The Protection capstone. Hits with your shield and generates big threat."],
+    defl: ["Deflection", "arms", 5, "+1% parry per rank."],
+    antic: ["Anticipation", "prot", 5, "More defense skill."],
+    isunder: ["Improved Sunder Armor", "prot", 3, "Cheaper Sunder Armor."],
+    lingr: ["Lingering Rage", "fury", 5, "Rage decays later after combat."]
+  };
+  var PATH = {};
+  function run(key, from, count, start) { for (var i = 0; i < count; i++) PATH[from + i] = [key, (start || 1) + i]; }
+  run("rend", 10, 3); run("cruel", 13, 3);
+  PATH[16] = ["RESPEC", 0];
+  run("imptc", 17, 1, 3); run("impbr", 18, 2); run("imprev", 20, 3); run("mod", 23, 2); run("ls", 25, 1);
+  run("defi", 26, 3); run("vang", 29, 1); run("conc", 30, 1); run("focus", 31, 3); run("isw", 34, 1);
+  run("bast", 35, 5); run("slam", 40, 1); run("isw", 41, 1, 2); run("cruel", 42, 5); run("defl", 47, 5);
+  run("antic", 52, 5); run("isunder", 57, 3); run("lingr", 60, 1);
+  var RESPEC = { shspec: 5, imptc: 2 };
+
+  /* ---------- checklist items. kinds: alert talent train trip gear consum prof tip ---------- */
+  var SECTIONS = [
+    { id: "s1", from: 1, to: 9, title: "Two-hander start", items: [
+      { id: "a1", lv: 1, k: "gear", t: "Use your starting two-handed mace", s: "Take two-handed quest rewards until 16. Keep a weightstone on it." },
+      { id: "a2", lv: 1, k: "prof", t: "Pick up First Aid, Herbalism, Skinning and Cooking", s: "Bandages heal between pulls; cooked food adds kill XP." },
+      { id: "a3", lv: 1, k: "tip", t: "Gear pre-20: Stamina/Armor, then HP5, then Spirit", s: "Look for \"of the Whale\" greens." },
+      { id: "a4", lv: 1, k: "tip", t: "Kill mobs while moving between quests" },
+      { id: "a6", lv: 5, k: "consum", t: "Coarse weightstone (+3)" },
+      { id: "a8", lv: 7, k: "prof", t: "Skinning 20: learn Camp Chair", s: "2% crit at your campfire." },
+      { id: "a9", lv: 8, k: "prof", t: "Cooking 10: Spiced Wolf Meat from the cooking trainer", s: "Stringy Wolf Meat + Mild Spices. Reported agility food; confirm the buff on the tooltip.", check: true }
+    ]},
+    { id: "s2", from: 10, to: 15, title: "Rend & Cruelty", items: [
+      { id: "b1", lv: 10, k: "alert", t: "Defensive Stance class quest", s: "Pick it up from your warrior trainer at 10." },
+      { id: "b2", lv: 10, k: "alert", t: "First talent point: Improved Rend 1/3" },
+      { id: "b3", lv: 10, k: "gear", t: "Level 10 class quest weapon (Thun'grim's Sword / Heirloom Sword)" },
+      { id: "b4", lv: 12, k: "trip", t: "Orgrimmar trip: Throwing and One-Handed Axes from Sayoc (10s each)", s: "Same visit as your level 12 training. Warrior trainers and Sayoc are both in the Valley of Honor. Thrown pulls can't be dodged or parried." },
+      { id: "b6", lv: 14, k: "trip", t: "Undercity trip: One-Handed Swords from Archibald (10s)", s: "Pair it with your level 14 training; Undercity's warrior trainers are in the same War Quarter. Needed for Wingblade at 18." },
+      { id: "b8", lv: 15, k: "gear", t: "Collect a shield and a fast one-hander now", s: "Hammer of Orgrimmar or Engineer's Hammer: maces, so no extra training." },
+      { id: "b9", lv: 15, k: "consum", t: "Heavy stone (+4)" }
+    ]},
+    { id: "s3", from: 16, to: 24, title: "Shield up", items: [
+      { id: "c1", lv: 16, k: "alert", t: "Respec at the trainer, swap to one-hander and shield", s: "A few silver. Rebuild as Shield Specialization 5/5 + Improved Thunder Clap 2/3." },
+      { id: "c2", lv: 16, k: "alert", t: "Shield Block: Prot turns on here", s: "Upgrade your shield as eagerly as your weapon." },
+      { id: "c3", lv: 16, k: "consum", t: "Elixir of Lesser Defense" },
+      { id: "c4", lv: 18, k: "gear", t: "Wingblade: \"Leaders of the Fang\", Wailing Caverns", s: "Needs One-Handed Swords. Good for 18–22." },
+      { id: "c5", lv: 18, k: "prof", t: "Wailing Caverns: Field Guide blueprint from Lady Anacondra", s: "Skinning camp upgrade, usable at Skinning 140." },
+      { id: "c7", lv: 20, k: "tip", t: "Dungeons start: Strength and Agility move above Spirit" },
+      { id: "c8", lv: 20, k: "consum", t: "Elixir of Ogre's Strength" },
+      { id: "c9", lv: 21, k: "gear", t: "Commander's Crest, Shadowfang Keep", s: "Shield with +4 HP5. Rare stat, worth farming." },
+      { id: "c10", lv: 21, k: "consum", t: "Greater Healing Potion" },
+      { id: "c11", lv: 22, k: "gear", t: "Weapons 20–30: Slatemetal Cutlass, Outlaw Sabre, Serrated Raptor Claw", s: "Dungeon drops: Meteor Shard, Bite of Serra'kis, Swinetusk Shank." },
+      { id: "c12", lv: 22, k: "tip", t: "Optional: Cozy Sleeping Bag quest chain", s: "Barrens → Westfall → Stonetalon → Loch Modan → Hillsbrad. Portable rested spot plus a small XP buff.", check: true }
+    ]},
+    { id: "s4", from: 25, to: 30, title: "Legacy & Vanguard", items: [
+      { id: "d1", lv: 25, k: "alert", t: "Novice Warrior challenge: first Legacy point", s: "Thrill of Adventure 1/5. Keep adding points until 5/5." },
+      { id: "d2", lv: 25, k: "consum", t: "Solid stone (+6), Elixir of Lesser Fortitude, Great Rage Potion" },
+      { id: "d3", lv: 26, k: "alert", t: "Troll's Blood Elixir unlocks", s: "12 HP5 for an hour. Keep one up while questing." },
+      { id: "d4", lv: 27, k: "consum", t: "Elixir of Agility" },
+      { id: "d5", lv: 29, k: "alert", t: "Vanguard: Charge in Defensive Stance", s: "Pulls now start in Defensive with pooled rage." },
+      { id: "d6", lv: 29, k: "consum", t: "Elixir of Defense" },
+      { id: "d7", lv: 30, k: "alert", t: "Berserker Stance and the level 30 class quest chain", s: "The Whirlwind Axe reward is a two-hander. Skip it for Prot.", check: true },
+      { id: "d8", lv: 30, k: "tip", t: "Dual spec may unlock at 30 instead of 40", check: true }
+    ]},
+    { id: "s5", from: 31, to: 40, title: "Road to Shield Slam", note: "Past the beta cap. Check talents after launch.", items: [
+      { id: "e1", lv: 32, k: "gear", t: "Weapons 30–40: Sword of Omen, Windstorm Hammer", s: "Also Electrocutioner Leg, Ironspline's Fist, Vanquisher's Sword." },
+      { id: "e2", lv: 35, k: "consum", t: "Dense stone (+8), Superior Healing Potion" },
+      { id: "e3", lv: 36, k: "alert", t: "Whirlwind (Berserker Stance)" },
+      { id: "e4", lv: 38, k: "tip", t: "Optional: Arms detour for Ravager (Herod, Scarlet Monastery)" },
+      { id: "e5", lv: 40, k: "alert", t: "Shield Slam", s: "Block value starts to matter. Strength moves back up." }
+    ]},
+    { id: "s6", from: 41, to: 60, title: "Run to 60", note: "Past the beta cap. Check talents after launch.", items: [
+      { id: "f1", lv: 43, k: "consum", t: "Elixir of Greater Defense, Major Healing Potion at 45" },
+      { id: "f2", lv: 44, k: "gear", t: "Weapons 40–50: Force of the Hippogryph, Thrash Blade" },
+      { id: "f3", lv: 52, k: "gear", t: "Weapons 50–60: Lord General's Sword, Mirah's Song" },
+      { id: "f4", lv: 55, k: "consum", t: "Elixir of the Grizzly, Elixir of the Phalanx" },
+      { id: "f5", lv: 60, k: "alert", t: "Respec for your endgame role" }
+    ]}
+  ];
+  /* trainer spells: even levels only (plus 1). Stances come from class quests. */
+  var TRAIN = {
+    2: ["Heroic Strike rank 2"], 4: ["Charge", "Rend"], 6: ["Thunder Clap"], 8: ["Hamstring"],
+    10: ["Taunt", "Sunder Armor", "Bloodrage"], 12: ["Overpower", "Shield Bash"],
+    14: ["Revenge", "Demoralizing Shout", "Tactical Mastery"], 16: ["Shield Block", "Mocking Blow"],
+    18: ["Disarm"], 20: ["Cleave", "Victory Rush", "Retaliation", "Slam"], 22: ["Intimidating Shout"],
+    24: ["Execute"], 26: ["Challenging Shout"], 28: ["Shield Wall"], 30: ["Berserker Rage", "Intercept"],
+    36: ["Whirlwind"], 38: ["Pummel"], 50: ["Recklessness"]
+  };
+  var TRAIN_NOTE = {
+    14: ["Revenge is your main attack once the shield is on. One older guide lists it at 16.", true, true],
+    20: ["Cleave is core to your AoE pulls. Bring coin.", true],
+    16: ["Shield Block is what makes Prot work.", true]
+  };
+  Object.keys(TRAIN).forEach(function (L) {
+    L = +L; var n = TRAIN_NOTE[L] || [];
+    var it = { id: "tr" + L, lv: L, k: n[1] ? "alert" : "train", t: "Trainer: " + TRAIN[L].join(", "), s: n[0], check: n[2] };
+    for (var i = 0; i < SECTIONS.length; i++) if (L >= SECTIONS[i].from && L <= SECTIONS[i].to) { SECTIONS[i].items.push(it); break; }
+  });
+  var KIND = { alert: "Don't miss", talent: "Talent", train: "Trainer", trip: "Town trip", gear: "Gear", consum: "Consumable", prof: "Profession", tip: "Tip" };
+  var BRING = { train: 1, trip: 1, gear: 1, consum: 1, prof: 1 };
+  var TREE = { arms: "Arms", fury: "Fury", prot: "Protection" };
+  var KEY = "tauren-prot-warrior-v2";
+
+  var state = { done: 0, checks: {}, hideDone: true, open: {} };
+  try {
+    var raw = localStorage.getItem(KEY);
+    if (raw) { var p = JSON.parse(raw); for (var k in p) state[k] = p[k]; }
+    else {
+      var old = JSON.parse(localStorage.getItem("tauren-prot-warrior-v1") || "null");
+      if (old && old.level) state.done = Math.max(0, Math.min(59, old.level - 1));
+    }
+  } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function level() { return 1 + state.done; }
+  function secFor(lv) { for (var i = 0; i < SECTIONS.length; i++) if (lv >= SECTIONS[i].from && lv <= SECTIONS[i].to) return SECTIONS[i].id; return null; }
+  function itemsAt(lv) { var out = []; SECTIONS.forEach(function (s) { s.items.forEach(function (i) { if (i.lv === lv) out.push(i); }); }); return out; }
+
+  // current talents after reaching level L
+  function buildAt(L) {
+    var b = {};
+    for (var lv = 10; lv <= L; lv++) {
+      var p = PATH[lv]; if (!p) continue;
+      if (p[0] === "RESPEC") { b = {}; for (var r in RESPEC) b[r] = RESPEC[r]; }
+      else b[p[0]] = p[1];
+    }
+    return b;
+  }
+
+  // card for reaching level L (2..60)
+  function card(L) {
+    if (L < 10) {
+      var its = itemsAt(L), hl = its[0];
+      return { L: L, type: "ding", name: "Ding!", rank: "No talent point yet", tree: "none", train: TRAIN[L],
+        why: hl ? hl.t + (hl.s ? ". " + hl.s : "") : "Keep questing with the two-hander. Talents start at 10." };
+    }
+    var p = PATH[L];
+    if (p[0] === "RESPEC") return { L: L, type: "respec", train: TRAIN[L], name: "Respec to Protection", rank: "Shield Specialization 5/5 + Improved Thunder Clap 2/3", tree: "prot",
+      why: "Visit the trainer, swap to one-hander and shield, and learn Shield Block. Prot turns on here." };
+    var t = T[p[0]];
+    return { L: L, type: "talent", name: t[0], rank: p[1] + "/" + t[2], tree: t[1], why: t[3], train: TRAIN[L] };
+  }
+
+  function renderStrip(dir) {
+    var L = level(), host = $("strip"), html = "";
+    var prevLabel = "Lvl " + L;
+    html += '<button class="prev" id="undo" ' + (state.done === 0 ? "disabled" : "") + ' aria-label="Undo last level"><span class="arr">‹</span><span>' + (state.done ? "Undo<br>" + esc(prevLabel) : "Start") + "</span></button>";
+    if (L >= 60) {
+      html += '<div class="cardx big panel"><span class="lvtag">Level 60</span><div class="tname">Max level!</div><p class="why">51 points spent: 40 Protection, 6 Fury, 5 Arms. Time to respec for your endgame role.</p></div>';
+    } else {
+      var c = card(L + 1);
+      html += '<div class="cardx big panel' + (c.type === "respec" ? " respec" : "") + '"><span class="lvtag">Level ' + c.L + "</span>" +
+        '<div class="tname">' + esc(c.name) + "</div>" +
+        '<div class="rank">' + (c.type === "talent" ? '<span class="rankbox">' + c.rank + "</span>" : '<span>' + esc(c.rank) + "</span>") +
+        '<span class="treetag t-' + c.tree + '">' + (TREE[c.tree] || "Leveling") + "</span></div>" +
+        '<p class="why">' + esc(c.why) + "</p>" +
+        (c.train ? '<p class="trainline"><span>Trainer</span>' + esc(c.train.join(", ")) + "</p>" : '<p class="trainline off">No trainer visit this level</p>') +
+        '<button class="go" id="spend">' + (c.type === "ding" ? "Hit level " + c.L : c.type === "respec" ? "Respec done" : "Point spent") + " ✓</button></div>";
+      [2, 3].forEach(function (n, idx) {
+        if (L + n > 60) { html += '<div class="cardx"></div>'; return; }
+        var q = card(L + n);
+        html += '<div class="cardx peek panel' + (idx ? " far" : "") + '"><div class="pl">Level ' + q.L + '</div><div class="pn">' + esc(q.name) + '</div><div class="pr">' + esc(q.type === "talent" ? q.rank : q.type === "respec" ? "Shield on" : "No point") + "</div>" + (q.train ? '<div class="pt">Trainer</div>' : "") + "</div>";
+      });
+    }
+    host.className = "strip" + (dir ? " anim-" + dir : "");
+    host.innerHTML = html;
+    var sp = $("spend"); if (sp) sp.addEventListener("click", function () { step(1); });
+    $("undo").addEventListener("click", function () { step(-1); });
+  }
+
+  function renderBuild() {
+    var b = buildAt(level()), pts = { arms: 0, fury: 0, prot: 0 }, chips = [];
+    Object.keys(T).forEach(function (k) {
+      if (!b[k]) return;
+      pts[T[k][1]] += b[k];
+      chips.push('<span class="chip c-' + T[k][1] + '">' + esc(T[k][0]) + " <b>" + b[k] + "/" + T[k][2] + "</b></span>");
+    });
+    $("trees").innerHTML = ["arms", "fury", "prot"].map(function (t) {
+      return '<span class="tree-pill"><i class="t-' + t + '"></i>' + TREE[t] + " " + pts[t] + "</span>";
+    }).join("");
+    $("build").innerHTML = '<span class="label">Your talents</span>' + (chips.length ? chips.join("") : '<span class="none">None yet. First point at level 10.</span>');
+  }
+
+  function stoneFor(L) {
+    var tier = L >= 35 ? "Dense (+8)" : L >= 25 ? "Solid (+6)" : L >= 15 ? "Heavy (+4)" : L >= 5 ? "Coarse (+3)" : "Rough (+2)";
+    return (L < 16 ? "Weightstone: " : "Stone: ") + tier;
+  }
+
+  function itemHTML(it, inBring) {
+    var d = !!state.checks[it.id];
+    return '<li class="it' + (it.k === "alert" ? " alert" : "") + (d ? " done" : "") + '"><label for="' + (inBring ? "bb-" : "cb-") + it.id + '">' +
+      '<input type="checkbox" id="' + (inBring ? "bb-" : "cb-") + it.id + '" data-id="' + it.id + '"' + (d ? " checked" : "") + ">" +
+      '<span class="lv">L' + it.lv + "</span>" +
+      '<span class="body"><span class="kind k-' + it.k + '">' + KIND[it.k] + '</span><span class="main">' + esc(it.t) + "</span>" +
+      (it.check ? '<span class="chk">check</span>' : "") +
+      (it.s ? '<span class="sub">' + esc(it.s) + "</span>" : "") + "</span></label></li>";
+  }
+
+  function renderBring() {
+    var L = level(), hi = Math.min(60, L + 2), list = [];
+    SECTIONS.forEach(function (s) { s.items.forEach(function (i) {
+      if ((BRING[i.k] || i.k === "alert") && i.lv <= hi && !state.checks[i.id] && (i.lv >= L - 2)) list.push(i);
+    }); });
+    list.sort(function (a, b) { return a.lv - b.lv; });
+    $("bringHint").textContent = "Gear, trips and consumables for levels " + Math.max(1, L - 2) + "–" + hi + ". Tick them off as you go.";
+    var stock = [stoneFor(L), "Bandages", "Food"];
+    if (L >= 26) stock.push("Troll's Blood Elixir");
+    if (L >= 3) stock.push(L >= 35 ? "Superior Healing Potion" : L >= 21 ? "Greater Healing Potion" : L >= 12 ? "Healing Potion" : "Lesser Healing Potion");
+    $("stock").innerHTML = stock.map(function (s) { return "<span>" + esc(s) + "</span>"; }).join("");
+    $("bringList").innerHTML = list.length ? list.map(function (i) { return itemHTML(i, true); }).join("") : '<li class="empty">Nothing to pick up right now. Go hit things.</li>';
+  }
+
+  function renderSecs() {
+    var L = level(), here = secFor(L), html = "";
+    SECTIONS.forEach(function (sec) {
+      var items = sec.items.slice().sort(function (a, b) { return a.lv - b.lv; });
+      var doneN = items.filter(function (i) { return state.checks[i.id]; }).length;
+      var isOpen = state.open[sec.id] !== undefined ? state.open[sec.id] : sec.id === here;
+      html += '<details class="sec panel' + (sec.id === here ? " here" : "") + (sec.to < L ? " past" : "") + '" data-sec="' + sec.id + '"' + (isOpen ? " open" : "") + ">";
+      html += '<summary><span class="range">Lv ' + sec.from + "–" + sec.to + '</span><span class="ttl">' + esc(sec.title) + '</span><span class="meta">' +
+        (sec.id === here ? '<span class="here-tag">You are here</span>' : "") + doneN + "/" + items.length + ' done <span class="chev">▶</span></span></summary>';
+      if (sec.note) html += '<p class="sec-note">' + esc(sec.note) + "</p>";
+      var shown = items.filter(function (i) { return !(state.hideDone && state.checks[i.id]); });
+      html += shown.length ? '<ul class="items">' + shown.map(function (i) { return itemHTML(i, false); }).join("") + "</ul>" : '<p class="empty">All finished here.</p>';
+      html += "</details>";
+    });
+    $("secs").innerHTML = html;
+  }
+
+  function renderPhases() {
+    var L = level();
+    document.querySelectorAll(".phase").forEach(function (el) { el.classList.toggle("on", L >= +el.dataset.from && L <= +el.dataset.to); });
+  }
+
+  function renderAll(dir) {
+    $("lvl").textContent = level();
+    $("hideDone").checked = state.hideDone;
+    renderStrip(dir); renderBuild(); renderBring(); renderSecs(); renderPhases();
+  }
+
+  function step(n) {
+    var before = secFor(level());
+    state.done = Math.max(0, Math.min(59, state.done + n));
+    if (secFor(level()) !== before) { state.open = {}; }
+    save(); renderAll(n > 0 ? "fwd" : "back");
+  }
+
+  function onCheck(e) {
+    var id = e.target.dataset && e.target.dataset.id; if (!id) return;
+    if (e.target.checked) state.checks[id] = true; else delete state.checks[id];
+    save();
+    var li = e.target.closest("li"); if (li) li.classList.toggle("done", e.target.checked);
+    setTimeout(function () { renderBring(); renderSecs(); }, e.target.checked ? 300 : 0);
+  }
+  $("secs").addEventListener("change", onCheck);
+  $("bringList").addEventListener("change", onCheck);
+  $("secs").addEventListener("toggle", function (e) {
+    var d = e.target; if (!d.dataset || !d.dataset.sec) return;
+    state.open[d.dataset.sec] = d.open; save();
+  }, true);
+  $("hideDone").addEventListener("change", function (e) { state.hideDone = e.target.checked; save(); renderSecs(); });
+  $("markBelow").addEventListener("click", function () {
+    var L = level();
+    SECTIONS.forEach(function (s) { s.items.forEach(function (i) { if (i.lv < L) state.checks[i.id] = true; }); });
+    save(); renderBring(); renderSecs();
+  });
+  var resetTimer = null;
+  $("reset").addEventListener("click", function (e) {
+    var b = e.currentTarget; clearTimeout(resetTimer);
+    if (b.classList.contains("warn")) {
+      state.done = 0; state.checks = {}; state.open = {}; save(); renderAll("back");
+      b.classList.remove("warn"); b.textContent = "Back to level 1";
+      resetTimer = setTimeout(function () { b.textContent = "Start over"; }, 1800);
+    } else {
+      b.classList.add("warn"); b.textContent = "Tap again to reset";
+      resetTimer = setTimeout(function () { b.classList.remove("warn"); b.textContent = "Start over"; }, 3000);
+    }
+  });
+
+  renderAll();
+})();
+</script>
+
+</body></html>
