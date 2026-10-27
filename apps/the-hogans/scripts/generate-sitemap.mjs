@@ -45,20 +45,25 @@ function toRoute(file) {
   return route;
 }
 
-function* standaloneApps() {
-  const PUBLIC = join(APP, 'public');
-  for (const entry of readdirSync(PUBLIC, { withFileTypes: true })) {
+// Nested folders count too: public/wow/prot-warrior/index.html is /wow/prot-warrior.
+function* standaloneApps(dir, prefix = '') {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
     if (!entry.isDirectory()) continue;
+    const route = `${prefix}/${entry.name}`;
     try {
-      const html = readFileSync(join(PUBLIC, entry.name, 'index.html'), 'utf8');
-      if (!NOINDEX.test(html)) yield `/${entry.name}`;
+      const html = readFileSync(join(dir, entry.name, 'index.html'), 'utf8');
+      if (!NOINDEX.test(html)) yield route;
     } catch {
       // no index.html: just an asset folder (e.g. public/car-care photos)
     }
+    yield* standaloneApps(join(dir, entry.name), route);
   }
 }
 
-const routes = [...[...walk(PAGES)].map(toRoute), ...standaloneApps()]
+const routes = [
+  ...[...walk(PAGES)].map(toRoute),
+  ...standaloneApps(join(APP, 'public')),
+]
   .filter(Boolean)
   .sort((a, b) => (a === '/' ? -1 : b === '/' ? 1 : a.localeCompare(b)));
 
