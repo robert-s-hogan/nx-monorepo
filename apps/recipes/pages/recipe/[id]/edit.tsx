@@ -66,13 +66,13 @@ export default function EditRecipe() {
     <RecipesLayout
       title={`Edit: ${recipe.title}`}
       navActions={
-        <Link href={`/recipe/${id}`} className="bg-white text-blue-600 text-sm px-3 py-1.5 rounded font-semibold">
+        <Link href={`/recipe/${id}`} className="rc-dbtn">
           Back
         </Link>
       }
     >
-      <div className="container mx-auto px-4 py-4" style={{ maxWidth: 760 }}>
-        <h2 className="text-2xl font-bold mb-4">Edit Recipe</h2>
+      <div className="rc-wrap rc-main" style={{ maxWidth: 760 }}>
+        <h2 className="rc-page-title">Edit Recipe</h2>
         <RecipeForm
           value={form}
           onChange={setForm}

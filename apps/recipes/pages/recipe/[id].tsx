@@ -4,6 +4,11 @@ import Link from 'next/link';
 import { useAuth, useAuthedFetch } from '@with-nx/auth';
 
 import RecipesLayout from '../../components/RecipesLayout';
+import CookingNow from '../../components/CookingNow';
+import IngredientsPanel from '../../components/IngredientsPanel';
+import StepsPanel from '../../components/StepsPanel';
+import { cookStore, emptyProgress, updateProgress } from '../../lib/cookStore';
+import { useLocalStore } from '../../lib/localStore';
 import type { Recipe } from '../../types';
 
 function RecipeDetail() {
@@ -15,9 +20,11 @@ function RecipeDetail() {
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const [notFound, setNotFound] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const cook = useLocalStore(cookStore);
 
   useEffect(() => {
     if (!id) return;
+    setNotFound(false);
     fetch(`/api/recipes/${id}`).then(async (res) => {
       if (res.status === 404) {
         setNotFound(true);
@@ -27,6 +34,19 @@ function RecipeDetail() {
     });
   }, [id]);
 
+  // "Go to step" on a timer links here with ?step=N. Jump to it, then drop
+  // the query so a reload doesn't jump again.
+  const stepParam = typeof router.query.step === 'string' ? Number(router.query.step) : null;
+  useEffect(() => {
+    if (!recipe || String(recipe.id) !== id || stepParam === null) return;
+    if (Number.isInteger(stepParam)) updateProgress(recipe, () => ({ step: stepParam }));
+    router.replace(`/recipe/${recipe.id}`, undefined, { shallow: true, scroll: false });
+    requestAnimationFrame(() =>
+      document.getElementById(`step-${stepParam}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [recipe, id, stepParam]);
+
   async function handleDelete() {
     await authedFetch(`/api/recipes/${id}`, { method: 'DELETE' });
     router.push('/');
@@ -35,14 +55,19 @@ function RecipeDetail() {
   if (notFound) {
     return (
       <RecipesLayout>
-        <div className="container mx-auto max-w-4xl px-4 py-8 text-center text-gray-500">
-          Recipe not found.
-        </div>
+        <div className="rc-wrap rc-empty">Recipe not found.</div>
       </RecipesLayout>
     );
   }
 
   if (!recipe) return null;
+
+  const progress = cook.recipes[recipe.id] ?? emptyProgress(recipe.title, recipe.steps.length);
+  const meta = [
+    ['Serves', recipe.servings],
+    ['Prep', recipe.prep_time],
+    ['Cook', recipe.cook_time],
+  ].filter(([, value]) => value);
 
   return (
     <RecipesLayout
@@ -50,97 +75,56 @@ function RecipeDetail() {
       navActions={
         <>
           {canEdit && (
-            <Link href={`/recipe/${recipe.id}/edit`} className="bg-white text-blue-600 text-sm px-3 py-1.5 rounded font-semibold">
+            <Link href={`/recipe/${recipe.id}/edit`} className="rc-dbtn">
               Edit
             </Link>
           )}
-          <Link href="/" className="border border-white text-white text-sm px-3 py-1.5 rounded">
-            Back
+          <Link href="/" className="rc-dbtn">
+            All recipes
           </Link>
         </>
       }
     >
-      <div className="container mx-auto px-4 py-4" style={{ maxWidth: 760 }}>
-        <h1 className="text-3xl font-bold mb-2">{recipe.title}</h1>
+      <div className="rc-wrap rc-main">
+        <CookingNow excludeId={recipe.id} />
 
-        {(recipe.prep_time || recipe.cook_time || recipe.servings) && (
-          <div className="flex gap-4 mb-3 text-gray-500">
-            {recipe.prep_time && (
-              <div>
-                <span className="font-semibold">Prep:</span> {recipe.prep_time}
-              </div>
-            )}
-            {recipe.cook_time && (
-              <div>
-                <span className="font-semibold">Cook:</span> {recipe.cook_time}
-              </div>
-            )}
-            {recipe.servings && (
-              <div>
-                <span className="font-semibold">Serves:</span> {recipe.servings}
-              </div>
-            )}
-          </div>
-        )}
+        <div className="rc-rhead">
+          <h1>{recipe.title}</h1>
+          {meta.length > 0 && (
+            <div className="rc-meta">
+              {meta.map(([label, value]) => (
+                <span key={label}>
+                  {label} <b>{value}</b>
+                </span>
+              ))}
+            </div>
+          )}
+          {recipe.description && <p className="rc-description">{recipe.description}</p>}
+        </div>
 
-        {recipe.description && <p className="text-lg text-gray-700 mb-4">{recipe.description}</p>}
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="md:col-span-1">
-            <h4 className="border-b border-gray-300 pb-2 font-bold text-lg mb-2">Ingredients</h4>
-            {recipe.ingredients.length === 0 ? (
-              <p className="text-gray-500">None listed.</p>
-            ) : (
-              <ul className="space-y-1">
-                {recipe.ingredients.map((ing, i) => (
-                  <li key={i}>
-                    <label className="flex items-start gap-2">
-                      <input type="checkbox" className="mt-1 shrink-0" />
-                      <span>{ing}</span>
-                    </label>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          <div className="md:col-span-2">
-            <h4 className="border-b border-gray-300 pb-2 font-bold text-lg mb-2">Instructions</h4>
-            {recipe.steps.length === 0 ? (
-              <p className="text-gray-500">None listed.</p>
-            ) : (
-              <ol className="steps-list list-decimal list-inside space-y-3">
-                {recipe.steps.map((step, i) => (
-                  <li key={i}>{step}</li>
-                ))}
-              </ol>
-            )}
-          </div>
+        <div className="rc-cook">
+          <IngredientsPanel recipe={recipe} progress={progress} units={cook.units} hideChecked={cook.hideChecked} />
+          <StepsPanel recipe={recipe} progress={progress} />
         </div>
 
         {canEdit && (
-          <>
-            <hr className="my-6" />
-
+          <div className="rc-danger">
             {confirmDelete ? (
-              <div className="flex items-center gap-2 text-gray-500">
+              <>
                 <span>Delete this recipe?</span>
-                <button onClick={handleDelete} className="bg-red-600 hover:bg-red-700 text-white text-sm px-3 py-1.5 rounded font-semibold">
+                <button type="button" onClick={handleDelete} className="rc-btn rc-btn-danger">
                   Yes, delete
                 </button>
-                <button onClick={() => setConfirmDelete(false)} className="border border-gray-300 text-sm px-3 py-1.5 rounded">
+                <button type="button" onClick={() => setConfirmDelete(false)} className="rc-btn">
                   Cancel
                 </button>
-              </div>
+              </>
             ) : (
-              <button
-                onClick={() => setConfirmDelete(true)}
-                className="border border-red-600 text-red-600 hover:bg-red-50 text-sm px-3 py-1.5 rounded"
-              >
-                Delete Recipe
+              <button type="button" onClick={() => setConfirmDelete(true)} className="rc-btn rc-btn-danger-outline">
+                Delete recipe
               </button>
             )}
-          </>
+          </div>
         )}
       </div>
     </RecipesLayout>

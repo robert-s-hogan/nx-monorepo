@@ -91,9 +91,11 @@ Cook: 30 min
 Servings: 4
 
 Ingredients
-- ingredient one
-- ingredient two
+- 1 cup ingredient one
+- 2 tbsp ingredient two
+Toppings:
+- optional group of ingredients
 
 Instructions
 1. First step
-2. Second step`;
+2. Second step, e.g. bake for 20 minutes`;

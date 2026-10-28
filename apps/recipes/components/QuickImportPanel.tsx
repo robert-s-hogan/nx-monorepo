@@ -32,22 +32,22 @@ export default function QuickImportPanel({ onParsed }: Props) {
   };
 
   return (
-    <div className="mb-4 border border-blue-600 rounded">
-      <div className="bg-blue-600 text-white font-semibold px-4 py-2 rounded-t">
+    <div className="rc-panel mb-4">
+      <div className="rc-panel-head">
         Quick Import — Paste or Upload
       </div>
-      <div className="p-4">
-        <p className="text-gray-500 text-sm mb-2">
+      <div className="rc-panel-body">
+        <p className="rc-hint mb-2">
           Paste a recipe from anywhere, or upload a .txt file. We&apos;ll fill in the fields below automatically.
         </p>
         <div className="flex items-center justify-between gap-2 mb-2">
-          <p className="text-gray-500 text-sm">
+          <p className="rc-hint">
             Reformatting with an AI first? Copy the expected format below and give it to the AI.
           </p>
           <button
             type="button"
             onClick={() => copyToClipboard(RECIPE_FORMAT_TEMPLATE, setCopied)}
-            className="shrink-0 border border-gray-300 hover:bg-gray-100 px-3 py-1.5 rounded text-sm"
+            className="rc-btn rc-btn-small shrink-0"
           >
             {copied ? 'Copied!' : 'Copy Format'}
           </button>
@@ -57,17 +57,17 @@ export default function QuickImportPanel({ onParsed }: Props) {
           value={pasteText}
           onChange={(e) => setPasteText(e.target.value)}
           placeholder="Paste recipe text here..."
-          className="w-full border border-gray-300 rounded px-3 py-2 mb-2"
+          className="rc-input mb-2"
         />
         <div className="flex flex-wrap items-center gap-2">
           <button
             type="button"
             onClick={() => doParse(pasteText)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded"
+            className="rc-btn rc-btn-primary rc-btn-small"
           >
             Parse &amp; Fill Form
           </button>
-          <label className="border border-gray-300 hover:bg-gray-100 px-3 py-1.5 rounded cursor-pointer">
+          <label className="rc-btn rc-btn-small">
             Upload .txt file
             <input ref={fileRef} type="file" accept=".txt,.md" onChange={handleFile} className="hidden" />
           </label>
@@ -77,13 +77,13 @@ export default function QuickImportPanel({ onParsed }: Props) {
               setPasteText('');
               setShowAlert(false);
             }}
-            className="text-gray-500 hover:text-gray-700 underline"
+            className="rc-muted underline"
           >
             Clear
           </button>
         </div>
         {showAlert && (
-          <div className="bg-green-100 text-green-800 rounded px-3 py-2 mt-2">
+          <div className="rc-alert">
             Fields filled — review and save below.
           </div>
         )}

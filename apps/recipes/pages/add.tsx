@@ -45,13 +45,13 @@ export default function AddRecipe() {
   return (
     <RecipesLayout
       navActions={
-        <Link href="/" className="bg-white text-blue-600 text-sm px-3 py-1.5 rounded font-semibold">
+        <Link href="/" className="rc-dbtn">
           Back
         </Link>
       }
     >
-      <div className="container mx-auto px-4 py-4" style={{ maxWidth: 760 }}>
-        <h2 className="text-2xl font-bold mb-4">Add Recipe</h2>
+      <div className="rc-wrap rc-main" style={{ maxWidth: 760 }}>
+        <h2 className="rc-page-title">Add Recipe</h2>
 
         <QuickImportPanel
           onParsed={(parsed) => {

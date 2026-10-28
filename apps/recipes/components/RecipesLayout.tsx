@@ -21,7 +21,7 @@ const RecipesLayout = ({
       header={<RecipesNavbar actions={navActions} />}
       hideNavBar={hideNavBarProp}
       footer={<FloatingFooter currentApp="recipes" />}
-      className={`min-h-screen bg-gray-50 pb-16 ${className ?? ''}`}
+      className={`rc-page ${className ?? ''}`}
     >
       <Seo
         title={title ? title : 'My Recipes'}
