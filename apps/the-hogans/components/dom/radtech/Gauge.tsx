@@ -1,6 +1,6 @@
-import { ProgressState, RequirementGroup } from '../types';
-import { C } from '../lib/catalog';
-import { st, totals, TOTAL_UNITS } from '../lib/reqMath';
+import { ProgressState, RequirementGroup } from './types';
+import { C } from './catalog';
+import { st, totals, TOTAL_UNITS } from './reqMath';
 
 const fmt = (n: number) => (n % 1 ? n.toFixed(1) : String(n));
 

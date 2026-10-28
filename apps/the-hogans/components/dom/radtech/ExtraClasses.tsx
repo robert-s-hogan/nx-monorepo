@@ -5,7 +5,7 @@
 // 27-unit gauge; purely so nothing he's actually taking falls through the
 // cracks.
 import { useState } from 'react';
-import { ExtraCourse } from '../types';
+import { ExtraCourse } from './types';
 
 interface ExtraClassesProps {
   extras: ExtraCourse[];

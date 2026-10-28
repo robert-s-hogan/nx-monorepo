@@ -19,6 +19,23 @@ Everything under `/dom` needs a login (folders are listed in
       Vercel → `nx-the-hogans`, so sign-in also works on pull-request preview
       builds. They're Production-only now.
 
+### radtech-tracker (moved to the-hogans `/dom/radtech`)
+
+- [ ] **Before merging:** Vercel → `nx-the-hogans` → Settings → Environment
+      Variables → add these two, ticking **Sensitive** and both
+      **Production** and **Preview**. Copy the values from your `.env.local`
+      (same names), without quotes.
+  - `RADTECH_TRACKER_TURSO_DATABASE_URL`
+  - `RADTECH_TRACKER_TURSO_AUTH_TOKEN`
+- [ ] **After it deploys:** sign in at `https://www.the-hogans.com/dom/radtech`
+      and check the plan shows (5 terms, 3 courses tracked).
+- [ ] **Then:** delete the `nx-radtech-tracker` Vercel project (Settings →
+      Advanced → Delete Project). Until then its `main` build fails, because
+      the app is gone. Tell Dom the new link.
+- [ ] Optional, later: the tracker now reads one shared row (`shared:dom`) in
+      the `progress` table. The old per-email row is still there as a backup
+      and can be deleted once you're happy.
+
 ## Done
 
 - **the-hogans login** (2026-10-26): `NEXT_PUBLIC_AUTH_SUPABASE_URL`,

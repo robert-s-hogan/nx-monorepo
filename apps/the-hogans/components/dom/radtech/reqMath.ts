@@ -13,7 +13,7 @@ import {
   ProgressState,
   RequirementGroup,
   Term,
-} from '../types';
+} from './types';
 import { C, TOTAL_UNITS } from './catalog';
 
 export function cs(state: ProgressState, id: CourseId): CourseState {

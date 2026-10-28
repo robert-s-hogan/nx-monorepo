@@ -8,8 +8,8 @@ import { getRoleForEmail, Role } from './allowlist';
 // itself, since RequireAuth only gates page rendering, not the API.
 //
 // Returns the verified email alongside the role for routes that need to key
-// data per-user (e.g. radtech-tracker's single-row-per-email progress
-// table) rather than just gate on role membership.
+// data per-user (e.g. one row per email) rather than just gate on role
+// membership.
 export async function getUserFromRequest(
   req: NextApiRequest
 ): Promise<{ email: string; role: Role | null } | null> {

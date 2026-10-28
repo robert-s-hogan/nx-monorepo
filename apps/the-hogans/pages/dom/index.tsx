@@ -7,6 +7,12 @@ import styles from '../../components/Hub.module.css';
 // adding a page here is: put it in pages/dom/ and list it below.
 const PAGES = [
   {
+    href: '/dom/radtech',
+    title: 'RadTech prereqs',
+    blurb:
+      'SRJC Radiologic Technology requirements, semester plan and weekly schedule.',
+  },
+  {
     href: '/dom/car-care',
     title: 'Car care',
     blurb: 'Beginner maintenance: oil, tires, fluids, and when to call a pro.',

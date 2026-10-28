@@ -14,16 +14,19 @@ function createTursoClient(): Client {
 
   if (!url || !authToken) {
     throw new Error(
-      'Missing RADTECH_TRACKER_TURSO_DATABASE_URL or RADTECH_TRACKER_TURSO_AUTH_TOKEN — set them in .env.local (local) or Vercel Environment Variables (production).'
+      'Missing RADTECH_TRACKER_TURSO_DATABASE_URL or RADTECH_TRACKER_TURSO_AUTH_TOKEN — set them in .env.local (local) or Vercel Environment Variables (production).',
     );
   }
 
   return createClient({ url, authToken });
 }
 
-// Reuse a single client across hot reloads / lambda invocations.
-export const db = global.__radtechTrackerTursoClient ?? createTursoClient();
-
-if (process.env.NODE_ENV !== 'production') {
-  global.__radtechTrackerTursoClient = db;
+// Created on first use, not at import, so the API route's login check runs
+// (and answers 401) even when the env vars are missing. Reused across hot
+// reloads / lambda invocations.
+export function getDb(): Client {
+  if (!global.__radtechTrackerTursoClient) {
+    global.__radtechTrackerTursoClient = createTursoClient();
+  }
+  return global.__radtechTrackerTursoClient;
 }

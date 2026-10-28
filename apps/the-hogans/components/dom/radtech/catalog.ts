@@ -4,7 +4,7 @@
 // unit prerequisite group thresholds all match exactly). Static curriculum
 // data — never touches the DB, only his per-course status/term/schedule
 // does (see types/index.ts ProgressState).
-import { Course, CourseId, RequirementGroup } from '../types';
+import { Course, CourseId, RequirementGroup } from './types';
 
 export const C: Record<CourseId, Course> = {
   CS5: { code: 'CS 5', t: 'Computer Literacy', u: 3 },

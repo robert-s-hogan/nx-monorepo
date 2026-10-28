@@ -1,6 +1,6 @@
-import { C, DAYS } from '../lib/catalog';
-import { clashesIn, coursesInTerm, prereqCheck } from '../lib/reqMath';
-import { CourseId, ProgressState } from '../types';
+import { C, DAYS } from './catalog';
+import { clashesIn, coursesInTerm, prereqCheck } from './reqMath';
+import { CourseId, ProgressState } from './types';
 
 interface PlannerViewProps {
   state: ProgressState;

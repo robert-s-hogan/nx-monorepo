@@ -1,9 +1,9 @@
 // The Week tab — the part that matters most once he's registering for real
 // sections next term. Ported exactly from the original renderWeek(): same
 // hour range, same block positioning math, same conflict highlighting.
-import { C, DAYFULL } from '../lib/catalog';
-import { clashesIn, coursesInTerm } from '../lib/reqMath';
-import { ProgressState } from '../types';
+import { C, DAYFULL } from './catalog';
+import { clashesIn, coursesInTerm } from './reqMath';
+import { ProgressState } from './types';
 
 const H0 = 7;
 const H1 = 22;
