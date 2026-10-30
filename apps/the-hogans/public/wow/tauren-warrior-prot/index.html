@@ -210,7 +210,17 @@ li.it.alert .lv { color: var(--blood); }
 .k-gear, .k-consum, .k-prof, .k-tip { background: var(--panel); color: var(--fg); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .k-talent { color: var(--ink); } }
 :root[data-theme="dark"] .k-talent { color: var(--ink); }
+.k-dq { background: var(--ok); color: var(--panel); }
+.k-pre { background: var(--panel); color: var(--blood); border: 1.5px dashed var(--blood); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .k-dq { color: var(--ink); } }
+:root[data-theme="dark"] .k-dq { color: var(--ink); }
 .chk { font: 700 .68rem var(--font-label); text-transform: uppercase; letter-spacing: .06em; color: var(--blood); border: 1.5px dashed var(--blood); padding: 0 4px; margin-left: 6px; white-space: nowrap; }
+.miss { font: 700 .68rem var(--font-label); text-transform: uppercase; letter-spacing: .06em; background: var(--blood); color: var(--blood-ink); padding: 0 5px; margin-left: 6px; white-space: nowrap; }
+li.it .at { display: block; font: 600 .84rem var(--font-label); letter-spacing: .02em; margin-top: 2px; }
+li.it .need { display: block; font-size: .86rem; font-weight: 600; color: var(--blood); margin-top: 2px; }
+.dgtbl tr.on td { background: var(--gold); color: var(--gold-ink); }
+.dgtbl tr.soon td { background: var(--sunk); }
+.dgtbl td.dn { font-weight: 600; }
 .empty { padding: 2px 16px 14px; color: var(--muted); font-size: .92rem; }
 
 /* reference rail */
@@ -342,6 +352,20 @@ footer a { word-break: break-word; }
         </div>
       </details>
 
+      <details class="ref panel" id="ref-dungeons" open>
+        <summary><h3>Dungeons to 26</h3><span class="chev">▶</span></summary>
+        <div class="in">
+          <p>Do prereqs and gather every quest <b>before</b> you queue. Group up once the first mobs inside are green (3+ levels below you).</p>
+          <div class="tblwrap">
+            <table class="tbl dgtbl">
+              <thead><tr><th>Dungeon</th><th>Range</th><th>Prereqs</th><th>Quests</th><th>Group</th><th>Gray</th></tr></thead>
+              <tbody id="dgRows"></tbody>
+            </table>
+          </div>
+          <p class="note">Yellow: group up now. Shaded: get prereqs and quests ready. Group and Gray levels are estimated from the level range, assuming the first mobs inside sit at its low end. <span class="chk">check</span> them at the door.</p>
+        </div>
+      </details>
+
       <details class="ref panel" id="ref-train">
         <summary><h3>Weapon trainers</h3><span class="chev">▶</span></summary>
         <div class="in">
@@ -434,6 +458,10 @@ footer a { word-break: break-word; }
       <li><a href="https://conquestcapped.com/guides/wow-forever/wow-forever-warrior-overview/" target="_blank" rel="noopener">ConquestCapped: Warrior abilities by level</a></li>
       <li><a href="https://www.warcrafttavern.com/forever/guides/weapon-trainers/" target="_blank" rel="noopener">Warcraft Tavern: Weapon trainers</a></li>
       <li><a href="https://www.gfinityesports.com/article/how-to-get-the-cozy-sleeping-bag-in-world-of-warcraft-forever" target="_blank" rel="noopener">Gfinity: Cozy Sleeping Bag</a></li>
+      <li><a href="https://www.warcrafttavern.com/forever/guides/dungeons/" target="_blank" rel="noopener">Warcraft Tavern: Dungeon level ranges</a></li>
+      <li><a href="https://foreverchanges.pro/dungeons" target="_blank" rel="noopener">ForeverChanges: Dungeon quests</a></li>
+      <li><a href="https://www.warcrafttavern.com/forever/guides/the-ruins-of-lordaeron-quests/" target="_blank" rel="noopener">Warcraft Tavern: Ruins of Lordaeron quests</a></li>
+      <li><a href="https://www.wowhead.com/classic/quest=5726/hidden-enemies" target="_blank" rel="noopener">Wowhead: Hidden Enemies chain</a></li>
       <li><a href="https://www.wow-professions.com/forever/cooking-leveling-guide" target="_blank" rel="noopener">WoW-Professions: Forever cooking</a></li>
     </ul>
   </div>
@@ -489,7 +517,7 @@ footer a { word-break: break-word; }
       { id: "b2", lv: 10, k: "alert", t: "First talent point: Improved Rend 1/3" },
       { id: "b3", lv: 10, k: "gear", t: "Level 10 class quest weapon (Thun'grim's Sword / Heirloom Sword)" },
       { id: "b4", lv: 12, k: "trip", t: "Orgrimmar trip: Throwing and One-Handed Axes from Sayoc (10s each)", s: "Same visit as your level 12 training. Warrior trainers and Sayoc are both in the Valley of Honor. Thrown pulls can't be dodged or parried." },
-      { id: "b6", lv: 14, k: "trip", t: "Undercity trip: One-Handed Swords from Archibald (10s)", s: "Pair it with your level 14 training; Undercity's warrior trainers are in the same War Quarter. Needed for Wingblade at 18." },
+      { id: "b6", lv: 14, k: "trip", t: "Undercity trip: One-Handed Swords from Archibald (10s)", s: "Pair it with your level 14 training; Undercity's warrior trainers are in the same War Quarter. Needed for Wingblade from Wailing Caverns." },
       { id: "b8", lv: 15, k: "gear", t: "Collect a shield and a fast one-hander now", s: "Hammer of Orgrimmar or Engineer's Hammer: maces, so no extra training." },
       { id: "b9", lv: 15, k: "consum", t: "Heavy stone (+4)" }
     ]},
@@ -497,11 +525,10 @@ footer a { word-break: break-word; }
       { id: "c1", lv: 16, k: "alert", t: "Respec at the trainer, swap to one-hander and shield", s: "A few silver. Rebuild as Shield Specialization 5/5 + Improved Thunder Clap 2/3." },
       { id: "c2", lv: 16, k: "alert", t: "Shield Block: Prot turns on here", s: "Upgrade your shield as eagerly as your weapon." },
       { id: "c3", lv: 16, k: "consum", t: "Elixir of Lesser Defense" },
-      { id: "c4", lv: 18, k: "gear", t: "Wingblade: \"Leaders of the Fang\", Wailing Caverns", s: "Needs One-Handed Swords. Good for 18–22." },
-      { id: "c5", lv: 18, k: "prof", t: "Wailing Caverns: Field Guide blueprint from Lady Anacondra", s: "Skinning camp upgrade, usable at Skinning 140." },
+      { id: "c5", lv: 20, k: "prof", t: "Wailing Caverns: Field Guide blueprint from Lady Anacondra", s: "Skinning camp upgrade, usable at Skinning 140." },
       { id: "c7", lv: 20, k: "tip", t: "Dungeons start: Strength and Agility move above Spirit" },
       { id: "c8", lv: 20, k: "consum", t: "Elixir of Ogre's Strength" },
-      { id: "c9", lv: 21, k: "gear", t: "Commander's Crest, Shadowfang Keep", s: "Shield with +4 HP5. Rare stat, worth farming." },
+      { id: "c9", lv: 23, k: "gear", t: "Commander's Crest, Shadowfang Keep", s: "Shield with +4 HP5. Rare stat, worth farming." },
       { id: "c10", lv: 21, k: "consum", t: "Greater Healing Potion" },
       { id: "c11", lv: 22, k: "gear", t: "Weapons 20–30: Slatemetal Cutlass, Outlaw Sabre, Serrated Raptor Claw", s: "Dungeon drops: Meteor Shard, Bite of Serra'kis, Swinetusk Shank." },
       { id: "c12", lv: 22, k: "tip", t: "Optional: Cozy Sleeping Bag quest chain", s: "Barrens → Westfall → Stonetalon → Loch Modan → Hillsbrad. Portable rested spot plus a small XP buff.", check: true }
@@ -545,13 +572,91 @@ footer a { word-break: break-word; }
     20: ["Cleave is core to your AoE pulls. Bring coin.", true],
     16: ["Shield Block is what makes Prot work.", true]
   };
+  function place(it) {
+    for (var i = 0; i < SECTIONS.length; i++) if (it.lv >= SECTIONS[i].from && it.lv <= SECTIONS[i].to) { SECTIONS[i].items.push(it); return; }
+  }
   Object.keys(TRAIN).forEach(function (L) {
     L = +L; var n = TRAIN_NOTE[L] || [];
-    var it = { id: "tr" + L, lv: L, k: n[1] ? "alert" : "train", t: "Trainer: " + TRAIN[L].join(", "), s: n[0], check: n[2] };
-    for (var i = 0; i < SECTIONS.length; i++) if (L >= SECTIONS[i].from && L <= SECTIONS[i].to) { SECTIONS[i].items.push(it); break; }
+    place({ id: "tr" + L, lv: L, k: n[1] ? "alert" : "train", t: "Trainer: " + TRAIN[L].join(", "), s: n[0], check: n[2] });
   });
-  var KIND = { alert: "Don't miss", talent: "Talent", train: "Trainer", trip: "Town trip", gear: "Gear", consum: "Consumable", prof: "Profession", tip: "Tip" };
-  var BRING = { train: 1, trip: 1, gear: 1, consum: 1, prof: 1 };
+
+  /* ---------- dungeons. Quest text is Classic's carried into the beta; may change at launch.
+     q kinds: pre = do before the rest unlocks, get = pick up in town, in = starts inside the dungeon.
+     at = where to pick it up, need = what has to be done first, miss = easy to miss. ---------- */
+  var DUNGEONS = [
+    { id: "rfc", name: "Ragefire Chasm", where: "Orgrimmar, Cleft of Shadow", from: 13, to: 18, quests: [
+      { id: "he1", q: "pre", t: "Hidden Enemies (start of Thrall's chain)", at: "Thrall, Orgrimmar",
+        s: "Bring him a Lieutenant's Insignia from the Burning Blade at Skull Rock, east of Orgrimmar. Then gauge Neeru Fireblade's reaction in the Cleft of Shadow and report back. Unlocks the RFC step." },
+      { id: "sat1", q: "pre", t: "Searching for the Lost Satchel", at: "Rahauro, Thunder Bluff",
+        s: "Without it, Maur Grimtotem's corpse inside gives you nothing." },
+      { id: "he2", q: "get", t: "Hidden Enemies: kill Bazzalan and Jergosh", at: "Thrall, Orgrimmar", need: "Lieutenant's Insignia and Neeru steps",
+        s: "Finish the chain at Thrall for a Kris, Hammer, Axe or Staff of Orgrimmar." },
+      { id: "beast", q: "get", t: "Slaying the Beast", at: "Neeru Fireblade, Cleft of Shadow", s: "Taragaman the Hungerer's heart." },
+      { id: "test", q: "get", t: "Testing an Enemy's Strength", at: "Rahauro, Thunder Bluff", s: "8 Ragefire Troggs and 8 Ragefire Shamans." },
+      { id: "power", q: "get", t: "The Power to Destroy...", at: "Varimathras, Undercity", miss: true,
+        s: "An RFC quest from Undercity. Both books drop from Searing Blade Cultists and Warlocks. Leggings reward." },
+      { id: "sat2", q: "in", t: "Returning the Lost Satchel", at: "Maur Grimtotem's corpse, inside", need: "Searching for the Lost Satchel",
+        s: "Bring the satchel back to Rahauro. Bracers reward." }
+    ]},
+    { id: "rol", name: "Ruins of Lordaeron", where: "Tirisfal Glades", from: 15, to: 20, quests: [
+      { id: "wrath", q: "get", t: "The Wrath of Rath'mael", at: "Deathguard Kristof, tents between Undercity and Brill", s: "Kill Rath'mael, the last boss." },
+      { id: "light", q: "get", t: "Light's Justice", at: "Morbin Lightbane, Undercity Royal Quarter", s: "25 Intact Limbs from undead inside. They often drop several at once." },
+      { id: "fright", q: "get", t: "A Frightened Request", at: "Tabetha Heartweaver, the Sepulcher, Silverpine", miss: true,
+        s: "Picked up in Silverpine, not Tirisfal. After Rath'mael, walk up to Edward's body in the west of his graveyard." },
+      { id: "plague", q: "get", t: "The New Plague", at: "Theodore Griffs, Apothecarium (by the alchemy trainers)", check: true,
+        s: "Bring back the Highly Toxic Strain from Witherfang, the first boss. Sources disagree on where it starts." },
+      { id: "torment", q: "in", t: "Unending Torment", at: "Abominable Head, from The Baron in King's Alley",
+        s: "Use the head to start it. Steps run in the Apothecarium and need Blisterweed (pots behind the herbalists), Toxic Skullcap (Tawny Grisette, Trade Quarter) and Essence of Agony (Ezekiel Graves, Rogues' Quarter)." },
+      { id: "crest", q: "in", t: "Crest of Lordaeron", at: "The crest itself, inside", miss: true,
+        s: "Spawns in one of five unmarked spots. Check the tower near Bjork and the small temple past him. Turn in to Oran Snakewrithe, Magic Quarter." }
+    ]},
+    { id: "wc", name: "Wailing Caverns", where: "The Barrens", from: 17, to: 24, quests: [
+      { id: "horns", q: "pre", t: "Raptor Horns", at: "Mebok Mizzyrix, Ratchet", s: "Unlocks Smart Drinks." },
+      { id: "nara", q: "pre", t: "Nara Wildmane", at: "Arch Druid Hamuul Runetotem, Elder Rise, Thunder Bluff", s: "Talk to Nara on Elder Rise to unlock Leaders of the Fang." },
+      { id: "fang", q: "get", t: "Leaders of the Fang", at: "Nara Wildmane, Elder Rise, Thunder Bluff", need: "Nara Wildmane",
+        s: "Gems from the four Fanglords. Wingblade reward (needs One-Handed Swords), good for 18–22." },
+      { id: "drinks", q: "get", t: "Smart Drinks", at: "Mebok Mizzyrix, Ratchet", need: "Raptor Horns", s: "6 Wailing Essence." },
+      { id: "docks", q: "get", t: "Trouble at the Docks", at: "Crane Operator Bigglefuzz, Ratchet", s: "99-Year-Old Port from Mad Magglish, who hides inside." },
+      { id: "serp", q: "get", t: "Serpentbloom", at: "Apothecary Zamah, Thunder Bluff", s: "10 Serpentbloom." },
+      { id: "hides", q: "get", t: "Deviate Hides", at: "Nalpak, on the hill above the entrance", s: "20 Deviate Hides. Deviate Hide Pack reward." },
+      { id: "erad", q: "get", t: "Deviate Eradication", at: "Ebru, on the hill above the entrance", s: "7 each of Deviate Ravagers, Vipers, Shamblers and Dreadfangs." },
+      { id: "shard", q: "in", t: "The Glowing Shard", at: "Drops from Mutanus the Devourer", check: true,
+        s: "Take it to Ratchet, then follow up with In Nightmares to Hamuul Runetotem in Thunder Bluff." }
+    ]},
+    { id: "sfk", name: "Shadowfang Keep", where: "Silverpine Forest", from: 20, to: 26, quests: [
+      { id: "ur", q: "get", t: "The Book of Ur", at: "Keeper Bel'dugur, Apothecarium" },
+      { id: "stalk", q: "get", t: "Deathstalkers in Shadowfang", at: "High Executor Hadrec, the Sepulcher", s: "Find Deathstalkers Adamant and Vincent." },
+      { id: "arugal", q: "get", t: "Arugal Must Die", at: "Dalar Dawnweaver, the Sepulcher", s: "Arugal's head. Seal of Sylvanas ring." }
+    ]}
+  ];
+  // A mob is green once it's 3+ levels below you, and gray at or below this level (Classic rule).
+  function grayAt(L) { return L <= 5 ? 0 : L < 40 ? L - Math.floor(L / 10) - 5 : L < 60 ? L - Math.floor(L / 5) - 1 : L - 9; }
+  DUNGEONS.forEach(function (d) {
+    d.lfg = d.from + 3; d.gather = d.lfg - 2;
+    d.hasPre = d.quests.some(function (q) { return q.q === "pre"; });
+    d.pre = d.gather - 2;
+    for (d.gray = d.from; grayAt(d.gray) < d.from; d.gray++);
+    var getN = d.quests.filter(function (q) { return q.q !== "pre"; }).length;
+    function quests(kind, lv) {
+      d.quests.forEach(function (q) {
+        if (q.q !== kind) return;
+        place({ id: "dq-" + d.id + "-" + q.id, lv: lv, k: kind === "pre" ? "pre" : "dq", t: q.t, s: q.s, at: kind === "in" ? q.at : "Pick up: " + q.at,
+          need: q.need, miss: q.miss, check: q.check, dg: d.name });
+      });
+    }
+    // Placed in reading order (the checklist sort keeps ties in place): prereqs, the gather
+    // reminder above its quests, then the group reminder above what starts inside.
+    quests("pre", d.pre);
+    place({ id: "dg-" + d.id + "-gather", lv: d.gather, k: "alert", t: "Collect every " + d.name + " quest (" + getN + ") before you queue",
+      s: (d.hasPre ? "Finish the prereqs first. " : "") + "Tick each one off below as you pick it up." });
+    quests("get", d.gather);
+    place({ id: "dg-" + d.id + "-lfg", lv: d.lfg, k: "alert", t: d.name + " is green at the door: look for a group", check: true,
+      s: d.where + ", " + d.from + "–" + d.to + ". The first mobs inside go gray at " + d.gray + ", so run it before then." });
+    quests("in", d.lfg);
+  });
+
+  var KIND = { alert: "Don't miss", talent: "Talent", train: "Trainer", trip: "Town trip", gear: "Gear", consum: "Consumable", prof: "Profession", tip: "Tip", dq: "Dungeon quest", pre: "Prereq" };
+  var BRING = { train: 1, trip: 1, gear: 1, consum: 1, prof: 1, dq: 1, pre: 1 };
   var TREE = { arms: "Arms", fury: "Fury", prot: "Protection" };
   var KEY = "tauren-prot-warrior-v2";
 
@@ -648,7 +753,10 @@ footer a { word-break: break-word; }
       '<input type="checkbox" id="' + (inBring ? "bb-" : "cb-") + it.id + '" data-id="' + it.id + '"' + (d ? " checked" : "") + ">" +
       '<span class="lv">L' + it.lv + "</span>" +
       '<span class="body"><span class="kind k-' + it.k + '">' + KIND[it.k] + '</span><span class="main">' + esc(it.t) + "</span>" +
+      (it.miss ? '<span class="miss">easy to miss</span>' : "") +
       (it.check ? '<span class="chk">check</span>' : "") +
+      (it.dg ? '<span class="at">' + esc(it.dg) + " · " + esc(it.at) + "</span>" : "") +
+      (it.need ? '<span class="need">Needs first: ' + esc(it.need) + "</span>" : "") +
       (it.s ? '<span class="sub">' + esc(it.s) + "</span>" : "") + "</span></label></li>";
   }
 
@@ -658,7 +766,7 @@ footer a { word-break: break-word; }
       if ((BRING[i.k] || i.k === "alert") && i.lv <= hi && !state.checks[i.id] && (i.lv >= L - 2)) list.push(i);
     }); });
     list.sort(function (a, b) { return a.lv - b.lv; });
-    $("bringHint").textContent = "Gear, trips and consumables for levels " + Math.max(1, L - 2) + "–" + hi + ". Tick them off as you go.";
+    $("bringHint").textContent = "Gear, trips, consumables and dungeon quests for levels " + Math.max(1, L - 2) + "–" + hi + ". Tick them off as you go.";
     var stock = [stoneFor(L), "Bandages", "Food"];
     if (L >= 26) stock.push("Troll's Blood Elixir");
     if (L >= 3) stock.push(L >= 35 ? "Superior Healing Potion" : L >= 21 ? "Greater Healing Potion" : L >= 12 ? "Healing Potion" : "Lesser Healing Potion");
@@ -686,6 +794,11 @@ footer a { word-break: break-word; }
   function renderPhases() {
     var L = level();
     document.querySelectorAll(".phase").forEach(function (el) { el.classList.toggle("on", L >= +el.dataset.from && L <= +el.dataset.to); });
+    $("dgRows").innerHTML = DUNGEONS.map(function (d) {
+      var cls = L >= d.lfg && L < d.gray ? "on" : L >= (d.hasPre ? d.pre : d.gather) && L < d.lfg ? "soon" : "";
+      return '<tr' + (cls ? ' class="' + cls + '"' : "") + '><td class="dn">' + esc(d.name) + '</td><td class="n">' + d.from + "–" + d.to + '</td><td class="n">' + (d.hasPre ? d.pre : "—") +
+        '</td><td class="n">' + d.gather + '</td><td class="n">' + d.lfg + '</td><td class="n">' + d.gray + "</td></tr>";
+    }).join("");
   }
 
   function renderAll(dir) {
