@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Theo's 8th birthday invite, served at the-hogans.com/theo-turns-8 (rewrite in next.config.js).
+     Copied from the claude.ai artifact "Theo Turns 8" (DWsDSWjENSZzmWhLnKUgPd), minus the STEM kits gift idea.
+     To update: replace this file with the artifact's latest HTML and re-apply the changes above. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theo Turns 8</title>
+<meta name="description" content="A Viking dino quest! Mini golf, go-karts, arcade, and pizza at Scandia. Come celebrate Theo turning 8!">
+<meta name="keywords" content="Hogan, family, fun">
+<meta property="og:title" content="Theo Turns 8">
+<meta property="og:description" content="A Viking dino quest! Mini golf, go-karts, arcade, and pizza at Scandia. Come celebrate Theo turning 8!">
+<meta property="og:image" content="https://www.the-hogans.com/the-hogans-hero.webp">
+<meta property="og:site_name" content="The Hogans">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.the-hogans.com/theo-turns-8">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Theo Turns 8">
+<meta name="twitter:description" content="A Viking dino quest! Mini golf, go-karts, arcade, and pizza at Scandia. Come celebrate Theo turning 8!">
+<meta name="twitter:image" content="https://www.the-hogans.com/the-hogans-hero.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --fjord:#0f2236;
+    --fjord-2:#183450;
+    --ice:#cfe6f2;
+    --gold:#f3b83c;
+    --gold-deep:#c98a12;
+    --moss:#3f9b5f;
+    --moss-deep:#2b7044;
+    --leaf:#bfe3a8;
+    --rust:#d65f2b;
+    --parch:#fbf3e2;
+    --parch-2:#f3e6c8;
+    --ink:#1d2a33;
+    --muted:#5b6a72;
+    --card:#fffdf7;
+    --line:#e3d4b0;
+    --radius:20px;
+    --shadow:0 10px 30px rgba(15,34,54,.14);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--parch);color:var(--ink);
+    font-family:"Nunito",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:"Lilita One","Nunito",sans-serif;font-weight:400;letter-spacing:.01em;margin:0}
+  a{color:inherit}
+  .wrap{max-width:980px;margin:0 auto;padding:0 16px}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;color:#fff;text-align:center;overflow:hidden;
+    background:
+      radial-gradient(1200px 500px at 50% -10%, #2c5a80 0%, transparent 60%),
+      linear-gradient(180deg,var(--fjord) 0%, var(--fjord-2) 70%, #1f4a3a 100%);
+    padding:56px 0 0;
+  }
+  .stars{position:absolute;inset:0;pointer-events:none;
+    background-image:
+      radial-gradient(2px 2px at 12% 18%,#fff8 50%,transparent 51%),
+      radial-gradient(1.5px 1.5px at 30% 8%,#fff9 50%,transparent 51%),
+      radial-gradient(2px 2px at 68% 14%,#fff7 50%,transparent 51%),
+      radial-gradient(1.5px 1.5px at 85% 26%,#fff9 50%,transparent 51%),
+      radial-gradient(1.5px 1.5px at 52% 30%,#fff6 50%,transparent 51%),
+      radial-gradient(2px 2px at 92% 6%,#fff8 50%,transparent 51%);
+  }
+  .eyebrow{
+    display:inline-flex;gap:8px;align-items:center;
+    background:rgba(243,184,60,.16);border:1px solid rgba(243,184,60,.5);color:var(--gold);
+    padding:6px 14px;border-radius:999px;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  }
+  .hero h1{font-size:clamp(40px,10vw,80px);line-height:1;margin:18px auto 10px;max-width:12ch;text-shadow:0 4px 0 rgba(0,0,0,.25)}
+  .hero h1 .gold{color:var(--gold)}
+  .hero h1 .green{color:#8fd8a3}
+  .hero p.lede{font-size:clamp(17px,2.6vw,20px);max-width:34ch;margin:0 auto;color:#dfeaf2}
+  .countdown{display:flex;justify-content:center;gap:10px;margin:26px 0 6px}
+  .cd{min-width:78px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:10px 8px}
+  .cd b{display:block;font-family:"Lilita One";font-size:34px;font-weight:400;line-height:1;color:var(--gold)}
+  .cd span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#c9d7e1;font-weight:800}
+  .cd-note{font-size:14px;color:#b9cad6;margin:6px 0 0}
+
+  .scene{position:relative;height:300px;margin-top:6px}
+  .scene svg.mountains{position:absolute;left:0;right:0;bottom:0;width:100%;height:150px}
+  .scene .dino{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:min(300px,78vw);height:auto;filter:drop-shadow(0 8px 0 rgba(0,0,0,.18))}
+  .bob{animation:bob 3.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
+  @media (prefers-reduced-motion:reduce){.bob{animation:none}}
+
+  /* rune / knot border */
+  .runeband{height:18px;background:
+    linear-gradient(135deg,var(--gold) 25%,transparent 25%) -9px 0/18px 18px,
+    linear-gradient(225deg,var(--gold) 25%,transparent 25%) -9px 0/18px 18px,
+    linear-gradient(315deg,var(--gold) 25%,transparent 25%) 0 0/18px 18px,
+    linear-gradient(45deg,var(--gold) 25%,transparent 25%) 0 0/18px 18px,
+    var(--gold-deep);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:56px 0}
+  .kicker{display:flex;align-items:center;gap:10px;justify-content:center;color:var(--moss-deep);font-weight:900;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+  .kicker svg{width:22px;height:22px}
+  .sec-title{text-align:center;font-size:clamp(32px,6vw,46px);color:var(--fjord);margin:8px 0 10px}
+  .sec-sub{text-align:center;color:var(--muted);max-width:52ch;margin:0 auto 28px}
+
+  /* details */
+  .details{display:grid;gap:14px;grid-template-columns:1fr}
+  @media(min-width:720px){.details{grid-template-columns:1fr 1fr}}
+  .d-card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;gap:14px;box-shadow:var(--shadow)}
+  .d-icon{flex:0 0 48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--fjord);color:var(--gold)}
+  .d-icon svg{width:26px;height:26px}
+  .d-label{font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--moss-deep)}
+  .d-main{font-family:"Lilita One";font-size:22px;color:var(--fjord);line-height:1.15;margin:2px 0}
+  .d-sub{color:var(--muted);font-size:15px}
+  .btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:9px 14px;border-radius:12px;
+    font:800 15px/1 "Nunito",sans-serif;text-decoration:none;cursor:pointer;border:2px solid var(--fjord);
+    background:#fff;color:var(--fjord);transition:transform .12s ease, background .12s ease;
+  }
+  .btn:hover{background:var(--parch-2)}
+  .btn:active{transform:translateY(1px)}
+  .btn svg{width:20px;height:20px;flex:0 0 20px}
+  .btn.primary{background:var(--fjord);color:#fff}
+  .btn.primary:hover{background:var(--fjord-2)}
+  .btn.ghost{border-color:var(--line);font-weight:700}
+  .d-card > div:last-child{flex:1;min-width:0}
+  .contact{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+  .contact + .contact{border-top:1px dashed var(--line)}
+  .icon-btns{display:flex;gap:8px;flex:0 0 auto}
+  .ibtn{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;border:2px solid var(--fjord);background:#fff;color:var(--fjord);text-decoration:none}
+  .ibtn svg{width:22px;height:22px}
+  .ibtn.primary{background:var(--fjord);color:#fff}
+  .ibtn:active{transform:translateY(1px)}
+
+  /* game plan */
+  .plan{display:grid;gap:16px;grid-template-columns:1fr}
+  @media(min-width:720px){.plan{grid-template-columns:1fr 1fr}}
+  .route{border-radius:var(--radius);padding:22px;color:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .route.dry{background:linear-gradient(160deg,var(--moss) 0%,var(--moss-deep) 100%)}
+  .route.wet{background:linear-gradient(160deg,#2f5f86 0%,var(--fjord) 100%)}
+  .route .tag{display:inline-block;background:rgba(255,255,255,.18);padding:4px 10px;border-radius:999px;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+  .route h3{font-size:28px;margin:10px 0 12px}
+  .route ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+  .route li{background:rgba(255,255,255,.1);border-radius:12px;padding:10px 12px}
+  .route li b{display:block}
+  .route li span{font-size:15px;opacity:.9}
+  .route .print{position:absolute;right:-10px;bottom:-12px;width:110px;opacity:.12}
+  .pizza{margin-top:16px;background:var(--gold);color:var(--fjord);border-radius:var(--radius);padding:16px 18px;text-align:center;font-weight:800}
+  .pizza b{font-family:"Lilita One";font-weight:400;font-size:22px;display:block}
+  .note{text-align:center;color:var(--muted);font-size:15px;margin-top:14px}
+
+  /* gifts */
+  .gifts-bg{background:linear-gradient(180deg,var(--parch-2),var(--parch))}
+  .gifts{display:grid;gap:14px;grid-template-columns:1fr}
+  @media(min-width:640px){.gifts{grid-template-columns:1fr 1fr}}
+  @media(min-width:900px){.gifts{grid-template-columns:1fr 1fr 1fr}}
+  details.gift{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:border-color .15s}
+  details.gift[open]{border-color:var(--moss)}
+  details.gift summary{list-style:none;cursor:pointer;padding:18px;display:grid;grid-template-columns:52px 1fr;gap:4px 14px;align-items:center}
+  details.gift summary::-webkit-details-marker{display:none}
+  .g-ico{grid-row:span 2;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:28px;background:var(--leaf)}
+  .g-title{font-family:"Lilita One";font-size:22px;color:var(--fjord);line-height:1.1}
+  .g-why{font-size:14px;color:var(--muted);font-weight:700}
+  .g-top{grid-column:1/-1;margin-top:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;
+    background:var(--parch);border-radius:12px;padding:10px 12px;font-weight:800}
+  .g-more{flex:0 0 auto;font-size:13px;color:var(--moss-deep);font-weight:900;white-space:nowrap}
+  details.gift[open] .g-more .open-txt{display:none}
+  details.gift:not([open]) .g-more .close-txt{display:none}
+  .g-list{margin:0;padding:0 18px 18px 38px;display:grid;gap:6px}
+  .g-list li::marker{color:var(--moss)}
+  .g-link{color:var(--moss-deep);font-weight:800;text-underline-offset:2px}
+  .g-hint{font-size:13px;color:var(--muted);font-style:italic}
+
+  /* footer */
+  footer{background:var(--fjord);color:#dbe6ee;text-align:center;padding:40px 0 calc(40px + env(safe-area-inset-bottom))}
+  footer .big{font-family:"Lilita One";font-size:clamp(34px,8vw,52px);color:var(--gold);margin:6px 0}
+  footer .stars-line{letter-spacing:.3em;color:var(--gold);font-weight:900}
+  footer small{display:block;margin-top:6px;color:#9fb3c2}
+
+  .footprints{display:flex;justify-content:center;gap:18px;margin:0 auto 6px;opacity:.55}
+  .footprints svg{width:26px;height:26px;color:var(--moss-deep)}
+  .footprints svg:nth-child(even){transform:translateY(8px) rotate(12deg)}
+  .footprints svg:nth-child(odd){transform:rotate(-10deg)}
+
+  .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(120px);
+    background:var(--fjord);color:#fff;padding:10px 16px;border-radius:12px;font-weight:800;transition:transform .25s ease;z-index:10}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+  .toast:empty{display:none}
+</style>
+</head>
+<body>
+
+<!-- reusable footprint symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="print" viewBox="0 0 32 32">
+    <path fill="currentColor" d="M16 30c-5 0-8-3-8-7 0-3 3-6 8-6s8 3 8 6c0 4-3 7-8 7z"/>
+    <path fill="currentColor" d="M7 15c-2 0-3-2-3-5s1-6 3-6 3 3 3 6-1 5-3 5zM16 12c-2 0-3-2-3-5s1-6 3-6 3 3 3 6-1 5-3 5zM25 15c-2 0-3-2-3-5s1-6 3-6 3 3 3 6-1 5-3 5z"/>
+  </symbol>
+</svg>
+
+<header class="hero">
+  <div class="stars"></div>
+  <div class="wrap">
+    <span class="eyebrow">You're invited · Level 8 unlocked</span>
+    <h1>Theo's <span class="gold">Viking</span> <span class="green">Dino</span> Quest</h1>
+    <p class="lede">Mini golf, go-karts, arcade, and pizza at Scandia. Grab your horned helmet and come stomp in to celebrate Theo turning 8!</p>
+
+    <div class="countdown" role="timer" aria-live="polite">
+      <div class="cd"><b id="cd-d">--</b><span>Days</span></div>
+      <div class="cd"><b id="cd-h">--</b><span>Hours</span></div>
+      <div class="cd"><b id="cd-m">--</b><span>Mins</span></div>
+    </div>
+    <p class="cd-note" id="cd-note">until the party starts</p>
+  </div>
+
+  <div class="scene">
+    <svg class="mountains" viewBox="0 0 1200 150" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 150 L0 80 L120 30 L210 85 L330 10 L450 90 L560 40 L690 95 L800 20 L930 88 L1050 35 L1200 85 L1200 150Z" fill="#1d4462"/>
+      <path d="M330 10 L360 30 L345 28 L330 40 L315 27 L300 32Z M800 20 L828 38 L812 36 L800 46 L786 35 L772 40Z" fill="#cfe6f2" opacity=".85"/>
+      <path d="M0 150 L0 115 L160 80 L300 120 L470 75 L640 118 L820 82 L1000 120 L1200 90 L1200 150Z" fill="#245a40"/>
+      <path d="M0 150 L0 135 L1200 128 L1200 150Z" fill="#fbf3e2"/>
+    </svg>
+
+    <!-- Original Viking dino illustration -->
+    <svg class="dino bob" viewBox="0 0 260 220" role="img" aria-label="A friendly green dinosaur in a horned Viking helmet holding a round shield with the number 8">
+      <!-- tail -->
+      <path d="M78 150 C40 150 18 170 6 192 C30 186 52 178 84 176Z" fill="#3f9b5f"/>
+      <!-- back spikes -->
+      <g fill="#f3b83c">
+        <path d="M70 120 l10 -22 l12 20z"/><path d="M92 100 l12 -24 l12 22z"/><path d="M118 88 l13 -24 l11 24z"/><path d="M40 156 l6 -16 l10 14z"/>
+      </g>
+      <!-- body -->
+      <ellipse cx="120" cy="150" rx="62" ry="50" fill="#4caf6e"/>
+      <ellipse cx="132" cy="160" rx="36" ry="34" fill="#bfe3a8"/>
+      <!-- legs -->
+      <rect x="86" y="182" width="28" height="30" rx="12" fill="#3f9b5f"/>
+      <rect x="132" y="182" width="28" height="30" rx="12" fill="#3f9b5f"/>
+      <path d="M88 210 h24 M134 210 h24" stroke="#2b7044" stroke-width="4" stroke-linecap="round"/>
+      <!-- neck + head -->
+      <path d="M140 118 C150 92 160 78 172 70 L198 92 C186 104 172 120 166 132Z" fill="#4caf6e"/>
+      <ellipse cx="190" cy="74" rx="44" ry="32" fill="#4caf6e"/>
+      <!-- cheek spots -->
+      <circle cx="214" cy="84" r="6" fill="#f08f6a" opacity=".6"/>
+      <!-- eye -->
+      <circle cx="196" cy="66" r="9" fill="#fff"/>
+      <circle cx="199" cy="67" r="5" fill="#1d2a33"/>
+      <circle cx="201" cy="65" r="1.8" fill="#fff"/>
+      <!-- smile + teeth -->
+      <path d="M176 90 C192 102 214 100 228 88" fill="none" stroke="#1d2a33" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M190 96 l3 6 l3 -5z M208 97 l3 6 l3 -6z" fill="#fff"/>
+      <!-- nostril -->
+      <circle cx="226" cy="68" r="2.2" fill="#2b7044"/>
+      <!-- helmet -->
+      <path d="M156 58 C158 30 222 26 226 54 Z" fill="#9aa9b4"/>
+      <path d="M154 58 H228" stroke="#c98a12" stroke-width="7" stroke-linecap="round"/>
+      <path d="M190 30 V56" stroke="#c98a12" stroke-width="5"/>
+      <circle cx="170" cy="58" r="2.5" fill="#fff6"/><circle cx="210" cy="58" r="2.5" fill="#fff6"/>
+      <!-- horns -->
+      <path d="M160 46 C140 40 132 22 138 6 C146 20 156 28 168 34Z" fill="#fbf3e2" stroke="#d9c79e" stroke-width="2"/>
+      <path d="M222 44 C240 36 246 18 240 4 C234 18 224 26 212 32Z" fill="#fbf3e2" stroke="#d9c79e" stroke-width="2"/>
+      <!-- arm -->
+      <path d="M150 132 C162 128 168 134 166 140" fill="none" stroke="#3f9b5f" stroke-width="9" stroke-linecap="round"/>
+      <!-- shield -->
+      <g transform="translate(72 150)">
+        <circle r="34" fill="#d65f2b"/>
+        <circle r="34" fill="none" stroke="#c98a12" stroke-width="6"/>
+        <path d="M0 -34 V34 M-34 0 H34" stroke="#fbf3e2" stroke-width="5" opacity=".35"/>
+        <circle r="16" fill="#f3b83c"/>
+        <text x="0" y="8" text-anchor="middle" font-family="Lilita One, sans-serif" font-size="24" fill="#0f2236">8</text>
+      </g>
+    </svg>
+  </div>
+  <div class="runeband"></div>
+</header>
+
+<main>
+  <!-- DETAILS -->
+  <section>
+    <div class="wrap">
+      <div class="kicker"><svg aria-hidden="true"><use href="#print"/></svg>The Saga Begins<svg aria-hidden="true"><use href="#print"/></svg></div>
+      <h2 class="sec-title">The Party Details</h2>
+
+      <div class="details">
+        <div class="d-card">
+          <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg></div>
+          <div>
+            <div class="d-label">When</div>
+            <div class="d-main">Friday, December 4</div>
+            <div class="d-sub">4:00 to 6:00 PM</div>
+            <div class="btn-row">
+              <a class="btn primary" id="ical-btn" href="#" download="theo-turns-8.ics">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M12 13v5M9.5 15.5h5"/></svg>
+                Apple / iCal
+              </a>
+              <a class="btn" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Theo%27s%208th%20Birthday%20Party&dates=20261205T000000Z%2F20261205T020000Z&location=Scandia%20Family%20Fun%20Center%2C%205301%20Redwood%20Dr%2C%20Rohnert%20Park%2C%20CA%2094928&details=Theo%20turns%208%21%20Pizza%20will%20be%20served.%20If%20it%27s%20dry%3A%20mini%20golf%20and%20go-karts.%20If%20it%20rains%3A%20the%20arcade.%20RSVP%3A%20Jessica%20%28707%29%20480-0650%20or%20Robert%20%28707%29%20758-0776">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><circle cx="8" cy="14" r="1" fill="currentColor"/><circle cx="12" cy="14" r="1" fill="currentColor"/><circle cx="16" cy="14" r="1" fill="currentColor"/><circle cx="8" cy="17.5" r="1" fill="currentColor"/><circle cx="12" cy="17.5" r="1" fill="currentColor"/></svg>
+                Google Calendar
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-card">
+          <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+          <div>
+            <div class="d-label">Where</div>
+            <div class="d-main">Scandia Family Fun Center</div>
+            <div class="d-sub">5301 Redwood Drive, Rohnert Park, CA 94928</div>
+            <div class="btn-row">
+              <a class="btn primary" target="_blank" rel="noopener" href="https://maps.apple.com/?q=Scandia%20Family%20Fun%20Center&address=5301%20Redwood%20Dr%2C%20Rohnert%20Park%2C%20CA%2094928">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6.5v13.5L9 17.5l6 2.5 6-2.5V4l-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/></svg>
+                Apple Maps
+              </a>
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Scandia%20Family%20Fun%20Center%205301%20Redwood%20Dr%20Rohnert%20Park%20CA">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+                Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-card">
+          <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5L12 21z"/><path d="M3 7.5c3 1.4 6 2 9 2s6-.6 9-2"/><circle cx="10" cy="12" r="1" fill="currentColor"/><circle cx="14" cy="15" r="1" fill="currentColor"/></svg></div>
+          <div>
+            <div class="d-label">Feast</div>
+            <div class="d-main">Pizza for every Viking</div>
+            <div class="d-sub">Plus birthday treats. Come hungry as a T. rex!</div>
+          </div>
+        </div>
+
+        <div class="d-card">
+          <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L4 20.5l1.4-4.6A8 8 0 1 1 21 12z"/></svg></div>
+          <div>
+            <div class="d-label">RSVP</div>
+            <div class="contact">
+              <div><div class="d-main">Jessica (Mom)</div><div class="d-sub">(707) 480-0650</div></div>
+              <div class="icon-btns">
+                <a class="ibtn primary" href="sms:+17074800650" aria-label="Text Jessica"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L4 20.5l1.4-4.6A8 8 0 1 1 21 12z"/></svg></a>
+                <a class="ibtn" href="mailto:hey@the-hogans.com?subject=RSVP%20for%20Theo%27s%20party" aria-label="Email Jessica"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></a>
+              </div>
+            </div>
+            <div class="contact">
+              <div><div class="d-main">Robert (Dad)</div><div class="d-sub">(707) 758-0776</div></div>
+              <div class="icon-btns">
+                <a class="ibtn primary" href="sms:+17077580776" aria-label="Text Robert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L4 20.5l1.4-4.6A8 8 0 1 1 21 12z"/></svg></a>
+                <a class="ibtn" href="mailto:hey@the-hogans.com?subject=RSVP%20for%20Theo%27s%20party" aria-label="Email Robert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAME PLAN -->
+  <section style="padding-top:8px">
+    <div class="wrap">
+      <div class="kicker"><svg aria-hidden="true"><use href="#print"/></svg>Two routes, one quest<svg aria-hidden="true"><use href="#print"/></svg></div>
+      <h2 class="sec-title">The Battle Plan</h2>
+      <p class="sec-sub">We'll pick the route based on the weather that day. Either way, there's pizza at the end.</p>
+
+      <div class="plan">
+        <div class="route dry">
+          <span class="tag">☀️ If it's dry</span>
+          <h3>Golf &amp; Racing Raid</h3>
+          <ul>
+            <li><b>Mini golf</b><span>Putt your way through Scandia's award-winning courses</span></li>
+            <li><b>Go-karts</b><span>Race laps on the Lil' Indy Raceway</span></li>
+          </ul>
+          <svg class="print" aria-hidden="true" style="color:#fff"><use href="#print"/></svg>
+        </div>
+        <div class="route wet">
+          <span class="tag">🌧️ If it rains</span>
+          <h3>Arcade Takeover</h3>
+          <ul>
+            <li><b>The Grand Arcade</b><span>Over 100 games inside, all out of the rain</span></li>
+            <li><b>Pinball, skee-ball &amp; tickets</b><span>Win tickets and trade them for treasure</span></li>
+          </ul>
+          <svg class="print" aria-hidden="true" style="color:#fff"><use href="#print"/></svg>
+        </div>
+      </div>
+      <div class="pizza"><b>🍕 Pizza will be served</b>Rain or shine, every Viking (and every dino) eats.</div>
+      <p class="note">★ Bring a jacket. It's December, and the sun sets before 5.</p>
+    </div>
+  </section>
+
+  <!-- GIFTS -->
+  <section class="gifts-bg">
+    <div class="wrap">
+      <div class="kicker"><svg aria-hidden="true"><use href="#print"/></svg>Theo's treasure hoard<svg aria-hidden="true"><use href="#print"/></svg></div>
+      <h2 class="sec-title">What Theo's Into</h2>
+      <p class="sec-sub">Your company is the best gift! If you'd like to bring something, here's what Theo loves right now. Tap a card to see more ideas. His shirts and pants are boys' size S.</p>
+
+      <div class="gifts">
+        <details class="gift">
+          <summary>
+            <span class="g-ico" aria-hidden="true">🎧</span>
+            <span class="g-title">Gamer Gear</span>
+            <span class="g-why">He plays World of Warcraft</span>
+            <span class="g-top">Gaming mouse pad <span class="g-more"><span class="open-txt">+ More ideas</span><span class="close-txt">− Less</span></span></span>
+          </summary>
+          <ul class="g-list">
+            <li><a class="g-link" href="https://gear.blizzard.com/collections/plush" target="_blank" rel="noopener">World of Warcraft stuffies</a> (he loves the animals)</li>
+            <li><a class="g-link" href="https://gear.blizzard.com/products/blizzard-gear-store-egift-card" target="_blank" rel="noopener">Blizzard gift card</a></li>
+          </ul>
+        </details>
+
+        <details class="gift">
+          <summary>
+            <span class="g-ico" aria-hidden="true">🐉</span>
+            <span class="g-title">Dragon Rider Reads</span>
+            <span class="g-why">Books he can't put down</span>
+            <span class="g-top">Dragon Masters &amp; Captain Underpants books <span class="g-more"><span class="open-txt">+ More ideas</span><span class="close-txt">− Less</span></span></span>
+          </summary>
+          <ul class="g-list">
+            <li>A cool bookmark to keep his place</li>
+            <li class="g-hint">Not sure which ones he has? Text Mom or Dad.</li>
+          </ul>
+        </details>
+
+        <details class="gift">
+          <summary>
+            <span class="g-ico" aria-hidden="true">⚽</span>
+            <span class="g-title">Soccer Star</span>
+            <span class="g-why">Sports City U10 soccer</span>
+            <span class="g-top">U10 soccer ball (size 4) <span class="g-more"><span class="open-txt">+ More ideas</span><span class="close-txt">− Less</span></span></span>
+          </summary>
+          <ul class="g-list">
+            <li>U.S. soccer jerseys (youth M)</li>
+            <li>Ronaldo jerseys (youth M)</li>
+            <li>Fun soccer socks (boys' size 1)</li>
+          </ul>
+        </details>
+
+        <details class="gift">
+          <summary>
+            <span class="g-ico" aria-hidden="true">🏈</span>
+            <span class="g-title">Flag Football</span>
+            <span class="g-why">Next Level, 3rd grade</span>
+            <span class="g-top">Flag football sets <span class="g-more"><span class="open-txt">+ More ideas</span><span class="close-txt">− Less</span></span></span>
+          </summary>
+          <ul class="g-list">
+            <li>Peewee football (size 6)</li>
+            <li>Eye black</li>
+          </ul>
+        </details>
+
+        <details class="gift">
+          <summary>
+            <span class="g-ico" aria-hidden="true">🏀</span>
+            <span class="g-title">Hoops</span>
+            <span class="g-why">Next Level, 3rd grade</span>
+            <span class="g-top">Size 6 basketball <span class="g-more"><span class="open-txt">+ More ideas</span><span class="close-txt">− Less</span></span></span>
+          </summary>
+          <ul class="g-list">
+            <li>Shooting sleeve</li>
+            <li>Headband</li>
+          </ul>
+        </details>
+
+        <details class="gift">
+          <summary>
+            <span class="g-ico" aria-hidden="true">🦖</span>
+            <span class="g-title">Builders &amp; Puzzlers</span>
+            <span class="g-why">Robots, dinos &amp; brain teasers</span>
+            <span class="g-top">Transformers figure <span class="g-more"><span class="open-txt">+ More ideas</span><span class="close-txt">− Less</span></span></span>
+          </summary>
+          <ul class="g-list">
+            <li>Small puzzle (100–300 pieces)</li>
+            <li>Dinobots: Transformers that turn into dinosaurs</li>
+            <li>3D dinosaur puzzle or skeleton model</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footprints" aria-hidden="true">
+    <svg style="color:#3f9b5f"><use href="#print"/></svg><svg style="color:#3f9b5f"><use href="#print"/></svg><svg style="color:#3f9b5f"><use href="#print"/></svg><svg style="color:#3f9b5f"><use href="#print"/></svg>
+  </div>
+  <div class="wrap">
+    <div class="stars-line">★ SEE YOU AT THE QUEST ★</div>
+    <div class="big">Skål &amp; ROAR, Theo!</div>
+    <small>Friday, December 4 · 4:00 PM · Scandia Family Fun Center, Rohnert Park</small>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+  // Countdown
+  (function(){
+    var target = new Date("2026-12-04T16:00:00-08:00").getTime();
+    var d=document.getElementById("cd-d"),h=document.getElementById("cd-h"),m=document.getElementById("cd-m"),note=document.getElementById("cd-note");
+    function tick(){
+      var diff = target - Date.now();
+      if (diff <= 0){ d.textContent=h.textContent=m.textContent="0"; note.textContent = diff > -7200000 ? "The quest is on!" : "Thanks for questing with us!"; return; }
+      d.textContent = Math.floor(diff/864e5);
+      h.textContent = Math.floor(diff%864e5/36e5);
+      m.textContent = Math.floor(diff%36e5/6e4);
+    }
+    tick(); setInterval(tick, 30000);
+  })();
+
+  // Apple / iCal (.ics) download
+  (function(){
+    var ics = [
+      "BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//The Hogans//Theo Turns 8//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH",
+      "BEGIN:VEVENT",
+      "UID:theo-turns-8-2026@the-hogans.com",
+      "DTSTAMP:20261101T200000Z",
+      "DTSTART:20261205T000000Z",
+      "DTEND:20261205T020000Z",
+      "SUMMARY:Theo's 8th Birthday Party",
+      "LOCATION:Scandia Family Fun Center\\, 5301 Redwood Dr\\, Rohnert Park\\, CA 94928",
+      "DESCRIPTION:Theo turns 8! Pizza will be served. If it's dry: mini golf and go-karts. If it rains: the arcade. RSVP: Jessica (707) 480-0650 or Robert (707) 758-0776",
+      "BEGIN:VALARM","TRIGGER:-P1D","ACTION:DISPLAY","DESCRIPTION:Theo's party is tomorrow!","END:VALARM",
+      "END:VEVENT","END:VCALENDAR"
+    ].join("\r\n");
+    document.getElementById("ical-btn").href = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
+  })();
+
+  // Copy buttons
+  (function(){
+    var toast=document.getElementById("toast"),t;
+    function show(msg){ toast.textContent=msg; toast.classList.add("show"); clearTimeout(t); t=setTimeout(function(){toast.classList.remove("show")},1800); }
+    document.querySelectorAll("[data-copy]").forEach(function(b){
+      b.addEventListener("click", function(){
+        var txt=b.getAttribute("data-copy");
+        try{
+          navigator.clipboard.writeText(txt).then(function(){show("Copied!")},function(){show(txt)});
+        }catch(e){ show(txt); }
+      });
+    });
+  })();
+</script>
+</body>
+</html>
