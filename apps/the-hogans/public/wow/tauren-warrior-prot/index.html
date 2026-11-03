@@ -220,6 +220,15 @@ li.it .at { display: block; font: 600 .84rem var(--font-label); letter-spacing: 
 li.it .need { display: block; font-size: .86rem; font-weight: 600; color: var(--blood); margin-top: 2px; }
 .dgtbl tr.on td { background: var(--gold); color: var(--gold-ink); }
 .dgtbl tr.soon td { background: var(--sunk); }
+.dgtbl tr.past td { opacity: .45; }
+li.it .town, .townline { display: block; font-size: .86rem; margin-top: 3px; }
+li.it .town i, .townline i { font: 700 .68rem var(--font-label); font-style: normal; text-transform: uppercase; letter-spacing: .08em; background: var(--ok); color: var(--panel); border: 1.5px solid var(--ink); padding: 0 5px; margin-right: 4px; }
+.townline { margin: -6px 0 14px; max-width: 60ch; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) li.it .town i, :root:not([data-theme="light"]) .townline i { color: var(--ink); } }
+:root[data-theme="dark"] li.it .town i, :root[data-theme="dark"] .townline i { color: var(--ink); }
+#town { margin-top: 12px; }
+#town h3 { font-size: 1.15rem; margin-bottom: 2px; }
+#town .label { margin: 8px 0 4px; }
 .dgtbl td.dn { font-weight: 600; }
 .empty { padding: 2px 16px 14px; color: var(--muted); font-size: .92rem; }
 
@@ -287,6 +296,7 @@ footer a { word-break: break-word; }
     <p class="hint" id="bringHint"></p>
     <div class="stock" id="stock"></div>
     <ul id="bringList"></ul>
+    <div id="town"></div>
   </section>
 
   <div class="tools">
@@ -353,7 +363,7 @@ footer a { word-break: break-word; }
       </details>
 
       <details class="ref panel" id="ref-dungeons" open>
-        <summary><h3>Dungeons to 26</h3><span class="chev">▶</span></summary>
+        <summary><h3>Dungeons</h3><span class="chev">▶</span></summary>
         <div class="in">
           <p>Do prereqs and gather every quest <b>before</b> you queue. Group up once the first mobs inside are green (3+ levels below you).</p>
           <div class="tblwrap">
@@ -362,7 +372,7 @@ footer a { word-break: break-word; }
               <tbody id="dgRows"></tbody>
             </table>
           </div>
-          <p class="note">Yellow: group up now. Shaded: get prereqs and quests ready. Group and Gray levels are estimated from the level range, assuming the first mobs inside sit at its low end. <span class="chk">check</span> them at the door.</p>
+          <p class="note">Yellow: group up now. Shaded: get prereqs and quests ready. Faded: outleveled. Group and Gray levels are estimated from the level range, assuming the first mobs inside sit at its low end. <span class="chk">check</span> them at the door.</p>
         </div>
       </details>
 
@@ -458,6 +468,10 @@ footer a { word-break: break-word; }
       <li><a href="https://conquestcapped.com/guides/wow-forever/wow-forever-warrior-overview/" target="_blank" rel="noopener">ConquestCapped: Warrior abilities by level</a></li>
       <li><a href="https://www.warcrafttavern.com/forever/guides/weapon-trainers/" target="_blank" rel="noopener">Warcraft Tavern: Weapon trainers</a></li>
       <li><a href="https://www.gfinityesports.com/article/how-to-get-the-cozy-sleeping-bag-in-world-of-warcraft-forever" target="_blank" rel="noopener">Gfinity: Cozy Sleeping Bag</a></li>
+      <li><a href="https://wowf.io/en/news/beta-update-nov-2" target="_blank" rel="noopener">WoW Forever beta notes, Nov 2 (talent changes)</a></li>
+      <li><a href="https://foreverchanges.pro/talents/warrior" target="_blank" rel="noopener">ForeverChanges: Warrior talents</a></li>
+      <li><a href="https://conquestcapped.com/guides/wow-forever/wow-forever-herbalism/" target="_blank" rel="noopener">ConquestCapped: Herbalism</a></li>
+      <li><a href="https://conquestcapped.com/guides/wow-forever/wow-forever-skinning/" target="_blank" rel="noopener">ConquestCapped: Skinning</a></li>
       <li><a href="https://www.warcrafttavern.com/forever/guides/dungeons/" target="_blank" rel="noopener">Warcraft Tavern: Dungeon level ranges</a></li>
       <li><a href="https://foreverchanges.pro/dungeons" target="_blank" rel="noopener">ForeverChanges: Dungeon quests</a></li>
       <li><a href="https://www.warcrafttavern.com/forever/guides/the-ruins-of-lordaeron-quests/" target="_blank" rel="noopener">Warcraft Tavern: Ruins of Lordaeron quests</a></li>
@@ -474,21 +488,21 @@ footer a { word-break: break-word; }
     rend: ["Improved Rend", "arms", 3, "More Rend bleed damage. Your two-hander's best friend while questing."],
     cruel: ["Cruelty", "fury", 5, "+1% melee crit per rank."],
     shspec: ["Shield Specialization", "prot", 5, "More block chance, and rage on every block."],
-    imptc: ["Improved Thunder Clap", "prot", 3, "Cheaper, stronger Thunder Clap. Your AoE threat button."],
-    impbr: ["Improved Bloodrage", "prot", 2, "More rage from Bloodrage to open pulls."],
+    imptc: ["Improved Thunder Clap", "prot", 3, "Cheaper Thunder Clap. Your AoE threat button."],
+    impbr: ["Improved Bloodrage", "prot", 2, "25% more rage from Bloodrage to open pulls."],
     imprev: ["Improved Revenge", "prot", 3, "Revenge hits much harder and becomes your main attack."],
     mod: ["Master of Defense", "prot", 2, "5 rage when you dodge or parry with a shield."],
-    ls: ["Last Stand", "prot", 1, "Emergency max-health button. 3-minute cooldown."],
-    defi: ["Defiance", "prot", 3, "More threat generated in Defensive Stance."],
-    vang: ["Vanguard", "prot", 1, "Charge in Defensive Stance and keep pooled rage between fights."],
-    conc: ["Concussion Blow", "prot", 1, "A stun. Skip for Bastion later if you like."],
-    focus: ["Focused Rage", "prot", 3, "Cheaper abilities."],
-    isw: ["Improved Shield Wall", "prot", 2, "Longer Shield Wall."],
-    bast: ["Bastion", "prot", 5, "Builds toward Shield Slam."],
-    slam: ["Shield Slam", "prot", 1, "The Protection capstone. Hits with your shield and generates big threat."],
+    ls: ["Last Stand", "prot", 1, "Emergency button: 30% of your max health for 20 seconds."],
+    defi: ["Defiance", "prot", 3, "7/13/20% more threat in Defensive Stance with a shield (buffed for launch)."],
+    vang: ["Vanguard", "prot", 1, "Charge works in Defensive Stance, so every pull starts there."],
+    conc: ["Concussion Blow", "prot", 1, "A 5-second stun."],
+    focus: ["Focused Rage", "prot", 3, "Offensive abilities cost less rage."],
+    isw: ["Improved Shield Wall", "prot", 2, "Cuts Shield Wall's cooldown."],
+    bast: ["Bastion", "prot", 5, "+2% damage per rank with a shield on. Unlocks Shield Slam."],
+    slam: ["Shield Slam", "prot", 1, "The Protection capstone. Hits with your shield plus block value, can dispel a magic effect, and makes big threat."],
     defl: ["Deflection", "arms", 5, "+1% parry per rank."],
-    antic: ["Anticipation", "prot", 5, "More defense skill."],
-    isunder: ["Improved Sunder Armor", "prot", 3, "Cheaper Sunder Armor."],
+    antic: ["Anticipation", "prot", 5, "+4 defense skill per rank."],
+    isunder: ["Improved Sunder Armor", "prot", 3, "Sunder Armor costs less rage."],
     lingr: ["Lingering Rage", "fury", 5, "Rage decays later after combat."]
   };
   var PATH = {};
@@ -513,18 +527,20 @@ footer a { word-break: break-word; }
       { id: "a9", lv: 8, k: "prof", t: "Cooking 10: Spiced Wolf Meat from the cooking trainer", s: "Stringy Wolf Meat + Mild Spices. Reported agility food; confirm the buff on the tooltip.", check: true }
     ]},
     { id: "s2", from: 10, to: 15, title: "Rend & Cruelty", items: [
-      { id: "b1", lv: 10, k: "alert", t: "Defensive Stance class quest", s: "Pick it up from your warrior trainer at 10." },
+      { id: "b1", lv: 10, k: "alert", t: "Defensive Stance class quest", s: "Pick it up from your warrior trainer at 10. Defensive Stance adds 80% threat in Forever." },
       { id: "b2", lv: 10, k: "alert", t: "First talent point: Improved Rend 1/3" },
       { id: "b3", lv: 10, k: "gear", t: "Level 10 class quest weapon (Thun'grim's Sword / Heirloom Sword)" },
       { id: "b4", lv: 12, k: "trip", t: "Orgrimmar trip: Throwing and One-Handed Axes from Sayoc (10s each)", s: "Same visit as your level 12 training. Warrior trainers and Sayoc are both in the Valley of Honor. Thrown pulls can't be dodged or parried." },
       { id: "b6", lv: 14, k: "trip", t: "Undercity trip: One-Handed Swords from Archibald (10s)", s: "Pair it with your level 14 training; Undercity's warrior trainers are in the same War Quarter. Needed for Wingblade from Wailing Caverns." },
       { id: "b8", lv: 15, k: "gear", t: "Collect a shield and a fast one-hander now", s: "Hammer of Orgrimmar or Engineer's Hammer: maces, so no extra training." },
-      { id: "b9", lv: 15, k: "consum", t: "Heavy stone (+4)" }
+      { id: "b9", lv: 15, k: "consum", t: "Heavy stone (+4)" },
+      { id: "b10", lv: 14, k: "prof", t: "Keen Skinning Knife: \"Unwelcome Guests\", The Barrens", s: "+3 Skinning, and it counts as your skinning knife." }
     ]},
     { id: "s3", from: 16, to: 24, title: "Shield up", items: [
       { id: "c1", lv: 16, k: "alert", t: "Respec at the trainer, swap to one-hander and shield", s: "A few silver. Rebuild as Shield Specialization 5/5 + Improved Thunder Clap 2/3." },
       { id: "c2", lv: 16, k: "alert", t: "Shield Block: Prot turns on here", s: "Upgrade your shield as eagerly as your weapon." },
       { id: "c3", lv: 16, k: "consum", t: "Elixir of Lesser Defense" },
+      { id: "c13", lv: 20, k: "prof", t: "Expert Herbalism and Skinning at skill 125 (50s each)", s: "Any full trainer: Jandi and Thuwd in Orgrimmar, Komin Winterhoof and Mooranta in Thunder Bluff, Martha Alliestar and Killian Hagey in Undercity." },
       { id: "c5", lv: 20, k: "prof", t: "Wailing Caverns: Field Guide blueprint from Lady Anacondra", s: "Skinning camp upgrade, usable at Skinning 140." },
       { id: "c7", lv: 20, k: "tip", t: "Dungeons start: Strength and Agility move above Spirit" },
       { id: "c8", lv: 20, k: "consum", t: "Elixir of Ogre's Strength" },
@@ -541,20 +557,35 @@ footer a { word-break: break-word; }
       { id: "d5", lv: 29, k: "alert", t: "Vanguard: Charge in Defensive Stance", s: "Pulls now start in Defensive with pooled rage." },
       { id: "d6", lv: 29, k: "consum", t: "Elixir of Defense" },
       { id: "d7", lv: 30, k: "alert", t: "Berserker Stance and the level 30 class quest chain", s: "The Whirlwind Axe reward is a two-hander. Skip it for Prot.", check: true },
-      { id: "d8", lv: 30, k: "tip", t: "Dual spec may unlock at 30 instead of 40", check: true }
+      { id: "d9", lv: 25, k: "prof", t: "Skinning 125–150: Wetlands raptors (22–27) and Hillsbrad Foothills", s: "You can skin a mob at 5× its level, so skinning what you kill keeps you on pace." },
+      { id: "d10", lv: 26, k: "prof", t: "Herbalism 125–150: Stonetalon Mountains, then Wetlands or Stranglethorn", s: "Kingsblood (125) is the one to find." },
+      { id: "d11", lv: 27, k: "prof", t: "Excavation Site: Greenhouse blueprint from Shadetooth (about 7%)", s: "Herbalism camp object, usable at Herbalism 140." },
+      { id: "d12", lv: 30, k: "prof", t: "Herbalism 150–205: Stranglethorn Vale, or Alterac Mountains for all five herbs", s: "Liferoot 150, Fadeleaf 160, Goldthorn 170, Khadgar's Whisker 185, Wintersbite 195 (Alterac only). Pair Alterac with City of Dalaran." },
+      { id: "d13", lv: 30, k: "prof", t: "Skinning 150–200: Stranglethorn tigers (30) and Lashtail raptors (35–36)", s: "Also Thousand Needles, Hillsbrad and Alterac. Heavy Leather from 155." }
     ]},
-    { id: "s5", from: 31, to: 40, title: "Road to Shield Slam", note: "Past the beta cap. Check talents after launch.", items: [
+    { id: "s5", from: 31, to: 40, title: "Road to Shield Slam", items: [
       { id: "e1", lv: 32, k: "gear", t: "Weapons 30–40: Sword of Omen, Windstorm Hammer", s: "Also Electrocutioner Leg, Ironspline's Fist, Vanquisher's Sword." },
       { id: "e2", lv: 35, k: "consum", t: "Dense stone (+8), Superior Healing Potion" },
       { id: "e3", lv: 36, k: "alert", t: "Whirlwind (Berserker Stance)" },
       { id: "e4", lv: 38, k: "tip", t: "Optional: Arms detour for Ravager (Herod, Scarlet Monastery)" },
-      { id: "e5", lv: 40, k: "alert", t: "Shield Slam", s: "Block value starts to matter. Strength moves back up." }
+      { id: "e5", lv: 40, k: "alert", t: "Shield Slam", s: "Block value starts to matter. Strength moves back up." },
+      { id: "e6", lv: 35, k: "prof", t: "Artisan Herbalism and Skinning at skill 200 (5g each)", s: "Same full trainers as Expert. Raises the cap to 300. One guide says it needs level 35.", check: true },
+      { id: "e7", lv: 36, k: "prof", t: "Herbalism 205+: Firebloom (205) in Badlands, Purple Lotus (210) in Hinterlands or Feralas", s: "Pair Badlands with Uldaman." },
+      { id: "d8", lv: 40, k: "tip", t: "Dual spec unlocks at 40", s: "Older notes said 30.", check: true }
     ]},
-    { id: "s6", from: 41, to: 60, title: "Run to 60", note: "Past the beta cap. Check talents after launch.", items: [
+    { id: "s6", from: 41, to: 50, title: "Desert and Desolace", items: [
       { id: "f1", lv: 43, k: "consum", t: "Elixir of Greater Defense, Major Healing Potion at 45" },
       { id: "f2", lv: 44, k: "gear", t: "Weapons 40–50: Force of the Hippogryph, Thrash Blade" },
+      { id: "f6", lv: 42, k: "tip", t: "Defense from here: Anticipation (52) and Deflection (47) round out the tank build" },
+      { id: "f7", lv: 45, k: "prof", t: "Herbalism 205–250: The Hinterlands (Purple Lotus, Sungrass, Ghost Mushroom), Feralas or Azshara", s: "Blindweed (235) is Swamp of Sorrows and Un'Goro only." },
+      { id: "f8", lv: 45, k: "prof", t: "Skinning 200–250: Feralas first, then Stranglethorn, Tanaris and The Hinterlands", s: "Skill needed is 5× the mob's level: 225 at 45, 250 at 50. Thick Leather from 205, Turtle Scale from Tanaris and Hinterlands turtles." },
+      { id: "f9", lv: 50, k: "prof", t: "Herbalism 250–300: Eastern Plaguelands or Felwood", s: "Gromsblood 250, Golden Sansam 260, Dreamfoil 270, Mountain Silversage 280, Plaguebloom 285. Winterspring for Icecap (290) and Black Lotus (300)." },
+      { id: "f10", lv: 50, k: "prof", t: "Skinning 250–300: Winterspring, then Silithus, Un'Goro and Eastern Plaguelands", s: "Rugged Leather from 250. Cure Rugged Hide at a Tanning Rack." }
+    ]},
+    { id: "s7", from: 51, to: 60, title: "Blackrock and the Plaguelands", items: [
       { id: "f3", lv: 52, k: "gear", t: "Weapons 50–60: Lord General's Sword, Mirah's Song" },
       { id: "f4", lv: 55, k: "consum", t: "Elixir of the Grizzly, Elixir of the Phalanx" },
+      { id: "f11", lv: 60, k: "prof", t: "Skill 300 camp blueprints: Trapper's Workbench (Skinning) and Seed Hybridizer (Herbalism)", s: "Workbench blueprint: Houndmaster Loksey, Scarlet Monastery, 0.01%. No source published for the Hybridizer yet." },
       { id: "f5", lv: 60, k: "alert", t: "Respec for your endgame role" }
     ]}
   ];
@@ -565,13 +596,19 @@ footer a { word-break: break-word; }
     14: ["Revenge", "Demoralizing Shout", "Tactical Mastery"], 16: ["Shield Block", "Mocking Blow"],
     18: ["Disarm"], 20: ["Cleave", "Victory Rush", "Retaliation", "Slam"], 22: ["Intimidating Shout"],
     24: ["Execute"], 26: ["Challenging Shout"], 28: ["Shield Wall"], 30: ["Berserker Rage", "Intercept"],
-    36: ["Whirlwind"], 38: ["Pummel"], 50: ["Recklessness"]
+    36: ["Whirlwind"], 38: ["Pummel"], 40: ["Plate Mail"], 50: ["Recklessness"]
   };
   var TRAIN_NOTE = {
+    40: ["Plate from 40. Swap mail pieces as plate drops.", true],
     14: ["Revenge is your main attack once the shield is on. One older guide lists it at 16.", true, true],
     20: ["Cleave is core to your AoE pulls. Bring coin.", true],
     16: ["Shield Block is what makes Prot work.", true]
   };
+  // No source lists rank upgrades by level, but every even level from 32 is a trainer stop for them.
+  for (var tl = 32; tl <= 60; tl += 2) if (!TRAIN[tl]) {
+    TRAIN[tl] = ["New ranks"];
+    TRAIN_NOTE[tl] = ["No new abilities, but ranks go up every few levels. Check the trainer.", false, true];
+  }
   function place(it) {
     for (var i = 0; i < SECTIONS.length; i++) if (it.lv >= SECTIONS[i].from && it.lv <= SECTIONS[i].to) { SECTIONS[i].items.push(it); return; }
   }
@@ -581,29 +618,31 @@ footer a { word-break: break-word; }
   });
 
   /* ---------- dungeons. Quest text is Classic's carried into the beta; may change at launch.
-     q kinds: pre = do before the rest unlocks, get = pick up in town, in = starts inside the dungeon.
-     at = where to pick it up, need = what has to be done first, miss = easy to miss. ---------- */
+     q kinds: pre = do before the rest unlocks, get = pick up before you go, in = starts inside the dungeon.
+     at = where to pick it up, c = the city when that's Orgrimmar, Thunder Bluff or Undercity (feeds the
+     "grab in town" reminders at the trainer), min = lowest level that can take it, need = what has to be
+     done first, miss = easy to miss. ---------- */
   var DUNGEONS = [
     { id: "rfc", name: "Ragefire Chasm", where: "Orgrimmar, Cleft of Shadow", from: 13, to: 18, quests: [
-      { id: "he1", q: "pre", t: "Hidden Enemies (start of Thrall's chain)", at: "Thrall, Orgrimmar",
+      { id: "he1", q: "pre", t: "Hidden Enemies (start of Thrall's chain)", at: "Thrall, Orgrimmar", c: "Orgrimmar", min: 9,
         s: "Bring him a Lieutenant's Insignia from the Burning Blade at Skull Rock, east of Orgrimmar. Then gauge Neeru Fireblade's reaction in the Cleft of Shadow and report back. Unlocks the RFC step." },
-      { id: "sat1", q: "pre", t: "Searching for the Lost Satchel", at: "Rahauro, Thunder Bluff",
+      { id: "sat1", q: "pre", t: "Searching for the Lost Satchel", at: "Rahauro, Thunder Bluff", c: "Thunder Bluff", min: 9,
         s: "Without it, Maur Grimtotem's corpse inside gives you nothing." },
-      { id: "he2", q: "get", t: "Hidden Enemies: kill Bazzalan and Jergosh", at: "Thrall, Orgrimmar", need: "Lieutenant's Insignia and Neeru steps",
+      { id: "he2", q: "get", t: "Hidden Enemies: kill Bazzalan and Jergosh", at: "Thrall, Orgrimmar", c: "Orgrimmar", min: 9, need: "Lieutenant's Insignia and Neeru steps",
         s: "Finish the chain at Thrall for a Kris, Hammer, Axe or Staff of Orgrimmar." },
-      { id: "beast", q: "get", t: "Slaying the Beast", at: "Neeru Fireblade, Cleft of Shadow", s: "Taragaman the Hungerer's heart." },
-      { id: "test", q: "get", t: "Testing an Enemy's Strength", at: "Rahauro, Thunder Bluff", s: "8 Ragefire Troggs and 8 Ragefire Shamans." },
-      { id: "power", q: "get", t: "The Power to Destroy...", at: "Varimathras, Undercity", miss: true,
+      { id: "beast", q: "get", t: "Slaying the Beast", at: "Neeru Fireblade, Cleft of Shadow", c: "Orgrimmar", min: 9, s: "Taragaman the Hungerer's heart." },
+      { id: "test", q: "get", t: "Testing an Enemy's Strength", at: "Rahauro, Thunder Bluff", c: "Thunder Bluff", min: 9, s: "8 Ragefire Troggs and 8 Ragefire Shamans." },
+      { id: "power", q: "get", t: "The Power to Destroy...", at: "Varimathras, Undercity", c: "Undercity", min: 9, miss: true,
         s: "An RFC quest from Undercity. Both books drop from Searing Blade Cultists and Warlocks. Leggings reward." },
       { id: "sat2", q: "in", t: "Returning the Lost Satchel", at: "Maur Grimtotem's corpse, inside", need: "Searching for the Lost Satchel",
         s: "Bring the satchel back to Rahauro. Bracers reward." }
     ]},
     { id: "rol", name: "Ruins of Lordaeron", where: "Tirisfal Glades", from: 15, to: 20, quests: [
-      { id: "wrath", q: "get", t: "The Wrath of Rath'mael", at: "Deathguard Kristof, tents between Undercity and Brill", s: "Kill Rath'mael, the last boss." },
-      { id: "light", q: "get", t: "Light's Justice", at: "Morbin Lightbane, Undercity Royal Quarter", s: "25 Intact Limbs from undead inside. They often drop several at once." },
-      { id: "fright", q: "get", t: "A Frightened Request", at: "Tabetha Heartweaver, the Sepulcher, Silverpine", miss: true,
+      { id: "wrath", q: "get", t: "The Wrath of Rath'mael", at: "Deathguard Kristof, tents between Undercity and Brill", min: 15, s: "Kill Rath'mael, the last boss." },
+      { id: "light", q: "get", t: "Light's Justice", at: "Morbin Lightbane, Undercity Royal Quarter", c: "Undercity", min: 15, s: "25 Intact Limbs from undead inside. They often drop several at once." },
+      { id: "fright", q: "get", t: "A Frightened Request", at: "Tabetha Heartweaver, the Sepulcher, Silverpine", min: 15, miss: true,
         s: "Picked up in Silverpine, not Tirisfal. After Rath'mael, walk up to Edward's body in the west of his graveyard." },
-      { id: "plague", q: "get", t: "The New Plague", at: "Theodore Griffs, Apothecarium (by the alchemy trainers)", check: true,
+      { id: "plague", q: "get", t: "The New Plague", at: "Theodore Griffs, Apothecarium (by the alchemy trainers)", c: "Undercity", min: 15, check: true,
         s: "Bring back the Highly Toxic Strain from Witherfang, the first boss. Sources disagree on where it starts." },
       { id: "torment", q: "in", t: "Unending Torment", at: "Abominable Head, from The Baron in King's Alley",
         s: "Use the head to start it. Steps run in the Apothecarium and need Blisterweed (pots behind the herbalists), Toxic Skullcap (Tawny Grisette, Trade Quarter) and Essence of Agony (Ezekiel Graves, Rogues' Quarter)." },
@@ -612,51 +651,260 @@ footer a { word-break: break-word; }
     ]},
     { id: "wc", name: "Wailing Caverns", where: "The Barrens", from: 17, to: 24, quests: [
       { id: "horns", q: "pre", t: "Raptor Horns", at: "Mebok Mizzyrix, Ratchet", s: "Unlocks Smart Drinks." },
-      { id: "nara", q: "pre", t: "Nara Wildmane", at: "Arch Druid Hamuul Runetotem, Elder Rise, Thunder Bluff", s: "Talk to Nara on Elder Rise to unlock Leaders of the Fang." },
-      { id: "fang", q: "get", t: "Leaders of the Fang", at: "Nara Wildmane, Elder Rise, Thunder Bluff", need: "Nara Wildmane",
+      { id: "nara", q: "pre", t: "Nara Wildmane", at: "Arch Druid Hamuul Runetotem, Elder Rise, Thunder Bluff", c: "Thunder Bluff", min: 12, s: "Talk to Nara on Elder Rise to unlock Leaders of the Fang." },
+      { id: "fang", q: "get", t: "Leaders of the Fang", at: "Nara Wildmane, Elder Rise, Thunder Bluff", c: "Thunder Bluff", min: 12, need: "Nara Wildmane",
         s: "Gems from the four Fanglords. Wingblade reward (needs One-Handed Swords), good for 18–22." },
-      { id: "drinks", q: "get", t: "Smart Drinks", at: "Mebok Mizzyrix, Ratchet", need: "Raptor Horns", s: "6 Wailing Essence." },
-      { id: "docks", q: "get", t: "Trouble at the Docks", at: "Crane Operator Bigglefuzz, Ratchet", s: "99-Year-Old Port from Mad Magglish, who hides inside." },
-      { id: "serp", q: "get", t: "Serpentbloom", at: "Apothecary Zamah, Thunder Bluff", s: "10 Serpentbloom." },
-      { id: "hides", q: "get", t: "Deviate Hides", at: "Nalpak, on the hill above the entrance", s: "20 Deviate Hides. Deviate Hide Pack reward." },
-      { id: "erad", q: "get", t: "Deviate Eradication", at: "Ebru, on the hill above the entrance", s: "7 each of Deviate Ravagers, Vipers, Shamblers and Dreadfangs." },
+      { id: "drinks", q: "get", t: "Smart Drinks", at: "Mebok Mizzyrix, Ratchet", min: 13, need: "Raptor Horns", s: "6 Wailing Essence." },
+      { id: "docks", q: "get", t: "Trouble at the Docks", at: "Crane Operator Bigglefuzz, Ratchet", min: 14, s: "99-Year-Old Port from Mad Magglish, who hides inside." },
+      { id: "serp", q: "get", t: "Serpentbloom", at: "Apothecary Zamah, Thunder Bluff", c: "Thunder Bluff", min: 14, s: "10 Serpentbloom." },
+      { id: "hides", q: "get", t: "Deviate Hides", at: "Nalpak, on the hill above the entrance", min: 13, s: "20 Deviate Hides. Deviate Hide Pack reward." },
+      { id: "erad", q: "get", t: "Deviate Eradication", at: "Ebru, on the hill above the entrance", min: 15, s: "7 each of Deviate Ravagers, Vipers, Shamblers and Dreadfangs." },
       { id: "shard", q: "in", t: "The Glowing Shard", at: "Drops from Mutanus the Devourer", check: true,
         s: "Take it to Ratchet, then follow up with In Nightmares to Hamuul Runetotem in Thunder Bluff." }
     ]},
     { id: "sfk", name: "Shadowfang Keep", where: "Silverpine Forest", from: 20, to: 26, quests: [
-      { id: "ur", q: "get", t: "The Book of Ur", at: "Keeper Bel'dugur, Apothecarium" },
-      { id: "stalk", q: "get", t: "Deathstalkers in Shadowfang", at: "High Executor Hadrec, the Sepulcher", s: "Find Deathstalkers Adamant and Vincent." },
-      { id: "arugal", q: "get", t: "Arugal Must Die", at: "Dalar Dawnweaver, the Sepulcher", s: "Arugal's head. Seal of Sylvanas ring." }
+      { id: "ur", q: "get", t: "The Book of Ur", at: "Keeper Bel'dugur, Apothecarium", c: "Undercity", min: 16 },
+      { id: "stalk", q: "get", t: "Deathstalkers in Shadowfang", at: "High Executor Hadrec, the Sepulcher", min: 18, s: "Find Deathstalkers Adamant and Vincent." },
+      { id: "arugal", q: "get", t: "Arugal Must Die", at: "Dalar Dawnweaver, the Sepulcher", min: 18, s: "Arugal's head. Seal of Sylvanas ring." }
+    ]},
+    { id: "bfd", name: "Blackfathom Deeps", where: "Ashenvale", from: 22, to: 28, quests: [
+      { id: "deeps", q: "pre", t: "Trouble in the Deeps", at: "Tsunaman, Stonetalon Mountains", s: "Unlocks The Essence of Aku'Mai." },
+      { id: "akumai", q: "get", t: "The Essence of Aku'Mai", at: "Je'neu Sancrea, Zoram'gar Outpost, Ashenvale", min: 17, need: "Trouble in the Deeps", s: "20 Sapphires of Aku'Mai." },
+      { id: "ruins", q: "get", t: "Amongst the Ruins", at: "Je'neu Sancrea, Zoram'gar Outpost", min: 21, s: "The Fathom Core, from the Fathom Stone." },
+      { id: "note", q: "in", t: "Allegiance to the Old Gods (Damp Note)", at: "Damp Note, from Blackfathom Tide Priestesses",
+        s: "Hand it to Je'neu at Zoram'gar for the follow-up: kill Lorgus Jett, who spawns in one of 4 places. Band of the Fist reward." },
+      { id: "villainy", q: "in", t: "Blackfathom Villainy", at: "Argent Guard Thaelrid, inside",
+        s: "Twilight Lord Kelris's head to Bashana Runetotem, Thunder Bluff. 65s and a choice of four items." }
+    ]},
+    { id: "exc", name: "Excavation Site: Wetlands", where: "Wetlands, above Whelgar's Excavation", from: 24, to: 29, quests: [
+      { id: "rumors", q: "pre", t: "Dragonmaw Rumors", at: "Zaruk, Arathi Highlands", min: 24, s: "Sends you to the Deathstalker Agent in the hills above the Dragonmaw camp." },
+      { id: "tastes", q: "get", t: "Changing Tastes", at: "Borstan, Orgrimmar", c: "Orgrimmar", min: 24, s: "4 Thicket Raptor Meat. Serrated Raptor Claw or a potion satchel, plus a cooking recipe." },
+      { id: "maw", q: "get", t: "Open the Maw", at: "Deathstalker Agent, above the Dragonmaw camp", min: 24, need: "Dragonmaw Rumors", s: "Kill Dragonmaw inside and bring back a Dragonmaw Dispatch." },
+      { id: "relic", q: "in", t: "Elder Knowledge", at: "Titan Relic, from the Relic Guardian (last boss)",
+        s: "Take it to Elder Rise in Thunder Bluff, then to Muln Earthfury for Earthen Echo: Heavehammer, Healer's Staff or Furs of the Earthen Ring." }
+    ]},
+    { id: "dal", name: "City of Dalaran", where: "Alterac Mountains", from: 28, to: 33, quests: [
+      { id: "key", q: "pre", t: "Prison Break In / Key to the City", at: "Magus Wordeen Voidglare, Tarren Mill", min: 30, check: true,
+        s: "Kill four traitors at the Lordamere Internment Camp, then take the Grimy Key from the Warden's Footlocker upstairs. The key opens the dungeon." },
+      { id: "patrols", q: "pre", t: "Dalaran Patrols, then Blood in the Streets", at: "Follow-ups of the key chain", min: 30, need: "The Grimy Key", check: true,
+        s: "Through the north sewers to the Image of Archmage Modera." },
+      { id: "heart", q: "get", t: "Heart of Disruption", at: "Image of Archmage Modera, by Lordamere Lake", min: 30, need: "Blood in the Streets", s: "Arcane Mote from the Shade of the Archmage." },
+      { id: "knight", q: "get", t: "The Grave Knight", at: "Melisara, Hillsbrad Foothills", min: 24, s: "Defeat Atrexis the Grave Knight." },
+      { id: "power", q: "get", t: "Source of Power", at: "Doctor Martin Felben, Undercity", c: "Undercity", min: 24, s: "6 Cracked Sentry Cores each, from Fragmented Sentries. Wand or cloak." },
+      { id: "book", q: "get", t: "Opportunistic Education", at: "Rexxie Copperclutch, near the sewer entrance", min: 24, s: "The Founding of Dalaran, past the portal room on the back wall." }
+    ]},
+    { id: "gnome", name: "Gnomeregan", where: "Dun Morogh", from: 29, to: 38, quests: [
+      { id: "scooty", q: "pre", t: "Chief Engineer Scooty", at: "Sovik, Orgrimmar", c: "Orgrimmar", min: 25, s: "Sends you to Scooty in Booty Bay." },
+      { id: "gone", q: "get", t: "Gnomer-gooooone!", at: "Scooty, Booty Bay", min: 25, need: "Chief Engineer Scooty", check: true,
+        s: "Wait while he calibrates the Goblin Transponder for Booty Bay's transporter to Gnomeregan." },
+      { id: "rig", q: "get", t: "Rig Wars", at: "Nogg, Orgrimmar", c: "Orgrimmar", min: 25, s: "Rig Blueprints and Thermaplugg's Safe Combination." },
+      { id: "mess", q: "in", t: "A Fine Mess", at: "Kernobee, inside", s: "Escort him to the Clockwerk Run exit, then report to Scooty in Booty Bay." },
+      { id: "ring", q: "in", t: "Grime-Encrusted Ring", at: "Ring from Dark Iron Agents, inside",
+        s: "Clean it in the Sparklematic 5200. Then Return of the Ring: Nogg in Orgrimmar wants a Silver Bar, a Moss Agate and 30s for Nogg's Gold Ring." }
+    ]},
+    { id: "rfk", name: "Razorfen Kraul", where: "The Barrens", from: 29, to: 38, quests: [
+      { id: "tubers", q: "get", t: "Blueleaf Tubers", at: "Mebok Mizzyrix, Ratchet", min: 20, s: "6 Blueleaf Tubers. Small Container of Gems." },
+      { id: "fate", q: "get", t: "A Vengeful Fate", at: "Auld Stonespire, Thunder Bluff", c: "Thunder Bluff", min: 29, s: "Charlga Razorflank's heart. Marbled Buckler is a shield option." },
+      { id: "guano", q: "get", t: "Going, Going, Guano!", at: "Master Apothecary Faranell, Undercity", c: "Undercity", min: 30,
+        s: "1 Kraul Guano from the bats. Unlocks Hearts of Zeal for Scarlet Monastery." },
+      { id: "willix", q: "in", t: "Willix the Importer", at: "Willix, inside", s: "Escort him out. Ring reward." },
+      { id: "scroll", q: "in", t: "An Unholy Alliance (Small Scroll)", at: "Small Scroll, from Charlga Razorflank", miss: true,
+        s: "Take it to Varimathras in Undercity. Unlocks An Unholy Alliance for Razorfen Downs." }
+    ]},
+    { id: "smgy", name: "Scarlet Monastery: Graveyard", where: "Tirisfal Glades", from: 30, to: 38, quests: [
+      { id: "zeal", q: "get", t: "Hearts of Zeal", at: "Master Apothecary Faranell, Undercity", c: "Undercity", min: 30, need: "Going, Going, Guano! (Razorfen Kraul)",
+        s: "20 Hearts of Zeal from Scarlet mobs and bosses in every wing." },
+      { id: "vorrel", q: "in", t: "Vorrel's Revenge", at: "Vorrel Sengutz, inside", check: true,
+        s: "His ring is on Nancy Vishas. Return it to Monika Sengutz in Tarren Mill for Vorrel's Boots and a cloak." }
+    ]},
+    { id: "smlib", name: "Scarlet Monastery: Library", where: "Tirisfal Glades", from: 33, to: 41, quests: [
+      { id: "lore1", q: "pre", t: "Test of Lore (first step)", at: "Braug Dimspirit, Stonetalon Mountains", check: true,
+        s: "Sends you to Parqual Fintallas in Undercity. Earlier steps may come first." },
+      { id: "lore", q: "get", t: "Test of Lore", at: "Parqual Fintallas, Undercity", c: "Undercity", min: 25, need: "Test of Lore from Braug Dimspirit",
+        s: "The Beginnings of the Undead Threat, from the Library. Then Final Passage with Dorn Plainstalker in Thousand Needles: Windstorm Hammer." },
+      { id: "comp", q: "get", t: "Compendium of the Fallen", at: "Sage Truthseeker, Thunder Bluff", c: "Thunder Bluff", min: 28,
+        s: "From the Library. Forcestone Buckler, Vile Protector or Omega Orb." },
+      { id: "into", q: "get", t: "Into the Scarlet Monastery", at: "Varimathras, Undercity", c: "Undercity", min: 33,
+        s: "Doan and Loksey (Library), Herod (Armory), Mograine and Whitemane (Cathedral). Sword of Omen reward." }
+    ]},
+    { id: "drown", name: "The Drowned City", where: "Gillijim's Isle, off Stranglethorn", from: 35, to: 40, quests: [
+      { id: "idol", q: "get", t: "Ancient Gurubashi Idol", at: "Mazu'kon, Mulgore", min: 30, check: true,
+        s: "Portal in Sunken Hollow on Gillijim's Isle. The beta had no boat or flight path there." }
+    ]},
+    { id: "smarm", name: "Scarlet Monastery: Armory", where: "Tirisfal Glades", from: 36, to: 44, quests: [] },
+    { id: "ulda", name: "Uldaman", where: "Badlands", from: 36, to: 45, quests: [
+      { id: "reag1", q: "pre", t: "Badlands Reagent Run", at: "Jarkal Mossmeld, Kargath", s: "Unlocks Uldaman Reagent Run." },
+      { id: "stones", q: "get", t: "Power Stones", at: "Rigglefuzz, Badlands", min: 30, s: "8 Dentrium and 8 An'Alleum Power Stones from Shadowforge mobs." },
+      { id: "doom", q: "get", t: "Solution to Doom", at: "Theldurin the Lost, Badlands", min: 30, s: "Tablet of Ryun'eh, from an Ancient Chest." },
+      { id: "garrett", q: "get", t: "Reclaimed Treasures", at: "Patrick Garrett, Undercity", c: "Undercity", min: 33, s: "Garrett Family Chest, South Common Hall." },
+      { id: "neck", q: "get", t: "Necklace Recovery", at: "Dran Droffers, Orgrimmar", c: "Orgrimmar", min: 37,
+        s: "Shattered Necklace from the dig site. Starts a chain through Jarkal in Kargath that ends with Jarkal's Enhancing Necklace." },
+      { id: "reag2", q: "get", t: "Uldaman Reagent Run", at: "Jarkal Mossmeld, Kargath", min: 36, need: "Badlands Reagent Run", s: "12 Magenta Fungus Caps." },
+      { id: "discs", q: "in", t: "The Platinum Discs", at: "The Discs of Norgannon, inside", s: "Take the miniature discs to a sage in Thunder Bluff." }
+    ]},
+    { id: "rfd", name: "Razorfen Downs", where: "The Barrens", from: 37, to: 46, quests: [
+      { id: "host", q: "get", t: "A Host of Evil", at: "Myriam Moonsinger, The Barrens", min: 28, s: "8 each of Battleguards, Thornweavers and Death's Head Cultists." },
+      { id: "unholy", q: "get", t: "An Unholy Alliance", at: "Varimathras, Undercity", c: "Undercity", min: 28, need: "Small Scroll from Charlga Razorflank (Razorfen Kraul)",
+        s: "Ambassador Malcin's head. Skullbreaker, Nail Spitter or a chest piece." },
+      { id: "end", q: "get", t: "Bring the End", at: "Andrew Brownell, Undercity", c: "Undercity", min: 37, s: "Amnennar the Coldbringer's skull. Vanquisher's Sword reward." },
+      { id: "idol", q: "in", t: "Extinguishing the Idol", at: "Belnistrasz, inside", s: "Escort and protect him during the ritual. Dragonclaw Ring." }
+    ]},
+    { id: "smcath", name: "Scarlet Monastery: Cathedral", where: "Tirisfal Glades", from: 38, to: 46, quests: [] },
+    { id: "zf", name: "Zul'Farrak", where: "Tanaris", from: 40, to: 47, quests: [
+      { id: "screech", q: "pre", t: "Screecher Spirits", at: "Yeh'kinya, Tanaris", s: "Unlocks The Prophecy of Mosh'aru." },
+      { id: "moshar", q: "get", t: "The Prophecy of Mosh'aru", at: "Yeh'kinya, Tanaris", min: 40, need: "Screecher Spirits",
+        s: "Tablets from Theka the Martyr and Hydromancer Velratha. Continues into Sunken Temple's The God Hakkar." },
+      { id: "rod", q: "get", t: "Divino-matic Rod", at: "Chief Engineer Bilgewhizzle, Gadgetzan", min: 40, s: "Drops from Sergeant Bly. Engineer's Guild Headpiece or a ring." },
+      { id: "scarab", q: "get", t: "Scarab Shells", at: "Tran'rek, Gadgetzan", min: 40, s: "5 Uncracked Scarab Shells." },
+      { id: "temper", q: "get", t: "Troll Temper", at: "Trenton Lighthammer, Gadgetzan", min: 40, s: "20 Troll Temper from the trolls." },
+      { id: "tiara", q: "get", t: "Tiara of the Deep", at: "Tabetha, Dustwallow Marsh", min: 40, s: "From Hydromancer Velratha. Spellshifter Rod and Gemshale Pauldrons." },
+      { id: "gahz", q: "get", t: "Gahz'rilla", at: "Wizzle Brassbolts, Shimmering Flats, Thousand Needles", min: 40, s: "Gahz'rilla's Electrified Scale. Carrot on a Stick reward." }
+    ]},
+    { id: "krol", name: "Krol'dok Stronghold", where: "Riverglades (fly to Rog'mar)", from: 40, to: 45, note: "New dungeon: no quests published yet, so check in game.", quests: [] },
+    { id: "mara", name: "Maraudon", where: "Desolace", from: 45, to: 51, quests: [
+      { id: "shard", q: "get", t: "Shadowshard Fragments", at: "Uthel'nay, Orgrimmar", c: "Orgrimmar", min: 38, s: "10 fragments from Shadowshard Rumblers and Smashers. Pendant reward." },
+      { id: "vyle", q: "get", t: "Vyletongue Corruption", at: "Vark Battlescar, Shadowprey Village", min: 41, s: "Fill the vial at the orange crystal pool, use it on the Vylestem Vines, kill 8 Noxxious Scions." },
+      { id: "seed", q: "get", t: "Corruption of Earth and Seed", at: "Selendra, near Shadowprey Village", min: 45, s: "Kill Princess Theradras. Thrash Blade reward." },
+      { id: "pariah", q: "get", t: "The Pariah's Instructions", at: "Centaur Pariah, southern Desolace", min: 39, s: "Amulet of Union. Mark of the Chosen." },
+      { id: "twisted", q: "get", t: "Twisted Evils", at: "Willow, Desolace", min: 41, s: "15 Theradric Crystal Carvings." },
+      { id: "legends", q: "get", t: "Legends of Maraudon", at: "Cavindra, Desolace", min: 41,
+        s: "Celebrian Diamond (Lord Vyletongue) and Celebrian Rod (Noxxion). Unlocks The Scepter of Celebras inside." },
+      { id: "scepter", q: "in", t: "The Scepter of Celebras", at: "Celebras the Redeemed, inside", need: "Legends of Maraudon", s: "Help him make the scepter." },
+      { id: "life", q: "in", t: "Seed of Life", at: "Zaetar's Spirit, inside", s: "Take the seed to Remulos in Moonglade." }
+    ]},
+    { id: "alcaz", name: "Alcaz Island Prison", where: "Alcaz Island, Dustwallow Marsh", from: 48, to: 53, note: "New dungeon: no quests published yet, so check in game.", quests: [] },
+    { id: "st", name: "Sunken Temple", where: "Swamp of Sorrows", from: 50, to: 55, quests: [
+      { id: "felz", q: "pre", t: "Return to Fel'Zerul", at: "Atal'ai Exile, The Hinterlands", check: true, s: "Unlocks The Temple of Atal'Hakkar from Fel'Zerul in Stonard." },
+      { id: "egg", q: "pre", t: "The Ancient Egg", at: "Yeh'kinya, Tanaris", need: "The Prophecy of Mosh'aru (Zul'Farrak)", check: true, s: "Unlocks The God Hakkar." },
+      { id: "circle", q: "pre", t: "The Stone Circle", at: "Marvon Rivetseeker, Tanaris", s: "Unlocks Into the Depths and Secret of the Circle." },
+      { id: "jammal", q: "get", t: "Jammal'an the Prophet", at: "Atal'ai Exile, The Hinterlands", min: 38, s: "Head of Jammal'an. Helm of Exile reward." },
+      { id: "fetish", q: "get", t: "The Temple of Atal'Hakkar", at: "Fel'Zerul, Stonard", min: 38, need: "Return to Fel'Zerul", s: "20 Fetishes of Hakkar. Guardian Talisman." },
+      { id: "hakkar", q: "get", t: "The God Hakkar", at: "Yeh'kinya, Tanaris", min: 40, need: "The Ancient Egg", s: "Fill the Egg of Hakkar during the Avatar fight. Avenguard Helm." },
+      { id: "depths", q: "get", t: "Into the Depths", at: "Marvon Rivetseeker, Tanaris", min: 46, need: "The Stone Circle", s: "Find the Altar of Hakkar." },
+      { id: "secret", q: "get", t: "Secret of the Circle", at: "Marvon Rivetseeker, Tanaris", min: 46, need: "The Stone Circle", s: "Find the secret in the circle of statues." },
+      { id: "eran", q: "in", t: "The Essence of Eranikus", at: "Essence of Eranikus, dropped inside", s: "Place it in the Essence Font in his lair." }
+    ]},
+    { id: "brd", name: "Blackrock Depths", where: "Blackrock Mountain", from: 52, to: 60, quests: [
+      { id: "gorshak", q: "pre", t: "The Eastern Kingdom", at: "Thrall, Orgrimmar", c: "Orgrimmar", min: 48, check: true,
+        s: "Starts the princess rescue. In Classic this chain began by freeing Commander Gor'shak inside BRD." },
+      { id: "flame", q: "pre", t: "Disharmony of Flame", at: "Thunderheart, Kargath", s: "Unlocks Disharmony of Fire." },
+      { id: "theodora", q: "pre", t: "Hierophant Theodora Mulvadania's quest", at: "Hierophant Theodora Mulvadania, Kargath", s: "Unlocks The Rise of the Machines." },
+      { id: "rescue", q: "get", t: "The Royal Rescue", at: "Thrall, Orgrimmar", c: "Orgrimmar", min: 48, need: "The Eastern Kingdom",
+        s: "Kill Emperor Dagran Thaurissan without killing Princess Moira, then The Princess Saved? for Thrall's Resolve or Eye of Orgrimmar." },
+      { id: "kos1", q: "get", t: "KILL ON SIGHT: Dark Iron Dwarves", at: "Wanted poster, Kargath", min: 48, s: "15 Guardsmen, 10 Wardens, 5 Footmen." },
+      { id: "kos2", q: "get", t: "KILL ON SIGHT: High Ranking Dark Iron Officials", at: "Wanted poster, Kargath", min: 50, s: "10 Medics, 10 Soldiers, 10 Officers." },
+      { id: "element", q: "get", t: "The Last Element", at: "Shadowmage Vivian Lagrave, Kargath", min: 48, s: "10 Essence of the Elements. Lagrave's Seal." },
+      { id: "brew", q: "get", t: "Lost Thunderbrew Recipe", at: "Shadowmage Vivian Lagrave, Kargath", min: 50, s: "Swiftstrike Cudgel or Limb Cleaver." },
+      { id: "fire", q: "get", t: "Disharmony of Fire", at: "Thunderheart, Kargath", min: 48, need: "Disharmony of Flame", s: "Kill Lord Incendius for the Tablet of Kurniya." },
+      { id: "anger", q: "get", t: "Operation: Death to Angerforge", at: "Warlord Goretooth, Kargath", min: 52, s: "Kill General Angerforge. Conqueror's Medallion." },
+      { id: "machines", q: "get", t: "The Rise of the Machines", at: "Lotwil Veriatus, Badlands", min: 52, need: "Hierophant Theodora Mulvadania's quest", s: "Kill Golem Lord Argelmach, 10 Intact Elemental Cores." },
+      { id: "ribbly", q: "get", t: "Ribbly Screwspigot", at: "Yuka Screwspigot, Burning Steppes", min: 48, s: "Ribbly's head. Splintsteel Armor is an option." },
+      { id: "heart", q: "get", t: "The Heart of the Mountain", at: "Maxwort Uberglint, Burning Steppes", min: 50 },
+      { id: "taste", q: "get", t: "A Taste of Flame", at: "Cyrus Therepentous, Burning Steppes", min: 52, s: "Kill Bael'Gar and use the Molt on his remains." },
+      { id: "legacy", q: "in", t: "Dark Iron Legacy", at: "Franclorn Forgewright's spirit", min: 48, check: true,
+        s: "Kill Fineous Darkvire and take Ironfel to the Shrine of Thaurissan. Reward: the Shadowforge Key, which opens the deeper half of BRD." }
+    ]},
+    { id: "maw", name: "Blackmaw Hold", where: "Behind the gate in Azshara", from: 55, to: 60, note: "New dungeon: no quests published yet, so check in game.", quests: [] },
+    { id: "lbrs", name: "Lower Blackrock Spire", where: "Blackrock Mountain", from: 57, to: 60, quests: [
+      { id: "bijou1", q: "pre", t: "Operative Bijou", at: "Grandmaster Lexlort, Kargath", s: "Unlocks Bijou's Belongings inside." },
+      { id: "tablets", q: "pre", t: "The Lost Tablets of Mosh'aru", at: "Prospector Ironboot, Tanaris", s: "Unlocks The Final Tablets." },
+      { id: "final", q: "get", t: "The Final Tablets", at: "Prospector Ironboot, Tanaris", min: 40, need: "The Lost Tablets of Mosh'aru", s: "Fifth and Sixth Mosh'aru Tablets." },
+      { id: "pack", q: "get", t: "The Pack Mistress", at: "Galamav the Marksman, Badlands", min: 55, s: "Kill Halycon." },
+      { id: "milk", q: "get", t: "Mother's Milk", at: "Ragged John, Burning Steppes", min: 55, s: "Get poisoned by Mother Smolderweb and run it back. Ragged John's Neverending Cup." },
+      { id: "command", q: "in", t: "Warlord's Command", at: "Warlord Goretooth's Command, dropped inside",
+        s: "Kill Omokk, Voone and Wyrmthalak, take the Important Blackrock Documents to Goretooth in Kargath." },
+      { id: "bijou2", q: "in", t: "Bijou's Belongings", at: "Bijou, inside", need: "Operative Bijou" },
+      { id: "urok", q: "in", t: "Urok Doomhowl", at: "Warosh, inside", s: "Prismcharm reward." },
+      { id: "seal", q: "in", t: "Seal of Ascension", at: "Vaelan, inside", min: 57,
+        s: "Three gems (Spirestone, Smolderthorn, Bloodaxe) and the Unadorned Seal, then Emberstrife in Dustwallow's Wyrmbog. The seal is the Upper Blackrock Spire key." }
+    ]},
+    { id: "dme", name: "Dire Maul East", where: "Feralas", from: 58, to: 60, quests: [
+      { id: "web", q: "get", t: "Lethtendris's Web", at: "Talo Thornhoof, Camp Mojache", min: 54 },
+      { id: "pusillin", q: "get", t: "Pusillin and the Elder Azj'Tordin", at: "Azj'Tordin, Feralas", min: 54,
+        s: "Chase Pusillin down for the book. He also drops the Crescent Key for the other Dire Maul wings. Spry Boots or Sprinter's Sword." }
+    ]},
+    { id: "shaper", name: "Shaper's Terrace", where: "Un'Goro Crater", from: 58, to: 60, note: "New dungeon: no quests published yet, so check in game.", quests: [] },
+    { id: "strat", name: "Stratholme", where: "Eastern Plaguelands (Main Gate and Service Gate)", from: 58, to: 60, quests: [
+      { id: "flesh", q: "pre", t: "The Flesh Does Not Lie", at: "Betina Bigglezink, Light's Hope Chapel", s: "Unlocks The Active Agent." },
+      { id: "alen", q: "pre", t: "The Restless Souls (first step)", at: "Caretaker Alen, Light's Hope Chapel", s: "Sends you to Egan for the soul-freeing step." },
+      { id: "holy", q: "get", t: "Houses of the Holy", at: "Leonid Barthalomew, Light's Hope Chapel", min: 55, s: "5 Stratholme Holy Water from supply crates." },
+      { id: "fras", q: "get", t: "The Great Fras Siabi", at: "Smokey LaRue, Light's Hope Chapel", min: 55, s: "Fras Siabi's tobacco box. Smokey's Lighter." },
+      { id: "archive", q: "get", t: "The Archivist", at: "Duke Nicholas Zverenhoff, Light's Hope Chapel", min: 55,
+        s: "Kill Archivist Galford and burn the Scarlet Archive. Balnazzar's head then starts The Truth Comes Crashing Down." },
+      { id: "agent", q: "get", t: "The Active Agent", at: "Betina Bigglezink, Light's Hope Chapel", min: 55, need: "The Flesh Does Not Lie", s: "Scourge Data from the ziggurats (Service Gate side)." },
+      { id: "souls", q: "get", t: "The Restless Souls", at: "Egan, Eastern Plaguelands", min: 55, need: "Caretaker Alen's first step", s: "Free 15 Restless Souls with Egan's Blaster." },
+      { id: "plea", q: "get", t: "Dead Man's Plea", at: "Anthion Harmon, Eastern Plaguelands", min: 58, s: "Rescue Ysida from Baron Rivendare (Service Gate side). Ysida's Satchel." }
+    ]},
+    { id: "scholo", name: "Scholomance", where: "Caer Darrow, Western Plaguelands", from: 58, to: 60, quests: [
+      { id: "key", q: "pre", t: "The Key to Scholomance", at: "Apothecary Dithers, the Bulwark, Western Plaguelands", check: true,
+        s: "In Classic the door needed the Skeleton Key from this chain. Not confirmed for Forever; one key in the group is enough." },
+      { id: "keepsake", q: "pre", t: "Soulbound Keepsake", at: "Leonid Barthalomew, Light's Hope Chapel", s: "Unlocks The Lich, Ras Frostwhisper." },
+      { id: "barov", q: "get", t: "Barov Family Fortune", at: "Alexi Barov, Tirisfal Glades", min: 52,
+        s: "Four deeds inside. Follow-up The Last Barov: kill Weldon Barov at Chillwind Camp." },
+      { id: "hatch", q: "get", t: "Plagued Hatchlings", at: "Betina Bigglezink, Light's Hope Chapel", min: 55, s: "Kill 20 Plagued Hatchlings. Leads to Dawn's Gambit." },
+      { id: "butcher", q: "get", t: "Doctor Theolen Krastinov, the Butcher", at: "Eva Sarkhoff, Caer Darrow", min: 55,
+        s: "Then Krastinov's Bag of Horrors (Jandice Barov) and Kirtonos the Herald: Mirah's Song or Penelope's Rose." },
+      { id: "lich", q: "get", t: "The Lich, Ras Frostwhisper", at: "Magistrate Marduke, Caer Darrow", min: 57, need: "Soulbound Keepsake", s: "Warblade of Caer Darrow is an option." },
+      { id: "gambit", q: "get", t: "Dawn's Gambit", at: "Betina Bigglezink, Light's Hope Chapel", min: 57, need: "Plagued Hatchlings", check: true,
+        s: "Place it in the Viewing Room (Rattlegore drops the key) and kill Vectus. Windreaper or Dancing Sliver." }
     ]}
   ];
   // A mob is green once it's 3+ levels below you, and gray at or below this level (Classic rule).
   function grayAt(L) { return L <= 5 ? 0 : L < 40 ? L - Math.floor(L / 10) - 5 : L < 60 ? L - Math.floor(L / 5) - 1 : L - 9; }
+  var DQ = []; // every dungeon quest item, for the "grab in town" reminders
   DUNGEONS.forEach(function (d) {
-    d.lfg = d.from + 3; d.gather = d.lfg - 2;
+    // Dungeons starting at 58+ can't be green before the cap, so their group level is 60.
+    d.capped = d.from + 3 > 60;
+    d.lfg = Math.min(d.from + 3, 60); d.gather = d.lfg - 2;
     d.hasPre = d.quests.some(function (q) { return q.q === "pre"; });
     d.pre = d.gather - 2;
-    for (d.gray = d.from; grayAt(d.gray) < d.from; d.gray++);
+    for (d.gray = d.from; d.gray <= 60 && grayAt(d.gray) < d.from; d.gray++); // 61 = never gray before 60
     var getN = d.quests.filter(function (q) { return q.q !== "pre"; }).length;
     function quests(kind, lv) {
       d.quests.forEach(function (q) {
         if (q.q !== kind) return;
-        place({ id: "dq-" + d.id + "-" + q.id, lv: lv, k: kind === "pre" ? "pre" : "dq", t: q.t, s: q.s, at: kind === "in" ? q.at : "Pick up: " + q.at,
-          need: q.need, miss: q.miss, check: q.check, dg: d.name });
+        var it = { id: "dq-" + d.id + "-" + q.id, lv: kind === "in" ? lv : Math.max(lv, q.min || 0), k: kind === "pre" ? "pre" : "dq", t: q.t, s: q.s,
+          at: kind === "in" ? q.at : "Pick up: " + q.at, need: q.need, miss: q.miss, check: q.check, dg: d.name,
+          city: kind === "in" ? null : q.c, min: q.min || 1, d: d };
+        place(it); DQ.push(it);
       });
     }
     // Placed in reading order (the checklist sort keeps ties in place): prereqs, the gather
     // reminder above its quests, then the group reminder above what starts inside.
     quests("pre", d.pre);
-    place({ id: "dg-" + d.id + "-gather", lv: d.gather, k: "alert", t: "Collect every " + d.name + " quest (" + getN + ") before you queue",
+    if (getN) place({ id: "dg-" + d.id + "-gather", lv: d.gather, k: "alert", t: "Collect every " + d.name + " quest (" + getN + ") before you queue",
       s: (d.hasPre ? "Finish the prereqs first. " : "") + "Tick each one off below as you pick it up." });
     quests("get", d.gather);
-    place({ id: "dg-" + d.id + "-lfg", lv: d.lfg, k: "alert", t: d.name + " is green at the door: look for a group", check: true,
-      s: d.where + ", " + d.from + "–" + d.to + ". The first mobs inside go gray at " + d.gray + ", so run it before then." });
+    place({ id: "dg-" + d.id + "-lfg", lv: d.lfg, k: "alert", check: true,
+      t: d.name + (d.capped ? ": look for a group" : " is green at the door: look for a group"),
+      s: d.where + ", " + d.from + "–" + d.to + ". " +
+        (d.gray > 60 ? "Worth running all the way to 60." : "The first mobs inside go gray at " + d.gray + ", so run it before then.") +
+        (d.note ? " " + d.note : "") });
     quests("in", d.lfg);
   });
 
+  // Dungeon quests to pick up in the three trainer cities at level L, by city. Starts 6 levels before
+  // a dungeon's group level so the quest log doesn't fill up with far-off quests.
+  var TOWNS = ["Orgrimmar", "Thunder Bluff", "Undercity"];
+  function townQuests(L) {
+    var by = {};
+    DQ.forEach(function (it) {
+      if (!it.city || state.checks[it.id] || L < it.min || L < it.d.lfg - 6 || L >= it.d.gray) return;
+      (by[it.city] = by[it.city] || []).push(it);
+    });
+    return by;
+  }
+  function townLine(L, cls) {
+    var by = townQuests(L), parts = TOWNS.filter(function (c) { return by[c]; }).map(function (c) {
+      return "<b>" + c + ":</b> " + by[c].map(function (it) { return esc(it.t); }).join(", ");
+    });
+    return parts.length ? '<span class="' + cls + '"><i>Grab in town</i> ' + parts.join(" · ") + "</span>" : "";
+  }
+
   var KIND = { alert: "Don't miss", talent: "Talent", train: "Trainer", trip: "Town trip", gear: "Gear", consum: "Consumable", prof: "Profession", tip: "Tip", dq: "Dungeon quest", pre: "Prereq" };
-  var BRING = { train: 1, trip: 1, gear: 1, consum: 1, prof: 1, dq: 1, pre: 1 };
+  // Dungeon quests stay out of the general list: they're under each dungeon's reminder in the
+  // checklist, and the trainer-city ones get their own "Grab in town" box.
+  var BRING = { train: 1, trip: 1, gear: 1, consum: 1, prof: 1 };
   var TREE = { arms: "Arms", fury: "Fury", prot: "Protection" };
   var KEY = "tauren-prot-warrior-v2";
 
@@ -715,7 +963,7 @@ footer a { word-break: break-word; }
         '<div class="rank">' + (c.type === "talent" ? '<span class="rankbox">' + c.rank + "</span>" : '<span>' + esc(c.rank) + "</span>") +
         '<span class="treetag t-' + c.tree + '">' + (TREE[c.tree] || "Leveling") + "</span></div>" +
         '<p class="why">' + esc(c.why) + "</p>" +
-        (c.train ? '<p class="trainline"><span>Trainer</span>' + esc(c.train.join(", ")) + "</p>" : '<p class="trainline off">No trainer visit this level</p>') +
+        (c.train ? '<p class="trainline"><span>Trainer</span>' + esc(c.train.join(", ")) + "</p>" + townLine(c.L, "townline") : '<p class="trainline off">No trainer visit this level</p>') +
         '<button class="go" id="spend">' + (c.type === "ding" ? "Hit level " + c.L : c.type === "respec" ? "Respec done" : "Point spent") + " ✓</button></div>";
       [2, 3].forEach(function (n, idx) {
         if (L + n > 60) { html += '<div class="cardx"></div>'; return; }
@@ -757,16 +1005,24 @@ footer a { word-break: break-word; }
       (it.check ? '<span class="chk">check</span>' : "") +
       (it.dg ? '<span class="at">' + esc(it.dg) + " · " + esc(it.at) + "</span>" : "") +
       (it.need ? '<span class="need">Needs first: ' + esc(it.need) + "</span>" : "") +
-      (it.s ? '<span class="sub">' + esc(it.s) + "</span>" : "") + "</span></label></li>";
+      (it.s ? '<span class="sub">' + esc(it.s) + "</span>" : "") +
+      (/^tr\d+$/.test(it.id) && !d && !inBring ? townLine(it.lv, "town") : "") + "</span></label></li>";
   }
 
   function renderBring() {
     var L = level(), hi = Math.min(60, L + 2), list = [];
+    var town = townQuests(L), inTown = {};
+    TOWNS.forEach(function (c) { (town[c] || []).forEach(function (i) { inTown[i.id] = true; }); });
     SECTIONS.forEach(function (s) { s.items.forEach(function (i) {
-      if ((BRING[i.k] || i.k === "alert") && i.lv <= hi && !state.checks[i.id] && (i.lv >= L - 2)) list.push(i);
+      if ((BRING[i.k] || i.k === "alert") && i.lv <= hi && !state.checks[i.id] && (i.lv >= L - 2) && !inTown[i.id]) list.push(i);
     }); });
     list.sort(function (a, b) { return a.lv - b.lv; });
-    $("bringHint").textContent = "Gear, trips, consumables and dungeon quests for levels " + Math.max(1, L - 2) + "–" + hi + ". Tick them off as you go.";
+    $("bringHint").textContent = "Gear, trips, consumables and dungeon reminders for levels " + Math.max(1, L - 2) + "–" + hi + ". Tick them off as you go.";
+    var cities = TOWNS.filter(function (c) { return town[c]; });
+    $("town").innerHTML = cities.length ? '<h3>Grab in town</h3><p class="hint">Dungeon quests waiting in the trainer cities. Pick them up on your next trainer visit.</p>' +
+      cities.map(function (c) {
+        return '<p class="label">' + c + "</p><ul>" + town[c].sort(function (a, b) { return a.lv - b.lv; }).map(function (i) { return itemHTML(i, true); }).join("") + "</ul>";
+      }).join("") : "";
     var stock = [stoneFor(L), "Bandages", "Food"];
     if (L >= 26) stock.push("Troll's Blood Elixir");
     if (L >= 3) stock.push(L >= 35 ? "Superior Healing Potion" : L >= 21 ? "Greater Healing Potion" : L >= 12 ? "Healing Potion" : "Lesser Healing Potion");
@@ -795,9 +1051,9 @@ footer a { word-break: break-word; }
     var L = level();
     document.querySelectorAll(".phase").forEach(function (el) { el.classList.toggle("on", L >= +el.dataset.from && L <= +el.dataset.to); });
     $("dgRows").innerHTML = DUNGEONS.map(function (d) {
-      var cls = L >= d.lfg && L < d.gray ? "on" : L >= (d.hasPre ? d.pre : d.gather) && L < d.lfg ? "soon" : "";
+      var cls = L >= d.gray ? "past" : L >= d.lfg ? "on" : L >= (d.hasPre ? d.pre : d.gather) ? "soon" : "";
       return '<tr' + (cls ? ' class="' + cls + '"' : "") + '><td class="dn">' + esc(d.name) + '</td><td class="n">' + d.from + "–" + d.to + '</td><td class="n">' + (d.hasPre ? d.pre : "—") +
-        '</td><td class="n">' + d.gather + '</td><td class="n">' + d.lfg + '</td><td class="n">' + d.gray + "</td></tr>";
+        '</td><td class="n">' + d.gather + '</td><td class="n">' + d.lfg + '</td><td class="n">' + (d.gray > 60 ? "—" : d.gray) + "</td></tr>";
     }).join("");
   }
 
@@ -819,10 +1075,11 @@ footer a { word-break: break-word; }
     if (e.target.checked) state.checks[id] = true; else delete state.checks[id];
     save();
     var li = e.target.closest("li"); if (li) li.classList.toggle("done", e.target.checked);
-    setTimeout(function () { renderBring(); renderSecs(); }, e.target.checked ? 300 : 0);
+    setTimeout(function () { renderStrip(); renderBring(); renderSecs(); }, e.target.checked ? 300 : 0);
   }
   $("secs").addEventListener("change", onCheck);
   $("bringList").addEventListener("change", onCheck);
+  $("town").addEventListener("change", onCheck);
   $("secs").addEventListener("toggle", function (e) {
     var d = e.target; if (!d.dataset || !d.dataset.sec) return;
     state.open[d.dataset.sec] = d.open; save();
