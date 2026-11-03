@@ -10,7 +10,7 @@
 //     updated_at TEXT NOT NULL DEFAULT (datetime('now'))
 //   )
 // Rows from the per-email era are left in place as a backup.
-import { getDb } from './db';
+import { getDb } from '../db';
 import { blankState } from '../../../components/dom/radtech/reqMath';
 import type { ProgressState } from '../../../components/dom/radtech/types';
 

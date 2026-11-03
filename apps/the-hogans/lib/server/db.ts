@@ -1,6 +1,8 @@
-// Server-only Turso client. Import this only from pages/api/* or scripts —
-// never from a client component, since RADTECH_TRACKER_TURSO_AUTH_TOKEN
-// must not reach the browser bundle.
+// Server-only Turso client for the site's one database (radtech and
+// flashcards each keep their own table in it). The env vars are named for
+// the radtech tracker, which created the database. Import this only from
+// pages/api/* or scripts — never from a client component, since
+// RADTECH_TRACKER_TURSO_AUTH_TOKEN must not reach the browser bundle.
 import { createClient, type Client } from '@libsql/client';
 
 declare global {
