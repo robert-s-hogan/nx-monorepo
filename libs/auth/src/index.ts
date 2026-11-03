@@ -7,4 +7,5 @@ export {
   getUserFromRequest,
   requireRole,
 } from './lib/verify-request';
+export { getRoleForEmail } from './lib/allowlist';
 export type { Role } from './lib/allowlist';
