@@ -60,6 +60,8 @@ function Browser() {
   const [sort, setSort] = useState('created');
   const [desc, setDesc] = useState(true);
   const [rows, setRows] = useState<BrowserRow[]>([]);
+  // When rows were fetched; "buried" is shown as of then.
+  const [loadedAt, setLoadedAt] = useState(0);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -95,6 +97,7 @@ function Browser() {
         `/search?q=${encodeURIComponent(query)}&sort=${sort}&desc=${desc ? 1 : 0}&limit=${PAGE}&offset=${offset}`,
       );
       setRows((r) => (offset ? [...r, ...res.rows] : res.rows));
+      setLoadedAt(Date.now());
       setTotal(res.total);
     } catch (e) {
       setError((e as Error).message);
@@ -329,7 +332,7 @@ function Browser() {
                         {r.noteTypeName}
                         {types.get(r.note.noteTypeId)?.kind === 'cloze' ? ` · c${r.card.ord + 1}` : (types.get(r.note.noteTypeId)?.templates.length ?? 1) > 1 ? ` · ${types.get(r.note.noteTypeId)?.templates[r.card.ord]?.name}` : ''}
                         {r.card.suspended ? ' · suspended' : ''}
-                        {r.card.buriedUntil && Date.parse(r.card.buriedUntil) > Date.now() ? ' · buried' : ''}
+                        {r.card.buriedUntil && Date.parse(r.card.buriedUntil) > loadedAt ? ' · buried' : ''}
                       </small>
                     </td>
                     <td>{r.deckName}</td>
