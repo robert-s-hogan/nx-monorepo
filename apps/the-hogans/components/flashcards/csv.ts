@@ -92,7 +92,7 @@ const column = (v: string) => {
 };
 
 export function parseCsv(input: string): ParsedCsv {
-  const lines = input.replace(/^﻿/, '').split('\n');
+  const lines = input.replace(/^\uFEFF/, '').split('\n');
   const header: CsvHeader = {
     separator: '',
     html: true,

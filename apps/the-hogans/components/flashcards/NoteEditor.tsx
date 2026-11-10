@@ -248,7 +248,9 @@ export function NoteEditor({ noteType, value, onChange, api, resetKey }: NoteEdi
   const [error, setError] = useState<string | null>(null);
   const [tagText, setTagText] = useState(value.tags.join(' '));
   const fieldsRef = useRef(value.fields);
-  fieldsRef.current = value.fields;
+  useEffect(() => {
+    fieldsRef.current = value.fields;
+  }, [value.fields]);
 
   useEffect(() => {
     setTagText(value.tags.join(' '));

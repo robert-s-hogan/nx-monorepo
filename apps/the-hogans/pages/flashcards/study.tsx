@@ -68,8 +68,10 @@ function Reviewer({ source }: { source: { deck: string } | { q: string; cram: bo
   const [infoOpen, setInfoOpen] = useState(false);
   const [undoStack, setUndoStack] = useState<UndoEntry[]>([]);
   const [doneCount, setDoneCount] = useState(0);
-  const [, setTick] = useState(0);
-  const shownAt = useRef(Date.now());
+  // Clock for the "next learning card in…" countdown; set outside render.
+  const [now, setNow] = useState(0);
+  // Set each time a card is shown (show()).
+  const shownAt = useRef(0);
   const answerMs = useRef(0);
   const replay = useRef<(() => void) | null>(null);
   const typeInput = useRef<HTMLInputElement>(null);
@@ -92,6 +94,7 @@ function Reviewer({ source }: { source: { deck: string } | { q: string; cram: bo
       setCurrent(null);
       setQueue(q);
       setWaitUntil(next.kind === 'wait' ? next.until : null);
+      setNow(Date.now());
     }
   }, []);
 
@@ -121,7 +124,7 @@ function Reviewer({ source }: { source: { deck: string } | { q: string; cram: bo
     if (waitUntil === null || !queue) return;
     const t = setInterval(() => {
       if (Date.now() >= waitUntil) advance(queue);
-      else setTick((n) => n + 1);
+      else setNow(Date.now());
     }, 5000);
     return () => clearInterval(t);
   }, [waitUntil, queue, advance]);
@@ -427,7 +430,7 @@ function Reviewer({ source }: { source: { deck: string } | { q: string; cram: bo
         <div className={styles.done}>
           {waitUntil ? (
             <>
-              <h2>Next learning card in {formatInterval(waitUntil - Date.now())}</h2>
+              <h2>Next learning card in {formatInterval(waitUntil - now)}</h2>
               <p>It&apos;ll show up here on its own. You can also study it now.</p>
               <button type="button" onClick={() => queue && advance({ learning: queue.learning.map((b) => ({ ...b, card: { ...b.card, due: new Date().toISOString() } })), main: queue.main })}>
                 Study it now
