@@ -1,51 +1,74 @@
 name: dm-toolkit DB backup
 
 # Supabase's free tier has no point-in-time recovery / automatic backups, so
-# this is the replacement: a daily pg_dump committed into the repo. Recovery
-# granularity is "as of the last daily run", not point-in-time, but it's free
-# and needs no plan upgrade.
+# this is the replacement: a daily pg_dump kept as a workflow artifact.
+# Recovery granularity is "as of the last daily run", not point-in-time, but
+# it's free and needs no plan upgrade.
+#
+# The repo is public, and artifacts on a public repo can be downloaded by any
+# signed-in GitHub user — so the dump is encrypted before upload and never
+# committed. Artifacts expire on their own (retention-days below), which
+# replaces the old prune step.
+#
+# Restore:
+#   gh run download <run-id> -n dm-toolkit-db-<date>
+#   gpg -d dm-toolkit-<date>.sql.gz.gpg | gunzip | psql "<db url>"
 on:
   schedule:
     - cron: '0 13 * * *' # 13:00 UTC daily
   workflow_dispatch: {}
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   backup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Install postgresql-client
-        run: sudo apt-get update && sudo apt-get install -y postgresql-client
-
-      # Use the DIRECT connection string (port 5432), not the pooler —
-      # pgbouncer's transaction-pooling mode doesn't support the
-      # session-level features pg_dump relies on. Find it in the Supabase
-      # dashboard under Project Settings -> Database -> Connection string
-      # -> URI. Add it as a repo secret named DM_TOOLKIT_SUPABASE_DB_URL
-      # (Settings -> Secrets and variables -> Actions) — never paste a raw
-      # DB password into a workflow file or chat.
-      - name: Dump database
+      # Use the Session pooler connection string (Supabase dashboard ->
+      # Connect -> Session pooler, port 5432 on *.pooler.supabase.com), not
+      # the Direct one: the direct host is IPv6-only and GitHub runners have
+      # no IPv6. The Transaction pooler (port 6543) won't work either —
+      # pg_dump needs session-level features it doesn't support. Store it as
+      # the repo secret DM_TOOLKIT_SUPABASE_DB_URL — never paste a raw DB
+      # password into a workflow file or chat.
+      #
+      # pg_dump runs from the postgres:17 image rather than apt's
+      # postgresql-client, which lags behind and refuses to dump a newer
+      # server. pipefail makes a failed pg_dump fail the job instead of
+      # gzip happily writing an empty file.
+      - name: Dump and encrypt database
         env:
           DB_URL: ${{ secrets.DM_TOOLKIT_SUPABASE_DB_URL }}
+          PASSPHRASE: ${{ secrets.DM_TOOLKIT_BACKUP_PASSPHRASE }}
         run: |
-          mkdir -p backups/dm-toolkit
-          pg_dump "$DB_URL" --no-owner --no-privileges --schema=public \
-            | gzip > "backups/dm-toolkit/$(date -u +%Y-%m-%d).sql.gz"
+          set -euo pipefail
+          : "${DB_URL:?DM_TOOLKIT_SUPABASE_DB_URL secret is not set}"
+          : "${PASSPHRASE:?DM_TOOLKIT_BACKUP_PASSPHRASE secret is not set}"
 
-      # Keeps repo growth bounded — 30 days of daily dumps is plenty of
-      # recovery window for a hobby project without letting history bloat
-      # forever.
-      - name: Prune backups older than 30 days
-        run: find backups/dm-toolkit -name '*.sql.gz' -mtime +30 -delete
+          date=$(date -u +%Y-%m-%d)
+          out="dm-toolkit-$date.sql.gz.gpg"
+          docker run --rm -e DB_URL postgres:17 \
+            sh -c 'pg_dump "$DB_URL" --no-owner --no-privileges --schema=public' \
+            | gzip \
+            | gpg --batch --yes --symmetric --cipher-algo AES256 \
+                --pinentry-mode loopback --passphrase-fd 3 \
+                -o "$out" 3<<<"$PASSPHRASE"
 
-      - name: Commit backup
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add backups/dm-toolkit
-          git diff --cached --quiet || git commit -m "chore: dm-toolkit db backup $(date -u +%Y-%m-%d)"
-          git push
+          # A successful dump of a real schema is never this small; catch a
+          # silently empty one rather than keep 30 days of nothing.
+          size=$(stat -c %s "$out")
+          echo "Encrypted dump: $out ($size bytes)"
+          if [ "$size" -lt 1024 ]; then
+            echo "::error::Dump is only $size bytes — something went wrong"
+            exit 1
+          fi
+          echo "BACKUP_FILE=$out" >> "$GITHUB_ENV"
+          echo "BACKUP_DATE=$date" >> "$GITHUB_ENV"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dm-toolkit-db-${{ env.BACKUP_DATE }}
+          path: ${{ env.BACKUP_FILE }}
+          retention-days: 30
+          if-no-files-found: error
