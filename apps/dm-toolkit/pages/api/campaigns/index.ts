@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { requireRole } from '@with-nx/auth';
+import { requireRole } from '@with-nx/auth/server';
 
 import { fetchCampaigns, insertCampaign } from '../../../lib/server/campaigns';
 import type { Campaign } from '../../../types';

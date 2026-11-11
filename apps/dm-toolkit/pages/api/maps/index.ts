@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { requireRole } from '@with-nx/auth';
+import { requireRole } from '@with-nx/auth/server';
 
 import { fetchMapsForSession, insertMap } from '../../../lib/server/maps';
 import type { GameMap } from '../../../types';

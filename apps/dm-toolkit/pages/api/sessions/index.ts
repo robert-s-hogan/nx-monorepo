@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { requireRole } from '@with-nx/auth';
+import { requireRole } from '@with-nx/auth/server';
 
 import { fetchSessions, insertSession } from '../../../lib/server/sessions';
 import type { Session } from '../../../types';

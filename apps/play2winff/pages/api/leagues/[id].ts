@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { requireRole } from '@with-nx/auth';
+import { requireRole } from '@with-nx/auth/server';
 
 import { deleteLeague, updateLeague } from '../../../lib/server/leagues';
 import type { LeagueProfile } from '../../../lib/leagues';

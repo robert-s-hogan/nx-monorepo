@@ -2,7 +2,7 @@ import { FormEvent, ReactNode, useState } from 'react';
 import { Button, Heading, Input, Spinner, Text } from '@with-nx/react-ui';
 
 import { useAuth } from './auth-context';
-import { Role } from './allowlist';
+import type { Role } from './role';
 
 interface RequireAuthProps {
   children: ReactNode;

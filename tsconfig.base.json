@@ -17,6 +17,7 @@
     "paths": {
       "@with-nx/analytics": ["libs/analytics/src/index.ts"],
       "@with-nx/auth": ["libs/auth/src/index.ts"],
+      "@with-nx/auth/server": ["libs/auth/src/server.ts"],
       "@with-nx/constants": ["libs/constants/src/index.ts"],
       "@with-nx/icons": ["libs/icons/src/index.ts"],
       "@with-nx/react-hooks": ["libs/react-hooks/src/index.ts"],
