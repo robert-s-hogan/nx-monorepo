@@ -2,7 +2,7 @@
 // API key check, schema setup and error responses.
 import { createHash, randomBytes } from 'crypto';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getRoleForEmail, getUserFromRequest } from '@with-nx/auth';
+import { getRoleForEmail, getUserFromRequest } from '@with-nx/auth/server';
 
 import { getDb } from '../db';
 import { HttpError } from './errors';

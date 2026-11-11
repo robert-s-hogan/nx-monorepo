@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { requireRole, getRoleFromRequest } from '@with-nx/auth';
+import { requireRole, getRoleFromRequest } from '@with-nx/auth/server';
 
 import {
   fetchStructuresForMap,

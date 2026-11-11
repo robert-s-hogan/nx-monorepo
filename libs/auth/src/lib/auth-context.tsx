@@ -8,7 +8,7 @@ import {
 import type { Session, User } from '@supabase/supabase-js';
 
 import { authClient } from './supabase-auth-client';
-import { getRoleForEmail, Role } from './allowlist';
+import type { Role } from './role';
 
 interface AuthContextValue {
   user: User | null;
@@ -39,6 +39,9 @@ export const AuthProvider = ({
 }: AuthProviderProps) => {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
+  // Role for whichever user it was fetched for, so a stale answer is never
+  // shown for someone else and `loading` covers the fetch.
+  const [roleFor, setRoleFor] = useState<{ userId: string; role: Role | null } | null>(null);
 
   useEffect(() => {
     if (!authClient) {
@@ -85,11 +88,39 @@ export const AuthProvider = ({
   };
 
   const user = session?.user ?? null;
-  const role = getRoleForEmail(user?.email);
+  const userId = user?.id ?? null;
+  const accessToken = session?.access_token ?? null;
+
+  // The allowlist is server-only, so ask the app's /api/auth/me for the role.
+  // Keyed on the user, not the token, so hourly token refreshes don't refetch.
+  useEffect(() => {
+    if (!userId || !accessToken) return;
+    let cancelled = false;
+    fetch('/api/auth/me', { headers: { Authorization: `Bearer ${accessToken}` } })
+      .then((res) => (res.ok ? res.json() : { role: null }))
+      .catch(() => ({ role: null }))
+      .then((body: { role: Role | null }) => {
+        if (!cancelled) setRoleFor({ userId, role: body.role ?? null });
+      });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId]);
+
+  const roleKnown = !userId || roleFor?.userId === userId;
+  const role = userId && roleFor?.userId === userId ? roleFor.role : null;
 
   return (
     <AuthContext.Provider
-      value={{ user, session, role, loading, signInWithMagicLink, signOut }}
+      value={{
+        user,
+        session,
+        role,
+        loading: loading || !roleKnown,
+        signInWithMagicLink,
+        signOut,
+      }}
     >
       {children}
     </AuthContext.Provider>

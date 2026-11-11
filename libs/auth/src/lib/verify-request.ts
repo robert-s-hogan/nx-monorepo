@@ -1,7 +1,8 @@
 import type { NextApiRequest } from 'next';
 
 import { authClient } from './supabase-auth-client';
-import { getRoleForEmail, Role } from './allowlist';
+import { getRoleForEmail } from './allowlist';
+import type { Role } from './role';
 
 // Server-side check for API routes — verifies the Bearer token against
 // Supabase directly rather than trusting anything the client claims about
