@@ -48,5 +48,7 @@ module.exports = [
   },
   // public/ is served as-is: vendored builds (flashcards/sql-wasm.js) and
   // standalone HTML apps. Minified third-party code crashes some rules.
-  { ignores: ['**/.next/**', '**/next-env.d.ts', 'public/**'] },
+  // `**/` because nx lints from the repo root, where a bare 'public/**'
+  // doesn't match apps/the-hogans/public.
+  { ignores: ['**/.next/**', '**/next-env.d.ts', '**/public/**'] },
 ];
