@@ -112,9 +112,10 @@ export async function deleteUnusedMedia(owner: string): Promise<string[]> {
 // ---- signed URLs ------------------------------------------------------------
 
 function secret(): string {
-  const s = process.env.FLASHCARDS_MEDIA_SECRET || process.env.RADTECH_TRACKER_TURSO_AUTH_TOKEN;
+  // Its own random secret (Vercel: nx-the-hogans), not a reused credential,
+  // so rotating the Turso token can't silently break or weaken media links.
+  const s = process.env.FLASHCARDS_MEDIA_SECRET;
   if (!s) throw new HttpError(500, 'Media signing is not configured');
-  // Derived, so the Turso token itself never signs anything directly.
   return createHash('sha256').update(`flashcards-media:${s}`).digest('hex');
 }
 
