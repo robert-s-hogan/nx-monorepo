@@ -2,6 +2,9 @@
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { withNx } = require('@nx/next/plugins/with-nx');
+// Root-level config shared by every app, like tailwind-workspace-preset.js.
+// eslint-disable-next-line @typescript-eslint/no-var-requires, @nx/enforce-module-boundaries
+const { securityHeaders } = require('../../next-security-headers');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { readdirSync, existsSync } = require('node:fs');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -59,6 +62,9 @@ const nextConfig = {
     return [
       { source: '/car-care', destination: '/dom/car-care', permanent: true },
     ];
+  },
+  async headers() {
+    return securityHeaders({ microphone: true });
   },
 };
 
