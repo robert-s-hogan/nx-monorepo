@@ -35,7 +35,7 @@ overrides:
   js-yaml@>=3 <4: '>=3.15.2 <4'
   js-yaml@>=4 <5: '>=4.3.2 <5'
   js-yaml@>=5 <6: '>=5.2.2 <6'
-  vite: '>=6.4.5 <8'
+  vite: '>=7.3.7 <8'
   koa: '>=2.16.4 <3'
   rollup: '>=4.59.0 <5'
   esbuild: '>=0.25.0'
@@ -350,7 +350,7 @@ importers:
         specifier: ^4.1.1
         version: 4.1.1(webpack@5.108.4(@swc/core@1.16.0(@swc/helpers@0.5.23))(lightningcss@1.32.0)(postcss@8.5.31))
       vite:
-        specifier: '>=6.4.5 <8'
+        specifier: '>=7.3.7 <8'
         version: 7.3.7(@types/node@18.16.9)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.49.0)(yaml@2.9.0)
 
 packages:
@@ -1621,7 +1621,7 @@ packages:
     resolution: {integrity: sha512-qvsTEwEFefhdirGOPnu9Wp6ChfIwy2dBCRuETU3uE+4cC+PFoxMSiiEhxk4lOluA34eARHA0OxqsEUYDqRMgeQ==}
     peerDependencies:
       typescript: '>= 4.3.x'
-      vite: '>=6.4.5 <8'
+      vite: '>=7.3.7 <8'
     peerDependenciesMeta:
       typescript:
         optional: true
@@ -2051,13 +2051,13 @@ packages:
   '@nx/vite@23.3.0':
     resolution: {integrity: sha512-2Ci/InGiT8sRFyVBt+FKXqpDMQikHWZtTIHa6GtcAanQDtgYcN7BkVO4K4kAQU8y/lWUNm+omwEQBsOMB6srvA==}
     peerDependencies:
-      vite: '>=6.4.5 <8'
+      vite: '>=7.3.7 <8'
 
   '@nx/vitest@23.3.0':
     resolution: {integrity: sha512-cswEU+CbKR+a4Of6mWdDAHZP3utTM+Qx+PagW8Ed7FlxxAQ2nJq7PCoesvdObIomK90MBpIsqYzG/JXCZbU/vA==}
     peerDependencies:
       '@nx/eslint': 23.3.0
-      vite: '>=6.4.5 <8'
+      vite: '>=7.3.7 <8'
       vitest: ^3.0.0 || ^4.0.0 || ^5.0.0
     peerDependenciesMeta:
       '@nx/eslint':
@@ -2644,7 +2644,7 @@ packages:
     resolution: {integrity: sha512-trRRLMLlVesA6ELghA1pRQK2xdCtXSW8KKx7thyCUjWuhsRmnuLnctKEaPO7BCQj57Ct7E+dCWsU7KyHriNlPQ==}
     peerDependencies:
       storybook: ^10.6.4
-      vite: '>=6.4.5 <8'
+      vite: '>=7.3.7 <8'
 
   '@storybook/builder-webpack5@10.6.4':
     resolution: {integrity: sha512-pjRSn9Eiw2+l5yrlafREwwUIqIqnpJFmVWcCLiyWM7MHzXQzb5t5OTtBJMjMdHP3htWl1/2SJhr/bqW0vjatcg==}
@@ -2706,7 +2706,7 @@ packages:
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       storybook: ^10.6.4
       typescript: '>= 4.9.x'
-      vite: '>=6.4.5 <8'
+      vite: '>=7.3.7 <8'
     peerDependenciesMeta:
       typescript:
         optional: true
